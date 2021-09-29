@@ -1,39 +1,26 @@
 # build a pdflatex document
-PDFLATEX = TEXINPUTS=./tex//: pdflatex \
+PDFLATEX := TEXINPUTS=./tex//: pdflatex \
 	-output-directory=scratch \
-	-file-line-error
+	-file-line-error \
+	-interaction=batchmode
 
-BIBTEX = bibtex -terse
+BIBTEX := bibtex -terse
 
 
 .PHONY: main
 main: main.pdf
 
 
-.PHONY: debug
-debug: main.debug
-
-
-# first pdflatex call creates .aux and is flagged %.first
+# first pdflatex call creates .aux
 # bibtex creates a .bbl from .aux and context
 # repeated calls are required to get references right
 %.pdf: %.tex bib.bib
 	@mkdir -p scratch
-	$(PDFLATEX) -interaction=batchmode -draftmode $< > /dev/null
+	-$(PDFLATEX) -draftmode $< > /dev/null
+	@! grep -E -A5 '^./$*.tex:[0-9]+: ' scratch/$*.log
 	-$(BIBTEX) scratch/$*.aux
-	$(PDFLATEX) -interaction=batchmode -draftmode $< > /dev/null
-	$(PDFLATEX) -interaction=batchmode $< > /dev/null
-	@mv scratch/$*.pdf .
-
-
-# make %.pdf while flooding stdout
-.PHONY: %.debug
-%.debug: %.tex bib.bib # -> %.pdf
-	@mkdir -p scratch
-	$(PDFLATEX) -interaction=nonstopmode -draftmode $<
-	-$(BIBTEX) scratch/$*.aux
-	$(PDFLATEX) -interaction=nonstopmode -draftmode $<
-	$(PDFLATEX) -interaction=nonstopmode $<
+	$(PDFLATEX) -draftmode $< > /dev/null
+	$(PDFLATEX) $< > /dev/null
 	@mv scratch/$*.pdf .
 
 
