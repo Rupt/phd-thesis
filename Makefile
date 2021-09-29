@@ -1,27 +1,42 @@
-# Generate thesis pdfs
-# Initial experimentation
+# build a pdflatex document
+PDFLATEX = TEXINPUTS=./tex//: pdflatex \
+	-output-directory=scratch \
+	-file-line-error
 
-PDFLATEXARGS='-interaction=batchmode'
-BIBTEXARGS='-terse'
+BIBTEX = bibtex -terse
 
-batch: hello_world.tex
-	# Repeated executions correct cross-references.
-	TEXINPUTS="tex//:${TEXINPUTS}"; \
-	    pdflatex $(PDFLATEXARGS) $< > /dev/null && \
-	    bibtex $(BIBTEXARGS) hello_world && \
-	    pdflatex $(PDFLATEXARGS) $< > /dev/null && \
-	    pdflatex $(PDFLATEXARGS) $< > /dev/null
 
-debug: hello_world.tex
-	# Repeated executions correct cross-references.
-	TEXINPUTS="tex//:${TEXINPUTS}"; \
-	    pdflatex $< && \
-	    bibtex hello_world && \
-	    pdflatex $< && \
-	    pdflatex $<
+.PHONY: main
+main: main.pdf
 
-clean:
-	rm -f hello_world.pdf hello_world.log hello_world.aux hello_world.blg \
-	    hello_world.bbl
+
+.PHONY: debug
+debug: main.debug
+
+
+# first pdflatex call creates .aux and is flagged %.first
+# bibtex creates a .bbl from .aux and context
+# repeated calls are required to get references right
+%.pdf: %.tex bib.bib
+	@mkdir -p scratch
+	$(PDFLATEX) -interaction=batchmode -draftmode $< > /dev/null
+	-$(BIBTEX) scratch/$*.aux
+	$(PDFLATEX) -interaction=batchmode -draftmode $< > /dev/null
+	$(PDFLATEX) -interaction=batchmode $< > /dev/null
+	@mv scratch/$*.pdf .
+
+
+# make %.pdf while flooding stdout
+.PHONY: %.debug
+%.debug: %.tex bib.bib # -> %.pdf
+	@mkdir -p scratch
+	$(PDFLATEX) -interaction=nonstopmode -draftmode $<
+	-$(BIBTEX) scratch/$*.aux
+	$(PDFLATEX) -interaction=nonstopmode -draftmode $<
+	$(PDFLATEX) -interaction=nonstopmode $<
+	@mv scratch/$*.pdf .
+
 
 .PHONY: clean
+clean:
+	rm -rf scratch *.pdf
