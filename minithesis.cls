@@ -392,10 +392,7 @@
 
 
 % titlepage
-\let\@oldtitlepage\titlepage
-\let\@oldendtitlepage\endtitlepage
 \DeclareRobustCommand{\titlepage}[2][]{%
-	%\@oldtitlepage%
 	\thispagestyle{empty}%
 	\begingroup%
 	\begin{center}%
@@ -414,8 +411,6 @@
 
 
 % pagequote
-\newlength{\@oldparindent}
-\setlength{\@oldparindent}{\parindent}
 \DeclareRobustCommand{\pagequote}[3][same]{%
 	\cleardoublepage%
 	\vspace*{\stretch{2}}%
