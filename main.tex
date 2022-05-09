@@ -1,57 +1,54 @@
-% for normal draft builds (figs undisplayed hence fast compile)
-% \documentclass[nobind,draft,oneside]{minithesis}
-% \documentclass[nobind,draft,twoside]{minithesis}
-
-% for short draft builds (breaks citations by necessity)
-% \documentclass[nobind,draft,hidefrontback]{minithesis}
+% for normal draft builds without figures
+\documentclass[nobind,draft,oneside]{minithesis}
 
 % for Cambridge soft-bound version
 % \documentclass[bindnopdf]{minithesis}
-
 % for Cambridge hard-bound version (must be one-sided)
-\documentclass[oneside]{minithesis}
+% \documentclass[oneside]{minithesis}
 
 
-\input{content/preamble}
-
-
-\usepackage{setspace}
+\input{tex/preamble}
 \doublespacing
 
-\title{Test title}
+
+\title{%
+Two leptons, jets, and missing transverse momentum in ATLAS:\\
+yet more non-evidence for Supersymmetry
+}
 \author{Rupert Tombs}
 
-\makeatletter
-\@ifpackageloaded{hyperref}{%
-\hypersetup{%
-  pdftitle = {Studying B to K pi decays with LHCb},
-  pdfsubject = {Andy Buckley's PhD thesis},
-  pdfkeywords = {LHCb, B, physics, LHC, heavy flavour},
-  pdfauthor = {\textcopyright\ Andy Buckley}
-}}{}
-\makeatother
+
+\hypersetup{
+    pdftitle = {%
+        Two leptons, jets, and missing transverse momentum in ATLAS:
+        yet more non-evidence for Supersymmetry
+    },
+    pdfsubject = {PhD thesis},
+    pdfkeywords = {physics, LHC, ATLAS, Supersymmetry},
+    pdfauthor = {Rupert Tombs}
+}
 
 
 \begin{document}
 
 
 \begin{frontmatter}
-\input{content/frontmatter}
+\input{tex/frontmatter}
 \end{frontmatter}
 
 
 \begin{mainmatter}
-\input{content/chapter_intro}
+\input{tex/chapter_intro}
 \end{mainmatter}
 
 
 \begin{appendices}
-\input{content/appendices}
+\input{tex/appendices}
 \end{appendices}
 
 
 \begin{backmatter}
-\input{content/backmatter}
+\input{tex/backmatter}
 \end{backmatter}
 
 

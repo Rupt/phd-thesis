@@ -31,8 +31,7 @@
 \def\@requiredraft{}
 \def\@oneside{}
 \def\@bindmargins{yes}
-\def\@hidefrontmatter{}
-\def\@hidebackmatter{}
+
 
 % part-wise spacing commands and definitions
 \def\@frontmatterspacing{onehalfspacing}
@@ -76,18 +75,6 @@
 		\let\@oldermainmatter\mainmatter%
 		\DeclareRobustCommand{\mainmatter}{\@oldermainmatter\linenumbers}%
 	}
-}
-
-% disable the frontmatter
-\DeclareOption{hidefront}{%
-	\def\@hidefrontmatter{yes}
-}
-\DeclareOption{hideback}{%
-	\def\@hidebackmatter{yes}
-}
-\DeclareOption{hidefrontback}{%
-	\def\@hidefrontmatter{yes}
-	\def\@hidebackmatter{yes}
 }
 
 % use a standard font size
@@ -254,12 +241,6 @@
 			\thispagestyle{plain}%
 			\newpage%
 			\if@twocolumn\hbox{}\newpage\fi\fi\fi}%
-
-
-% remove front and back matter
-\ifx\@hidefrontmatter\@yes\AtBeginDocument{\excludecomment{frontmatter}}\fi
-\ifx\@hidebackmatter\@yes\AtBeginDocument{\excludecomment{backmatter}}\fi
-
 
 
 % internal environments and commands
