@@ -1,14 +1,14 @@
 %% For normal draft builds (figs undisplayed hence fast compile)
-% \documentclass[nobind,draft,oneside]{hepthesis_tombs}
-%\documentclass[nobind,draft,twoside]{hepthesis}
+\documentclass[nobind,draft,oneside]{minithesis}
+%\documentclass[nobind,draft,twoside]{minithesis}
 
 %% For short draft builds (breaks citations by necessity)
-%\documentclass[nobind,draft,hidefrontback]{hepthesis}
+%\documentclass[nobind,draft,hidefrontback]{minithesis}
 
 %%For Cambridge soft-bound version
-\documentclass[bindnopdf]{hepthesis_tombs}
+% \documentclass[bindnopdf]{minithesis}
 %% For Cambridge hard-bound version (must be one-sided)
-%\documentclass[oneside]{hepthesis}
+%\documentclass[oneside]{minithesis}
 
 \input{preamble}
 
@@ -34,22 +34,22 @@
 
 
 \begin{frontmatter}
-  \input{frontmatter}
+\input{frontmatter}
 \end{frontmatter}
 
 
 \begin{mainmatter}
-  \input{chapter_intro}
+\input{chapter_intro}
 \end{mainmatter}
 
 
 \begin{appendices}
-  \input{appendices}
+\input{appendices}
 \end{appendices}
 
 
 \begin{backmatter}
-  \input{backmatter}
+\input{backmatter}
 \end{backmatter}
 
 

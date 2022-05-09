@@ -5,18 +5,15 @@
 \usepackage[english]{babel}
 % nicer text
 \usepackage[protrusion=true,expansion=true]{microtype}
-
 % compressed, sorted lists of numerical citations
 \usepackage{cite}
-
-% various math mode commands
-\usepackage{amsmath}
-
-% links
+% hyperlinks
 \usepackage{hyperref}
+% for \FloatBarrier
+\usepackage{placeins}
 
 % custom commands
-\newcommand{\eV}[1]{\mathrm{#1 e\kern-0.15ex V}}
+\newcommand{\eV}[1][]{\mathrm{#1 e\kern-0.15ex V}}
 
 \newcommand{\atlas}{ATLAS}
 \newcommand{\cern}{CERN}
