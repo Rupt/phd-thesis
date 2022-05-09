@@ -1,6 +1,6 @@
 % minithesis
 %
-% Modified by Rupert Tombs 2022
+% modified by Rupert Tombs 2022
 %
 % Based on:
 %% hepthesis
@@ -414,6 +414,7 @@
 	\thispagestyle{plain}%
 }
 
+
 % dedication
 \DeclareRobustCommand{\dedication}[1]{%
 	\cleardoublepage%
@@ -428,6 +429,7 @@
 	\vspace*{\stretch{4}}%
 	\pagestyle{plain}%
 }
+
 
 % chapterquote
 \DeclareRobustCommand{\chapterquote}[3][same]{%
