@@ -1,5 +1,5 @@
 # build a pdflatex document
-PDFLATEX := TEXINPUTS=./tex//: pdflatex \
+PDFLATEX := pdflatex \
 	-output-directory=scratch \
 	-file-line-error \
 	-interaction=batchmode

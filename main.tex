@@ -1,16 +1,18 @@
-%% For normal draft builds (figs undisplayed hence fast compile)
+% for normal draft builds (figs undisplayed hence fast compile)
 % \documentclass[nobind,draft,oneside]{minithesis}
-%\documentclass[nobind,draft,twoside]{minithesis}
+% \documentclass[nobind,draft,twoside]{minithesis}
 
-%% For short draft builds (breaks citations by necessity)
-%\documentclass[nobind,draft,hidefrontback]{minithesis}
+% for short draft builds (breaks citations by necessity)
+% \documentclass[nobind,draft,hidefrontback]{minithesis}
 
-%%For Cambridge soft-bound version
+% for Cambridge soft-bound version
 % \documentclass[bindnopdf]{minithesis}
-%% For Cambridge hard-bound version (must be one-sided)
+
+% for Cambridge hard-bound version (must be one-sided)
 \documentclass[oneside]{minithesis}
 
-\input{preamble}
+
+\input{content/preamble}
 
 
 \usepackage{setspace}
@@ -34,22 +36,22 @@
 
 
 \begin{frontmatter}
-\input{frontmatter}
+\input{content/frontmatter}
 \end{frontmatter}
 
 
 \begin{mainmatter}
-\input{chapter_intro}
+\input{content/chapter_intro}
 \end{mainmatter}
 
 
 \begin{appendices}
-\input{appendices}
+\input{content/appendices}
 \end{appendices}
 
 
 \begin{backmatter}
-\input{backmatter}
+\input{content/backmatter}
 \end{backmatter}
 
 
