@@ -28,7 +28,7 @@
 
 \def\@empty{}
 \def\@yes{yes}
-\def\@requiredraft{}
+
 \def\@oneside{}
 \def\@bindmargins{yes}
 
@@ -43,38 +43,23 @@
 % one-sided or two-sided (bound copies may have to be single-sided)
 \DeclareOption{oneside}{%
 	\def\@oneside{yes}
-	\PassOptionsToClass{oneside}{scrbook}}
+	\PassOptionsToClass{oneside}{scrbook}
+}
 
 
 \DeclareOption{twoside}{%
 	\def\@oneside{}
-	\PassOptionsToClass{twoside}{scrbook}}
+	\PassOptionsToClass{twoside}{scrbook}
+}
 
 % pad inner margins for binding
 \DeclareOption{bind}{%
-	\def\@bindmargins{yes}}
+	\def\@bindmargins{yes}
+}
 
 
 \DeclareOption{nobind}{%
-	\def\@bindmargins{}}
-
-
-% use binding margins if output is not PDF
-\DeclareOption{bindnopdf}{
-	\ifx\pdfoutput\undefined%
-		\def\@bindmargins{yes}%
-	\else%
-		\def\@bindmargins{}%
-	\fi%
-}
-
-% draft mode with line numbers and draft over-print
-\DeclareOption{draft}{%
-	\def\@requiredraft{yes}
-	\AtEndOfPackage{%
-		\let\@oldermainmatter\mainmatter%
-		\DeclareRobustCommand{\mainmatter}{\@oldermainmatter\linenumbers}%
-	}
+	\def\@bindmargins{}
 }
 
 % use a standard font size
@@ -116,9 +101,6 @@
 % make sure bibliography (but not ToC) appears in the ToC
 \RequirePackage[nottoc]{tocbibind}
 
-% special comments for block enabling/disabling
-\RequirePackage{comment}
-
 % ability to specify a hook for after a page is completed
 \RequirePackage{afterpage}
 
@@ -126,8 +108,6 @@
 \AtEndOfClass{%
     % make maths in titles go automatically bold
 	\g@addto@macro\bfseries{\boldmath}
-	% declare a bold version of the typewriter font
-	\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
 }
 
 
@@ -272,7 +252,7 @@
 
 
 % frontmatter
-\specialcomment{frontmatter}{%
+\renewenvironment{frontmatter}{%
 	\setcounter{tocdepth}{2}% show down to subsections in contents
 	\setcounter{secnumdepth}{2}% number down to subsections
 	\newcounter{iterlist}%
@@ -286,7 +266,7 @@
 
 
 % mainmatter
-\specialcomment{mainmatter}{%
+\renewenvironment{mainmatter}{%
 	\if@twoside\clearpage\fi%
 	\@mainmattertrue%
 	\afterpage{\pagenumbering{arabic}}%
@@ -300,7 +280,7 @@
 
 
 % appendices
-\specialcomment{appendices}{%
+\newenvironment{appendices}{%
 	\adjustwidth{\@appendixextramargin}{\@appendixextramargin}%
 	\begin{\@appendixspacing}%
 		\appendix%
@@ -312,7 +292,7 @@
 
 
 % backmatter
-\specialcomment{backmatter}{%
+\renewenvironment{backmatter}{%
 	\adjustwidth{\@backmatterextramargin}{\@backmatterextramargin}%
 	\begin{\@backmatterspacing}%
 		\appendix%
@@ -340,7 +320,7 @@
 }
 
 
-% prefacce
+% preface
 \newenvironment{preface}{%
 	\cleardoublepage%
 	\adjustwidth{\@prefaceextramargin}{\@prefaceextramargin}%
