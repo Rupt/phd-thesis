@@ -1,35 +1,56 @@
-\documentclass[]{article}
+%% For normal draft builds (figs undisplayed hence fast compile)
+%\documentclass[hyperpdf,nobind,draft,oneside]{hepthesis}
+%\documentclass[hyperpdf,nobind,draft,twoside]{hepthesis}
 
-\usepackage{hepunits}
-% upright is broken
-\usepackage[italic]{hepparticles}
-\usepackage{abhepexpt}
+%% For short draft builds (breaks citations by necessity)
+%\documentclass[hyperpdf,nobind,draft,hidefrontback]{hepthesis}
 
-%opening
-\title{Hello, world}
+%%For Cambridge soft-bound version
+\documentclass[hyperpdf,bindnopdf]{hepthesis}
+%% For Cambridge hard-bound version (must be one-sided)
+%\documentclass[hyperpdf,oneside]{hepthesis}
+
+\input{preamble}
+
+
+\usepackage{setspace}
+\doublespacing
+
+\title{Test title}
 \author{Rupert Tombs}
+
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+\hypersetup{%
+  pdftitle = {Studying B to K pi decays with LHCb},
+  pdfsubject = {Andy Buckley's PhD thesis},
+  pdfkeywords = {LHCb, B, physics, LHC, heavy flavour},
+  pdfauthor = {\textcopyright\ Andy Buckley}
+}}{}
+\makeatother
+
 
 \begin{document}
 
-\maketitle
 
-\begin{abstract}
-abstract here
-\end{abstract}
+\begin{frontmatter}
+  \input{frontmatter}
+\end{frontmatter}
 
-\section{How to oil a moose}
 
-Use your pancreas \cite{helas}.
+\begin{mainmatter}
+  \input{chapter_intro}
+\end{mainmatter}
 
-Colliding at $\sqrt{s} = \SI{13}{\TeV}$!
 
-At $\SI{40}{\MHz}$.
+\begin{appendices}
+  \input{appendices}
+\end{appendices}
 
-This is a \HepParticle{B}{u}{+} particle at \CERN.
 
-Bye!
+\begin{backmatter}
+  \input{backmatter}
+\end{backmatter}
 
-\bibliography{bib}{}
-\bibliographystyle{unsrt}
-
+%% Close
 \end{document}
