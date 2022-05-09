@@ -17,7 +17,7 @@ main: main.pdf
 %.pdf: %.tex ALWAYS_REBUILD
 	@mkdir -p scratch
 	-$(PDFLATEX) -draftmode $< > /dev/null
-	@! grep -E -A5 '^./$<:[0-9]+: ' scratch/$*.log
+	@! grep -E -A5 '^\.\/.+.tex:[0-9]+: ' scratch/$*.log
 	-$(BIBTEX) scratch/$*.aux
 	$(PDFLATEX) -draftmode $< > /dev/null
 	$(PDFLATEX) $< > /dev/null

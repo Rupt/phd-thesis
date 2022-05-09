@@ -1,54 +1,24 @@
-% TODO clean up imports
-\usepackage{xspace}
-\usepackage{tikz}
-\usepackage{morefloats,subfig,afterpage}
-% script font
-\usepackage{mathrsfs}
-\usepackage{verbatim}
-\usepackage{siunitx}
-
-%% Using Babel allows other languages to be used and mixed-in easily
-%\usepackage[ngerman,english]{babel}
+% encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% language
 \usepackage[english]{babel}
-\selectlanguage{english}
+% nicer text
+\usepackage[protrusion=true,expansion=true]{microtype}
 
-%% Citation system tweaks
+% compressed, sorted lists of numerical citations
 \usepackage{cite}
 
-%% Maths
-\usepackage{abmath}
-\DeclareRobustCommand{\mymath}[1]{\ensuremath{\maybebmsf{#1}}}
-\DeclareRobustCommand{\Rate}{\mymath{\Gamma}}
-\DeclareRobustCommand{\RateOf}[1]{\mymath{\Gamma}\parenths{#1}}
+% various math mode commands
+\usepackage{amsmath}
 
-%% High-energy physics stuff
-\usepackage{abhep}
-\usepackage{hepnames}
-\usepackage{hepunits}
-\DeclareRobustCommand{\arXivCode}[1]{arXiv:#1}
-\DeclareRobustCommand{\CP}{\ensuremath{\mathcal{CP}}}
-\DeclareRobustCommand{\CPviolation}{\CP-violation}
-\DeclareRobustCommand{\CPv}{\CPviolation}
-\DeclareRobustCommand{\LHCb}{LHCb}
-\DeclareRobustCommand{\LHC}{LHC}
-\DeclareRobustCommand{\LEP}{LEP}
-\DeclareRobustCommand{\LEP}{LEP}
-\DeclareRobustCommand{\CERN}{CERN}
-\DeclareRobustCommand{\protonproton}{\Pproton\APantiproton}
-\DeclareRobustCommand{\bphysics}{\Pbottom-physics}
-\DeclareRobustCommand{\bhadron}{\Pbottom-hadron}
-\DeclareRobustCommand{\Bmeson}{\PB-meson}
-\DeclareRobustCommand{\bbaryon}{\Pbottom-baryon}
-\DeclareRobustCommand{\Bdecay}{\PB-decay}
-\DeclareRobustCommand{\bdecay}{\Pbottom-decay}
-\DeclareRobustCommand{\BToKPi}{\HepProcess{ \PB \to \PK \Ppi }}
-\DeclareRobustCommand{\BToPiPi}{\HepProcess{ \PB \to \Ppi \Ppi }}
-\DeclareRobustCommand{\BToKK}{\HepProcess{ \PB \to \PK \PK }}
-\DeclareRobustCommand{\BToRhoPi}{\HepProcess{ \PB \to \Prho \Ppi }}
-\DeclareRobustCommand{\BToRhoRho}{\HepProcess{ \PB \to \Prho \Prho }}
-\DeclareRobustCommand{\X}{\thesismath{X}}
-\DeclareRobustCommand{\Xbar}{\thesismath{\overline{X}}}
-\DeclareRobustCommand{\Xzero}{\HepGenParticle{X}{}{0}}
-\DeclareRobustCommand{\Xzerobar}{\HepGenAntiParticle{X}{}{0}}
-\DeclareRobustCommand{\epluseminus}{\Ppositron\!\Pelectron}
-\DeclareRobustCommand{\protonproton}{\Pproton\APantiproton}
+% links
+\usepackage{hyperref}
+
+% custom commands
+\newcommand{\eV}[1]{\mathrm{#1 e\kern-0.15ex V}}
+
+\newcommand{\atlas}{ATLAS}
+\newcommand{\cern}{CERN}
+\newcommand{\likelihood}{lIkElIhOoD}
+\newcommand{\Likelihood}{LiKeLiHoOd}

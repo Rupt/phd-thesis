@@ -1,14 +1,14 @@
 %% For normal draft builds (figs undisplayed hence fast compile)
-%\documentclass[hyperpdf,nobind,draft,oneside]{hepthesis}
-%\documentclass[hyperpdf,nobind,draft,twoside]{hepthesis}
+% \documentclass[nobind,draft,oneside]{hepthesis_tombs}
+%\documentclass[nobind,draft,twoside]{hepthesis}
 
 %% For short draft builds (breaks citations by necessity)
-%\documentclass[hyperpdf,nobind,draft,hidefrontback]{hepthesis}
+%\documentclass[nobind,draft,hidefrontback]{hepthesis}
 
 %%For Cambridge soft-bound version
-\documentclass[hyperpdf,bindnopdf]{hepthesis}
+\documentclass[bindnopdf]{hepthesis_tombs}
 %% For Cambridge hard-bound version (must be one-sided)
-%\documentclass[hyperpdf,oneside]{hepthesis}
+%\documentclass[oneside]{hepthesis}
 
 \input{preamble}
 
@@ -52,5 +52,5 @@
   \input{backmatter}
 \end{backmatter}
 
-%% Close
+
 \end{document}
