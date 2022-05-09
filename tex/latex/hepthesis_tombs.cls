@@ -112,13 +112,7 @@
 \DeclareOption{nobooktabs}{%
   \def\@requirebooktabs{}}
 
-
-%% Allows us to make an index
-\DeclareOption{index}{%
-  \def\@requiremakeidx{yes}
-}
-
-%% Allows us to make an index
+%% control over titles?
 \DeclareOption{titling}{%
   \def\@requiretitling{yes}
 }
@@ -145,14 +139,6 @@
 
 
 %% Font size (12pt is default)
-\DeclareOption{10pt}{%
-  \def\@useTwelvePt{}%
-  \PassOptionsToClass{10pt}{scrbook}%
-}
-\DeclareOption{11pt}{%
-  \def\@useTwelvePt{}%
-  \PassOptionsToClass{11pt}{scrbook}%
-}
 \DeclareOption{12pt}{%
   \def\@useTwelvePt{yes}%
 }
@@ -200,7 +186,7 @@
 
 
 %% The right way to do custom spacing
-\RequirePackage{setspace}
+% \RequirePackage{setspace}
 %% \singlespacing, \onehalfspacing, \doublespacing
 %% \begin{spacing}{2.5} ...
 
