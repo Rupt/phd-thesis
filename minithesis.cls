@@ -1,5 +1,8 @@
+% minithesis
+%
+% Modified by Rupert Tombs 2022
+%
 % Based on:
-
 %% hepthesis
 %%   LaTeX class for writing PhD theses, particularly those for
 %%   high energy physics (HEP)
@@ -12,25 +15,17 @@
 %% Please let me know if you use hepthesis and what you think of it.
 %% I'll try to implement any suggested options or geometry changes,
 %% provided I think they're a good idea!
-%
 
-%% minithesis
-%%
-%% Modified by Rupert Tombs 2022
-
-
-%% ========================================================================
-%% Admin
-%% ========================================================================
 \def\fileversion{0.0.1}
 \def\filedate{2022/05/09}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{minithesis}[\filedate\space a thesis template (v\fileversion)]
 
-%% ========================================================================
-%% Option parsing
-%% ========================================================================
-%% Conditional packages (can be disabled)
+
+
+% option parsing
+
+
 \def\@empty{}
 \def\@yes{yes}
 \def\@requiredraft{}
@@ -39,26 +34,33 @@
 \def\@hidefrontmatter{}
 \def\@hidebackmatter{}
 
-%% Part-wise spacing commands and definitions
+% part-wise spacing commands and definitions
 \def\@frontmatterspacing{onehalfspacing}
 \def\@mainmatterspacing{onehalfspacing}
 \def\@appendixspacing{onehalfspacing}
 \def\@backmatterspacing{onehalfspacing}
 
-%% One-sided or two-sided (bound copies may have to be single-sided)
+
+% one-sided or two-sided (bound copies may have to be single-sided)
 \DeclareOption{oneside}{%
 	\def\@oneside{yes}
 	\PassOptionsToClass{oneside}{scrbook}}
+
+
 \DeclareOption{twoside}{%
 	\def\@oneside{}
 	\PassOptionsToClass{twoside}{scrbook}}
 
-%% Pad inner margins for binding
+% pad inner margins for binding
 \DeclareOption{bind}{%
 	\def\@bindmargins{yes}}
+
+
 \DeclareOption{nobind}{%
 	\def\@bindmargins{}}
-%% Use binding margins if output is not PDF
+
+
+% use binding margins if output is not PDF
 \DeclareOption{bindnopdf}{
 	\ifx\pdfoutput\undefined%
 		\def\@bindmargins{yes}%
@@ -67,7 +69,7 @@
 	\fi%
 }
 
-%% Draft mode with line numbers and draft over-print
+% draft mode with line numbers and draft over-print
 \DeclareOption{draft}{%
 	\def\@requiredraft{yes}
 	\AtEndOfPackage{%
@@ -76,7 +78,7 @@
 	}
 }
 
-%% Disable the frontmatter
+% disable the frontmatter
 \DeclareOption{hidefront}{%
 	\def\@hidefrontmatter{yes}
 }
@@ -88,77 +90,73 @@
 	\def\@hidebackmatter{yes}
 }
 
-%% Don't break enumerations (etc.) across pages in
-%% an ugly manner
-%% TODO ?
-% \clubpenalty = 10000
-% \widowpenalty = 10000
-
 % use a standard font size
 \PassOptionsToClass{12pt}{scrbook}
 
 % no full stops after titles
 \PassOptionsToClass{numbers=noenddot}{scrbook}
 
-%% Process the options (no package requirement allowed above here)
+% process the options (no package requirement allowed above here)
 \ProcessOptions
 
 
-%% ========================================================================
-%% Base class and packages
-%% ========================================================================
 
-%% Base class
+% base class and packages
+
+
+% base class
 \LoadClass[chapterprefix]{scrbook}
 
-%% Useful tools
+% useful tools for building this class
 \RequirePackage{etoolbox}
 
-%% Need to be able to locally change the text width.
+% need to be able to locally change the text width.
 \RequirePackage{changepage}
 
-%% Used to center the variable width page quote (must be version >= 0.9a)
+% used to center the variable width page quote (must be version >= 0.9a)
 \RequirePackage{varwidth}[2003/03/10]
 
-%% Use the \title and \author arguments to build the front page etc.
+% use the \title and \author arguments to build the front page etc.
 \renewcommand*\title[1]{\gdef\@title{#1}\global\let\thetitle\@title}%
-\renewcommand*\author[1]{\gdef\@author{foo #1}\global\let\theauthor\@author}%
+\renewcommand*\author[1]{\gdef\@author{#1}\global\let\theauthor\@author}%
 
-%% Serif titles
+% serif titles
 \addtokomafont{sectioning}{\rmfamily\bfseries}
 
-%% Funky headers
+% funky headers
 \RequirePackage{fancyhdr}
 
-%% Make sure bibliography (but not ToC) appears in the ToC
+% make sure bibliography (but not ToC) appears in the ToC
 \RequirePackage[nottoc]{tocbibind}
 
-%% Special comments for block enabling/disabling
+% special comments for block enabling/disabling
 \RequirePackage{comment}
 
-%% Ability to specify a hook for after a page is completed
+% ability to specify a hook for after a page is completed
 \RequirePackage{afterpage}
 
-%% Misc tweaks
+% misc tweaks
 \AtEndOfClass{%
-	%% Make maths in titles go automatically bold
+    % make maths in titles go automatically bold
 	\g@addto@macro\bfseries{\boldmath}
-	%% Declare a bold version of the typewriter font
+	% declare a bold version of the typewriter font
 	\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
 }
 
 
-%% ========================================================================
-%% Length definitions
-%% ========================================================================
 
-\setlength{\parindent}{0.6cm}          % tweak the initial indent in paras
-\setlength{\parskip}{0.3cm}            % tweak the intra-para gap size
+% length definitions
+
+
+% tweak the initial indent in paras
+\setlength{\parindent}{0.6cm}
+% tweak the intra-para gap size
+\setlength{\parskip}{0.3cm}
 \setlength{\topmargin}{0in}
 \setlength{\textheight}{9in}
 \setlength{\footskip}{0.5in}
 \setlength{\textwidth}{6.2in}
-%% Increase inner margins for binding
+% increase inner margins for binding
 \newlength{\@bindextramargin}
 \AtEndOfClass{%
 	\ifx\@bindmargins\@empty%
@@ -170,20 +168,20 @@
 	\setlength{\evensidemargin}{-\@bindextramargin}
 }
 
-%% Redefine bits of document shape
+% redefine bits of document shape
 \renewcommand{\topfraction}{0.95}%
 \renewcommand{\bottomfraction}{0.95}%
 \renewcommand{\textfraction}{0.05}%
 \renewcommand{\arraystretch}{1.25}%
 
-%% Reset rule widths and the header width
+% reset rule widths and the header width
 \renewcommand{\headwidth}{\textwidth}%
 \renewcommand{\headrulewidth}{0.5pt}%
 \renewcommand{\footrulewidth}{0pt}%
 \addtolength{\headheight}{2.5pt}%
 \addtolength{\headsep}{20pt}%
 
-%% Extra margins for various sections
+% extra margins for various sections
 \newlength{\@mainmatterextramargin}%
 \setlength{\@mainmatterextramargin}{0cm}%
 \newlength{\@backmatterextramargin}%
@@ -203,7 +201,7 @@
 \newlength{\@pagequoteextramargin}%
 \setlength{\@pagequoteextramargin}{2cm}%
 
-%% Top vertical spacing in the front matter
+% top vertical spacing in the front matter
 \newlength{\@frontmattertopskip}%
 \newlength{\@frontmattertitletopskip}%
 \newlength{\frontmattertitleskip}%
@@ -213,16 +211,17 @@
 \addtolength{\@frontmattertopskip}{\@frontmattertitletopskip}%
 
 
-%% ========================================================================
-%% Headers and footers
-%% ========================================================================
-%% No header or footer on the title page
+
+% headers and footers
+
+
+% no header or footer on the title page
 \AtBeginDocument{\thispagestyle{plain}}
-%% Use funky headers and footers
+% use funky headers and footers
 \pagestyle{fancy}
 
 
-%% Normal headers and footers (headers are all like RH pages for oneside)
+% normal headers and footers (headers are all like RH pages for oneside)
 \ifx\@oneside\@empty%
 	\fancyhead[RO,LE]{\thepage}%
 	\fancyhead[LO,RE]{\leftmark}%
@@ -231,24 +230,25 @@
 	\fancyhead[LO,L]{\leftmark}%
 \fi%
 \fancyfoot{}%
-%% Lower case header content
+% lower case header content
 \renewcommand{\chaptermark}[1]{%
 	\markboth{#1}{}%
 }
 
 
-% hide horizontal lines
+% hide horizontal lines at the header and footer
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-%% Headers and footers for plain (blank) pages
+
+% headers and footers for plain (blank) pages
 \fancypagestyle{plain}{%
 	\fancyhf{}%
 	\fancyfoot[C]{\thepage}%
 }
 
 
-%% Treat forced blank pages in the same way as chapter title pages
+% treat forced blank pages in the same way as chapter title pages
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
 			\hbox{}%
 			\thispagestyle{plain}%
@@ -256,23 +256,22 @@
 			\if@twocolumn\hbox{}\newpage\fi\fi\fi}%
 
 
-%% Commenting out front and back matter
+% remove front and back matter
 \ifx\@hidefrontmatter\@yes\AtBeginDocument{\excludecomment{frontmatter}}\fi
 \ifx\@hidebackmatter\@yes\AtBeginDocument{\excludecomment{backmatter}}\fi
 
 
-%% ========================================================================
-%% Internal environments and commands
-%% ========================================================================
+
+% internal environments and commands
+
 
 \AtEndPreamble{%
 	\RequirePackage[autostyle]{csquotes}[2007/03/25]
-	%% Provide dumb quoting commands in case the csquotes package hasn't been used.
+	% provide dumb quoting commands in case the csquotes package hasn't been used.
 	\providecommand{\enquote}[1]{``#1''}%
 	\providecommand{\foreignquote}[1]{``#1''}%
 
-	%% Provide mixed-case versions of the Table of contents,
-	%% List of tables, List of figures, Bibliography etc. header names
+	% provide mixed-case versions of headings
 	\@ifpackageloaded{babel}{\addto\captionsenglish{%
 			\renewcommand*{\contentsname}{Contents}
 			\renewcommand*{\bibname}{Bibliography}
@@ -287,12 +286,11 @@
 }
 
 
-%% ========================================================================
-%% Public environments and commands
-%% ========================================================================
+
+% public environments and commands
 
 
-%% An environment for the content at the front of a typical thesis
+% frontmatter
 \let\@oldfrontmatter\frontmatter
 \specialcomment{frontmatter}{%
 	\setcounter{tocdepth}{2}% show down to subsections in contents
@@ -308,7 +306,7 @@
 }
 
 
-%% Environment for the thesis main body
+% mainmatter
 \let\@oldmainmatter\mainmatter
 \specialcomment{mainmatter}{%
 	\if@twoside\clearpage\fi%
@@ -323,7 +321,7 @@
 }
 
 
-%% Environment for appendices
+% appendices
 \specialcomment{appendices}{%
 	\adjustwidth{\@appendixextramargin}{\@appendixextramargin}%
 	\begin{\@appendixspacing}%
@@ -335,7 +333,7 @@
 }
 
 
-%% Environment for all the junk at the end of the thesis
+% backmatter
 \let\@oldbackmatter\backmatter
 \specialcomment{backmatter}{%
 	\adjustwidth{\@backmatterextramargin}{\@backmatterextramargin}%
@@ -348,7 +346,7 @@
 }
 
 
-%% Environment for acknowledgements page in frontmatter
+% acknowledgements
 \newenvironment{acknowledgements}{%
 	\cleardoublepage%
 	\adjustwidth{\@acknowledgementsextramargin}{\@acknowledgementsextramargin}%
@@ -365,7 +363,7 @@
 }
 
 
-%% Environment for preface page in frontmatter
+% prefacce
 \newenvironment{preface}{%
 	\cleardoublepage%
 	\adjustwidth{\@prefaceextramargin}{\@prefaceextramargin}%
@@ -382,10 +380,7 @@
 }
 
 
-%% Environment for declaration rubrik page in frontmatter
-%% (flushright doesn't work in this macro for some reason,
-%% so you'll have to do that bit yourself like in the
-%% example file)
+% declaration
 \newenvironment{declaration}{%
 	\cleardoublepage%
 	\adjustwidth{\@declarationextramargin}{\@declarationextramargin}%
@@ -402,8 +397,7 @@
 }
 
 
-%% Environment for thesis abstract in frontmatter
-%% (argument is the thesis title)
+% abstract
 \newenvironment{abstract}[1][Abstract]{%
 	\adjustwidth{\@abstractextramargin}{\@abstractextramargin}%
 	\cleardoublepage%
@@ -420,7 +414,7 @@
 }
 
 
-%% Makes a thesis title page
+% titlepage
 \let\@oldtitlepage\titlepage
 \let\@oldendtitlepage\endtitlepage
 \DeclareRobustCommand{\titlepage}[2][]{%
@@ -442,15 +436,13 @@
 \renewcommand{\maketitle}[1]{\titlepage{}}
 
 
-%% A quote on its own page
+% pagequote
 \newlength{\@oldparindent}
 \setlength{\@oldparindent}{\parindent}
 \DeclareRobustCommand{\pagequote}[3][same]{%
 	\cleardoublepage%
 	\vspace*{\stretch{2}}%
 	\thispagestyle{empty}%
-	% \thispagestyle{plain}%
-	% \pagestyle{plain}%
 	\begin{center}%
 		\begin{varwidth}{\textwidth}%
 			\def\@samelang{same}%
@@ -470,7 +462,7 @@
 	\thispagestyle{plain}%
 }
 
-%% A dedication?
+% dedication
 \DeclareRobustCommand{\dedication}[1]{%
 	\cleardoublepage%
 	\vspace*{\stretch{2}}%
@@ -485,7 +477,7 @@
 	\pagestyle{plain}%
 }
 
-%% Typesets a chapter quote
+% chapterquote
 \DeclareRobustCommand{\chapterquote}[3][same]{%
 	\def\@samelang{same}%
 	\def\@reqlang{#1}%
