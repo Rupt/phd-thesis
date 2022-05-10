@@ -16,7 +16,7 @@
 %% I'll try to implement any suggested options or geometry changes,
 %% provided I think they're a good idea!
 
-\def\fileversion{0.0.2}
+\def\fileversion{0.0.3}
 \def\filedate{2022/05/10}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{minithesis}[\filedate\space a thesis template (v\fileversion)]
@@ -27,17 +27,9 @@
 
 
 \def\@empty{}
-\def\@yes{yes}
 
 \def\@oneside{}
 \def\@bindmargins{yes}
-
-
-% part-wise spacing commands and definitions
-\def\@frontmatterspacing{onehalfspacing}
-\def\@mainmatterspacing{onehalfspacing}
-\def\@appendixspacing{onehalfspacing}
-\def\@backmatterspacing{onehalfspacing}
 
 
 % one-sided or two-sided (bound copies may have to be single-sided)
@@ -104,9 +96,8 @@
 % ability to specify a hook for after a page is completed
 \RequirePackage{afterpage}
 
-% misc tweaks
+% make maths in titles go automatically bold
 \AtEndOfClass{%
-    % make maths in titles go automatically bold
 	\g@addto@macro\bfseries{\boldmath}
 }
 
@@ -117,12 +108,14 @@
 
 % tweak the initial indent in paras
 \setlength{\parindent}{0.6cm}
+
 % tweak the intra-para gap size
 \setlength{\parskip}{0.3cm}
 \setlength{\topmargin}{0in}
 \setlength{\textheight}{9in}
 \setlength{\footskip}{0.5in}
 \setlength{\textwidth}{6.2in}
+
 % increase inner margins for binding
 \newlength{\@bindextramargin}
 \AtEndOfClass{%
@@ -143,40 +136,10 @@
 
 % reset rule widths and the header width
 \renewcommand{\headwidth}{\textwidth}%
-\renewcommand{\headrulewidth}{0.5pt}%
+\renewcommand{\headrulewidth}{0pt}%
 \renewcommand{\footrulewidth}{0pt}%
 \addtolength{\headheight}{2.5pt}%
 \addtolength{\headsep}{20pt}%
-
-% extra margins for various sections
-\newlength{\@mainmatterextramargin}%
-\setlength{\@mainmatterextramargin}{0cm}%
-\newlength{\@backmatterextramargin}%
-\setlength{\@backmatterextramargin}{0cm}%
-\newlength{\@frontmatterextramargin}%
-\setlength{\@frontmatterextramargin}{0cm}%
-\newlength{\@appendixextramargin}%
-\setlength{\@appendixextramargin}{0cm}%
-\newlength{\@abstractextramargin}%
-\setlength{\@abstractextramargin}{1.5cm}%
-\newlength{\@declarationextramargin}%
-\setlength{\@declarationextramargin}{1cm}%
-\newlength{\@acknowledgementsextramargin}%
-\setlength{\@acknowledgementsextramargin}{0cm}%
-\newlength{\@prefaceextramargin}%
-\setlength{\@prefaceextramargin}{0cm}%
-\newlength{\@pagequoteextramargin}%
-\setlength{\@pagequoteextramargin}{2cm}%
-
-% top vertical spacing in the front matter
-\newlength{\@frontmattertopskip}%
-\newlength{\@frontmattertitletopskip}%
-\newlength{\frontmattertitleskip}%
-\addtolength{\frontmattertitleskip}{2cm}%
-\addtolength{\@frontmattertitletopskip}{0cm}%
-\setlength{\@frontmattertopskip}{\frontmattertitleskip}%
-\addtolength{\@frontmattertopskip}{\@frontmattertitletopskip}%
-
 
 
 % headers and footers
@@ -184,6 +147,7 @@
 
 % no header or footer on the title page
 \AtBeginDocument{\thispagestyle{plain}}
+
 % use funky headers and footers
 \pagestyle{fancy}
 
@@ -201,11 +165,6 @@
 \renewcommand{\chaptermark}[1]{%
 	\markboth{#1}{}%
 }
-
-
-% hide horizontal lines at the header and footer
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
 
 
 % headers and footers for plain (blank) pages
@@ -227,7 +186,6 @@
 
 
 \AtEndPreamble{%
-	\RequirePackage[autostyle]{csquotes}[2007/03/25]
 	% provide dumb quoting commands in case the csquotes package hasn't been used.
 	\providecommand{\enquote}[1]{``#1''}%
 	\providecommand{\foreignquote}[1]{``#1''}%
@@ -256,11 +214,9 @@
 	\setcounter{tocdepth}{2}% show down to subsections in contents
 	\setcounter{secnumdepth}{2}% number down to subsections
 	\newcounter{iterlist}%
-	\adjustwidth{\@frontmatterextramargin}{\@frontmatterextramargin}%
-	\begin{\@frontmatterspacing}%
+	\begin{onehalfspacing}%
 		}{%
-	\end{\@frontmatterspacing}%
-	\endadjustwidth%
+	\end{onehalfspacing}%
 	\ignorespacesafterend%
 }
 
@@ -268,37 +224,30 @@
 % mainmatter
 \renewenvironment{mainmatter}{%
 	\if@twoside\clearpage\fi%
-	\@mainmattertrue%
 	\afterpage{\pagenumbering{arabic}}%
-	\adjustwidth{\@mainmatterextramargin}{\@mainmatterextramargin}%
-	\begin{\@mainmatterspacing}%
+	\begin{onehalfspacing}%
 		}{%
-	\end{\@mainmatterspacing}%
-	\endadjustwidth%
+	\end{onehalfspacing}%
 	\ignorespacesafterend%
 }
 
 
 % appendices
 \newenvironment{appendices}{%
-	\adjustwidth{\@appendixextramargin}{\@appendixextramargin}%
-	\begin{\@appendixspacing}%
+	\begin{onehalfspacing}%
 		\appendix%
 		}{%
-	\end{\@appendixspacing}%
-	\endadjustwidth%
+	\end{onehalfspacing}%
 	\ignorespacesafterend%
 }
 
 
 % backmatter
 \renewenvironment{backmatter}{%
-	\adjustwidth{\@backmatterextramargin}{\@backmatterextramargin}%
-	\begin{\@backmatterspacing}%
+	\begin{onehalfspacing}%
 		\appendix%
 		}{%
-	\end{\@backmatterspacing}%
-	\endadjustwidth%
+	\end{onehalfspacing}%
 	\ignorespacesafterend%
 }
 
@@ -306,8 +255,7 @@
 % acknowledgements
 \newenvironment{acknowledgements}{%
 	\cleardoublepage%
-	\adjustwidth{\@acknowledgementsextramargin}{\@acknowledgementsextramargin}%
-	\vspace*{\@frontmattertopskip}%
+	\vspace*{2cm}%
 	\begin{center}%
 	\begingroup
 	{\LARGE{\textbf{Acknowledgements}}}%
@@ -315,7 +263,6 @@
 	\end{center}%
 	\vspace*{1cm}%
 }{%
-	\endadjustwidth%
 	\ignorespacesafterend%
 }
 
@@ -323,8 +270,7 @@
 % preface
 \newenvironment{preface}{%
 	\cleardoublepage%
-	\adjustwidth{\@prefaceextramargin}{\@prefaceextramargin}%
-	\vspace*{\@frontmattertopskip}%
+	\vspace*{2cm}%
 	\begin{center}%
 	\begingroup
 	{\LARGE{\textbf{Preface}}}%
@@ -332,7 +278,6 @@
 	\end{center}%
 	\vspace*{1cm}%
 }{%
-	\endadjustwidth%
 	\ignorespacesafterend %
 }
 
@@ -340,8 +285,8 @@
 % declaration
 \newenvironment{declaration}{%
 	\cleardoublepage%
-	\adjustwidth{\@declarationextramargin}{\@declarationextramargin}%
-	\vspace*{\@frontmattertopskip}%
+	\adjustwidth{1cm}{1cm}%
+	\vspace*{2cm}%
 	\begin{center}%
 	\begingroup
 	{\LARGE\textbf{Declaration}}%
@@ -356,9 +301,9 @@
 
 % abstract
 \newenvironment{abstract}[1][Abstract]{%
-	\adjustwidth{\@abstractextramargin}{\@abstractextramargin}%
+	\adjustwidth{1.5cm}{1.5cm}%
 	\cleardoublepage%
-	\vspace*{\@frontmattertopskip}%
+	\vspace*{2cm}%
 	\begin{center}%
 	\begingroup
 	{\LARGE\textbf{#1}}%
@@ -376,7 +321,7 @@
 	\thispagestyle{empty}%
 	\begingroup%
 	\begin{center}%
-		\vspace*{\frontmattertitleskip}%
+		\vspace*{2cm}%
 		\begin{doublespace}%
 			{\Huge\textbf{\thetitle}}\\%
 		\end{doublespace}%

@@ -3,8 +3,8 @@ PDFLATEX := pdflatex -file-line-error -interaction=batchmode
 
 BIBTEX := bibtex -terse
 
-SOFT := \\\\documentclass[bindnopdf]{minithesis}
-HARD := \\\\documentclass[oneside]{minithesis}
+SOFT := \\documentclass[bindnopdf]{minithesis}
+HARD := \\documentclass[oneside]{minithesis}
 
 
 .PHONY: main
@@ -31,11 +31,11 @@ all: main.pdf main_soft.pdf main_hard.pdf
 
 # alternative builds
 %_soft.tex: %.tex
-	sed s/\\\\documentclass.*/$(SOFT)/ $< > $@
+	sed 's=\\documentclass.*=$(SOFT)=' $< > $@
 
 
 %_hard.tex: %.tex
-	sed s/\\\\documentclass.*/$(HARD)/ $< > $@
+	sed 's=\\documentclass.*=$(HARD)=' $< > $@
 
 
 .PHONY: clean
