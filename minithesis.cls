@@ -16,7 +16,7 @@
 %% I'll try to implement any suggested options or geometry changes,
 %% provided I think they're a good idea!
 
-\def\fileversion{0.0.3}
+\def\fileversion{0.0.}
 \def\filedate{2022/05/10}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{minithesis}[\filedate\space a thesis template (v\fileversion)]
@@ -64,12 +64,15 @@
 \ProcessOptions
 
 
-
-% base class and packages
-
-
 % base class
+
+
 \LoadClass[chapterprefix]{scrbook}
+
+
+
+% packages
+
 
 % useful tools for building this class
 \RequirePackage{etoolbox}
@@ -79,13 +82,6 @@
 
 % used to center the variable width page quote (must be version >= 0.9a)
 \RequirePackage{varwidth}[2003/03/10]
-
-% use the \title and \author arguments to build the front page etc.
-\renewcommand*\title[1]{\gdef\@title{#1}\global\let\thetitle\@title}%
-\renewcommand*\author[1]{\gdef\@author{#1}\global\let\theauthor\@author}%
-
-% serif titles
-\addtokomafont{sectioning}{\rmfamily\bfseries}
 
 % funky headers
 \RequirePackage{fancyhdr}
@@ -101,6 +97,18 @@
 	\g@addto@macro\bfseries{\boldmath}
 }
 
+
+
+% styling
+
+
+% use the \title and \author arguments to build the front page etc.
+\renewcommand*\title[1]{\gdef\@title{#1}\global\let\thetitle\@title}%
+\renewcommand*\author[1]{\gdef\@author{#1}\global\let\theauthor\@author}%
+
+
+% serif titles
+\addtokomafont{sectioning}{\rmfamily\bfseries}
 
 
 % length definitions
