@@ -5,7 +5,7 @@ main: main.pdf
 
 
 .PHONY: all
-all: main.pdf main_soft.pdf main_hard.pdf
+all: main.pdf main.soft.pdf main.hard.pdf
 
 
 # first pdflatex call creates .aux
@@ -14,7 +14,6 @@ all: main.pdf main_soft.pdf main_hard.pdf
 # bibtex creates a .bbl from .aux and context
 PDFLATEX := pdflatex -output-directory=scratch \
 	-file-line-error -interaction=batchmode
-
 
 %.pdf: %.tex ALWAYS_REBUILD
 	@rm -rf scratch/$*.* && mkdir -p scratch/
@@ -27,15 +26,14 @@ PDFLATEX := pdflatex -output-directory=scratch \
 
 
 # make alternative builds by replacing the documentclass
-SOFT := \\documentclass[bindnopdf]{minithesis}
-%_soft.tex: %.tex
-	sed 's=\\documentclass.*=$(SOFT)=' $< > $@
+# for Cambridge soft-bound version
+%.soft.tex: %.tex
+	sed 's=\\documentclass.*=\\documentclass[bindnopdf]{minithesis}=' $< > $@
 
 
 # for Cambridge hard-bound version, which must be one-sided
-HARD := \\documentclass[oneside]{minithesis}
-%_hard.tex: %.tex
-	sed 's=\\documentclass.*=$(HARD)=' $< > $@
+%.hard.tex: %.tex
+	sed 's=\\documentclass.*=\\documentclass[oneside]{minithesis}=' $< > $@
 
 
 .PHONY: clean
