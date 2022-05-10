@@ -16,7 +16,7 @@
 %% I'll try to implement any suggested options or geometry changes,
 %% provided I think they're a good idea!
 
-\def\fileversion{0.0.}
+\def\fileversion{0.0.3}
 \def\filedate{2022/05/10}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{minithesis}[\filedate\space a thesis template (v\fileversion)]
