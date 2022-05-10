@@ -1,55 +1,33 @@
 % for normal draft builds without figures
-\documentclass[nobind,draft,oneside]{minithesis}
+\documentclass[nobind,draft,oneside]{minithesis} %make:doc
 
-% for Cambridge soft-bound version
-% \documentclass[bindnopdf]{minithesis}
-% for Cambridge hard-bound version (must be one-sided)
-% \documentclass[oneside]{minithesis}
+\input{main/preamble}
 
-
-\input{tex/preamble}
-\doublespacing
-
-
-\title{%
+\title{
 Two leptons, jets, and missing transverse momentum in ATLAS:
-yet more non-evidence for Supersymmetry
+yet more non-evidence for supersymmetry
 }
+
 \author{Rupert Tombs}
 
-
-\hypersetup{
-    pdftitle = {%
-        Two leptons, jets, and missing transverse momentum in ATLAS:
-        yet more non-evidence for Supersymmetry
-    },
-    pdfsubject = {PhD thesis},
-    pdfkeywords = {physics, LHC, ATLAS, Supersymmetry},
-    pdfauthor = {Rupert Tombs}
-}
-
+\hypersetup{pdftitle={Thesis --- Rupert Tombs}}
 
 \begin{document}
 
-
 \begin{frontmatter}
-\input{tex/frontmatter}
+\input{main/frontmatter}
 \end{frontmatter}
 
-
 \begin{mainmatter}
-\input{tex/chapter_intro}
+\input{main/chapter_intro}
 \end{mainmatter}
 
-
 \begin{appendices}
-\input{tex/appendices}
+\input{main/appendices}
 \end{appendices}
 
-
 \begin{backmatter}
-\input{tex/backmatter}
+\input{main/backmatter}
 \end{backmatter}
-
 
 \end{document}
