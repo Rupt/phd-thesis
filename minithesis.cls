@@ -344,6 +344,8 @@
 
 
 % pagequote
+\newlength{\@oldparindent}
+\setlength{\@oldparindent}{\parindent}
 \DeclareRobustCommand{\pagequote}[3][same]{%
 	\cleardoublepage%
 	\vspace*{\stretch{2}}%
