@@ -194,10 +194,6 @@
 
 
 \AtEndPreamble{%
-	% provide dumb quoting commands in case the csquotes package hasn't been used.
-	\providecommand{\enquote}[1]{``#1''}%
-	\providecommand{\foreignquote}[1]{``#1''}%
-
 	% provide mixed-case versions of headings
 	\@ifpackageloaded{babel}{\addto\captionsenglish{%
 			\renewcommand*{\contentsname}{Contents}
@@ -343,33 +339,6 @@
 \renewcommand{\maketitle}[1]{\titlepage{}}
 
 
-% pagequote
-\newlength{\@oldparindent}
-\setlength{\@oldparindent}{\parindent}
-\DeclareRobustCommand{\pagequote}[3][same]{%
-	\cleardoublepage%
-	\vspace*{\stretch{2}}%
-	\thispagestyle{empty}%
-	\begin{center}%
-		\begin{varwidth}{\textwidth}%
-			\def\@samelang{same}%
-			\def\@reqlang{#1}%
-			\ifx\@samelang\@reqlang%
-				\noindent\textsl{\enquote{\hspace{0.1ex}#2}}%
-			\else%
-				\noindent\textsl{\foreignquote{\@reqlang}{\hspace{0.1ex}#2}}%
-			\fi%
-			\newline%
-			\setlength{\parindent}{\@oldparindent}
-			\indent --- {#3}%
-		\end{varwidth}%
-	\end{center}%
-	\vspace*{\stretch{4}}%
-	\if@twoside\clearpage\fi%
-	\thispagestyle{plain}%
-}
-
-
 % dedication
 \DeclareRobustCommand{\dedication}[1]{%
 	\cleardoublepage%
@@ -385,19 +354,3 @@
 	\pagestyle{plain}%
 }
 
-
-% chapterquote
-\DeclareRobustCommand{\chapterquote}[3][same]{%
-	\def\@samelang{same}%
-	\def\@reqlang{#1}%
-	\begin{adjustwidth}{}{3cm}%
-		\ifx\@samelang\@reqlang%
-			\noindent\emph{\enquote{#2}}%
-		\else%
-			\noindent\emph{\foreignquote{\@reqlang}{#2}}%
-		\fi%
-		\newline%
-		\indent --- #3%
-	\end{adjustwidth}%
-	\vspace{1cm}%
-}
