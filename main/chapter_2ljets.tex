@@ -23,6 +23,14 @@ corresponds to a kind of utter honesty --- a kind of leaning over backwards.%
 \end{epigraphs}
 
 
+Our central result is Figure~\ref{fig:2ljets_summary}, which shows the names,
+data, and fitted background expectations with error bars in all main regions.
+This figure illustrates the background-model part of a \clown{likelihood}
+function which is extended with signals to test alternative models.
+Exclusion contours testing the addition of C1N2 and GMSB signals to these
+backgrounds are shown in Figure~\ref{fig:2ljets_contours}.
+
+
 \begin{figure}[tp]
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_summary_log.pdf}
@@ -32,12 +40,41 @@ for which the lower panel shows $S_\mathrm{ATLAS}$ from
 Equation~\ref{eqn:significance_atlas}.
 Control, validation and signal regions are shown from left to right, with the
 regions within each category ordered approximately by their typical $\ptmiss$.
+Likelihoods from validation regions are not included in the fit.
 The `Top' category contains $t\bar t$ and $tW$ processes, and
-`Other' contains fake/non-prompt lepton, higgs, triboson, , $t\bar tZ$ and other
+`Other' contains fake/non-prompt lepton, higgs, triboson, $t\bar tZ$, and other
 rare top processes.%
 }
-\label{fig:ewk_summary}
+\label{fig:2ljets_summary}
 \end{figure}
 
 
-
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/2ljets_contours_c1n2.pdf}
+    \caption{C1N2 contours}
+\end{subfigure}
+\\[1em]
+\begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/2ljets_contours_gmsb.pdf}
+    \caption{GMSB contours}
+\end{subfigure}
+\caption{%
+Contours from the $\twoljets$ electroweak analysis for
+C1N2 (top) and GMSB (bottom) models.
+Space below the solid red line is labelled as excluded and its dotted
+neighbours show the result if all signal cross-sections are varied up and down
+by theoretical error bars.
+The yellow band shows the prior $\pm1$-sigma region of exclusion contours
+from asymptotic approximations to the distribution of the test statistic.
+Grey areas are observed limits from the $2\ell$ parts
+of~\cite{SUSY-2016-24} and~\cite{SUSY-2013-11}.
+Exclusion is defined by the $\mathrm{CLs}$ prescription at the $0.05$ level
+in asymptotic approximations.
+All contours are interpolated from a sparse grid.
+}
+\label{fig:2ljets_contours}
+\end{figure}
