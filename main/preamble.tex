@@ -5,29 +5,28 @@
 \usepackage[T1]{fontenc}
 % language
 \usepackage[english]{babel}
-% nicer text
-\usepackage[protrusion=true,expansion=true]{microtype}
 % graphics
 \usepackage{graphicx}
 % compressed, sorted lists of numerical citations
 \usepackage{cite}
 % for \FloatBarrier
 \usepackage{placeins}
-% for \doublespacing
-\usepackage{setspace}
-\doublespacing
 % sub-figures
 \usepackage{subcaption}
 % shrink tables to fit
 \usepackage{adjustbox}
+% colours
+\usepackage{xcolor}
 % for quotations
 \usepackage{epigraph}
 \setlength{\epigraphwidth}{0.9\textwidth}
 \setlength{\epigraphrule}{0pt}
 \setlength{\beforeepigraphskip}{0pt}
-\setlength{\afterepigraphskip}{\baselineskip}
+\setlength{\afterepigraphskip}{0pt}
 % hyperlinks; final keeps links in draft mode
 \usepackage[final]{hyperref}
+% nicer text
+\usepackage[protrusion=true,expansion=true]{microtype}
 
 % custom commands
 \newcommand{\eV}[1][]{\mathrm{#1 e\kern-0.15ex V}}
@@ -36,7 +35,7 @@
 \newcommand{\cern}{CERN}
 
 
-\newcommand{\clown}[1]{\textit{#1}}
+\newcommand{\clown}[1]{#1}
 
 \newcommand{\twoljets}{2\ell\mathrm{+jets}}
 

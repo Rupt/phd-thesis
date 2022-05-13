@@ -92,6 +92,9 @@
 % ability to specify a hook for after a page is completed
 \RequirePackage{afterpage}
 
+% text spacing
+\RequirePackage{setspace}
+
 % make maths in titles go automatically bold
 \AtEndOfClass{%
 	\g@addto@macro\bfseries{\boldmath}
