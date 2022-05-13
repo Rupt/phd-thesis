@@ -33,6 +33,29 @@ of the real problems to which it is applied.%
 {John W. Pratt~\cite{pratt1961testing}}
 
 
+% significancen measures
+The ATLAS-recommended~\cite{atlas_significance} significance measure is
+\begin{equation}
+\label{eqn:significance_atlas}
+S_\mathrm{ATLAS}(n, \mu, \sigma)
+= \mathrm{sgn}(n - \mu) \sqrt{2\left(
+    n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
+    - \frac{\mu^2}{\sigma^2}\log\left(
+        1 + \frac{c^2(n - \mu)}{\mu(\mu + \sigma^2)}
+    \right)
+\right)}
+~.
+\end{equation}
+As $\sigma \rightarrow 0$, this tends towards the the significance-transformed,
+sign-flipped Poisson maximum likelihood ratio
+\begin{equation}
+S_\mathrm{Poisson}(n, \mu, \sigma)
+= \mathrm{sgn}(n - \mu) \sqrt{2\left(
+    n\log\left(\frac{n}{\mu}\right) - n + \mu
+\right)}
+~.
+\end{equation}
+
 \section{Searches}
 
 \clearpage
