@@ -23,10 +23,12 @@
 \setlength{\epigraphrule}{0pt}
 \setlength{\beforeepigraphskip}{0pt}
 \setlength{\afterepigraphskip}{0pt}
+% nicer text, textls
+\usepackage[protrusion=true,expansion=true]{microtype}
+% wiggly underline \uwave
+\usepackage[normalem]{ulem}
 % hyperlinks; final keeps links in draft mode
 \usepackage[final]{hyperref}
-% nicer text
-\usepackage[protrusion=true,expansion=true]{microtype}
 
 % custom commands
 \newcommand{\eV}[1][]{\mathrm{#1 e\kern-0.15ex V}}
@@ -35,8 +37,14 @@
 \newcommand{\cern}{CERN}
 \newcommand{\twoljets}{2\ell\mathrm{+jets}}
 
-\newcommand{\clown}[1]{\textsf{#1}}
+\newcommand{\clown}[1]{\uwave{#1}}
+\newcommand{\TODO}[1]{{\color{red} #1}}
 
 
 % event variables
 \newcommand{\ptmiss}{p_\mathrm{T}^\mathrm{miss}}
+
+
+% particles
+\newcommand{\chargino}[1]{\tilde\chi^\pm_{#1}}
+\newcommand{\neutralino}[1]{\tilde\chi^0_{#1}}

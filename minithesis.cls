@@ -80,9 +80,6 @@
 % need to be able to locally change the text width.
 \RequirePackage{changepage}
 
-% used to center the variable width page quote (must be version >= 0.9a)
-\RequirePackage{varwidth}[2003/03/10]
-
 % funky headers
 \RequirePackage{fancyhdr}
 
