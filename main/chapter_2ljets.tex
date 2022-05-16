@@ -33,16 +33,23 @@ and post-fit background expectations.
 This figure illustrates the background-only part of a \clown{likelihood}
 model which is extended with signals to test alternative models.
 
+We use two signal models in the $\twoljets$ electroweak analysis.
+One is an MSSM chargino-neutralino model (C1N2) which acts to produce
+$\chargino{1}\textrm{--}\neutralino{2}$ pairs which decay via $W$ and $Z$
+channels respectively to jets and a lepton pair.
+The other is a GMSB model which decays via Higgs and $Z$ bosons in variable
+branching fractions.
 Diagrams illustrating the C1N2 and GMSB signal models we consider are shown in
 Figure~\ref{fig:2ljets_signal_diagrams}.
 Some example effects of these signals in signal regions are displayed in
 Figure~\ref{fig:2ljets_signal_examples}.
 
 
-At each parameter point, each signal model is added to the background model
+At each parameter point of a signal model, it is added to the background model
 and tested against data in the $\mathrm{CLs}$ prescription.
-Contours showing which regions of signal model parameters are labelled as
-excluded are shown for C1N2 in Figure~\ref{fig:2ljets_contours_c1n2} and for
+Contours showing which regions where those tests label the signal model
+parameters as excluded excluded are shown for
+C1N2 in Figure~\ref{fig:2ljets_contours_c1n2} and for
 GMSB in~\ref{fig:2ljets_contours_gmsb}.
 
 Data in discovery regions are presented and interpreted in
@@ -59,7 +66,7 @@ Data of the $\twoljets$ electroweak analysis with \emph{post-fit} backgrounds
 for which the lower panel shows $S_\mathrm{ATLAS}$ from
 Equation~\ref{eqn:significance_atlas}.
 Control, validation and signal regions are shown from left to right, with the
-regions within each category ordered approximately by their typical $\ptmiss$.
+regions within each category ordered approximately by their typical $\etmiss$.
 Likelihoods from validation regions are not included in the fit.
 The `Top' category contains $t\bar t$ and $tW$ processes, and
 `Other' contains fake/non-prompt lepton, higgs, triboson, $t\bar tZ$, and other
@@ -242,12 +249,116 @@ performing their validation studies and serializing the analysis results.
 public HEPData record~\cite{maguire2017hepdata}.
 \end{itemize}
 
+\clearpage
+\FloatBarrier
 \section{Context}
 % previous results on 2(/3)L from ATLAS
 % other constraints on these models from ATLAS/CMS
 % previous region design, motivation for this work
 
+
+\section{Event variables}
+% lepton, jet definitions
+
+
+
+Uncomfortably many event variables are used to define the regions of this
+analysis.
+Definitions of these variables are collected here.
+All variables with a double object subscript (such as $\mll$, $\rjj$) refer to
+the first two of those particles when ordered in decreasing $\pt$.
+\begin{itemize}
+\item $\etmiss$: missing transverse momentum.
+\item $\etmisssig$: object-based missing transverse momentum significance.
+It scales $\etmiss$ by an uncertainty derived from the resolutions of
+reconstructed objects~\cite{atlas_met_significance}.
+\item $\mll$: invariant mass of the hardest two leptons.
+\item $\mjj$: invariant mass of the two hardest jets.
+\item $\mbb$: invariant mass of the two hardest b-tagged jets.
+\item $\mjetone$: mass of the hardest jet.
+% TODO
+% \item $\Rll$: estimated angular distance in $\eta,\phi$ between the lepton pair.
+% \item $\Rjj$: estimated angular distance in $\eta,\phi$ between the two hardest jets.
+% \item $\Delta\phi(p_{\ell\ell}, \Etmiss)$: estimated distance in azimuthal
+% angle between the vector sum of the lepton pair and the missing transverse momentum.
+% \item $\mttwo(\ell, \ell; 0)$: the `stransverse mass' between the two
+% leptons and the missing transverse momentum.
+% If two massive particles are pair produced and each decays to a
+% lepton and something massless and invisible,
+% then this estimates a greatest lower bound on the invariant
+% mass of the pair produced particles.
+% $\mttwo(\ell, \ell; 0)$ is useful for excluding standard model backgrounds;
+% di-leptonic ttbar ($tt\rightarrow WW\rightarrow\ell\nu\ell\nu$)
+% and $WW\rightarrow\ell\nu\ell\nu$ have a kinematic endpoint
+% at the $W$ pole mass, and $\tau\tau$ is constrained within measurement error of zero.
+% \item $\nbtag$: number of b-tagged jets with $\pt > 20$ GeV,
+% where the tag is taken on the mv2c10 classifier at the $77\%$ working point.
+% \item $n_{\mathrm{jets},30}$: number of reconstructed jets with $\pt > 30$ GeV.
+% \item $\pt(j_1)$: transverse momentum of the hardest jet.
+% \item $\Delta\phi(\mathrm{jet}_1,\etmiss)$: azimuthal angle between
+% the hardest jet and missing transverse momentum vector estimates.
+\end{itemize}
+Most of these are physical properties of particles, or collection of particles.
+Clearly, the stated values are not exact, but estimated values based on
+approximate reconstructions.
+While I think this distinction is important to remember, I have not spelled it
+out on every line.
+Brevity also has value.
+
+\FloatBarrier
 \section{Design}
+
+The most impactful decision in a search is the design of its regions.
+Like all decision in life, these designs must be made to balance conflicting
+and vaguely-specified desires, and are informed with incomplete information.
+
+This section describes the designs and rationales behind the control, validation
+and signal regions of the $\twoljets$ analysis.
+
+
+Splitting regions on $\etmisssig$ is the core idea behind the design.
+The basic motivation for this design are displayed in
+Figure~\ref{fig:2ljets_presel_met};
+$\etmisssig$ does better than $\etmiss$ in separating background and signal
+contributions.
+But there is more --- $\etmisssig$ also does a decent job of separating signal
+models from each other;
+signals with larger mass differences in their decays to invisibles tend to have
+larger $\etmisssig$.
+Binning regions in $\etmisssig$ therefore also improves sensitivity to
+individual parameter points and allows targeted selections on other, locally-relevant,
+event variables.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/2ljets_presel_met_logy.png}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/2ljets_presel_met_sig_logy.png}
+\caption{
+Illustration of how $\etmisssig$ beats $\etmiss$ alone in sensitivity to
+example signal models.
+At large $\etmisssig$, $t\bar t$ and other backgrounds are suppressed, leaving
+quite pure diboson backgrounds and greater significance measures.
+Signal models with smaller mass splittings tend to have the bulk of their
+events at smaller $\etmiss$.
+\\[0.5em]
+This loose selection ``SRpreewk'' requires two same-flavor opposite-sign
+signal leptons with
+$\mll \in (71, 111)~\eV[G]$,
+$\mjj \in (60, 110)~\eV[G]$,
+$\nbtag \leq 1$,
+$\etmiss > 100~\eV[G]$, and
+$\etmisssig > 6$.
+\\[0.5em]
+``Significance'' displayed in the lower subplot uses the Binomial significance
+$Z_{Bi}$ from~\cite{cousins2008evaluation}, with a $30\%$ background
+uncertainty and yields taken to the right of a given value.
+Large values indicate expected sensitivity to the signal model.
+}
+\label{fig:2ljets_presel_met}
+\end{figure}
+
+
 
 % CRs go in with relevant SR category
 \subsection{High}
@@ -261,8 +372,11 @@ public HEPData record~\cite{maguire2017hepdata}.
 \subsection{Discovery}
 
 \section{Modelling}
-% backgorund samples
-% matrix method fakes
+% TODO backgorund samples
+% TODO matrix method fakes
+% TODO GMSB reweighting
+% TODO off-shell plus/minus split
+% TODO generator filtering
 
 \subsection{Fake/non-prompt leptons}
 
