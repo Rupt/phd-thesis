@@ -159,7 +159,7 @@ $m(\chargino{1}, \neutralino{2}) - m(\neutralino{1}) = 1~\eV[G]$.
 Example signal region histograms with benchmark signal sample yields overlaid
 as dotted lines~\cite{atlas2022searches}.
 Physically, signal yields would add on top of the backgrounds.
-Data are shown; regions in the the top two plots observe zero data, and the
+Data are shown; regions in the the top two plots observe zero data, and
 Poisson error bars for $0$ events are hidden for aesthetic reasons.
 }
 \label{fig:2ljets_signal_examples}
@@ -175,9 +175,11 @@ Poisson error bars for $0$ events are hidden for aesthetic reasons.
 \caption{%
 Contours for the C1N2 model in the $\twoljets$ electroweak
 analysis~\cite{atlas2022searches}.
+\\[0.5em]
 Space below the solid red line is labelled as excluded and its dotted
 neighbours show the result if all signal cross-sections are varied up and down
 by theoretical error bars.
+\\[0.5em]
 The yellow band shows the $\pm1$-sigma region of exclusion contours
 from asymptotic approximations to the prior distribution of the test statistic.
 Grey areas are observed limits from the two-lepton parts
@@ -195,9 +197,11 @@ All contours are interpolated from a sparse grid.
 \caption{%
 Contours for the GMSB model in the $\twoljets$ electroweak
 analysis~\cite{atlas2022searches}.
+\\[0.5em]
 Space below the solid red line is labelled as excluded and its dotted
 neighbours show the result if all signal cross-sections are varied up and down
 by theoretical error bars.
+\\[0.5em]
 The yellow band shows the $\pm1$-sigma region of exclusion contours
 from asymptotic approximations to the prior distribution of the test statistic.
 Exclusion is defined by the $95\%$ $\mathrm{CLs}$ prescription
@@ -304,8 +308,7 @@ two leptons, jets, and missing transverse momentum.
 Quite a few analyses, in fact.
 This project exists to supplement those results with information from the full
 LHC Run 2 data-set which was completed in 2018 and contains
-$139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at a collision energy
-of $13~\eV[T]$.
+$139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at $\sqrt{s} = 13~\eV[T]$.
 Leverage of the increased data quantity is one key aim.
 Analysis quality also might be improved if our designs can take lessons from
 the experiences of previous work.
@@ -368,30 +371,80 @@ which are nodes of the chosen the decay graph.
 Event variables are then evaluated in those systems' rest
 frames~\cite{jackson2017sparticles, jackson2017rjr}.
 
-In this way, RJR variables attain intelligence in how parent particles are
-reconstructed from their visible decay products and approximate independence
-from uninteresting boosts, particularly those from the emission of QCD jets
-outside of the supersymmetric decay tree.
+In this way, RJR variables get some intelligence in how parent particles are
+reconstructed from their visible decay products, as well as approximate
+independence from uninteresting boosts, particularly those from the emission of
+QCD jets outside of the supersymmetric decay tree.
 
-Over the last several years, RJR event variables have been demonstrated as
-effective tools for interpreting supersymmetric particle physics
+Over the last several years, RJR event variables have been demonstrated to be
+effective for interpreting supersymmetric particle physics
 data~\cite{santoni2018probing},
-have been used in numerous \atlas\ analyses~\cite{%
+and have been used in numerous \atlas\ analyses~\cite{%
 atlas_rjr_SUSY_2016_07,
 atlas_rjr_SUSY_2016_15,
 atlas_rjr_SUSY_2016_16,
-atlas_rjr_23l_SUSY_2017_03
-}, and have influenced the designs of other
-analyses~\cite{atlas_rjr_mimic_SUSY_2018_06}.
+atlas_rjr_23l_SUSY_2017_03,
+atlas_rjr_3l_SUSY_2019_09
+} \TODO{more}.
+They have also influenced the designs of other analyses which do not use
+RJR variables themselves~\cite{atlas_rjr_mimic_SUSY_2018_06}.
 
 
-Decay trees used in the $\twoljets$ RJR analysis,
-which displayed in Figure~\ref{fig:2ljets_rjr_decay_tres},
-target C1N2-like scenarios similar to those also considered in the $\twoljets$
-electroweak search.
+Two decay trees are used in the $\twoljets$ RJR analysis, with signal region
+each.
+These trees target C1N2-like scenarios similar to those also considered in the
+$\twoljets$ electroweak search,
+and illustrated in Figure~\ref{fig:2ljets_rjr_decay_trees}.
 
+\paragraph{Former excesses}
+Excess data were observed in several signal regions of the partial Run 2
+search ``for chargino--neutralino production using recursive
+jigsaw reconstruction in final states with two or three charged
+leptons''~\cite{atlas_rjr_23l_SUSY_2017_03},
+which used $36.1~\mathrm{fb}^{-1}$ of proton-proton collisions at
+$\sqrt{s} = 13~\eV[T]$.
+That search reported notable excesses in four signal regions.
+Of these, two required two charged leptons
+($\mathrm{SR}2\ell\_\mathrm{Low}$ and $\mathrm{SR}2\ell\_\mathrm{ISR}$),
+and other two required three
+($\mathrm{SR}3\ell\_\mathrm{Low}$ and $\mathrm{SR}3\ell\_\mathrm{ISR}$).
 
+Although the largest local excess was reported as ``$3.0$ standard deviations'',
+which is not particularly large, the pattern of four related regions with
+excess data can understandably draw attention.
 
+Both $\mathrm{SR}3\ell\_\mathrm{Low}$ and $\mathrm{SR}3\ell\_\mathrm{ISR}$
+were have been revisited with the full Run 2 data-set and updated background
+modelling.
+The update sees ``no significant excesses''~\cite{atlas_rjr_3l_SUSY_2019_09}.
+These regions have also been approximated without direct use of RJR event
+variables;
+these approximations also find data ``in agreement'' with the background
+model~\cite{atlas_rjr_mimic_SUSY_2018_06}.
+
+The $\twoljets$ RJR serves to analysis reproduce
+$\mathrm{SR}2\ell\_\mathrm{Low}$ and $\mathrm{SR}2\ell\_\mathrm{ISR}$,
+with the full Run 2 data-set and updated background modelling,
+and asks whether the excesses persist.
+They do not.
+
+\paragraph{RJR versus conventional}
+Disappearing excesses have encouraged doubts about RJR variables;
+the existence of the `RJR-mimic' paper~\cite{atlas_rjr_mimic_SUSY_2018_06}
+is public evidence of this.
+
+A more precise problem is that that phase space selected by RJR regions tends
+to be poorly (inaccurately or imprecisely) modelled by simulations.
+This is plausibly explained how RJR variables are not simply related to
+conventional, lab-frame variables.
+Simulations have been tuned to model conventional variables well, and
+`systematic' variations also are evaluated and derived in conventional variables.
+Not all functions of the data are well understood.
+
+A lack of reliable simulations motivates reliance on `data-driven' background
+estimates, which, from my perspective, are hard to interpret or trust.
+For these reasons, the $\twoljets$ electroweak analysis uses only conventional
+event variables.
 
 \subsection{Electroweak}
 \label{sec:2ljets_origins_electroweak}
