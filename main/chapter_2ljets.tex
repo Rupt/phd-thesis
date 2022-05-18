@@ -30,7 +30,7 @@ corresponds to a kind of utter honesty --- a kind of leaning over backwards.%
 Our main result is the content of Figure~\ref{fig:2ljets_summary}, which shows
 the data in all main regions of this analysis, along with the regions' names,
 and post-fit background expectations.
-This figure illustrates the background-only part of a \clown{likelihood}
+This figure illustrates the background-only part of a \heplikelihood
 model which is extended with signals to test alternative models.
 
 We use two signal models in the $\twoljets$ electroweak analysis.
@@ -235,7 +235,8 @@ All $p$-values are estimated by simulation of alternative data.
 \end{table}
 
 
-\paragraph{My contributions}
+\paragraph{Contributions}
+My contributions the the analysis are listed here.
 \begin{itemize}
 \item Design, implementation and execution of the electroweak part of the analysis.
 \item Service as `analysis contact' from January to October 2020.
@@ -249,6 +250,24 @@ performing their validation studies and serializing the analysis results.
 \item Preparation of electroweak results for publication in the paper \TODO{cite} and the
 public HEPData record~\cite{maguire2017hepdata}.
 \end{itemize}
+Except where specified, I produced all figures presented in this thesis.
+Many plotting scripts, however, are modified from versions inherited from
+many \atlas\ members past and present to whom I am grateful.
+
+Of the large collaboration involved in this project, a great deal of credit is
+due to the following colleagues, labelled with their primary focus within
+the $\twoljets$ search effort:
+Knut Oddvar Vadla (electroweak),
+Sarah Williams (electroweak),
+Jason Lea Oliver (RJR),
+Abhishek Sharma (RJR),
+Jonathan Long (strong),
+Arka Santra (strong),
+Matt Zhang (strong),
+Yumeng Cao (various),
+Eirik Gramstad (fake/non-prompt leptons),
+Benjamin Henry Hooberman (leadership).
+Cheers.
 
 \clearpage
 \FloatBarrier
@@ -256,6 +275,37 @@ public HEPData record~\cite{maguire2017hepdata}.
 % previous results on 2(/3)L from ATLAS
 % other constraints on these models from ATLAS/CMS
 % previous region design, motivation for this work
+Previous searches studied this two-lepton + jets + $\ptmiss$ selection
+in different or smaller data-sets in \atlas.
+This project serves to update those results with the full LHC Run 2 data-set,
+which contains $139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at
+$13~\eV[T]$ collision energy.
+
+Increased quantity of data allows more options for this search.
+Together with lessons learned from the previous searches, this is not only
+an update but a chance for improvement.
+
+This paper focusses solely on $\twoljets$ data and analyses them in the three
+distinct RJR, electroweak, and strong parts.
+Each part has precedent from previous searches which were conducted and
+published separately with other work.
+A decision was made for full Run 2 to group the searches by targetted physics,
+rather than by method or targetted physical models.
+
+The remainder of this section describes the specific history and motivations
+for each of the RJR, electroweak and strong sub-projects in this search.
+
+
+\subsection{RJR}
+Recursive Jigsaw Reconstruction, abbreviated as RJR, is a method for
+interpreting particle data as arising from user-specified decay trees.
+The $\twoljets$ RJR analysis uses two C1N2 decay trees which are displayed in
+Figure~\ref{fig:2ljets_rjr_decay_trees}.
+
+
+\subsection{Electroweak}
+
+\subsection{Strong}
 
 
 \section{Event variables}
@@ -280,7 +330,7 @@ reconstructed objects~\cite{atlas_met_significance}.
 % and $WW\rightarrow\ell\nu\ell\nu$ have a kinematic endpoint
 % at the $W$ pole mass, and $\tau\tau$ is constrained within measurement error of zero.
 
-\subsection{b-tagging}
+\subsection{$b$-tagging}
 \label{sec:btagging}
 % with $\pt > 20$ GeV,
 % where the tag is taken on the mv2c10 classifier at the $77\%$ working point.

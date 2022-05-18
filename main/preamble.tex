@@ -30,15 +30,18 @@
 % hyperlinks; final keeps links in draft mode
 \usepackage[final]{hyperref}
 
+
 % custom commands
+\newcommand{\TODO}[1]{{\color{red}TODO #1}}
+\newcommand{\heplikelihood}{like-lihood}
+
+% units
 \newcommand{\eV}[1][]{\mathrm{#1 e\kern-0.15ex V}}
 
+% names
 \newcommand{\atlas}{ATLAS}
 \newcommand{\cern}{CERN}
 \newcommand{\twoljets}{2\ell\mathrm{+jets}}
-
-\newcommand{\clown}[1]{\uwave{#1}}
-\newcommand{\TODO}[1]{{\color{red}TODO #1}}
 
 % https://www.logic.at/staff/salzer/etc/mhyphen/
 \mathchardef\mhyphen="2D
