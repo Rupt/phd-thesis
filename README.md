@@ -15,7 +15,7 @@ make
 or with hard and soft cover versions:
 
 ```bash
-make all -h
+make -j all
 
 ```
 
