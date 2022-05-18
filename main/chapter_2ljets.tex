@@ -26,29 +26,48 @@ corresponds to a kind of utter honesty --- a kind of leaning over backwards.%
 
 
 % begin with physics content and results
+My main result in this thesis is displayed in Figure~\ref{fig:2ljets_summary}.
 
-Our main result is the content of Figure~\ref{fig:2ljets_summary}, which shows
-the data in all main regions of this analysis, along with the regions' names,
-and post-fit background expectations.
-This figure illustrates the background-only part of a \heplikelihood
-model which is extended with signals to test alternative models.
+It shows unblinded regions from the electroweak part of
+Reference~\cite{atlas2022searches}, which reports searches
+``for new phenomena in events with two leptons, jets, and missing
+transverse momentum''.
+For brevity, I will name that search $\twoljets$.
+
+This section begins with a splash summary of interpretations of the results in
+Figure~\ref{fig:2ljets_summary},
+before cutting through the gory details later on.
+
+In a large number orthogonal signal regions, where non-standard signals would
+encourage excess data above backgrounds,
+no significant excess is observed above \emph{post-fit} background expectations.
+Indeed there are some significant deficits --- data below the background noise.
+
+Background parts of a \heplikelihood model are illustrated behind data.
+To test non-standard (supersymmetric) models against observation, signal
+contributions are added on top of those backgrounds.
 
 We use two signal models in the $\twoljets$ electroweak analysis.
 One is an MSSM chargino-neutralino model (C1N2) which acts to produce
-$\chargino{1}\textrm{--}\neutralino{2}$ pairs which decay via $W$ and $Z$
-channels respectively to jets and a lepton pair.
-The other is a GMSB model which decays via Higgs and $Z$ bosons in variable
-branching fractions.
-Diagrams illustrating the C1N2 and GMSB signal models we consider are shown in
+$\chargino{1}\textrm{--}\neutralino{2}$ pairs, which decay via
+$W\rightarrow q\bar q$ and
+$Z\rightarrow \ell^\pm \ell^\mp$ respectively..
+The other is a GMSB model which, after a variety of initial states produces
+$\neutralino{1}\textrm{--}\neutralino{1}$ pairs.
+These neutralinos decay,
+via Higgs and $Z$ bosons in variable branching fractions,
+to final states again containing $\ell^\pm \ell^\mp$ and jet-seeding partons.
+Diagrams illustrating these C1N2 and GMSB signal models are shown in
 Figure~\ref{fig:2ljets_signal_diagrams}.
-Some example effects of these signals in signal regions are displayed in
-Figure~\ref{fig:2ljets_signal_examples}.
 
+Effects of some of these these signals in example signal regions of the
+$\twoljets$ electroweak analysis are displayed in
+Figure~\ref{fig:2ljets_signal_examples}.
 
 At each parameter point of a signal model, it is added to the background model
 and tested against data in the $\mathrm{CLs}$ prescription.
-Contours showing which regions where those tests label the signal model
-parameters as excluded excluded are shown for
+Contours showing which parameters of those signal models are labelled as
+excluded are displayed for
 C1N2 in Figure~\ref{fig:2ljets_contours_c1n2} and for
 GMSB in~\ref{fig:2ljets_contours_gmsb}.
 
@@ -159,7 +178,7 @@ by theoretical error bars.
 The yellow band shows the $\pm1$-sigma region of exclusion contours
 from asymptotic approximations to the prior distribution of the test statistic.
 Grey areas are observed limits from the two-lepton parts
-of~\cite{SUSY-2016-24} and~\cite{SUSY-2013-11}.
+of~\cite{atlas_23l_SUSY_2016_24} and~\cite{atlas_2l_SUSY_2013_11}.
 Exclusion is defined by the $95\%$ $\mathrm{CLs}$ prescription
 in asymptotic approximations.
 All contours are interpolated from a sparse grid.
@@ -234,8 +253,8 @@ All $p$-values are estimated by simulation of alternative data.
 \label{tab:2ljets_discovery}
 \end{table}
 
-
-\paragraph{Contributions}
+\FloatBarrier
+\subsection{Contributions}
 My contributions the the analysis are listed here.
 \begin{itemize}
 \item Design, implementation and execution of the electroweak part of the analysis.
@@ -271,47 +290,53 @@ Cheers.
 
 \clearpage
 \FloatBarrier
-\section{Context}
+\section{Origins}
 % previous results on 2(/3)L from ATLAS
 % other constraints on these models from ATLAS/CMS
 % previous region design, motivation for this work
-Previous searches studied this two-lepton + jets + $\ptmiss$ selection
-in different or smaller data-sets in \atlas.
-This project serves to update those results with the full LHC Run 2 data-set,
-which contains $139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at
-$13~\eV[T]$ collision energy.
+Previous analyses of \atlas\ data have explored similar selections of
+two leptons, jets, and missing transverse momentum.
+Quite a few analyses, in fact.
+This project exists to supplement those results with information from the full
+LHC Run 2 data-set which was completed in 2018 and contains
+$139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at a collision energy
+of $13~\eV[T]$.
+Leverage of the increased data quantity is one key aim.
+Analysis quality also might be improved if our designs can take lessons from
+the experiences of previous work.
 
-Increased quantity of data allows more options for this search.
-Together with lessons learned from the previous searches, this is not only
-an update but a chance for improvement.
+% electroweak
+% Run 1 data~\cite{atlas_2l_SUSY_2013_11},
+% partial Run 2 data~\cite{atlas_23l_SUSY_2016_24},
+% atlas_rjr_23l_SUSY_2017_03,
+% atlas_rjr_mimic_SUSY_2018_06
 
-This paper focusses solely on $\twoljets$ data and analyses them in the three
-distinct RJR, electroweak, and strong parts.
-Each part has precedent from previous searches which were conducted and
-published separately with other work.
-A decision was made for full Run 2 to group the searches by targetted physics,
-rather than by method or targetted physical models.
+The $\twoljets$ analysis is a trinity,
+of which all three parts expand upon \atlas\ results which previously appeared
+in separate publications.
+These three parts are named `RJR', `electroweak', and `strong', each of which
+is described in its historical context in this section.
 
-The remainder of this section describes the specific history and motivations
-for each of the RJR, electroweak and strong sub-projects in this search.
+Recursive Jigsaw Reconstruction (RJR) is an algorithm for constructing useful
+event variables.
+The $\twoljets$ RJR analysis, detailed in Section~\ref{sec:2ljets_origins_rjr},
+uses RJR variables to define its regions in a signal-independent search.
+
+My primary contributions are to the $\twoljets$ electroweak analysis,
+detailed in Section~\ref{sec:2ljets_origins_electroweak},
+which uses conventional (non-RJR) event variables to define a collection of
+orthogonal regions in a search for effects from the electroweak sector of
+supersymmetric models.
+
+Unsurprisingly, the strong part of the $\twoljets$ analysis,
+detailed in Section~\ref{sec:2ljets_origins_strong},
+searches for effects from the strong sector.
+It also uses conventional event variables and with an emphasis on the mass
+spectrum of lepton pairs.
+
 
 \subsection{RJR}
-The Recursive Jigsaw Reconstruction (RJR) method interprets reconstructed
-particle data by reconciling them with user-specified decay trees.
-Decay trees used in the $\twoljets$ RJR analysis,
-displayed in Figure~\ref{fig:2ljets_rjr_decay_trees},
-target C1N2-like scenarios similar to those also considered in the $\twoljets$
-electroweak search.
-The RJR algorithm works by making decisions of how to assign four-momenta
-to different `systems' --- nodes in the decay graphs -- and evaluates event
-variables in their respective rest
-frames~\cite{jackson2017sparticles, jackson2017rjr}.
-
-Since the year 2017, RJR event variables have been demonstrated as effective
-for interpreting Supersymmetric particle
-physics~\cite{santoni2018probing}
-and used in numerous \atlas\
-searches~\cite{SUSY-2016-07, SUSY-2016-15, SUSY-2016-16} \TODO{more}.
+\label{sec:2ljets_origins_rjr}
 
 \begin{figure}[tp]
 \centering
@@ -326,15 +351,48 @@ hard QCD jets labelled ``ISR'', boosting the \underline{i}nvisible particles,
 to generate visibly large $\met$ in models with small mass-splittings.
 The same approach is used for SR-OffShell selections in the electroweak
 analysis.
+\emph{This figure was made by the RJR team.}
 }
 \label{fig:2ljets_rjr_decay_trees}
 \end{figure}
 
+The Recursive Jigsaw Reconstruction (RJR) method interprets reconstructed
+particle data by reconciling them with user-specified decay trees, and works
+by making decisions of how to assign four-momenta to different `systems',
+which are nodes of the chosen the decay graph.
+Event variables are then evaluated in those systems' rest
+frames~\cite{jackson2017sparticles, jackson2017rjr}.
+
+In this way, RJR variables attain intelligence in how parent particles are
+reconstructed from their visible decay products and approximate independence
+from uninteresting boosts, particularly those from the emission of QCD jets
+outside of the supersymmetric decay tree.
+
+Over the last several years, RJR event variables have been demonstrated as
+effective tools for interpreting supersymmetric particle physics
+data~\cite{santoni2018probing},
+have been used in numerous \atlas\ analyses~\cite{%
+atlas_rjr_SUSY_2016_07,
+atlas_rjr_SUSY_2016_15,
+atlas_rjr_SUSY_2016_16,
+atlas_rjr_23l_SUSY_2017_03
+}, and have influenced the designs of other
+analyses~\cite{atlas_rjr_mimic_SUSY_2018_06}.
+
+
+Decay trees used in the $\twoljets$ RJR analysis,
+which displayed in Figure~\ref{fig:2ljets_rjr_decay_tres},
+target C1N2-like scenarios similar to those also considered in the $\twoljets$
+electroweak search.
+
+
 
 
 \subsection{Electroweak}
+\label{sec:2ljets_origins_electroweak}
 
 \subsection{Strong}
+\label{sec:2ljets_origins_strong}
 
 
 \section{Event variables}
