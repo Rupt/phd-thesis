@@ -295,16 +295,27 @@ rather than by method or targetted physical models.
 The remainder of this section describes the specific history and motivations
 for each of the RJR, electroweak and strong sub-projects in this search.
 
-
 \subsection{RJR}
-Recursive Jigsaw Reconstruction (RJR), is a method for
-interpreting particle data as arising from user-specified decay trees.
-The $\twoljets$ RJR analysis uses two C1N2 decay trees which are displayed in
-Figure~\ref{fig:2ljets_rjr_decay_trees}.
+The Recursive Jigsaw Reconstruction (RJR) method interprets reconstructed
+particle data by reconciling them with user-specified decay trees.
+Decay trees used in the $\twoljets$ RJR analysis,
+displayed in Figure~\ref{fig:2ljets_rjr_decay_trees},
+target C1N2-like scenarios similar to those also considered in the $\twoljets$
+electroweak search.
+The RJR algorithm works by making decisions of how to assign four-momenta
+to different `systems' --- nodes in the decay graphs -- and evaluates event
+variables in their respective rest
+frames~\cite{jackson2017sparticles, jackson2017rjr}.
+
+Since the year 2017, RJR event variables have been demonstrated as effective
+for interpreting Supersymmetric particle
+physics~\cite{santoni2018probing}
+and used in numerous \atlas\
+searches~\cite{SUSY-2016-07, SUSY-2016-15, SUSY-2016-16} \TODO{more}.
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.99\textwidth]{figures/2ljets_rjr_trees.pdf}
+\includegraphics[width=0.9\textwidth]{figures/2ljets_rjr_trees.pdf}
 \caption{%
 Decay trees for the $\twoljets$ RJR analysis.
 Both diagrams represent processes also targetted in the electroweak analysis.
@@ -316,7 +327,7 @@ to generate visibly large $\met$ in models with small mass-splittings.
 The same approach is used for SR-OffShell selections in the electroweak
 analysis.
 }
-\label{fig:2ljets_contours_gmsb}
+\label{fig:2ljets_rjr_decay_trees}
 \end{figure}
 
 
