@@ -9,7 +9,9 @@ achieve predicted results. An experiment is a failure only when it also
 fails adequately to test the hypothesis in question, when the data it
 produces don’t prove anything one way or another.%
 }%
-{Robert M. Pirsig~\cite{pirsig1999zen}}
+{Robert~M.~Pirsig,
+\textit{Zen and the Art of Motorcycle Maintenance},
+1974~\cite{pirsig1999zen}}
 \qitem{%
 But there is one feature I notice that is generally missing in cargo cult
 science. \ldots\
@@ -20,27 +22,36 @@ science. \ldots\
 It's a kind of scientific integrity, a principle of scientific thought that
 corresponds to a kind of utter honesty --- a kind of leaning over backwards.%
 }%
-{Richard Feynman~\cite{feynman1974cargo}}
+{Richard~Feynman,
+\textit{Cargo Cult Science},
+1974~\cite{feynman1974cargo}}
 \end{epigraphs}
 \end{singlespacing}
 
+My core contribution of this thesis is to the recent \atlas\
+search ``for new phenomena in events with two leptons, jets, and
+missing transverse momentum''~\cite{atlas2022searches}.
+For brevity, I will call this search $\twoljets$.
 
-We begin with a quick summary of results from my work on this search project;
-the coming section briefly presents the plots and tables which I personally
-find first when looking at an \atlas\ search paper.
+There are certain plots and tables which, personally, I first seek when
+meeting an \atlas\ search paper.
+This chapter begins by presenting those results in brief in
+Section~\ref{sec:2ljets_splash}.
 The the meat of this chapter (or if you prefer, its gory details) follows in
 Section~\ref{sec:2ljets_context} onwards.
 
 
 \subsection{Splash summary}
-
+\label{sec:2ljets_splash}
 % begin with physics content and results
-The sum of my work presented in this thesis is displayed in
-Figure~\ref{fig:2ljets_summary}.
-It illustrated the unblinded results in regions of the electroweak part of the
-recent \atlas\ search ``for new phenomena in events with two leptons, jets, and
-missing transverse momentum''~\cite{atlas2022searches}.
-For brevity, I call this search $\twoljets$.
+
+
+Unblinded results in all main regions of the $\twoljets$ electroweak analysis
+are presented in of the Figure~\ref{fig:2ljets_summary}.
+Since this figure appears to represent the data and background estimates,
+on which all derived results depend, it could be seen as the keystone of this
+thesis.
+There are, however, caveats to be developed later in this chapter.
 
 In a large number orthogonal signal regions, no significant excess is observed
 above \emph{post-fit} backgrounds.
@@ -419,12 +430,12 @@ which is not particularly large, the pattern of four related regions with
 excess data can understandably draw attention.
 
 Both $\mathrm{SR}3\ell\_\mathrm{Low}$ and $\mathrm{SR}3\ell\_\mathrm{ISR}$
-were have been revisited with the full Run 2 data-set and updated background
-modelling.
-The update sees ``no significant excesses''~\cite{atlas_rjr_3l_SUSY_2019_09}.
+have been revisited with the full Run 2 data-set and updated background
+modelling;
+the update sees ``no significant excesses''~\cite{atlas_rjr_3l_SUSY_2019_09}.
 These regions have also been approximated without direct use of RJR event
 variables;
-these approximations also find data ``in agreement'' with the background
+those approximations also find data ``in agreement'' with the background
 model~\cite{atlas_rjr_mimic_SUSY_2018_06}.
 
 The $\twoljets$ RJR serves to analysis reproduce
@@ -485,6 +496,7 @@ reconstructed objects~\cite{atlas_met_significance}.
 % with $\pt > 20$ GeV,
 % where the tag is taken on the mv2c10 classifier at the $77\%$ working point.
 
+\clearpage
 \subsection{Cheat-sheet}
 Uncomfortably many event variables are used to define the regions of this
 analysis.
@@ -506,13 +518,12 @@ described in Section~\ref{sec:mt2}
 \item $\rll$: distance in $\eta\textrm{--}\phi$ between the lepton pair
 \item $\rjj$: distance in $\eta\textrm{--}\phi$ between the two hardest jets%
 \vspace{0.5em}
-\item $n_{\mathrm{jets},30}$: number of reconstructed jets with $\pt > 30$ GeV.
+\item $\njet$: number of signal jets
 \item $\nbtag$: number of b-tagged jets;
 described in Section~\ref{sec:btagging}
 \vspace{0.5em}
-\item $\dphillmet$: azimuthal angle between the hardest jet and $\ptmiss$
-\item $\Delta\phi(\mathrm{jet}_1,\met)$: azimuthal angle between
-the hardest jet and $\ptmiss$
+\item $\dphillmet$: azimuthal angle between the lepton pair and $\ptmiss$
+\item $\dphijmet$: azimuthal angle between the hardest jet and $\ptmiss$
 \end{itemize}
 All of these are physical properties of particles or collections of particles.
 Please remember that none is an exact or true value;
@@ -537,8 +548,8 @@ The basic motivation for this design are displayed in
 Figure~\ref{fig:2ljets_presel_met};
 $\metsig$ does better than $\met$ in separating background and signal
 contributions.
-But there is more --- $\metsig$ also does a decent job of separating signal
-models from each other;
+But there is more --- $\metsig$ also decently separates signal models from one
+another;
 signals with larger mass differences in their decays to invisibles tend to have
 larger $\metsig$.
 Binning regions in $\metsig$ therefore also improves sensitivity to
