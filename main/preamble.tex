@@ -23,6 +23,8 @@
 \setlength{\epigraphrule}{0pt}
 \setlength{\beforeepigraphskip}{0\baselineskip}
 \setlength{\afterepigraphskip}{0\baselineskip}
+% Bmatrix
+\usepackage{amsmath}
 % nicer text, textls
 \usepackage[protrusion=true,expansion=true]{microtype}
 % hyperlinks; final keeps links in draft mode
@@ -45,8 +47,8 @@
 \mathchardef\mhyphen="2D
 
 % particles
-\newcommand{\chargino}[1]{\tilde\chi^\pm_{#1}}
-\newcommand{\neutralino}[1]{\tilde\chi^0_{#1}}
+\newcommand{\chargino}{\tilde\chi^\pm}
+\newcommand{\neutralino}{\tilde\chi^0}
 
 % event variables
 \newcommand{\pt}{p_\mathrm{T}}

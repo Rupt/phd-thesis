@@ -63,11 +63,11 @@ contributions are added on top of those backgrounds.
 
 We use two signal models in the $\twoljets$ electroweak analysis.
 One is an MSSM chargino-neutralino model (C1N2) which acts to produce
-$\chargino{1}\textrm{--}\neutralino{2}$ pairs, which decay via
+$\chargino_1\textrm{--}\neutralino_2$ pairs, which decay via
 $W\rightarrow q\bar q$ and
 $Z\rightarrow \ell^\pm \ell^\mp$ respectively..
 The other is a GMSB model which, after a variety of initial states produces
-$\neutralino{1}\textrm{--}\neutralino{1}$ pairs.
+$\neutralino_1\textrm{--}\neutralino_1$ pairs.
 These neutralinos decay,
 via Higgs and $Z$ bosons in variable branching fractions,
 to final states again containing $\ell^\pm \ell^\mp$ and jet-seeding partons.
@@ -121,22 +121,22 @@ rare top processes.%
 Supersymmetric signal processes in the $\twoljets$ electroweak
 analysis~\cite{atlas2022searches}.
 \\[0.5em]
-Left: C1N2, where the initial $\chargino{1}\textrm{--}\neutralino{2}$ pair
+Left: C1N2, where the initial $\chargino_1\textrm{--}\neutralino_2$ pair
 is produced through a $s$-channel $W^{\pm}$ resonance and the masses of
 weak bosons in decays are bounded by the mass splitting
-$m(\chargino{1}, \neutralino{2}) - m(\neutralino{1})$.
+$m(\chargino_1, \neutralino_2) - m(\neutralino_1)$.
 We explore the parameters
-$m(\chargino{1}, \neutralino{2})$ and $m(\neutralino{1})$.
+$m(\chargino_1, \neutralino_2)$ and $m(\neutralino_1)$.
 \\[0.5em]
-Right: GMSB, where the initial $\neutralino{1}\textrm{--}\neutralino{1}$ pair
-is produced by soft decays from pairs including $\chargino{1}$,
-$\neutralino{2}$ or $\neutralino{1}$.
+Right: GMSB, where the initial $\neutralino_1\textrm{--}\neutralino_1$ pair
+is produced by soft decays from pairs including $\chargino_1$,
+$\neutralino_2$ or $\neutralino_1$.
 Although the $h$ and $Z$ bosons decay to many states, we target
 $Z\rightarrow \ell\ell$ with
 $h/Z\rightarrow bb/jj$.
 We explore the parameters
-$m(\neutralino{1})$ and $B(\neutralino{1} \rightarrow h \tilde{G})$ with fixed
-$m(\chargino{1}, \neutralino{2}) - m(\neutralino{1}) = 1~\eV[G]$.
+$m(\neutralino_1)$ and $B(\neutralino_1 \rightarrow h \tilde{G})$ with fixed
+$m(\chargino_1, \neutralino_2) - m(\neutralino_1) = 1~\eV[G]$.
 }
 \label{fig:2ljets_signal_diagrams}
 \end{figure}
@@ -480,11 +480,94 @@ RJR event variables.
 
 \subsection{$\met$ significance}
 \label{sec:metsig}
-It scales $\met$ by an uncertainty derived from the resolutions of
-reconstructed objects~\cite{atlas_met_significance}.
+
+Most common Standard Model processes at the LHC do not produce hard
+invisible particles.
+Our supersymmetric signals, however, do.
+This makes the missing transverse momentum $\ptmiss$ its magnitude $\met$
+important features for separating signal and background events in all parts
+of the $\twoljets$ search.
+
+The experimental resolution of $\ptmiss$, however, is imprecise.
+Importantly also, the uncertainty on any inferred $\ptmiss$ varies
+significantly from one event to another.
+
+A muon, for example, will tend to have its momentum measured more precisely
+than a jet of similar energy.
+Unless, as discussed in Chapter~\ref{chapter:experiment}, the muon is hard
+enough that its curvature through \atlas' magnetic fields is poorly tracked.
+Unless, in the right circumstances, that jet originates from a $b$ quark,
+such that the weak decays of its hadrons tend to lose momentum in
+neutrinos or soft muons. (The $\metsig$ variable used in this analysis is not
+aware of $b$-tagging information, but perhaps it could benefit from some.)
+
+By incorporating an uncertainty in $\ptmiss$ tailored to each event, the
+variable $\metsig$ helps to separate those events with real and well-measured
+$\met$ from those where the measures $\ptmiss$ is more likely to result from
+mismeasurements.
+
+In the context of $\twoljets$ selections, $\metsig$ suppresses $t\bar t$
+contributions more than $\met$ alone, plausibly since $t\bar t$ events are
+accompanied with more hadronic activity than other sources of $\ptmiss$.
+What remains of the standard model in the high-$\metsig$ tail for $\twoljets$
+selections is almost pure diboson -- $ZZ$ with a hard $Z\rightarrow \nu\nu$,
+and $W^\pm Z$ where the charged lepton in $W^\pm\rightarrow\ell^\pm\nu$
+is not reconstructed.
+\TODO{plot of diboson decomposition here?}
+These effects are demonstrated from simulations in
+Figure~\ref{fig:2ljets_presel_met}.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/2ljets_presel_met_logy.png}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/2ljets_presel_met_sig_logy.png}
+\caption{
+Illustration of how $\metsig$ beats $\met$ alone in sensitivity to
+example signal models.
+At large $\metsig$, $t\bar t$ and other backgrounds are suppressed, leaving
+quite pure diboson backgrounds and greater significance measures.
+Signal models with smaller mass splittings tend to have the bulk of their
+events at smaller $\met$.
+\\[0.5em]
+This loose selection ``SRpreewk'' requires two same-flavor opposite-sign
+signal leptons with
+$\mll \in (71, 111)~\eV[G]$,
+$\mjj \in (60, 110)~\eV[G]$,
+$\nbtag \leq 1$,
+$\met > 100~\eV[G]$, and
+$\metsig > 6$.
+\\[0.5em]
+``Significance'' displayed in the lower subplot uses the Binomial significance
+$Z_{Bi}$ from~\cite{cousins2008evaluation}, with a $30\%$ background
+uncertainty and yields taken to the right of a given value.
+Large values indicate expected sensitivity to the signal model.
+}
+\label{fig:2ljets_presel_met}
+\end{figure}
+
+Uncertainty in $\ptmiss$ is modelled for $\metsig$ by a covariance matrix, $S$,
+in the transverse plane, and used to define
+\begin{equation}
+\metsig
+=
+\ptmiss S^{-1} \ptmiss
+,
+\end{equation}
+which can be rearranged into a ratio of $(\met)^2$ to a function of elements
+of the covariance matrix~\cite{atlas_met_significance}.
+This is the square of a Mahalanobis (standard-deviations) distance between
+the origin and $\ptmiss$~\cite{mahalanobis1936generalised}.
+
+Just as $\ptmiss$ is constructed from a (negative) sum of contributions from
+objects in an event,
+$S$ is a sum of covariances assigned to those objects;
+both means and variances add linearly.
+
 
 \subsection{Stranverse mass $\mttwo$}
 \label{sec:mt2}
+% TODO
 % angle between the vector sum of the lepton pair and the missing transverse momentum.
 % leptons and the missing transverse momentum.
 % If two massive particles are pair produced and each decays to a
@@ -496,12 +579,64 @@ reconstructed objects~\cite{atlas_met_significance}.
 % and $WW\rightarrow\ell\nu\ell\nu$ have a kinematic endpoint
 % at the $W$ pole mass, and $\tau\tau$ is constrained within measurement error of zero.
 
+Just as the slepton is a supersymmetric partner to a lepton, the stransverse
+mass  $\mttwo$ is a partner to the `transverse mass' $m_T$
+(to be defined shortly),
+that is useful in searches for supersymmetric particles.
+
+The stransverse mass of an event is a greatest lower bound on the mass of a
+pair-produced resonance, that applies when each partner decays semi-invisibly.
+For example, an on-shell $\tilde\ell^+\tilde\ell^-$ pair decaying as
+$\tilde\ell^+ \rightarrow \ell^+ \neutralino_1
+,~
+\tilde\ell^- \rightarrow \ell^- \neutralino_1$ has
+$\mttwo(\ell^+, \ell^-, m(\neutralino_1)) \leq m(\tilde\ell)$, plus some error
+margin for experimental resolution.
+Such cases are common since, R-parity conservation implies pair production,
+and the idea that dark matter could comprise the lightest supersymmetric
+particle motivates invisible decays.
+
+Lacking direct observation of sleptons, $\mttwo$ remains useful in separating
+standard model processes; dileptonic $t\bar t$ and $W^\pm W^\mp$ decays both
+satisfy $\mttwo(\ell^+, \ell^-, 0) \leq m(W)$ (since $0 \approx m(\nu)$).
+The $\twoljets$ electroweak search depends on this effect;
+most selections require $\mttwo(\ell^+, \ell^-, 0) > 80~\eV[G]$, or similar,
+to reduce $t\bar t$, $W^\pm W^\mp$ and $\tau^\pm\tau^\mp$ backgrounds.
+
+To be precise, the stransverse mass explores how to split the observed
+$\ptmiss$ between the two visible decay products in an event, and can be
+defined as
+\begin{equation}
+\mttwo(a_\mu, b_\mu, m)
+=
+\min_{\vec p\,+\,\vec q\,=\,\ptmiss}
+\max
+\begin{Bmatrix}
+m_T(a_\mu + \{\!\sqrt{m^2 - \vec p_T^{\:2}},\,\vec p\,\}_\mu)\\
+m_T(b_\mu + \{\!\sqrt{m^2 - \vec q_T^{\:2}},\,\vec q\,\}_\mu)\\
+\end{Bmatrix}
+,
+\end{equation}
+in which $m_T^2(p_\mu) = p_0^2 - p_1^2 - p_2^2$~\cite{lester1999measuring}.
+As an extension, one can assign different masses $m_p$ and $m_q$ to the
+the two invisible products~\cite{lester2015bisection}.
+
+Numerical evaluation of $\mttwo$ can be performed efficiently with interval
+bisection algorithms, which seek the least resonance mass for which the
+transverse masses allow any compatible missing momentum
+assignment~\cite{cheng2008minimal, lester2015bisection}.
+Public code for calculating $\mttwo$ is available as a Python
+library~\cite{gillam2021mt2}, to which I contributed a faster and more robust
+implementation of the bisection algorithm by
+Lester and Nachman~\cite{lester2015bisection} during this project.
+
+
 \subsection{$b$-tagging}
 \label{sec:btagging}
 % with $\pt > 20$ GeV,
 % where the tag is taken on the mv2c10 classifier at the $77\%$ working point.
 
-\clearpage
+
 \subsection{Cheat-sheet}
 Uncomfortably many event variables are used to define the regions of this
 analysis.
@@ -560,36 +695,6 @@ larger $\metsig$.
 Binning regions in $\metsig$ therefore also improves sensitivity to
 individual parameter points and allows targeted selections on other, locally-relevant,
 event variables.
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.49\textwidth]{figures/2ljets_presel_met_logy.png}
-\hfill
-\includegraphics[width=0.49\textwidth]{figures/2ljets_presel_met_sig_logy.png}
-\caption{
-Illustration of how $\metsig$ beats $\met$ alone in sensitivity to
-example signal models.
-At large $\metsig$, $t\bar t$ and other backgrounds are suppressed, leaving
-quite pure diboson backgrounds and greater significance measures.
-Signal models with smaller mass splittings tend to have the bulk of their
-events at smaller $\met$.
-\\[0.5em]
-This loose selection ``SRpreewk'' requires two same-flavor opposite-sign
-signal leptons with
-$\mll \in (71, 111)~\eV[G]$,
-$\mjj \in (60, 110)~\eV[G]$,
-$\nbtag \leq 1$,
-$\met > 100~\eV[G]$, and
-$\metsig > 6$.
-\\[0.5em]
-``Significance'' displayed in the lower subplot uses the Binomial significance
-$Z_{Bi}$ from~\cite{cousins2008evaluation}, with a $30\%$ background
-uncertainty and yields taken to the right of a given value.
-Large values indicate expected sensitivity to the signal model.
-}
-\label{fig:2ljets_presel_met}
-\end{figure}
-
 
 
 % CRs go in with relevant SR category
