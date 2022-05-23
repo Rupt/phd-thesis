@@ -509,8 +509,10 @@ estimates, which, from my perspective, are hard to interpret or trust.
 For these reasons, the $\twoljets$ electroweak analysis does not use any
 RJR event variables.
 
+
 \subsection{Electroweak}
 \label{sec:2ljets_origins_electroweak}
+
 
 \subsection{Strong}
 \label{sec:2ljets_origins_strong}
@@ -518,6 +520,11 @@ RJR event variables.
 
 \section{Event variables}
 % lepton, jet definitions
+
+
+
+\subsubsection{$b$-tagging}
+\label{sec:btagging}
 
 
 \subsection{$\met$ significance}
@@ -609,17 +616,6 @@ both means and variances add linearly.
 
 \subsection{Stranverse mass $\mttwo$}
 \label{sec:mt2}
-% TODO
-% angle between the vector sum of the lepton pair and the missing transverse momentum.
-% leptons and the missing transverse momentum.
-% If two massive particles are pair produced and each decays to a
-% lepton and something massless and invisible,
-% then this estimates a greatest lower bound on the invariant
-% mass of the pair produced particles.
-% $\mttwo(\ell, \ell; 0)$ is useful for excluding standard model backgrounds;
-% di-leptonic ttbar ($tt\rightarrow WW\rightarrow\ell\nu\ell\nu$)
-% and $WW\rightarrow\ell\nu\ell\nu$ have a kinematic endpoint
-% at the $W$ pole mass, and $\tau\tau$ is constrained within measurement error of zero.
 
 Just as the slepton is a supersymmetric partner to a lepton, the stransverse
 mass  $\mttwo$ is a partner to the `transverse mass' $m_T$
@@ -671,13 +667,6 @@ Public code for calculating $\mttwo$ is available as a Python
 library~\cite{gillam2021mt2}, to which I contributed a faster and more robust
 implementation of the bisection algorithm by
 Lester and Nachman~\cite{lester2015bisection} during this project.
-
-
-\subsection{$b$-tagging}
-\label{sec:btagging}
-% with $\pt > 20$ GeV,
-% where the tag is taken on the mv2c10 classifier at the $77\%$ working point.
-
 
 \subsection{Cheat-sheet}
 Uncomfortably many event variables are used to define the regions of this
