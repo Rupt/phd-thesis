@@ -180,7 +180,6 @@ Poisson error bars for $0$ events are hidden for aesthetic reasons.
 \end{figure}
 
 
-
 % exclusion plots
 
 \begin{figure}[tp]
@@ -522,10 +521,83 @@ RJR event variables.
 % lepton, jet definitions
 
 
+\subsection{Trigger}
+There would be no event variables if not for the trigger.
+When living our daily lives, we are bombarded with sensory data and must pay
+attention only only those gems few of any use, to avoid exhausting our
+processing capacity.
+Running \atlas\ is no different.
+
+Each trigger in \atlas' arsenal activates on a selection comprising some
+combination of sufficiently hard objects.
+The set of targeted objects includes all those used in this analysis and more:
+electron, muons, jets, $b$-jets, $\met$, as well as photons and hadronically
+decaying tau leptons~\cite{atlas_PERF_2007_01}.
+
+The list of available triggers in \atlas\ is designed to balance data rates
+against physical interest.
+It includes a variety of general purpose selections, which are used for
+$\twoljets$, along with more specialized targets such as vector boson fusion
+or long lived particles.
+The list varies through time, so we select triggers specifically in
+each data-taking period.
+
+The loosest triggers are `prescaled' --- their data rate is reduced by randomly
+accepting only a small fraction of events.
+For $\twoljets$, we use only the `lowest' (loosest, highest rate) un-prescaled
+triggers selecting two charged leptons~\cite{atlas_twiki_lowest_unprescaled}.
+Those charged leptons are selected in the
+high-level trigger (described in Section~\ref{sec:atlas_trigger})
+primarily requiring large $\pt$ and certain quality criteria which vary by
+trigger.
+
+In total, we use $14$ different two-lepton trigger selections, each of which
+selects for an electron pair, a muon pair, or an emu (electron-muon pair).
+To describe those triggers let $\pt^{\ell_i}$ be the transverse momentum of the
+$i\mathrm{th}$ hardest lepton.
+
+In short, all triggers require $\pt^{\ell_i}$ values to exceed
+$8\textrm{--}26~\eV[G]$.
+To detail all trigger requirements and their variations with data period
+would be too tedious and not enlightening, but their $\pt^{\ell_i}$ requirements
+are summarized here.
+\begin{itemize}
+\item Electron pair: requirements vary between
+\begin{itemize}
+\item $\pt^{e_2} > 12~\eV[G]$ and
+\item $\pt^{e_2} > 17~\eV[G]$.
+\end{itemize}
+\item Muon pair: symmetric requirements vary between
+\begin{itemize}
+\item $\pt^{\mu_2} > 10~\eV[G]$ and
+\item $\pt^{\mu_2} > 14~\eV[G]$.
+\end{itemize}
+Asymmetric requirements vary between
+\begin{itemize}
+\item $\pt^{\mu_1} > 18~\eV[G]~\&~\pt^{\mu_2} > 8~\eV[G]$, and
+\item $\pt^{\mu_1} > 22~\eV[G]~\&~\pt^{\mu_2} > 8~\eV[G]$.
+\end{itemize}
+\item Emu pair: various asymmetric requirements include
+\begin{itemize}
+\item $\pt^{e_1} > 17~\eV[G]~\&~\pt^{\mu_1} > 14~\eV[G]$,
+\item $\pt^{e_1} > 7~\eV[G]~\&~\pt^{\mu_1} > 24~\eV[G]$, and
+\item $\pt^{e_1} > 26~\eV[G]~\&~\pt^{\mu_1} > 8~\eV[G]$.
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Alternative triggers}
+\textit{Knut Vadla} \TODO
+
+\subsection{Leptons}
+Charged leptons are essential to the $\twoljets$ analysis.
+
+\subsection{Jets}
+
 
 \subsubsection{$b$-tagging}
 \label{sec:btagging}
 
+\subsection{$\met$}
 
 \subsection{$\met$ significance}
 \label{sec:metsig}
@@ -702,6 +774,7 @@ all are are estimates based on approximate reconstructions.
 While this distinction is easy to drop in lax language, is necessary to
 understand the shapes of noisy variables such as $\mjj$ and indeed the
 existence of $\metsig$.
+
 
 \FloatBarrier
 \section{Design}
