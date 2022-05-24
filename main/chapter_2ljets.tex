@@ -517,8 +517,20 @@ RJR event variables.
 \label{sec:2ljets_origins_strong}
 
 
-\section{Event variables}
+\section{Event features}
 % lepton, jet definitions
+
+From its name, the $\twoljets$ analysis analyses features of events with two
+charged leptons (electrons or muons --- not taus), and at least one jet.
+Though not nominal, the a $\met$ requirement is also implicit from the context
+of $R$-parity conserving supersymmetric models.
+This section serves to describe how events are selected for the $\twoljets$
+analyses, and which event variables are extracted for use in its selections.
+
+Triggers and object definitions are shared between the three $\twoljets$
+searches.
+Higher level event variables and selections will only be described for the
+$\twoljets$ electroweak search.
 
 
 \subsection{Trigger}
@@ -556,8 +568,8 @@ selects for an electron pair, a muon pair, or an emu (electron-muon pair).
 To describe those triggers let $\pt^{\ell_i}$ be the transverse momentum of the
 $i\mathrm{th}$ hardest lepton.
 
-In short, all triggers require $\pt^{\ell_i}$ values to exceed
-$8\textrm{--}26~\eV[G]$.
+In short, all triggers require $\pt^{\ell_i}$ values to exceed thresholds in
+the range $8\textrm{--}26~\eV[G]$.
 To detail all trigger requirements and their variations with data period
 would be too tedious and not enlightening, but their $\pt^{\ell_i}$ requirements
 are summarized here.
@@ -567,13 +579,10 @@ are summarized here.
 \item $\pt^{e_2} > 12~\eV[G]$ and
 \item $\pt^{e_2} > 17~\eV[G]$.
 \end{itemize}
-\item Muon pair: symmetric requirements vary between
+\item Muon pair: various requirements include
 \begin{itemize}
-\item $\pt^{\mu_2} > 10~\eV[G]$ and
-\item $\pt^{\mu_2} > 14~\eV[G]$.
-\end{itemize}
-Asymmetric requirements vary between
-\begin{itemize}
+\item $\pt^{\mu_2} > 10~\eV[G]$,
+\item $\pt^{\mu_2} > 14~\eV[G]$,
 \item $\pt^{\mu_1} > 18~\eV[G]~\&~\pt^{\mu_2} > 8~\eV[G]$, and
 \item $\pt^{\mu_1} > 22~\eV[G]~\&~\pt^{\mu_2} > 8~\eV[G]$.
 \end{itemize}
@@ -584,6 +593,7 @@ Asymmetric requirements vary between
 \item $\pt^{e_1} > 26~\eV[G]~\&~\pt^{\mu_1} > 8~\eV[G]$.
 \end{itemize}
 \end{itemize}
+Trigger requirements have increased in hardness with time.
 
 \subsubsection{Alternative triggers}
 \textit{Knut Vadla} \TODO
