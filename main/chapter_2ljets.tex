@@ -37,7 +37,7 @@ There are certain plots and tables which, personally, I first seek when
 meeting an \atlas\ search paper.
 This chapter begins by presenting those results in brief in
 Section~\ref{sec:2ljets_splash}.
-The the meat of this chapter (or if you prefer, its gory details) follows in
+The meat of this chapter (or if you prefer, its gory detail) follows in
 Section~\ref{sec:2ljets_context} onwards.
 
 
@@ -594,7 +594,8 @@ are summarized here.
 \item $\pt^{e_1} > 26~\eV[G]~\&~\pt^{\mu_1} > 8~\eV[G]$.
 \end{itemize}
 \end{itemize}
-Trigger requirements increase in hardness with time.
+Quite generally throughout the data used in $\twoljets$, trigger requirements
+have increased in hardness with time.
 
 
 \subsubsection{Alternative triggers}
@@ -604,18 +605,17 @@ reconstructed at trigger level, or perhaps also triggers for jets and $\met$.
 The answer is that the benefits of additional triggers were assessed to not
 outweigh the cost of using using them.
 
-The benefit of an additional trigger could be increased signal yields, if that
-trigger do not also harmfully increase inseparable backgrounds.
-A study, \textit{which was performed by Knut Vadla}, compared the efficiencies
-of including one-lepton triggers.
+The benefit of an additional trigger could be in increased signal yields if
+that trigger do not also harmfully increase inseparable backgrounds.
+A study, \textit{which was performed by Knut Vadla}, investigated the effects
+of of including one-lepton triggers.
 In a signal-region-like selection requiring two leptons, two jets and
 $\met > 200~\eV[G]$, this study showed that two-lepton triggers already accept
 in excess of $90\%$ of events from benchmark C1N2 models.
-
 Therefore, any additional trigger has at most a $\approx10\%$;
 improvement. Adding one-lepton triggers was found to increase efficiency by
 only a few percentage points, depending on the model.
-We considered that to be too little.
+We considered that to be too little to be worthwhile.
 
 Costs of triggers are attributable to human effort;
 software work to include them and their associated Monte Carlo weights, along
@@ -637,7 +637,31 @@ throughout the $\twoljets$ analyses.
 
 
 \subsection{Leptons}
-Charged leptons are essential to the $\twoljets$ analysis.
+In the context of $\twoljets$, `leptons' means `electron-or-muons';
+this is because taus, which decay before reconstruction, and are not used
+directly in $\twoljets$, and neutral leptons (the neutrinos) go missing.
+
+Reconstructed lepton objects feature momenta, charges, and flavours.
+Each is included only if it satisfies certain kinematic and
+is identified with certain `quality' requirements.
+
+Muons are identified by fitting tracks to hits in the inner tracker and muon
+spectrometer, and their quality requirements use goodness-of-fit metrics of
+those fits along with low level details of detector interactions, to primarily
+to reduce backgrounds from non-prompt muons from hadronic
+decays~\cite{atlas_muon_quality_MUON_2018_03}.
+
+Electron identification combines data from the inner tracker and
+calorimeters. Electron quality criteria use numerous features of detector
+interactions, track fitting metrics, matching of those tracks to calorimeters,
+calorimeter shower shapes, and leakage into the hadronic calorimeter to reduce
+backgrounds from photons, hadrons, and non-prompt electrons from hadronic
+decays~\cite{atlas_egamma_quality_EGAM_2018_01}.
+
+\TODO{signal objects have isolation criteria}
+
+\TODO{lepton pairs SF-OS for Z}
+
 
 \subsection{Jets}
 
