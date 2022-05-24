@@ -556,7 +556,8 @@ each data-taking period.
 
 The loosest triggers are `prescaled' --- their data rate is reduced by randomly
 accepting only a small fraction of events.
-For $\twoljets$, we use only the `lowest' (loosest, highest rate) un-prescaled
+Prescaling adds complication which we avoid;
+for $\twoljets$, we use only the `lowest' (loosest, highest rate) un-prescaled
 triggers selecting two charged leptons~\cite{atlas_twiki_lowest_unprescaled}.
 Those charged leptons are selected in the
 high-level trigger (described in Section~\ref{sec:atlas_trigger})
@@ -595,8 +596,41 @@ are summarized here.
 \end{itemize}
 Trigger requirements have increased in hardness with time.
 
+
 \subsubsection{Alternative triggers}
-\textit{Knut Vadla} \TODO
+Why should we only use two-lepton triggers?
+Alternatives could be one-lepton triggers, for cases where the other is not
+reconstructed at trigger level, or perhaps also triggers for jets and $\met$.
+The answer is that the benefits of additional triggers were assessed to not
+outweigh the cost of using using them.
+
+The benefit of an additional trigger could be increased signal yields, if that
+trigger do not also harmfully increase inseparable backgrounds.
+A study, \textit{which was performed by Knut Vadla}, compared the efficiencies
+of including one-lepton triggers.
+In a signal-region-like selection requiring two leptons, two jets and
+$\met > 200~\eV[G]$, this study showed that two-lepton triggers already accept
+in excess of $90\%$ of events from benchmark C1N2 models.
+Therefore any additional trigger can therefore have at most a $\approx10\%$;
+improvement, and adding one-lepton triggers was found to increase efficiency by
+only a few percentage points, depending on the model.
+We considered that to be too little.
+
+Costs of triggers are attributable to human effort; adding triggers requires
+software work to include them and their associated Monte Carlo weights, along
+with additional studies to validation of background estimates and evaluation of
+systematic uncertainties.
+Similarly, our implementation of the Matrix Method fake/non-prompt lepton
+background estimate (see Section~\ref{sec:2ljets_mm_fakes}) is not equipped to
+handle one-lepton triggers.
+
+Although jet and $\met$ triggers were not studied in detail, they require
+hard objects, such as $\ptjone \gtrsim 400~\eV[G]$ or
+$\met \gtrsim 100~\eV[G]$~\cite{atlas_twiki_lowest_unprescaled}.
+Leptons are striking signals which \atlas\ can trigger on with much softer
+requirements; lepton triggers allow us to use softer jets and $\met$,
+which are relied upon throughout the $\twoljets$ analyses.
+
 
 \subsection{Leptons}
 Charged leptons are essential to the $\twoljets$ analysis.
@@ -830,6 +864,7 @@ event variables.
 % TODO generator filtering
 
 \subsection{Fake/non-prompt leptons}
+\label{sec:2ljets_mm_fakes}
 
 \section{Validation}
 
