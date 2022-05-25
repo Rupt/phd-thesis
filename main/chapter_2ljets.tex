@@ -643,20 +643,33 @@ directly in $\twoljets$, and neutral leptons (the neutrinos) go missing.
 
 Reconstructed lepton objects feature momenta, charges, and flavours.
 Each is included only if it satisfies certain kinematic and
-is identified with certain `quality' requirements.
+is identified with `quality' criteria.
+For both electron and muons, these criteria are standardized with labels
+`loose', `medium', and `tight'.
+These are nested, in the sense that tight implies medium,
+and medium implies loose.
+Other, more specialized, criteria exist, but they are not relevant $\twoljets$.
 
 Muons are identified by fitting tracks to hits in the inner tracker and muon
-spectrometer, and their quality requirements use goodness-of-fit metrics of
-those fits along with low level details of detector interactions, to primarily
-to reduce backgrounds from non-prompt muons from hadronic
-decays~\cite{atlas_muon_quality_MUON_2018_03}.
+spectrometer.
+Their quality criteria use goodness-of-fit metrics from those fits, along with
+low-level details of detector interactions.
+Tighter requirements primarily act to to reduce from non-prompt backgrounds,
+which are muons from hadronic decays~\cite{atlas_muon_quality_MUON_2018_03}.
 
 Electron identification combines data from the inner tracker and
-calorimeters. Electron quality criteria use numerous features of detector
-interactions, track fitting metrics, matching of those tracks to calorimeters,
-calorimeter shower shapes, and leakage into the hadronic calorimeter to reduce
-backgrounds from photons, hadrons, and non-prompt electrons from hadronic
+calorimeters.
+Electron quality criteria use numerous features of detector
+interactions, track fitting metrics, the matching of tracks to calorimeter
+clusters, calorimeter shower shapes, and leakage into the hadronic calorimeter.
+Tighter requirements reduce backgrounds, which include misidentified objects
+--- photons and hadrons --- as well as non-prompt electrons from hadronic
 decays~\cite{atlas_egamma_quality_EGAM_2018_01}.
+
+Isolation of leptons from nearby hadronic activity is another feature which
+can be used to reduce misidentification rates.
+Standard isolation definitions exist for both electrons and muons in a similar
+structure to the quality criteria.
 
 \TODO{signal objects have isolation criteria}
 
