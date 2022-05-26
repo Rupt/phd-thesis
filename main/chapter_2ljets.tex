@@ -598,6 +598,8 @@ are summarized here.
 Quite generally throughout the data used in $\twoljets$, trigger requirements
 have increased in hardness with time.
 
+\TODO{reference for trigger details, eta range?}
+
 
 \subsubsection{Alternative triggers}
 Why should we only use two-lepton triggers?
@@ -626,9 +628,9 @@ Similarly, our implementation of the Matrix Method fake/non-prompt lepton
 background estimate (see Section~\ref{sec:2ljets_mm_fakes}) is not equipped to
 handle one-lepton triggers.
 
-Although jet and $\met$ triggers were not studied in detail, they require
-hard objects: examples are approximately $\ptjone > 400~\eV[G]$,
-$p_\mathrm{T}^{\,j_3} > 200~\eV[G]$, or
+Although jet and $\met$ triggers were not studied in detail, they can be
+quickly ruled out since they hard objects: examples of these triggers require
+approximately $\ptjone > 400~\eV[G]$, $p_\mathrm{T}^{\,j_3} > 200~\eV[G]$, or
 $\met > 100~\eV[G]$~\cite{atlas_twiki_lowest_unprescaled}.
 Leptons, however, are striking signals which are produced as smaller background
 rates, as they suppressed by electroweak couplings.
@@ -700,9 +702,26 @@ work~\cite{atlas_23l_SUSY_2016_24}.
 
 \subsection{Jets}
 
+Like leptons, jets are identified with `baseline' and `signal' requirements
+with increasingly tight requirements on quality metrics and kinematics.
+
+\TODO{anti-kt 0.4}
+
+Baseline jets require $\pt > 20~\eV[G]$, and signal jets require
+$\pt > 30~\eV[G]$.
+The $\twoljets$ electroweak analysis uses only signal jets unless those jets
+are $b$-tagged.
 
 \subsubsection{$b$-tagging}
 \label{sec:btagging}
+Tagging adds additional labels to jets, and is particularly useful for
+encoding flavour information derived from data within the jet cluster.
+In particular, $b$-tagging attempts to identify jets originating from $b$
+quarks, which have distinct features due to the long lifetimes and decay
+channels of $B$ hadrons.
+
+
+\TODO{context: charm quarks, large radius (jumbo) jets top higgs}
 
 \subsection{$\met$}
 
