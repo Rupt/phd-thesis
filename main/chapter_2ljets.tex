@@ -28,7 +28,7 @@ corresponds to a kind of utter honesty --- a kind of leaning over backwards.%
 \end{epigraphs}
 \end{singlespacing}
 
-My core contribution of this thesis is to the recent \atlas\
+My core contribution in this thesis is to the recent \atlas\
 search ``for new phenomena in events with two leptons, jets, and
 missing transverse momentum''~\cite{atlas2022searches}.
 For brevity, I will call this search $\twoljets$.
@@ -709,28 +709,41 @@ Like leptons, hadronic jets are identified with `baseline' and `signal'
 requirements with increasingly tight requirements on quality metrics and
 kinematics.
 
-Jets in $\twoljets$ use the anti-$k_t$ algorithm with the standard small radius
+Jets in $\twoljets$ use the anti-$k_t$ algorithm with the standard small-radius
 parameter of $R=0.4$~\cite{jet_anti_kt}.
-Jets are formed from ``topological'' clusters of energy deposits in the
+Jets are formed from `topological' clusters of energy deposits in the
 calorimeters~\cite{atlas_jet_topo_PERF_2014_07}.
 
-This topological clustering algorithm is not the latest \atlas\ jet algorithm;
-it has been supplanted in recent years by a `particle flow' method, which
-uses tracking information to improve the reconstruction of charged
+This topological clustering algorithm is no longer the \atlas-recommended jet
+algorithm; it has been supplanted in recent years by a `particle flow' method,
+which uses tracking information to improve the reconstruction of charged
 hadrons~\cite{atlas_jet_pflow_PERF_2015_09}.
-We did not switch to these improved jets because the change would have required
-further delays.
+We did not attempt to switch to these improved jets because the change in
+policy occurred during the years this analysis was in development, and the
+change would have required more work and even more delays.
 
-Baseline jets are defined require $\pt > 20~\eV[G]$, and signal jets require
-$\pt > 30~\eV[G]$.
-Again, details of quality criteria and angular selections
-The $\twoljets$ electroweak analysis uses only signal jets unless those jets
-are $b$-tagged.
+Baseline jets are defined to require $\pt > 20~\eV[G]$ with $|\eta| < 2.8$;
+signal jets additionally require $\pt > 30~\eV[G]$.
+To reduce the impact of pile-up jets, a variety of quality criteria are used,
+depending on the jet $\pt$ and $|\eta|$.
+Details of these quality criteria and angular selections are given in the
+paper~\cite{atlas2022searches}.
+
 
 \subsubsection{$b$-tagging}
 \label{sec:btagging}
-Tagging adds additional labels to jets, and is particularly useful for
-encoding flavour information derived from data within the jet cluster.
+
+Tagging adds labels to objects.
+For jets in $\twoljets$, $b$-tagging is used to identify jets which are
+more likely to have originated from $b$ quarks;
+these tags serve to improve our separation of $t\bar t$ backgrounds and
+of signals producing $Z/h \rightarrow b\bar b$ decays.
+
+Signal $b$-tagged jets require $\pt > 20~\eV[G]$, $|\eta| < 2.5$ and a tag from
+the `MV2c10' algorithm at its $77\%$ efficiency working point.
+\TODO{cite, summarize}
+
+encode information derived from data within the jet cluster.
 In particular, $b$-tagging attempts to identify jets originating from $b$
 quarks, which have distinct features due to the long lifetimes and decay
 channels of $B$ hadrons.
