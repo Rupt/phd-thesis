@@ -690,8 +690,11 @@ three-lepton events can be used independently in other studies.
 Baseline leptons are required only to have  $\pt > 3~\eV[G]$ for muons and
 $\pt > 4.5~\eV[G]$ for electrons.
 Signal leptons are all required to have $\pt > 10~\eV[G]$, along with tighter
-quality and isolation requirements, details of which can be found in the
+quality and isolation requirements, details of which are given in the
 paper~\cite{atlas2022searches}.
+Electrons are accepted within $|\eta| < 2.47$.
+Baseline muons have $|\eta| < 2.7$, and signal muons have $|\eta| < 2.6$.
+
 
 All leptons used in regions of the $\twoljets$ electroweak analysis are signal
 leptons with $\pt > 25~\eV[G]$.
@@ -702,13 +705,25 @@ work~\cite{atlas_23l_SUSY_2016_24}.
 
 \subsection{Jets}
 
-Like leptons, jets are identified with `baseline' and `signal' requirements
-with increasingly tight requirements on quality metrics and kinematics.
+Like leptons, hadronic jets are identified with `baseline' and `signal'
+requirements with increasingly tight requirements on quality metrics and
+kinematics.
 
-\TODO{anti-kt 0.4}
+Jets in $\twoljets$ use the anti-$k_t$ algorithm with the standard small radius
+parameter of $R=0.4$~\cite{jet_anti_kt}.
+Jets are formed from ``topological'' clusters of energy deposits in the
+calorimeters~\cite{atlas_jet_topo_PERF_2014_07}.
 
-Baseline jets require $\pt > 20~\eV[G]$, and signal jets require
+This topological clustering algorithm is not the latest \atlas\ jet algorithm;
+it has been supplanted in recent years by a `particle flow' method, which
+uses tracking information to improve the reconstruction of charged
+hadrons~\cite{atlas_jet_pflow_PERF_2015_09}.
+We did not switch to these improved jets because the change would have required
+further delays.
+
+Baseline jets are defined require $\pt > 20~\eV[G]$, and signal jets require
 $\pt > 30~\eV[G]$.
+Again, details of quality criteria and angular selections
 The $\twoljets$ electroweak analysis uses only signal jets unless those jets
 are $b$-tagged.
 
