@@ -534,6 +534,7 @@ $\twoljets$ electroweak search.
 
 
 \subsection{Trigger}
+\label{sec:2ljets_trigger}
 There would be no event variables if not for the trigger.
 When living our daily lives, we are bombarded with sensory data and must pay
 attention only only those gems few of any use, to avoid exhausting our
@@ -671,9 +672,30 @@ can be used to reduce misidentification rates.
 Standard isolation definitions exist for both electrons and muons in a similar
 structure to the quality criteria.
 
-\TODO{signal objects have isolation criteria}
+Leptons in $\twoljets$ are further sliced into two classes:
+`baseline' and `signal'.
+Baseline leptons and are used in background estimation methods and to ensure
+orthogonality with other \atlas\ analyses, which study events with differing
+lepton counts.
+Baseline requirements are softer and lower quality than signal requirements.
 
-\TODO{lepton pairs SF-OS for Z}
+Any event used in regions of the $\twoljets$ electroweak analysis is required
+to have exactly two baseline leptons and exactly two signal leptons, meaning
+that the event has two reconstructed leptons which pass both sets of criteria.
+This vetoes events with soft or low quality third leptons, ensuring that those
+three-lepton events can be used independently in other studies.
+
+Baseline leptons are required only to have  $\pt > 3~\eV[G]$ for muons and
+$\pt > 4.5~\eV[G]$ for electrons.
+Signal leptons are all required to have $\pt > 10~\eV[G]$, along with tighter
+quality and isolation requirements, details of which can be found in the
+paper~\cite{atlas2022searches}.
+
+All leptons used in regions of the $\twoljets$ electroweak analysis are signal
+leptons with $\pt > 25~\eV[G]$.
+This harder requirement reduces backgrounds, moves our selections away from the
+lowest trigger thresholds, and matches the precedent set by previous
+work~\cite{atlas_23l_SUSY_2016_24}.
 
 
 \subsection{Jets}
