@@ -502,14 +502,19 @@ This is plausibly explained by the fact that  RJR variables are non-trivially
 related to conventional, lab-frame variables.
 Simulations have been tuned to model conventional variables well, and
 `systematic' variations are evaluated and derived in conventional variables.
-Not all functions of the data are well understood.
+Modelling these features accurately does not imply that all other functions of
+the data are well understood.
 These effects cause Monte Carlo simulations to give predictions in RJR regions
 which are inaccurate and/or carry large uncertainties.
 
 A lack of reliable simulations motivates reliance on `data-driven' background
-estimates, which, from my perspective, are hard to interpret or trust.
-For these reasons, the $\twoljets$-electroweak analysis does not use any
-RJR event variables.
+estimates in RJR selections, which, from my perspective, are hard to interpret
+or trust.
+Indeed I argue that all `data-driven' methods rely not only on data but on
+hypothetical extrapolations which may not be well motivated, particularly when
+studying complicated features such as RJR variables.
+For these reasons, I choose to not use any RJR event variables in the the
+$\twoljets$-electroweak analysis.
 
 
 \subsection{Electroweak}
@@ -977,7 +982,8 @@ m_T(b_\mu + \{\!\sqrt{m^2 - \vec q_T^{\:2}},\,\vec q\,\}_\mu)\\
 \end{Bmatrix}
 ,
 \end{equation}
-in which $m_T^2(p_\mu) = p_0^2 - p_1^2 - p_2^2$~\cite{lester1999measuring}.
+in which $m_T^2(p_\mu) = p_0^2 - p_1^2 - p_2^2$ and $\{E,\,\vec p\,\}_\mu$ denotes
+the four-vector with energy $E$ and momentum $\vec p$~\cite{lester1999measuring}.
 As an extension, one can assign different masses $m_p$ and $m_q$ to the
 the two invisible products~\cite{lester2015bisection}.
 
@@ -994,6 +1000,7 @@ library~\cite{gillam2021mt2}, to which I contributed a faster and more robust
 implementation of the bisection algorithm by
 Lester and Nachman~\cite{lester2015bisection} during this project.
 
+\clearpage
 \subsection{Cheat-sheet}
 Uncomfortably many event variables are used to define the regions of this
 analysis.
