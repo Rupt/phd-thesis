@@ -520,9 +520,7 @@ RJR event variables.
 \label{sec:2ljets_origins_strong}
 
 
-\section{Event features}
-% lepton, jet definitions
-
+\section{Events and their features}
 From its name, the $\twoljets$ analysis analyses features of events with two
 charged leptons (electrons or muons --- not taus), and at least one jet.
 Though not nominal, the a $\met$ requirement is also implicit from the context
@@ -599,7 +597,7 @@ Please do not read them all in detail.
 \item $\pt^{e_1} > 26\,\eV[G]~\&~\pt^{\mu_1} > 8\,\eV[G]$.
 \end{itemize}
 \end{itemize}
-The point of listing these is that demonstrate trigger activations are
+The point of listing these is to demonstrate trigger activations are
 non-trivial.
 This motivates lepton selections which exceed these trigger thresholds,
 so as to avoid the need to model their jagged activations.
@@ -789,10 +787,31 @@ attempt to switch.
 
 
 \subsection{Overlap removal}
+Leptons and jets are independently reconstructed.
+This means that, despite the various quality and isolation requirement, there
+can remain examples where detector responses can be attributed to more than
+one object.
+For example, a track could be attributed to both a muon and an electron,
+or a calorimeter energy cluster could be attributed to both an electron and a
+photon. (Although we do not directly use photons in $\twoljets$, we do not veto
+events containing them --- photons contribute to $\ptmiss$.)
 
-\subsection{$\met$}
+Now we know about both leptons and hadronic jets, we can also improve our
+rejection of non-prompt leptons from hadron decays, since leptons near to jets
+become suspect.
 
-\subsection{$\met$ significance}
+To remove duplicates and further reduce non-prompt lepton contributions, a
+standard overlap removal procedure is applied.
+This procedure, which is detailed in the paper~\cite{atlas2022searches},
+comprises a sequence of rules which modify the collection of event objects.
+Some rules decide which to keep from an overlapping pair,
+and others remove leptons overlapping with jets, based on their $\Delta R$
+and $\pt$.
+
+
+\subsection{$\ptmiss$}
+
+\subsubsection{$\met$ significance}
 \label{sec:metsig}
 
 Most common Standard Model processes at the LHC do not produce hard
