@@ -102,8 +102,8 @@ Equation~\ref{eqn:significance_atlas}.
 Control, validation and signal regions are shown from left to right, with the
 regions within each category ordered approximately by their typical $\met$.
 Likelihoods from validation regions are not included in the fit.
-The `Top' category contains $t\bar t$ and $tW$ processes, and
-`Other' contains fake/non-prompt lepton, higgs, triboson, $t\bar tZ$, and other
+The `Top' category contains $\ttbar$ and $tW$ processes, and
+`Other' contains fake/non-prompt lepton, higgs, triboson, $\ttbar Z$, and other
 rare top processes.%
 }
 \label{fig:2ljets_summary}
@@ -736,35 +736,50 @@ paper~\cite{atlas2022searches}.
 Tagging adds labels to objects.
 Unlike how electrons and muons are very cleanly separated however, jet tagging
 is a more noisy affair.
+Taggers are available for various jet properties, such charm flavor ($c$-jet),
+bottom flavor ($b$-jet).
+Of these, $\twoljets$ uses only $b$-tagging.
 
-For jets in $\twoljets$, $b$-tagging is used to identify jets which are
-more likely to have originated from $b$ quarks;
-these tags serve to improve our separation of $t\bar t$ backgrounds
-(since their weak decays almost always produce $b$ quarks), and
-of signals producing $Z/h \rightarrow b\bar b$ decays in the GMSB model.
+Larger radius jets can also use taggers for heavy decays, such as those from
+$W$, Higgs or top resonance, but large radius were considered too much
+additional work to considered in $\twoljets$.
 
-Signal $b$-tagged jets require $\pt > 20\,\eV[G]$, $|\eta| < 2.5$ and a tag from
-the `MV2c10' boosted decision tree
+Jets originating from $b$ quarks are distinct due to the long lifetimes and
+long decay trees of $B$-hadrons, both of which leave signals in \atlas'
+inner trackers.
+
+For jets in $\twoljets$, $b$-tagging is useful to separate events due to
+$\ttbar$ backgrounds (since their weak decays almost always produce $b$
+quarks), and to select for signals producing $Z/h \rightarrow b\bar b$ decays
+in the GMSB model.
+
+Signal $b$-jets in $\twoljets$ require $\pt > 20\,\eV[G]$, $|\eta| < 2.5$ and a
+tag from the `MV2c10' boosted decision tree
 algorithm~\cite{
 friedman2002stochastic,
 atlas_jet_mv2c10_2017,
 atlas_jet_tagging_2019
-} at its $77\%$ efficiency working point, meaning that a true $b$-jet sampled
-from the distribution of its $t\bar t$ testing set has a $77\%$ probability of
-being tagged.
-The `c10' suffix means that the its training data include a $7\%$ fraction of
+} at its $77\%$ efficiency working point.
+This efficiency means that a true $b$-jet sampled from its testing set has a
+$77\%$ probability of being tagged.
+It is trained on a mixture of $\ttbar$ and $\zjets$ simulated data,
+and the `c10' suffix means that those data include a $7\%$ fraction of
 $c$-jets~\cite{atlas_twiki_mv2}.
 
-This tagging algorithm uses
-\TODO{summarize}
+This tagging algorithm combines various lower-level features, including the
+basic kinematics $\pt$ and $|\eta|$, and more intricate features of
+observable secondary vertices including reconstructed hadronic decay
+trees~\cite{atlas_jet_mv2c10_2017}.
 
-encode information derived from data within the jet cluster.
-In particular, $b$-tagging attempts to identify jets originating from $b$
-quarks, which have distinct features due to the long lifetimes and decay
-channels of $B$ hadrons.
+Alternative working points of $70\%$ and $85\%$ efficiency are used in similar
+\atlas\ searches.
+These were trialled and found to make negligible differences to $\twoljets$.
 
+An alternative $b$-tagging algorithm named `DL1' is now recommended by \atlas,
+but its performance is ``similar'' to MV2, and the two tag
+``highly correlated'' samples~\cite{atlas_jet_tagging_2019}, so we did not
+attempt to switch.
 
-\TODO{context: charm quarks, large radius (jumbo) jets top higgs}
 
 \subsection{Overlap removal}
 
@@ -798,8 +813,8 @@ variable $\metsig$ helps to separate those events with real and well-measured
 $\met$ from those where the measures $\ptmiss$ is more likely to result from
 mismeasurements.
 
-In the context of $\twoljets$ selections, $\metsig$ suppresses $t\bar t$
-contributions more than $\met$ alone, plausibly since $t\bar t$ events are
+In the context of $\twoljets$ selections, $\metsig$ suppresses $\ttbar$
+contributions more than $\met$ alone, plausibly since $\ttbar$ events are
 accompanied with more hadronic activity than other sources of $\ptmiss$.
 What remains of the standard model in the high-$\metsig$ tail for $\twoljets$
 selections is almost pure diboson -- $ZZ$ with a hard $Z\rightarrow \nu\nu$,
@@ -817,7 +832,7 @@ Figure~\ref{fig:2ljets_presel_met}.
 \caption{
 Illustration of how $\metsig$ beats $\met$ alone in sensitivity to
 example signal models.
-At large $\metsig$, $t\bar t$ and other backgrounds are suppressed, leaving
+At large $\metsig$, $\ttbar$ and other backgrounds are suppressed, leaving
 quite pure diboson backgrounds and greater significance measures.
 Signal models with smaller mass splittings tend to have the bulk of their
 events at smaller $\met$.
@@ -881,11 +896,11 @@ and the idea that dark matter could comprise the lightest supersymmetric
 particle motivates invisible decays.
 
 Lacking direct observation of sleptons, $\mttwo$ remains useful in separating
-standard model processes; dileptonic $t\bar t$ and $W^\pm W^\mp$ decays both
+standard model processes; dileptonic $\ttbar$ and $W^\pm W^\mp$ decays both
 satisfy $\mttwo(\ell^+, \ell^-, 0) \leq m(W)$ (since $0 \approx m(\nu)$).
 The $\twoljets$ electroweak search depends on this effect;
 most selections require $\mttwo(\ell^+, \ell^-, 0) > 80\,\eV[G]$, or similar,
-to reduce $t\bar t$, $W^\pm W^\mp$ and $\tau^\pm\tau^\mp$ backgrounds.
+to reduce $\ttbar$, $W^\pm W^\mp$ and $\tau^\pm\tau^\mp$ backgrounds.
 
 To be precise, the stransverse mass explores how to split the observed
 $\ptmiss$ between the two visible decay products in an event, and can be
