@@ -744,12 +744,19 @@ these tags serve to improve our separation of $t\bar t$ backgrounds
 of signals producing $Z/h \rightarrow b\bar b$ decays in the GMSB model.
 
 Signal $b$-tagged jets require $\pt > 20\,\eV[G]$, $|\eta| < 2.5$ and a tag from
-the `MV2c10' algorithm at its $77\%$ efficiency working point.
+the `MV2c10' boosted decision tree
+algorithm~\cite{
+friedman2002stochastic,
+atlas_jet_mv2c10_2017,
+atlas_jet_tagging_2019
+} at its $77\%$ efficiency working point, meaning that a true $b$-jet sampled
+from the distribution of its $t\bar t$ testing set has a $77\%$ probability of
+being tagged.
+The `c10' suffix means that the its training data include a $7\%$ fraction of
+$c$-jets~\cite{atlas_twiki_mv2}.
+
 This tagging algorithm uses
-\cite{atlas_jet_mv2c10_2017, atlas_jet_tagging_2019}
-\TODO{cite, summarize}
-%
-boosted decision tree~\cite{friedman2002stochastic}
+\TODO{summarize}
 
 encode information derived from data within the jet cluster.
 In particular, $b$-tagging attempts to identify jets originating from $b$
