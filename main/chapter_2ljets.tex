@@ -745,7 +745,11 @@ of signals producing $Z/h \rightarrow b\bar b$ decays in the GMSB model.
 
 Signal $b$-tagged jets require $\pt > 20\,\eV[G]$, $|\eta| < 2.5$ and a tag from
 the `MV2c10' algorithm at its $77\%$ efficiency working point.
+This tagging algorithm uses
+\cite{atlas_jet_mv2c10_2017, atlas_jet_tagging_2019}
 \TODO{cite, summarize}
+%
+boosted decision tree~\cite{friedman2002stochastic}
 
 encode information derived from data within the jet cluster.
 In particular, $b$-tagging attempts to identify jets originating from $b$
@@ -827,22 +831,25 @@ Large values indicate expected sensitivity to the signal model.
 \label{fig:2ljets_presel_met}
 \end{figure}
 
-Uncertainty in $\ptmiss$ is modelled for $\metsig$ by a covariance matrix, $S$,
-in the transverse plane, and used to define
+Uncertainty in $\ptmiss$ is modelled for $\metsig$ by a covariance matrix
+$\Omega$ in the transverse plane, and used to define
 \begin{equation}
 \metsig
 =
-\ptmiss S^{-1} \ptmiss
+\ptmiss \Omega^{-1} \ptmiss
+=
+\frac{(\met)^2}{\sigma_L^2(1 - \rho_{LT}^2)}
 ,
 \end{equation}
-which can be rearranged into a ratio of $(\met)^2$ to a function of elements
-of the covariance matrix~\cite{atlas_met_significance}.
+in which $\sigma_L^2$ is the variance in the direction of $\ptmiss$ and
+$\rho_{LT}$ is the correlation coefficient between the parallel and
+perpendicular components~\cite{atlas_met_significance}.
 This is the square of a Mahalanobis (standard-deviations) distance between
 the origin and $\ptmiss$~\cite{mahalanobis1936generalised}.
 
 Just as $\ptmiss$ is constructed from a (negative) sum of contributions from
 objects in an event,
-$S$ is a sum of covariances assigned to those objects;
+$\Omega$ is a sum of covariances assigned to those objects;
 both means and variances add linearly.
 
 
