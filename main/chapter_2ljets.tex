@@ -749,7 +749,7 @@ Details of these quality criteria and angular selections are given in the
 paper~\cite{atlas2022searches}.
 
 
-\subsubsection{$b$-tagging}
+\subsection{$b$-jets}
 \label{sec:2ljets_btagging}
 Tagging adds labels to objects.
 Unlike how electrons and muons are very cleanly separated however, jet tagging
@@ -782,7 +782,9 @@ This efficiency means that a true $b$-jet sampled from its testing set has a
 $77\%$ probability of being tagged.
 It is trained on a mixture of $\ttbar$ and $\zjets$ simulated data,
 and the `c10' suffix means that those data include a $7\%$ fraction of
-$c$-jets~\cite{atlas_twiki_mv2}.
+$c$-jets, and that the tagger does not use newer inputs from the
+RNNIP (Recurrent Neural Network Impact Parameter) tagger, nor the
+SMT (Soft Muon Tagger)~\cite{atlas_twiki_mv2, atlas_jet_mv2c10_2017}.
 
 This tagging algorithm combines various lower-level features, including the
 basic kinematics $\pt$ and $|\eta|$, and more intricate features of
@@ -823,7 +825,7 @@ and others remove leptons overlapping with jets, based on their $\Delta R$
 and $\pt$.
 
 
-\subsection{$\ptmiss$}
+\subsection{$\met$}
 Every event has $\ptmiss$.
 Unlike leptons, jets, and other objects which we must select for, the $\ptmiss$
 of an event is a natural result of the conservation of momentum, which \atlas'
