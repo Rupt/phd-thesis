@@ -933,11 +933,11 @@ Large values indicate expected sensitivity to the signal model.
 \end{figure}
 
 Uncertainty in $\ptmiss$ is modelled for $\metsig$ by a covariance matrix
-$\Omega$ in the transverse plane, and used to define
+$\Sigma$ in the transverse plane, and used to define
 \begin{equation}
 \metsig^2
 =
-\ptmiss \Omega^{-1} \ptmiss
+\ptmiss \Sigma^{-1} \ptmiss
 =
 \frac{(\met)^2}{\sigma_L^2(1 - \rho_{LT}^2)}
 ,
@@ -950,7 +950,7 @@ the origin and $\ptmiss$~\cite{mahalanobis1936generalised}.
 
 Just as $\ptmiss$ is constructed from a (negative) sum of contributions from
 objects in an event,
-$\Omega$ is a sum of covariances assigned to those objects;
+$\Sigma$ is a sum of covariances assigned to those objects;
 both means and variances add linearly.
 
 
