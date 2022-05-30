@@ -120,7 +120,8 @@ rare top processes.%
 \caption{%
 Supersymmetric signal processes in the $\twoljets$-electroweak
 analysis.
-\textit{Figures reproduced from the paper}~\cite{atlas2022searches}.
+\textit{Figures reproduced from the paper%
+}~\cite{atlas2022searches, atlas_susy_feynman}.
 \\[0.5em]
 Left: C1N2, where the initial $\chargino_1\textrm{--}\neutralino_2$ pair
 is produced through a $s$-channel $W^{\pm}$ resonance and the masses of
@@ -520,9 +521,78 @@ $\twoljets$-electroweak analysis.
 
 \subsection{Strong}
 \label{sec:2ljets_origins_strong}
+% intro
+Strong supersymmetry, producing super-partners of quarks and gluons, would be
+produced at much larger cross-sections than electroweak supersymmetry at the
+LHC.
+Squarks and gluinos are therefore excluded with masses up to several
+$\eV[T]$ using hadronic data alone, depending on which simplified model is
+considered~\cite{atlas_susy_strong_0l}.
+
+The $\twoljets$-strong search complements the search for strongly interacting
+supersymmetric effects by including cases where their decays produce pairs
+of charged leptons.
+Like the RJR and electroweak parts, jets and invisible lightest supersymmetric
+particles are also generated.
+
+% mll, kinematic end point
+Unlike the RJR and electroweak parts, not all of these leptons are produced
+by $Z$ boson decays.
+As illustrated in Figure~\ref{fig:2ljets_strong_signal_diagrams}, decay trees
+featuring sleptons can also produce lepton pairs.
+Lepton pairs produced in these slepton interactions are of the same flavor
+and opposite charge, like those from $Z$ boson decays, but they have different
+mass dilepton mass characteristics.
+
+Rather than peaking at a resonance mass, these pairs have an $\mll$
+distribution with a signature end-point which depends on the masses of other
+supersymmetric particles in the
+$\neutralino_2 \ldots \slepton \ldots \neutralino_1$
+decay chain~\cite{paige1996determining}:
+\begin{equation}
+\max \mll
+= m(\neutralino_2)
+\sqrt{1 - \frac{m(\slepton\,)^2}{m(\neutralino_2)^2}}
+\sqrt{1 - \frac{m(\neutralino_1)^2}{m(\slepton\,)^2}}
+.
+\end{equation}
+
+
+
 % previous papers
 % three signal models
-% mll, kinematic end point
+\begin{figure}[t]
+\centering
+\begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/2ljets_strong_gogo_qqqqllllN1N1_N2.pdf}
+    \caption{gluino-slepton}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/2ljets_strong_gogo_qqqqZZN1N1.pdf}
+    \caption{gluino-$Z^{(*)}$}
+\end{subfigure}
+\\[0.5em]
+\begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/2ljets_strong_sqsq_qqZZN1N1.pdf}
+    \caption{squark-$Z^{(*)}$}
+\end{subfigure}
+\caption{%
+Supersymmetric signal processes in the $\twoljets$-strong search.
+\textit{Figures reproduced from the paper%
+}~\cite{atlas2022searches, atlas_susy_feynman}.
+\\[0.5em]
+\TODO{expand{
+}
+\label{fig:2ljets_strong_signal_diagrams}
+\end{figure}
+
+% three exclusion plots
+
+
 
 
 \subsection{Electroweak}
