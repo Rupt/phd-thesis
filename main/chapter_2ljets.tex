@@ -548,35 +548,6 @@ Lepton pairs produced in these slepton interactions are of the same flavor
 and opposite charge, like those from $Z$ boson decays, but they have different
 mass dilepton mass characteristics.
 
-Rather than peaking at a resonance mass, these pairs have an $\mll$
-distribution with a signature end-point which depends on the masses of other
-supersymmetric particles in the
-$\neutralino_2 \ldots \slepton \ldots \neutralino_1$
-decay chain~\cite{paige1996determining}:
-\begin{equation}
-\label{eqn:2ljets_strong_max_mll}
-\max \mll
-= m(\neutralino_2)
-\sqrt{1 - \frac{m(\slepton\,)^2}{m(\neutralino_2)^2}}
-\sqrt{1 - \frac{m(\neutralino_1)^2}{m(\slepton\,)^2}}
-.
-\end{equation}
-
-Various previous incarnations of this search have been conducted with similar
-selections and target models on in older data, including partial Run~2~\cite{
-atlas_susy_strong_2l_partial_run2_1,
-atlas_susy_strong_2l_partial_run2,
-cms_susy_2016_strong_2l_run2_1,
-cms_susy_2016_strong_2l_run2
-} and Run~1~\cite{
-atlas_susy_strong_2l_run1,
-cms_susy_2016_strong_2l_run1
-} in \atlas\ and \cms.
-One can cherry-pick excesses in these Run~1 searches,
-of ``$3.0$ standard deviations'' in \atlas~\cite{atlas_susy_strong_2l_run1}
-and ``$2.6$ standard deviations'' in \cms~\cite{cms_susy_2016_strong_2l_run1}.
-These excesses were not reproduced in their early Run~2 updates.
-
 % signal models
 \begin{figure}[tp]
 \centering
@@ -613,6 +584,35 @@ $m(\neutralino_2) - m(\neutralino_1) < m(Z)$.
 \label{fig:2ljets_strong_signal_diagrams}
 \end{figure}
 
+Rather than peaking at a resonance mass, these pairs have an $\mll$
+distribution with a signature end-point which depends on the masses of other
+supersymmetric particles in the
+$\neutralino_2 \ldots \slepton \ldots \neutralino_1$
+decay chain~\cite{paige1996determining}:
+\begin{equation}
+\label{eqn:2ljets_strong_max_mll}
+\max \mll
+= m(\neutralino_2)
+\sqrt{1 - \frac{m(\slepton\,)^2}{m(\neutralino_2)^2}}
+\sqrt{1 - \frac{m(\neutralino_1)^2}{m(\slepton\,)^2}}
+.
+\end{equation}
+
+Various previous incarnations of this search have been conducted with similar
+selections and target models on in older data, including partial Run~2~\cite{
+atlas_susy_strong_2l_partial_run2_1,
+atlas_susy_strong_2l_partial_run2,
+cms_susy_2016_strong_2l_run2_1,
+cms_susy_2016_strong_2l_run2
+} and Run~1~\cite{
+atlas_susy_strong_2l_run1,
+cms_susy_2016_strong_2l_run1
+} in \atlas\ and \cms.
+One can cherry-pick excesses in these Run~1 searches,
+of ``$3.0$ standard deviations'' in \atlas~\cite{atlas_susy_strong_2l_run1}
+and ``$2.6$ standard deviations'' in \cms~\cite{cms_susy_2016_strong_2l_run1}.
+These excesses were not reproduced in their early Run~2 updates.
+
 % exclusion plots
 \begin{figure}[tp]
 \centering
@@ -648,9 +648,52 @@ from~\cite{atlas_susy_strong_2l_partial_run2}.
 \label{fig:2ljets_strong_contours}
 \end{figure}
 
-Figure~\ref{fig:2ljets_strong_contours} \TODO{sentence}
+To target its signal models, $\twoljets$-strong search defines seven
+overlapping signal regions.
+Three target on-shell $Z^{(*)}$ models by selecting $\mll$ close to $m(Z)$,
+and the others are binned in $\mll$ to give broad sensitivity to the various
+kinematic edges across the grid of signal model parameters.
 
-\TODO{data driven backgrounds: flavour symmetry, photon method z+jets, 40GeV cut}
+The largest Standard Model background to this search is dileptonic $\ttbar$,
+in part because no $b$-jet veto is used.
+All three signal models produce same-flavor lepton pairs, but $\ttbar$
+produces same-flavor ($ee$/$\mu\mu$) and different-flavor ($e\mu$) pairs at
+equal rates.
+This difference in flavor symmetry is exploited to estimate backgrounds in
+$\twoljets$-strong,
+and its previous iterations~\cite{cms_susy_2016_strong_2l_run2_1}.
+The estimate works by taking different-flavor data, weighting them by factors
+to calibrate for differences in the leptons' reconstruction, and histogramming
+them in same-flavour regions.
+Simulations for $\ttbar$ and the smaller flavour symmetric backgrounds
+$tW$, $WW$, and $\tau\tau$ are replaced by this estimate.
+
+Post-fit results match the data to within $1$-sigma in all $\twoljets$-strong
+regions.
+
+Exclusion contours from the $\twoljets$-strong search are reproduced in
+Figure~\ref{fig:2ljets_strong_contours}.
+Besides their increased reach, the jagged edges to parts of these contour are
+striking.
+These arise from the combination of results from overlapping signal regions.
+Because they overlap, they are not independent and cannot be trivially
+combined.
+Instead, each model in the signal grid is assigned to the signal region
+with the ``best expected sensitivity'' by some measure.
+An exclusion contour is constructed for each signal region, then those contours
+are joined such that models assigned to each region use its corresponding
+contour.
+
+Personally, I find this hard to interpret.
+If I had a pet theory which landed near to one of these sharp
+region-transition edges, what should I make of these data?
+Could some combination of the regions not have combined their information to
+produce more precise contours?
+Since model predictions change continuously, should our inferences not also?
+To aid interpretations and to allow combinations of regions'
+information, I chose to design the $\twoljets$-electroweak with only orthogonal
+regions, and without any manual switching of regions between models.
+
 
 \subsection{Electroweak}
 \label{sec:2ljets_origins_electroweak}
