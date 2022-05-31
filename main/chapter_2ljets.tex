@@ -1392,8 +1392,9 @@ Low regions are discussed in Section~\ref{sec:2ljets_low}.
 Off-shell regions are discussed in Section~\ref{sec:2ljets_high}.
 Control and validation regions are included in these sections near to their
 targetted regions.
-Finally, these are combined into model-independent `Discovery' regions as
-discussed in Section~\ref{sec:2ljets_disco}.
+Finally, how these are combined into `Discovery' regions for
+model-independent interpretations is discussed in
+Section~\ref{sec:2ljets_disco}.
 
 
 \begin{table}[tp]
@@ -1403,9 +1404,9 @@ Preselection:
 \\[1em]
 $n_\mathrm{leptons}^\mathrm{signal} = n_\mathrm{leptons}^\mathrm{baseline} = 2$
 \\[.5em]
-$\njet \geq 1$
+same flavour, opposite charge leptons
 \\[.5em]
-same flavour, opposite charge $\ell^+\ell^-$
+$\njet \geq 1$
 \\[.5em]
 $p_\mathrm{T}^{\,\ell_2} > 25$
 \\[.5em]
@@ -1414,7 +1415,7 @@ $\met > 100$
 $\metsig > 6$
 \end{tabular}
 \caption{%
-``Preselection'': requirements ensured prior to all region definitions in the
+`Preselection' requirements ensured prior to all region definitions in the
 $\twoljets$-electroweak search.
 }
 \label{tab:2ljets_presel}
@@ -1486,16 +1487,15 @@ SR-$\ell\ell bb$
 \end{tabular}
 \\[1em]
 Common: Preselection,
-$\mll \in 71\textrm{--}111$,
+$\mll \in 71\textrm{--}111$, and
 $\mttwoll > 80$.
 \caption{%
-% Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
-%All regions except VR-SS require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\eV[G]\ and $\met>100~\eV[G]$.
-%Instead, VR-SS requires same-charge leptons.
-% The main requirements that distinguish the control and validation regions from the signal regions are highlighted in boldface.
-% The bracketed requirements denote the binning used in model-dependent fits, as described in the text.
+High region definitions in the $\twoljets$-electroweak analysis.
+En-dashes `$a\textrm{--}b$' indicate open intervals $(a, b)$.
+Concatenated intervals `$a\textrm{--}b\textrm{--}c$' indicate binning
+with boundaries at $a$, $b$, and $c$.
+The mid bar `$\mid$' indicates logical or.
 Differences between regions are \uwave{underlined}.
-\TODO{caption}
 }
 \label{tab:2ljets_high}
 \end{table}
@@ -1548,16 +1548,15 @@ CR-tt
 \\[1em]
 Common: Preselection,
 $\njet \geq 2$,
-$\mll \in 81\textrm{--}101$,
+$\mll \in 81\textrm{--}101$, and
 $\mttwoll > 80$.
 \caption{%
-% Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
-%All regions except VR-SS require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\eV[G]\ and $\met>100~\eV[G]$.
-%Instead, VR-SS requires same-charge leptons.
-% The main requirements that distinguish the control and validation regions from the signal regions are highlighted in boldface.
-% The bracketed requirements denote the binning used in model-dependent fits, as described in the text.
+Intermediate region definitions in the $\twoljets$-electroweak analysis.
+En-dashes `$a\textrm{--}b$' indicate open intervals $(a, b)$.
+Concatenated intervals `$a\textrm{--}b\textrm{--}c$' indicate binning
+with boundaries at $a$, $b$, and $c$.
+The mid bar `$\mid$' indicates logical or.
 Differences between regions are \uwave{underlined}.
-\TODO{caption}
 }
 \label{tab:2ljets_int}
 \end{table}
@@ -1616,16 +1615,15 @@ CR-Z
 \\[1em]
 Common: Preselection,
 $\njet = 2$,
-$\nbtag = 0$,
+$\nbtag = 0$, and
 $\mll \in 81\textrm{--}101$.
 \caption{%
-% Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
-%All regions except VR-SS-EWK require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\GeV\ and $\met>100~\GeV$.
-%Instead, VR-SS-EWK requires same-charge leptons.
-% The main requirements that distinguish the control and validation regions from the signal regions are highlighted in boldface.
-% The bracketed requirements denote the binning used in model-dependent fits, as described in the text.
+Low region definitions in the $\twoljets$-electroweak analysis.
+En-dashes `$a\textrm{--}b$' indicate open intervals $(a, b)$.
+Concatenated intervals `$a\textrm{--}b\textrm{--}c$' indicate binning
+with boundaries at $a$, $b$, and $c$.
+The mid bar `$\mid$' indicates logical or.
 Differences between regions are \uwave{underlined}.
-\TODO{caption}
 }
 \label{tab:2ljets_low}
 \end{table}
@@ -1667,11 +1665,15 @@ CR-DY
 \end{tabular}
 \\[1em]
 Common: Preselection,
-$\njet \geq 2$,
+$\njet \geq 2$, and
 $\nbtag = 0$.
 \caption{%
+Off-shell region definitions in the $\twoljets$-electroweak analysis.
+En-dashes `$a\textrm{--}b$' indicate open intervals $(a, b)$.
+Concatenated intervals `$a\textrm{--}b\textrm{--}c$' indicate binning
+with boundaries at $a$, $b$, and $c$.
+The mid bar `$\mid$' indicates logical or.
 Differences between regions are \uwave{underlined}.
-\TODO{caption}
 }
 \label{tab:2ljets_offshell}
 \end{table}
