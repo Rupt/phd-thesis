@@ -1402,7 +1402,7 @@ Table~\ref{tab:2ljets_high}.
 \begin{table}[tp]
 \footnotesize
 \centering
-\begin{tabular}{lcccccccc}
+\begin{tabular}{lccccc}
 & $\njet$
 & $\nbtag$
 & $\metsig$
@@ -1414,26 +1414,24 @@ SR-High
 & $\leq 1$
 & $18\textrm{--}21\textrm{--}\infty$
 & $\mjj \in 60\textrm{--}110$
-&
-$\rjj \in 0\textrm{--}0.8\textrm{--}1.6$
+& $\rjj \in 0\textrm{--}0.8\textrm{--}1.6$
 \\[.5em]
 \quad VR-High
 & $\geq2$
 & $\leq 1$
 & $> 18$
-& $\heartsuit \mjj \in 20\textrm{--}60 \mid 60\textrm{--}110$
+& $\uwave{\mjj \in 20\textrm{--}60 \mid 60\textrm{--}110}$
 & $\rjj < 1.6$
 \\[.5em]
 \quad VR-High-R
 & $\geq 2$
 & $\leq 1$
 & $> 18$
-& $\heartsuit \mjj > 20$
-& $\heartsuit \rjj > 1.6$
+& $\uwave{\mjj > 20}$
+& $\uwave{\rjj > 1.6}$
 \\[1em]
 SR-High-1J
-&
-$\hphantom{\geq}~1$
+& $\hphantom{\geq}~1$
 & $\leq 1$
 & $> 12$
 & $\mjetone \in 60\textrm{--}110$
@@ -1443,7 +1441,7 @@ $\hphantom{\geq}~1$
 & $\hphantom{\geq}~1$
 & $\leq 1$
 & $> 12$
-& $\heartsuit \mjetone \in 20\textrm{--}60 \mid 60\textrm{--}110$
+& $\uwave{\mjetone \in 20\textrm{--}60 \mid 60\textrm{--}110}$
 &
 \\[1em]
 SR-$\ell\ell bb$
@@ -1456,20 +1454,20 @@ SR-$\ell\ell bb$
 \quad VR-$\ell\ell bb$
 & $\geq 2$
 & $\geq 2$
-& $\heartsuit 12\textrm{--}18$
+& $\uwave{12\textrm{--}18}$
 & $\mbb \in 60\textrm{--}150$
 &
 \end{tabular}
 \small
 \\[1em]
-Common: presel, $\mll \in 71\textrm{--}111\,\eV[G]$, $\mttwo > 80\,\eV[G]$
+Common: presel, $\mll \in 71\textrm{--}111\,\eV[G]$, $\mttwo > 80\,\eV[G]$.
 \caption{%
 % Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
 %All regions except VR-SS require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\eV[G]\ and $\met>100~\eV[G]$.
 %Instead, VR-SS requires same-charge leptons.
 % The main requirements that distinguish the control and validation regions from the signal regions are highlighted in boldface.
 % The bracketed requirements denote the binning used in model-dependent fits, as described in the text.
-Differences between regions are marked $\heartsuit$.
+Differences between regions are \uwave{underlined}.
 \TODO{}
 }
 \label{tab:2ljets_high}
@@ -1486,7 +1484,7 @@ Table~\ref{tab:2ljets_int}.
 \begin{table}[tp]
 \footnotesize
 \centering
-\begin{tabular}{lcccccccc}
+\begin{tabular}{lccccc}
 & $\njet$
 & $\nbtag$
 & $\metsig$
@@ -1505,32 +1503,32 @@ SR-Int
 & $\hphantom{\geq}~0$
 & $12\textrm{--}18$
 & $\mjj \in 60\textrm{--}110$
-& $\heartsuit < 60$
+& $\uwave{< 60}$
 \\[1em]
 CR-VZ
 & $\geq 2$
 & $\hphantom{\geq}~0$
 & $12\textrm{--}18$
-& $\heartsuit \mjj \in 20\textrm{--}60 \mid 60\textrm{--}110$
-& $\heartsuit $
+& $\uwave{\mjj \in 20\textrm{--}60 \mid 60\textrm{--}110}$
+& $\uwave{\hphantom{< 60}}$
 \\[.5em]
 CR-tt
 & $\geq 2$
-& $\heartsuit \geq 1$
-& $\heartsuit 9\textrm{--}12$
-& $\heartsuit \mjj > 20$
+& $\uwave{\geq 1}$
+& $\uwave{9\textrm{--}12}$
+& $\uwave{\mjj > 20}$
 & $> 60$
 \end{tabular}
 \small
 \\[0.5em]
-Common: presel, $\mll \in 81\textrm{--}101\,\eV[G]$, $\mttwo > 80\,\eV[G]$
+Common: presel, $\mll \in 81\textrm{--}101\,\eV[G]$, $\mttwo > 80\,\eV[G]$.
 \caption{%
 % Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
 %All regions except VR-SS require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\eV[G]\ and $\met>100~\eV[G]$.
 %Instead, VR-SS requires same-charge leptons.
 % The main requirements that distinguish the control and validation regions from the signal regions are highlighted in boldface.
 % The bracketed requirements denote the binning used in model-dependent fits, as described in the text.
-Differences between regions are marked $\heartsuit$.
+Differences between regions are \uwave{underlined}.
 \TODO{}
 }
 \label{tab:2ljets_int}
@@ -1539,6 +1537,70 @@ Differences between regions are marked $\heartsuit$.
 
 \subsection{Low}
 \label{sec:2ljets_low}
+
+
+Table~\ref{tab:2ljets_low}
+
+\begin{table}[htbp]
+\footnotesize
+\centering
+\begin{tabular}{lcccccccc}
+& $\metsig$
+& $m_{\!X}$
+& $\mttwo$
+& $\Delta R_{X}$
+& $\dphillmet$
+\\[1em]
+SR-Low
+& $6\textrm{--}9\textrm{--}12$
+& $\mjj \in 60\textrm{--}110$
+& $> 80$
+& $\rll < 1$
+&
+\\[.5em]
+\quad VR-Low
+& $6\textrm{--}12$
+& $\mjj \in 60\textrm{--}110$
+& $>80$
+& $\rll \in 1\textrm{--}1.4$
+&
+\\[1em]
+SR-Low-2
+& $6\textrm{--}9$
+& $\mjj \in 60\textrm{--}110$
+& $< 80$
+& $\rll < 1.6$
+& $< 0.6$
+\\[.5em]
+\quad VR-Low-2
+& $6\textrm{--}9$
+& $\uwave{\mjj \in 20\textrm{--}60 \mid 60\textrm{--}110}$
+& $< 80$
+& $\rll < 1.6$
+& $< 0.6$
+\\[1em]
+CR-Z
+& $6\textrm{--}9$
+& $\uwave{\mjj \in 20\textrm{--}60 \mid 60\textrm{--}110}$
+& $> 80$
+& $\uwave{\hphantom{\rll < 1.6}}$
+& $\uwave{\hphantom{< 0.6}}$
+\\[.5em]
+\end{tabular}
+\small
+\\[0.5em]
+Common: presel, $\njet = 2$, $\nbtag = 0$, $\mll \in 81\textrm{--}101\,\eV[G]$.
+\caption{%
+% Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
+%All regions except VR-SS-EWK require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\GeV\ and $\met>100~\GeV$.
+%Instead, VR-SS-EWK requires same-charge leptons.
+% The main requirements that distinguish the control and validation regions from the signal regions are highlighted in boldface.
+% The bracketed requirements denote the binning used in model-dependent fits, as described in the text.
+Differences between regions are \uwave{underlined}.
+\TODO{caption}
+}
+\label{tab:2ljets_low}
+\end{table}
 
 \subsection{Off-shell}
 \label{sec:2ljets_offshell}
