@@ -22,15 +22,11 @@
 \ProvidesClass{minithesis}[\filedate\space a thesis template (v\fileversion)]
 
 
-
 % option parsing
 
-
 \def\@empty{}
-
 \def\@oneside{}
 \def\@bindmargins{yes}
-
 
 % one-sided or two-sided (bound copies may have to be single-sided)
 \DeclareOption{oneside}{%
@@ -49,16 +45,17 @@
 	\def\@bindmargins{yes}
 }
 
-
 \DeclareOption{nobind}{%
 	\def\@bindmargins{}
 }
 
 % use a standard font size
 \PassOptionsToClass{12pt}{scrbook}
-
 % no full stops after titles
 \PassOptionsToClass{numbers=noenddot}{scrbook}
+% add items to table of contnets
+\PassOptionsToClass{bibliography=totoc}{scrbook}
+\PassOptionsToClass{listof=totoc}{scrbook}
 
 % process the options (no package requirement allowed above here)
 \ProcessOptions
@@ -66,53 +63,37 @@
 
 % base class
 
-
 \LoadClass[chapterprefix]{scrbook}
-
 
 
 % packages
 
-
 % useful tools for building this class
 \RequirePackage{etoolbox}
-
 % need to be able to locally change the text width.
 \RequirePackage{changepage}
-
 % funky headers
 \RequirePackage{fancyhdr}
-
-% make sure bibliography (but not ToC) appears in the ToC
-\RequirePackage[nottoc]{tocbibind}
-
 % ability to specify a hook for after a page is completed
 \RequirePackage{afterpage}
-
 % text spacing
 \RequirePackage{setspace}
-
 % make maths in titles go automatically bold
 \AtEndOfClass{%
 	\g@addto@macro\bfseries{\boldmath}
 }
 
 
-
 % styling
-
 
 % use the \title and \author arguments to build the front page etc.
 \renewcommand*\title[1]{\gdef\@title{#1}\global\let\thetitle\@title}%
 \renewcommand*\author[1]{\gdef\@author{#1}\global\let\theauthor\@author}%
-
-
 % serif titles
 \addtokomafont{sectioning}{\rmfamily\bfseries}
 
 
 % length definitions
-
 
 % tweak the initial indent in paras
 \setlength{\parindent}{0.6cm}
@@ -152,13 +133,11 @@
 
 % headers and footers
 
-
 % no header or footer on the title page
 \AtBeginDocument{\thispagestyle{plain}}
 
 % use funky headers and footers
 \pagestyle{fancy}
-
 
 % normal headers and footers (headers are all like RH pages for oneside)
 \ifx\@oneside\@empty%
@@ -174,13 +153,11 @@
 	\markboth{#1}{}%
 }
 
-
 % headers and footers for plain (blank) pages
 \fancypagestyle{plain}{%
 	\fancyhf{}%
 	\fancyfoot[C]{\thepage}%
 }
-
 
 % treat forced blank pages in the same way as chapter title pages
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
@@ -192,26 +169,19 @@
 
 % internal environments and commands
 
-
 \AtEndPreamble{%
 	% provide mixed-case versions of headings
 	\@ifpackageloaded{babel}{\addto\captionsenglish{%
-			\renewcommand*{\contentsname}{Contents}
-			\renewcommand*{\bibname}{Bibliography}
 			\renewcommand*{\listfigurename}{List of figures}
 			\renewcommand*{\listtablename}{List of tables}
 		}}{%
-		\renewcommand*{\contentsname}{Contents}
-		\renewcommand*{\bibname}{Bibliography}
 		\renewcommand*{\listfigurename}{List of figures}
 		\renewcommand*{\listtablename}{List of tables}
 	}
 }
 
 
-
 % public environments and commands
-
 
 % frontmatter
 \renewenvironment{frontmatter}{%
@@ -224,7 +194,6 @@
 	\ignorespacesafterend%
 }
 
-
 % mainmatter
 \renewenvironment{mainmatter}{%
 	\if@twoside\clearpage\fi%
@@ -235,7 +204,6 @@
 	\ignorespacesafterend%
 }
 
-
 % appendices
 \newenvironment{appendices}{%
 	\begin{onehalfspacing}%
@@ -245,7 +213,6 @@
 	\ignorespacesafterend%
 }
 
-
 % backmatter
 \renewenvironment{backmatter}{%
 	\begin{onehalfspacing}%
@@ -254,7 +221,6 @@
 	\end{onehalfspacing}%
 	\ignorespacesafterend%
 }
-
 
 % acknowledgements
 \newenvironment{acknowledgements}{%
@@ -270,7 +236,6 @@
 	\ignorespacesafterend%
 }
 
-
 % preface
 \newenvironment{preface}{%
 	\cleardoublepage%
@@ -284,7 +249,6 @@
 }{%
 	\ignorespacesafterend %
 }
-
 
 % declaration
 \newenvironment{declaration}{%
@@ -302,7 +266,6 @@
 	\ignorespacesafterend%
 }
 
-
 % abstract
 \newenvironment{abstract}[1][Abstract]{%
 	\adjustwidth{1.5cm}{1.5cm}%
@@ -318,7 +281,6 @@
 	\endadjustwidth%
 	\ignorespacesafterend%
 }
-
 
 % titlepage
 \DeclareRobustCommand{\titlepage}[2][]{%
@@ -338,7 +300,6 @@
 }
 \renewcommand{\maketitle}[1]{\titlepage{}}
 
-
 % dedication
 \DeclareRobustCommand{\dedication}[1]{%
 	\cleardoublepage%
@@ -353,4 +314,3 @@
 	\vspace*{\stretch{4}}%
 	\pagestyle{plain}%
 }
-
