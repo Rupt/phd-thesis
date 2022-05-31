@@ -331,7 +331,7 @@ Cheers.
 
 \clearpage
 \FloatBarrier
-\section{Context}
+\section{Summaries}
 \label{sec:2ljets_context}
 % previous results on 2(/3)L from ATLAS
 % other constraints on these models from ATLAS/CMS
@@ -794,8 +794,9 @@ Normally, this is justified by the limitations of approximate statistical
 methods, which work
 ``from as few as $\mathcal{O}(10)$ data events''~\cite{histfitter2014}.
 But the Poisson likelihood works for infinitesimally small
-expectations~\cite{skilling2009cosmology}, and in small-bin limit one has
-continuous fits (sometimes called ``extended''~\cite{barlow1990extended}),
+expectations~\cite{skilling2009cosmology}, and in the small-bin limit one has
+continuous distributions
+(sometimes called ``extended''~\cite{barlow1990extended}),
 which are standard and easily analysed.
 
 The real reason to avoid small backgrounds is, in this context, to allow honest
@@ -825,8 +826,12 @@ cms_susy_2022_gmsb
 
 
 \section{Events}
-From its name, the $\twoljets$ analysis analyses features of events with two
-charged leptons (electrons or muons --- not taus), and at least one jet.
+This section describes the events selected for the $\twoljets$ searches, the
+reconstructed particle objects derived from those events and various
+important event variables.
+
+From its name, it is clear that $\twoljets$ analyses features of events with
+two charged leptons (electrons or muons --- not taus), and at least one jet.
 Though not nominal, a $\met$ requirement is also implicit from the context
 of $R$-parity conserving supersymmetric models.
 This section serves to describe how events are selected for the $\twoljets$
@@ -908,8 +913,7 @@ efficiencies near to those thresholds~\cite{
 atlas_trigger_egamma_run2,
 atlas_trigger_muon_run2
 }.
-
-Quite generally, throughout the data used in $\twoljets$, trigger requirements
+Throughout the data used in $\twoljets$, trigger requirements
 have increased in hardness with time.
 
 
@@ -1348,30 +1352,52 @@ and vaguely-specified desires, and are informed with incomplete information.
 This section describes the designs and rationales behind the control, validation
 and signal regions of the $\twoljets$ analysis.
 
-Splitting regions on $\metsig$ is the core idea behind the design.
-The basic motivation for this design is displayed in
+The clearest idea behind this design is to split regions on $\metsig$.
+Motivation for this design is displayed in
 Figure~\ref{fig:2ljets_presel_met};
 $\metsig$ does better than $\met$ in separating background and signal
-contributions.
+contributions for models with various mass splittings above $m(Z)$.
 But there is more --- $\metsig$ also decently separates signal models from one
 another;
 signals with larger mass differences in their decays to invisibles tend to have
 larger $\metsig$.
 Binning regions in $\metsig$ therefore also improves sensitivity to
-individual parameter points and allows targeted selections on other, locally-relevant,
-event variables.
+individual parameter points and allows targeted selections on other,
+locally-relevant, event variables.
+
+Regions in three blocks of $\metsig$ are named High, Intermediate (or Int),
+and Low,
+which target models with decreasing mass splittings and lepton pairs on the
+$Z$ resonance mass.
+Separate regions target $\mll < m(Z)$ for models with small mass splittings,
+which force decays to proceed via low-mass off-shell weak bosons.
+
+Control and validation regions are defined to constrain the background
+modelling in all regions.
+
+All main regions are defined in Table~\TODO{tab}.
+High regions are discussed in Section~\ref{sec:2ljets_high}.
+Intermediate regions are discussed in Section~\ref{sec:2ljets_int}.
+Low regions are discussed in Section~\ref{sec:2ljets_low}.
+Off-shell regions are discussed in Section~\ref{sec:2ljets_high}.
+Finally, these are combined into model-independent `Discovery' regions as
+discussed in Section~\ref{2ljets_disco}.
 
 
-% CRs go in with relevant SR category
 \subsection{High}
+\label{sec:2ljets_high}
 
 \subsection{Intermediate}
+\label{sec:2ljets_int}
 
 \subsection{Low}
+\label{sec:2ljets_low}
 
 \subsection{Off-shell}
+\label{sec:2ljets_offshell}
 
 \subsection{Discovery}
+\label{sec:2ljets_disco}
 
 \section{Modelling}
 % TODO backgorund samples
