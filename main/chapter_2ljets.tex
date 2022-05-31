@@ -341,7 +341,8 @@ two leptons, jets, and missing transverse momentum.
 Quite a few analyses, in fact.
 This project exists to supplement those results with information from the full
 LHC Run~2 data-set, which was completed in 2018 and contains
-$139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at $\sqrt{s} = 13\,\eV[T]$.
+$139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at
+$\sqrt{s} = 13\,\eV[T]$.
 Leverage of the increased data quantity is one key aim.
 Analysis quality also might be improved if our designs can take lessons from
 the experiences of previous work.
@@ -698,28 +699,26 @@ regions, and without any manual switching of regions between models.
 
 \subsection{Electroweak}
 \label{sec:2ljets_origins_electroweak}
-% susy motivation
+As motivated in the previous sections, I have personal preferences for
+simulation-driven backgrounds and orthogonal multi-bin regions.
+This is because simulation-driven estimates are interpretable as
+Standard Model predictions,
+and orthogonal regions have independent likelihoods which can be cleanly
+combined to leverage the information in their data.
 
-As motivated in the previous sections, I have personal tastes for how searches
-should be constructed.
-One taste is for simulation-driven background estimates, since they are
-interpretable as representations of the Standard Model, and they can exceed the
-precision available in data alone.
-Another is for orthogonal regions, such that their likelihoods are independent
-and the information in their data can be cleanly combined.
-
-The core idea behind the design of the $\twoljets$-electroweak analysis is to
+The main idea behind the design of the $\twoljets$-electroweak analysis is to
 update the regions of the partial Run~2 search in its $\twoljets$
-channel~\cite{atlas_23l_SUSY_2016_24}, which also searched for signal models
+channel~\cite{atlas_23l_SUSY_2016_24} which also searched for signal models
 producing chargino-neutralino pairs which decay via $W$ and $Z$ bosons.
 A particular goal was to improve sensitivity by replacing their overlapping
-`SR2-int' and `SR2-high' regions with orthogonal, combined selections.
+`SR2-int' and `SR2-high' regions with orthogonal selections.
 \emph{I am grateful to Sarah Williams for suggesting this approach.}
 
 As in the $\twoljets$-strong search, the partial Run~2 search chose one
-$\twoljets$ signal region from an expected sensitivity for each signal point.
-Two regions and the exclusion contours from that search are displayed in
-Figure~\ref{fig:2ljets_23l_stuff}.
+signal region from an expected sensitivity for each signal point,
+as displayed in
+Figure~\ref{fig:2ljets_23l_stuff}
+with the two regions and exclusion contours.
 
 \begin{figure}[tp]
 \centering
@@ -760,14 +759,70 @@ The $3\ell$ regions are orthogonal and combined.
 \label{fig:2ljets_23l_stuff}
 \end{figure}
 
-Additionally, $\twoljets$ widens its scope to target a simplified GMSB model,
-which has been illustrated in Figure~\ref{fig:2ljets_signal_diagrams}.
-These two models behave similarly since both feature decays via massive bosons
-($WZ$, $ZZ$ or $Zh$) to leptons and jets, in similarly structures decay trees
-to pairs of invisible supersymmetric particles.
+Additionally, $\twoljets$ widens its scope to target a GMSB simplified model
+illustrated in Figure~\ref{fig:2ljets_signal_diagrams}.
+The C1N2 and GMSB models behave similarly since both feature decays via massive
+bosons ($WZ$, $ZZ$ or $Zh$) to leptons and jets, in similarly structures decay
+trees to pairs of invisible supersymmetric particles.
 Although widening sensitivity to both models does sacrifice sensitivity to
 either one, the increased degree of model independence is itself of value for
 future reinterpretations of the data.
+We are happy to sacrifice some precision for generality.
+
+
+Multi-bin fits are not special.
+They are standard \atlas\ practice, and there could have been no complication
+in replacing the overlapping SR2-int and SR2-high with orthogonally binned
+regions.
+However, my design decisions for $\twoljets$-electroweak
+caused problems for the clarity of communication and accuracy of background
+modelling.
+These issues are developed further through the remainder of this chapter.
+
+A multi-binned histogram is usually and clearly illustrated as slicing up one
+variable.
+My design of $\twoljets$-electroweak violates this.
+Instead, it is designed as a tree whose branches recursively split various
+variables.
+This leads to specifications which are challenging to present and understand,
+and which require region names with numerous suffixes to specify where they
+live in that tree.
+
+Worse, I disregarded the idea that every region should have a large
+background expectation.
+Normally, this is justified by the limitations of approximate statistical
+methods, which work
+``from as few as $\mathcal{O}(10)$ data events''~\cite{histfitter2014}.
+But the Poisson likelihood works for infinitesimally small
+expectations~\cite{skilling2009cosmology}, and in small-bin limit one has
+continuous fits (sometimes called ``extended''~\cite{barlow1990extended}),
+which are standard and easily analysed.
+
+The real reason to avoid small backgrounds is, in this context, to allow honest
+assignments of background uncertainties.
+Although main simulated samples may have good precision,
+many `systematic' variations and `data-driven' estimates are also required.
+Many of these alternative estimates have far worse precision, and can fail
+totally as the number of simulated events accepted plunges towards zero;
+they can require $\approx10$ data events to work properly.
+
+Unfortunately, $\twoljets$-electroweak selections were finalized before I
+appreciated this problem that background variations were dubious.
+Various workaround are invoked to assign plausible variations despite small
+yields, which we shall in the remainder of this chapter.
+
+As seen in the splash summary of Section~\ref{sec:2ljets_splash}, this search
+finds agreement with backgrounds except for some local deficits of data below
+backgrounds.
+Exclusion contours exceed their expected range because of these deficits,
+but they can only be trusted if the background model is trusted.
+
+Searches have been performed in \cms\ for similar
+C1N2~\cite{cms_susy_2022_c1n2} and GMSB models~\cite{
+cms_susy_2018_partial_run2_combination,
+cms_susy_2022_gmsb
+}, with comparable results.
+
 
 \section{Events}
 From its name, the $\twoljets$ analysis analyses features of events with two
@@ -781,13 +836,6 @@ Triggers and object definitions are shared between the three $\twoljets$
 searches.
 Higher level event variables and selections will only be described for the
 $\twoljets$-electroweak search.
-
-Searches have been performed in \cms\ for similar
-C1N2~\cite{cms_susy_2022_c1n2} and GMSB models~\cite{
-cms_susy_2018_partial_run2_combination,
-cms_susy_2022_gmsb
-}, with comparable results.
-
 
 \subsection{Trigger}
 \label{sec:2ljets_trigger}
@@ -1107,7 +1155,7 @@ by inspecting $\met / \metsig$ in $\twoljets$-electroweak selections,
 and where $\metsig$ is defined in the next section.
 
 
-\subsection{\texorpdfstring{$\met$ significance}{Etmiss significance}}
+\subsection{\texorpdfstring{$\met$}{ETmiss} significance}
 \label{sec:2ljets_metsig}
 Most common Standard Model processes at the LHC do not produce hard,
 invisible particles.
