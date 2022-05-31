@@ -1319,6 +1319,7 @@ Uncomfortably many event variables are used to define the regions of this
 analysis.
 To aid future revision of their meanings, definitions, and references for these
 variables are collected here.
+All units are $\eV[G]$ where appropriate.
 \begin{itemize}
 \item $\met$: missing transverse momentum
 \item $\metsig$: object-based missing transverse momentum significance;\\
@@ -1327,9 +1328,9 @@ described in Section~\ref{sec:2ljets_metsig}
 \vspace{0.5em}
 \item $\mll$: invariant mass of the hardest two leptons
 \item $\mjj$: invariant mass of the two hardest jets
-\item $\mbb$: invariant mass of the two hardest b-tagged jets
+\item $\mbb$: invariant mass of the two hardest $b$-tagged jets
 \item $\mjetone$: mass of the hardest jet
-\item $\mttwoll$: `stransverse` mass of the lepton pair with massless invisibles;\\
+\item $\mttwoll$: `stransverse' mass of the lepton pair with massless invisibles;\\
 described in Section~\ref{sec:2ljets_mt2}
 \vspace{0.5em}
 \item $\rll$: distance in $\eta\textrm{--}\phi$ between the lepton pair
@@ -1348,6 +1349,7 @@ all are estimates based on approximate reconstructions.
 While this distinction is easy to drop in lax language, it is necessary to
 understand the shapes of noisy variables such as $\mjj$ and indeed the
 existence of $\metsig$.
+
 
 
 \FloatBarrier
@@ -1432,7 +1434,7 @@ Table~\ref{tab:2ljets_high}.
 & $\njet$
 & $\nbtag$
 & $\metsig$
-& $m_X/\eV[G]$
+& $m_X$
 & $\rjj$
 \\[1em]
 SR-High
@@ -1487,7 +1489,8 @@ SR-$\ell\ell bb$
 \small
 \\[1em]
 Common: Preselection,
-$\mll \in 71\textrm{--}111\,\eV[G]$, $\mttwo > 80\,\eV[G]$.
+$\mll \in 71\textrm{--}111\,\eV[G]$,
+$\mttwo > 80\,\eV[G]$.
 \caption{%
 % Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
 %All regions except VR-SS require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\eV[G]\ and $\met>100~\eV[G]$.
@@ -1515,8 +1518,8 @@ Table~\ref{tab:2ljets_int}.
 & $\njet$
 & $\nbtag$
 & $\metsig$
-& $\mjj/\eV[G]$
-& $\ptjone/\eV[G]$
+& $\mjj$
+& $\ptjone$
 \\[1em]
 SR-Int
 & $\geq 2$
@@ -1549,7 +1552,9 @@ CR-tt
 \small
 \\[1em]
 Common: Preselection,
-$\mll \in 81\textrm{--}101\,\eV[G]$, $\mttwo > 80\,\eV[G]$.
+$\njet \geq 2$,
+$\mll \in 81\textrm{--}101\,\eV[G]$,
+$\mttwo > 80\,\eV[G]$.
 \caption{%
 % Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
 %All regions except VR-SS require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\eV[G]\ and $\met>100~\eV[G]$.
@@ -1574,8 +1579,8 @@ Table~\ref{tab:2ljets_low}
 \centering
 \begin{tabular}{lcccccccc}
 & $\metsig$
-& $\mjj/\eV[G]$
-& $\mttwo/\eV[G]$
+& $\mjj$
+& $\mttwo$
 & $\rll$
 & $\dphillmet$
 \\[1em]
@@ -1617,7 +1622,9 @@ CR-Z
 \small
 \\[1em]
 Common: Preselection,
-$\njet = 2$, $\nbtag = 0$, $\mll \in 81\textrm{--}101\,\eV[G]$.
+$\njet = 2$,
+$\nbtag = 0$,
+$\mll \in 81\textrm{--}101\,\eV[G]$.
 \caption{%
 % Overview of the High and Intermediate signal, control, and validations regions of the electroweak search.
 %All regions except VR-SS-EWK require exactly two opposite-charge, same-flavour signal leptons with $\pt>25$~\GeV\ and $\met>100~\GeV$.
@@ -1640,9 +1647,9 @@ Table~\ref{tab:2ljets_offshell}
 \centering
 \begin{tabular}{lccccc}
 & $\metsig$
-& $\mll/\eV[G]$
-& $\mttwo/\eV[G]$
-& $\ptjone/\eV[G]$
+& $\mll$
+& $\mttwo$
+& $\ptjone$
 & $\dphijmet$
 \\[1em]
 SR-OffShell
@@ -1669,7 +1676,8 @@ CR-DY
 \small
 \\[1em]
 Common: Preselection,
-$\njet \geq 2$, $\nbtag = 0$.
+$\njet \geq 2$,
+$\nbtag = 0$.
 \caption{%
 Differences between regions are \uwave{underlined}.
 \TODO{caption}
