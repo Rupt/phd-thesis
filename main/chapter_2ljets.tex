@@ -1424,9 +1424,7 @@ $\twoljets$-electroweak search.
 
 \subsection{High}
 \label{sec:2ljets_high}
-
 Table~\ref{tab:2ljets_high}.
-
 
 \begin{table}[tp]
 \centering
@@ -1501,7 +1499,6 @@ Differences between regions are \uwave{underlined}.
 \label{tab:2ljets_high}
 \end{table}
 
-
 Figure~\ref{fig:2ljets_high_mll_b}
 
 \begin{figure}[tp]
@@ -1531,13 +1528,9 @@ Error bars are statistical.
 \end{figure}
 
 
-
 \subsection{Intermediate}
 \label{sec:2ljets_int}
-
-
 Table~\ref{tab:2ljets_int}.
-
 
 \begin{table}[tp]
 \centering
@@ -1595,7 +1588,6 @@ Differences between regions are \uwave{underlined}.
 
 \subsection{Low}
 \label{sec:2ljets_low}
-
 
 Table~\ref{tab:2ljets_low}
 
@@ -1659,6 +1651,7 @@ Differences between regions are \uwave{underlined}.
 \label{tab:2ljets_low}
 \end{table}
 
+
 \subsection{Off-shell}
 \label{sec:2ljets_offshell}
 
@@ -1721,14 +1714,85 @@ Differences between regions are \uwave{underlined}.
 \item DR-OffShell: SR-OffShell
 \end{itemize}
 
-\TODO{}
-\begin{verbatim}
-2ljets_disco_High_C1N2_WZ_500p0_200p0_2L2J.png
-2ljets_disco_High_C1N2_WZ_600_0_2L2J.png
-2ljets_disco_Int_C1N2_WZ_250p0_100p0_2L2J.png
-2ljets_disco_Int_C1N2_WZ_400p0_200p0_2L2J.png
-2ljets_disco_llbb_C1N2N1_GGMHinoZh50_700.png
-\end{verbatim}
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_disco_High_C1N2_WZ_500p0_200p0_2L2J.png}
+\caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_disco_High_C1N2_WZ_600_0_2L2J.png}
+\caption{}
+\end{subfigure}
+\caption{%
+Evaluation of candidate High discovery regions.
+The region SR-High-8, labelled `High8\_1+\_2' here, is chosen for its
+simplicity and good sensitivity to both benchmark signal models.
+Upper plots show background and signal yields.
+Lower plots show various measures of projected
+sensitivity~\cite{cousins2008evaluation}.
+Yields are derived in an early iteration of the analysis and do not exactly
+match those in the final result.
+}
+\label{fig:2ljets_disco_trials_high}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_disco_llbb_C1N2N1_GGMHinoZh50_600.png}
+\caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_disco_llbb_C1N2N1_GGMHinoZh50_700.png}
+\caption{}
+\end{subfigure}
+\\[.5em]
+\caption{%
+Evaluation of candidate High discovery regions.
+The region SR-$\ell\ell bb$, labelled `SRllbb' here, is chosen for
+sensitivity, simplicity, and to avoid overlapping with DR-High.
+Upper plots show background and signal yields.
+Lower plots show various measures of projected
+sensitivity~\cite{cousins2008evaluation}.
+Yields are derived in an early iteration of the analysis and do not exactly
+match those in the final result.
+}
+\label{fig:2ljets_disco_trials_llbb}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_disco_Int_C1N2_WZ_250p0_100p0_2L2J.png}
+\caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_disco_Int_C1N2_WZ_400p0_200p0_2L2J.png}
+\caption{}
+\end{subfigure}
+\caption{%
+Evaluation of candidate High discovery regions.
+The region SR-Int, labelled `Int\_1+\_2' here, is chosen for its simplicity
+and broad sensitivity.
+Upper plots show background and signal yields.
+Lower plots show various measures of projected
+sensitivity~\cite{cousins2008evaluation}.
+Yields are derived in an early iteration of the analysis and do not exactly
+match those in the final result.
+}
+\label{fig:2ljets_disco_trials_int}
+\end{figure}
+
 
 \section{Modelling}
 % TODO backgorund samples
