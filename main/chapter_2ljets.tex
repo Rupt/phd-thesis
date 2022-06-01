@@ -1760,6 +1760,8 @@ Table~\ref{tab:2ljets_low}
 Figure~\ref{fig:2ljets_low_region}
 Figure~\ref{fig:2ljets_low2_region}
 Figure~\ref{fig:2ljets_low_cr_region}
+Figure~\ref{fig:2ljets_low_sr_or_cr_region}
+Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt}
 
 \begin{table}[tp]
 \centering
@@ -1884,7 +1886,6 @@ Differences between regions are \uwave{underlined}.
 \label{fig:2ljets_low2_region}
 \end{figure}
 
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.45\textwidth}
@@ -1900,9 +1901,40 @@ Differences between regions are \uwave{underlined}.
 \end{subfigure}
 \caption{%
 \TODO{caption}
-\TODO{version with sr filled in, conspicuous dip at W mass}
 }
 \label{fig:2ljets_low_cr_region}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.9\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_mjj_SRLow_or_CRZ.pdf}
+\caption{}
+\end{subfigure}
+\caption{%
+The union of CR-Z and SR-Low, which exactly fills its gap at
+$\mjj \in 60\textrm{--}110\,\eV[G]$.
+Data have a substantial dip in exactly that mass window.
+}
+\label{fig:2ljets_low_sr_or_cr_region}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.9\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_mjj_SRLow_or_CRZ_mg5.pdf}
+\caption{}
+\end{subfigure}
+\caption{%
+The union of CR-Z and SR-Low with an alternative $\zjets$ simulation using
+MadGraph.
+This sample has reduced statistical precision, decreased yields in the signal
+region, and increased yields (which match data better) in the high-$\mjj$
+overflow bin.
+}
+\label{fig:2ljets_low_sr_or_cr_region_alt}
 \end{figure}
 
 
