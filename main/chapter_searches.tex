@@ -47,18 +47,19 @@ of the real problems to which it is applied.%
 \end{epigraphs}
 
 % significancen measures
-The ATLAS-recommended~\cite{atlas_significance} significance measure is
-\begin{equation}
+The ATLAS-recommended significance measure~\cite{atlas_significance} is
+\begin{align}
 \label{eqn:significance_atlas}
-S_\mathrm{ATLAS}(n, \mu, \sigma)
-= \mathrm{sgn}(n - \mu) \sqrt{2\left(
-    n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
-    - \frac{\mu^2}{\sigma^2}\log\left(
-        1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
-    \right)
-\right)}
-~.
-\end{equation}
+S_\mathrm{\atlas}&(n; \mu, \sigma) =
+\mathrm{sgn}(n - \mu) \times \sqrt{2}~ \times \\[0.2em] \nonumber
+& \sqrt{
+n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
+- \frac{\mu^2}{\sigma^2}\log\left(
+1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
+\right)
+}
+.
+\end{align}
 
 
 \clearpage
