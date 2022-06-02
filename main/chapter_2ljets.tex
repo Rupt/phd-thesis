@@ -1793,7 +1793,8 @@ Figure~\ref{fig:2ljets_low2_region}
 Figure~\ref{fig:2ljets_low_cr_region}
 Figure~\ref{fig:2ljets_low_sr_or_cr_region}
 Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt}
-Figure~\ref{fig:2ljets_low_pre_post}
+Figure~\ref{fig:2ljets_low_crz_pre_post}
+Figure~\ref{fig:2ljets_low_vrlow_pre_post}
 Figure~\ref{fig:2ljets_low_crz_extensions}
 
 \begin{table}[tp]
@@ -2001,7 +2002,33 @@ the $\zjets$ background in SR-Low has been collapsed to fit the deficit.
 Pre-fit yields are presented in Figures~\ref{fig:2ljets_low_sr_or_cr_region}
 and~\ref{fig:2ljets_low_sr_or_cr_region_alt}.
 }
-\label{fig:2ljets_low_pre_post}
+\label{fig:2ljets_low_crz_pre_post}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_prefit_VR_Low_EWK_met_Sign_no_sr.png}
+\caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_postfit_VR_Low_EWK_met_Sign.pdf}
+\caption{}
+\end{subfigure}
+\caption[
+Comparison of VR-Low before and after fitting to the signal regions
+]{%
+Comparison of VR-Low (a) before and (b) after fitting to the signal regions.
+All systematic variations are included after fitting to the control regions.
+The signal region deficit pulls the $\zjets$ below data in the validation
+region, whose likelihood is not included in the \heplikelihood.
+Figure (b) is reproduced from paper~\cite{atlas2022searches}.
+Each last bin includes overflow.
+}
+\label{fig:2ljets_low_vrlow_pre_post}
 \end{figure}
 
 \begin{figure}[tp]
@@ -2018,7 +2045,7 @@ and~\ref{fig:2ljets_low_sr_or_cr_region_alt}.
 \caption{}
 \end{subfigure}
 \caption[
-Extension from CR-Z into higher (a) $\metsig$ and (b) $\met$
+Extension from CR-Z into higher $\metsig$ and $\met$
 ]{%
 Extension from CR-Z into higher (a) $\metsig$ and (b) $\met$.
 The arrow indicates the CR-Z  upper bound of $\metsig$; it has no hard
