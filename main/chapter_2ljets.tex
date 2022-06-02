@@ -1812,7 +1812,6 @@ Errors are statistical.
 Pre-fit distributions in the control regions CR-tt and CR-VZ
 ]{%
 Pre-fit distributions in the control regions CR-tt and CR-VZ.
-Signal regions are unblinded.
 Errors are statistical.
 }
 \label{fig:2ljets_int_cr_region}
@@ -1826,7 +1825,11 @@ Figure~\ref{fig:2ljets_low_region}
 Figure~\ref{fig:2ljets_low2_region}
 Figure~\ref{fig:2ljets_low_cr_region}
 Figure~\ref{fig:2ljets_low_sr_or_cr_region}
-Figure~\ref{fig:2ljets_vrlow_old}
+
+
+\subsubsection{Low-ISR}
+\label{sec:2ljets_low_isr}
+Figure~\ref{fig:2ljets_low_isr_old}
 
 \begin{table}[tp]
 \centering
@@ -1895,28 +1898,32 @@ Differences between regions are \uwave{underlined}.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_SRLow.png}
-\caption{}
+\caption{SR-Low, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mjj_SRLow.png}
-\caption{}
+\caption{SR-Low, $\mjj$}
 \end{subfigure}
 \\[0.5em]
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_VRLow.png}
-\caption{}
+\caption{VR-Low, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mjj_VRLow.png}
-\caption{}
+\caption{VR-Low, $\mjj$}
 \end{subfigure}
-\caption{%
-\TODO{caption}
+\caption[
+Pre-fit distributions in Low signal and validation regions
+]{%
+Pre-fit distributions in Low signal and validation regions.
+Signal regions are unblinded.
+Errors are statistical.
 }
 \label{fig:2ljets_low_region}
 \end{figure}
@@ -1926,28 +1933,32 @@ Differences between regions are \uwave{underlined}.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_SRLow2.png}
-\caption{}
+\caption{SR-Low-2, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mjj_SRLow2.png}
-\caption{}
+\caption{SR-Low-2, $\mjj$}
 \end{subfigure}
 \\[0.5em]
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_VRLow2.png}
-\caption{}
+\caption{VR-Low-2, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mjj_VRLow2.png}
-\caption{}
+\caption{VR-Low-2, $\mjj$}
 \end{subfigure}
-\caption{%
-\TODO{caption}
+\caption[
+Pre-fit distributions in Low-2 signal and validation regions
+]{%
+Pre-fit distributions in Low-2 signal and validation regions.
+Signal regions are unblinded.
+Errors are statistical.
 }
 \label{fig:2ljets_low2_region}
 \end{figure}
@@ -1957,16 +1968,19 @@ Differences between regions are \uwave{underlined}.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_CRZ.png}
-\caption{}
+\caption{CR-Z, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mjj_CRZ.png}
-\caption{}
+\caption{CR-Z, $\mjj$}
 \end{subfigure}
-\caption{%
-\TODO{caption}
+\caption[
+Pre-fit distributions in the control region CR-Z
+]{%
+Pre-fit distributions in the control region CR-Z.
+Errors are statistical.
 }
 \label{fig:2ljets_low_cr_region}
 \end{figure}
@@ -1984,6 +1998,7 @@ The union of CR-Z and SR-Low
 The union of CR-Z and SR-Low, which exactly fills its gap at
 $\mjj \in 60\textrm{--}110\,\eV[G]$.
 Data have a substantial dip in exactly that mass window.
+Errors are statistical.
 }
 \label{fig:2ljets_low_sr_or_cr_region}
 \end{figure}
@@ -1994,24 +2009,32 @@ Data have a substantial dip in exactly that mass window.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrlow_old_srlowisr.png}
-\caption{SR-Low-ISR (blind)}
+\caption{SR-Low-ISR, $\ptisr$ (blind)}
 \end{subfigure}
 \\[0.5em]
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrlow_old_vrlowisr.png}
-\caption{VR-Low-ISR}
+\caption{VR-Low-ISR, $\mwisr$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrlow_old_crlowisr.png}
-\caption{CR-Low-ISR}
+\caption{CR-Low-ISR, $\mwisr$}
 \end{subfigure}
-\caption{%
-\TODO{caption}
+\caption[
+Pre-fit distributions in draft Low-ISR regions
+]{%
+Pre-fit distributions in draft Low-ISR regions which were removed and never
+unblinded.
+These regions required a third, hard jet directed away from $\ptmiss$.
+As seen from (b) and (c), the background modelling is poor and in conflict
+with normalization factors in other control regions.
+Variables are defined in the text of Section~\ref{sec:2ljets_low_isr}.
+Errors are statistical.
 }
-\label{fig:2ljets_vrlow_old}
+\label{fig:2ljets_low_isr_old}
 \end{figure}
 
 
@@ -2072,28 +2095,32 @@ Differences between regions are \uwave{underlined}.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_SROffShell.png}
-\caption{}
+\caption{SR-OffShell, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mll_SROffShell.png}
-\caption{}
+\caption{SR-OffShell, $\mll$}
 \end{subfigure}
 \\[0.5em]
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_VROffShell.png}
-\caption{}
+\caption{VR-OffShell, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mll_VROffShell.png}
-\caption{}
+\caption{VR-OffShell, $\mll$}
 \end{subfigure}
-\caption{%
-\TODO{caption}
+\caption[
+Pre-fit distributions in OffShell signal and validation regions
+]{%
+Pre-fit distributions in OffShell signal and validation regions.
+Signal regions are unblinded.
+Errors are statistical.
 }
 \label{fig:2ljets_offshell_region}
 \end{figure}
@@ -2103,16 +2130,17 @@ Differences between regions are \uwave{underlined}.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_CRDY.png}
-\caption{}
+\caption{CR-DY, $\metsig$}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mll_CRDY.png}
-\caption{}
+\caption{CR-DY, $\mll$}
 \end{subfigure}
 \caption{%
-\TODO{caption}
+Pre-fit distributions in the control region CR-DY.
+Errors are statistical.
 }
 \label{fig:2ljets_offshell_cr_region}
 \end{figure}
