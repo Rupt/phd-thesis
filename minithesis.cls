@@ -136,7 +136,7 @@
 % no header or footer on the title page
 \AtBeginDocument{\thispagestyle{plain}}
 
-% use funky headers and footers
+% use fancy headers and footers
 \pagestyle{fancy}
 
 % normal headers and footers (headers are all like RH pages for oneside)
@@ -165,20 +165,6 @@
 			\thispagestyle{plain}%
 			\newpage%
 			\if@twocolumn\hbox{}\newpage\fi\fi\fi}%
-
-
-% internal environments and commands
-
-\AtEndPreamble{%
-	% provide mixed-case versions of headings
-	\@ifpackageloaded{babel}{\addto\captionsenglish{%
-			\renewcommand*{\listfigurename}{List of figures}
-			\renewcommand*{\listtablename}{List of tables}
-		}}{%
-		\renewcommand*{\listfigurename}{List of figures}
-		\renewcommand*{\listtablename}{List of tables}
-	}
-}
 
 
 % public environments and commands
