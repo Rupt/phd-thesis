@@ -7,12 +7,14 @@ To be done by September 2022.
 
 # build
 
+draft
+
 ```bash
 make
 
 ```
 
-or with hard and soft cover versions:
+with hard and soft cover versions:
 
 ```bash
 make -j all
