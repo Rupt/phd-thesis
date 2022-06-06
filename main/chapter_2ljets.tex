@@ -2562,6 +2562,7 @@ lepton definitions, leading to a general reduction in yields.
 
 Figure~\ref{fig:2ljets_summary_no_sr}
 Figure~\ref{fig:2ljets_fit_corrmatrix}
+Figure~\ref{fig:2ljets_fit_parameters}
 
 \begin{figure}[tp]
 \centering
@@ -2592,3 +2593,27 @@ Parameters with smaller levels of correlation are excluded.
 }
 \label{fig:2ljets_fit_corrmatrix}
 \end{figure}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[height=0.9\textheight]{figures/2ljets_fit_parameters.pdf}
+\caption[
+Parameter values and errors from the background only-fit to control and signal
+regions.
+]{%
+Parameter values and errors from the background only-fit to control and signal
+regions.
+Those named $\mu\_*$ are unconstrained normalization factors,
+those named $\gamma\_*$ describe the combined statistical errors of simulated
+samples,
+and those named $\alpha\_*$ parametrize other variations.
+The red arrow highlights the $\zjets$ generator comparison parameter
+$\alpha\mathrm{\_Zjets\_alt}$ whose post-fit value is
+% 1.8598e+00 +/-  6.87e-01
+$1.86 \pm 0.69$;
+since it exceeds $1.5$, it was otherwise excluded from this plot.
+}
+\label{fig:2ljets_fit_parameters}
+\end{figure}
+
+
