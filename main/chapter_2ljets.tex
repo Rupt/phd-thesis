@@ -2412,7 +2412,6 @@ Errors are statistical.
 
 \section{Variations}
 % "systematic"
-
 Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt}
 Figure~\ref{fig:2ljets_low_crz_pre_post}
 Figure~\ref{fig:2ljets_vrlow_alt}
@@ -2507,6 +2506,100 @@ The signal region deficit pulls $\zjets$ yields below data in the validation
 region, whose likelihood is not included in the \heplikelihood.
 }
 \label{fig:2ljets_low_vrlow_pre_post}
+\end{figure}
+
+% extrapolation
+
+The total theory variation is a combination of seven components representing
+\TODO{what are they?}.
+A relative uncertainty due to each, $r$, is evaluated at each benchmark
+point $\vec y_i$, and extrapolated elsewhere as an exponentially weighted
+combination
+\begin{equation}
+\label{eqn:2ljets_signal_extrap}
+r(\vec x) = \frac{
+\sum_i r_i e^{-d(\vec x, \vec y_i)}
+}{
+\sum_i e^{-d(\vec x, \vec y_i)}
+}
+\end{equation}
+in which $d(\vec x, \vec y)$ is a distance function chosen to encode some
+physical understanding into the extrapolation.
+
+Parent mass $m(\chargino_1, \neutralino_2) = m_a$
+and mass splitting $m_a - m_b$ are the most
+characteristic features in C1N2.
+From some experimentation, I found that a Manhattan distance in those features
+extrapolated nicely.
+Since the distance is dimensionful, it needs to be scaled to a reference value,
+which I chose as $100\,\eV[G]$; therefore
+\begin{equation}
+d_\mathrm{C1N2}(\vec x, \vec y) =
+\frac{1}{100\,\eV[G]}
+\big(
+|m_a^{\vec x} - m_b^{\vec y}|
++
+|(m_a^{\vec x} - m_b^{\vec x}) - (m_a^{\vec y} - m_b^{\vec y})|
+\big)
+.
+\end{equation}
+To put the Higgs branching fraction $B$ on a similar scale to the parent mass
+for GMSB models, its distance measure has a separate scale factor;
+\begin{equation}
+d_\mathrm{GMSB}(\vec x, \vec y) =
+\frac{1}{100\,\eV[G]}
+|m_a^{\vec x} - m_b^{\vec y}|
++
+5
+|B^{\vec x} - B^{\vec y}|
+.
+\end{equation}
+Some example extrapolations according to these rules are displayed in
+Figure~\ref{fig:2ljets_signal_sys_extrap}.
+Variations tend to be small, around $\approx 20\%$, where and only where
+yields are large enough for good statistical precision.
+
+Relative uncertainty $r$ is evaluated for each component, and the total
+uncertainty is their sum in quadrature, capped at $100\%$.
+This is done independently in each selection region without considering the
+directions of coherent variations; all variations are combined as described
+and varied together a single parameter in the fit.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_signal_sys_c1n2_SRHigh4.pdf}
+\caption{C1N2, SR-High-1J}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_signal_sys_c1n2_SROffShell_1.pdf}
+\caption{C1N2, SR-OffShell\_a}
+\end{subfigure}
+\\[0.5em]
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_signal_sys_gmsb_SRHigh8_2.pdf}
+\caption{GMSB, SR-High-1J}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_signal_sys_gmsb_SRllbb.pdf}
+\caption{GMSB, SR-OffShell\_a}
+\end{subfigure}
+\caption[
+Example extrapolated signal theoretical uncertainties
+]{%
+Example extrapolated signal theoretical uncertainties.
+Variations are evaluated for signals at the marked points and extrapolated to
+the each parameter plane according to Equation~\ref{eqn:2ljets_signal_extrap}.
+To account for its drastically different kinematics, the C1N2 off-shell space
+is treated independently.
+}
+\label{fig:2ljets_signal_sys_extrap}
 \end{figure}
 
 
