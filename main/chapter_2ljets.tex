@@ -2563,6 +2563,7 @@ lepton definitions, leading to a general reduction in yields.
 Figure~\ref{fig:2ljets_summary_no_sr}
 Figure~\ref{fig:2ljets_fit_corrmatrix}
 Figure~\ref{fig:2ljets_fit_parameters}
+Figure~\ref{fig:2ljets_fit_muti_contourss}
 
 \begin{figure}[tp]
 \centering
@@ -2616,4 +2617,31 @@ since it exceeds $1.5$, it was otherwise excluded from this plot.
 \label{fig:2ljets_fit_parameters}
 \end{figure}
 
-
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_c1n2.pdf}
+\caption{C1N2}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_gmsb.pdf}
+\caption{GMSB}
+\end{subfigure}
+\caption[
+Projected exclusion from sets of orthogonal signal regions
+]{%
+Projected exclusion from sets of orthogonal signal regions, demonstrating that
+their combination has greater sensitivity reach than any individually.
+The label `High' indicates the bins of SR-High, and `HighNo4' excludes
+SR-High-1J to show the locations where mono-jet events have an impact.
+Similarly, `$\llbb$', `Int', `Low', and `OffShell' are shown to target their
+appropriate parameter spaces.
+Although figures were produced before unblinding, with older samples and region
+designs, the general message has not changed.
+Values of CLs from mean data in the combined fit are are overlaid on the grid.
+}
+\label{fig:2ljets_fit_muti_contourss}
+\end{figure}
