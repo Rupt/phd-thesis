@@ -1441,7 +1441,7 @@ Colours represent primary background contributions in our plotting scheme.
 \begin{table}[tp]
 \centering
 \begin{tabular}{c}
-Preselection:
+Pre-selection:
 \\[1em]
 $n_\mathrm{leptons}^\mathrm{signal} = n_\mathrm{leptons}^\mathrm{baseline} = 2$
 \\[0.5em]
@@ -1456,7 +1456,7 @@ $\met > 100$
 $\metsig > 6$
 \end{tabular}
 \caption{%
-`Preselection' requirements ensured prior to all region definitions in the
+`Pre-selection' requirements ensured prior to all region definitions in the
 $\twoljets$-electroweak search.
 }
 \label{tab:2ljets_presel}
@@ -1530,7 +1530,7 @@ SR-$\llbb$
 &
 \end{tabular}
 \\[1em]
-Common: Preselection,
+Common: Pre-selection,
 $\mll \in 71\textrm{--}111$, and
 $\mttwoll > 80$.
 \caption[
@@ -1731,7 +1731,7 @@ CR-tt
 & $> 60$
 \end{tabular}
 \\[1em]
-Common: Preselection,
+Common: Pre-selection,
 $\njet \geq 2$,
 $\mll \in 81\textrm{--}101$, and
 $\mttwoll > 80$.
@@ -1876,7 +1876,7 @@ CR-Z
 & $\uwave{\hphantom{< 0.6}}$
 \end{tabular}
 \\[1em]
-Common: Preselection,
+Common: Pre-selection,
 $\njet = 2$,
 $\nbtag = 0$, and
 $\mll \in 81\textrm{--}101$.
@@ -2074,7 +2074,7 @@ CR-DY
 & $\uwave{\hphantom{> 2}}$
 \end{tabular}
 \\[1em]
-Common: Preselection,
+Common: Pre-selection,
 $\njet \geq 2$, and
 $\nbtag = 0$.
 \caption[
@@ -2420,11 +2420,7 @@ Figure~\ref{fig:2ljets_low_vrlow_pre_post}
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.9\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_low_mjj_SRLow_or_CRZ_mg5.pdf}
-\caption{}
-\end{subfigure}
+\includegraphics[width=0.9\textwidth]{figures/2ljets_low_mjj_SRLow_or_CRZ_mg5.pdf}
 \caption[
 The union of CR-Z and SR-Low with an alternative $\zjets$ simulation using
 MadGraph
@@ -2443,13 +2439,13 @@ overflow bin.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_EWKSR_Low_EWK_mjj_no_sr.png}
-\caption{}
+\caption{Fitted to control regions only}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_EWKSR_Low_EWK_mjj.pdf}
-\caption{}
+\caption{Fitted to control and signal regions}
 \end{subfigure}
 \caption[
 Distribution of $\mjj$ in CR-Z and SR-Low with all systematic variations
@@ -2466,19 +2462,18 @@ and~\ref{fig:2ljets_low_sr_or_cr_region_alt}.
 \label{fig:2ljets_low_crz_pre_post}
 \end{figure}
 
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrlow_met_Sign_VRLow.pdf}
-\caption{}
+\caption{Standard}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrlow_met_Sign_VRLow_mg5.pdf}
-\caption{}
+\caption{Alternative}
 \end{subfigure}
 \caption[
 Pre-fit yields in VR-Low with standard and alternative $\zjets$ simulations
@@ -2490,34 +2485,62 @@ Errors are statistical.
 \label{fig:2ljets_vrlow_alt}
 \end{figure}
 
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_prefit_VR_Low_EWK_met_Sign_no_sr.png}
-\caption{}
+\caption{Fitted to control regions only}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_postfit_VR_Low_EWK_met_Sign.pdf}
-\caption{}
+\caption{Fitted to control and signal regions}
 \end{subfigure}
 \caption[
 Comparison of VR-Low before and after fitting to the signal regions
 ]{%
 Comparison of VR-Low (a) before and (b) after fitting to the signal regions.
 All systematic variations are included after fitting to the control regions.
-The signal region deficit pulls the $\zjets$ below data in the validation
+The signal region deficit pulls $\zjets$ yields below data in the validation
 region, whose likelihood is not included in the \heplikelihood.
-Figure (b) is reproduced from paper~\cite{atlas2022searches}.
-Each last bin includes overflow.
 }
 \label{fig:2ljets_low_vrlow_pre_post}
 \end{figure}
 
 
+\section{Unblinding}
+
+Figure~\ref{fig:2ljets_prepre}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_prepre_met_Sign_VRpresel_2j_MCfakeslogY.pdf}
+\caption{$\metsig$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_prepre_mt2leplsp_0_VRpresel_2j_MCfakeslogY.pdf}
+\caption{$\mttwoll$}
+\end{subfigure}
+\caption[
+Histograms in a very loose pre-selection like those inspected to validate
+background modelling prior to designing the $\twoljets$ regions.
+]{%
+Histograms in a very loose pre-selection like those inspected to validate
+background modelling prior to designing the $\twoljets$ regions.
+This selection requires `Pre-selection' from Table~\ref{tab:2ljets_presel} and
+$\njet \geq 2$.
+Errors are statistical.
+Each last bin contains overflow.
+}
+\label{fig:2ljets_prepre}
+\end{figure}
+
+
 \section{Results}
 
-\section{Unblinding}
