@@ -251,19 +251,24 @@ All contours are interpolated from a sparse grid.
 % custom separator for aligned +-
 % https://stackoverflow.com/a/2132998
 \begin{tabular*}{\textwidth}{lr@{$~\pm~$}lccrrcc}
-Region &
-\multicolumn{2}{c}{Fitted} &
-Data &
-$\langle A\epsilon{ \sigma}\rangle_{\mathrm{obs}}^{95}~\mathrm{fb}$ &
-$S_{\mathrm{obs}}^{95}$ &
-$S_{\mathrm{exp}}^{95}$ &
-$\mathrm{CLb}$ &
-$p(s=0)$ \\[1.5ex]
-DR-OffShell & $22.1$ & $2.7$ & 21 & $0.10$ & $14.3$ & $12.3^{+4.7}_{-3.1}$ & $0.68$ & $0.50$ \\[.5ex]
-DR-Low & $22$ & $4$ & 18 & $0.08$ & $10.8$ & $15.3^{+5.7}_{-4.0}$ & $0.09$ & $0.50$ \\[.5ex]
-DR-Int & $35$ & $4$ & 38 & $0.15$ & $20.9$ & $17.5^{+5.9}_{-3.9}$ & $0.73$ & $0.23$ \\[.5ex]
-DR-High & $3.9$ & $0.5$ & 0 & $0.02$ & $3.0$ & $5.6^{+2.2}_{-1.5}$ & $0.00$ & $0.50$ \\[.5ex]
-DR-$\llbb$ & $0.51$ & $0.20$ & 0 & $0.02$ & $3.0$ & $3.0^{+1.3}_{-0.0}$ & $0.19$ & $0.50$ \\[.5ex]
+& \multicolumn{2}{c}{Fitted}
+& Data
+& $A\epsilon\sigma_{\mathrm{obs}}^{95}~\mathrm{fb}$
+& $S_{\mathrm{obs}}^{95}$
+& $S_{\mathrm{exp}}^{95}$
+& $\mathrm{CLb}$
+& $p_{s\!=\!0}$
+\\[1.5ex]
+DR-OffShell & $22.1$ & $2.7$ & $21$ & $0.10$ & $14.3$ & $12.3^{+4.7}_{-3.1}$ & $0.68$ & $0.50$
+\\[.5ex]
+DR-Low & $22$ & $4$ & $18$ & $0.08$ & $10.8$ & $15.3^{+5.7}_{-4.0}$ & $0.09$ & $0.50$
+\\[.5ex]
+DR-Int & $35$ & $4$ & $38$ & $0.15$ & $20.9$ & $17.5^{+5.9}_{-3.9}$ & $0.73$ & $0.23$
+\\[.5ex]
+DR-High & $3.9$ & $0.5$ & $0$ & $0.02$ & $3.0$ & $5.6^{+2.2}_{-1.5}$ & $0$ & $0.50$
+\\[.5ex]
+DR-$\llbb$ & $0.51$ & $0.20$ & $0$ & $0.02$ & $3.0$ & $3.0^{+1.3}_{-0.0}$ & $0.19$ & $0.50$
+\\[.5ex]
 \end{tabular*}
 \caption[
 Upper limit results in $\twoljets$-electroweak discovery regions
@@ -289,7 +294,9 @@ and the discovery $p$-value (capped at $0.5$) with its equivalent significance.
 Upper limits use the one-sided profile likelihood test statistic.
 The discovery $p$-value uses a profile likelihood test statistic in a one-sided test.
 All $p$-values are estimated by simulation of alternative data.
+\\
 \TODO{add labels and references to asymptotic formulae paper}
+\\
 \TODO{reference pdg rounding}
 }
 \label{tab:2ljets_discovery}
@@ -1420,7 +1427,7 @@ Separate regions target $\mll < m(Z)$ for models with small mass splittings,
 which force decays to proceed via low-mass off-shell weak bosons.
 
 Following the conventional style descibed in
-Section~\ref{sec:sec:searches_searches},
+Section~\ref{sec:searches_searches},
 control regions are defined to normalize specific background samples,
 and validation regions are defined to test their extrapolation towards
 signal regions before unblinding.
@@ -2317,31 +2324,31 @@ match those in the final result.
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.38\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_disco_plot_DRHigh.png}
 \caption{DR-High}
 \end{subfigure}
 \quad\quad
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.38\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_disco_plot_DRllbb.png}
 \caption{DR-$\llbb$}
 \end{subfigure}
 \\[0.5em]
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.38\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_disco_plot_DRInt.png}
 \caption{DR-Int}
 \end{subfigure}
 \quad\quad
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.38\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_disco_plot_DRLow.png}
 \caption{DR-Low}
 \end{subfigure}
 \\[0.5em]
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.38\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_disco_plot_DROffShell.png}
 \caption{DR-OffShell}
@@ -2952,10 +2959,10 @@ Parameters with smaller levels of correlation are excluded.
 
 \begin{figure}[tp]
 \centering
-\includegraphics[height=0.9\textheight]{figures/2ljets_fit_parameters.pdf}
+\includegraphics[height=0.81\textheight]{figures/2ljets_fit_parameters.pdf}
 \caption[
 Parameter values and errors from the background only-fit to control and signal
-regions.
+regions
 ]{%
 Parameter values and errors from the background only-fit to control and signal
 regions.
@@ -2964,7 +2971,7 @@ those named $\gamma\_*$ describe the combined statistical errors of simulated
 samples,
 and those named $\alpha\_*$ parametrize other variations.
 The red arrow highlights the $\zjets$ generator comparison parameter
-$\alpha\mathrm{\_Zjets-alt}$ whose post-fit value is
+$\alpha\mathrm{\_Zjets\_alt}$ whose post-fit value is
 % 1.8598e+00 +/-  6.87e-01
 $1.86 \pm 0.69$;
 since it exceeds $1.5$, it was otherwise excluded from this plot.
