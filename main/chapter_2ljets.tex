@@ -1437,21 +1437,6 @@ requires the basic $Z\rightarrow \ell^+\ell^-$ plus jets pluts $\met$
 conditions that we target in the $\twoljets$-electroweak.
 These Pre-selection requirements are defined in Table~\ref{tab:2ljets_presel}.
 
-High regions are discussed in Section~\ref{sec:2ljets_high}.
-Intermediate regions are discussed in Section~\ref{sec:2ljets_int}.
-Low regions are discussed in Section~\ref{sec:2ljets_low}.
-Off-shell regions are discussed in Section~\ref{sec:2ljets_high}.
-Control and validation regions are included in these sections near to their
-targetted regions.
-Finally, how these are combined into `Discovery' regions for
-model-independent interpretations is discussed in
-Section~\ref{sec:2ljets_disco}.
-
-A high-level summary of the region design is shown
-Figure~\ref{fig:2ljets_region_summary}.
-The design comprises four control regions and thirteen orthogonal signal region
-bins, with validation regions targeting each group of signal regions.
-
 \begin{table}[tp]
 \centering
 \begin{tabular}{c}
@@ -1482,7 +1467,24 @@ $\met$ and smaller uncertainties on it are excluded.
 \label{tab:2ljets_presel}
 \end{table}
 
+High regions are discussed in Section~\ref{sec:2ljets_high}.
+Intermediate regions are discussed in Section~\ref{sec:2ljets_int}.
+Low regions are discussed in Section~\ref{sec:2ljets_low}.
+Off-shell regions are discussed in Section~\ref{sec:2ljets_high}.
+Control and validation regions are included in these sections near to their
+targetted regions.
+Finally, how these are combined into `Discovery' regions for
+model-independent interpretations is discussed in
+Section~\ref{sec:2ljets_disco}.
 
+A high-level summary of the region design is shown
+Figure~\ref{fig:2ljets_region_summary}.
+The design comprises four control regions and thirteen orthogonal signal region
+bins, with validation regions targeting each group of signal regions.
+
+
+% presel table should come before High
+\FloatBarrier
 \subsection{High}
 \label{sec:2ljets_high}
 The highest $\metsig$ selections, of around $\metsig > 18$, contain almost pure
@@ -1577,6 +1579,10 @@ Concatenated intervals `$a\textrm{--}b\textrm{--}c$' indicate binning
 with boundaries at $a$, $b$, and $c$.
 The mid bar `$\mid$' indicates logical or.
 Differences between regions are \uwave{underlined}.
+\\[0.5em]
+The $\rll$ bins of SR-High are labelled SR-High-8 and SR-High-16, and their
+$\metsig$ binns are suffixed -a and -b for $\metsig \in 18\textrm{--}21$
+and $\metsig > 21$ respectively.
 }
 \label{tab:2ljets_high}
 \end{table}
@@ -1760,6 +1766,92 @@ Signal regions are unblinded.
 Errors are statistical.
 }
 \label{fig:2ljets_high_llbb_region}
+\end{figure}
+
+\subsubsection{Validation}
+
+As always, validation regions are defined near to each signal region, under
+the constraint of being somehow `nearby' and having enough data to test
+background predictions.
+
+For SR-High, inverting the selections on $\mjj$ or $\rjj$ satisfies
+these criteria, so one validation region is designed on each.
+An apparent excess appears at small $\mjj$ in VR-High, which is shown in
+Figure~\ref{fig:2ljets_high_mjj_vrhigh}.
+Various validation studies which explored similar selections and different
+simulated samples found no clear explanation for this effect.
+It therefore motivates the second validation region VR-High-R, and is one
+reason for including a lower bound of $\mjj > 20\,\eV[G]$ in all regions.
+As seen in Figures~\ref{fig:2ljets_high_region}
+and~\ref{fig:2ljets_high_mjj_vrhigh}, both VR-High and VR-High-R otherwise show
+acceptable pre-fit modelling even without systematic uncertainties.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_def_mjj_VRHigh.png}
+\caption{VR-High, $\mjj$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_def_mjj_VRHighR.png}
+\caption{VR-High-R, $\mjj$}
+\end{subfigure}
+\caption[
+Pre-fit $\mjj$ distributions in validation regions VR-High and VR-High-R
+]{%
+Pre-fit $\mjj$ distributions in validation regions VR-High and VR-High-R.
+Signal regions are unblinded.
+Errors are statistical.
+The apparent excess at low $\mjj$ in VR-High is not well understood.
+}
+\label{fig:2ljets_high_mjj_vrhigh}
+\end{figure}
+
+The distribution of mono-jet masses $\mjetone$ is sharply speaked towards zero,
+so cutting this out while inveritng the $\mjetone$ selection of SR-High-1J
+more clealrly inspects the modelling of massive jets, which appears to be good.
+Note that the region $\mjetone > 110$ is also checked in this validation region
+and seen to contain no data.
+This is good for the standard model.
+Since background estimates are near zero up there, non-zero data would have
+ruled out our modelling in favour of any model making small positive
+predictions.
+
+The small yields beside SR-$\llbb$ in other event variables left $\metsig$ as
+the only appropriate caldidate to change for VR-$\llbb$.
+Unfortunately, this region mostly checks $\ttbar$ backgrounds, and not the
+rare $\ttbar Z$ backgrounds which we would most like to validate.
+Early work observed good $\ttbar Z$ modelling in three- and four- lepton
+selections, but these were excluded from the $\twoljets$ analysis for
+orthogonality from other \atlas\ searches with which our results are to be
+combined.
+
+Total backgrounds predict data well in VR-$\llbb$.
+What was not appreciated soon enough, however, was an excess in the $\metsig$
+tail of this region, which is reproduced from the paper in
+Figure~\ref{fig:2ljets_high_metsig_vrllbb_paper},
+The highest bins have very small background predictions and positive data.
+Had this been noticed before unblinding, more validation might have
+been advisable.
+``In the end'', one \atlas\ author comments,
+``it seems fine since there's not events in the SR!''~\cite{comment2022vrllbb}.
+
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/2ljets_vr_llbb_met_sig.pdf}
+\caption[
+Post-fit $\metsig$ distribution in VR-$\llbb$
+]{%
+Post-fit $\metsig$ distribution in VR-$\llbb$.
+Backgrounds are to control and signal regions.
+This region is also displayed pre-fit with coarser bins in
+Figure~\ref{fig:2ljets_high_llbb_region}.
+}
+\label{fig:2ljets_high_metsig_vrllbb_paper}
 \end{figure}
 
 
