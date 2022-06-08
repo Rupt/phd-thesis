@@ -86,9 +86,7 @@ GMSB in~\ref{fig:2ljets_contours_gmsb}.
 Data in discovery regions are presented and interpreted in
 Table~\ref{tab:2ljets_discovery}.
 
-
 % summary plot
-
 \begin{figure}[tp]
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_summary_log.pdf}
@@ -110,9 +108,7 @@ rare top processes.%
 \label{fig:2ljets_summary}
 \end{figure}
 
-
 % signal diagrams
-
 \begin{figure}[t]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -153,9 +149,7 @@ $m(\chargino_1, \neutralino_2) - m(\neutralino_1) = 1\,\eV[G]$.
 \label{fig:2ljets_signal_diagrams}
 \end{figure}
 
-
 % signal region plots
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -193,9 +187,7 @@ Poisson error bars for $0$ events are hidden for aesthetic reasons.
 \label{fig:2ljets_signal_examples}
 \end{figure}
 
-
 % exclusion plots
-
 \begin{figure}[tp]
 \centering
 \includegraphics[width=0.99\textwidth]{figures/2ljets_contours_c1n2.pdf}
@@ -241,7 +233,6 @@ All contours are interpolated from a sparse grid.
 }
 \label{fig:2ljets_contours_gmsb}
 \end{figure}
-
 
 % upper limits
 % definitely want this after pictures
@@ -369,7 +360,6 @@ the experiences of previous work.
 % partial Run~2 data~\cite{atlas_23l_SUSY_2016_24},
 % atlas_rjr_23l_SUSY_2017_03,
 % atlas_rjr_mimic_SUSY_2018_06
-
 The $\twoljets$ analysis is a trinity,
 of which all three parts update previously published \atlas\ results.
 These three parts are named `RJR', `electroweak', and `strong', each of which
@@ -392,7 +382,7 @@ which uses conventional (non-RJR) event variables to define a collection of
 orthogonal regions, and performs a search for effects from the electroweak
 sectors of supersymmetric models.
 
-
+\FloatBarrier
 \subsection{RJR}
 \label{sec:2ljets_origins_rjr}
 
@@ -549,6 +539,7 @@ For these reasons, I choose to not use any RJR event variables in the
 $\twoljets$-electroweak analysis.
 
 
+\FloatBarrier
 \subsection{Strong}
 \label{sec:2ljets_origins_strong}
 Strong supersymmetry, producing super-partners of quarks and gluons, would be
@@ -722,6 +713,7 @@ information, I chose to design the $\twoljets$-electroweak with only orthogonal
 regions, and without any manual switching of regions between models.
 
 
+\FloatBarrier
 \subsection{Electroweak}
 \label{sec:2ljets_origins_electroweak}
 As motivated in the previous sections, I have personal preferences for
@@ -733,7 +725,7 @@ combined to leverage the information in their data.
 
 The main idea behind the design of the $\twoljets$-electroweak analysis is to
 update the regions of the partial Run~2 search in its $\twoljets$
-channel~\cite{atlas_23l_SUSY_2016_24} which also searched for signal models
+channel~\cite{atlas_23l_SUSY_2016_24}, which also searched for signal models
 producing chargino-neutralino pairs which decay via $W$ and $Z$ bosons.
 A particular goal was to improve sensitivity by replacing their overlapping
 `SR2-int' and `SR2-high' regions with orthogonal selections.
@@ -1347,7 +1339,35 @@ Lester and Nachman~\cite{lester2015bisection} during this project.
 
 
 \subsection{Jet pairs}
-\TODO{why leading two jets mjj / rjj}
+Di-jet assignments, for variables like $\mjj$ and $\rjj$, are always chosen as
+the two hardest jets.
+Why?
+
+This choice matches the convention of SR2-int and SR2-high from the previous
+search~\cite{atlas_23l_SUSY_2016_24}, but my initial reaction was that since we
+are looking for jet pairs near to $m(W)$ or $m(Z)$, we should surely choose
+candidate jet pairs by their mass.
+
+Two alternative di-jet assignments were therefore considered in early
+development of region designs:
+the two jets with invariant mass closest to $m(W)$, and the two jets with the
+minimum $\rjj^\mathrm{alternative}$ between them.
+The result was bland.
+All assignments performed similarly, and all left similar fractions of signal
+yields outside of the mass window.
+The simplicity and precedent for the two-hardest jet assignment therefore swung
+the decision.
+
+However, alternatives did select different subsets of signal yields;
+the alternative jet assignments had some potential to define secondary signal
+regions to catch those signal events which fall outside of the primary
+$\mjj$ window.
+One can, for example, select $\mjj \notin 60\textrm{--}110\,\eV[G]$ and
+$\mjj^\mathrm{alternative} \in 60\textrm{--}110\,\eV[G]$ for some additional
+sensitivity.
+However, this comes at the cost of complexity, particularly in the boundaries
+with control and validation regions, and is therefore not used here.
+
 
 \subsection{Cheat-sheet}
 Uncomfortably many event variables are used to define the regions of this
@@ -1528,7 +1548,7 @@ SR-High
 & $\geq2$
 & $\leq 1$
 & $> 18$
-& $\uwave{\mjj\!:~  20\textrm{--}60 \mid 60\textrm{--}110}$
+& $\uwave{\mjj\!:~  20\textrm{--}60 \mid 110\textrm{--}\infty}$
 & $< 1.6$
 \\[0.5em]
 \: VR-High-R
@@ -1549,7 +1569,7 @@ SR-High-1J
 & $\hphantom{\geq}~1$
 & $\leq 1$
 & $> 12$
-& $\uwave{\mjetone\!:~  20\textrm{--}60 \mid 60\textrm{--}110}$
+& $\uwave{\mjetone\!:~  20\textrm{--}60 \mid 110\textrm{--}\infty}$
 &
 \\[1em]
 SR-$\llbb$
@@ -1768,22 +1788,20 @@ Errors are statistical.
 \label{fig:2ljets_high_llbb_region}
 \end{figure}
 
-\subsubsection{Validation}
-
-As always, validation regions are defined near to each signal region, under
+Validation regions, as always, are defined near to each signal region, under
 the constraint of being somehow `nearby' and having enough data to test
 background predictions.
-
 For SR-High, inverting the selections on $\mjj$ or $\rjj$ satisfies
 these criteria, so one validation region is designed on each.
 An apparent excess appears at small $\mjj$ in VR-High, which is shown in
 Figure~\ref{fig:2ljets_high_mjj_vrhigh}.
-Various validation studies which explored similar selections and different
-simulated samples found no clear explanation for this effect.
+
+Various validation studies explored similar selections and different
+simulated samples, and found no clear explanation for this effect.
 It therefore motivates the second validation region VR-High-R, and is one
 reason for including a lower bound of $\mjj > 20\,\eV[G]$ in all regions.
 As seen in Figures~\ref{fig:2ljets_high_region}
-and~\ref{fig:2ljets_high_mjj_vrhigh}, both VR-High and VR-High-R otherwise show
+and~\ref{fig:2ljets_high_mjj_vrhigh}, VR-High and VR-High-R otherwise show
 acceptable pre-fit modelling even without systematic uncertainties.
 
 \begin{figure}[tp]
@@ -1810,9 +1828,9 @@ The apparent excess at low $\mjj$ in VR-High is not well understood.
 \label{fig:2ljets_high_mjj_vrhigh}
 \end{figure}
 
-The distribution of mono-jet masses $\mjetone$ is sharply speaked towards zero,
-so cutting this out while inveritng the $\mjetone$ selection of SR-High-1J
-more clealrly inspects the modelling of massive jets, which appears to be good.
+The distribution of mono-jet masses $\mjetone$ is sharply peaked towards zero,
+so cutting this out while inverting the $\mjetone$ selection of SR-High-1J
+more clearly inspects the modelling of massive jets, which appears to be good.
 Note that the region $\mjetone > 110$ is also checked in this validation region
 and seen to contain no data.
 This is good for the standard model.
@@ -1821,7 +1839,7 @@ ruled out our modelling in favour of any model making small positive
 predictions.
 
 The small yields beside SR-$\llbb$ in other event variables left $\metsig$ as
-the only appropriate caldidate to change for VR-$\llbb$.
+the only appropriate candidate to change for VR-$\llbb$.
 Unfortunately, this region mostly checks $\ttbar$ backgrounds, and not the
 rare $\ttbar Z$ backgrounds which we would most like to validate.
 Early work observed good $\ttbar Z$ modelling in three- and four- lepton
@@ -1836,9 +1854,8 @@ Figure~\ref{fig:2ljets_high_metsig_vrllbb_paper},
 The highest bins have very small background predictions and positive data.
 Had this been noticed before unblinding, more validation might have
 been advisable.
-``In the end'', one \atlas\ author comments,
+``In the end'', comments one \atlas\ author,
 ``it seems fine since there's not events in the SR!''~\cite{comment2022vrllbb}.
-
 
 \begin{figure}[tp]
 \centering
@@ -1855,11 +1872,25 @@ Figure~\ref{fig:2ljets_high_llbb_region}.
 \end{figure}
 
 
+\FloatBarrier
 \subsection{Intermediate}
 \label{sec:2ljets_int}
-Table~\ref{tab:2ljets_int}
-Figure~\ref{fig:2ljets_int_region}
-Figure~\ref{fig:2ljets_int_cr_region}
+
+Intermediate signal regions are defined to sit in the $\metsig$ range of
+$12$ to $18$.
+As seen from Figure~\ref{fig:2ljets_presel_met}, this space suffers from
+$\ttbar$ background contributions, but it also receives substantial signal
+yields from some of the lighter signal models.
+The larger rates of background processes in this space also make it ripe for
+control regions.
+
+Intermediate signal regions are defined in Table~\ref{tab:2ljets_int},
+along with their associated validation regions and the control regions in this
+space.
+To suppress the increased backgrounds, the intermediate $\mll$ window is
+tightened to reduce non-$Z$ backgrounds including $\ttbar$ and diboson
+processes.
+Requiring zero $b$-tags further reduces $\ttbar$ backgrounds.
 
 \begin{table}[tp]
 \centering
@@ -1888,7 +1919,7 @@ CR-VZ
 & $\geq 2$
 & $\hphantom{\geq}~0$
 & $12\textrm{--}18$
-& $\uwave{20\textrm{--}60 \mid 60\textrm{--}110}$
+& $\uwave{20\textrm{--}60 \mid 110\textrm{--}\infty}$
 & $\uwave{\hphantom{< 60}}$
 \\[0.5em]
 CR-tt
@@ -1915,6 +1946,15 @@ Differences between regions are \uwave{underlined}.
 }
 \label{tab:2ljets_int}
 \end{table}
+
+The less extreme signal models targeted here have less boosted
+$W\rightarrow jj$ distributions, and so it was found that a $\ptjone$ selection
+was effective at separating signals;
+a $\ptjone > 60\,\eV[G]$ requirement split SR-Int from its validation region,
+VR-Intm and is seen from Figure~\ref{fig:2ljets_int_region} to retain most
+signal contributions.
+Following our standard pattern set with other signal regions, SR-Int is binned
+in $\metsig$ in intervals of $3$ units to improve signal sensitivity.
 
 \begin{figure}[tp]
 \centering
@@ -1951,6 +1991,17 @@ Errors are statistical.
 \label{fig:2ljets_int_region}
 \end{figure}
 
+The control region CR-VZ is defined on the $\mjj$ side-band to
+SR-Int and VR-Int.
+As seen from Figure~\ref{fig:2ljets_int_cr_region}, the selections in this
+intermediate space give CR-VZ a very pure diboson background, which is very
+valuable or constraining the modelling of High regions.
+Also included in Table~\ref{tab:2ljets_int} and
+Figure~\ref{fig:2ljets_int_cr_region} is CR-tt, which uses various other
+selections of $b$-tagged data to constrain $\ttbar$ backgrounds.
+Both control regions show good pre-fit agreement with statistical uncertainties
+only.
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -1985,7 +2036,13 @@ Errors are statistical.
 \label{fig:2ljets_int_cr_region}
 \end{figure}
 
+Some figures label CR-VZ as `CR-ZZ'; the region was renamed late in this
+analysis project when it was show to contain substantial fractions of $WZ$
+as well as $ZZ$, as illustrated in Figure~\ref{fig:2ljets_splits} of
+Section~\ref{sec:2ljets_validation}.
 
+
+\FloatBarrier
 \subsection{Low}
 \label{sec:2ljets_low}
 Table~\ref{tab:2ljets_low}
@@ -2031,14 +2088,14 @@ SR-Low-2
 \\[0.5em]
 \: VR-Low-2
 & $6\textrm{--}9$
-& $\uwave{20\textrm{--}60 \mid 60\textrm{--}110}$
+& $\uwave{20\textrm{--}60 \mid 110\textrm{--}\infty}$
 & $< 80$
 & $< 1.6$
 & $< 0.6$
 \\[1em]
 CR-Z
 & $6\textrm{--}9$
-& $\uwave{20\textrm{--}60 \mid 60\textrm{--}110}$
+& $\uwave{20\textrm{--}60 \mid 110\textrm{--}\infty}$
 & $> 80$
 & $\uwave{\hphantom{< 1.6}}$
 & $\uwave{\hphantom{< 0.6}}$
@@ -2206,6 +2263,7 @@ Errors are statistical.
 \end{figure}
 
 
+\FloatBarrier
 \subsection{Off-shell}
 \label{sec:2ljets_offshell}
 Table~\ref{tab:2ljets_offshell}
@@ -2314,6 +2372,7 @@ Errors are statistical.
 \end{figure}
 
 
+\FloatBarrier
 \subsection{Discovery}
 \label{sec:2ljets_disco}
 
