@@ -1460,7 +1460,7 @@ These Pre-selection requirements are defined in Table~\ref{tab:2ljets_presel}.
 \begin{table}[tp]
 \centering
 \begin{tabular}{c}
-Pre-selction
+Pre-selection:
 \\[1em]
 $n_\mathrm{leptons}^\mathrm{signal} = n_\mathrm{leptons}^\mathrm{baseline} = 2$
 \\[0.5em]
@@ -1644,6 +1644,12 @@ processes.
 The standard wide $\mjj \in 60\textrm{--}110\,\eV[G]$ requirement captures
 both $W\rightarrow jj$ and $Z\rightarrow jj$ for C1N2 and GMSB models
 respectively.
+
+A explained in Section~\ref{2ljets_mt2}, requiring $\mttwo$ above $m(W)$
+effectively removes $\ttbar$ and other backgrounds.
+The relatively low requirement $\mttwoll > 80\,\eV[G]$ is chosen here and
+elsewhere in the $\twoljets$-electroweak design to reduce these backgrounds
+while minimize lost signal yields.
 
 To maximize projected sensitivity, SR-High is split into four bins with
 one split at $\rjj = 0.8$, to form SR-High-8 and SR-High-16, and a second at
@@ -2045,19 +2051,66 @@ Section~\ref{sec:2ljets_validation}.
 \subsection{Low}
 \label{sec:2ljets_low}
 
-With the tighter selections inherited from Intermediate space, $\ttbar$ yields
-remain small in Low regions, which have $\metsig \in 6\textrm{--}12$.
-Down here, however, $\zjets$ backgrounds become large, as their fake $\met$
-from mismeasured jets is no longer eliminated.
-
-\TODO{read int again, remind myself why some of these decisions are made}
+In Low regions, $\metsig \in 6\textrm{--}12$, $\zjets$ becomes a large
+background contribution, since its fake $\met$, which arises from
+from mismeasurements or rare interactions, is no longer eliminated.
+Selections inherited from Intermediate regions to suppress
+$\ttbar$ backgrounds also need supplementing.
 
 Table~\ref{tab:2ljets_low}
+Figure~\ref{fig:2ljets_low_minus}
 Figure~\ref{fig:2ljets_low_region}
 Figure~\ref{fig:2ljets_low2_region}
 Figure~\ref{fig:2ljets_low_cr_region}
 Figure~\ref{fig:2ljets_low_sr_or_cr_region}
 
+
+
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_Rll_SRLow_noRll.pdf}
+\caption{SR-Low$/\{\rll\}$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_mt2leplsp_0_SRLow_noRll_nomt2.pdf}
+\caption{SR-Low$/\{\rll,\mttwoll\}$}
+\end{subfigure}
+\\[0.5em]
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_absdPhiPllMet_SRLow2_noDphi.pdf}
+\caption{SR-Low-2$/\{\dphillmet\}$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_absdPhiPllMet_SRLow2_noDphi_mg5.pdf}
+\caption{SR-Low-2$/\{\dphillmet\}$, alternative}
+\end{subfigure}
+\caption[
+Relaxed versions of SR-Low and SR-Low-2 to motivate their angular selections
+]{%
+Relaxed versions of SR-Low and SR-Low-2 to motivate their angular selections.
+Each removes requirements listed in Table~\ref{tab:2ljets_low}:
+(a) SR-Low removes $\rll$,
+(b) SR-Low removes $\rll$ and $\mttwoll$,
+and
+(c, d) SR-Low-2 removes $\dphillmet$.
+\\[0.5em]
+Signals trend towards small $\rll$, plausibly due to their more boosted
+$Z\rightarrow \ell^+\ell^-$ decays; small $\rll$ also suppresses $\ttbar$.
+The mass of signals seen at small $\mttwoll$ in (b) motivates the design of
+SR-Low-2.
+Signals in SR-Low-2 spike at small $\dphillmet$ in (c); better statistical
+precision is provided by an alternative $\zjets$ sample in (d).
+}
+\label{fig:2ljets_low_minus}
+\end{figure}
 
 \subsubsection{Low-ISR}
 \label{sec:2ljets_low_isr}
