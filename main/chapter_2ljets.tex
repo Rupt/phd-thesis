@@ -2063,89 +2063,6 @@ defined in Table~\ref{tab:2ljets_low}.
 Motivations for these angular selections are displayed in
 Figure~\ref{fig:2ljets_low_minus}, and discussed here.
 
-As elsewhere, binning of SR-Low in $\metsig \in 6\textrm{--}9\textrm{--}12$
-increases sensitivity.
-%TODO
-
-
-Uniquely in Low regions and signal models of small mass splittings, it is
-seen (from Figure~\ref{fig:2ljets_low_minus_norll_nomt2_mt2}) that some
-substantial signal masses accumulate at small $\mttwoll$.
-To capture these signals, SR-Low-2 is defined as the only
-$\twoljets$-electroweak region with $\mttwoll < 80\,\eV[G]$.
-
-That threshold of $80\,\eV[G]$ was chosen since after other selections for
-SR-Low-2, almost all signal and background samples are in the spike near $0$;
-a lower requirement would make little difference, and $80\,\eV[G]$ matches
-other, usually inverted, selections.
-
-The exclusion of $\metsig \in 9\textrm{--}12$ in SR-Low-2 is not particularly
-well motivated.
-This space contains about $2.3$ background expectation (mostly diboson) and
-$\approx 1$ from some benchmark signals, so its inclusion as a single combined
-bin not have increased sensitivity.
-Its inclusion as an orthogonal bin with small yields would have added excessive
-complication, however.
-
-
-
-Figure~\ref{fig:2ljets_low_region}
-Figure~\ref{fig:2ljets_low2_region}
-Figure~\ref{fig:2ljets_low_cr_region}
-Figure~\ref{fig:2ljets_low_sr_or_cr_region}
-
-
-
-
-\begin{figure}[tp]
-\centering
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_low_Rll_SRLow_noRll.pdf}
-\caption{SR-Low$/\{\rll\}$}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_low_mt2leplsp_0_SRLow_noRll_nomt2.pdf}
-\caption{SR-Low$/\{\rll,\mttwoll\}$}
-\label{fig:2ljets_low_minus_norll_nomt2_mt2}
-\end{subfigure}
-\\[0.5em]
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_low_absdPhiPllMet_SRLow2_noDphi.pdf}
-\caption{SR-Low-2$/\{\dphillmet\}$}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_low_absdPhiPllMet_SRLow2_noDphi_mg5.pdf}
-\caption{SR-Low-2$/\{\dphillmet\}$, alternative}
-\end{subfigure}
-\caption[
-Relaxed versions of SR-Low and SR-Low-2 to motivate their angular selections
-]{%
-Relaxed versions of SR-Low and SR-Low-2 to motivate their angular selections.
-Each removes requirements listed in Table~\ref{tab:2ljets_low}:
-(a) SR-Low removes $\rll$,
-(b) SR-Low removes $\rll$ and $\mttwoll$,
-and
-(c, d) SR-Low-2 removes $\dphillmet$.
-\\[0.5em]
-Signals trend towards small $\rll$, plausibly due to their more boosted
-$Z\rightarrow \ell^+\ell^-$ decays; small $\rll$ also suppresses $\ttbar$.
-The mass of signals seen at small $\mttwoll$ in (b) motivates the design of
-SR-Low-2.
-Signals in SR-Low-2 spike at small $\dphillmet$ in (c); better statistical
-precision is provided by an alternative $\zjets$ sample in (d).
-}
-\label{fig:2ljets_low_minus}
-\end{figure}
-
-\subsubsection{Low-ISR}
-\label{sec:2ljets_low_isr}
-Figure~\ref{fig:2ljets_low_isr_old}
 
 \begin{table}[tp]
 \centering
@@ -2209,6 +2126,70 @@ Differences between regions are \uwave{underlined}.
 \label{tab:2ljets_low}
 \end{table}
 
+
+Boosted $Z\rightarrow \ell^+\ell^-$ decays will tend to have small $\rll$.
+Similarly to $\rjj$ in the High regions, this can usefully select signals,
+but here also works to reject other $\ell^+\ell^-$ production mechanisms which
+produce leptons is less correlated directions, particularly dileptonic
+$\ttbar$.
+As elsewhere, binning of SR-Low in $\metsig \in 6\textrm{--}9\textrm{--}12$
+to form SR-Low-a and SR-Low-b respectively, increases sensitivity.
+
+Unblinded, pre-fit histograms of SR-Low are shown in
+Figure~\ref{fig:2ljets_low_region}.
+Note that these plots do not include systematic uncertainties, so the meaning
+of the observed data deficits cannot yet be fully interpreted.
+This figure also includes VR-Low, which observes the high $\rll$ edge and
+predicts the data well.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_Rll_SRLow_noRll.pdf}
+\caption{SR-Low$/\{\rll\}$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_mt2leplsp_0_SRLow_noRll_nomt2.pdf}
+\caption{SR-Low$/\{\rll,\mttwoll\}$}
+\label{fig:2ljets_low_minus_norll_nomt2_mt2}
+\end{subfigure}
+\\[0.5em]
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_absdPhiPllMet_SRLow2_noDphi.pdf}
+\caption{SR-Low-2$/\{\dphillmet\}$}
+\label{fig:2ljets_low_minus_dphi}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_low_absdPhiPllMet_SRLow2_noDphi_mg5.pdf}
+\caption{SR-Low-2$/\{\dphillmet\}$, alternative}
+\label{fig:2ljets_low_minus_dphi_alt}
+\end{subfigure}
+\caption[
+Relaxed versions of SR-Low and SR-Low-2 to motivate their angular selections
+]{%
+Relaxed versions of SR-Low and SR-Low-2 to motivate their angular selections.
+Each removes requirements listed in Table~\ref{tab:2ljets_low}:
+(a) SR-Low removes $\rll$,
+(b) SR-Low removes $\rll$ and $\mttwoll$,
+and
+(c, d) SR-Low-2 removes $\dphillmet$.
+\\[0.5em]
+Signals trend towards small $\rll$, plausibly due to their more boosted
+$Z\rightarrow \ell^+\ell^-$ decays; small $\rll$ also suppresses $\ttbar$.
+The mass of signals seen at small $\mttwoll$ in (b) motivates the design of
+SR-Low-2.
+Signals in SR-Low-2 spike at small $\dphillmet$ in (c); better statistical
+precision is provided by an alternative $\zjets$ sample in (d).
+}
+\label{fig:2ljets_low_minus}
+\end{figure}
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -2243,6 +2224,45 @@ Errors are statistical.
 }
 \label{fig:2ljets_low_region}
 \end{figure}
+
+Uniquely to Low regions, and signal models of small mass splittings, it is
+seen (in Figure~\ref{fig:2ljets_low_minus_norll_nomt2_mt2}) that substantial
+signal yields exist at small $\mttwoll$.
+To capture these signals, SR-Low-2 is defined as the only
+$\twoljets$-electroweak region with $\mttwoll < 80\,\eV[G]$.
+That threshold of $80\,\eV[G]$ is not very important.
+After the other selections for SR-Low-2, almost all signal and background
+samples are in the spike near $0$;
+a lower requirement would make little difference, and $80\,\eV[G]$ matches
+other, usually inverted, selections.
+
+As shown in Figure~\ref{fig:2ljets_low_minus_dphi}, signal models peak at small
+$\dphillmet$, and backgrounds do not; this motivates the $\dphillmet < 0.6$
+requirement, and can be understood since a boosted resonance decaying to
+$Z+\mathrm{invisible}$ will tend to send the $Z\rightarrow \ell^+\ell^-$ and
+$\ptmiss$ in the same direction.
+
+The distribution $\zjets$ here may be surprising, since its $\ptmiss$ is
+usually expected to align with a mismeasured jet.
+This is explained by the context of a prior $\mttwoll < 80\,\eV[G]$
+requirement:
+if $\ptmiss$ is facing away from both leptons, then they have large transverse
+masses.
+Following its definition as a $\min-\max$ of transverse masses,
+given in Section~\ref{sec:2ljets_mt2},
+the $\mttwoll$ requirement therefore rejects those events, leaving only the
+rarer cases of $\zjets$ with small $\dphillmet$.
+
+Excluding $\metsig \in 9\textrm{--}12$ in SR-Low-2 is also not crucial.
+This space contains about $2.3$ background expectation (mostly diboson) and
+$\approx 1$ from some benchmark signals, so its inclusion as a single combined
+bin not have increased sensitivity.
+Its inclusion as an orthogonal bin with small yields would have added excessive
+complication, however.
+
+Histograms of SR-Low-2 are shown in Figure~\ref{fig:2ljets_low2_region}.
+To get sufficiently large backgrounds, the validation region VR-Low-2 uses
+the $\mjj$ side-band, and sees good agreement.
 
 \begin{figure}[tp]
 \centering
@@ -2279,6 +2299,24 @@ Errors are statistical.
 \label{fig:2ljets_low2_region}
 \end{figure}
 
+Sadly, the $\zjets$ background in SR-Low-2 has terrible statistical precision
+in the central simulated sample due to large weights.
+This was not as bad when the region was first designed, but became exaggerated
+after reprocessing with the combination lepton definition.
+The region is plotted with an alternative sample in
+Figure~\ref{fig:2ljets_low_minus_dphi_alt}, which has better precision.
+
+% CR
+The $\zjets$ control region CR-Z is displayed in
+Figure~\ref{fig:2ljets_low_cr_region}.
+Pre-fit agreement with data is quite good, although the overflow bin has a
+notable excess.
+Standardizing cuts to remove high-$\mjj$ tails (such as requiring
+$\mjj < 500\,\eV[G]$) could have made control and validation regions like CR-Z
+kinematically closer the the signal regions they are supposed to target,
+and at least in this case, I believe such a cut would have improved the
+analysis.
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -2301,13 +2339,17 @@ Errors are statistical.
 \label{fig:2ljets_low_cr_region}
 \end{figure}
 
+The gap at in CR-Z at $\mjj \in 60\textrm{--}110\,\eV[G]$ is exactly SR-Low.
+Their union therefore has a continuous $\mjj$ distribution, which is displayed
+in Figure~\ref{fig:2ljets_low_sr_or_cr_region}.
+Looking at the signal region alone can give an impression that $\zjets$ is
+overestimated.
+This plot contradicts that; most of the $\zjets$ distribution is fine;
+the strange effect happens where diboson becomes large near $m(W)$.
+
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.9\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_low_mjj_SRLow_or_CRZ.pdf}
-\caption{}
-\end{subfigure}
+\includegraphics[width=0.9\textwidth]{figures/2ljets_low_mjj_SRLow_or_CRZ.pdf}
 \caption[
 The union of CR-Z and SR-Low
 ]{%
@@ -2319,6 +2361,10 @@ Errors are statistical.
 \label{fig:2ljets_low_sr_or_cr_region}
 \end{figure}
 
+\subsubsection{Low-ISR}
+\label{sec:2ljets_low_isr}
+Figure~\ref{fig:2ljets_low_isr_old}
+% TODO
 
 \begin{figure}[tp]
 \centering
