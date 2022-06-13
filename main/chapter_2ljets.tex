@@ -2051,14 +2051,44 @@ Section~\ref{sec:2ljets_validation}.
 \subsection{Low}
 \label{sec:2ljets_low}
 
-In Low regions, $\metsig \in 6\textrm{--}12$, $\zjets$ becomes a large
-background contribution, since its fake $\met$, which arises from
+In Low regions, which have $\metsig \in 6\textrm{--}12$, the $\zjets$
+background becomes a large since its fake $\met$, which arises from
 from mismeasurements or rare interactions, is no longer eliminated.
-Selections inherited from Intermediate regions to suppress
-$\ttbar$ backgrounds also need supplementing.
+Similarly, backgrounds from $\ttbar$ increase; the selections inherited from
+Intermediate regions to suppress $\ttbar$ need supplementing.
 
-Table~\ref{tab:2ljets_low}
-Figure~\ref{fig:2ljets_low_minus}
+Angular selections on lepton variables $\rll$ and $\dphillmet$ are used to
+reject $\ttbar$ and provide signal sensitivity in Low regions, which are
+defined in Table~\ref{tab:2ljets_low}.
+Motivations for these angular selections are displayed in
+Figure~\ref{fig:2ljets_low_minus}, and discussed here.
+
+As elsewhere, binning of SR-Low in $\metsig \in 6\textrm{--}9\textrm{--}12$
+increases sensitivity.
+%TODO
+
+
+Uniquely in Low regions and signal models of small mass splittings, it is
+seen (from Figure~\ref{fig:2ljets_low_minus_norll_nomt2_mt2}) that some
+substantial signal masses accumulate at small $\mttwoll$.
+To capture these signals, SR-Low-2 is defined as the only
+$\twoljets$-electroweak region with $\mttwoll < 80\,\eV[G]$.
+
+That threshold of $80\,\eV[G]$ was chosen since after other selections for
+SR-Low-2, almost all signal and background samples are in the spike near $0$;
+a lower requirement would make little difference, and $80\,\eV[G]$ matches
+other, usually inverted, selections.
+
+The exclusion of $\metsig \in 9\textrm{--}12$ in SR-Low-2 is not particularly
+well motivated.
+This space contains about $2.3$ background expectation (mostly diboson) and
+$\approx 1$ from some benchmark signals, so its inclusion as a single combined
+bin not have increased sensitivity.
+Its inclusion as an orthogonal bin with small yields would have added excessive
+complication, however.
+
+
+
 Figure~\ref{fig:2ljets_low_region}
 Figure~\ref{fig:2ljets_low2_region}
 Figure~\ref{fig:2ljets_low_cr_region}
@@ -2079,6 +2109,7 @@ Figure~\ref{fig:2ljets_low_sr_or_cr_region}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_low_mt2leplsp_0_SRLow_noRll_nomt2.pdf}
 \caption{SR-Low$/\{\rll,\mttwoll\}$}
+\label{fig:2ljets_low_minus_norll_nomt2_mt2}
 \end{subfigure}
 \\[0.5em]
 \begin{subfigure}{0.48\textwidth}
