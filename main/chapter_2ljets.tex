@@ -2368,10 +2368,46 @@ Errors are statistical.
 
 \subsubsection{Low-ISR}
 \label{sec:2ljets_low_isr}
-Figure~\ref{fig:2ljets_low_isr_old}
 
-The Low regions presented in Section~\ref{sec:2ljets_low_isr} resulted from a
+The Low regions presented in Section~\ref{sec:2ljets_low} resulted from a
 hasty redesign shortly before unblinding.
+
+Before that redesign, an multi-jet signal region SR-Low-ISR was included,
+with associated validation and control regions,
+which required $\njet \geq 3$ and offered some meagre extra sensitivity.
+Here, `ISR' stands for Initial-State Radiation, following the naming
+of previous \atlas searches including partial Run-2 2/3-lepton
+search which we are updating~\cite{atlas_23l_SUSY_2016_24}.
+
+Although initial-state radiation typically refers to soft emissions in
+parton showers~\cite{corcella2000initial, bewick2022initial},
+our ISR explicitly includes hard emissions from the perturbative matrix element
+simulation;
+ISR is selected to give a hard transverse boost to the supersymmetric
+particles, making their resulting $\met$, and other kinematics, more distinctive.
+
+As an event variable, we follow \cite{atlas_23l_SUSY_2016_24} to define the
+ISR momentum as the vector sum of all jets not assigned to the
+$W\rightarrow jj$ decay.
+This ISR construction does not select the two hardest for the $W$ candidate,
+unlike our other regions, but instead takes the two closest in $\phi$ to the
+vector $\vec \pt^{\ell\ell} + \ptmiss$;
+the two jets selected in this way are used to define the mass $\mwisr$.
+
+The region SR-Low-ISR required $\ptisr > 300\,\eV[G]$ for a substantial
+boost and $\dphiisrmet > 2.6$ to catch invisible particles boosted away from the
+ISR, along with standard selections $\mwisr \in 60\textrm{--}110\,\eV[G]$,
+$\metsig \in 6\textrm{--}12$, and preselection, as well as $\mjj > 110\,\eV[G]$
+for orthogonality from other signal regions.
+
+The main ISR regions are shown in Figure~\ref{fig:2ljets_low_isr_old}; no data
+are shown in the signal region since it was never unblinded.
+From the validation and control regions, however, there is a clear deficit
+of data below backgrounds by about $30\%$.
+Here, VR-Low-ISR differs from SR-Low-ISR by requiring
+$\ptisr \in 200\textit{--}300\,\eV[G]$, and CR-Low-ISR differs by requiring
+$\ptisr > 200\,\eV[G]$ and
+$\mwisr \in 20\textrm{--}60 \mid 110\textrm{--}\infty$.
 
 \begin{figure}[tp]
 \centering
@@ -2379,6 +2415,7 @@ hasty redesign shortly before unblinding.
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrlow_old_srlowisr.png}
 \caption{SR-Low-ISR, $\ptisr$ (blind)}
+\label{fig:2ljets_low_isr_old_sr}
 \end{subfigure}
 \\[0.5em]
 \begin{subfigure}{0.48\textwidth}
@@ -2400,11 +2437,67 @@ unblinded.
 These regions required a third, hard jet directed away from $\ptmiss$.
 As seen from (b) and (c), the background modelling is poor and in conflict
 with normalization factors in other control regions.
-Variables are defined in the text of Section~\ref{sec:2ljets_low_isr}.
+Variables and regions are defined in the text of
+Section~\ref{sec:2ljets_low_isr}.
 Errors are statistical.
 }
 \label{fig:2ljets_low_isr_old}
 \end{figure}
+
+Additional control regions were designed in an attempt to improve background
+normalization local to this region.
+These are CR-Low-ISR-Z and CR-Low-ISR-DF, which select $\zjets$ and $\ttbar$
+backgrounds and find smaller deficits of $20\%$ and $10\%$ respectively,
+as shown in Figure~\ref{fig:2ljets_low_isr_old_more}.
+To select $\zjets$, CR-Low-ISR-Z differs from CR-Low-ISR by requiring
+$\dphiisrmet \in 1\textrm{--}2.6$ and $\metsig \in 6\textrm{--}9$.
+To select $\ttbar$, CR-Low-ISR-DF differs from CR-Low-ISR by requiring
+different-flavour leptons and the simpler $\mwisr > 20\,\eV[G]$, since it
+has no signal regions to avoid in different-flavour data.
+No nearby selection was found to form a pure diboson control region near here.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_vrlow_old_crlowisr_z.png}
+\caption{CR-Low-ISR-Z, $\mwisr$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_vrlow_old_crlowisr_df.png}
+\caption{CR-Low-ISR-DF, $\mwisr$}
+\end{subfigure}
+\caption[
+Pre-fit distributions in extra control regions for the draft Low-ISR
+]{%
+Pre-fit distributions in extra control regions for the draft Low-ISR.
+These regions required a third, hard jet directed away from $\ptmiss$.
+Variables and regions are defined in the text of
+Section~\ref{sec:2ljets_low_isr}.
+Errors are statistical.
+}
+\label{fig:2ljets_low_isr_old_more}
+\end{figure}
+
+A complicated likelihood model was constructed which normalized diboson,
+$\zjets$ and $\ttbar$ backgrounds to the combination of CR-Low-ISR,
+CR-Low-ISR-Z, CR-Low-ISR-DF.
+After this fit, the validation region VR-Low-ISR had a high background
+of $56.7 \pm 4.4$ for $47$ data, which is only a $1$-sigma deficit.
+
+This complication is a great deal of cost for what is only a weakly sensitive
+signal region, reaching only a projected significance $Z\approx 1$ for the
+(pre-fit) signals shown in Figure~\ref{fig:2ljets_low_isr_old_sr}.
+On the very sound advice of \atlas authors commenting on the internal
+documentation, this ISR construction was entirely removed.
+
+Modelling multi-jet QCD is hard.
+This deficit was therefore blamed on multi-jet QCD modelling, and resolved by
+retreating to two-jet events.
+I find it interesting, however, that the two-jet SR-Low did eventually observe
+a comparable deficit when unblinded.
 
 
 \FloatBarrier
