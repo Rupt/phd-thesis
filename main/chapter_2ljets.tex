@@ -2509,8 +2509,56 @@ comparable deficit.
 \FloatBarrier
 \subsection{Off-shell}
 \label{sec:2ljets_offshell}
-Table~\ref{tab:2ljets_offshell}
-Figure~\ref{fig:2ljets_offshell_region}
+Previous iterations of our $\twoljets$ search did not target `off-shell'
+scenarios~\cite{atlas_23l_SUSY_2016_24, atlas_2l_SUSY_2013_11}, in which
+models have mass splittings below $m(W)$ or $m(Z)$, such that decays must
+proceed below their pole masses.
+Models with smaller off-shell mass splittings are described as more
+`compressed'.
+Separate searches have, however, targetted compressed scenarios in
+specialized and carefully designed analyses~\cite{
+atlas_susy_compressed_2l_2016_partial_run2,
+atlas_susy_compressed_2l_2018_run2
+} in selections with two leptons.
+
+Since compressed signals generate softer kinematics and \atlas\ is sensitive
+to soft leptons, three-lepton searches have stronger sensitivity to
+compressed scenarios~\cite{atlas_rjr_3l_SUSY_2019_09}.
+These searches consider the same C1N2 $WZ$ signal models as us, but target the
+case where the $W$ decays leptonically $W\rightarrow\ell\nu$.
+For comparison, impressive off-shell exclusion contours are reproduced
+from the \atlas\ Run-2 $3\ell$ search~\cite{atlas_rjr_3l_SUSY_2019_09} in
+Figure~\ref{fig:ljets_offshell_3l_exclusion}.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/2ljets_compressed_3l_ins1866951_fig_16a.png}
+\caption[
+Contours showing off-shell C1N2 exclusion from the \atlas\ Run-2 $3\ell$ search
+]{%
+Contours showing off-shell C1N2 exclusion in the three lepton channel,
+reproduced from the \atlas\ Run-2 $3\ell$
+search~\cite{atlas_rjr_3l_SUSY_2019_09, hepdata.95751}.
+Off-shell models are excluded in that large lobe squeezed between the
+$m(\neutralino_2) = m(\neutralino_1)$ and
+$m(\neutralino_2) = m(\neutralino_1) - m_Z$ diagonal lines.
+}
+\label{fig:ljets_offshell_3l_exclusion}
+\end{figure}
+
+Despite the expert input from these off-shell and compressed searches, it was
+decided that $\twoljets$-electroweak should chime in to the off-shell
+conversation.
+Although specialized searches benefit from softer leptons and $\met$
+triggers~\cite{atlas_susy_compressed_2l_2018_run2},
+we still have some sensitivity since standard model backgrounds drop off
+below $\mll \approx m(Z)$.
+
+This is the purpose of SR-OffShell and its associated validation and control
+regions that are defined in Table~\ref{tab:2ljets_offshell}.
+Histograms of SR-OffShell and VR-OffShell are displayed in
+Figure~\ref{fig:2ljets_offshell_region}, and the off-shell control region
+CR-DY is displayed in Figure~\ref{fig:2ljets_offshell_cr_region}.
 
 \begin{table}[tp]
 \centering
@@ -2594,6 +2642,56 @@ Errors are statistical.
 \label{fig:2ljets_offshell_region}
 \end{figure}
 
+
+Our off-shell regime is characterized by $\mll < m(Z)$.
+The $W$ must also be off shell, the softer hadronic activity from light $W^*$
+events is not reliably reconstructed as signal jets.
+
+Early OffShell designs used the `ISR' construction, which is described
+Section~\ref{sec:2ljets_low} for Low regions,
+and which seeks hard jets which boost the supersymmetric particles and their
+decay products.
+
+After some iterations, however, the same intent was reproduced with a simpler
+and more effective selection.
+As seen in Table~\ref{tab:2ljets_offshell}, this design is to simply ask for
+one hard jet facing away from $\ptmiss$; this is specified as
+$\ptjone > 100\,\eV[G]$ and $\dphijmet > 2$.
+In comparison to ISR variables, this design improves yields by not needing jets
+for a $W\rightarrow jj$ candidate.
+
+An upper limit of $\mjj < 71\,\eV[G]$ is chosen for orthogonality from all
+on-shell regions.
+Our simulations of $\zjets$ are split into on- and off-shell parts at
+$40\,\eV[G]$, so that forms a natural breakpoint for binning which might help
+to separate concerns about systematic variations.
+As always, this binning aids sensitivity since models' contributions to the
+the bins vary with their mass splittings.
+
+Hadronic resonances which decay to lepton pairs,
+such as the bottomonium $\Upsilon$,
+become important below $10\,\eV[G]$, and we did not have simulations available
+for the $\mll < 10\,\eV[G]$ range.
+The requirement $\mll > 12\,\eV[G]$ is therefore imposed to robustly remove
+this un-modelled regime with a margin for error.
+
+Unlike on-shell regions, the standard $\mttwoll > 80\,\eV[G]$ requirement did
+not adequately reduce off-shell $\ttbar$ backgrounds.
+Pushing it up to $\mttwoll > 100\,\eV[G]$ was found to work well for the signal
+region, and the $\mttwoll \in 80\textrm{--}100\,\eV[G]$ nicely forms a the
+nearby validation region.
+Part of the light $\mll$ background arises from leptonically decaying
+$Z\rightarrow \tau\tau$ events; these are also removed by requiring large
+$\mttwoll$.
+
+Away from the $m(Z)$ peak, the full dilepton spectrum is not dominated by the
+$Z$ resonance, but depends on the full Drell-Yan, $\zyjets$,
+process~\cite{drell1970massive}.
+That is, on- and off-shell $\mll$ distributions are physically different.
+Since also $\zyjets$ simulations are culturally not trusted, we decided
+to introduce separate normalization factors for $\zyjets$ in on- and off-shell
+regions.
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -2613,6 +2711,15 @@ Errors are statistical.
 }
 \label{fig:2ljets_offshell_cr_region}
 \end{figure}
+
+The control region CR-DY (named after Drell and Yan) is defined to normalize off-shell $\zyjets$ near to
+SR-OffShell.
+Its reduced $\metsig$ requirement and relaxed angular selections were required
+to increase yields.
+As seen in Figure~\ref{fig:2ljets_offshell_cr_region}, pre-fit backgrounds
+agree well with data.
+Contributions of $\zyjets$ in SR-OffShell are small anyway, as shown in
+Figure~\ref{fig:2ljets_offshell_region}.
 
 
 \FloatBarrier

@@ -34,6 +34,10 @@
 % hyperlinks; final keeps links in draft mode
 \usepackage[final]{hyperref}
 
+% good math mode hyphens
+% https://www.logic.at/staff/salzer/etc/mhyphen/
+\mathchardef\mhyphen="2D
+
 % custom commands
 \newcommand{\TODO}[1]{{\color{red}TODO #1}}
 \newcommand{\heplikelihood}{like-lihood}
@@ -48,9 +52,6 @@
 \newcommand{\cern}{CERN}
 \newcommand{\twoljets}{2\ell\mathrm{+jets}}
 \newcommand{\llbb}{\ell\ell bb}
-
-% https://www.logic.at/staff/salzer/etc/mhyphen/
-\mathchardef\mhyphen="2D
 
 % particles
 \newcommand{\chargino}{\tilde\chi^\pm}
@@ -91,3 +92,4 @@
 % samples
 \newcommand{\ttbar}{t\bar t}
 \newcommand{\zjets}{Z\mathrm{+jets}}
+\newcommand{\zyjets}{Z/\gamma^*\mathrm{+jets}}
