@@ -1412,8 +1412,33 @@ Perhaps the most impactful decision in a search is the design of its regions.
 Like most decision, these designs must be made to balance conflicting and
 vaguely-specified desires, and are informed with incomplete information.
 
+My understanding of search design is as conflict between simplicity and
+precision.
+Yes, an extra bin with higher $\metsig$ might catch some extreme signals,
+and yes, an RJR construction might pick out candidate decay trees without
+extreme $\met$.
+But if these delay the result without comparable benefits, they will act to
+slow down our scientific progress.
+
+Furthermore, simplicity encourages interpretability and trust.
+A selection at $100\,\eV[G]$ may be slightly outperformed in precision by one
+at $100.314\,\eV[G]$, but the former is preferable --- it is easily
+communicated and perhaps understood or reproduced by readers.
+The latter could be overly tuned, perhaps by a learning algorithm, to specific
+simulations.
+Perhaps it cut out a highly weighted sample which, although annoying, was an
+honest representation of our modelling.
+Denying ourselves the ability to over-fit simulations keeps us honest.
+
+Numerical simplicity is valuable.
+I stated this as a design goal in internal documentation, but that statement was
+removed after one \atlas\ author commented
+``maybe this paragraph is a little
+\emph{too honest}? (The `numerical simplicity' bit)''
+(emphasis added)~\cite{comment2020toohonest}.
+
 This section describes the designs and rationales behind the control,
-validation and signal regions of the $\twoljets$ analysis.
+validation, and signal regions of the $\twoljets$ analysis.
 
 \begin{figure}[tp]
 \centering
@@ -1446,14 +1471,14 @@ $Z$ resonance mass.
 Separate regions target $\mll < m(Z)$ for models with small mass splittings,
 which force decays to proceed via low-mass off-shell weak bosons.
 
-Following the conventional style descibed in
+Following the conventional style described in
 Section~\ref{sec:searches_searches},
 control regions are defined to normalize specific background samples,
 and validation regions are defined to test their extrapolation towards
 signal regions before unblinding.
 
 All regions are defined within a loose `Pre-selection' requirement which
-requires the basic $Z\rightarrow \ell^+\ell^-$ plus jets pluts $\met$
+requires the basic $Z\rightarrow \ell^+\ell^-$ plus jets plus $\met$
 conditions that we target in the $\twoljets$-electroweak.
 These Pre-selection requirements are defined in Table~\ref{tab:2ljets_presel}.
 
@@ -1601,7 +1626,7 @@ The mid-bar `$\mid$' indicates logical or.
 Differences between regions are \uwave{underlined}.
 \\[0.5em]
 The $\rll$ bins of SR-High are labelled SR-High-8 and SR-High-16, and their
-$\metsig$ binns are suffixed -a and -b for $\metsig \in 18\textrm{--}21$
+$\metsig$ bins are suffixed -a and -b for $\metsig \in 18\textrm{--}21$
 and $\metsig > 21$ respectively.
 }
 \label{tab:2ljets_high}
@@ -1628,8 +1653,8 @@ The pure diboson background has very similar shapes to the signals.
 Tighter cuts would therefore reduce background and signal yields comparably,
 reducing sensitivity.
 The significance dropouts in (a) are errors in plotting.
-`Significance Z' is the binomial significance with $30\%$ relative background
-uncertainty~\cite{cousins2008evaluation}.
+`Significance Z' is the binomial significance~\cite{cousins2008evaluation}
+with a $30\%$ relative background uncertainty.
 Error bars are statistical.
 }
 \label{fig:2ljets_high_mll_b}
@@ -2696,7 +2721,7 @@ regions.
 \centering
 \begin{subfigure}{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_CRDY.png}
+\includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_CRDY.pdf}
 \caption{CR-DY, $\metsig$}
 \end{subfigure}
 \hfill
@@ -2712,8 +2737,8 @@ Errors are statistical.
 \label{fig:2ljets_offshell_cr_region}
 \end{figure}
 
-The control region CR-DY (named after Drell and Yan) is defined to normalize off-shell $\zyjets$ near to
-SR-OffShell.
+The control region CR-DY (named after Drell and Yan) is defined to normalize
+off-shell $\zyjets$ near to SR-OffShell.
 Its reduced $\metsig$ requirement and relaxed angular selections were required
 to increase yields.
 As seen in Figure~\ref{fig:2ljets_offshell_cr_region}, pre-fit backgrounds
@@ -3504,7 +3529,7 @@ Similarly, `$\llbb$', `Int', `Low', and `OffShell' are shown to target their
 appropriate parameter spaces.
 Although figures were produced before unblinding, with older samples and region
 designs, the general message has not changed.
-Values of CLs from mean data in the combined fit are are overlaid on the grid.
+Values of CLs from mean data in the combined fit are overlaid on the grid.
 }
 \label{fig:2ljets_fit_muti_contourss}
 \end{figure}
