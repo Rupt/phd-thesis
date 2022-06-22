@@ -2753,18 +2753,68 @@ Figure~\ref{fig:2ljets_offshell_region}.
 \subsection{Discovery}
 \label{sec:2ljets_disco}
 
-\begin{itemize}
-\item DR-High: SR-High-8
-\item DR-$\llbb$: SR-$\llbb$
-\item DR-Int: SR-Int
-\item DR-Low: SR-Low
-\item DR-OffShell: SR-OffShell
-\end{itemize}
+Although discovery regions are model-independent in principle, our designs
+remain inspired by our simulated signal models.
+Various approaches are taken to discovery regions in \atlas\ searches.
+Although it is normal to have one per signal
+regions~\cite{SUSY-2018-02},
+some searches study
+dozens of discovery regions comprising signal region bins~\cite{SUSY-2018-36},
+or other modifications to signal
+regions~\cite{atlas_susy_compressed_2l_2018_run2}.
 
-Figure~\ref{fig:2ljets_disco_trials_high}
-Figure~\ref{fig:2ljets_disco_trials_llbb}
-Figure~\ref{fig:2ljets_disco_trials_int}
-Figure~\ref{fig:2ljets_disco_prefit}
+Personally, I do not see the benefit from tens of discovery regions.
+Yes, given a pet model, one can choose the region with its best expected
+sensitivity and interpret the model with the data in that region.
+But one cannot easily combine data from multiple regions if their background
+modelling is meaningfully related.
+And our background modelling will always be related if our discovery regions
+share control region data, or other coupled systematic variations.
+
+That is, finely binning discovery regions can harm sensitivity since their
+interpretations are decoupled.
+Since we do couple the background models in exclusion studies,
+opposite is true (to some extent) there.
+
+We therefore chose to design a small number of discovery regions, each of which
+comprises a union of one or more signal regions.
+
+This decision turned out well, not because of the above statistical
+pontification, but since the practical cost of running the standard statistical
+software to analyse each discovery region (and to perform their many validation
+studies), turned out to be so large~\cite{verkerke2003roofit}.
+
+Given our existing division into High, Low, Int, and OffShell
+categories, the assignment one discovery region to each was simple.
+The $\llbb$ category within High also stands out for targetting physically
+different events, so a DR-$\llbb$ was also assigned.
+
+Our five discovery regions are defined as unions on signal regions as follows:
+\begin{itemize}
+\item DR-High is SR-High-8 (the union of SR-High-8-a and -b),
+\item DR-$\llbb$ is is SR-$\llbb$,
+\item DR-Int is SR-Int (the union of SR-Int-a and -b),
+\item DR-Low is SR-Low (the union of SR-Low-a and -b)
+\item DR-OffShell is SR-OffShell (the union of SR-OffShell-a and -b).
+\end{itemize}
+Although it was not a design requirement, these give discovery regions are
+all orthogonal.
+
+
+Most signal regions are included as parts of these discovery regions, with the
+exceptions of SR-High-1J, SR-High-16, and SR-Low-2.
+These exceptions were excluded since they have either questionable background
+modelling or poor sensitivity to candidate signal models.
+
+To arrive at this design, I proposed many combinations of signal regions and
+compared metrics for their projected sensitivity to simulated signal models.
+The final choices are not the most sensitive to all models --- rather, they
+were chosen for broad sensitivity to varieties of signals.
+These studies are displayed in Figures~\ref{fig:2ljets_disco_trials_high},
+~\ref{fig:2ljets_disco_trials_llbb}~and~\ref{fig:2ljets_disco_trials_int}
+for High, $\llbb$ and Int categories respectively.
+Similar figures were produced for the other categories, but they are used older
+region definitions, are identical in style, and are not illuminating
 
 \begin{figure}[tp]
 \centering
@@ -2788,7 +2838,7 @@ simplicity and good sensitivity to both benchmark signal models.
 Upper plots show background and signal yields.
 Lower plots show various measures of projected
 sensitivity~\cite{cousins2008evaluation}.
-Yields are derived in an early iteration of the analysis and do not exactly
+Yields were derived in an early iteration of the analysis and do not exactly
 match those in the final result.
 }
 \label{fig:2ljets_disco_trials_high}
@@ -2816,7 +2866,7 @@ sensitivity, simplicity, and to avoid overlapping with DR-High.
 Upper plots show background and signal yields.
 Lower plots show various measures of projected
 sensitivity~\cite{cousins2008evaluation}.
-Yields are derived in an early iteration of the analysis and do not exactly
+Yields were derived in an early iteration of the analysis and do not exactly
 match those in the final result.
 }
 \label{fig:2ljets_disco_trials_llbb}
@@ -2844,11 +2894,25 @@ and broad sensitivity.
 Upper plots show background and signal yields.
 Lower plots show various measures of projected
 sensitivity~\cite{cousins2008evaluation}.
-Yields are derived in an early iteration of the analysis and do not exactly
+Yields were derived in an early iteration of the analysis and do not exactly
 match those in the final result.
 }
 \label{fig:2ljets_disco_trials_int}
 \end{figure}
+
+As with other designs, simplicity has value.
+Although sharper sensitivity to special cases could have been achieved
+with more complicated selections, the reward of this discovery region design
+is that it can be stated clearly as the bullet pointed list given above.
+
+The five discovery regions are displayed in
+Figure~\ref{fig:2ljets_disco_prefit}
+with pre-fit backgrounds and statistical uncertainties only.
+The unblinded data in this figure repeat the SR-High and SR-Low deficits
+mentioned previously.
+to make inferences from these data, it is necessary to assign honestly
+uncertain background models; the next section tackles this crucial problem of
+background modelling.
 
 \begin{figure}[tp]
 \centering
@@ -2890,7 +2954,7 @@ Errors are statistical.
 \label{fig:2ljets_disco_prefit}
 \end{figure}
 
-
+\FloatBarrier
 \section{Modelling}
 % TODO backgorund samples
 % TODO matrix method fakes
