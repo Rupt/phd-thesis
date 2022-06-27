@@ -3009,17 +3009,54 @@ and theoretical uncertainties in Section~\ref{sec:2ljets_theory_variations}.
 \subsection{Fake/non-prompt leptons}
 \label{sec:2ljets_mm_fakes}
 
-\TODO{composition (INT)}
-% components
-% lots of non-prompt, a little fake hadrons
-%
+Given our requirements on lepton quality, isolation, and hardness, it is
+expected that the rates of fake leptons, or non-prompt leptons (which do not
+originating from the hard scatter) should be small.
+And indeed more details estimates indicate that they are small.
+However, just like other backgrounds, it is important that we assign
+honest and honestly uncertain estimates for these fake/non-prompt backgrounds.
 
+Although my style of spelling out fake/non-prompt every time
+(as opposed to just `fake') may be awkward, it is supported by fact that this
+the non-prompt part dominates.
+Indeed, figures in our internal documentation~\cite{twoljets2018int} suggest
+that, in simulations, non-prompt hadron decays produce in excess of $90\%$ of
+this background in a loose selections near to our regions, and across the
+entire $\metsig$ spectrum.
+Non-prompt muons are mostly from decays of heavy-flavour ($b$ or $c$) hadrons,
+and electrons arise in roughly equal parts from light flavour hadrons.
+Tau decays form the next largest part, with prompt fakes due to misidentified
+photons or leptons in the sub-$\%$ weeds.
 
-Historical precedent leads us to use the `Matrix Method' to estimate
-backgrounds including fake and non-prompt leptons, so named because it works by
-estimating a linear relationship between dilepton event rates.
-\TODO{previous 2ljets MM}
+However, simulations are not totally accurate.
+In particular, do not use simulations of pure hadronic processes, so do not
+really know the rates at which these strong processes can fake leptons.
+Although prompt strong effects may only rarely fake leptons, they have very
+large cross-sections are not modelled well.
+This motivates the use of data-driven fake estimates to replace the need for
+such specialized simulations of poorly understood physics.
 
+Precedent from previous searches in this channel~\cite{
+atlas_2l_SUSY_2013_11,
+atlas_23l_SUSY_2016_24
+}
+leads us to use the `Matrix Method'~\cite{ATLAS-CONF-2014-058} to estimate
+backgrounds of fake and non-prompt leptons, so named because it works by
+estimating a linear relationship between dilepton event rates, which is
+written as a matrix multiplication.%
+\footnote{%
+To be explicit, the Matrix Method does not use Matrix Elements from quantum
+scattering, and is not related to the similarly-named
+Matrix Element Method~\cite{gainer2013matrix}.
+}
+
+\emph{
+I am deeply grateful to Eirik~Gramstad for developing the Matrix Method for our
+$\twoljets$ searches, documenting it, providing its samples, and showing us how
+to use them.
+Although I have reservations about the method itself (expounded below), these
+are not criticisms of his excellent work spent in using it.
+}
 
 In data, one measures tightly ($t$) and loosely ($l$) identified leptons, leading
 to four categories of events with two ordered leptons as labelled $tt$, $tl$,
@@ -3027,6 +3064,7 @@ $lt$, and $ll$ for tight-tight, tight-loose, and so on.
 The Matrix Method assumes a linear relationship between these selections
 and those of real ($r$) and fake/non-prompt ($f$) leptons:
 \begin{equation}
+\label{eqn:2ljets_matrix_method}
 \begin{pmatrix}
 \mu^\textrm{data}_{tt} \\
 \mu^\textrm{data}_{tl} \\
@@ -3062,16 +3100,19 @@ respectively.
 Transition probabilities $p(*\!\mid\!*,i)$ are estimated by studies in
 separate selections and assigned as functions of the lepton
 flavour, $\pt$ and $|\eta|$.
-Given those estimated transition probabilities and some observed data
-in a selection of two loose leptons,
+Given those estimated transition probabilities, the Matrix Method begins by
+taking some observed data
 $n^\textrm{data}_{tt}$,
 $n^\textrm{data}_{tl}$,
 $n^\textrm{data}_{tl}$,
-and $n^\textrm{data}_{ll}$,
-the Matrix Method inverts $M$ to estimate truth level rates
-$\bar \mu^\textrm{truth}_{**}$.
+and $n^\textrm{data}_{ll}$
+in a selection of two loose leptons.
 (Recall that tight implies loose, so this selection of loose leptons includes
 some tight leptons.)
+The Matrix method uses these data as estimate $\mu^\textrm{data}_{**}$,
+then inverts $M$ to estimate the truth level rates
+$\bar \mu^\textrm{truth}_{**}$ through Equation~\ref{eqn:2ljets_matrix_method}.
+
 Finally, these truth-level estimates are converted back to data-level
 estimates in the tight-tight selection of our search regions back through the
 independent transition probabilities as
@@ -3098,55 +3139,51 @@ p(t\!\mid\!f,1)
 \times \bar \mu^\textrm{truth}_{ff}~~.
 \end{align}
 
-To assign fake/non-prompt estimates in our regions, this method is
-implemented by assigning weights to observed data events, which are
-histogrammed in the tighter selections of our search
+To assign fake/non-prompt estimates in our regions, the Matrix Method is
+implemented by assigning weights to observed data events, and histogramming
+them in the tighter selections of our search
 regions~\cite{twoljets2018int}.
 Systematic variations are assigned by comparing histograms when those weights
 are varied according to various uncertainties in the Matrix Method procedure.
 
-Yes, that is a histogramming of real data with weights, and those data include
-tight-tight events which comprise the signal data of our search regions,
-in which we are searching for anomalies.
-Since it includes real data, this method looks at all unblinded data, including
-signal regions.
+Yes, actual data are histogrammed in the Matrix Method, and those data include
+tight-tight events which comprise the data of our search regions, and those
+are the same data in which we are searching for anomalies.
+Since it includes actual data, this method unblinds all regions,
+including signal regions, early.
 And because it knows the data we are supposed to be predicting, it is no
 prediction at all!
 
-That last statement was an exaggeration.
+That last statement was a slight exaggeration.
 Although it does cheat by using the data we should be blind to, it uses those
-data in a diluted way, such that they which might end up not making much
-difference.
+data in a diluted way, such that they can end up not making much difference.
 
 In fact, real data tend to be assigned negative Matrix Method weights.
-For example, CR-VZ receives $157$ weighted data in its Matrix Method sample,
-of which $135$ pass the signal lepton requirements (tight-tight)%
+For example, CR-VZ receives $157$ data in its Matrix Method sample,%
 \footnote{%
-I am not sure why this differs from the $194$ actual data observed in CR-VZ.
+This count of $157$ differs from the $194$ actual data observed in CR-VZ.
+I do not know why.
 The two do overlap in event identity numbers, so there is presumably some
 tighter selection in the Matrix Method which should be accounted for in its
 weights.
-},
+}
+of which $135$ pass the signal lepton requirements (tight-tight),
 and the remainder have one loose lepton (zero loose-loose lepton events
-are observed here).
-The signal events have an average weight of $-0.0227$, and the others
+are observed in CR-VZ).
+The tight-tight events have an average weight of $-0.0227$, and the others
 have an average weight of $+0.238$ (one can check these recover the central
 fake/non-prompt background of $2.2$).
 Such negative signal weights suggest that a local \emph{excess} of data
 would act to \emph{decrease} the Matrix Method estimate in the region.
-Yes this backwards dependency is backwards, but this gives some relief that it
-should not hide real local excesses.
+Yes this backwards dependency is backward, but at least it gives some relief
+hide real local excesses would not be hidden by increased fake estimates.
 
 Although the $\twoljets$-electroweak regions were designed without using the
 Matrix Method fake estimate, and before it was finalized, we are fortunate that
 most search regions do not have substantial Matrix Method yields.
 I consider those that do to be dubious.
 
-
-% TODO cite past searches
-% TODO thank Eirik
-
-
+% TODO
 Figure~\ref{fig:2ljets_vrss}
 Table~\ref{tab:2ljets_fnp_negative_mm}
 Table~\ref{tab:2ljets_fnp_estimates}
