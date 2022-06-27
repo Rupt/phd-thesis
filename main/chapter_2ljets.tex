@@ -2956,71 +2956,52 @@ Errors are statistical.
 
 \FloatBarrier
 \section{Modelling}
-% TODO backgorund samples
-% TODO matrix method fakes
-% TODO GMSB reweighting
-% TODO off-shell plus/minus split
-% TODO generator filtering
+
+So far, we have seen many histograms of background samples overlaid with
+observed data.
+Those backgrounds may or may not have appeared to predicted the data well, but
+no conclusions can be drawn until uncertainties are assigned to the background
+and signal modelling.
+
+To interpret the results seriously, we need to understand our uncertainties ---
+we do not know enough about the Standard Model to make definitive predictions,
+but must distribute our unit allotment of probability over various plausible
+background predictions.
+
+With such a complicated experiment as \atlas, in a universe with such varied
+particles as ours, there are many different factors of uncertainty to consider.
+As described in Section~\ref{sec:searches_practice}, the effect of each
+factor is studied to assign regularized variations to the Poisson expectations
+of the histogram bins with a HistFactory model~\cite{cranmer2012histfactory}.
+For the $\twoljets$ search, we used HistFitter to build our every HistFactory
+models~\cite{Besjes_2015,baak2015histfitter}.
+
+Thankfully, many standard variations are evaluated automatically with \atlas\
+software by simulating alternative samples with varied parameters, then
+comparing the resulting histograms.
+Such standard variations relate to performance and calibration effects, which
+have been carefully studied by many researchers in \atlas, to whom I am deeply
+grateful.
+They cover variations on our objects --- jets, leptons and $\ptmiss$, as well
+as flavour tagging and pileup effects.
 
 
-Table~\ref{tab:2ljets_zjets_alt}
+Statistical uncertainties on simulated samples are also semi-automatic.
+In each bin, its statistical uncertainty is controlled by a single parameter,
+which intends to cover the uncertainties on all backgrounds samples
+contributing in that bin.
+An alternative prescription exists which gives one parameter per sample per
+bin, but this greatly increases the complexity of the model and was not
+considered necessary.
 
-\begin{table}[tp]
-\centering
-\begin{tabular}{lcc}
-& Central
-& Relative variations
-\\[0.5em]
-CR-DY
-& $59.64$
-& $1-0.1+0.1$
-\\[0.2em]
-\underline{CR-Z}
-& $101.95$
-& $1+0.2-0.2$
-\\[0.2em]
-CR-tt
-& $38.07$
-& $1+0.5-0.5$
-\\[0.2em]
-CR-VZ
-& $5.03$
-& $1+1.3-1.0$
-\\[0.5em]
-VR-Low
-& $24.19$
-& $1-0.3+0.3$
-\\[0.2em]
-VR-Low-2
-& $17.05$
-& $1+0.2-0.2$
-\\[0.5em]
-\underline{SR-Low-a}
-& $14.30$
-& $1-0.2+0.2$
-\\[0.2em]
-\underline{SR-Low-b}
-& $4.17$
-& $1-0.3+0.3$
-\\[0.2em]
-SR-Low-2
-& $1.51$
-& $1+1.5-1.0$
-\\[0.2em]
-\end{tabular}
-\caption[%
-Alternative $\zjets$ variations in selected regions
-]{%
-Alternative $\zjets$ variations in selected regions.
-The `Central' column shows the central $\zjets$ yield from the main sample.
-The other column shows the relative scale factors applied to this central yield
-for up and down variations.
-These are evaluated from the central and alternative samples as described in
-the text.
-Note how up and down variations can move in different directions.
-}
-\label{tab:2ljets_zjets_alt}
-\end{table}
+The $\twoljets$-electroweak search implements a total of $136$ modifiers its
+background-only model, and more for each signal model.
+Of those I evaluated more manually, some of the more interesting or important
+will be discussed in the remainder of this section ---
+Fake/non-prompt lepton backgrounds in Section~\ref{sec:2ljets_mm_fakes},
+alternative simulated samples in Section~\ref{sec:2ljets_sample_comparisons},
+signal modelling uncertainties in Section~\ref{sec:2ljets_signal_variations}
+and theoretical uncertainties in Section~\ref{sec:2ljets_theory_variations}.
 
 
 \subsection{Fake/non-prompt leptons}
@@ -3114,10 +3095,10 @@ from variations of those weights.
 \centering
 \begin{tabular}{lcccccc}
 & Prompt (stat)
-& mMC
-& mMM
-& mMean
-& \quad\underline{mMax}\hphantom{foo}
+& MC
+& MM
+& Mean
+& \quad\underline{Max}\hphantom{foo}
 \\[0.5em]
 CR-Z & $143.6 \pm 4.6$
 & $0.1^{+0.2}_{-0.1}$
@@ -3199,85 +3180,74 @@ of zero.
 \label{tab:2ljets_fnp_estimates}
 \end{table}
 
-
-\section{Validation}
-\label{sec:2ljets_validation}
-Figure~\ref{fig:2ljets_low_crz_extensions}
-Figure~\ref{fig:2ljets_splits}
-
-\begin{figure}[tp]
-\centering
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_met_EWK_met_Sign.pdf}
-\caption{}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_met_EWK_met_Et.png}
-\caption{}
-\end{subfigure}
-\caption[
-Extension from CR-Z into higher $\metsig$ and $\met$
-]{%
-Extension from CR-Z into higher (a) $\metsig$ and (b) $\met$.
-The arrow indicates the CR-Z  upper bound of $\metsig$; it has no hard
-upper bound of $\met$.
-Systematic uncertainties are extrapolated from CR-Z to the extended tail.
-The tail overlaps with other regions, but shows good agreement with data.
-Sub-figure (b) is reproduced from auxiliary material to the
-paper~\cite{atlas2022searches}.
-Each last bin includes overflow.
-}
-\label{fig:2ljets_low_crz_extensions}
-\end{figure}
-
-\begin{figure}[tp]
-\centering
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRZZ.png}
-\caption{CR-VZ, diboson}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRZ.png}
-\caption{CR-Z, $\zjets$}
-\end{subfigure}
-\\[0.5em]
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRtt.png}
-\caption{CR-tt, rare top}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_SRllbb.png}
-\caption{SR-$\llbb$, rare top}
-\end{subfigure}
-\caption[
-Subcomponents of diboson, $\zjets$ and rare top processes.
-]{%
-Subcomponents of (a) diboson, (b) $\zjets$ and (c, d) rare top processes.
-Target samples broken down by simulated sample identity codes.
-The large three-lepton component in CR-VZ motivated its renaming from CR-ZZ.
-The `no filter' selection comprises $\zjets$ samples with unconstrained jet
-flavour.
-Errors are statistical.
-}
-\label{fig:2ljets_splits}
-\end{figure}
-
-
-\section{Variations}
-% "systematic"
+\subsection{Sample comparisons}
+\label{sec:2ljets_sample_comparisons}
 Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt}
 Figure~\ref{fig:2ljets_low_crz_pre_post}
 Figure~\ref{fig:2ljets_vrlow_alt}
 Figure~\ref{fig:2ljets_low_vrlow_pre_post}
+
+
+Table~\ref{tab:2ljets_zjets_alt}
+
+\begin{table}[tp]
+\centering
+\begin{tabular}{lcc}
+& Central
+& Relative variations
+\\[0.5em]
+CR-DY
+& $59.64$
+& $1-0.1+0.1$
+\\[0.2em]
+\underline{CR-Z}
+& $101.95$
+& $1+0.2-0.2$
+\\[0.2em]
+CR-tt
+& $38.07$
+& $1+0.5-0.5$
+\\[0.2em]
+CR-VZ
+& $5.03$
+& $1+1.3-1.0$
+\\[0.5em]
+VR-Low
+& $24.19$
+& $1-0.3+0.3$
+\\[0.2em]
+VR-Low-2
+& $17.05$
+& $1+0.2-0.2$
+\\[0.5em]
+\underline{SR-Low-a}
+& $14.30$
+& $1-0.2+0.2$
+\\[0.2em]
+\underline{SR-Low-b}
+& $4.17$
+& $1-0.3+0.3$
+\\[0.2em]
+SR-Low-2
+& $1.51$
+& $1+1.5-1.0$
+\\[0.2em]
+\end{tabular}
+\caption[%
+Alternative $\zjets$ variations in selected regions
+]{%
+Alternative $\zjets$ variations in selected regions.
+The `Central' column shows the central $\zjets$ yield from the main sample.
+The other column shows the relative scale factors applied to this central yield
+for up and down variations.
+These are evaluated from the central and alternative samples as described in
+the text.
+Note how up and down variations can move in different directions.
+}
+\label{tab:2ljets_zjets_alt}
+\end{table}
+
+
 
 \begin{figure}[tp]
 \centering
@@ -3370,8 +3340,17 @@ region, whose likelihood is not included in the \heplikelihood.
 \label{fig:2ljets_low_vrlow_pre_post}
 \end{figure}
 
-% extrapolation
+\subsection{Signals}
+\label{sec:2ljets_signal_variations}
 
+% TODO GMSB reweighting
+% TODO off-shell plus/minus split
+% TODO xsec variations
+
+\subsection{Theory}
+\label{sec:2ljets_theory_variations}
+
+% extrapolation
 The total theory variation is a combination of seven components representing
 \TODO{what are they?}.
 A relative uncertainty due to each, $r$, is evaluated at each benchmark
@@ -3463,6 +3442,79 @@ is treated independently.
 }
 \label{fig:2ljets_signal_sys_extrap}
 \end{figure}
+
+
+\section{Validation}
+\label{sec:2ljets_validation}
+Figure~\ref{fig:2ljets_low_crz_extensions}
+Figure~\ref{fig:2ljets_splits}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_met_EWK_met_Sign.pdf}
+\caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_met_EWK_met_Et.png}
+\caption{}
+\end{subfigure}
+\caption[
+Extension from CR-Z into higher $\metsig$ and $\met$
+]{%
+Extension from CR-Z into higher (a) $\metsig$ and (b) $\met$.
+The arrow indicates the CR-Z  upper bound of $\metsig$; it has no hard
+upper bound of $\met$.
+Systematic uncertainties are extrapolated from CR-Z to the extended tail.
+The tail overlaps with other regions, but shows good agreement with data.
+Sub-figure (b) is reproduced from auxiliary material to the
+paper~\cite{atlas2022searches}.
+Each last bin includes overflow.
+}
+\label{fig:2ljets_low_crz_extensions}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRZZ.png}
+\caption{CR-VZ, diboson}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRZ.png}
+\caption{CR-Z, $\zjets$}
+\end{subfigure}
+\\[0.5em]
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRtt.png}
+\caption{CR-tt, rare top}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_SRllbb.png}
+\caption{SR-$\llbb$, rare top}
+\end{subfigure}
+\caption[
+Subcomponents of diboson, $\zjets$ and rare top processes.
+]{%
+Subcomponents of (a) diboson, (b) $\zjets$ and (c, d) rare top processes.
+Target samples broken down by simulated sample identity codes.
+The large three-lepton component in CR-VZ motivated its renaming from CR-ZZ.
+The `no filter' selection comprises $\zjets$ samples with unconstrained jet
+flavour.
+Errors are statistical.
+}
+\label{fig:2ljets_splits}
+\end{figure}
+
 
 
 \section{Unblinding}

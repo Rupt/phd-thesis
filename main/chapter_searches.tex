@@ -22,6 +22,7 @@ deficiencies.%
 \section{Data analysis}
 
 \section{Frequentist theory}
+\label{sec:searches_frequentism}
 \begin{epigraphs}
 \qitem{%
 Within this theory, statistical methods of great practical usefulness have been
@@ -34,6 +35,7 @@ to the interpretation of data. \ldots%
 \end{epigraphs}
 
 \section{Post-frequentist practice}
+\label{sec:searches_practice}
 \begin{epigraphs}
 \qitem{%
 \ldots\ But this book, by its very excellence, its thoroughness, lucidity and
@@ -46,6 +48,23 @@ of the real problems to which it is applied.%
 \textit{Review: Testing Statistical Hypotheses},
 1961~\cite{pratt1961testing}}
 \end{epigraphs}
+
+% histfactory
+
+To model the consequences of these many factors of uncertainty, each factor is
+assigned a real-valued parameter which when varied changed the expected yields
+in the hisogram bins of the search.
+In this way, we form a statistical model which is a function
+\begin{equation}
+H_{\!f}(\vec \theta) \rightarrow (\vec \mu, \log f)
+\end{equation}
+from the parameters $\theta$ to Poisson expectations $\vec\mu$ the histogram
+bins and a regularization term $\log f$ which is maximized in fitting.
+
+HistFactory~\cite{cranmer2012histfactory}
+pyhf~\cite{heinrich2021pyhf}
+HistFitter~\cite{Besjes_2015,baak2015histfitter}
+
 
 % significancen measures
 The ATLAS-recommended significance measure~\cite{atlas_significance} is
