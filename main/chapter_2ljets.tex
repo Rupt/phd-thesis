@@ -3035,6 +3035,7 @@ large cross-sections are not modelled well.
 This motivates the use of data-driven fake estimates to replace the need for
 such specialized simulations of poorly understood physics.
 
+\subsubsection{The Matrix Method}
 Precedent from previous searches in this channel~\cite{
 atlas_2l_SUSY_2013_11,
 atlas_23l_SUSY_2016_24
@@ -3080,9 +3081,9 @@ M
 \end{pmatrix}
 ,
 \end{equation}
-where $\mu^{\ldots}_{**}$ is a Poisson event rate and $M$ is the matrix of
-transition probabilities, after which this method is
-named~\cite{ATLAS-CONF-2014-058}.
+where $\mu^{\ldots}_{**}$ is a Poisson event rate and $M$ is the
+(left-stochastic) matrix of transition probabilities, after which this method
+is named~\cite{ATLAS-CONF-2014-058}.
 
 Each element of $M$ is a probability for a truth-level (real/fake) event to be
 also in a corresponding data-level (tight/loose) category.
@@ -3137,11 +3138,10 @@ p(t\!\mid\!f,1)
 \times p(t\!\mid\!f,2)
 \times \bar \mu^\textrm{truth}_{ff}~~.
 \end{align}
-
-To assign fake/non-prompt estimates in our regions, the Matrix Method is
-implemented by assigning weights to observed data events, and histogramming
-them in the tighter selections of our search
-regions~\cite{twoljets2018int}.
+To make fake/non-prompt estimates in our regions, the Matrix Method is
+implemented by assigning weights to observed data events that are then
+histogrammed them in the tighter selections of our search
+regions much like other samples~\cite{twoljets2018int}.
 Systematic variations are assigned by comparing histograms when those weights
 are varied according to various uncertainties in the Matrix Method procedure.
 
@@ -3175,17 +3175,170 @@ fake/non-prompt background of $2.2$).
 Such negative signal weights suggest that a local \emph{excess} of data
 would act to \emph{decrease} the Matrix Method estimate in the region.
 Yes this backwards dependency is backward, but at least it gives some relief
-hide real local excesses would not be hidden by increased fake estimates.
+that real local excesses would not be hidden by increased fake estimates.
+Unless, that is, the processes driving that excess also produced loose leptons
+at rates similar to (or larger than) the standard model backgrounds.
+Loose data do have positive weights and they would drive up the fake/non-prompt
+background.
 
 Although the $\twoljets$-electroweak regions were designed without using the
 Matrix Method fake estimate, and before it was finalized, we are fortunate that
 most search regions do not have substantial Matrix Method yields.
 I consider those that do to be dubious.
 
-% TODO
-Figure~\ref{fig:2ljets_vrss}
-Table~\ref{tab:2ljets_fnp_negative_mm}
-Table~\ref{tab:2ljets_fnp_estimates}
+
+\subsubsection{Fake/non-prompt estimates in $\twoljets$-electroweak regions}
+Many histograms were inspected to validate the Matrix Method estimates in
+$\twoljets$-electroweak regions.
+To give a broad summary across all of these regions, we define an additional
+validation region, named VR-SS, to inspect similar data with same-charged
+(same sign, SS) leptons.
+This selection enhances fake/non-prompt contributions relative backgrounds
+since it suppresses contributions $Z\rightarrow \ell^\pm\ell^\mp$ processes,
+whose leptons should be oppositely charged if accurately reconstructed,
+but does not suppress fake/non-prompt backgrounds because their lepton charges
+are expected to be less dependent:
+fake/non-prompt backgrounds produce $\ell^\mp\ell^\mp$ and $\ell^\pm\ell^\pm$
+vents at more similar rates.
+
+For these reasons, VR-SS is defined as a modification to the pre-selection
+requirements of Table~\ref{tab:2ljets_presel}, in which the requirement
+of opposite charge leptons is changed to a requirement of same charge leptons
+(same sign, SS). Additionally, VR-SS requires $\mll \in (12, 111)~\eV[G]$,
+to cover both on- and off-shell selections.
+Histogrammed $\metsig$ distributions in VR-SS are displayed in
+Figure~\ref{fig:2ljets_vrss},
+with fake/non-prompt estimates taken from the Matrix Method in
+Figure~\ref{fig:2ljets_vrss_mm},
+and from background simulations in
+Figure~\ref{fig:2ljets_vrss_mc}.
+When using the Matrix Method, we use parton-level `truth' information to
+identify and remove remove fake/non-prompt contributions from simulations.
+This is why the simulated backgrounds (not `FNP leptons') increase by around
+$30\%$ when switching off the Matrix Method; the difference between the
+two orange histograms is the simulated fake/non-prompt estimate.
+
+From this figure, it is clear that the Matrix Method has overestimated
+the background rate in this region, and that the raw simulations predict
+the data more accurately.
+The difference is less substantial than it may appear, however,
+because the Matrix Method error bars are highly correlated --- they combine
+(in quadrature)
+statistical uncertainties with variations due to uncertainties in the
+Matrix Method weights.
+Matrix Method weight variations are parametrized with a single parameter
+which couples the yields in all bins, so moving it down by $1$-sigma in a fit
+would easily pull the backgrounds back into agreement with data.
+
+Drafts of the $\twoljets$ paper included
+Figure~\ref{fig:2ljets_vrss_mm} and a similar plot for the
+$\twoljets$-strong search, and repeated this point that the deviation was not
+very substantial.
+These plots were removed at the request of internal reviewers, who argued that
+they did not need to be shown since the fake/non-prompt background is not
+very important.
+To demonstrate that it was not important, we were first instructed to repeat
+the exclusion fits of the $\twoljets$-electroweak analysis with an additional
+uncertainty, to further cover the deviation observed in this figure, which
+scaled the Matrix Method yields by a $\pm 50\%$ scale factor.
+The utility of this is somewhat questionable since that variation is coupled
+between all bins, so it could not vary to explain an excess in one region
+without also increasing the fitted Matrix Method backgrounds in all other
+regions, and it would struggle to make any significant difference.
+Indeed, the result was an insignificant change to all exclusion contours;
+the contours were almost indistinguishable from those shown in
+Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb}.
+
+Overlaying these modified contours highlighted some minor differences, the
+largest being $2\%$ reduction in the limit on
+$B(\neutralino_1 \rightarrow h \gravitino)$ at
+$m(\neutralino_1) \approx 500\,\eV[G]$.
+Different interpolation options induce larger variations, as do different
+random seeds for the fits, so this really is an insignificant difference.
+
+Although we nominally use the Matrix Method to estimate fakes, its results
+are unusable in numerous regions, since they are either negative or zero.
+Details of these eleven problematic regions are displayed in
+Table~\ref{tab:2ljets_fnp_negative_mm}.
+For comparison, this table also includes the simulated background without
+fake/non-prompt leptons under the heading `MC Prompt' and the, and only
+the simulated fake/non-prompt contributions under the heading `MC FNP'.
+Negative or void estimates are an easy consequence of the use of signed
+weights of data used by the Matrix Method, but we require alternative
+estimates to assign a sensible background model.
+
+To replace these failed Matrix Method estimates, our strategy is to take three
+alternative estimates that assign central and high variations to the
+fake/non-prompt background estimate, and consider a maximum across them for
+each region.
+More precisely, we take the maximum central value and add it to the maximum
+difference (between central and high) for the combined high variation, and
+sets the low ($-1$-sigma) variation to zero.
+These three alternative estimates are reported with their combination in
+Table~\ref{tab:2ljets_fnp_estimates}.
+
+These three estimates are labelled `MC', `MM', `Mean', and we combine them into
+the `Max' estimate.
+Each is described here.
+\begin{itemize}
+\item The `MC' estimate takes the simulated estimate that was previously reported
+in Table~\ref{tab:2ljets_fnp_negative_mm}.
+\item The `MM' estimate modifies the Matrix Method result,
+also from Table~\ref{tab:2ljets_fnp_negative_mm}, by shifting its central
+value to a small positive value chosen baselessly as $0.01$ and by adding
+its statistical and systematic uncertainties linearly
+(not in quadrature to conservatively cover a correlated variation)
+to assign a high variation.
+\end{itemize}
+After I had proposed a combination of these two estimates, reviewers
+suggested additionally using the statistical properties of samples in looser
+selections.
+This became the third `Mean' estimate.
+\begin{itemize}
+\item The `Mean' follows an idea that the smallest assignable value should
+be comparable to typical Matrix Method weights, and those typical values
+are extracted from a region requiring pre-selection,
+from Table~\ref{tab:2ljets_presel},
+$\mll \in 71\textrm{--}101$,
+$\mjj \in 60\textrm{--}100$,
+$\njet \geq 2$, and
+$\nbtag \leq 1$.
+Its central value takes the mean weight of Matrix Method samples in this
+selection, which is $\mu^\textrm{M} = 0.0202$.
+Statistical errors are set to the root of the mean squared weight,
+which is $\sigma^\textrm{M}_\textrm{stat} = 0.1132$,
+and systematic errors are set as the larger absolute deviation on the mean
+from the up and down variations in the Matrix Method weights, which comes out
+$\sigma^\textrm{M}_\textrm{sys} = 0.0226$.
+Finally, the `Mean' high variation is their linear sum;
+$\mu^\textrm{M} + \sigma^\textrm{M}_\textrm{stat}
+\sigma^\textrm{M}_\textrm{sys} = 0.1560$.
+\end{itemize}
+All low variations are set to zero.
+
+As seen from Table~\ref{tab:2ljets_fnp_estimates}, even the high variations of
+the Max method are negligibly small next to the central simulated yields
+in most regions.
+The exception regions are all in the High category, and are those regions with
+small enough expected yields such that the Mean method dominates.
+
+An awkward fact in the history of this fake/non-prompt estimate is that it
+was reworked after unblinding to include the Mean estimate and more regions;
+with a reprocessing of our background simulations, changes in the Matrix Method
+estimates left more regions with non-positive estimate than previously.
+To assign them without being biased by the unblinded signal region data,
+known to contain no significant excesses, therefore took some barefaced
+honesty.
+Thankfully, we do not need to consider what might have happened had an excess
+been observed before the assignment of these fake estimates.%
+\footnote{%
+Of course $p$-values \emph{do} depend on what might have happened with
+alternative data
+(those with test statistics greater than or equal to that observed),
+it would be wasteful and unproductive to consider them seriously.
+I am grateful that \atlas' statistical conventions allow us to ignore these
+problems.
+}
 
 \begin{figure}[tp]
 \centering
@@ -3193,12 +3346,14 @@ Table~\ref{tab:2ljets_fnp_estimates}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrss_VR_SS_EWK_met_Sign.png}
 \caption{}
+\label{fig:2ljets_vrss_mm}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrss_VR_SS_EWKMC_met_Sign.png}
 \caption{}
+\label{fig:2ljets_vrss_mc}
 \end{subfigure}
 \caption[
 Same-sign validation with Matrix Method and Monte Carlo fake estimates
@@ -3257,8 +3412,8 @@ SR-$\llbb$ & $0.7 \pm 0.1$ & $0 \pm 0$ & $0 \pm 0 \pm 0$
 Background yields from prompt and fake/non-prompt sources in bins with
 non-positive Matrix Method estimates
 ]{%
-Background yields from prompt and fake/non-prompt sources in bins with
-non-positive Matrix Method estimates.
+Background yields from prompt (two real, prompt leptons) and fake/non-prompt
+sources in bins with non-positive Matrix Method estimates.
 The `MC FNP' yields are selected using truth information in simulated samples.
 The `MM FNP' yields are from the Matrix Method, with statistical errors from
 the sample weights and systematic variations from the larger absolute change
@@ -3346,12 +3501,16 @@ SR-$\llbb$ & $0.7 \pm 0.1$
 \caption[%
 Replacement fake estimates with up and down variations
 ]{%
-Replacement fake estimates with up and down variations.
+Replacement fake estimates with up and down variations for the regions with
+unusable Matrix Method yields that were reported in
+Table~\ref{tab:2ljets_fnp_negative_mm}.
 Those variations cover statistical and systematic sources.
-The method `mMax' is used for the $\twoljets$-electroweak analysis;
+The `Max' method is used for the $\twoljets$-electroweak analysis;
 as described in the text, it uses the largest values of central, statistical
 and positive systematic variations from other methods, and a down variation
 of zero.
+`Prompt' labels the simulated background with two true real, prompt leptons,
+and these are included for comparison.
 }
 \label{tab:2ljets_fnp_estimates}
 \end{table}
