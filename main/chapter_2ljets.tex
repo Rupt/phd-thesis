@@ -1529,6 +1529,12 @@ Figure~\ref{fig:2ljets_region_summary}.
 The design comprises four control regions and thirteen orthogonal signal region
 bins, with validation regions targeting each group of signal regions.
 
+\emph{%
+Thanks are due to Knut~Vadla for important contributions in the initial
+exploration of signal region designs,
+to Ben Hooberman for suggesting the investigation of massive jets,
+and to both, and the whole $\twoljets$, collaboration in their finalization.
+}
 
 % presel table should come before High
 \FloatBarrier
@@ -1732,6 +1738,9 @@ small, $R=0.4$, jets in the $\twoljets$ analysis.
 And those small jets can work for the extreme boosts that our signals produce.
 To catch these extreme events is the goal of SR-High-1J, which is displayed
 in Figure~\ref{fig:2ljets_high_1J_region}.
+The use of $\mjetone$ with small-radius jets for this region is unusual,
+and required modelling of additional uncertainties that we discuss in
+Section~\ref{sec:2ljets_jet_mass}.
 
 \begin{figure}[tp]
 \centering
@@ -1861,7 +1870,7 @@ The apparent excess at low $\mjj$ in VR-High is not well understood.
 \label{fig:2ljets_high_mjj_vrhigh}
 \end{figure}
 
-The distribution of mono-jet masses $\mjetone$ is sharply peaked towards zero,
+The distribution of mono-jet masses ($\mjetone$) is sharply peaked towards zero,
 so cutting this out while inverting the $\mjetone$ selection of SR-High-1J
 more clearly inspects the modelling of massive jets, which appears to be good.
 Note that the region $\mjetone > 110$ is also checked in this validation region
@@ -2799,7 +2808,6 @@ Our five discovery regions are defined as unions on signal regions as follows:
 Although it was not a design requirement, these give discovery regions are
 all orthogonal.
 
-
 Most signal regions are included as parts of these discovery regions, with the
 exceptions of SR-High-1J, SR-High-16, and SR-Low-2.
 These exceptions were excluded since they have either questionable background
@@ -3002,9 +3010,6 @@ alternative simulated samples in Section~\ref{sec:2ljets_sample_comparisons},
 signal modelling uncertainties in Section~\ref{sec:2ljets_signal_variations}
 and theoretical uncertainties in Section~\ref{sec:2ljets_theory_variations}.
 
-% TODO jetM
-\TODO{JET MASS}
-
 \subsection{Fake/non-prompt leptons}
 \label{sec:2ljets_mm_fakes}
 
@@ -3013,9 +3018,10 @@ expected that the rates of fake leptons, or non-prompt leptons (which do not
 originating from the hard scatter) should be small.
 Indeed, more detailed estimates indicate that they are small.
 However, just like other backgrounds, it is important that we assign
-honest and honestly uncertain estimates for these fake/non-prompt backgrounds.
+honest and honestly uncertain estimates for these fake/non-prompt (FNP)
+backgrounds.
 
-Although my style of spelling out fake/non-prompt every time
+Although my style of spelling out FNP or FNP every time
 (as opposed to just `fake') may be awkward, it is supported by the fact that this
 the non-prompt part dominates.
 Indeed, figures in our internal documentation~\cite{twoljets2018int} suggest
@@ -3062,7 +3068,7 @@ In data, one measures tightly ($t$) and loosely ($l$) identified leptons, leadin
 to four categories of events with two ordered leptons as labelled $tt$, $tl$,
 $lt$, and $ll$ for tight-tight, tight-loose, and so on.
 The Matrix Method assumes a linear relationship between these selections
-and those of real ($r$) and fake/non-prompt ($f$) leptons:
+and those of real ($r$) and FNP ($f$) leptons:
 \begin{equation}
 \label{eqn:2ljets_matrix_method}
 \begin{pmatrix}
@@ -3138,7 +3144,7 @@ p(t\!\mid\!f,1)
 \times p(t\!\mid\!f,2)
 \times \bar \mu^\textrm{truth}_{ff}~~.
 \end{align}
-To make fake/non-prompt estimates in our regions, the Matrix Method is
+To make FNP estimates in our regions, the Matrix Method is
 implemented by assigning weights to observed data events that are then
 histogrammed them in the tighter selections of our search
 regions much like other samples~\cite{twoljets2018int}.
@@ -3171,14 +3177,14 @@ and the remainder have one loose lepton (zero loose-loose lepton events
 are observed in CR-VZ).
 The tight-tight events have an average weight of $-0.0227$, and the others
 have an average weight of $+0.238$ (one can check these recover the central
-fake/non-prompt background of $2.2$).
+FNP background of $2.2$).
 Such negative signal weights suggest that a local \emph{excess} of data
 would act to \emph{decrease} the Matrix Method estimate in the region.
 Yes this backwards dependency is backward, but at least it gives some relief
 that real local excesses would not be hidden by increased fake estimates.
 Unless, that is, the processes driving that excess also produced loose leptons
 at rates similar to (or larger than) the standard model backgrounds.
-Loose data do have positive weights and they would drive up the fake/non-prompt
+Loose data do have positive weights and they would drive up the FNP
 background.
 
 Although the $\twoljets$-electroweak regions were designed without using the
@@ -3188,35 +3194,60 @@ I consider those that do to be dubious.
 
 
 \subsubsection{Fake/non-prompt estimates in $\twoljets$-electroweak regions}
-Many histograms were inspected to validate the Matrix Method estimates in
-$\twoljets$-electroweak regions.
-To give a broad summary across all of these regions, we define an additional
-validation region, named VR-SS, to inspect similar data with same-charged
-(same sign, SS) leptons.
-This selection enhances fake/non-prompt contributions relative backgrounds
-since it suppresses contributions $Z\rightarrow \ell^\pm\ell^\mp$ processes,
-whose leptons should be oppositely charged if accurately reconstructed,
-but does not suppress fake/non-prompt backgrounds because their lepton charges
-are expected to be less dependent:
-fake/non-prompt backgrounds produce $\ell^\mp\ell^\mp$ and $\ell^\pm\ell^\pm$
-vents at more similar rates.
+To validate the Matrix Method estimates in $\twoljets$-electroweak regions
+when preparing the search, we plotted and inspected many histograms in
+selections designed to enhance the FNP backgrounds.
+All of these selections leverage the expected independence of the two leptons
+in FNP events --- important backgrounds producing leptons through
+$Z\rightarrow \ell^\pm\ell^\mp$ must have leptons of the same flavour and
+opposite charge, and those are quite accurately reconstructed.
+If one lepton is FNP, however, its charge and flavour should be
+independent of the other lepton.
+Selections requiring different-flavour or same-charge leptons,
+in otherwise $Z$-like scenarios, should therefore be
+FNP-enhanced.
 
-For these reasons, VR-SS is defined as a modification to the pre-selection
-requirements of Table~\ref{tab:2ljets_presel}, in which the requirement
-of opposite charge leptons is changed to a requirement of same charge leptons
-(same sign, SS). Additionally, VR-SS requires $\mll \in (12, 111)~\eV[G]$,
+Alternative versions of all core control, validation regions were inspected
+with their lepton requirements change to require either different-flavour
+or same-charge leptons.
+The different-flavour versions are contain increased $\ttbar$ backgrounds,
+due to their flavour symmetry,
+and both different-flavour and same-sign versions have drastically reduced
+expected backgrounds.
+None of these flavour- or charge- flipped regions showed any significant
+deviations from the simulated backgrounds, but most also contained very small
+predicted FNP yields.
+
+To validate FNP yields in a region with sufficiently many data for precision,
+a additional validations were also inspected with different-flavour or
+same-charge requirements, and all showed reasonably agreement with data
+within uncertainties.
+In particular, a region named VR-SS is defined to inspect data with
+same-charged (same sign, SS) leptons in a loose preselection that covers all
+of our main regions;%
+\footnote{%
+Like many of the regions plotted in designing this search, VR-SS is not a
+`core' validation region in the sense that it is not reported in the paper.
+Perhaps a fourth categorization would be useful for such regions to supplement
+CR, VR, and SR, but it should be clear that any VR not included in the main
+region definitions is not core and not reported in the paper.
+}
+VR-SS requires the pre-selections of Table~\ref{tab:2ljets_presel},
+but replaces its requirement of opposite-charge leptons with a requirement of
+same-charge leptons, and adds a selections of $\mll \in (12, 111)~\eV[G]$
 to cover both on- and off-shell selections.
+
 Histogrammed $\metsig$ distributions in VR-SS are displayed in
 Figure~\ref{fig:2ljets_vrss},
-with fake/non-prompt estimates taken from the Matrix Method in
+with FNP estimates taken from the Matrix Method in
 Figure~\ref{fig:2ljets_vrss_mm},
 and from background simulations in
 Figure~\ref{fig:2ljets_vrss_mc}.
 When using the Matrix Method, we use parton-level `truth' information to
-identify and remove remove fake/non-prompt contributions from simulations.
+identify and remove remove FNP contributions from simulations.
 This is why the simulated backgrounds (not `FNP leptons') increase by around
 $30\%$ when switching off the Matrix Method; the difference between the
-two orange histograms is the simulated fake/non-prompt estimate.
+two orange histograms is the simulated FNP estimate.
 
 From this figure, it is clear that the Matrix Method has overestimated
 the background rate in this region, and that the raw simulations predict
@@ -3230,21 +3261,22 @@ Matrix Method weight variations are parametrized with a single parameter
 which couples the yields in all bins, so moving it down by $1$-sigma in a fit
 would easily pull the backgrounds back into agreement with data.
 
-Drafts of the $\twoljets$ paper included
-Figure~\ref{fig:2ljets_vrss_mm} and a similar plot for the
-$\twoljets$-strong search, and repeated this point that the deviation was not
+Early drafts of the $\twoljets$ paper included
+Figure~\ref{fig:2ljets_vrss_mm}, and a similar plot for the
+$\twoljets$-strong search, and stated this point that the deviation was not
 very substantial.
 These plots were removed at the request of internal reviewers, who argued that
-they did not need to be shown since the fake/non-prompt background is not
+they did not need to be shown since the FNP background is not
 very important.
-To demonstrate that it was not important, we were first instructed to repeat
-the exclusion fits of the $\twoljets$-electroweak analysis with an additional
-uncertainty, to further cover the deviation observed in this figure, which
-scaled the Matrix Method yields by a $\pm 50\%$ scale factor.
-The utility of this is somewhat questionable since that variation is coupled
-between all bins, so it could not vary to explain an excess in one region
+To demonstrate that it was not important, we first repeated the exclusion fits
+with an additional uncertainty, to further cover the deviation observed in this
+figure, which scaled the Matrix Method yields by a $\pm 50\%$ scale factor.
+The utility of this variation is somewhat questionable since it is coupled
+between all bins, so it cannot vary to fit an excess in one region
 without also increasing the fitted Matrix Method backgrounds in all other
-regions, and it would struggle to make any significant difference.
+regions.
+That is, it is a global change, and if constrained by data then the data
+constraint would dominate, leaving little difference.
 Indeed, the result was an insignificant change to all exclusion contours;
 the contours were almost indistinguishable from those shown in
 Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb}.
@@ -3261,15 +3293,15 @@ are unusable in numerous regions, since they are either negative or zero.
 Details of these eleven problematic regions are displayed in
 Table~\ref{tab:2ljets_fnp_negative_mm}.
 For comparison, this table also includes the simulated background without
-fake/non-prompt leptons under the heading `MC Prompt' and the, and only
-the simulated fake/non-prompt contributions under the heading `MC FNP'.
+FNP leptons under the heading `MC Prompt' and the, and only
+the simulated FNP contributions under the heading `MC FNP'.
 Negative or void estimates are an easy consequence of the use of signed
 weights of data used by the Matrix Method, but we require alternative
 estimates to assign a sensible background model.
 
 To replace these failed Matrix Method estimates, our strategy is to take three
 alternative estimates that assign central and high variations to the
-fake/non-prompt background estimate, and consider a maximum across them for
+FNP background estimate, and consider a maximum across them for
 each region.
 More precisely, we take the maximum central value and add it to the maximum
 difference (between central and high) for the combined high variation, and
@@ -3322,13 +3354,14 @@ in most regions.
 The exception regions are all in the High category, and are those regions with
 small enough expected yields such that the Mean method dominates.
 
-An awkward fact in the history of this fake/non-prompt estimate is that it
+An awkward fact in the history of this combined FNP estimate is that it
 was reworked after unblinding to include the Mean estimate and more regions;
 with a reprocessing of our background simulations, changes in the Matrix Method
-estimates left more regions with non-positive estimate than previously.
+estimates left more of our regions with non-positive estimate than prior to
+unblinding the data.
 To assign them without being biased by the unblinded signal region data,
-known to contain no significant excesses, therefore took some barefaced
-honesty.
+which were known to contain no significant excesses, therefore took some
+barefaced honesty.
 Thankfully, we do not need to consider what might have happened had an excess
 been observed before the assignment of these fake estimates.%
 \footnote{%
@@ -3339,6 +3372,9 @@ it would be wasteful and unproductive to consider them seriously.
 I am grateful that \atlas' statistical conventions allow us to ignore these
 problems.
 }
+Despite any awkwardness, the its does appear that FNP backgrounds are indeed
+small and that they do not greatly impact the result, especially when compared
+to other systematic variations.
 
 \begin{figure}[tp]
 \centering
@@ -3370,7 +3406,7 @@ The Monte Carlo estimate is clearly more accurate.
 % thesis_project/2ljets/vrss_plots/PAM_FNP_50pc.pdf
 Part (a) was included in an early draft of the paper.
 It was removed after validation studies showed that adding an additional
-$50\%$ uncertainty to fake/non-prompt yields, coupled between all bins, did not
+$50\%$ uncertainty to FNP yields, coupled between all bins, did not
 significantly change our exclusion contours;
 most contours shrank by less than their plotted line width.
 The largest change was a $2\%$ reduction in the
@@ -3409,10 +3445,10 @@ SR-$\llbb$ & $0.7 \pm 0.1$ & $0 \pm 0$ & $0 \pm 0 \pm 0$
 \\
 \end{tabular}
 \caption[%
-Background yields from prompt and fake/non-prompt sources in bins with
+Background yields from prompt and FNP sources in bins with
 non-positive Matrix Method estimates
 ]{%
-Background yields from prompt (two real, prompt leptons) and fake/non-prompt
+Background yields from prompt (two real, prompt leptons) and FNP
 sources in bins with non-positive Matrix Method estimates.
 The `MC FNP' yields are selected using truth information in simulated samples.
 The `MM FNP' yields are from the Matrix Method, with statistical errors from
@@ -3514,6 +3550,110 @@ and these are included for comparison.
 }
 \label{tab:2ljets_fnp_estimates}
 \end{table}
+
+
+\subsection{Jet mass}
+\label{sec:2ljets_jet_mass}
+An extraordinary feature of this analysis is the use of $\mjetone$ for
+SR-High-1J and VR-High-1J which, as described in Section~\ref{sec:2ljets_high},
+require a boosted, small-radius jet with a large mass
+($\mjetone \in 60\textrm{--}110$).
+This signal region is important for extending our reach to the most massive
+models with large mass splittings, but probes an extreme case whose modelling
+in simulations is not well validated.
+
+A maximally crude display of the jet mass variable is given in
+Figure~\ref{fig:2ljets_jetm_c1n2_600_0} for a benchmark C1N2 model in
+the fast simulation, showing that most jets have small masses but that
+a substantial fraction appear in a bump around $m(W)$.
+To check that a similar bump exists in data and background simulations,
+I conducted a study into single-lepton events to search for $\ttbar$ events
+in which one top decays leptonically, and the other to a boosted hadronic $W$
+boson that is reconstructed into a single small-radius jet.
+Since our main samples require two leptons, this study required independent
+inputs derived from different sources, so to reduce the required computing time
+I opted to include only $\ttbar$ and single-top backgrounds.
+To verify the origins of high-mass jets, partonic truth information is used
+to label those events containing a $W$ boson decaying to two quarks that are
+within $\Delta R < 0.4$ of the hardest reconstructed jet.
+The resulting bump is visible in Figure~\ref{fig:2ljets_jetm_ttbar_mw} in a
+selection described in its figure caption, and indeed contains the targetted
+boosted $W$ boson. This positive result was an early motivation for our
+continued pursuit of the 1J regions.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/2ljets_jetm_c1n2_600_0_tbrowser.png}
+\caption[
+Jet masses in raw samples of a benchmark C1N2 signal model
+]{%
+Jet masses in raw samples of a benchmark C1N2 signal model with
+$m(\chargino_1,\neutralino_2) = 600\,\eV[G]$ and
+$m(\neutralino_1) = 0$.
+All jets in all events in this file are histogrammed without weights,
+and the signal model is simulated with fast simulation.
+}
+\label{fig:2ljets_jetm_c1n2_600_0}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/2Ljets_hist1d_jetM0_ttbar_merged_tweak.pdf}
+\caption[
+Jet mass distribution in a single-lepton selection looking for
+$t\bar t \rightarrow \ell^\pm\nu W(J) \bar bb$
+]{%
+Jet mass distribution in a single-lepton selection looking for
+$t\bar t \rightarrow \ell^\pm\nu W bb$, where the $W$ boson decays hadronically
+into a single small-radius jet.
+A bump is observed around $m(W)$, showing that these jet algorithms do
+reconstruct the hadronic $W$ boson decays bosons in their full ATLAS
+simulation.
+This selection requires one signal lepton (electron or muon) with
+$\pt > 25\,\eV[G]$, $\njet = 3$, $\nbtag = 2$, $\ptjone > 250\,\eV[G]$,
+and that the hardest jet is not $b$-tagged.
+The `$\ttbar$ Merged' sample selects events in which both quarks from the
+$W\rightarrow q\bar q$ decay are within $\Delta R < 0.4$ of the hardest
+reconstructed jet.
+The discrepancy in low masses is attributable to missing $W\mathrm{+jets}$
+processes that were not processed for this study.
+Backgrounds are normalized to data in the high-mass region near to $m(W)$.
+}
+\label{fig:2ljets_jetm_ttbar_mw}
+\end{figure}
+
+% problem of jet mass for small radius
+Our inclusion of SR-High-1J and VR-High-1J regions induces two related problems.
+First is their unusual use of the jet mass variable $\mjetone$ with
+small-radius ($R=0.4$), topologically clustered jets~\cite{atlas_jet_topo_PERF_2014_07}.
+Usually, hadronic decays of massive objects
+(such as $W$, $Z$, or $t$ resonances) are searched for with large-radius jets
+with $R=0.8$, since these require less extreme boosts to capture their targets.
+The focus from ATLAS' performance operations is therefore reasonably to
+understand these common use-cases first.
+Second is the use of fast simulation~\cite{SOFT-2010-01} for our signal models,
+which uses approximate descriptions of the detector response and does not
+guarantee to model the substructure that determines a jet's mass.
+
+Official jet mass scale uncertainties for small-radius jets in the full ATLAS
+simulation were released late into the development of this search
+(25 April 2021), and these uncertainties explicitly do not support the
+fast simulation~\cite{atlas_twiki_smallrjms}.
+Once released, these uncertainties were evaluated for the diboson and $\ttbar$
+contributions, which are the primary backgrounds in both 1J regions.
+
+% TODO
+% alternative for fast simulation
+
+% also apply this method to minor backgrounds
+
+% AFII vs FullSim comparison, 15% variations
+
+
+Jet mass resolution uncertainties were evaluated by smearing simulations
+to increase their resolution error (decrease their precision) by $20\%$
+and comparing the smeared results to standard results according to a standard
+prescription~\cite{atlas_twiki_jmr}.
 
 \subsection{Sample comparisons}
 \label{sec:2ljets_sample_comparisons}
