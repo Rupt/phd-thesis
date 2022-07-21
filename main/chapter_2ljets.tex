@@ -3563,23 +3563,38 @@ models with large mass splittings, but probes an extreme case whose modelling
 in simulations is not well validated.
 
 A maximally crude display of the jet mass variable is given in
-Figure~\ref{fig:2ljets_jetm_c1n2_600_0} for a benchmark C1N2 model in
-the fast simulation, showing that most jets have small masses but that
-a substantial fraction appear in a bump around $m(W)$.
-To check that a similar bump exists in data and background simulations,
-I conducted a study into single-lepton events to search for $\ttbar$ events
-in which one top decays leptonically, and the other to a boosted hadronic $W$
-boson that is reconstructed into a single small-radius jet.
+Figure~\ref{fig:2ljets_jetm_c1n2_600_0} for a benchmark C1N2 model, showing
+that most  jets have small masses but that a substantial fraction appear in a
+bump around $m(W)$.
+However, all of our signal models are simulated with the fast ATLAS simulation
+ATLFAST-II~\cite{SOFT-2010-01} that uses approximate descriptions of the
+detector response and does not guarantee to accurately model the substructures
+that determines the jet's reconstructed mass.
+Jet mass modelling should be well described since masses are part of the
+reconstructed energy, and so also for standard mass variables such as $\mjj$.
+However, momenta are typically more important for these variables, so
+errors could be hidden.
+Inclusion of these 1J regions in the $\twoljets$-electroweak search therefore
+required validation of these ATLFAST-II mass distributions.
+
+To check that a similar bump exists in data and fully simulated (FullSim)
+background simulations, I conducted a study into a standard model process
+production boosted hadronic $W$ bosons in $\ttbar$ events.
+Although non-$\ttbar$ $WW$ processes do occur, the semileptonic $\ttbar$
+process additionally produces two $b$ quarks in its dominant decay, and their
+$b$-tagged jets that can be selected to reduce backgrounds.
+
 Since our main samples require two leptons, this study required independent
-inputs derived from different sources, so to reduce the required computing time
-I opted to include only $\ttbar$ and single-top backgrounds.
+single-lepton inputs derived from different sources, so to reduce the required
+computing time I included only $\ttbar$ and single-top backgrounds generated
+with the full \atlas simulation.
 To verify the origins of high-mass jets, partonic truth information is used
-to label those events containing a $W$ boson decaying to two quarks that are
-within $\Delta R < 0.4$ of the hardest reconstructed jet.
-The resulting bump is visible in Figure~\ref{fig:2ljets_jetm_ttbar_mw} in a
-selection described in its figure caption, and indeed contains the targetted
-boosted $W$ boson. This positive result was an early motivation for our
-continued pursuit of the 1J regions.
+to label those events containing a $W$ boson decaying to two quarks within
+$\Delta R < 0.4$ of the hardest reconstructed jet.
+The resulting bump does exist, as shown in
+Figure~\ref{fig:2ljets_jetm_ttbar_mw}.
+This positive result was an early motivation for our continued pursuit of the
+1J regions.
 
 \begin{figure}[tp]
 \centering
@@ -3623,17 +3638,17 @@ Backgrounds are normalized to data in the high-mass region near to $m(W)$.
 \end{figure}
 
 % problem of jet mass for small radius
-Our inclusion of SR-High-1J and VR-High-1J regions induces two related problems.
-First is their unusual use of the jet mass variable $\mjetone$ with
-small-radius ($R=0.4$), topologically clustered jets~\cite{atlas_jet_topo_PERF_2014_07}.
-Usually, hadronic decays of massive objects
-(such as $W$, $Z$, or $t$ resonances) are searched for with large-radius jets
-with $R=0.8$, since these require less extreme boosts to capture their targets.
-The focus from ATLAS' performance operations is therefore reasonably to
+Not only does fast simulation pose a problem to the 1J regions, but our use
+of $\mjetone$ in small-radius ($R=0.4$), with the older
+`topologically clustered' jet technology~\cite{atlas_jet_topo_PERF_2014_07}
+is also unusual.
+% TODO citations for large-R jet searches
+Hadronic decays of massive objects
+(such as $W$, $Z$, or $t$ resonances) in \atlas are usually searched for with
+large-radius jets with $R=0.8$, since these require less extreme boosts to
+capture their targets.
+The focus from ATLAS' performance operations is therefore reasonable to
 understand these common use-cases first.
-Second is the use of fast simulation~\cite{SOFT-2010-01} for our signal models,
-which uses approximate descriptions of the detector response and does not
-guarantee to model the substructure that determines a jet's mass.
 
 Official jet mass scale uncertainties for small-radius jets in the full ATLAS
 simulation were released late into the development of this search
