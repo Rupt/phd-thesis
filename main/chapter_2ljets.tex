@@ -311,7 +311,7 @@ Production of all electroweak signal samples and their systematic variations.
 which indicated they exceeded $100\%$}
 \item \TODO{Various collaborations with group members on scripts to conduct
 tasks which were common between the searches.}
-\item Integration of the electroweak analysis with ATLAS combinations and
+\item Integration of the electroweak analysis with \atlas\ combinations and
 pMSSM scan efforts, by performing their validation studies and serializing the
 analysis results.
 \item Preparation of electroweak results for publication in the
@@ -325,16 +325,16 @@ many \atlas\ members past and present, to whom I am grateful.
 Of the large collaboration involved in this project, a great deal of credit is
 due to the following colleagues, labelled with their primary focus within
 the $\twoljets$ search effort:
-Knut Oddvar Vadla (electroweak),
-Sarah Williams (electroweak),
-Jason Lea Oliver (RJR),
-Abhishek Sharma (RJR),
-Jonathan Long (strong),
-Arka Santra (strong),
-Matt Zhang (strong),
-Yumeng Cao (various),
-Eirik Gramstad (fake/non-prompt leptons),
-Benjamin Henry Hooberman (leadership).
+Knut~Oddvar Vadla (electroweak, core),
+Sarah~Williams (electroweak),
+Jason~Oliver (RJR),
+Abhishek~Sharma (RJR),
+Jonathan~Long (strong),
+Arka~Santra (strong, RECAST),
+Matt~Zhang (strong),
+Yumeng~Cao (electroweak, strong),
+Eirik~Gramstad (fake/non-prompt leptons),
+Benjamin~Hooberman (leadership).
 Cheers.
 
 \clearpage
@@ -624,7 +624,7 @@ atlas_susy_strong_2l_run1,
 cms_susy_2016_strong_2l_run1
 } in \atlas\ and \cms.
 From these Run~1 searches, one can cherry-pick excesses
-of ``$3.0$ standard deviations'' in \atlas~\cite{atlas_susy_strong_2l_run1}
+of ``$3.0$ standard deviations'' in \atlas\ \cite{atlas_susy_strong_2l_run1}
 and ``$2.6$ standard deviations'' in \cms~\cite{cms_susy_2016_strong_2l_run1}.
 These excesses of data above estimated backgrounds were not reproduced in their
 early Run~2 updates.
@@ -3566,8 +3566,8 @@ A maximally crude display of the jet mass variable is given in
 Figure~\ref{fig:2ljets_jetm_c1n2_600_0} for a benchmark C1N2 model, showing
 that most  jets have small masses but that a substantial fraction appear in a
 bump around $m(W)$.
-However, all of our signal models are simulated with the fast ATLAS simulation
-ATLFAST-II~\cite{SOFT-2010-01} that uses approximate descriptions of the
+However, all of our signal models are simulated with the fast \atlas\ simulation
+\afii\ \cite{SOFT-2010-01} that uses approximate descriptions of the
 detector response and does not guarantee to accurately model the substructures
 that determines the jet's reconstructed mass.
 Jet mass modelling should be well described since masses are part of the
@@ -3575,7 +3575,7 @@ reconstructed energy, and so also for standard mass variables such as $\mjj$.
 However, momenta are typically more important for these variables, so
 errors could be hidden.
 Inclusion of these 1J regions in the $\twoljets$-electroweak search therefore
-required validation of these ATLFAST-II mass distributions.
+required validation of these \afii\ mass distributions.
 
 To check that a similar bump exists in data and fully simulated (FullSim)
 background simulations, I conducted a study into a standard model process
@@ -3587,7 +3587,7 @@ $b$-tagged jets that can be selected to reduce backgrounds.
 Since our main samples require two leptons, this study required independent
 single-lepton inputs derived from different sources, so to reduce the required
 computing time I included only $\ttbar$ and single-top backgrounds generated
-with the full \atlas simulation.
+with the full \atlas\ simulation.
 To verify the origins of high-mass jets, partonic truth information is used
 to label those events containing a $W$ boson decaying to two quarks within
 $\Delta R < 0.4$ of the hardest reconstructed jet.
@@ -3613,7 +3613,7 @@ and the signal model is simulated with fast simulation.
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/2Ljets_hist1d_jetM0_ttbar_merged_tweak.pdf}
+\includegraphics[width=0.9\textwidth]{figures/2Ljets_hist1d_jetM0_ttbar_merged_tweak.png}
 \caption[
 Jet mass distribution in a single-lepton selection looking for
 $t\bar t \rightarrow \ell^\pm\nu W(J) \bar bb$
@@ -3622,8 +3622,9 @@ Jet mass distribution in a single-lepton selection looking for
 $t\bar t \rightarrow \ell^\pm\nu W bb$, where the $W$ boson decays hadronically
 into a single small-radius jet.
 A bump is observed around $m(W)$, showing that these jet algorithms do
-reconstruct the hadronic $W$ boson decays bosons in their full ATLAS
+reconstruct the hadronic $W$ boson decays bosons in their full \atlas\
 simulation.
+\\
 This selection requires one signal lepton (electron or muon) with
 $\pt > 25\,\eV[G]$, $\njet = 3$, $\nbtag = 2$, $\ptjone > 250\,\eV[G]$,
 and that the hardest jet is not $b$-tagged.
@@ -3642,33 +3643,107 @@ Not only does fast simulation pose a problem to the 1J regions, but our use
 of $\mjetone$ in small-radius ($R=0.4$), with the older
 `topologically clustered' jet technology~\cite{atlas_jet_topo_PERF_2014_07}
 is also unusual.
-% TODO citations for large-R jet searches
 Hadronic decays of massive objects
-(such as $W$, $Z$, or $t$ resonances) in \atlas are usually searched for with
+(such as $W$, $Z$, or $t$ resonances) in \atlas\ are usually searched for with
 large-radius jets with $R=0.8$, since these require less extreme boosts to
 capture their targets.
-The focus from ATLAS' performance operations is therefore reasonable to
+The focus from \atlas' performance operations is therefore reasonable to
 understand these common use-cases first.
 
-Official jet mass scale uncertainties for small-radius jets in the full ATLAS
-simulation were released late into the development of this search
+Official jet mass scale (JMS) uncertainties for small-radius jets in the full
+\atlas\ simulation were released late into the development of this search
 (25 April 2021), and these uncertainties explicitly do not support the
 fast simulation~\cite{atlas_twiki_smallrjms}.
-Once released, these uncertainties were evaluated for the diboson and $\ttbar$
-contributions, which are the primary backgrounds in both 1J regions.
+These variations comprise six different parameters representing a reported
+difference between data and simulations, differences between simulations from
+different generators, uncertainties in tracking, and statistical uncertainties.
+Once released, JMS variations were evaluated and used for the diboson and
+$\ttbar$ contributions, which are the primary backgrounds in both 1J regions.
 
-% TODO
 % alternative for fast simulation
+To reproduce all signal models with full simulation would have cost substantial
+computing and human resources, so a non-standard alternative assignment was
+required to model JMS variations in \afii\ samples.
+For the kinematic regions to which our regions are sensitive, specifically
+$\ptjone > 300\,\eV[G]$ and $\mjetone/\ptjone < 0.3$, the official
+JMS relative uncertainties are always less than $10\%$.
+As a conservative approximation, I therefore assigned alternative JMS
+variations by scaling the observed $\mjetone$ values up and down by $10\%$
+and recording the resulting histogram yields as variations.
 
-% also apply this method to minor backgrounds
+In both official and alternative assignments, the JMS variations result in
+large relative yield variations ranging from around $20\%$ to $40\%$ in samples
+with good statistical precision, and both methods assign similar variations
+when applied to the FullSim samples.
+To avoid the expense of reprocessing minor backgrounds with the official JMS
+variations, this alternative prescription is used also for minor backgrounds.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_C1N2_WZ_600_0_2L2J_presel_jetM[0]_26.png}
+\caption{C1N2 $(600, 0)$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_C1N2_WZ_500p0_200p0_2L2J_presel_jetM[0]_38.png}
+\caption{C1N2 $(500, 200)$}
+\end{subfigure}
+\\
+\centering
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/2ljets_C1N2_WZ_200p0_100p0_2L2J_presel_jetM[0]_50.png}
+\caption{C1N2 $(200, 100)$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_C1N2N1_GGMHinoZh50_600_BF50_presel_jetM[0]_62.png}
+\caption{GMSB $(500, 50\%)$}
+\end{subfigure}
+\caption[
+Signal samples in \afii\ and FullSim simulations in a loose preselection
+]{%
+Signal samples in \afii\ and FullSim simulations in a loose preselection
+requiring the pre-selections of Table~\ref{tab:2ljets_presel} and
+$\mll \in 71\textrm{--}111\,\eV[G]$.
+No $m(W)$ bump for C1N2 $(200, 100)$ is a positive sign that the fast \afii\
+simulations do not anomalously produce massive jets.
+Other samples appear to show a slight bias of \afii\ (AF2) towards lower jet
+masses, indicated by the FullSim excesses to the right of each peak.
+This could be explained by a reduced level of background energy deposits within
+jet clusters, but would also be covered in a large part by a little smearing of
+the \afii\ result to describe other noise.
+}
+\label{fig:2ljets_high_mll_b}
+\end{figure}
 
 % AFII vs FullSim comparison, 15% variations
-
+To further check the correspondence between \afii\ and FullSim signal modelling,
+\emph{Arka~Santra prepared for us FullSim versions of four representative
+signal models}.
+These alternative detector simulations are compared in
+Figure~\ref{fig:2ljets_jetm_afii_fullsim} in a loose pre-selection,
+showing quite good modelling of the $\mjetone$ distributions.
+The ratio subplots do indicate local differences, particularly of \afii\ yields
+below FullSim yields on the right-hand slopes of peaks, but average out
+across the $\mjetone \in 60\textrm{--}110\,\eV[G]$ window.
+On consideration of these results and similar plots in tighter selections ,
+we assign a $15\%$ relative variation to all \afii\ samples in 1J regions
+to cover the divergence of \afii\ from FullSim in $\mjetone$.
 
 Jet mass resolution uncertainties were evaluated by smearing simulations
 to increase their resolution error (decrease their precision) by $20\%$
 and comparing the smeared results to standard results according to a standard
 prescription~\cite{atlas_twiki_jmr}.
+These apply equally to \afii\ and FullSim samples.
+
+\emph{This jet mass modelling was discussed with, and approved by, the \atlas\
+Jet/Etmiss conveners. I owe special thanks to Chris~Delitzsch for assistance
+with the official jet mass scale variations.}
+
 
 \subsection{Sample comparisons}
 \label{sec:2ljets_sample_comparisons}
