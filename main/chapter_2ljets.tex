@@ -3776,7 +3776,7 @@ Each tune yields a point estimate that does not incorporate remaining
 uncertainties, so those uncertainties must be quantified by other means.
 Some uncertainties are included as weights, particularly those for
 uncertainties in the
-PDFs (parton distribution functions) and phyiscal scales
+PDFs (parton distribution functions) and physical scales
 (renormalization and factorization scales, $\mu_R$ and $\mu_F$).
 Our inclusion of these weighty variations through standard prescriptions is
 described in Section~\ref{sec:2ljets_theory_variations}.
@@ -3790,68 +3790,171 @@ approximate methods in its simulations, so the variations between simulations
 indicate something about a reasonable uncertainty scale.
 
 Clearly, it could happen that two algorithms agree in their tune despite
-neither being confident --- as an illustration, imagine a wide error bar and
-two post-fit results right in its centre.
+neither being confident.
+To illustrate this point, imagine a wide error bar and
+two post-fit results right in its centre;
+both have achieved the best fit, but both also could allow large variations.
 This effect would yield an underestimated uncertainty, so does not invalidate
-the comparison approach.
-On the contrary, it highlights that it is a bare minimum and that larger
-uncertainties may well be reasonable given our imprecise constraints on the
-Standard Model.
+the comparison approach but highlights that it is a bare minimum and that
+larger uncertainties may well be reasonable given our imprecise constraints on
+the Standard Model.
 
 
-Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt}
-Figure~\ref{fig:2ljets_low_crz_pre_post}
-Figure~\ref{fig:2ljets_vrlow_alt}
-Figure~\ref{fig:2ljets_low_vrlow_pre_post}
+As mentioned in Section~\ref{sec:2ljets_low}, the $\zjets$ sample comparison
+is hugely important to our results in SR-Low.
+Its central yields are displayed in Figure~\ref{fig:2ljets_low_sr_or_cr_region}
+in the union of CR-Z and SR-Low, which form a continuous region in $\mjj$.
+Our central $\zjets$ samples use \sherpa~2.2.1~\cite{
+Bothmann:2019yzt,
+ATL-PHYS-PUB-2016-003
+}
+at next-to-leading order for up to $4$ partonic jets, and leading order for
+$5$ partonic jets.
+In Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt} we compare this to our
+alternative sample that simulates its hard scatter
+with \madgraph\ (MG5\_aMC@NLO~2.2.3~\cite{Alwall:2014hca}) at leading order with
+up to four partonic jets, plugged into \pythia~8~\cite{Sjostrand:2014zea} for
+showering and hadronization.
+These plots show statistical error bars only, and the larger statistical error
+bars on the alternative sample are due to it comprising around one sixth as
+many simulated events as the central sample.
 
-For implementations in the HistFactory model, these variations reduce to
-the relative scale factors presented in Table~\ref{tab:2ljets_zjets_alt}.
+For their implementation in the background model in HistFactory, these
+variations reduce to the relative scale factors that are presented in
+Table~\ref{tab:2ljets_zjets_alt}.
 Note that up and down variations of the sample comparison parameter do not
 mean up and down variations of bin yields, but to the coupled variations
 in directions given by the signs of the relative variations given in the
 various regions.
+These variations are evaluated according to a standard recipe prescribed by
+the ATLAS SUSY group~\cite{atlas_twiki_susy_theory_comparison} that says to
+\begin{itemize}
+\item evaluate the difference between the two samples $\delta_{12}$.
+\item evaluate the statistical uncertainty on the alternative sample $\sigma_2$.
+\item combine these components in quadrature, so
+$\sigma_{12} = \sqrt{\delta_{12}^2 + \sigma_2^2}$, and
+\item if the deviation is statistically significant, then preserve the direction
+of the uncertainty, so $\sigma = \mathrm{sgn}\sigma_{12}$.
+\end{itemize}
+An `if A then B' statement does not define what to do if A is false, so
+this recipe does not define what sign to give $\sigma$ if the deviation is not
+statistically significant.
+Since all variations have direction
+--- they are either positive or negative or zero ---
+we are unable to give no direction to any deviation, and we choose to
+we use the same, signed, definition of $\sigma$ for all regions.
 
+As seen from Table~\ref{tab:2ljets_zjets_alt}, the statistical uncertainty
+$\sigma_2$ is a substantial contribution to these variations;
+the statistical uncertainty in the alternative sample does significantly
+expand this variation.
+Indeed, it is the larger contribution in SR-Low-a and SR-Low-b, which are the
+regions most sensitive to $\zjets$ variations.
+Our unprescribed choice to match their directions therefore matters.
+It may have been reasonable to treat them differently, perhaps by adding
+independent parameters in the separate regions.
+I believe such a change would have improved the plausibility of our background
+modelling, and I regret not finding the capacity to push it at the time.
+
+This SUSY recipe contradicts the advice of the ATLAS Physics Modelling Group
+(PMG), who say to quote only the absolute value of the two
+estimates~\cite{atlas_twiki_pmg_theory_comparison} in for two-sample
+comparisons.
+Since our search is in the SUSY group we follow their instructions.
+
+
+Figure~\ref{fig:2ljets_low_crz_pre_post}
+Figure~\ref{fig:2ljets_vrlow_alt}
+Figure~\ref{fig:2ljets_low_vrlow_pre_post}
+
+% in branch hackmg5
+% python get_ewk_Zjets_alt.py
+%                 CRDY,     2.30,     5.97
+%                  CRZ,    16.75,     6.68
+%                 CRZZ,     6.35,     1.61
+%                 CRtt,    18.06,     4.29
+%           SRHigh16_1,     0.02,     0.00
+%           SRHigh16_2,     0.01,     0.00
+%              SRHigh4,     0.02,     0.00
+%            SRHigh8_1,     0.02,     0.00
+%            SRHigh8_2,     0.02,     0.00
+%              SRInt_1,     0.46,     0.76
+%              SRInt_2,     0.09,     0.20
+%               SRLow2,     1.63,     1.69
+%              SRLow_1,     2.20,     2.36
+%              SRLow_2,     0.45,     1.02
+%         SROffShell_1,     0.12,     0.30
+%         SROffShell_2,     0.95,     0.95
+%               SRllbb,     0.03,     0.00
+%               VRHigh,     0.13,     0.14
+%              VRHigh4,     0.49,     0.39
+%              VRHighR,     0.26,     0.34
+%                VRInt,     0.32,     0.23
+%                VRLow,     7.34,     3.24
+%               VRLow2,     1.71,     3.21
+%           VROffShell,     0.09,     1.06
+%               VRllbb,     0.31,     0.36
 \begin{table}[tp]
 \centering
-\begin{tabular}{lcc}
+\begin{tabular}{lcccc}
 & Central
 & Relative variations
+& $|\delta_{12}|$
+& $\sigma_2$
 \\[0.5em]
 CR-DY
 & $59.64$
 & $1-0.1+0.1$
+& $2.3$
+& $6.0$
 \\[0.2em]
 \underline{CR-Z}
 & $101.95$
 & $1+0.2-0.2$
+& $16.8$
+& $6.7$
 \\[0.2em]
 CR-tt
 & $38.07$
 & $1+0.5-0.5$
+& $18.1$
+& $4.29$
 \\[0.2em]
 CR-VZ
 & $5.03$
 & $1+1.3-1.0$
+& $6.4$
+& $1.6$
 \\[0.5em]
 VR-Low
 & $24.19$
 & $1-0.3+0.3$
+& $7.3$
+& $3.2$
 \\[0.2em]
 VR-Low-2
 & $17.05$
 & $1+0.2-0.2$
+& $1.7$
+7 $3.2$
 \\[0.5em]
 \underline{SR-Low-a}
 & $14.30$
 & $1-0.2+0.2$
+& $2.2$
+& $2.4$
 \\[0.2em]
 \underline{SR-Low-b}
 & $4.17$
 & $1-0.3+0.3$
+& $0.5$
+& $0.8$
 \\[0.2em]
 SR-Low-2
 & $1.51$
 & $1+1.5-1.0$
+& $1.6$
+& $1.7$
 \\[0.2em]
 \end{tabular}
 \caption[%
@@ -3864,9 +3967,11 @@ The `Central' column shows the central $\zjets$ yield from the main sample.
 The other column shows the relative scale factors applied to this central yield
 for up and down variations.
 These are evaluated from the central and alternative samples as described in
-the text.
-Note how up and down variations can move in different directions, and these
-different movements are coupled in the background model.
+the text of Section~\ref{sec:2ljets_sample_comparisons};
+$\delta_{12}$ is the difference of the alternative from the central sample
+and $\sigma_2$ is the statistical uncertainty on the alternative sample.
+Note that the up and down variations can move in different directions, and
+these different movements are coupled in the background model.
 }
 \label{tab:2ljets_zjets_alt}
 \end{table}
