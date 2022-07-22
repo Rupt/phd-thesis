@@ -3351,7 +3351,7 @@ and systematic errors are set as the larger absolute deviation on the mean
 from the up and down variations in the Matrix Method weights, which comes out
 $\sigma^\textrm{M}_\textrm{sys} = 0.0226$.
 Finally, the `Mean' high variation is their linear sum;
-$\mu^\textrm{M} + \sigma^\textrm{M}_\textrm{stat}
+$\mu^\textrm{M} + \sigma^\textrm{M}_\textrm{stat} +
 \sigma^\textrm{M}_\textrm{sys} = 0.1560$.
 \end{itemize}
 All low variations are set to zero.
@@ -3613,8 +3613,14 @@ Jet masses in raw samples of a benchmark C1N2 signal model
 Jet masses in raw samples of a benchmark C1N2 signal model with
 $m(\chargino_1,\neutralino_2) = 600\,\eV[G]$ and
 $m(\neutralino_1) = 0$.
-All jets in all events in this file are histogrammed without weights,
+All jets in all events in this file are histogrammed,
 and the signal model is simulated with fast simulation.
+\\
+Yes, this really is a screenshot of a ROOT TBrowser~\cite{ROOT}, with no
+weights on its samples, nor plotting frills such as error bars or labels.
+A similar view was our first, and surprising, indication that mono-jet masses
+might be useful, and although this chronology is not at all necessary to this
+thesis, I find it an amusing reminder of the power of quick-and-dirty checks.
 }
 \label{fig:2ljets_jetm_c1n2_600_0}
 \end{figure}
