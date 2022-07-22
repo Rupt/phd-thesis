@@ -2212,7 +2212,7 @@ predicts the data well.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_low_absdPhiPllMet_SRLow2_noDphi_mg5.pdf}
-\caption{SR-Low-2$/\{\dphillmet\}$, alternative}
+\caption{SR-Low-2$/\{\dphillmet\}$ (alt)}
 \label{fig:2ljets_low_minus_dphi_alt}
 \end{subfigure}
 \caption[
@@ -3010,9 +3010,9 @@ alternative simulated samples in Section~\ref{sec:2ljets_sample_comparisons},
 signal modelling uncertainties in Section~\ref{sec:2ljets_signal_variations}
 and theoretical uncertainties in Section~\ref{sec:2ljets_theory_variations}.
 
+
 \subsection{Fake/non-prompt leptons}
 \label{sec:2ljets_mm_fakes}
-
 Given our requirements on lepton quality, isolation, and hardness, it is
 expected that the rates of fake leptons, or non-prompt leptons (which do not
 originating from the hard scatter) should be small.
@@ -3176,15 +3176,15 @@ of which $135$ pass the signal lepton requirements (tight-tight),
 and the remainder have one loose lepton (zero loose-loose lepton events
 are observed in CR-VZ).
 The tight-tight events have an average weight of $-0.0227$, and the others
-have an average weight of $+0.238$ (one can check these recover the central
-FNP background of $2.2$).
+have an average weight of $+0.238$ (one can check that these recover the
+central FNP background of $2.2$).
 Such negative signal weights suggest that a local \emph{excess} of data
 would act to \emph{decrease} the Matrix Method estimate in the region.
-Yes this backwards dependency is backward, but at least it gives some relief
+Yes, this backwards dependency is backward, but at least it gives some relief
 that real local excesses would not be hidden by increased fake estimates.
 Unless, that is, the processes driving that excess also produced loose leptons
 at rates similar to (or larger than) the standard model backgrounds.
-Loose data do have positive weights and they would drive up the FNP
+Loose data do have positive weights, and they would drive up the FNP
 background.
 
 Although the $\twoljets$-electroweak regions were designed without using the
@@ -3210,7 +3210,7 @@ FNP-enhanced.
 Alternative versions of all core control, validation regions were inspected
 with their lepton requirements change to require either different-flavour
 or same-charge leptons.
-The different-flavour versions are contain increased $\ttbar$ backgrounds,
+The different-flavour versions contain enhanced $\ttbar$ fractions,
 due to their flavour symmetry,
 and both different-flavour and same-sign versions have drastically reduced
 expected backgrounds.
@@ -3219,7 +3219,7 @@ deviations from the simulated backgrounds, but most also contained very small
 predicted FNP yields.
 
 To validate FNP yields in a region with sufficiently many data for precision,
-a additional validations were also inspected with different-flavour or
+additional validations were also inspected with different-flavour or
 same-charge requirements, and all showed reasonably agreement with data
 within uncertainties.
 In particular, a region named VR-SS is defined to inspect data with
@@ -3234,7 +3234,7 @@ region definitions is not core and not reported in the paper.
 }
 VR-SS requires the pre-selections of Table~\ref{tab:2ljets_presel},
 but replaces its requirement of opposite-charge leptons with a requirement of
-same-charge leptons, and adds a selections of $\mll \in (12, 111)~\eV[G]$
+same-charge leptons, and adds a requirement of $\mll \in (12, 111)~\eV[G]$
 to cover both on- and off-shell selections.
 
 Histogrammed $\metsig$ distributions in VR-SS are displayed in
@@ -3244,7 +3244,7 @@ Figure~\ref{fig:2ljets_vrss_mm},
 and from background simulations in
 Figure~\ref{fig:2ljets_vrss_mc}.
 When using the Matrix Method, we use parton-level `truth' information to
-identify and remove remove FNP contributions from simulations.
+identify and remove FNP contributions from simulations.
 This is why the simulated backgrounds (not `FNP leptons') increase by around
 $30\%$ when switching off the Matrix Method; the difference between the
 two orange histograms is the simulated FNP estimate.
@@ -3282,7 +3282,7 @@ the contours were almost indistinguishable from those shown in
 Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb}.
 
 Overlaying these modified contours highlighted some minor differences, the
-largest being $2\%$ reduction in the limit on
+largest being a $2\%$ reduction in the limit on
 $B(\neutralino_1 \rightarrow h \gravitino)$ at
 $m(\neutralino_1) \approx 500\,\eV[G]$.
 Different interpolation options induce larger variations, as do different
@@ -3293,7 +3293,7 @@ are unusable in numerous regions, since they are either negative or zero.
 Details of these eleven problematic regions are displayed in
 Table~\ref{tab:2ljets_fnp_negative_mm}.
 For comparison, this table also includes the simulated background without
-FNP leptons under the heading `MC Prompt' and the, and only
+FNP leptons under the heading `MC Prompt' and the and only
 the simulated FNP contributions under the heading `MC FNP'.
 Negative or void estimates are an easy consequence of the use of signed
 weights of data used by the Matrix Method, but we require alternative
@@ -3372,7 +3372,7 @@ it would be wasteful and unproductive to consider them seriously.
 I am grateful that \atlas' statistical conventions allow us to ignore these
 problems.
 }
-Despite any awkwardness, the its does appear that FNP backgrounds are indeed
+Despite any awkwardness, it does appear that FNP backgrounds are indeed
 small and that they do not greatly impact the result, especially when compared
 to other systematic variations.
 
@@ -3676,7 +3676,7 @@ large relative yield variations ranging from around $20\%$ to $40\%$ in samples
 with good statistical precision, and both methods assign similar variations
 when applied to the FullSim samples.
 To avoid the expense of reprocessing minor backgrounds with the official JMS
-variations, this alternative prescription is used also for minor backgrounds.
+variations, this alternative prescription is also used for minor backgrounds.
 
 \begin{figure}[tp]
 \centering
@@ -3717,7 +3717,7 @@ This could be explained by a reduced level of background energy deposits within
 jet clusters, but would also be covered in a large part by a little smearing of
 the \afii\ result to describe other noise.
 }
-\label{fig:2ljets_high_mll_b}
+\label{fig:2ljets_jetm_afii_fullsim}
 \end{figure}
 
 % AFII vs FullSim comparison, 15% variations
@@ -3913,7 +3913,7 @@ region, whose likelihood is not included in the \heplikelihood.
 \label{sec:2ljets_theory_variations}
 
 % extrapolation
-The total theory variation is a combination of seven components representing
+The total theory variation is a combination of seven components, representing
 \TODO{what are they?}.
 A relative uncertainty due to each, $r$, is evaluated at each benchmark
 point $\vec y_i$, and extrapolated elsewhere as an exponentially weighted
@@ -4141,7 +4141,7 @@ Alternative summary table with backgrounds fitted to control regions only
 Alternative summary table with backgrounds fitted to control regions only.
 A version fitted also to signal regions is shown in
 Figure~\ref{fig:2ljets_summary}.
-Fitting to signal regions is policy of the \atlas\ SUSY group, but deviates
+Fitting to signal regions is the policy of the \atlas\ SUSY group, but deviates
 from the intentions of the significance measure.
 Because the post-fit yields in SR-Low achieve a small negative significance,
 all mentions of its deficit were removed from the paper.
