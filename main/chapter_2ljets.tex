@@ -28,17 +28,52 @@ corresponds to a kind of utter honesty --- a kind of leaning over backwards.%
 \end{epigraphs}
 \end{singlespacing}
 
-My core contribution in this thesis is to the recent \atlas\
-search ``for new phenomena in events with two leptons, jets, and
-missing transverse momentum''~\cite{atlas2022searches}.
-For brevity, I will call this search $\twoljets$.
+My core contributions in this thesis are to the recent \atlas\
+searches ``for new phenomena in events with two leptons, jets, and
+missing transverse momentum''~\cite{atlas2022searches},
+particularly to its electroweak part.
+For brevity, I will call this publication $\twoljets$ and its electroweak
+subset $\twoljets$-electroweak.
+
+This chapter follows a questionable order.
+It may be clearer, and is certainly more ordinary,
+to first present preparations (blind to data),
+followed later by the results (unblinded).
+Instead, this chapter first reports the unblinded results, then follows with
+in-depth discussions of individual elements, partially in light of those
+results.
+I choose this order for two reasons.
+First, it avoids iterating over those elements twice, once before and again
+after unblinding.
+The analysis has many little and loosely related pieces that I attempt to
+to cover locally to reduce jumps between far-flung corners of the
+chapter.
+Second, and sadly, many design decisions can only be explained in light of the
+unblinded results, since important aspects were reworked in the
+$19$~months between its unblinding and eventual publication.
 
 There are certain plots and tables which, personally, I first seek when
-meeting an \atlas\ search paper.
-This chapter begins by presenting those results in brief in
-Section~\ref{sec:2ljets_splash}.
-The meat of this chapter (or, if you prefer, its gory detail) follows in
-Section~\ref{sec:2ljets_context} onwards.
+meeting an \atlas\ search paper, particularly the summary plot with all signal
+regions and the model-dependent exclusion contours.
+This chapter begins by presenting those results in brief in Section
+~\ref{sec:2ljets_splash}.
+The meat of the chapter follows.
+\begin{itemize}
+\item Context from previous searches and inspirations for the design goals
+of the $\twoljets$-electroweak search are described in
+Section~\ref{sec:2ljets_context}.
+\item Data, their event variables and the reconstructed objects from which
+they derive are described in Section~\ref{sec:2ljets_events}.
+\item Region design for the $\twoljets$-electroweak search is described and
+explained in Section~\ref{sec:2ljets_design}.
+\item The modelling of our uncertain predictions of background and signal
+contributions in those regions is covered in
+Section~\ref{sec:2ljets_modelling}.
+\item Some validation studies are presented in Section~\ref{sec:2ljets_validation}.
+\item The unblinding procedure of this search is discussed in
+Section~\ref{sec:2ljets_unblinding}, and
+\item we recap the search results in Section~\ref{sec:2ljets_results}.
+\end{itemize}
 
 
 \subsection{Splash summary}
@@ -854,6 +889,9 @@ cms_susy_2022_gmsb
 
 
 \section{Events}
+\label{sec:2ljets_events}
+\TODO{make sure we say 136ifb from 2015 to 2018 run 2 data. Good run lists etc}
+
 This section describes the events selected for the $\twoljets$ searches, the
 reconstructed particle objects derived from those events and various
 important event variables.
@@ -1408,6 +1446,7 @@ existence of $\metsig$.
 
 \FloatBarrier
 \section{Design}
+\label{sec:2ljets_design}
 Perhaps the most impactful decision in a search is the design of its regions.
 Like most decision, these designs must be made to balance conflicting and
 vaguely-specified desires, and are informed with incomplete information.
@@ -2963,6 +3002,7 @@ Errors are statistical.
 
 \FloatBarrier
 \section{Modelling}
+\label{sec:2ljets_modelling}
 So far, we have seen many histograms of background samples overlaid with
 observed data.
 Those backgrounds may or may not have appeared to have predicted the data well,
@@ -3799,7 +3839,8 @@ the comparison approach but highlights that it is a bare minimum and that
 larger uncertainties may well be reasonable given our imprecise constraints on
 the Standard Model.
 
-
+\subsubsection{Alternative \texorpdfstring{$\zjets$}{Z+jets}}
+\label{sec:2ljets_zjets_alt}
 As mentioned in Section~\ref{sec:2ljets_low}, the $\zjets$ sample comparison
 is hugely important to our results in SR-Low.
 Its central yields are displayed in Figure~\ref{fig:2ljets_low_sr_or_cr_region}
@@ -3815,9 +3856,14 @@ alternative sample that simulates its hard scatter
 with \madgraph\ (MG5\_aMC@NLO~2.2.3~\cite{Alwall:2014hca}) at leading order with
 up to four partonic jets, plugged into \pythia~8~\cite{Sjostrand:2014zea} for
 showering and hadronization.
-These plots show statistical error bars only, and the larger statistical error
-bars on the alternative sample are due to it comprising around one sixth as
-many simulated events as the central sample.
+This \madgraph\ alternative sample simulates only $\mll > 40\,\eV[G]$, so in
+regions allowing $\mll$ outside of this we evaluate relative variations and
+scale them up to the central yield.
+The plots in Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt} show statistical
+error bars only; the alternative sample has larger statistical errors since
+it contains around one sixth as many simulated events as the central sample,
+and that difference is not countered by their different weight distributions
+in this region.
 
 For their implementation in the background model in HistFactory, these
 variations reduce to the relative scale factors that are presented in
@@ -3834,7 +3880,7 @@ the ATLAS SUSY group~\cite{atlas_twiki_susy_theory_comparison} that says to
 \item combine these components in quadrature, so
 $\sigma_{12} = \sqrt{\delta_{12}^2 + \sigma_2^2}$, and
 \item if the deviation is statistically significant, then preserve the direction
-of the uncertainty, so $\sigma = \mathrm{sgn}\sigma_{12}$.
+of the uncertainty, so $\sigma = \mathrm{sgn}(\delta_{12})\sigma_{12}$.
 \end{itemize}
 An `if A then B' statement does not define what to do if A is false, so
 this recipe does not define what sign to give $\sigma$ if the deviation is not
@@ -3842,31 +3888,40 @@ statistically significant.
 Since all variations have direction
 --- they are either positive or negative or zero ---
 we are unable to give no direction to any deviation, and we choose to
-we use the same, signed, definition of $\sigma$ for all regions.
+use the same, signed, definition of $\sigma$ for all regions.
 
 As seen from Table~\ref{tab:2ljets_zjets_alt}, the statistical uncertainty
-$\sigma_2$ is a substantial contribution to these variations;
+$\sigma_2$ is a substantial contribution to these variations, and so
 the statistical uncertainty in the alternative sample does significantly
 expand this variation.
-Indeed, it is the larger contribution in SR-Low-a and SR-Low-b, which are the
-regions most sensitive to $\zjets$ variations.
+Indeed, $\sigma_2$ is the larger contribution in SR-Low-a and SR-Low-b, which
+are the regions most sensitive to $\zjets$ variations.
 Our unprescribed choice to match their directions therefore matters.
 It may have been reasonable to treat them differently, perhaps by adding
 independent parameters in the separate regions.
 I believe such a change would have improved the plausibility of our background
-modelling, and I regret not finding the capacity to push it at the time.
+modelling, and I regret not finding the capacity to push for it at the time.
 
 This SUSY recipe contradicts the advice of the ATLAS Physics Modelling Group
 (PMG), who say to quote only the absolute value of the two
 estimates~\cite{atlas_twiki_pmg_theory_comparison} in for two-sample
 comparisons.
-Since our search is in the SUSY group we follow their instructions.
+Since our search is in the SUSY group, we follow their instructions.
 
+Including this $\zjets$ sample comparison greatly improves our model's post-fit
+agreement with the SR-Low deficits.
+It therefore seems proper to disclose that this variation was added after
+unblinding, and after we all knew about those deficits.
+Prior to unblinding, we in the $\twoljets$ team had not planned on including it
+in addition to other theoretical uncertainties, and I do not know whether or
+not senior members in the collaboration would have required its inclusion
+without the deficit.
+The \atlas\ SUSY recommendation is to consider the comparison if
+``the scale ($+$ PDF) uncertainties are too small in your
+analysis''~\cite{atlas_twiki_susy_v_jets},
+but I know of no official advice on how to judge what is ``too small''.
 
-Figure~\ref{fig:2ljets_low_crz_pre_post}
-Figure~\ref{fig:2ljets_vrlow_alt}
-Figure~\ref{fig:2ljets_low_vrlow_pre_post}
-
+\begin{table}[tp]
 % in branch hackmg5
 % python get_ewk_Zjets_alt.py
 %                 CRDY,     2.30,     5.97
@@ -3894,7 +3949,6 @@ Figure~\ref{fig:2ljets_low_vrlow_pre_post}
 %               VRLow2,     1.71,     3.21
 %           VROffShell,     0.09,     1.06
 %               VRllbb,     0.31,     0.36
-\begin{table}[tp]
 \centering
 \begin{tabular}{lcccc}
 & Central
@@ -3936,7 +3990,7 @@ VR-Low-2
 & $17.05$
 & $1+0.2-0.2$
 & $1.7$
-7 $3.2$
+& $3.2$
 \\[0.5em]
 \underline{SR-Low-a}
 & $14.30$
@@ -3992,18 +4046,79 @@ overflow bin.
 \label{fig:2ljets_low_sr_or_cr_region_alt}
 \end{figure}
 
+Auxiliary data to the $\twoljets$ paper~\cite{atlas2022searches} include
+Figure~\ref{fig:2ljets_low_crz_pre_post_post}~\cite{hepdata.116034.v1/t101},
+which appears to show good agreement in SR-Low and CR-Z, a relatively
+small error bar in SR-Low of around $\pm10$ events per $100\,\eV[G]$,
+and a curious dip in the $\zjets$ background in the signal region.
+The figure caption also admits that
+``All EWK search control and signal regions are included in the fit.''
+
+Fitting only to control region (not signal regions) results in
+Figure~\ref{fig:2ljets_low_crz_pre_post_pre}, which shows a clear deficit in
+the signal region, with diboson yields peaking near to $m(W)$ above a smooth
+varying $\zjets$ background.
+Fitting to the signal region slashes the $\zjets$ background in SR-Low by
+around $80\%$. How?
+This sample comparison is the largest variation in VR-Low, and we have seen
+from Table~\ref{tab:2ljets_zjets_alt} that SR-Low variations are around $30\%$.
+A few factors contribute:
+\begin{itemize}
+\item The $\zjets$ sample is normalized to CR-Z with an unconstrained
+normalization factor. This means that variations to the $\zjets$ sample in CR-Z
+are absorbed by scaling all of its modifications in other regions.
+\item As listed in Table~\ref{tab:2ljets_zjets_alt}, positive variations
+in CR-Z match to negative variations in SR-Low bins; the two yields are
+anticorrelated.
+With normalization to CR-Z, this anticorrelation increases the effective
+variation in SR-Low to $\pm40\%$.
+\item Post-fit, the parameter controlling this $\zjets$ sample comparison
+modifier is pulled to around $2\sigma$. This is seen in
+Figure~\ref{fig:2ljets_fit_parameters}, and will be discussed further in
+Section~\ref{sec:2ljets_results}.
+\end{itemize}
+A two-sigma pull on a $40\%$ scaling therefore explains this $80\%$ change.
+Validation regions do not constrain our fits, and are also affected by
+this effect; in VR-Low, small differences between the central and alternative
+$\zjets$ samples are visible in Figure~\ref{fig:2ljets_vrlow_alt}, but
+after fitting to the signal regions,
+Figure~\ref{fig:2ljets_low_vrlow_pre_post} shows that the $\zjets$ sample
+is almost wiped out, leaving a deficit below data.
+
+To avoid this extreme effect, I searched for alternative configurations
+to the background model, such as constraining the parameter to $1$-sigma.
+More senior members of the \atlas\ SUSY group decided that we should keep it as
+described, reasoning along the lines that
+a) this is a real and significant deficit in SR-Low that must appear as either
+a pull on systematic variations or as a deviation from data, and
+b) we prefer the pull on systematic variations.
+With this decision, post-fit results showed no deficit;
+this $\zjets$ sample comparison is the main reason why
+Figure~\ref{fig:2ljets_summary} shows no significant in SR-Low-a or SR-Low-b.
+Internal reviewers were then confused as to why we mentioned a deficit in
+SR-Low, so, much to my ire, all mentions of an SR-Low deficit were erased from
+the paper.
+
+To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
+excessive diboson background should also take some blame for this poor
+prediction in SR-Low.
+We shall see in Section~\ref{sec:2ljets_diboson_alt} why diboson yields are
+not similarly squashed.
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_EWKSR_Low_EWK_mjj_no_sr.png}
 \caption{Fitted to control regions only}
+\label{fig:2ljets_low_crz_pre_post_pre}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_EWKSR_Low_EWK_mjj.pdf}
 \caption{Fitted to control and signal regions}
+\label{fig:2ljets_low_crz_pre_post_post}
 \end{subfigure}
 \caption[
 Distribution of $\mjj$ in CR-Z and SR-Low with all systematic variations
@@ -4025,7 +4140,7 @@ and~\ref{fig:2ljets_low_sr_or_cr_region_alt}.
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_vrlow_met_Sign_VRLow.pdf}
-\caption{Standard}
+\caption{Central}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
@@ -4034,11 +4149,14 @@ and~\ref{fig:2ljets_low_sr_or_cr_region_alt}.
 \caption{Alternative}
 \end{subfigure}
 \caption[
-Pre-fit yields in VR-Low with standard and alternative $\zjets$ simulations
+Pre-fit yields in VR-Low with central and alternative $\zjets$ simulations
 ]{%
-Pre-fit yields in VR-Low with (a) standard and (b) alternative $\zjets$
+Pre-fit yields in VR-Low with (a) central and (b) alternative $\zjets$
 simulations.
 Errors are statistical.
+Results in these regions with all uncertainties, and fitted to data in
+control or signal regions are presented, in
+Figure~\ref{fig:2ljets_low_vrlow_pre_post}.
 }
 \label{fig:2ljets_vrlow_alt}
 \end{figure}
@@ -4063,9 +4181,22 @@ Comparison of VR-Low (a) before and (b) after fitting to the signal regions.
 All systematic variations are included after fitting to the control regions.
 The signal region deficit pulls $\zjets$ yields below data in the validation
 region, whose likelihood is not included in the \heplikelihood.
+Pre-fit results with statistical uncertainties only are presented in
+Figure~\ref{fig:2ljets_vrlow_alt}.
+Sorry for the different order of backgrounds; this figure uses
+conventions from the paper, while Figure~\ref{fig:2ljets_vrlow_alt}
+uses the conventions we used in development.
 }
 \label{fig:2ljets_low_vrlow_pre_post}
 \end{figure}
+
+\subsubsection{Alternative diboson}
+\label{sec:2ljets_diboson_alt}
+\TODO{}
+
+\subsubsection{Alternative \texorpdfstring{$\ttbar$}{ttbar}}
+\label{sec:2ljets_ttbar_alt}
+\TODO{}
 
 \subsection{Signals}
 \label{sec:2ljets_signal_variations}
@@ -4244,7 +4375,7 @@ Errors are statistical.
 
 
 \section{Unblinding}
-
+\label{sec:2ljets_unblinding}
 Figure~\ref{fig:2ljets_prepre}
 Figure~\ref{fig:2ljets_summary_unblinding}
 
@@ -4291,7 +4422,7 @@ lepton definitions, leading to a general reduction in yields.
 
 
 \section{Results}
-
+\label{sec:2ljets_results}
 Figure~\ref{fig:2ljets_summary_no_sr}
 Figure~\ref{fig:2ljets_fit_corrmatrix}
 Figure~\ref{fig:2ljets_fit_parameters}
