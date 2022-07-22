@@ -3008,7 +3008,6 @@ alternative simulated samples in Section~\ref{sec:2ljets_sample_comparisons},
 signal modelling uncertainties in Section~\ref{sec:2ljets_signal_variations}
 and theoretical uncertainties in Section~\ref{sec:2ljets_theory_variations}.
 
-% Thanks to Jon Long, Alessia Murrone
 This section only covers some of the the most peculiar or important aspects
 of our signal and background modelling, and does not specify most exact
 details.
@@ -3756,12 +3755,55 @@ with the official jet mass scale variations.}
 
 \subsection{Sample comparisons}
 \label{sec:2ljets_sample_comparisons}
+The Standard Model is a distillation of past data, and all of our simulations
+of it have been tuned to those data, in both their treatment of fundamental
+physics and of experimental hardware.%
+\footnote{%
+Amusingly, tuning to data specific to each experiment means that each
+experiment can simulate different fundamental physics~\cite{
+herwig2000parameter,
+Altarelli:473529
+}, not only different detector responses.
+All Standard Models are not the same.
+}
+Each tune yields a point estimate that does not incorporate remaining
+uncertainties, so those uncertainties must be quantified by other means.
+Some uncertainties are included as weights, particularly those for
+uncertainties in the
+PDFs (parton distribution functions) and phyiscal scales
+(renormalization and factorization scales, $\mu_R$ and $\mu_F$).
+Our inclusion of these weighty variations through standard prescriptions is
+described in Section~\ref{sec:2ljets_theory_variations}.
+
+To include other uncertainties that are not described by weights,
+the standard approach is to compare the results of different simulation
+algorithms, and we implement this for our major backgrounds $\zjets$, $\ttbar$,
+and, to some extent diboson.
+Each generator (simulation algorithm), or component thereof, uses different
+approximate methods in its simulations, so the variations between simulations
+indicate something about a reasonable uncertainty scale.
+
+Clearly, it could happen that two algorithms agree in their tune despite
+neither being confident --- as an illustration, imagine a wide error bar and
+two post-fit results right in its centre.
+This effect would yield an underestimated uncertainty, so does not invalidate
+the comparison approach.
+On the contrary, it highlights that it is a bare minimum and that larger
+uncertainties may well be reasonable given our imprecise constraints on the
+Standard Model.
+
+
 Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt}
 Figure~\ref{fig:2ljets_low_crz_pre_post}
 Figure~\ref{fig:2ljets_vrlow_alt}
 Figure~\ref{fig:2ljets_low_vrlow_pre_post}
 
-Table~\ref{tab:2ljets_zjets_alt}
+For implementations in the HistFactory model, these variations reduce to
+the relative scale factors presented in Table~\ref{tab:2ljets_zjets_alt}.
+Note that up and down variations of the sample comparison parameter do not
+mean up and down variations of bin yields, but to the coupled variations
+in directions given by the signs of the relative variations given in the
+various regions.
 
 \begin{table}[tp]
 \centering
@@ -3809,13 +3851,16 @@ SR-Low-2
 \caption[%
 Alternative $\zjets$ variations in selected regions
 ]{%
-Alternative $\zjets$ variations in selected regions.
+Alternative $\zjets$ variations in selected regions that have significant
+$\zjets$ contributions.
+In other regions the $\zjets$ sample and its variations are negligible.
 The `Central' column shows the central $\zjets$ yield from the main sample.
 The other column shows the relative scale factors applied to this central yield
 for up and down variations.
 These are evaluated from the central and alternative samples as described in
 the text.
-Note how up and down variations can move in different directions.
+Note how up and down variations can move in different directions, and these
+different movements are coupled in the background model.
 }
 \label{tab:2ljets_zjets_alt}
 \end{table}
