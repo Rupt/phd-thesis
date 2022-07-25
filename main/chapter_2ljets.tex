@@ -3395,7 +3395,11 @@ Finally, the `Mean' high variation is their linear sum;
 $\mu^\textrm{M} + \sigma^\textrm{M}_\textrm{stat} +
 \sigma^\textrm{M}_\textrm{sys} = 0.1560$.
 \end{itemize}
-All low variations are set to zero.
+All low variations are set to zero for these replacement FNP estimates, to
+encode that the yield is compatible with zero, but more importantly to give
+a slow extrapolation on the low side (from the small central value to zero)
+and reduce the risk from non-physical negative yields in the HistFactory model.
+
 
 As seen from Table~\ref{tab:2ljets_fnp_estimates}, even the high variations of
 the Max method are negligibly small next to the central simulated yields
