@@ -3176,30 +3176,30 @@ independent transition probabilities as
 \bar \mu^\textrm{data}_{tt\mid rr} &=
 p(t\!\mid\!r,1)
 \times p(t\!\mid\!r,2)
-\times \bar \mu^\textrm{truth}_{rr}~~, \\
+\times \bar \mu^\textrm{truth}_{rr}, \\
 % fr
 \bar \mu^\textrm{data}_{tt\mid fr} &=
 p(t\!\mid\!f,1)
 \times p(t\!\mid\!r,2)
-\times \bar \mu^\textrm{truth}_{fr}~~, \\
+\times \bar \mu^\textrm{truth}_{fr}, \\
 % rf
 \bar \mu^\textrm{data}_{tt\mid rf} &=
 p(t\!\mid\!r,1)
 \times p(t\!\mid\!f,2)
-\times \bar \mu^\textrm{truth}_{rf}~~,~~\textrm{and} \\
+\times \bar \mu^\textrm{truth}_{rf},~\textrm{and} \\
 % ff
 \bar \mu^\textrm{data}_{tt\mid ff} &=
 p(t\!\mid\!f,1)
 \times p(t\!\mid\!f,2)
-\times \bar \mu^\textrm{truth}_{ff}~~.
+\times \bar \mu^\textrm{truth}_{ff}.
 \end{align}
 That is, the Matrix Method starts from data, flips them over to truth
 estimates, then flops those back to data-level estimates. Flip, flop.
 
 To make FNP estimates in our regions, the Matrix Method is
 implemented by assigning weights to observed data events that are then
-histogrammed them in the tighter selections of our search
-regions much like other samples~\cite{twoljets2018int}.
+histogrammed them in the tighter selections of our search regions,
+much like other samples~\cite{twoljets2018int}.
 Systematic variations are assigned by comparing histograms when those weights
 are varied according to various uncertainties in the Matrix Method procedure.
 
@@ -3336,104 +3336,6 @@ Indeed, the result was an insignificant change to all exclusion contours;
 the contours were almost indistinguishable from those shown in
 Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb}.
 
-Overlaying these modified contours highlighted some minor differences, the
-largest being a $2\%$ reduction in the limit on
-$B(\neutralino_1 \rightarrow h \gravitino)$ at
-$m(\neutralino_1) \approx 500\,\eV[G]$.
-Different interpolation options induce larger variations, as do different
-random seeds for the fits, so this really is an insignificant difference.
-
-Although we nominally use the Matrix Method to estimate fakes, its results
-are unusable in numerous regions, since they are either negative or zero.
-Details of these eleven problematic regions are displayed in
-Table~\ref{tab:2ljets_fnp_negative_mm}.
-For comparison, this table also includes the simulated background without
-FNP leptons under the heading `MC Prompt' and the and only
-the simulated FNP contributions under the heading `MC FNP'.
-Negative or void estimates are an easy consequence of the use of signed
-weights of data used by the Matrix Method, but we require alternative
-estimates to assign a sensible background model.
-
-To replace these failed Matrix Method estimates, our strategy is to take three
-alternative estimates that assign central and high variations to the
-FNP background estimate, and consider a maximum across them for
-each region.
-More precisely, we take the maximum central value and add it to the maximum
-difference (between central and high) for the combined high variation, and
-sets the low ($-1$-sigma) variation to zero.
-These three alternative estimates are reported with their combination in
-Table~\ref{tab:2ljets_fnp_estimates}.
-
-These three estimates are labelled `MC', `MM', `Mean', and we combine them into
-the `Max' estimate.
-Each is described here.
-\begin{itemize}
-\item The `MC' estimate takes the simulated estimate that was previously reported
-in Table~\ref{tab:2ljets_fnp_negative_mm}.
-\item The `MM' estimate modifies the Matrix Method result,
-also from Table~\ref{tab:2ljets_fnp_negative_mm}, by shifting its central
-value to a small positive value chosen baselessly as $0.01$ and by adding
-its statistical and systematic uncertainties linearly
-(not in quadrature to conservatively cover a correlated variation)
-to assign a high variation.
-\end{itemize}
-After I had proposed a combination of these two estimates, reviewers
-suggested additionally using the statistical properties of samples in looser
-selections.
-This became the third `Mean' estimate.
-\begin{itemize}
-\item The `Mean' follows an idea that the smallest assignable value should
-be comparable to typical Matrix Method weights, and those typical values
-are extracted from a region requiring pre-selection,
-from Table~\ref{tab:2ljets_presel},
-$\mll \in 71\textrm{--}101$,
-$\mjj \in 60\textrm{--}100$,
-$\njet \geq 2$, and
-$\nbtag \leq 1$.
-Its central value takes the mean weight of Matrix Method samples in this
-selection, which is $\mu^\textrm{M} = 0.0202$.
-Statistical errors are set to the root of the mean squared weight,
-which is $\sigma^\textrm{M}_\textrm{stat} = 0.1132$,
-and systematic errors are set as the larger absolute deviation on the mean
-from the up and down variations in the Matrix Method weights, which comes out
-$\sigma^\textrm{M}_\textrm{sys} = 0.0226$.
-Finally, the `Mean' high variation is their linear sum;
-$\mu^\textrm{M} + \sigma^\textrm{M}_\textrm{stat} +
-\sigma^\textrm{M}_\textrm{sys} = 0.1560$.
-\end{itemize}
-All low variations are set to zero for these replacement FNP estimates, to
-encode that the yield is compatible with zero, but more importantly to give
-a slow extrapolation on the low side (from the small central value to zero)
-and reduce the risk from non-physical negative yields in the HistFactory model.
-
-As seen from Table~\ref{tab:2ljets_fnp_estimates}, even the high variations of
-the Max method are negligibly small next to the central simulated yields
-in most regions.
-The exception regions are all in the High category, and are those regions with
-small enough expected yields such that the Mean method dominates.
-
-An awkward fact in the history of this combined FNP estimate is that it
-was reworked after unblinding to include the Mean estimate and more regions;
-with a reprocessing of our background simulations, changes in the Matrix Method
-estimates left more of our regions with non-positive estimate than prior to
-unblinding the data.
-To assign them without being biased by the unblinded signal region data,
-which were known to contain no significant excesses, therefore took some
-barefaced honesty.
-Thankfully, we do not need to consider what might have happened had an excess
-been observed before the assignment of these fake estimates.%
-\footnote{%
-Of course $p$-values \emph{do} depend on what might have happened with
-alternative data
-(those with test statistics greater than or equal to that observed),
-it would be wasteful and unproductive to consider them seriously.
-I am grateful that \atlas' statistical conventions allow us to ignore these
-problems.
-}
-Despite any awkwardness, it does appear that FNP backgrounds are indeed
-small and that they do not greatly impact the result, especially when compared
-to other systematic variations.
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -3473,6 +3375,34 @@ limit at $m(\neutralino_1) \approx 500\,\eV[G]$.
 }
 \label{fig:2ljets_vrss}
 \end{figure}
+
+Overlaying these modified contours highlighted some minor differences, the
+largest being a $2\%$ reduction in the limit on
+$B(\neutralino_1 \rightarrow h \gravitino)$ at
+$m(\neutralino_1) \approx 500\,\eV[G]$.
+Different interpolation options induce larger variations, as do different
+random seeds for the fits, so this really is an insignificant difference.
+
+Although we nominally use the Matrix Method to estimate fakes, its results
+are unusable in numerous regions, since they are either negative or zero.
+Details of these eleven problematic regions are displayed in
+Table~\ref{tab:2ljets_fnp_negative_mm}.
+For comparison, this table also includes the simulated background without
+FNP leptons under the heading `MC Prompt' and the and only
+the simulated FNP contributions under the heading `MC FNP'.
+Negative or void estimates are an easy consequence of the use of signed
+weights of data used by the Matrix Method, but we require alternative
+estimates to assign a sensible background model.
+
+To replace these failed Matrix Method estimates, our strategy is to take three
+alternative estimates that assign central and high variations to the
+FNP background estimate, and consider a maximum across them for
+each region.
+More precisely, we take the maximum central value and add it to the maximum
+difference (between central and high) for the combined high variation, and
+sets the low ($-1$-sigma) variation to zero.
+These three alternative estimates are reported with their combination in
+Table~\ref{tab:2ljets_fnp_estimates}.
 
 \begin{table}[tp]
 \centering
@@ -3608,6 +3538,76 @@ and these are included for comparison.
 }
 \label{tab:2ljets_fnp_estimates}
 \end{table}
+
+These three estimates are labelled `MC', `MM', `Mean', and we combine them into
+the `Max' estimate.
+Each is described here.
+\begin{itemize}
+\item The `MC' estimate takes the simulated estimate that was previously reported
+in Table~\ref{tab:2ljets_fnp_negative_mm}.
+\item The `MM' estimate modifies the Matrix Method result,
+also from Table~\ref{tab:2ljets_fnp_negative_mm}, by shifting its central
+value to a small positive value chosen baselessly as $0.01$ and by adding
+its statistical and systematic uncertainties linearly
+(not in quadrature to conservatively cover a correlated variation)
+to assign a high variation.
+\end{itemize}
+After I had proposed a combination of these two estimates, reviewers
+suggested additionally using the statistical properties of samples in looser
+selections.
+This became the third `Mean' estimate.
+\begin{itemize}
+\item The `Mean' follows an idea that the smallest assignable value should
+be comparable to typical Matrix Method weights, and those typical values
+are extracted from a region requiring pre-selection,
+from Table~\ref{tab:2ljets_presel},
+$\mll \in 71\textrm{--}101$,
+$\mjj \in 60\textrm{--}100$,
+$\njet \geq 2$, and
+$\nbtag \leq 1$.
+Its central value takes the mean weight of Matrix Method samples in this
+selection, which is $\mu^\textrm{M} = 0.0202$.
+Statistical errors are set to the root of the mean squared weight,
+which is $\sigma^\textrm{M}_\textrm{stat} = 0.1132$,
+and systematic errors are set as the larger absolute deviation on the mean
+from the up and down variations in the Matrix Method weights, which comes out
+$\sigma^\textrm{M}_\textrm{sys} = 0.0226$.
+Finally, the `Mean' high variation is their linear sum;
+$\mu^\textrm{M} + \sigma^\textrm{M}_\textrm{stat} +
+\sigma^\textrm{M}_\textrm{sys} = 0.1560$.
+\end{itemize}
+All low variations are set to zero for these replacement FNP estimates, to
+encode that the yield is compatible with zero, but more importantly to give
+a slow extrapolation on the low side (from the small central value to zero)
+and reduce the risk from non-physical negative yields in the HistFactory model.
+
+As seen from Table~\ref{tab:2ljets_fnp_estimates}, even the high variations of
+the Max method are negligibly small next to the central simulated yields
+in most regions.
+The exception regions are all in the High category, and are those regions with
+small enough expected yields such that the Mean method dominates.
+
+An awkward fact in the history of this combined FNP estimate is that it
+was reworked after unblinding to include the Mean estimate and more regions;
+with a reprocessing of our background simulations, changes in the Matrix Method
+estimates left more of our regions with non-positive estimate than prior to
+unblinding the data.
+To assign them without being biased by the unblinded signal region data,
+which were known to contain no significant excesses, therefore took some
+barefaced honesty.
+Thankfully, we do not need to consider what might have happened had an excess
+been observed before the assignment of these fake estimates.%
+\footnote{%
+Although $p$-values \emph{do} depend on what might have happened with
+alternative data
+(those with test statistics greater than or equal to that observed),
+it would be wasteful and unproductive to consider them seriously.
+I am grateful that \atlas' statistical conventions allow us to ignore these
+problems.
+}
+Despite any awkwardness, it does appear that FNP backgrounds are indeed
+small and that they do not greatly impact the result, especially when compared
+to other systematic variations.
 
 
 \subsection{Jet mass}
@@ -3857,6 +3857,7 @@ Its central yields are displayed in Figure~\ref{fig:2ljets_low_sr_or_cr_region}
 in the union of CR-Z and SR-Low, which form a continuous region in $\mjj$.
 Our central $\zjets$ samples use \sherpa~2.2.1~\cite{
 Bothmann:2019yzt,
+Gleisberg:2008ta,
 ATL-PHYS-PUB-2016-003
 }
 at next-to-leading order for up to $4$ partonic jets, and leading order for
@@ -3874,6 +3875,10 @@ error bars only; the alternative sample has larger statistical errors since
 it contains around one sixth as many simulated events as the central sample,
 and that difference is not countered by their different weight distributions
 in this region.
+
+Since \sherpa implements both the hard scatter and shower models, we are
+considering variations due to the simultaneous change of both of these
+components together.
 
 For their implementation in the background model in HistFactory, these
 variations reduce to the relative scale factors that are presented in
@@ -4095,35 +4100,6 @@ after fitting to the signal regions,
 Figure~\ref{fig:2ljets_low_vrlow_pre_post} shows that the $\zjets$ sample
 is almost wiped out, leaving a deficit below data.
 
-It is not clear that such a large extrapolation from the difference between
-two simulations is physically reasonable, especially since a large fraction
-of its effect is due to the statistical error on a small alternative sample.
-To avoid this questionable effect, I searched for alternative configurations
-of the background model, such as constraining the parameter to $1$-sigma.
-More senior members of the \atlas\ SUSY group decided that we should keep it as
-described, reasoning along the lines that
-a) this is a real and significant deficit in SR-Low, so must appear as either
-a pull on systematic variations or as a deviation from data, and
-b) we prefer the pull on systematic variations.
-
-With this decision, post-fit results, such as the summary plot of
-Figure~\ref{fig:2ljets_summary},
-indeed show no significant deviation from data in SR-Low-a or SR-Low-b,
-and this $\zjets$ sample comparison is the main reason why.
-Internal reviewers were, however, confused as to why we mentioned a deficit in
-SR-Low that did not appear in the results plots or tables.
-Much to my ire, all mentions of an SR-Low deficit were therefore removed from
-the paper.
-Despite bring real and significant, this deficit was erased from public view,
-and to my knowledge it is only reported through the HistFactory
-models in our HEPData~\cite{hepdata.116034}.
-
-To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
-excessive diboson background should also take some blame for this poor
-prediction in SR-Low.
-We shall see in Section~\ref{sec:2ljets_diboson_alt} why diboson yields are
-not similarly squashed.
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -4180,6 +4156,38 @@ Figure~\ref{fig:2ljets_low_vrlow_pre_post}.
 \label{fig:2ljets_vrlow_alt}
 \end{figure}
 
+It is not clear that such a large extrapolation from the difference between
+two simulations is physically reasonable, especially since a large fraction
+of its effect is due to the statistical error on a small alternative sample.
+To avoid this questionable effect, I searched for alternative configurations
+of the background model, such as constraining the parameter to $1$-sigma.
+More senior members of the \atlas\ SUSY group decided that we should keep it as
+described, reasoning along the lines that
+a) this is a real and significant deficit in SR-Low, so must appear as either
+a pull on systematic variations or as a deviation from data, and
+b) we prefer the pull on systematic variations.
+
+With this decision, post-fit results, such as the summary plot of
+Figure~\ref{fig:2ljets_summary},
+indeed show no significant deviation from data in SR-Low-a or SR-Low-b,
+and this $\zjets$ sample comparison is the main reason why.
+Internal reviewers were, however, confused as to why we mentioned a deficit in
+SR-Low that did not appear in the results plots or tables.
+Much to my ire, all mentions of an SR-Low deficit were therefore removed from
+the paper.
+Despite bring real and significant, this deficit was erased from public view,
+and to my knowledge is only reported through the inner details of
+the HistFactory models shared in our HEPData~\cite{hepdata.116034}.
+
+To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
+excessive diboson background should also take some blame for this poor
+prediction in SR-Low;
+its diboson yield peaks in the signal region on $\mjj \approx m(W)$, but
+we do not expect $W\rightarrow jj$ in this process since one boson is needed
+for the leptons and the other for the $\met$ that we select.
+We shall see in Section~\ref{sec:2ljets_diboson_alt} why diboson yields are
+not similarly squashed by sample comparison variations.
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -4211,7 +4219,140 @@ uses the conventions we used in development.
 
 \subsubsection{Alternative diboson}
 \label{sec:2ljets_diboson_alt}
-\TODO{}
+No alternative samples were available for comparison with our central diboson
+samples, which are simulated with \sherpa~2.2.2 at NLO with up to six
+electroweak vertices.
+To my knowledge, this is simply a limitation from what \atlas\ has decided to
+spend its resources on, and quite reasonably since full simulation is
+computationally expensive.
+We did, however, have access to the cheaper alternative of set of small,
+truth-level samples, that were simulated with the same \sherpa\ setup but with
+varied parameters to assess uncertainties in the modelling of parton showers.
+
+These small truth samples include variations of three parameters:
+\begin{itemize}
+% CKKW: merging scale
+\item $Q_\textrm{cut}^\textrm{CKKW}$, the energy scale for merging
+matrix elements with parton showers under the CKKW
+scheme~\cite{Catani_2001_CKKW,Hoeche:2009rj}.
+It is varied from its default $20\,\eV[G]$ up to $30\,\eV[G]$ and down
+to $15\,\eV[G]$.
+% CSS_KIN: CSS is the combined matrix element + shower
+\item \texttt{CSS\_KIN}, a binary parameter that tells \sherpa\ how to treat
+kinematic recoils in its parton showers~\cite{sherpa_222_manual}.
+It has two modes, one default~\cite{Hoeche:2009rj}, and one
+alternative~\cite{Hoeche:2009xc}
+that is recommended for studies of systematic variations.
+These differ in how they resolve the problem that an isolated massless parton
+cannot conserve four-momentum when splitting into two non-collinear massless
+children (for example gluon emission $q\rightarrow gq$);
+each scheme achieves conservation by recoiling off different parts of the
+parton shower.
+% resummation: parton showing including all orders in QCD
+% https://link.springer.com/article/10.1007/JHEP01(2018)118
+% "radiative corrections determined in QCD perturbation theory must be resummed
+% to all orders."
+% https://sherpa-team.gitlab.io/sherpa/tmp-update-extamp-examples/manual/parameters/matrix-elements.html
+% "In parton shower matched/merged calculations a third perturbative scale is
+% present, the resummation or parton shower starting scale. It can be set by
+% the user in the third argument like"
+% METS is a scale setter
+% QSF: scale factor for the resummation scale; relates to parton showers; quadratic
+% vary up and down by a factor of 4, but QSF is quadratic in the scale so this is
+% an implementation details of the usual 2x 0.5x form
+\item $S_Q$, a scale factor on the resummation scale $\mu_{Q^2}$ that is set
+from the hard scatter kinematics in each event and affects emissions in the
+parton shower.
+Its central value is $1$, and it is varied up and down by factors of $4$.
+Since \sherpa\ defines its scales in a quadratic form, this matches the typical
+convention of considering scale variations over factors of
+$2$~\cite{sherpa_222_manual,Bothmann:2019yzt}.
+\end{itemize}
+Truth-level background yields in our regions were calculated with the
+SimpleAnalysis~\cite{Lorenz:2752450,simpleanalysis_cern}
+software package for
+our central diboson samples and these varied alternatives.
+SimpleAnalysis histograms truth-level simulations and optionally smears them
+with calibrated noise to approximate reconstruction-level results.
+\emph{I am grateful to Jon~Long for preparing our initial
+SimpleAnalysis implementations and sharing software to evaluate these
+variations.}
+
+Unfortunately, a total failure of statistical precision means that no
+meaningful result can be derived from these variations.
+First our regions receive very few raw events in each variation,
+for example $1$ sample in SR-$\llbb$, around a dozen in
+each SR-High bin, and a maximum of $597$ in CR-VZ.
+Second, those samples carry weights in almost-equal mixtures of $+1$ and $-1$,
+so they further lose precision in cancellation between the positive and
+negative halves.
+
+Variations for these samples were assigned by a scheme that follows a
+convention set by other parts of the $\twoljets$ electroweak analysis.
+With given central, up, and down variations of the yield, it works as
+follows.
+\begin{enumerate}
+\item If both up and down variations lie to the same side of central, then
+the variation is half the difference from up and down.
+\item Otherwise (opposite sides of central), the variation is half of the
+maximum absolute difference between central and up or down.
+\item Any variation, from the above two bullets, that is smaller than the
+largest statistical uncertainty on any of the samples is increased to the size
+of that statistical uncertainty.
+\item Directions of variation preserved by maintaining their signs, and
+each variation is coupled between bins with its own single parameter.
+\end{enumerate}
+Point 1 acts to mitigate large variations where the variations lie far from
+the central sample,
+and all remainders are dominated by the statistical uncertainty due to point 3.
+
+In the signal regions, most of these statistical variations are around
+$100\%$ relative to the central yield, with a minimum across all variations
+of $26\%$ and a maximum of $960\%$.
+For $Q_\textrm{cut}^\textrm{CKKW}$ and $S_Q$ their signs appear randomly
+distributed in positive and negative directions in approximately equal
+proportions, but for \texttt{CSS\_KIN} most are correlated in the positive
+direction, with the only SR-OffShell-a moving in the negative direction, by
+$46\%$.
+Variations in control regions are typically smaller, ranging from $12\%$ to
+$50\%$, but remain limited by statistical precision.
+
+To include these large variations moving in wacky directions could allow the
+background model to easily fit deviations on the basis of our ignorance
+from statistical imprecision.
+To mitigate this, we instead take the variations from looser regions
+VR-sys-main and VR-sys-OffShell, that target on- and off-shell regions
+respectively and hope to improve the statistical precision.
+Both require the pre-selection from Table~\ref{tab:2ljets_presel};
+VR-sys-main also requires
+$\mjj \in 60\textrm{--}110\,\eV[G]$ and $\nbtag \leq 1$,
+and VR-sys-OffShell requires
+$\nbtag = 0$, $\ptjone > 100\,\eV[G]$ and $\dphijmet > 2$ to target the
+OffShell regions.
+No extra lepton selections are made for these regions since these variations
+relate primarily to jets through parton showers, and not to leptons, and
+relaxing cuts can only improve statistical precision.
+
+In these looser regions VR-sys-main and VR-sys-OffShell, each variation
+reduces to around $10\%$ and remains dominated by the statistical uncertainty.
+Although local effects could occur, this a reasonable indication that these
+parameters should not much affect our signal regions.
+We therefore apply the variations measured in VR-sys-main to all on-shell
+regions,
+and the variations measured in VR-sys-OffShell to off-shell regions,
+with one parameter coupling all regions for each of
+$Q_\textrm{cut}^\textrm{CKKW}$,
+\texttt{CSS\_KIN}, and
+$S_Q$.
+
+This assignment varies CR-VZ and on-shell other regions identically,
+and since the diboson background is normalized to CR-VZ this means that
+these variations have no effect in on-shell regions, and cannot move to
+fit the SR-Low or SR-High-8 deficits.
+Had we considered complete alternative diboson samples, we would certainly
+had had some meaningful variations to apply in those regions, but I have no
+way of knowing how large those variations would be.
+
 
 \subsubsection{Alternative \texorpdfstring{$\ttbar$}{ttbar}}
 \label{sec:2ljets_ttbar_alt}
@@ -4226,7 +4367,7 @@ uses the conventions we used in development.
 
 \subsection{Theory}
 \label{sec:2ljets_theory_variations}
-
+\TODO{put this above alternative samples}
 % extrapolation
 The total theory variation is a combination of seven components, representing
 \TODO{what are they?}.
