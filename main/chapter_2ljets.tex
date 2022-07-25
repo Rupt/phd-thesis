@@ -3193,6 +3193,9 @@ p(t\!\mid\!f,1)
 \times p(t\!\mid\!f,2)
 \times \bar \mu^\textrm{truth}_{ff}~~.
 \end{align}
+That is, the Matrix Method starts from data, flips them over to truth
+estimates, then flops those back to data-level estimates. Flip, flop.
+
 To make FNP estimates in our regions, the Matrix Method is
 implemented by assigning weights to observed data events that are then
 histogrammed them in the tighter selections of our search
@@ -3202,7 +3205,7 @@ are varied according to various uncertainties in the Matrix Method procedure.
 
 Yes, actual data are histogrammed in the Matrix Method, and those data include
 tight-tight events which comprise the data of our search regions, and those
-are the same data in which we are searching for anomalies.
+are the same data in which we are searching for anomalous signals.
 Since it includes actual data, this method unblinds all regions,
 including signal regions, early.
 And because it knows the data we are supposed to be predicting, it is no
@@ -3210,15 +3213,18 @@ prediction at all!
 
 That last statement was a slight exaggeration.
 Although it does cheat by using the data we should be blind to, it uses those
-data in a diluted way, such that they can end up not making much difference.
+data in a diluted way, such that, as far as I know, they might end up not
+making much difference.
+It is not a magician's card trick, but an honest (if flawed) attempt to make
+useful estimates.
 
 In fact, real data tend to be assigned negative Matrix Method weights.
 For example, CR-VZ receives $157$ data in its Matrix Method sample,%
 \footnote{%
 This count of $157$ differs from the $194$ actual data observed in CR-VZ.
-I do not know why.
+I do not know why, and do not have access to the source data or code.
 The two do overlap in event identity numbers, so there is presumably some
-tighter selection in the Matrix Method, which should be accounted for in its
+tighter selection in the Matrix Method that should be accounted for in its
 weights.
 }
 of which $135$ pass the signal lepton requirements (tight-tight),
@@ -3399,7 +3405,6 @@ All low variations are set to zero for these replacement FNP estimates, to
 encode that the yield is compatible with zero, but more importantly to give
 a slow extrapolation on the low side (from the small central value to zero)
 and reduce the risk from non-physical negative yields in the HistFactory model.
-
 
 As seen from Table~\ref{tab:2ljets_fnp_estimates}, even the high variations of
 the Max method are negligibly small next to the central simulated yields
