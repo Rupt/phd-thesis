@@ -171,8 +171,6 @@
 
 % frontmatter
 \renewenvironment{frontmatter}{%
-	\setcounter{tocdepth}{2}% show down to subsections in contents
-	\setcounter{secnumdepth}{2}% number down to subsections
 	\newcounter{iterlist}%
 	\begin{onehalfspacing}%
 		}{%
