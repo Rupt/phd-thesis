@@ -3044,10 +3044,13 @@ The $\twoljets$-electroweak search implements a total of $136$ modifiers in its
 background-only model, and more for each signal model.
 Of those I evaluated more manually, some of the more interesting or important
 will be discussed in the remainder of this section ---
+\TODO{update this}
 Fake/non-prompt lepton backgrounds in Section~\ref{sec:2ljets_mm_fakes},
-alternative simulated samples in Section~\ref{sec:2ljets_sample_comparisons},
-signal modelling uncertainties in Section~\ref{sec:2ljets_signal_variations}
-and theoretical uncertainties in Section~\ref{sec:2ljets_theory_variations}.
+some alternative samples in Section~\ref{sec:2ljets_sample_comparisons},
+various less impactful effects in
+Section~\ref{sec:2ljets_other_background_variations},
+and signal modelling uncertainties in
+Section~\ref{sec:2ljets_signal_variations}.
 
 This section only covers some of the the most peculiar or important aspects
 of our signal and background modelling, and does not specify most exact
@@ -3055,7 +3058,7 @@ details.
 Full details are publically available through the $\twoljets$
 HEPData~\cite{hepdata.116034, Maguire_2017} archive our json-serialized pyhf
 workspaces~\cite{cranmer2012histfactory, heinrich2021pyhf}.
-\emph{Thanks to Jon~Long for collabouration in preparing this HEPData archive,
+\emph{Thanks to Jon~Long for collaboration in preparing this HEPData archive,
 and to Alessia~Murrone for invaluable feedback on, and validation of, its
 drafts.}
 
@@ -3866,7 +3869,7 @@ at next-to-leading order for up to $4$ partonic jets, and leading order for
 $5$ partonic jets.
 In Figure~\ref{fig:2ljets_low_sr_or_cr_region_alt} we compare this to our
 alternative sample that simulates its hard scatter
-with \madgraph\ (MG5\_aMC@NLO~2.2.3~\cite{Alwall:2014hca}) at leading order with
+with \madgraph\ (\amcatnlo~2.2.3~\cite{Alwall:2014hca}) at leading order with
 up to four partonic jets, plugged into \pythia~8~\cite{Sjostrand:2014zea} for
 showering and hadronization.
 This \madgraph\ alternative sample simulates only $\mll > 40\,\eV[G]$, so in
@@ -4362,21 +4365,59 @@ diboson is our most important background.
 In hindsight, it may have been sensible to push for more resources to be
 allocated to resolve this problem.
 
-\TODO{Other theory variations; these are less important / interesting.
-bullet point quickly.}
-\subsubsection{Alternative \texorpdfstring{$\ttbar$}{ttbar}}
-\label{sec:2ljets_ttbar_alt}
-\TODO{}
+\subsection{Other background variations}
+\label{sec:2ljets_other_background_variations}
+Many variations were evaluated, but few of them significantly impact the
+results or have interesting details, so they are not covered in detail in
+this thesis.
+This section briefly lists some of the remaining variations.
 
-\TODO{Signal theory variations}
-\subsection{Signals}
+\paragraph{Alternative $\ttbar$}
+Several $\ttbar$ variations model alternative simulations of the
+hard scatter (central \powheg\ versus \amcatnlo),
+parton shower (central \pythia8 versus \herwig7).
+Initial state radiation variations are modelled from an alternative
+sample using $h_\textrm{damp} = 517.5\,\eV[G] \approx 3m(t)$,
+which damps real emissions and defaults to $m(t)$~\cite{CMS-PAS-TOP-16-021},
+with weights to vary an ``eigentune'' parameter named
+\texttt{Var3c}~\cite{ATL-PHYS-PUB-2014-021}.
+Modifications to final state radiation are evaluated by weighting to a doubled
+and halved renormalization scale for the final state only, while keeping
+its central value in simulation of initial state radiation.
+
+All of these follow standard prescriptions given by the \atlas\ physics
+modelling group~\cite{atlas_twiki_top}, and use the method described in
+Section~\ref{sec:2ljets_zjets_alt} that combines absolute deviations with
+statistical uncertainties into directed variations.
+In CR-tt, the parton shower change induces a $\pm10\%$ relative variations,
+and other effects are below $1\%$; much larger variations are measured in
+regions with less statistical precision, notably of $20\textrm{--}50\%$ changes
+in SR-OffShell and SR-Low-2.
+
+\paragraph{Alternative rare top} Variations in rare top processes, which matter for SR-$\llbb$, use
+alternative simulations of the hard scatter and parton shower.
+Only alternative $t\bar{t}Z$ simulations were available, but they form around
+$70\%$ of the rare top background, so their relative variations are evaluated
+and scaled to the total rare top yield.
+
+The central $t\bar{t}Z$ sample uses \amcatnlo+\pythia8, and it is compared
+against \pythia~2.2.1 and \amcatnlo+\herwig7 simulations, each of which
+finds a $\pm21\%$ variation in SR-$\llbb$.
+
+\paragraph{Scale variations}
+\TODO{Scale variations}
+
+\paragraph{Parton distribution variations}
+\TODO{PDF}
+
+
+\subsection{Signal theory variations}
 \label{sec:2ljets_signal_variations}
-
+\TODO{Signal theory variations}
 % TODO GMSB reweighting
 % TODO off-shell plus/minus split
 % TODO xsec variations
 
-\subsection{Theory}
 \label{sec:2ljets_theory_variations}
 \TODO{put this above alternative samples?}
 \TODO{this appears to be signal theory}
