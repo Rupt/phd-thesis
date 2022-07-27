@@ -3215,7 +3215,7 @@ That last statement was a slight exaggeration.
 Although it does cheat by using the data we should be blind to, it uses those
 data in a diluted way, such that, as far as I know, they might end up not
 making much difference.
-It is not a magician's card trick, but an honest (if flawed) attempt to make
+It is not a magician's card trick, but an honest (if imperfect) attempt to make
 useful estimates.
 
 In fact, real data tend to be assigned negative Matrix Method weights.
@@ -3931,7 +3931,7 @@ It therefore seems proper to disclose that this variation was added after
 unblinding, and after we all knew about those deficits.
 Prior to unblinding, we in the $\twoljets$ team had not planned on including it
 in addition to other theoretical uncertainties, and I do not know whether or
-not senior members in the collaboration would have required its inclusion
+not committee decisions in the collaboration would have required its inclusion
 without the deficit.
 The \atlas\ SUSY recommendation is to consider the comparison if
 ``the scale ($+$ PDF) uncertainties are too small in your
@@ -4158,38 +4158,6 @@ Figure~\ref{fig:2ljets_low_vrlow_pre_post}.
 \label{fig:2ljets_vrlow_alt}
 \end{figure}
 
-It is not clear that such a large extrapolation from the difference between
-two simulations is physically reasonable, especially since a large fraction
-of its effect is due to the statistical error on a small alternative sample.
-To avoid this questionable effect, I searched for alternative configurations
-of the background model, such as constraining the parameter to $1$-sigma.
-More senior members of the \atlas\ SUSY group decided that we should keep it as
-described, reasoning along the lines that
-a) this is a real and significant deficit in SR-Low, so must appear as either
-a pull on systematic variations or as a deviation from data, and
-b) we prefer the pull on systematic variations.
-
-With this decision, post-fit results, such as the summary plot of
-Figure~\ref{fig:2ljets_summary},
-indeed show no significant deviation from data in SR-Low-a or SR-Low-b,
-and this $\zjets$ sample comparison is the main reason why.
-Internal reviewers were, however, confused as to why we mentioned a deficit in
-SR-Low that did not appear in the results plots or tables.
-Much to my ire, all mentions of an SR-Low deficit were therefore removed from
-the paper.
-Despite bring real and significant, this deficit was erased from public view,
-and to my knowledge is only reported through the inner details of
-the HistFactory models shared in our HEPData~\cite{hepdata.116034}.
-
-To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
-excessive diboson background should also take some blame for this poor
-prediction in SR-Low;
-its diboson yield peaks in the signal region on $\mjj \approx m(W)$, but
-we do not expect $W\rightarrow jj$ in this process since one boson is needed
-for the leptons and the other for the $\met$ that we select.
-We shall see in Section~\ref{sec:2ljets_diboson_alt} why diboson yields are
-not similarly squashed by sample comparison variations.
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -4218,6 +4186,40 @@ uses the conventions we used in development.
 }
 \label{fig:2ljets_low_vrlow_pre_post}
 \end{figure}
+
+It is not clear that such a large extrapolation from the difference between
+two simulations is physically reasonable, especially since a large fraction
+of its effect is due to the statistical error on a small alternative sample.
+To avoid this questionable effect, I searched for alternative configurations
+of the background model, such as constraining the parameter to $1$-sigma.
+Committee decisions within the \atlas\ SUSY group dictated that we should keep
+it as described, reasoning along the lines that
+a) this is a real and significant deficit in SR-Low, so must appear as either
+a pull on systematic variations or as a deviation from data, and
+b) we prefer the pull on systematic variations.
+
+With this decision, post-fit results (such as the summary plot of
+Figure~\ref{fig:2ljets_summary})
+indeed show no significant deviation from data in SR-Low-a or SR-Low-b,
+and this $\zjets$ sample comparison is the main reason why.
+Internal reviewers were, however, confused as to why we mentioned a deficit in
+SR-Low that did not appear in the results plots or tables.
+Much to my ire, the paper editors therefore removed all mentions of an SR-Low
+deficit from the paper.
+Despite bring real and significant, this deficit was erased from public view,
+and to my knowledge is only reported through inner details of
+the HistFactory models shared in our HEPData archive~\cite{hepdata.116034}.
+
+To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
+excessive diboson background should also take some blame for this poor
+prediction in SR-Low;
+its diboson yields peak in the signal region on $\mjj \approx m(W)$, and
+we do not expect large $W\rightarrow jj$ contributions in this diboson process,
+since one boson is needed for the leptons and the other is needed for the
+$\met$ that we select.
+We shall see in Section~\ref{sec:2ljets_diboson_alt} why diboson yields are
+not similarly squashed by sample comparison variations.
+
 
 \subsubsection{Alternative diboson}
 \label{sec:2ljets_diboson_alt}
