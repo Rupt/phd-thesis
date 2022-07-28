@@ -4376,11 +4376,13 @@ This section briefly lists some remaining variations.
 Several $\ttbar$ variations model alternative simulations of the
 hard scatter (central \powheg\ versus \amcatnlo),
 parton shower (central \pythia8 versus \herwig7).
-Initial state radiation variations are modelled from an alternative
-sample using $h_\textrm{damp} = 517.5\,\eV[G] \approx 3m(t)$,
-which damps real emissions and defaults to $m(t)$~\cite{CMS-PAS-TOP-16-021},
-with weights to vary an ``eigentune'' parameter named
-\texttt{Var3c}~\cite{ATL-PHYS-PUB-2014-021}.
+Initial state radiation variations are evaluated from an alternative
+sample with $h_\textrm{damp} = 517.5\,\eV[G] \approx 3m(t)$,
+which damps real emissions with weights to vary an ``eigentune'' parameter
+named \texttt{Var3c}~\cite{ATL-PHYS-PUB-2014-021}..
+The central sample uses a default value $h_\textrm{damp} = 172.5\,\eV[G]$ to
+approximate $m(t)$~\cite{CMS-PAS-TOP-16-021}.
+
 Modifications to final state radiation are evaluated by weighting to a doubled
 and halved renormalization scale for the final state only, while keeping
 its central value in simulation of initial state radiation.
@@ -4465,7 +4467,7 @@ similarly reducing their effects.
 
 \paragraph{Parton distribution variations}
 Like scale variations, uncertainties in parton distribution functions (PDFs)
-are assigned by weights stored by the generator.
+are assigned by weights stored Fuks:2012qxby the generator.
 These weights, however, do not correspond to simple parameters variations,
 but different replica PDFs in a Monte Carlo ensemble
 that is intended to model the uncertainties left after fitting to data
@@ -4507,10 +4509,10 @@ Signal uncertainties are a strange case.
 Like Standard Model backgrounds, our signal models are simulated by
 approximations to their ideal QFT, and those approximations do have
 uncertainties that we can describe.
-On backgrounds, large uncertainties are conservative, since
+On backgrounds, however, large uncertainties are conservative, since
 flexibility to fit outlying data reduces the chance of mistaken claims of
 discoveries.
-On signals, however, that effect is reversed.
+That effect reverses for signals.
 In maximum \heplikelihood\ fits, a more flexible
 signal model will always fit any observed data better, and in the limit of
 infinite flexibility, an unconstrained signal will always fit
@@ -4521,26 +4523,50 @@ This superiority of flexible models is not fundamental, but is a property of
 \heplikelihood\ fitting methods.
 If we want to punish uncertain predictions, then we should consider
 likelihoods (not \emph{maximum} \heplikelihood s), as described in
-Section~\ref{searches:searces_data_analysis}.
+Section~\ref{sec:searches_searches}.
 }
 
 In an apparent notional effort to address this problem, we treat the signal
-cross-section specially.
-Rather than fitting signals cross-section within a constraint, we analyse each
-signal model three times with its cross-section fixed to central, up, and down
-variations, and report an exclusion contour for each.
-These alternative contours have been shown as the three observed limits
+cross-section specially by not fitting it within a constraint, but fixing it
+to central, up, and down values for three repeated analyses.
+We then derive and report separate exclusion contours for each cross-section
+variation;
+such alternative contours are shown as the three observed limits
 in Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb}.
-This approach is entirely standard, and is ingrained in \histfitter\ with the
-special parameter name
-\texttt{$(\alpha\_)$SigXSec}~\cite{histfitter2014,histfittergithub}.
+This approach is entirely standard, and is indeed ingrained into \histfitter\
+through the special parameter name
+\texttt{$(\alpha\_)$SigXSec}~\cite{histfitter2014, histfittergithub}.
 
-% TODO xsec variations
+Standard experimental uncertainties, which relate to tagging and
+reconstruction of final state objects, are evaluated and included for signals
+exactly as they were for backgrounds.
+The remainder of this section describes signal-specific variations.
 
+\paragraph{Cross-section variations}
+\label{sec:2ljets_xsec_variations}
+We scale all signal models to cross-sections calculated with the
+\textsc{Resummino} package at NLO accuracy in QCD with NLL
+(next-to-leading logarithmic) accuracy in the gaugino pair production of our
+signal initial states~\cite{Fuks:2012qx, Fuks:2013vua}.
+These cross-sections are independent of their subsequent decays, so depend only
+on the initial state masses ---
+$m(\chargino_1, \neutralino_2)$ for C1N2, and
+$m(\neutralino_1)$ for GMSB.
 
-% TODO GMSB reweighting
-% TODO off-shell plus/minus split
+Uncertainties in these cross-sections are assigned from an envelope
+(using symmetrized maximum deviations)
+over scale variations~\cite{Fuks:2012qx} and parton distribution variations
+with the
+\textsc{CTEQ6.6}~\cite{Nadolsky:2008cw} and
+\textsc{MSTW2008nlo90cl}~\cite{Martin:2009iq} PDF sets.
+These uncertainties increase with parent mass from around
+$\pm4\%$ at $100\,\eV[G]$ to around
+$\pm11\%$ at $800\,\eV[G]$ for both C1N2 and GMSB models~\cite{
+atlas_twiki_xsec_c1n2,
+atlas_twiki_xsec_hino
+}.
 
+\paragraph{Theory variations}
 \label{sec:2ljets_theory_variations}
 \TODO{put this above alternative samples?}
 \TODO{this appears to be signal theory}
