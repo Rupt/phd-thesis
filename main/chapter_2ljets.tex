@@ -1023,6 +1023,7 @@ throughout the $\twoljets$ analyses.
 
 
 \subsection{Leptons}
+\label{sec:2ljets_events_leptons}
 In the context of $\twoljets$, `leptons' means `electron-or-muons';
 this is because taus, which decay before reconstruction, and are not used
 directly in $\twoljets$, and neutral leptons (the neutrinos) go missing.
@@ -4556,7 +4557,7 @@ such alternative contours are shown as the three observed limits
 in Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb}.
 This approach is entirely standard, and is indeed ingrained into \histfitter\
 through the special parameter name
-\texttt{$(\alpha\_)$SigXSec}~\cite{histfitter2014, histfittergithub}.
+\texttt{SigXSec}~\cite{histfitter2014, histfittergithub}.
 
 Standard experimental uncertainties, which relate to tagging and
 reconstruction of final state objects, are evaluated and included for signals
@@ -4760,8 +4761,40 @@ samples, and thanks to Jon~Long for contributing to this study.
 
 \section{Validation}
 \label{sec:2ljets_validation}
-Figure~\ref{fig:2ljets_low_crz_extensions}
-Figure~\ref{fig:2ljets_splits}
+Many additional validation studies supported the $\twoljets$ search prior to
+its publication.
+Many of these, comprising hundreds of histograms in various regions or looser
+selections in various event variables, are available to \atlas\ members in
+our internal documentation~\cite{twoljets2018int}.
+This section highlights some interesting results from these validation studies.
+
+\paragraph{CR-Z-met}
+Concerns about our modelling of $\zjets$ and diboson backgrounds have been
+raised due to our deficits in SR-Low and SR-High, which compound with the
+anticipated difficulty in modelling the $\met$ tails of $\zjets$.
+To further check these backgrounds, Figure~\ref{fig:2ljets_low_crz_extensions}
+displays histograms in a `CR-Z-met', which is modifies CR-Z
+(from Table~\ref{tab:2ljets_low}) by removing its upper bound on $\metsig$.
+The arrow in Figure~\ref{fig:2ljets_low_crz_extensions_metsig} indicates this
+upper bound at $\metsig = 9$, and shows excellent agreement with data across
+the entire distribution, both where $\zjets$ dominates and where diboson
+dominates.
+The corresponding $\met$ distribution that is shown in
+Figure~\ref{fig:2ljets_low_crz_extensions_met}
+similarly shows excellent agreement.
+
+Like our other plots intended for publication, these figures use the full fit
+model with all variations for statistical and systematic uncertainties,
+and are fitted to data in control and signal regions, but the signal regions
+have little effect since the pulled variations are normalized to this control
+region.
+To avoid the work of evaluating variations in CR-Z-met (and all of its bins),
+its variations are linearly extrapolated from CR-Z.
+
+Good modelling in CR-Z-met is a positive sign for our simulations prior to
+their modification in the fit.
+Noting that CR-Z excludes $m(W)$, however, this does not conflict with the idea
+of poor modelling in the signal regions.
 
 \begin{figure}[tp]
 \centering
@@ -4769,12 +4802,14 @@ Figure~\ref{fig:2ljets_splits}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_met_EWK_met_Sign.pdf}
 \caption{}
+\label{fig:2ljets_low_crz_extensions_metsig}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_aux_CR_Z_met_EWK_met_Et.png}
 \caption{}
+\label{fig:2ljets_low_crz_extensions_met}
 \end{subfigure}
 \caption[
 Extension from CR-Z into higher $\metsig$ and $\met$
@@ -4783,13 +4818,58 @@ Extension from CR-Z into higher (a) $\metsig$ and (b) $\met$.
 The arrow indicates the CR-Z  upper bound of $\metsig$; it has no hard
 upper bound of $\met$.
 Systematic uncertainties are extrapolated from CR-Z to the extended tail.
-The tail overlaps with other regions, but shows good agreement with data.
+The tail overlaps with other regions and shows good agreement with data.
 Sub-figure (b) is reproduced from auxiliary material to the
 paper~\cite{atlas2022searches}.
-Each last bin includes overflow.
+Each rightmost bin includes overflow.
 }
 \label{fig:2ljets_low_crz_extensions}
 \end{figure}
+
+\paragraph{Sub-processes}
+\TODO{sort out top other label}
+Our high-level sample labels such as $\ttbar$, $\zjets$, diboson and
+rare-top (`Top other') each include many sub-samples that are physically
+distinct and non-interfering.
+Highlights from a study of the contributions from these sub-samples are
+presented in Figure~\ref{fig:2ljets_splits}.
+
+Although it might be expected that our $Z$-like two-lepton selection would
+favour the $ZZ$-like diboson sub-sample, with the other $Z$ decaying to
+neutrinos,
+Figure~\ref{fig:2ljets_splits_diboson} shows that in fact the three-lepton
+$WZ$-like process has almost equal yields.
+All of those $WZ$ events therefore have a missing third lepton, that could be
+softer than the few $\eV[G]$ needed for our baseline selection
+(see Section~\ref{sec:2ljets_events_leptons}),
+or outside of our angular acceptance.
+(Overlap removal cannot explain this since we count baseline leptons before
+it.)
+Although we would hope that such failed identifications would be rare,
+the effect is enhanced by the fact that $WZ$ has a larger cross-section than
+$ZZ$ by around a factor of three~\cite{Campbell:2011bn}, that is enhanced
+by the sum over $W^+Z$ and $W^-Z$ processes.
+
+Our \sherpa\ diboson samples include the interference of electroweak processes
+for each fixed final state, so for example the separation of $ZZ$ and $WW$ is
+not exact since they interfere.
+These histograms are therefore split on charged lepton number in their
+final states.
+
+Some of our $\zjets$ samples are filtered by hadron flavour
+(requiring at least one selected hadron with $|\eta| < 4$), and
+Figure~\ref{fig:2ljets_splits_zjets} shows CR-Z with its $\zjets$ yields
+split by these filters.
+Heavy flavour samples are enhanced, with the filtered yields comprising
+$22\%$ bottom and $30\%$ charm flavours despite the $\nbtag = 0$ veto in CR-Z;
+this is sensible, since we also require $\met$, and extra non-prompt $\met$ is
+generated  in the weak decays of of heavy-flavoured hadrons.
+
+The remaining parts of Figure~\ref{fig:2ljets_splits_diboson} show that
+of the rare-top sample, $\ttbar Z$ is the largest contribution,
+at $73\%$ in \srllbb, but that contributions from other rare processes
+such as $tW\kern-0.4exZ$, $t\ell\ell g$ and $\ttbar W$ are significant.
+Here, the plain `Top other' label refers to all other rare-top contributions.
 
 \begin{figure}[tp]
 \centering
@@ -4797,24 +4877,28 @@ Each last bin includes overflow.
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRZZ.png}
 \caption{CR-VZ, diboson}
+\label{fig:2ljets_splits_diboson}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRZ.png}
 \caption{CR-Z, $\zjets$}
+\label{fig:2ljets_splits_zjets}
 \end{subfigure}
 \\[0.5em]
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRtt.png}
 \caption{CR-tt, rare top}
+\label{fig:2ljets_splits_topother1}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_SRllbb.png}
 \caption{\srllbb, rare top}
+\label{fig:2ljets_splits_topother2}
 \end{subfigure}
 \caption[
 Subcomponents of diboson, $\zjets$ and rare top processes.
@@ -4832,6 +4916,10 @@ Errors are statistical.
 
 \section{Unblinding}
 \label{sec:2ljets_unblinding}
+This section is not a discussion of our unblinded results.
+It is a discussion of our unblinding procedures,
+their extent, their implementation, and their effect on the results.
+
 Figure~\ref{fig:2ljets_prepre}
 Figure~\ref{fig:2ljets_summary_unblinding}
 
