@@ -4563,7 +4563,7 @@ reconstruction of final state objects, are evaluated and included for signals
 exactly as they were for backgrounds.
 The remainder of this section describes signal-specific variations.
 
-\paragraph{Cross-section variations}
+\subsubsection{Cross-section variations}
 \label{sec:2ljets_xsec_variations}
 We scale all signal models to cross-sections calculated with the
 \textsc{Resummino} package at NLO accuracy in QCD with NLL
@@ -4576,7 +4576,7 @@ $m(\neutralino_1)$ for GMSB.
 
 Uncertainties in these cross-sections are assigned from an envelope
 (using symmetrized maximum deviations)
-over scale variations~\cite{Fuks:2012qx} and parton distribution variations
+over scale variations and parton distribution variations~\cite{Fuks:2012qx}
 with the
 \textsc{CTEQ6.6}~\cite{Nadolsky:2008cw} and
 \textsc{MSTW2008nlo90cl}~\cite{Martin:2009iq} PDF sets.
@@ -4587,26 +4587,56 @@ atlas_twiki_xsec_c1n2,
 atlas_twiki_xsec_hino
 }.
 
-\paragraph{Theory variations}
+\subsubsection{Theory variations}
 \label{sec:2ljets_theory_variations}
-\TODO{put this above alternative samples?}
-\TODO{this appears to be signal theory}
-% extrapolation
-The total theory variation is a combination of seven components, representing
-\TODO{what are they?}.
-A relative uncertainty due to each, $r$, is evaluated at each benchmark
-point $\vec y_i$, and extrapolated elsewhere as an exponentially weighted
-combination
+Another signal variation is assigned to cover sources of uncertainty from
+scale variations ($\mu_R$, $\mu_F$, and the merging scale
+$Q_\textrm{cut}^\textrm{CKKW}$)) and modelling of radiations and parton
+showers (`eigentune' parameters
+\texttt{Var1},
+\texttt{Var2},
+\texttt{Var3a},
+\texttt{Var3b},
+\texttt{Var3c}~\cite{ATL-PHYS-PUB-2014-021}).
+Following the \atlas\ SUSY group
+prescription~\cite{atlas_twiki_susytheoretical},
+we consider only a coherent scaling of the scales $\mu_R$ and $\mu_F$ together,
+so this theory variation includes a total of seven components.
+
+Scale variations have appeared here twice:
+first for cross-section variations and
+second for these theory variations.
+They therefore contribute both in each fit model and in the varied
+cross-sections for varied exclusion contours.
+This is questionable, but we shall see here that, thankfully, this scale
+double-counting makes very little difference.
+
+\paragraph{Extrapolation}
+To evaluate each variation requires a new simulation with different parameters,
+so to reduce computational costs we use truth-level only
+(through SimpleAnalysis~\cite{simpleanalysis_cern}) and evaluate the
+variations at only a handful of benchmark signal models.
+From these benchmark signal models, we evaluate a relative uncertainty due
+due to each component, and extrapolate those variations from these benchmark
+examples to others in the parameter plane.
+
+Extrapolation is performed as follows.
+Each benchmark point $i$ has a location in the parameter plane $\vec y_i$, and
+for a given source of uncertainty $j$ its relative variation has been evaluated
+as $r_{ij}$.
+To extrapolate these variations across each parameter plane to another signal
+model at $\vec x$, we use an exponentially weighted combination
 \begin{equation}
 \label{eqn:2ljets_signal_extrap}
-r(\vec x) = \frac{
-\sum_i r_i e^{-d(\vec x, \vec y_i)}
+r_j(\vec x) = \frac{
+\sum_i r_{ij} e^{-d(\vec x, \vec y_i)}
 }{
 \sum_i e^{-d(\vec x, \vec y_i)}
 }
 \end{equation}
 in which $d(\vec x, \vec y)$ is a distance function chosen to encode some
-physical understanding into the extrapolation.
+physical understanding into the extrapolation,
+and the sum is over all benchmark points.
 
 Parent mass $m(\chargino_1, \neutralino_2) = m_a$
 and mass splitting $m_a - m_b$ are the most
@@ -4638,8 +4668,8 @@ d_\mathrm{GMSB}(\vec x, \vec y) =
 \end{equation}
 Some example extrapolations according to these rules are displayed in
 Figure~\ref{fig:2ljets_signal_sys_extrap}.
-Variations tend to be small, around $\approx 20\%$, where and only where
-yields are large enough for good statistical precision.
+This figure illustrates the common theme that our theory variations are small
+if and only if signal yields are large enough for good statical precision.
 
 Relative uncertainty $r$ is evaluated for each component, and the total
 uncertainty is their sum in quadrature, capped at $100\%$.
@@ -4684,6 +4714,49 @@ is treated independently.
 \label{fig:2ljets_signal_sys_extrap}
 \end{figure}
 
+\paragraph{Evaluation}
+Statistical precision has limited the utility of most variations described in
+this chapter.
+These are no different.
+To reduce statistical noise here, I generated truth samples $10$~times as large
+as our central, reconstructed samples.
+These sample sizes vary roughly with cross-section from $300\,000$ to
+$2.8$~million events per sample, and due to the $\sqrt{n}$ scaling of
+Monte Carlo errors, meant approximately $\sqrt{10}\approx 3.2$ times reduced
+noise.
+However, this remains insufficient since each resulting variation is a
+sum in quadrature of variations in $7$ pairs of alternative samples
+whose combination will inflate the uncertainty by roughly a factor of
+$\sqrt{7}$.
+Where signal models' yields has significant in a signal region,
+each variation tends to be around $\approx 20\%$ relative error,
+and are compatible with the central samples within statistical uncertainties.
+
+Yet another unique sample-comparison prescription now assigns variations as
+half of the absolute difference between up and down yields, irrespective of the
+central yield.
+This differs from the methods previously described in
+Sections~\ref{sec:2ljets_zjets_alt} and~\ref{sec:2ljets_diboson_alt},
+and is used for consistency with other $\twoljets$ work.
+
+We evaluate and extrapolate each source of uncertainty individually,
+and combine all sources by summation in quadrature in each region to form a
+single total theory variation~\cite{atlas_twiki_susytheoretical}.
+This sum loses all sense of direction, so we choose to give up and down
+variations the same $+$ and $-$ signs in all bins.
+Since the theory variation parameter is coupled across all bins, it therefore
+implements a form of non-uniform normalization factor.
+
+Why the double counting of scale variations does not matter is now apparent:
+this variation is dominated by statistical noise, and the inclusion of one
+extra source for the scale variations simply scales that noise up by
+a factor of $\approx \sqrt{7/6}$.
+
+\emph{%
+Special thanks to Sara~Alderweireldt for sharing \textsc{SignalSystTools},
+whose excellent scripts were adapted to simulate these signal
+samples, and thanks to Jon~Long for contributing to this study.
+}
 
 \section{Validation}
 \label{sec:2ljets_validation}
