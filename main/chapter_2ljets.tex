@@ -3097,7 +3097,11 @@ Precedent from previous searches in this channel~\cite{
 atlas_2l_SUSY_2013_11,
 atlas_23l_SUSY_2016_24
 }
-leads us to use the `Matrix Method'~\cite{ATLAS-CONF-2014-058} to estimate
+leads us to use the `Matrix Method'~\cite{
+ATLAS-CONF-2014-058,
+D0:1999qdf
+}%
+to estimate
 backgrounds of fake and non-prompt leptons, so named because it works by
 estimating a linear relationship between dilepton event rates, which is
 written as a matrix multiplication.%
@@ -3224,7 +3228,8 @@ In fact, real data tend to be assigned negative Matrix Method weights.
 For example, CR-VZ receives $157$ data in its Matrix Method sample,%
 \footnote{%
 This count of $157$ differs from the $194$ actual data observed in CR-VZ.
-I do not know why, and do not have access to the source data or code.
+I do not know why, and do not have access to the source data or code to
+learn why.
 The two do overlap in event identity numbers, so there is presumably some
 tighter selection in the Matrix Method that should be accounted for in its
 weights.
@@ -3241,14 +3246,27 @@ Yes, this backwards dependency is backward, but at least it gives some relief
 that real local excesses would not be hidden by increased fake estimates.
 Unless, that is, the processes driving that excess also produced loose leptons
 at rates similar to (or larger than) the standard model backgrounds.
-Loose data do have positive weights, and they would drive up the FNP
-background.
+Loose data have positive weights, so they would drive up the FNP estimate.
 
 Although the $\twoljets$-electroweak regions were designed without using the
 Matrix Method fake estimate, and before it was finalized, we are fortunate that
 most search regions do not have substantial Matrix Method yields.
 I consider those that do to be dubious.
 
+The Matrix Method's approximation that
+$\mu^\textrm{data}_{**} = n^\textrm{data}_{**}$ can be effective but is not
+exact.
+More accurately, the two are are related through a Poisson likelihood function
+that alternative FNP estimation methods can use~\cite{
+Erdmann:2021pqi,
+Gillam:2014xua
+}.
+Our criticism that the Matrix Method prematurely unblinds data is not new, and
+the fake-factor is a notable alternative that avoids this problem by estimating
+prompt contributions from simulations, not data~\cite{
+Alison2015,
+ATLAS:2017ztq
+}.
 
 \subsubsection{%
 Estimates in \texorpdfstring{$\twoljets$}{2Ljets}-electroweak regions%
