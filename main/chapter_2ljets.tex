@@ -4922,6 +4922,59 @@ This section is not a discussion of our unblinded results.
 It is a discussion of our unblinding procedures,
 their extent, their implementation, and their effect on the results.
 
+Blindness to data is useful, but not necessary.
+All that is necessary is that our predictions are independent of the data
+they are supposed to predict.
+Probabilistically, that independence makes our Poisson likelihood assignments
+justifiable, and scientifically it allows our modelling to be useful if it
+makes accurate predictions.
+If one knows what the data are, then it takes utter honesty ---
+Feynman's ``leaning over backwards''~\cite{feynman1974cargo} ---
+to assign predictions as if the data were unknown.
+Blindness is a useful and wilful ignorance that automatically implements this
+honesty without this backbreaking work.
+
+% pro
+Naturally, \atlas\ has an unblinding procedure that requires committee
+review and approval based on internal documentation.
+In the \atlas\ SUSY world, searches are nominally performed blind to signal
+regions.
+Control and validation regions are consumed in the design and modelling of
+signal regions, so need to be inspected.
+Control and validation region data are inspected, but this is not a problem
+since they should also have negligibly small yields (contaminations) from
+interesting signal models.
+With negligible signal contaminations, control and validation region data can
+be consumed to constrain the background modelling in addition to all other that
+on which the Standard Model stands, and without being influenced by the signal
+models to be tested in signal regions.
+
+The \atlas\ SUSY approval procedure~\cite{atlas_twiki_susyapprove}
+requires various criteria including, and not limited to, that the search has:
+\begin{itemize}
+\item defined all control, validation and signal regions,
+\item evaluated signal contaminations in control and validation,
+\item estimated all regions' simulated backgrounds,
+\item outlined procedures to estimate non-simulated (data-driven) backgrounds,
+\item evaluated variations due to experimental uncertainties in all regions
+according to recommended procedures,
+\item stated clearly how all other (theoretical) uncertainties will be treated.
+\end{itemize}
+So many aspects must be finalized blind, and for those that are not
+finalized blind must have procedures defined such that they are not
+influenced by the signal region data.
+Positively, disallowing dependence of procedures on signal region data
+eliminates one major source of unblinding error,
+and requiring knowledge of signal contaminations supports the use of control
+and validation region data.
+
+% con
+\TODO{flaws in that procedure:
+explicit allowance of data-driven methods using SR data,
+questionable enforcement of the stated procedures
+}
+
+
 Figure~\ref{fig:2ljets_prepre}
 Figure~\ref{fig:2ljets_summary_unblinding}
 
