@@ -2446,9 +2446,9 @@ Errors are statistical.
 \label{fig:2ljets_low_sr_or_cr_region}
 \end{figure}
 
+
 \subsubsection{Low-ISR}
 \label{sec:2ljets_low_isr}
-
 The Low regions presented in Section~\ref{sec:2ljets_low} resulted from a
 hasty redesign shortly before unblinding.
 
@@ -3096,6 +3096,7 @@ This motivates the use of data-driven fake estimates to replace the need for
 such specialized simulations of poorly understood physics.
 
 \subsubsection{The Matrix Method}
+\label{sec:2ljets_matrix_method}
 Precedent from previous searches in this channel~\cite{
 atlas_2l_SUSY_2013_11,
 atlas_23l_SUSY_2016_24
@@ -3274,6 +3275,7 @@ ATLAS:2017ztq
 \subsubsection{%
 Estimates in \texorpdfstring{$\twoljets$}{2Ljets}-electroweak regions%
 }
+\label{sec:2ljets_matrix_method_ewk}
 To validate the Matrix Method estimates in $\twoljets$-electroweak regions
 when preparing the search, we plotted and inspected many histograms in
 selections designed to enhance the FNP backgrounds.
@@ -3960,6 +3962,8 @@ The \atlas\ SUSY recommendation is to consider the comparison if
 ``the scale ($+$ PDF) uncertainties are too small in your
 analysis''~\cite{atlas_twiki_susytheoretical},
 but I know of no official advice on how to judge what is ``too small''.
+Unblinding procedures are discussed further in
+Section~\ref{sec:2ljets_unblinding}.
 
 \begin{table}[tp]
 % in branch hackmg5
@@ -4240,12 +4244,12 @@ its \diboson\ yields peak in the signal region on $\mjj \approx m(W)$, and
 we do not expect large $W\rightarrow jj$ contributions in this \diboson\ process,
 since one boson is needed for the leptons and the other is needed for the
 $\met$ that we select.
-We shall see in Section~\ref{sec:2ljets_\diboson_alt} why \diboson\ yields are
+We shall see in Section~\ref{sec:2ljets_diboson_alt} why \diboson\ yields are
 not similarly squashed by sample comparison variations.
 
 
 \subsubsection{Alternative \diboson}
-\label{sec:2ljets_\diboson_alt}
+\label{sec:2ljets_diboson_alt}
 No alternative samples were available for comparison with our central \diboson
 samples, which are simulated with \sherpa~2.2.2 at NLO with up to six
 electroweak vertices.
@@ -4517,7 +4521,7 @@ jets~\cite{atlas_twiki_susytheoretical}.
 $Q_\textrm{cut}^\textrm{CKKW}$ and
 $S_Q$ are assigned for $\zjets$.
 Unlike the alternative samples used for \diboson\ as described in
-Section~\ref{sec:2ljets_\diboson_alt}, these are assigned as functions of the
+Section~\ref{sec:2ljets_diboson_alt}, these are assigned as functions of the
 jet kinematics in each event by a parametrized method that avoids expensive
 alternative simulations~\cite{Anders:2125718, atlas_twiki_susytheoretical}.
 \emph{Thanks to Jon~Long and Yumeng~Cao for collaboration in preparing these
@@ -4739,7 +4743,7 @@ Yet another unique sample-comparison prescription now assigns variations as
 half of the absolute difference between up and down yields, irrespective of the
 central yield.
 This differs from the methods previously described in
-Sections~\ref{sec:2ljets_zjets_alt} and~\ref{sec:2ljets_\diboson_alt},
+Sections~\ref{sec:2ljets_zjets_alt} and~\ref{sec:2ljets_diboson_alt},
 and is used for consistency with other $\twoljets$ work.
 
 We evaluate and extrapolate each source of uncertainty individually,
@@ -4953,7 +4957,7 @@ The \atlas\ SUSY approval procedure~\cite{atlas_twiki_susyapprove}
 requires various criteria including, and not limited to, that the search has:
 \begin{itemize}
 \item defined all control, validation and signal regions,
-\item evaluated signal contaminations in control and validation,
+\item evaluated signal contaminations in control and validation regions,
 \item estimated all regions' simulated backgrounds,
 \item outlined procedures to estimate non-simulated (data-driven) backgrounds,
 \item evaluated variations due to experimental uncertainties in all regions
@@ -4963,21 +4967,36 @@ according to recommended procedures,
 So many aspects must be finalized blind, and for those that are not
 finalized blind must have procedures defined such that they are not
 influenced by the signal region data.
-Positively, disallowing dependence of procedures on signal region data
+Encouragingly, disallowing dependence of procedures on signal region data
 eliminates one major source of unblinding error,
 and requiring knowledge of signal contaminations supports the use of control
 and validation region data.
 
 % con
-\TODO{flaws in that procedure:
-explicit allowance of data-driven methods using SR data,
-questionable enforcement of the stated procedures
-}
+Unfortunately, these requirements limit only when data-driven estimation
+procedures, are defined, and do not limit the content of those procedures.
+Indeed, the rules explicitly allow methods like the Matrix Method
+(described in Section~\ref{sec:2ljets_matrix_method})
+that use signal region data to affect the background `estimates' in signal
+regions, in violation of blinding principles.
+No sensible research would employ an estimation procedure that clearly set
+a prediction directly from the data it is supposed to predict, but our use of
+the Matrix Method is proof that sufficiently obfuscated violations are allowed.
 
+A second unfortunate flaw is that these rules were not strictly enforced.
+Although we performed the approval procedure as written, some of its promises
+were later violated, at the request of senior committees, without consequence.
+The data-driven FNP estimation procedure should have been frozen, but was in
+fact extended with the `Mean' method after unblinding,
+as seen in Section~\ref{sec:2ljets_matrix_method_ewk}).
+Theoretical uncertainties were always to be treated according to the
+\atlas\ SUSY recommendations~\cite{atlas_twiki_susytheoretical}, but those
+recommendations have ambiguities that were resolved after unblinding,
+notably for the alternative $\zjets$ sample comparison as discussed in
+Section~\ref{sec:2ljets_zjets_alt}, among other less impactful sample
+comparisons.
 
-Figure~\ref{fig:2ljets_prepre}
-Figure~\ref{fig:2ljets_summary_unblinding}
-
+% looser selections
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -5004,6 +5023,34 @@ Each last bin contains overflow.
 \label{fig:2ljets_prepre}
 \end{figure}
 
+When first introduced to this search project, I was shown plots resembling
+(but not identical to) those in Figure~\ref{fig:2ljets_prepre}, which present
+data and pre-fit backgrounds in loose selections.
+Such plots were discussed in group meetings and used to catch bugs in the
+background simulations.
+But they unblind the data, notably in high-$\met$ where we expect signals.
+When commenting on this, I was told that it does not count as unblinding
+because we are in a loose selection.
+Any signal region must be within this loose selection, and those
+highest bins contain only a few events that agree with the backgrounds well.
+From such plots, we knew before designing the regions that either there was no
+excess at high $\met$ or that a signal region excess must coincide with a
+deficit in its surrounding phase space (or visa versa).
+Since we fill surrounding phase space with validation regions, one could in
+fact have predicted an SR-High deficit from the subtle excess in VR-High
+that is shown in Figure~\ref{fig:2ljets_high_mjj_vrhigh}.%
+\footnote{%
+Lacking this intelligence, at the time of unblinding I was actually concerned
+that we were missing a background (perhaps from pileup jets) that would
+explain low-$\mjj$ excess in VR-High, and might lead to a false excess
+in SR-High.
+My naive past self therefore found the observed $0$ events in SR-High-8
+quite hilarious.
+}
+If blinding is to be taken seriously, then restrictions must be placed on such
+pre-selection plots.
+
+% unblinded results
 \begin{figure}[tp]
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_summary_unblinding_log.png}
@@ -5018,6 +5065,34 @@ lepton definitions, leading to a general reduction in yields.
 }
 \label{fig:2ljets_summary_unblinding}
 \end{figure}
+
+Our initial unblinded results are displayed in the summary plot of
+Figure~\ref{fig:2ljets_summary_unblinding}.
+This figure includes all backgrounds and variations that had been evaluated
+at the time, and is included for comparison against the final result
+that has been displayed in Figure~\ref{fig:2ljets_summary}.
+We knew when unblinding that our simulations and data needed to be reprocessed
+with the lepton definitions given Section~\ref{sec:2ljets_events_leptons},
+which had previously required harder baseline leptons,
+and had expected only minor changes.
+As seen from these two figures, the reprocessing reduced our yields of data
+slightly; most noticeably, the one event in SR-$\llbb$ disappeared.
+Other than aesthetic differences, post-unblinding activities have had little
+impact.
+The reported significance of deficits in SR-Low-a and SR-Low-b has reduced,
+and the shrinking $\zjets$ background has caused a $1$-sigma excess in VR-Low.
+Excesses have also grown in VR-High-* regions.
+Little has changed in the SR-High-8 bins with $0$ data since, as explained in
+Section~\ref{sec:2ljets_diboson_alt}, the added \diboson\ sample comparison
+is ineffective.
+
+Despite my concerns expressed in this section, our post-unblinding changes are
+relatively minor.
+They do not change the broad message that there are no excesses here, and at
+most amount to a misleadingly small background estimate in SR-Low bins if the
+post-fit yields that we present are misinterpreted as predictions.
+Pre-fit yields, which can plausibly be interpreted as predictions, and other
+additional results are presented in the next section.
 
 
 \section{Results}
