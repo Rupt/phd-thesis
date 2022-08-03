@@ -4682,7 +4682,8 @@ Relative uncertainty $r$ is evaluated for each component, and the total
 uncertainty is their sum in quadrature, capped at $100\%$.
 This is done independently in each selection region without considering the
 directions of coherent variations; all variations are combined as described
-and varied together a single parameter in the fit.
+and varied together in all regions under the control of a single parameter in
+the fit.
 
 \begin{figure}[tp]
 \centering
@@ -4973,15 +4974,16 @@ and requiring knowledge of signal contaminations supports the use of control
 and validation region data.
 
 % con
-Unfortunately, these requirements limit only when data-driven estimation
-procedures, are defined, and do not limit the content of those procedures.
-Indeed, the rules explicitly allow methods like the Matrix Method
+Unfortunately, these requirements limit only \emph{when} data-driven estimation
+procedures are defined, and do not limit the \emph{what} those procedures do.
+Indeed, the rules explicitly allow for methods like the Matrix Method
 (described in Section~\ref{sec:2ljets_matrix_method})
 that use signal region data to affect the background `estimates' in signal
-regions, in violation of blinding principles.
-No sensible research would employ an estimation procedure that clearly set
+regions in violation of blinding principles.
+No effective research would employ an estimation procedure that clearly set
 a prediction directly from the data it is supposed to predict, but our use of
-the Matrix Method is proof that sufficiently obfuscated violations are allowed.
+the Matrix Method is proof by example that sufficiently obfuscated violations
+are allowed here.
 
 A second unfortunate flaw is that these rules were not strictly enforced.
 Although we performed the approval procedure as written, some of its promises
@@ -5047,8 +5049,8 @@ in SR-High.
 My naive past self therefore found the observed $0$ events in SR-High-8
 quite hilarious.
 }
-If blinding is to be taken seriously, then restrictions must be placed on such
-pre-selection plots.
+If blinding is to be taken seriously, then restrictions must be placed on the
+use of such pre-selection plots.
 
 % unblinded results
 \begin{figure}[tp]
@@ -5086,13 +5088,13 @@ Little has changed in the SR-High-8 bins with $0$ data since, as explained in
 Section~\ref{sec:2ljets_diboson_alt}, the added \diboson\ sample comparison
 is ineffective.
 
-Despite my concerns expressed in this section, our post-unblinding changes are
-relatively minor.
+Despite my concerns expressed in this section, these post-unblinding changes
+are relatively minor.
 They do not change the broad message that there are no excesses here, and at
 most amount to a misleadingly small background estimate in SR-Low bins if the
 post-fit yields that we present are misinterpreted as predictions.
-Pre-fit yields, which can plausibly be interpreted as predictions, and other
-additional results are presented in the next section.
+Pre-fit yields, which can plausibly be interpreted as predictions, are
+presented with other extra results in the next section.
 
 
 \section{Results}
