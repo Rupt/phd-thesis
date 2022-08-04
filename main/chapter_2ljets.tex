@@ -5141,7 +5141,7 @@ All parameters are initially independent.
 If the \heplikelihood\ is related to a probability distribution of parameters,
 however, then they gain interdependencies when coupled through the likelihoods
 of control and signal region data.
-The the correlation matrix of parameters, estimated from an approximate Hessian
+The correlation matrix of parameters, estimated from an approximate Hessian
 matrix at the best fit \heplikelihood, is displayed in
 Figure~\ref{fig:2ljets_fit_corrmatrix}.
 To reduce this matrix to a more readable size, only the most correlated
@@ -5268,13 +5268,13 @@ Validation studies comparing each of these pruning thresholds, against the
 un-pruned version, and against a custom pruning implemented by myself, found no
 significant differences.%
 \footnote{%
-Pruning is, however, the reason why the signal patches (differences from
+Pruning is, however, the reason the signal patches (differences from
 background-only to signal) in our serialized \hepdata\ models are so large;
 they implement many small changes due to different decisions made by the
 pruning implementation.
 }
 
-We further reduce computational costs by sing the asymptotic approximations
+We further reduce computational costs by using the asymptotic approximations
 (as opposed to the expensive `toy throwing' approximation) for all statistical
 tests on these exclusion fits.
 
@@ -5286,13 +5286,13 @@ We follow standard \atlas\ SUSY conventions and perform that interpolation
 with the \textsc{Scipy} implementation of
 Radial Basis Functions~\cite{2020SciPy-NMeth,fasshauer2007meshfree},
 interpolating significance-transformed $\cls$ values.
-That is we interpolate in $\cls$ values transformed through the inverse
+That is, we interpolate in $\cls$ values transformed through the inverse
 cumulative distribution of the standard normal distribution.
 Contours are drawn where this interpolated function meets
 $\cls = 0.05$.
 \emph{%
-Thanks to Larry~Lee for sharing contour preparation scripts that were adapted
-to produce our results.%
+Thanks to Larry~Lee for sharing scripts that were adapted to prepare the
+contours in our results.%
 }
 
 This interpolation algorithm has some tunable parameters, for which all
@@ -5321,8 +5321,8 @@ and I failed to control those random seeds when running the fits through
 
 Auxiliary results published in our \hepdata archive~\cite{hepdata.116034}
 include the observed upper limits on the signal cross-section at each point.
-We additionally display the $\cls$ values, from which observed contour derives,
-in Figure~\ref{fig:2ljets_fit_contours_cls}.
+We additionally display the $\cls$ values, from which the observed contour
+derives, in Figure~\ref{fig:2ljets_fit_contours_cls}.
 
 \begin{figure}[tp]
 \centering
@@ -5382,8 +5382,6 @@ the combined fit are overlaid on the grid.
 }
 \label{fig:2ljets_fit_muti_contourss}
 \end{figure}
-
-% TODO move figures
 
 \paragraph{Discovery}
 \TODO{pruning $1\%$}
