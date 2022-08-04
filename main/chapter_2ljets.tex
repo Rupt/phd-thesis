@@ -5099,24 +5099,99 @@ presented with other extra results in the next section.
 
 \section{Results}
 \label{sec:2ljets_results}
-
 Main results from the $\twoljets$-electroweak search have already been
 presented in Section~\ref{sec:2ljets_splash} and sprinkled throughout this
 chapter.
 This section reports some ancillary results.
 
-\TODO{Discuss and tie these together.}
+\paragraph{Summary}
+As I have argued incessantly, pre-fit predictions are useful because they can
+actually be predictions to be tested by the data.
+Our post-fit summary plot has previously been displayed in
+Figure~\ref{fig:2ljets_summary}.
+Its alternative version that does not fit to signal region data is shown here
+in Figure~\ref{fig:2ljets_summary_no_sr}.
+Since the significance measure is meaningful for this pre-signal-region plot,
+we see that despite the inflated uncertainties in SR-Low, its bins still have
+substantial deficits.
+Validation region data are notably better predicted by this prediction;
+as the post-fit result tunes itself to signal region data, coupled variations
+lead to worse predictions in the validation regions (that are not included
+directly in either fit).
 
-A pre-fit (fitted to control regions but not signal regions) summary plot
-is displayed in Figure~\ref{fig:2ljets_summary_no_sr}.
+\paragraph{Correlations}
+All parameters are initially independent.
+If the \heplikelihood\ is related to a probability distribution of parameters,
+however, then they gain interdependencies when coupled through the likelihoods
+of control and signal region data.
+The the correlation matrix of parameters, estimated from an approximate Hessian
+matrix at the best fit \heplikelihood, is displayed in
+Figure~\ref{fig:2ljets_fit_corrmatrix}.
+To reduce this matrix to a more readable size, only the most correlated
+parameters are shown.
 
-The correlation matrix of parameters, estimated from the inverse Hessian at
-the best fit point and reduced to its most correlated parameters, is displayed
-in Figure~\ref{fig:2ljets_fit_corrmatrix}.
+Mixed contributions of $\ttbar$, $\zjets$ and \diboson\ in the control regions
+leads to anticorrelations between their normalization factors
+``\texttt{mu\_*}'' that are seen in the bottom right corner of this correlation
+plot.
+Since statistical errors ``\texttt{gamma\_stat\_*}'' in control regions are not
+absorbed into the sample-specific normalization factors, they are also
+anticorrelated with normalization factors.
+Similarly, the extra uncertainty for $\zjets$ in CR-tt causes an
+anticorrelation between its parameter ``\texttt{alpha\_Zjets\_bextrap}''
+and the $\ttbar$ normalization.
+The failure of statistical precision in SR-Low-2 causes large systematic
+variations that appear as the anticorrelations between
+\texttt{gamma\_stat\_SRLow2\_cuts\_bin\_0} and numerous experimental
+uncertainties.
+Correlations between the $\zyjets$ normalization and $\ttbar$ uncertainties
+are due to large variations in the alternative $\ttbar$ samples in \crdy.
+Electron identification variations ``\texttt{alpha\_el\_chargeid\_*}'' have
+some impact in SR-Low,  so are correlated with the $\zjets$ alternative sample
+comparison ``\texttt{alpha\_Zjets\_alt}''.
+Note that the up and down variations of parameters need not correspond to up
+and down variations of yields in any region, so the signs of these correlations
+are no necessarily meaningful.
 
-All fitted parameters and their marginal error bars are displayed in
-Figure~\ref{fig:2ljets_fit_parameters}.
+\paragraph{Parameters}
+Correlations between parameters do not indicate their central values.
+To inspect individual parameters in the same fit to control and signal regions,
+Figure~\ref{fig:2ljets_fit_parameters} displays all fitted parameters and their
+marginal error bars.
 
+Parameters named ``\texttt{$\alpha$\_*}'' are centred on zero with unit initial width,
+and others are initially relative to $1$ with variable error bars.
+Internally, plots like this are considered good if all parameters sit on
+the central vertical line, with the motivations that normalization factors
+should be close to $1$ (the predicted cross-sections are accurate) and that
+our data should not compete with the precision of the studies that defined
+our systematic variations.
+That is, if we constrain a parameter by squeezing its error bar, then our data
+could be better used to calibrate that parameter throughout the Collaboration.
+
+I added the red arrow to indicate the $\zjets$ alternative sample comparison,
+named ``\texttt{$\alpha$\_Zjets\_alt}'' here, that has disappeared off the
+right-hand edge due to its best-fit value of $1.86 \pm 0.69$.
+(see Section~\ref{sec:2ljets_zjets_alt}).
+Its anticorrelation with the electron charge identification variations is
+explained by their movement to negative values;
+positive \texttt{$\alpha$\_Zjets\_alt} and negative
+\texttt{$\alpha$\_el\_chargeid\_*} both reduce yields in SR-Low.
+
+Several of the $\ttbar$ alternative-sample comparisons are also pulled away
+from zero.
+Some of this effect is explained by the drastic variation of
+\texttt{$\alpha$\_Zjets\_alt}, that nearly doubles $\zjets$ yields in CR-tt
+(see Table~\ref{tab:2ljets_zjets_alt}).
+Much of the remainder is due to the alternating deficit and excess in
+SR-OffShell-a and SR-OffShell-b respectively;
+in particular, the
+final state radiation (\texttt{$\alpha$\_ttbar\_fsr}) and
+hard scatter (\texttt{$\alpha$\_ttbar\_hs}) variations both move $\ttbar$
+yields in opposite directions in SR-OffShell-a and SR-OffShell-b, so the
+movements of these parameters help to fit both deviations simultaneously.
+
+\paragraph{Contours}
 Preliminary projected exclusion contours that separate the use only subsets
 of our signal regions to assess their effects are displayed in
 Figure~\ref{fig:2ljets_fit_muti_contourss}.
