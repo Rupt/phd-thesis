@@ -109,6 +109,7 @@
 \newcommand{\powheg}{\textsc{Powheg}}
 \newcommand{\herwig}{\textsc{Herwig}}
 \newcommand{\histfitter}{\textsc{HistFitter}}
+\newcommand{\hepdata}{\textsc{HEPData}}
 
 % regions
 \newcommand{\crdy}{CR\nobreakdash-DY}
@@ -121,3 +122,10 @@
 \newcommand{\cls}{\mathrm{CLs}}
 \newcommand{\clsb}{\mathrm{CLsb}}
 \newcommand{\clb}{\mathrm{CLb}}
+
+% fix footnotes; based on:
+% https://tex.stackexchange.com/questions/15952/layout-of-multiple-lines-footnotes
+\makeatletter
+\renewcommand\@makefntext[1]{\leftskip=0em\hskip0em\@makefnmark#1}
+\makeatother
+

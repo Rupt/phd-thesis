@@ -328,9 +328,9 @@ All $p$-values are estimated by simulation of alternative data.
 \label{tab:2ljets_discovery}
 \end{table}
 
+
 \FloatBarrier
 \subsection{Contributions}
-
 In this subsection, I claim attributions of work on the $\twoljets$ analysis
 and related \atlas\ efforts.
 
@@ -3058,9 +3058,9 @@ This section only covers some of the the most peculiar or important aspects
 of our signal and background modelling, and does not specify most exact
 details.
 Full details are publically available through the $\twoljets$
-HEPData~\cite{hepdata.116034, Maguire_2017} archive our json-serialized pyhf
+\hepdata~\cite{hepdata.116034, Maguire_2017} archive our json-serialized pyhf
 workspaces~\cite{cranmer2012histfactory, heinrich2021pyhf}.
-\emph{Thanks to Jon~Long for collaboration in preparing this HEPData archive,
+\emph{Thanks to Jon~Long for collaboration in preparing this \hepdata\ archive,
 and to Alessia~Murrone for invaluable feedback on, and validation of, its
 drafts.}
 
@@ -4235,7 +4235,7 @@ Much to my ire, the paper editors therefore removed all mentions of an SR-Low
 deficit from the paper.
 Despite bring real and significant, this deficit was erased from public view,
 and to my knowledge, is only reported through inner details of
-the HistFactory models shared in our HEPData archive~\cite{hepdata.116034}.
+the HistFactory models shared in our \hepdata\ archive~\cite{hepdata.116034}.
 
 To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
 excessive \diboson\ background should also take some blame for this poor
@@ -5119,6 +5119,23 @@ as the post-fit result tunes itself to signal region data, coupled variations
 lead to worse predictions in the validation regions (that are not included
 directly in either fit).
 
+\begin{figure}[tp]
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_summary_no_sr_log.png}
+\caption[
+Alternative summary table with backgrounds fitted to control regions only
+]{%
+Alternative summary table with backgrounds fitted to control regions only.
+A version fitted also to signal regions is shown in
+Figure~\ref{fig:2ljets_summary}.
+Fitting to signal regions is the policy of the \atlas\ SUSY group, but deviates
+from the intentions of the significance measure.
+Because the post-fit yields in SR-Low achieve a small negative significance,
+all mentions of its deficit were removed from the paper.
+}
+\label{fig:2ljets_summary_no_sr}
+\end{figure}
+
 \paragraph{Correlations}
 All parameters are initially independent.
 If the \heplikelihood\ is related to a probability distribution of parameters,
@@ -5152,6 +5169,20 @@ comparison ``\texttt{alpha\_Zjets\_alt}''.
 Note that the up and down variations of parameters need not correspond to up
 and down variations of yields in any region, so the signs of these correlations
 are no necessarily meaningful.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_fit_corrmatrix.pdf}
+\caption[
+Correlation matrix from the background-only fit to control and signal regions
+]{%
+Correlation matrix from the background-only fit to control and signal regions,
+as estimated by \histfitter.
+Parameters with smaller levels of correlation are excluded.
+Apologies for the small font size.
+}
+\label{fig:2ljets_fit_corrmatrix}
+\end{figure}
 
 \paragraph{Parameters}
 Correlations between parameters do not indicate their central values.
@@ -5191,42 +5222,6 @@ hard scatter (\texttt{$\alpha$\_ttbar\_hs}) variations both move $\ttbar$
 yields in opposite directions in SR-OffShell-a and SR-OffShell-b, so the
 movements of these parameters help to fit both deviations simultaneously.
 
-\paragraph{Contours}
-Preliminary projected exclusion contours that separate the use only subsets
-of our signal regions to assess their effects are displayed in
-Figure~\ref{fig:2ljets_fit_muti_contourss}.
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_summary_no_sr_log.png}
-\caption[
-Alternative summary table with backgrounds fitted to control regions only
-]{%
-Alternative summary table with backgrounds fitted to control regions only.
-A version fitted also to signal regions is shown in
-Figure~\ref{fig:2ljets_summary}.
-Fitting to signal regions is the policy of the \atlas\ SUSY group, but deviates
-from the intentions of the significance measure.
-Because the post-fit yields in SR-Low achieve a small negative significance,
-all mentions of its deficit were removed from the paper.
-}
-\label{fig:2ljets_summary_no_sr}
-\end{figure}
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_fit_corrmatrix.pdf}
-\caption[
-Correlation matrix from the background-only fit to control and signal regions
-]{%
-Correlation matrix from the background-only fit to control and signal regions,
-as estimated by \histfitter.
-Parameters with smaller levels of correlation are excluded.
-Apologies for the small font size.
-}
-\label{fig:2ljets_fit_corrmatrix}
-\end{figure}
-
 \begin{figure}[tp]
 \centering
 \includegraphics[height=0.81\textheight]{figures/2ljets_fit_parameters.pdf}
@@ -5244,10 +5239,119 @@ The red arrow highlights the $\zjets$ generator comparison parameter
 $\alpha\mathrm{\_Zjets\_alt}$ whose post-fit value is
 % 1.8598e+00 +/-  6.87e-01
 $1.86 \pm 0.69$;
-since it exceeds $1.5$, it was otherwise excluded from this plot.
+since it exceeds $1.5$, it otherwise disappeared off the edge of this plot.
 }
 \label{fig:2ljets_fit_parameters}
 \end{figure}
+
+\paragraph{Contours}
+Exclusion contours, which are displayed in
+Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb},
+derive from fits with models that extend the background-only model with
+additive signal samples.
+To reduce the computational cost of building the hundreds of models%
+\footnote{%
+This is worded precisely. The dominant cost was not in fitting the models, nor
+in histogramming the data (thanks to histogram caching), but in forming the
+HistFactory model from those histograms.
+I do not know why that model-building step took days of computer time per
+model, but it did reduce to only hours after upgrading the \histfitter\ version
+from \textsc{v0.64.0} to \textsc{v0.66.0}.
+}%
+across these grids, we prune the number of small irrelevant parameters
+with \histfitter's pruning~\cite{histfittergithub} mechanism in ``method 2''.
+This pruning method removes variations if the difference between their up and
+down values do not exceed a threshold.
+With pruning enabled, its default threshold is set to $1\%$ (relative to the
+central yield), but to reduce its impact we use a threshold of $0.1\%$.
+Validation studies comparing each of these pruning thresholds, against the
+un-pruned version, and against a custom pruning implemented by myself, found no
+significant differences.%
+\footnote{%
+Pruning is, however, the reason why the signal patches (differences from
+background-only to signal) in our serialized \hepdata\ models are so large;
+they implement many small changes due to different decisions made by the
+pruning implementation.
+}
+
+We further reduce computational costs by sing the asymptotic approximations
+(as opposed to the expensive `toy throwing' approximation) for all statistical
+tests on these exclusion fits.
+
+To some extent, our published exclusion contours are an artistic choice.
+What we know are the values of statistics in an irregular grid of
+signal points,
+and all contours are painted by heuristic interpolation algorithms.
+We follow standard \atlas\ SUSY conventions and perform that interpolation
+with the \textsc{Scipy} implementation of
+Radial Basis Functions~\cite{2020SciPy-NMeth,fasshauer2007meshfree},
+interpolating significance-transformed $\cls$ values.
+That is we interpolate in $\cls$ values transformed through the inverse
+cumulative distribution of the standard normal distribution.
+Contours are drawn where this interpolated function meets
+$\cls = 0.05$.
+\emph{%
+Thanks to Larry~Lee for sharing contour preparation scripts that were adapted
+to produce our results.%
+}
+
+This interpolation algorithm has some tunable parameters, for which all
+contours of the $\twoljets$-electroweak search use
+\texttt{epsilon=10},
+\texttt{smoothing=1},
+and the ``multiquadric'' radial basis function.
+These settings were tuned to keep the thumbs-up wobble in the C1N2 off-shell
+region of Figure~\ref{fig:2ljets_contours_c1n2},
+which is physical and due to our increased sensitivity for mass splittings
+below $m(W)$,
+while sufficiently smoothing wobbles elsewhere.
+Some unattractive wobbles remain at high GMSB masses in
+Figure~\ref{fig:2ljets_contours_gmsb}, but I decided it was preferable to keep
+the simplicity of having the same interpolation settings for both contours.
+
+Initially, the contours showed more glaring wobbles.
+These were removed by repeating the fits of anomalous signal points until they
+behaved.
+In total, this hack was used for two points near the highest
+$m(\chargino_1,\neutralino_2)$ edge in C1N2 and four across the whole
+GMSB spectrum.
+Different random seeds causing failed fits explain this unstable behaviour,
+and I failed to control those random seeds when running the fits through
+\histfitter.
+
+Auxiliary results published in our \hepdata archive~\cite{hepdata.116034}
+include the observed upper limits on the signal cross-section at each point.
+We additionally display the $\cls$ values, from which observed contour derives,
+in Figure~\ref{fig:2ljets_fit_contours_cls}.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_c1n2_Output_Contours_cls_obs.png}
+\caption{C1N2}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_gmsb_Output_Contours_cls_obs.png}
+\caption{GMSB}
+\end{subfigure}
+\caption[
+Exclusion contours with observed $\cls$ values
+]{%
+Exclusion contours with observed $\cls$ values.
+The observed exclusion contour is interpolated from these values.
+Parameter points are at the lower left corners of the text representing each
+$\cls$ value.
+}
+\label{fig:2ljets_fit_contours_cls}
+\end{figure}
+
+\TODO{consider moving this to region design?}
+Preliminary projected exclusion contours that separate the use only subsets
+of our signal regions to assess their effects are displayed in
+Figure~\ref{fig:2ljets_fit_muti_contourss}.
 
 \begin{figure}[tp]
 \centering
@@ -5273,7 +5377,13 @@ Similarly, `$\llbb$', `Int', `Low', and `OffShell' are shown to target their
 appropriate parameter spaces.
 Although figures were produced before unblinding, with older samples and region
 designs, the general message has not changed.
-Values of $\cls$ from mean data in the combined fit are overlaid on the grid.
+Values of $\cls$ from expected (not observed --- the label is wrong) data in
+the combined fit are overlaid on the grid.
 }
 \label{fig:2ljets_fit_muti_contourss}
 \end{figure}
+
+% TODO move figures
+
+\paragraph{Discovery}
+\TODO{pruning $1\%$}
