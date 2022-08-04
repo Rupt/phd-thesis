@@ -5306,35 +5306,39 @@ which is physical and due to our increased sensitivity for mass splittings
 below $m(W)$,
 while sufficiently smoothing wobbles elsewhere.
 Some unattractive wobbles remain at high GMSB masses in
-Figure~\ref{fig:2ljets_contours_gmsb}, but I decided it was preferable to keep
-the simplicity of having the same interpolation settings for both contours.
+Figure~\ref{fig:2ljets_contours_gmsb}, but I decided that it was preferable to
+keep the simplicity of having the same interpolation settings for both
+contours.
 
-Initially, the contours showed more glaring wobbles.
-These were removed by repeating the fits of anomalous signal points until they
-behaved.
+Our initial contours showed more glaring and unphysical wobbles.
+Those erroneous wobbles were removed by repeating the fits of anomalous signal
+points until they behaved.
 In total, this hack was used for two points near the highest
-$m(\chargino_1,\neutralino_2)$ edge in C1N2 and four across the whole
+$m(\chargino_1,\neutralino_2)$ edge in C1N2, and four across the whole
 GMSB spectrum.
 Different random seeds causing failed fits explain this unstable behaviour,
 and I failed to control those random seeds when running the fits through
 \histfitter.
 
-Auxiliary results published in our \hepdata archive~\cite{hepdata.116034}
+Auxiliary results published in our \hepdata\ archive~\cite{hepdata.116034}
 include the observed upper limits on the signal cross-section at each point.
 We additionally display the $\cls$ values, from which the observed contour
 derives, in Figure~\ref{fig:2ljets_fit_contours_cls}.
+By zooming in, one can see that not all points with $\cls < 0.05$ are
+labelled as excluded;
+this is direct a result of our smoothing choices.
 
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/2ljets_c1n2_Output_Contours_cls_obs.png}
+\includegraphics[width=\textwidth]{figures/2ljets_c1n2_Output_Contours_cls_obs.pdf}
 \caption{C1N2}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/2ljets_gmsb_Output_Contours_cls_obs.png}
+\includegraphics[width=\textwidth]{figures/2ljets_gmsb_Output_Contours_cls_obs.pdf}
 \caption{GMSB}
 \end{subfigure}
 \caption[
