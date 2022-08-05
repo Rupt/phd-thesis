@@ -16,7 +16,7 @@ produces don’t prove anything one way or another.%
 But there is one feature I notice that is generally missing in cargo cult
 science. \ldots\
 % That is the idea that we all hope you have learned in studying science in
-% school--we never say explicitly what this is, but just hope that you catch
+% school --- we never say explicitly what this is, but just hope that you catch
 % on by all the examples of scientific investigation. It is interesting,
 % therefore, to bring it out now and speak of it explicitly.
 It's a kind of scientific integrity, a principle of scientific thought that
@@ -43,14 +43,14 @@ Instead, this chapter first reports the unblinded results, then follows with
 in-depth discussions of individual elements, partially in light of those
 results.
 I choose this order for two reasons.
-First, it avoids iterating over those elements twice, once before and again
+Firstly, it avoids iterating over those elements twice, once before and again
 after unblinding.
 The analysis has many little and loosely related pieces that I attempt to
 to cover locally to reduce jumps between far-flung corners of the
 chapter.
-Second, and sadly, many design decisions can only be explained in light of the
+Secondly, and sadly, many design decisions can only be explained in light of the
 unblinded results, since important aspects were reworked in the
-$19$~months between its unblinding and eventual publication.
+nineteen months between its unblinding and eventual publication.
 
 There are certain plots and tables which, personally, I first seek when
 meeting an \atlas\ search paper, particularly the summary plot with all signal
@@ -69,10 +69,13 @@ explained in Section~\ref{sec:2ljets_design}.
 \item The modelling of our uncertain predictions of background and signal
 contributions in those regions is covered in
 Section~\ref{sec:2ljets_modelling}.
-\item Some validation studies are presented in Section~\ref{sec:2ljets_validation}.
+\item Some validation studies are presented in
+Section~\ref{sec:2ljets_validation}.
 \item The unblinding procedure of this search is discussed in
 Section~\ref{sec:2ljets_unblinding}, and
-\item we recap the search results in Section~\ref{sec:2ljets_results}.
+\item and some additional results are presented in
+Section~\ref{sec:2ljets_results}.
+\TODO{Conclusions}
 \end{itemize}
 
 
@@ -2311,7 +2314,7 @@ Errors are statistical.
 \end{figure}
 
 Uniquely to Low regions, and signal models with small mass-splitting, it is
-seen (in Figure~\ref{fig:2ljets_low_minus_norll_nomt2_mt2}) that substantial
+shown in Figure~\ref{fig:2ljets_low_minus_norll_nomt2_mt2} that substantial
 signal yields exist at small $\mttwoll$.
 To capture these signals, SR-Low-2 is defined as the only
 $\twoljets$-electroweak region with $\mttwoll < 80\,\eV[G]$.
@@ -2797,6 +2800,81 @@ As seen in Figure~\ref{fig:2ljets_offshell_cr_region}, pre-fit backgrounds
 agree well with data.
 Contributions of $\zyjets$ in SR-OffShell are small anyway, as shown in
 Figure~\ref{fig:2ljets_offshell_region}.
+
+
+\subsection{Impact}
+\label{sec:2ljets_imapct}
+We have now seen the definitions of OffShell, Low, Intermediate and High
+regions, how their designs intend to target certain regions of parameter space,
+and how example signal models can create visible effects in those regions.
+To further demonstrate that these regions work as intended,
+Figure~\ref{fig:2ljets_fit_multi_contours} presents projected exclusion
+contours generated from fits with subsets of the signal regions.
+For each contour, fits are performed with only the control regions and one
+subset of the signal regions as labelled and described in the figure caption.
+
+Combining all regions provides greater exclusion than any individual contour,
+and avoids the sharp corners that could have been assigned by stitching those
+individual parts together.
+That confirms that our design of combined, orthogonal regions works as
+intended.
+In most locations, however, most exclusion is attributable to only one subset
+of the regions.
+That shows that the combination is a relatively minor refinement that may or
+may not be worth the cost of implementing it.
+
+At the highest $m(\chargino_1,\neutralino_2)$ edge of the C1N2 contours,
+the inclusion of SR-High-1J (in addition to all other SR-High bins) is shown
+to extend the exclusion by around $60\,\eV[G]$.
+Across the rest of the C1N2 grid, each set of regions is impacting its targeted
+parameter space.
+Sensitivity to the C1N2 ($200$, $100$) point was a goal of the SR-Low design,
+and although it alone does not quite achieve expected exclusion there, the
+combination with other regions does.
+
+For GMSB, only SR-$\llbb$ has sensitivity to large
+$B(\neutralino_1 \rightarrow h \tilde{G})$ since it is able to capture the
+resulting $h\rightarrow bb$ decays.
+At its highest masses, the main SR-High regions retain sensitivity to its
+$ZZ$ decays, and SR-High-1J again visibly extends the projected exclusion.
+At its lowest masses, SR-Int and SR-Low both contribute.
+These light GMSB signal models have substantial contaminations in VR-Low, which
+are seen in Figure~\ref{fig:2ljets_low_region} to exceed $50\%$ of the central
+background.
+That SR-Int also provides sensitivity here is some comfort that this signal
+contamination does not entirely invalidate the result.
+We do not consider off-shell GMSB models, so SR-OffShell regions do not exclude
+any points alone here.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_c1n2.pdf}
+\caption{C1N2}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_gmsb.pdf}
+\caption{GMSB}
+\end{subfigure}
+\caption[
+Projected exclusion from sets of orthogonal signal regions
+]{%
+Projected exclusion from sets of orthogonal signal regions, demonstrating that
+their combination has greater sensitivity reach than any individually.
+The label `High' indicates the bins of SR-High, and `HighNo4' excludes
+SR-High-1J to show the locations where mono-jet events have an impact.
+Similarly, `$\llbb$', `Int', `Low', and `OffShell' are shown to target their
+appropriate parameter spaces.
+Although figures were produced before unblinding, with older samples and region
+designs, their later updates do not change the general message.
+Values of $\cls$ from expected (not observed --- the label is wrong) data in
+the combined fit are overlaid on the grid.
+}
+\label{fig:2ljets_fit_multi_contours}
+\end{figure}
 
 
 \FloatBarrier
@@ -5350,41 +5428,6 @@ Parameter points are at the lower left corners of the text representing each
 $\cls$ value.
 }
 \label{fig:2ljets_fit_contours_cls}
-\end{figure}
-
-\TODO{consider moving this to region design?}
-Preliminary projected exclusion contours that separate the use only subsets
-of our signal regions to assess their effects are displayed in
-Figure~\ref{fig:2ljets_fit_muti_contourss}.
-
-\begin{figure}[tp]
-\centering
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_c1n2.pdf}
-\caption{C1N2}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_gmsb.pdf}
-\caption{GMSB}
-\end{subfigure}
-\caption[
-Projected exclusion from sets of orthogonal signal regions
-]{%
-Projected exclusion from sets of orthogonal signal regions, demonstrating that
-their combination has greater sensitivity reach than any individually.
-The label `High' indicates the bins of SR-High, and `HighNo4' excludes
-SR-High-1J to show the locations where mono-jet events have an impact.
-Similarly, `$\llbb$', `Int', `Low', and `OffShell' are shown to target their
-appropriate parameter spaces.
-Although figures were produced before unblinding, with older samples and region
-designs, the general message has not changed.
-Values of $\cls$ from expected (not observed --- the label is wrong) data in
-the combined fit are overlaid on the grid.
-}
-\label{fig:2ljets_fit_muti_contourss}
 \end{figure}
 
 \paragraph{Discovery}
