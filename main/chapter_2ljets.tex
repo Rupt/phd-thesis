@@ -5431,11 +5431,9 @@ $\cls$ value.
 \end{figure}
 
 \paragraph{Discovery}
-\TODO{pruning $1\%$}
-
-Figure~\ref{fig:2ljets_test_stat_distributions}
-
-Figure~\ref{fig:2ljets_test_stat_distributions}
+Our discovery region results,
+which have been presented in Table~\ref{tab:2ljets_discovery},
+feature, and veil, some interesting quirks.
 
 \begin{figure}[tp]
 \centering
@@ -5450,23 +5448,91 @@ Figure~\ref{fig:2ljets_test_stat_distributions}
 \includegraphics[width=\textwidth]{figures/2ljets_upper_limit_scan_drlow.pdf}
 \caption{DR-Low}
 \end{subfigure}
+\\[.5ex]
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_upper_limit_scan_droffshell.pdf}
+\caption{DR-OffShell}
+\end{subfigure}
 \caption[
 Upper limit scans for DR-High and DR-Low
 ]{%
-Upper limit scans for (a) DR-High and (a) DR-Low.
+Upper limit scans for (a) DR-High, (b) DR-Low, and (c) DR-OffShell.
 Solid black lines interpolate the $p$-values $\clsb$ and $\clb$ estimated at
 each marked point with the observed data.
 The upper limit is reported where the interpolation of their ratio $\cls$
 crosses $0.05$.
+\\
 Coloured backgrounds illustrate what would have been observed with data at
 $\pm1$-sigma quantiles of the background-only distribution.
-Each point uses $500$k ``toy'' samples for the signal-plus-background
-distribution, and $1$m samples for the backgroun-only distribution.
+Each point uses $500$k ``toy'' samples for the background-only
+distribution, and $1$m samples for the signal-plus-background distribution.
 Individual distributions are inspected in
 Figure~\ref{fig:2ljets_test_stat_distributions}.
+\\
+\emph{These figures were produced with \histfitter\ tools through
+my ``Bailed statistics'' software~\cite{bailedstatisticsgithub}.}
 }
 \label{fig:2ljets_upper_limit_scans}
 \end{figure}
+
+Perhaps what should be the most meaningful result is the observed upper limit
+$S_{\mathrm{obs}}^{95}$.
+The analysis of each region sets its upper limit by scanning different values
+of the signal expectation $\mu_\textrm{Discovery}$ and interpolating to
+estimate the point where $\cls(\mu_\textrm{Discovery}^*) = 0.05$.
+That interpolated point determines
+$\mu_\textrm{Discovery}^* = S_{\mathrm{obs}}^{95}$, and the reported value
+of $\clb$ is also reported at that signal expectation
+$\mu_\textrm{Discovery}^*$, since the test statistic is a function of
+$\mu_\textrm{Discovery}$.
+Three examples of these scans are visualized in
+Figure~\ref{fig:2ljets_upper_limit_scans}.
+
+Some of our discovery regions have small yields for which the asymptotic
+approximations~\cite{Cowan:2010js} to test statistic distributions are not
+believed to work.
+For consistency, we therefore use the alternative toy simulation
+approximation for all discovery regions.
+Sampling of the test statistic distributions
+(with \histfitter-\roofit\ software)
+is extremely computationally expensive, so cut those costs by pruning our
+discovery regions models \histfitter's ``method 2'' at a $1\%$ tolerance.
+As discussed previously, this makes negligible differences to the results.
+The exact pruned models are shared in our \hepdata\
+archive~\cite{hepdata.116034}.
+Not only do these simulations take computational time, they also suffer
+torrential memory leaks that halt progress beyond small sample sizes.
+To work around this, we evaluate and combine many small samples, with different
+random seeds, with software that I name
+``Bailed statistics''~\cite{bailedstatisticsgithub}%
+\footnote{%
+To share software that assists in spending computational resources to
+calculate statistics that are so deeply flawed causes me some shame.
+In a vain attempt to absolve myself of this sin, and to positively encourage
+honest reporting of the data, I include with it the following note:
+\emph{%
+``Hypotheses compare through the relative likelihoods they assign to data.
+A p-value is a cumulative distribution function evaluated at data; CLs is a
+ratio of p-values.
+Please present results of this software accurately and clearly.
+Examples of false or unclear presentations of a p-value or CLs include:
+--- as a probability that an hypothesis is true or false,
+--- as a probability of compatibility with an hypothesis,
+--- as a probability that data occurred at random, by chance, or by statistical
+fluctuation,
+--- as a likelihood or importance of data,
+--- as necessary for an optimal or rational decision rule.
+Please also respect that the association of a p-value or CLs with the words
+`test', `limit', `confidence', `significance', `exclusion', `evidence',
+`observation' or `discovery' is nominal,
+and may not reflect the words' meanings in English.''
+}%
+}
+as it bails the leaks overboard.
+Despite this workaround, the simulations took several weeks of parallel
+processing on around $1500$ processor cores, accumulating to around a million
+core hours.
 
 \begin{figure}[tp]
 \centering
@@ -5474,6 +5540,7 @@ Figure~\ref{fig:2ljets_test_stat_distributions}.
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_test_stat_distribution_drhigh3.pdf}
 \caption{DR-High, $\mu_\textrm{Discovery}=3$}
+\label{fig:2ljets_test_stat_distributions_drhigh}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.46\textwidth}
@@ -5481,28 +5548,112 @@ Figure~\ref{fig:2ljets_test_stat_distributions}.
 \includegraphics[width=\textwidth]{figures/2ljets_test_stat_distribution_drlow10.pdf}
 \caption{DR-Low, $\mu_\textrm{Discovery}=10$}
 \end{subfigure}
+\\[.5ex]
+\begin{subfigure}{0.46\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_test_stat_distribution_droffshell14.pdf}
+\caption{DR-OffShell, $\mu_\textrm{Discovery}=14$}
+\end{subfigure}
 \caption[
 Test statistic distributions for points in the DR-High and DR-Low scans
 ]{%
-Test statistic distributions for points in the (a) DR-High and (b) DR-Low
-scans, with $\mu_\textrm{Discovery}=3$ and $\mu_\textrm{Discovery}=10$
-respectively.
+Test statistic distributions for points in the (a) DR-High, (b) DR-Low,
+and (c) DR-OffShell scans at points close to their reported upper limits:
+$\mu_\textrm{Discovery}=3$, $\mu_\textrm{Discovery}=10$,
+and $\mu_\textrm{Discovery}=14$ respectively.
+\\
 Axis limits are set from the minimum and maximum test statistics recorded.
-Note the different binning: histograms contain normalized densisites with
+Note the different binning: histograms contain normalized densities with
 different widths between the two distributions.
 The black vertical line indicates the observed test statistic,
 and the $p$-values $\clb$ and $\clsb$ are tail areas to its right.
 If the two distributions were predictive, their relative densities at that
 observation would indicate their likelihood ratio.
+\\
 Results are:
 % clb =  0.001322
 % clsb =  5.7e-05
 % cls =  0.0431164901664
-(a, DR-High) $\clb = 1.3\times 10^{-3}$ and $\clsb = 5.7\times 10^{-5}$,
+(a) $\clb = 1.3\times 10^{-3}$ and $\clsb = 5.7\times 10^{-5}$,
 % clb =  0.087502
 % clsb =  0.007667
 % cls =  0.0876208543805
-(b, DR-Low) $\clb = 8.8\times 10^{-2}$ and $\clsb = 7.7\times 10^{-3}$.
+(b) $\clb = 8.8\times 10^{-2}$ and $\clsb = 7.7\times 10^{-3}$,
+% clb =  0.67508
+% clsb =  0.03661
+% cls =  0.0542306097055
+and (c) $\clb = 0.68$ and $\clsb = 0.037$.
+\\
+\emph{These figures were adapted from plots produced with \histfitter\ tools
+through my ``Bailed statistics'' software~\cite{bailedstatisticsgithub}.}
 }
 \label{fig:2ljets_test_stat_distributions}
+\end{figure}
+
+Many test statistic distributions are involved here --- two (background-only
+and signal-plus-background) at each scanned point, and one additional
+distribution per region (with yet another test statistic) for the discovery
+$p$-value $p_{s\!=\!0}$.
+From these, a few examples are presented in
+Figure~\ref{fig:2ljets_test_stat_distributions}
+to investigate curious features of the results.
+
+Our first curiosity is that the reported $S_{\mathrm{obs}}^{95} = 3.0$
+for DR-High is rounded up from a result of $2.93$ that was evaluated with these
+simulation methods.
+This makes sense --- the limit for $n=0$ should arguably always be $3$ since
+if a signal adds $\mu$ events, then the Poisson likelihood for zero data always
+scales by $e^{-\mu} \approx 0.05$, and so any likelihood ratio between
+background-only and signal-plus-background models is $0.05$ for $\mu = 3$.
+By taking a ratio of $p$-values, $\cls$ approximates that likelihood ratio:
+we see from Figure~\ref{fig:2ljets_test_stat_distributions_drhigh} that the
+observed data does land in a spike at the end of the distribution that
+corresponds to to pseudo-data with $n=0$; the peaks to its left correspond
+to $n=1$, $n=2$ and so on, with widths due to the other parameters varied in
+toy sampling.
+
+The $n=0$ case has no visible width since its likelihood is linear
+(adding signal just adds a constant to the $-\log$ likelihood objectives being
+minimized), but its distribution is not quite a delta function since the test
+statistic depends on the noisy termination of numerical optimization
+algorithms.
+Resulting $\clb$ and $\clsb$ values depend on this effect ---
+with $3.9$ expected background events and zero data we expect
+$\clb = \mathrm{Poisson}(0\mid 3.9) = e^{-3.9} \approx 2.0\times 10^{-2}$.
+And that is $15$ times larger than the evaluated $\clb = 1.3\times 10^{-3}$
+because, as shown in Figure~\ref{fig:2ljets_test_stat_distributions_drhigh_n0},
+the observed test statistic happened to fall quite far to the right
+of that $n=0$ noise distribution.
+This would appear to be an anomalously large significance if $\clb$ were
+misinterpreted as a measure of compatibility with the background model.
+Thankfully it is remedied by the $\cls$-prescribed ratio with $\clsb$,
+since both $p$-values suffer from similar effects.
+Statistical precision is harmed, however --- although $1$m samples should
+give us around $e^{-7.9} \times 10^6 \approx 1000$ signal samples with
+$n=0$, only $57$ toy samples land to the right of the observed test statistic.
+And with $\sqrt{n}$ precision, that easily explains the difference between
+limits at $3.0$ and $2.93$ despite the huge sample size.
+
+\TODO{}
+% real world costs to pretending that our uncertainties are auxiliary data
+% not only idle Bayesian-versus-Frequentist philosophy
+% other examples - cite 4.6 limit.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/2ljets_drhigh_plot_n0.pdf}
+\caption[
+Test statistic distribution for DR-High close to 3
+]{%
+Test statistic distribution for DR-High close to $3$.
+This zooms in to the narrow spike of toy samples that should have $n=0$
+observed data in the discovery region.
+Because the likelihood function for zero data,
+$\mathrm{Poisson}(0\mid x) = e^{-x}$, is $\log$-linear,
+this would analytically be a delta spike, but it acquires width from the finite
+precision of numerical optimization algorithms.
+The observed test statistic falling far to the right of that numerical noise
+reduces our statistical precision in estimating $\clb$ and $\clsb$.
+}
+\label{fig:2ljets_test_stat_distributions_drhigh_n0}
 \end{figure}
