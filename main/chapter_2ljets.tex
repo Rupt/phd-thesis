@@ -4806,8 +4806,8 @@ this chapter.
 These are no different.
 To reduce statistical noise here, I generated truth samples $10$~times as large
 as our central, reconstructed samples.
-These sample sizes vary roughly with cross-section from $300\,000$ to
-$2.8$~million events per sample, and due to the $\sqrt{n}$ scaling of
+These sample sizes vary roughly with cross-section from $300$k to
+$2.8$m events per sample, and due to the $\sqrt{n}$ scaling of
 Monte Carlo errors, means approximately $\sqrt{10}$ times reduced
 standard deviation.
 However, this remains insufficient since each resulting variation is a
@@ -5432,3 +5432,77 @@ $\cls$ value.
 
 \paragraph{Discovery}
 \TODO{pruning $1\%$}
+
+Figure~\ref{fig:2ljets_test_stat_distributions}
+
+Figure~\ref{fig:2ljets_test_stat_distributions}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_upper_limit_scan_drhigh.pdf}
+\caption{DR-High}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_upper_limit_scan_drlow.pdf}
+\caption{DR-Low}
+\end{subfigure}
+\caption[
+Upper limit scans for DR-High and DR-Low
+]{%
+Upper limit scans for (a) DR-High and (a) DR-Low.
+Solid black lines interpolate the $p$-values $\clsb$ and $\clb$ estimated at
+each marked point with the observed data.
+The upper limit is reported where the interpolation of their ratio $\cls$
+crosses $0.05$.
+Coloured backgrounds illustrate what would have been observed with data at
+$\pm1$-sigma quantiles of the background-only distribution.
+Each point uses $500$k ``toy'' samples for the signal-plus-background
+distribution, and $1$m samples for the backgroun-only distribution.
+Individual distributions are inspected in
+Figure~\ref{fig:2ljets_test_stat_distributions}.
+}
+\label{fig:2ljets_upper_limit_scans}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.50\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_test_stat_distribution_drhigh3.pdf}
+\caption{DR-High, $\mu_\textrm{Discovery}=3$}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.46\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2ljets_test_stat_distribution_drlow10.pdf}
+\caption{DR-Low, $\mu_\textrm{Discovery}=10$}
+\end{subfigure}
+\caption[
+Test statistic distributions for points in the DR-High and DR-Low scans
+]{%
+Test statistic distributions for points in the (a) DR-High and (b) DR-Low
+scans, with $\mu_\textrm{Discovery}=3$ and $\mu_\textrm{Discovery}=10$
+respectively.
+Axis limits are set from the minimum and maximum test statistics recorded.
+Note the different binning: histograms contain normalized densisites with
+different widths between the two distributions.
+The black vertical line indicates the observed test statistic,
+and the $p$-values $\clb$ and $\clsb$ are tail areas to its right.
+If the two distributions were predictive, their relative densities at that
+observation would indicate their likelihood ratio.
+Results are:
+% clb =  0.001322
+% clsb =  5.7e-05
+% cls =  0.0431164901664
+(a, DR-High) $\clb = 1.3\times 10^{-3}$ and $\clsb = 5.7\times 10^{-5}$,
+% clb =  0.087502
+% clsb =  0.007667
+% cls =  0.0876208543805
+(b, DR-Low) $\clb = 8.8\times 10^{-2}$ and $\clsb = 7.7\times 10^{-3}$.
+}
+\label{fig:2ljets_test_stat_distributions}
+\end{figure}
