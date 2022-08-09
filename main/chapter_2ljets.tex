@@ -321,13 +321,13 @@ $\pm1$-sigma variations,
 $\clb$ evaluated with the signal expectation set to the observed upper limit,
 and the discovery $p$-value (capped at $0.5$) with its equivalent significance.
 \\[0.5em]
-Upper limits use the one-sided profile likelihood test statistic.
-The discovery $p$-value uses a profile likelihood test statistic in a one-sided test.
+Upper limits use the one-sided profile likelihood test
+statistic~\cite{Cowan:2010js}.
+The discovery $p$-value uses a profile likelihood test statistic in a one-sided
+test.
 All $p$-values are estimated by simulation of alternative data.
-\\
-\TODO{add labels and references to asymptotic formulae paper}
-\\
-\TODO{reference pdg rounding}
+Values with errors are rounded to one or two significant figures according
+the the PDG rounding scheme~\cite{pdg2020review}.
 }
 \label{tab:2ljets_discovery}
 \end{table}
@@ -346,10 +346,11 @@ and the RJR $3\ell$ search~\cite{atlas_rjr_3l_SUSY_2019_09},
 Production of all systematic variations for the background samples;
 other group members assisted with the central background sample.
 Production of all electroweak signal samples and their systematic variations.
-\item \TODO{?Evaluation of Monte Carlo $Z$+jets uncertainties for RJR signal regions
-which indicated they exceeded $100\%$}
-\item \TODO{Various collaborations with group members on scripts to conduct
-tasks which were common between the searches.}
+\item Evaluation of $Z$+jets uncertainties for RJR signal regions through
+from simulations. These exceeded $100\%$ relative variation and supported the
+use of data-driven methods.
+\item Various collaborations with all other group members on common core tasks
+that are shared between the searches of the $\twoljets$ project.
 \item Integration of the electroweak analysis with \atlas\ combinations and
 pMSSM scan efforts, by performing their validation studies and serializing the
 analysis results.
@@ -1261,13 +1262,14 @@ mismeasurements.
 In the context of $\twoljets$ selections, $\metsig$ suppresses $\ttbar$
 contributions more than $\met$ alone, plausibly since $\ttbar$ events are
 accompanied by more hadronic activity than other sources of $\ptmiss$.
+This effect in the $\metsig$ distribution is demonstrated in simulations in
+Figure~\ref{fig:2ljets_presel_met}.
 What remains of the standard model in the high-$\metsig$ tail of $\twoljets$
 selections is almost pure \diboson\ -- $ZZ$ with a hard $Z\rightarrow \nu\nu$,
 and $W^\pm Z$ where the charged lepton in $W^\pm\rightarrow\ell^\pm\nu$
-is not reconstructed.
-\TODO{plot of \diboson\ decomposition here?}
-These effects are demonstrated from simulations in
-Figure~\ref{fig:2ljets_presel_met}.
+is not reconstructed; these subcomponents of the \diboson\ process are discussed
+later in Section~\ref{sec:2ljets_validation} and displayed in
+Figure~\ref{fig:2ljets_splits_\diboson}.
 
 \begin{figure}[tp]
 \centering
@@ -3123,9 +3125,8 @@ considered necessary.
 
 The $\twoljets$-electroweak search implements a total of $136$ modifiers in its
 background-only model, and more for each signal model.
-Of those I evaluated more manually, some of the more interesting or important
-will be discussed in the remainder of this section ---
-\TODO{update this}
+Of those not evaluated automatically, some of the more interesting or important
+will be discussed in the remainder of this section.
 Fake/non-prompt lepton backgrounds in Section~\ref{sec:2ljets_mm_fakes},
 some alternative samples in Section~\ref{sec:2ljets_sample_comparisons},
 various less impactful effects in
