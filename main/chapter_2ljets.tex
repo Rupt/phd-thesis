@@ -75,7 +75,8 @@ Section~\ref{sec:2ljets_validation}.
 Section~\ref{sec:2ljets_unblinding}, and
 \item and some additional results are presented in
 Section~\ref{sec:2ljets_results}.
-\TODO{Conclusions}
+\item A concluding discussion is given in
+Section~\ref{sec:2ljets_discussion}.
 \end{itemize}
 
 
@@ -5617,26 +5618,6 @@ corresponds to pseudo-data with $n=0$; the peaks to its left correspond
 to $n=1$, $n=2$ and so on, with widths due to the other parameters varied in
 toy sampling.
 
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.6\textwidth]{figures/2ljets_drhigh_plot_n0.pdf}
-\caption[
-Test statistic distribution for DR-High close to 3
-]{%
-Test statistic distribution for DR-High close to $3$.
-This zooms in to the narrow spike of toy samples that should have $n=0$
-observed data in the discovery region.
-Because the likelihood function for zero data,
-$\mathrm{Poisson}(0\mid x) = e^{-x}$, is $\log$-linear,
-this would analytically be a delta spike.
-It acquires this width from the finite precision of numerical optimization
-algorithms.
-The observed test statistic falling far to the right of that numerical noise
-reduces our statistical precision in estimating $\clb$ and $\clsb$.
-}
-\label{fig:2ljets_test_stat_distributions_drhigh_n0}
-\end{figure}
-
 The $n=0$ case has no visible width since its likelihood is linear
 (adding signal just adds a constant to the $-\log$ likelihood objectives being
 minimized), but its distribution is not quite a delta function since the test
@@ -5660,6 +5641,26 @@ $n=0$, only $57$ toy samples land to the right of the observed test statistic.
 And with $\approx1/\sqrt{57}$ relative statistical precision, that easily
 explains the difference between limits at $3.0$ and $2.93$ despite the huge,
 and likewise expensive, toy sample size.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/2ljets_drhigh_plot_n0.pdf}
+\caption[
+Test statistic distribution for DR-High close to 3
+]{%
+Test statistic distribution for DR-High close to $3$.
+This zooms in to the narrow spike of toy samples that should have $n=0$
+observed data in the discovery region.
+Because the likelihood function for zero data,
+$\mathrm{Poisson}(0\mid x) = e^{-x}$, is $\log$-linear,
+this would analytically be a delta spike.
+It acquires this width from the finite precision of numerical optimization
+algorithms.
+The observed test statistic falling far to the right of that numerical noise
+reduces our statistical precision in estimating $\clb$ and $\clsb$.
+}
+\label{fig:2ljets_test_stat_distributions_drhigh_n0}
+\end{figure}
 
 Although I have found no \atlas\ search reporting a discovery region limit
 below $3$, there are published examples with zero data but larger observed
@@ -5733,8 +5734,11 @@ Plausible explanations could include rogue values of sampled alternative data
 (real data and auxiliary data that constrain model parameters), but given this
 result for the observed test statistic, I am inclined to blame failures in
 the numerical optimization.
+Histogram ranges in Figure~\ref{fig:2ljets_test_stat_distributions} are
+set from the smallest and largest toy test statistics, and their large extent
+indicates rare outliers that may also result from failed fits.
 
-It is undoubtedly arguable that the pathological test statistic distributions
+It is certainly arguable that the pathological test statistic distributions
 observed in DR-Low indicate a bug that should be fixed.
 However, the statistical software packages that generated this result
 --- \roofit\ through \histfitter ---
@@ -5744,7 +5748,9 @@ What they do defines what is correct.
 All \pyhf\ can do is imitate.
 There is no such thing as a bug.
 
+
 \section{Discussion}
+\label{sec:2ljets_discussion}
 \begin{epigraphs}
 \qitem{%
 When you're building a video game world, you're building with ideas, and that
