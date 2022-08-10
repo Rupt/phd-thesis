@@ -619,23 +619,21 @@ the $\twoljets$-electroweak analysis.
 Strong supersymmetry, producing super-partners of quarks and gluons, would be
 produced at much larger cross-sections than electroweak supersymmetry at the
 LHC.
-Squarks and gluinos are therefore excluded with masses up to several
-$\eV[T]$ using hadronic data alone, depending on which simplified model is
-considered~\cite{atlas_susy_strong_0l}.
+Squarks and gluinos in simplified models are therefore excluded with masses up
+to several $\eV[T]$ using hadronic data alone~\cite{atlas_susy_strong_0l}.
 
 The $\twoljets$-strong search targets strongly interacting supersymmetric
-effects in cases where their decays produce pairs of charged leptons.
-Like the RJR and electroweak $\twoljets$ searches, the $\twoljets$-strong
-signals produce jets and invisible lightest supersymmetric particles.
-Unlike the RJR and electroweak parts, not all of these leptons are produced
-by $Z$ boson decays.
-As illustrated in Figure~\ref{fig:2ljets_strong_signal_diagrams}, decay trees
+effects in cases where their decays include pairs of charged leptons.
+Like the RJR and electroweak $\twoljets$ searches, signal models targeted by
+the $\twoljets$-strong search produce jets and invisible LSPs.
+Unlike the RJR and electroweak parts, however, not all of these leptons are
+produced by $Z$ boson decays;
+as illustrated in Figure~\ref{fig:2ljets_strong_signal_diagrams}, decay trees
 featuring sleptons can also produce lepton pairs.
 Lepton pairs produced in these slepton interactions are of the same flavour
 and opposite charge, like those from $Z$ boson decays, but they have different
 mass dilepton mass characteristics.
 
-% signal models
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -656,28 +654,31 @@ mass dilepton mass characteristics.
 \caption{squark-$Z^{(*)}$}
 \end{subfigure}
 \caption[
-Supersymmetric signal processes in the $\twoljets$-strong search
+Diagrams for supersymmetric signal models targeted by the $\twoljets$-strong
+search
 ]{%
-Supersymmetric signal processes in the $\twoljets$-strong search.
+Diagrams for supersymmetric signal models targeted by the $\twoljets$-strong
+search.
 \emph{These figures are reproduced from the paper%
 }~\cite{atlas2022searches, atlas_susy_feynman}.
 \\[0.5em]
-All models produce same-flavour, opposite-sign lepton pairs along with jets
+All three produce same-flavour, opposite-sign lepton pairs along with jets
 and $\met$.
 The gluino-slepton model (a) has a kinematic endpoint in $\mll$
 given in Equation~\ref{eqn:2ljets_strong_max_mll}.
 The gluino-$Z^{(*)}$ and squark-$Z^{(*)}$ models decay via $Z$ boson
-resonances, which may be forced off-shell for small mass-splittings
+resonances that may be forced off-shell for small mass-splittings
 $m(\neutralino_2) - m(\neutralino_1) < m(Z)$.
 }
 \label{fig:2ljets_strong_signal_diagrams}
 \end{figure}
 
-Rather than peaking at a resonance mass, these pairs have an $\mll$
-distribution with a signature end-point which depends on the masses of other
-supersymmetric particles in the
+Rather than peaking at a resonance mass, the lepton pairs in the
+`gluino-slepton' signal model have an $\mll$ distribution that features a
+signature end-point that depends on the masses of other supersymmetric
+particles in the
 $\neutralino_2 \ldots \slepton \ldots \neutralino_1$
-decay chain~\cite{paige1996determining}
+decay chain~\cite{paige1996determining}:
 \begin{equation}
 \label{eqn:2ljets_strong_max_mll}
 \max(\mll)
@@ -687,7 +688,7 @@ decay chain~\cite{paige1996determining}
 .
 \end{equation}
 
-Various previous incarnations of this search have been conducted with similar
+Previous incarnations of this search have been conducted with similar
 selections and target models on in older data, including partial Run~2~\cite{
 atlas_susy_strong_2l_partial_run2_1,
 atlas_susy_strong_2l_partial_run2,
@@ -703,7 +704,46 @@ and ``$2.6$ standard deviations'' in \cms~\cite{cms_susy_2016_strong_2l_run1}.
 These excesses of data above estimated backgrounds were not reproduced in their
 early Run~2 updates.
 
-% exclusion plots
+To target its signal models, the $\twoljets$-strong search defines seven
+overlapping signal regions.
+Three target on-shell $Z^{(*)}$ models by selecting $\mll$ close to $m(Z)$,
+and the others are binned in $\mll$ for sensitivity to the various
+kinematic edges across the grid of signal model parameters.
+
+The largest Standard Model background to this search is dileptonic $\ttbar$,
+partly because no $b$-tagging veto is applied.
+All three signal models produce same-flavour lepton pairs, but $\ttbar$
+produces same-flavour ($ee$/$\mu\mu$) and different-flavour ($e\mu$) pairs at
+equal rates ---
+the $\twoljets$ search exploits this difference in flavour symmetry to derive
+a data-driven background estimate for all of its flavour-symmetric backgrounds,
+and have its previous iterations~\cite{cms_susy_2016_strong_2l_run2_1}.
+The background estimate works by taking different-flavour data, weighting them
+by factors to calibrate for differences in the leptons' reconstruction, and
+histogramming them in same-flavour regions.
+Simulations for $\ttbar$ and the smaller flavour symmetric backgrounds
+$tW$, $WW$, and $\tau\tau$ are replaced by this estimate.
+
+All post-fit results in $\twoljets$-strong regions match the data to within
+$1$-sigma.
+
+Exclusion contours from the $\twoljets$-strong search are reproduced in
+Figure~\ref{fig:2ljets_strong_contours} and show a substantially increased
+area of exclusion, improving by around $400\,\eV[G]$ in the largest limits on
+$m(\tilde g)$ over the partial Run~2
+results~\cite{atlas_susy_strong_2l_partial_run2}.
+However, the jagged edges along these contour are striking.
+This jaggedness arises from the method employed to combine exclusion contours
+derived from individual signal regions.
+Because they overlap, they are not independent and cannot be trivially
+combined.
+Instead, each model in the signal grid is assigned to the signal region
+with the ``best expected sensitivity'' by some
+measure~\cite{atlas2022searches}.
+This combination method constructs an exclusion contour for each signal region,
+then joins those contours such that models assigned to each region use its
+corresponding contour.
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -727,7 +767,7 @@ early Run~2 updates.
 Contours for signal models of the $\twoljets$-strong search
 ]{%
 Contours for signal models of the $\twoljets$-strong search.
-\emph{Figures were produced by the strong team%
+\emph{These figures were produced by the strong team%
 }~\cite{atlas2022searches}.
 \\[0.5em]
 Each model point uses fit results from the signal region with the
@@ -736,55 +776,23 @@ jagged edges arise from the switching between contours set by these different
 signal regions.
 The grey shaded contours showing previous exclusion are taken
 from~\cite{atlas_susy_strong_2l_partial_run2}.
+No previous contour is available for the exact squark-$Z^{(*)}$ model studied
+here.
 }
 \label{fig:2ljets_strong_contours}
 \end{figure}
 
-To target its signal models, $\twoljets$-strong search defines seven
-overlapping signal regions.
-Three target on-shell $Z^{(*)}$ models by selecting $\mll$ close to $m(Z)$,
-and the others are binned in $\mll$ to give broad sensitivity to the various
-kinematic edges across the grid of signal model parameters.
-
-The largest Standard Model background to this search is dileptonic $\ttbar$,
-in part because no $b$-jet veto is used.
-All three signal models produce same-flavour lepton pairs, but $\ttbar$
-produces same-flavour ($ee$/$\mu\mu$) and different-flavour ($e\mu$) pairs at
-equal rates.
-This difference in flavour symmetry is exploited to estimate backgrounds in
-$\twoljets$-strong,
-and its previous iterations~\cite{cms_susy_2016_strong_2l_run2_1}.
-The estimate works by taking different-flavour data, weighting them by factors
-to calibrate for differences in the leptons' reconstruction, and histogramming
-them in same-flavour regions.
-Simulations for $\ttbar$ and the smaller flavour symmetric backgrounds
-$tW$, $WW$, and $\tau\tau$ are replaced by this estimate.
-
-Post-fit results match the data to within $1$-sigma in all $\twoljets$-strong
-regions.
-
-Exclusion contours from the $\twoljets$-strong search are reproduced in
-Figure~\ref{fig:2ljets_strong_contours}.
-Besides their increased reach, the jagged edges to parts of these contour are
-striking.
-These arise from the combination of results from overlapping signal regions.
-Because they overlap, they are not independent and cannot be trivially
-combined.
-Instead, each model in the signal grid is assigned to the signal region
-with the ``best expected sensitivity'' by some measure.
-An exclusion contour is constructed for each signal region, then those contours
-are joined such that models assigned to each region use its corresponding
-contour.
-
-Personally, I find this hard to interpret.
-If I had a pet theory which landed near to one of these sharp
+Personally, I find these jagged contours hard to interpret.
+If I had a pet theory that landed on one of these sharp
 region-transition edges, what should I make of these data?
-Could some combination of the regions not have combined their information to
-produce more precise contours?
-Since model predictions change continuously, should our inferences not also?
-To aid interpretations and to allow combinations of regions'
-information, I chose to design the $\twoljets$-electroweak with only orthogonal
-regions, and without any manual switching of regions between models.
+I wouldn't know.
+It seems certain that some combination of the regions could have combined their
+information to produce a continuous and more informative contour.
+Where model predictions change continuously in these signal spaces, it seems
+that our inferences should also.
+To aid interpretations and to allow justifiable combinations of regions'
+information, I therefore chose to design the $\twoljets$-electroweak with only
+orthogonal regions, and without any switching of regions between models.
 
 
 \FloatBarrier
@@ -792,24 +800,30 @@ regions, and without any manual switching of regions between models.
 \label{sec:2ljets_origins_electroweak}
 As motivated in the previous sections, I have personal preferences for
 simulation-driven backgrounds and orthogonal multi-bin regions.
-This is because simulation-driven estimates are interpretable as
-Standard Model predictions,
-and orthogonal regions have independent likelihoods which can be cleanly
-combined to leverage the information in their data.
+Simulation-driven estimates are interpretable as Standard Model predictions,
+relying less on loosely justified extrapolations,
+and orthogonal regions have independent likelihood functions that can be
+cleanly combined, by multiplication, to leverage the joint information in their
+data.
 
-The main idea behind the design of the $\twoljets$-electroweak analysis is to
+The $\twoljets$-electroweak search aims to
 update the regions of the partial Run~2 search in its $\twoljets$
-channel~\cite{atlas_23l_SUSY_2016_24}, which also searched for signal models
-producing chargino-neutralino pairs which decay via $W$ and $Z$ bosons.
-A particular goal was to improve sensitivity by replacing their overlapping
+channel~\cite{atlas_23l_SUSY_2016_24}, which also searched for the same C1N2
+signal models that produce chargino-neutralino pairs decaying via $W$ and $Z$
+bosons.
+A particular design goal was to improve sensitivity by replacing their overlapping
 `SR2-int' and `SR2-high' regions with orthogonal selections.
 \emph{Special thanks to Sarah~Williams for suggesting this approach.}
 
-As in the $\twoljets$-strong search, the partial Run~2 search chose one
-signal region from an expected sensitivity for each signal point,
-as displayed in
-Figure~\ref{fig:2ljets_23l_stuff}
-with the two regions and exclusion contours.
+Similarly to the $\twoljets$-strong search, the partial Run~2
+search~\cite{atlas_23l_SUSY_2016_24} chose one signal region for each signal
+point from a measure expected sensitivity measure and drew contours around
+results from the chosen fit results.
+The two signal regions SR2-int and SR2-high differ only by a selection of
+$\met > 250\,\eV[G]$ and are displayed in Figure~\ref{fig:2ljets_23l_stuff},
+along with the combined exclusion contour (additionally including an `SR2-low'
+region and a three-lepton result) and the map of which region is chosen at
+which signal point.
 
 \begin{figure}[tp]
 \centering
@@ -854,43 +868,49 @@ The $3\ell$ regions are orthogonal and combined.
 
 Additionally, $\twoljets$ widens its scope to target a GMSB simplified model
 illustrated in Figure~\ref{fig:2ljets_signal_diagrams}.
-The C1N2 and GMSB models behave similarly since both feature decays via massive
-bosons ($W\kern-0.4exZ$, $ZZ$ or $Zh$) to leptons and jets, in similarly structures decay
-trees to pairs of invisible supersymmetric particles.
-Although widening sensitivity to both models does sacrifice sensitivity to
-either one, the increased degree of model independence is itself of value for
-future reinterpretations of the data.
+The C1N2 and GMSB models behave similarly since both feature gaugino decays via
+massive bosons ($W\kern-0.4exZ$, $ZZ$ or $Zh$) to leptons and jets, in
+similarly structures decay trees to invisible supersymmetric pairs.
+Although widening sensitivity to both models must sacrifice some sensitivity to
+each individually, the increased degree of model independence is itself of
+value for future reinterpretations of our data.
 We are happy to sacrifice some precision for generality.
+Since the $W$ and $Z$ boson masses are similar, this sacrifice turns out to be
+quite small anyway.
 
 Multi-bin fits are not special.
-They are standard \atlas\ practice, and there could have been no complication
-in replacing the overlapping SR2-int and SR2-high with orthogonally binned
-regions.
-However, my design decisions for $\twoljets$-electroweak
-caused problems for the clarity of communication and accuracy of background
-modelling.
-These issues are developed further through the remainder of this chapter.
+They are standard \atlas\ practice, and there should have been no complication
+had I designed copied SR2-int and SR2-high for $\twoljets$-electroweak but with
+with minor tweaks to change them into orthogonally binned regions.
+However, my design decisions for $\twoljets$-electroweak became much more
+ambitious, increasing to a total of $13$ signal regions with complicated
+definitions.
+Although this multi-bin design squeezed out some extra sensitivity,
+it also caused problems --- for the clarity of communication and the accuracy
+of our background modelling;
+these issues shall be developed throughout the remainder of this chapter.
 
 A multi-binned histogram is usually and clearly illustrated as slicing up one
 variable.
 My design of $\twoljets$-electroweak violates this.
-Instead, it is designed as a tree whose branches recursively split various
-variables.
-This leads to specifications which are challenging to present and understand,
+Instead, it is designed more like a tree whose branches recursively split
+various variables.
+This leads to specifications which are challenging to present or understand,
 and which require region names with numerous suffixes to specify where they
 live in that tree.
 
-Worse, I disregarded the idea that every region should have a large
-background expectation.
-Normally, this is justified by the limitations of approximate statistical
-methods, which work
+Worse, I disregarded the popular idea that every region should have a large
+background expectation, preferably of ten events or more.
+This requirement is typically justified by the limitations of approximate
+statistical methods that work
 ``from as few as $\mathcal{O}(10)$ data events''~\cite{histfitter2014}.
 But the Poisson likelihood works for infinitesimally small
 expectations~\cite{skilling2009cosmology}, and in the small-bin limit one has
 continuous distributions with Poisson normalizations
 (sometimes called ``extended'' in high-energy
 physics~\cite{barlow1990extended})
-that are standard and easily analysed.
+that are standard elsewhere in high energy physics, and are easily analysed
+by the standard likelihood fitting methods.
 
 Events appearing in a region with minimal background is evidence in favour
 of new contributions, and that only strengthens as the background approaches
@@ -899,23 +919,28 @@ For example, the top quark was observed by \dzero\ using seven regions all with
 background expectations of $1$ or less, for a total of $3.79\pm0.55$ expected
 and $17$ observed~\cite{abachi1995observation}.
 If they could do that with technology from the year $1995$, we can do it now.
+This is a fact, but only if we can really trust our predictions of zero
+backgrounds.
 
 The real reason to avoid small backgrounds is, in this context, to allow honest
 assignments of background uncertainties.
 Although main simulated samples may have good precision,
-many `systematic' variations and `data-driven' estimates are also required.
-Many of these alternative estimates have far worse precision, and can fail
-totally as the number of simulated events accepted plunges towards zero;
-they can require $\approx10$ data events to work properly.
+many variations for systematic uncertainties and data-driven estimates are also
+required.
+Many methods to evaluate these variations have far worse precision than the
+central simulations, and can fail totally as their number of Monte Carlo events
+accepted plunges towards zero.
+In practice, our methods to assign background uncertainties can easily require
+tens of expected events to work properly.
 
-Unfortunately, $\twoljets$-electroweak selections were finalized before I
-appreciated this problem that background variations were dubious.
-Various workaround are invoked to assign plausible variations despite small
-yields, which we shall in the remainder of this chapter.
-
-As seen in the splash summary of Section~\ref{sec:2ljets_splash}, this search
-finds agreement with backgrounds except for some local deficits of data below
-backgrounds.
+Unfortunately, the $\twoljets$-electroweak regions designs were finalized
+before unblinding and before I appreciated this problem with background
+uncertainties in the smaller regions.
+Various dubious workaround are invoked to assign plausible variations despite
+small yields, which we shall in the remainder of this chapter.
+As seen in the splash summary of Section~\ref{sec:2ljets_splash}, the
+$\twoljets$-electroweak search observes agreement with post-fit backgrounds
+except for some local deficits of data below backgrounds.
 Exclusion contours exceed their expected range because of these deficits,
 but they can only be trusted if the background model is trusted.
 
@@ -941,6 +966,7 @@ and $m(\neutralino_1) \in 200\textrm{--}300\,\eV[G]$.
 The all-hadronic search is most sensitive at the highest parent masses,
 and three-lepton data of in the on-shell and compressed searches are most
 sensitive at intermediate and small (off-shell/compressed) mass splittings.
+
 For the GMSB model, our result complements limits from the
 $4\ell$~\cite{SUSY-2018-02} and
 all-hadronic~\cite{SUSY-2018-41} searches.
@@ -952,12 +978,28 @@ $m(\neutralino_1) < 250\,\eV[G]$.
 This leaves the area that our $\twoljets$-electroweak search uniquely excludes
 to have with large Higgs branching fractions (up to $90\%$) at intermediate
 masses with $m(\neutralino_1) \in 250\textrm{--}600\,\eV[G]$.
+Exclusion of the largest $B(\neutralino_1 \rightarrow h \tilde{G})$ values
+requires sensitivity to double-Higgs decay signatures --- \cms\ have published
+exclusions in the region combining $hh\rightarrow \gamma\gamma+\met$ and
+$hh\rightarrow b\bar bb\bar b$ with other channels to exclude
+$B(\neutralino_1 \rightarrow h \tilde{G}) = 1$ up to
+$m(\neutralino_1) = 750\,\eV[G]$~\cite{
+cms_susy_2018_partial_run2_combination,
+CMS-SUS-16-045,
+CMS-SUS-16-044
+}.
 
+For reasons described in this section, the $\twoljets$-electroweak search is
+designed with large number of orthogonal regions, and with those regions its
+results offer some extensions over previous and orthogonal constraints.
+Before describing those regions' definitions and modelling we apply to their
+expected yields, the following sections now return to the basic details of the
+data and event variables they use.
 
 \section{Events}
 \label{sec:2ljets_events}
-This section describes the events selected for the $\twoljets$ searches, the
-reconstructed particle objects derived from those events and various
+This section describes the events selected for the three $\twoljets$ searches,
+the reconstructed particle objects derived from those events and various
 important event variables.
 
 From its name, it is clear that $\twoljets$ analyses features of events with
