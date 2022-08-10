@@ -4109,8 +4109,8 @@ predictions from the Standard Model.
 
 \subsubsection{Alternative \texorpdfstring{$\zjets$}{Z+jets}}
 \label{sec:2ljets_zjets_alt}
-As mentioned in Section~\ref{sec:2ljets_low}, the $\zjets$ sample comparison
-is hugely important to our results in SR-Low.
+As seen in Section~\ref{sec:2ljets_low}, the $\zjets$ sample comparison is
+important to our results in SR-Low.
 Its central yields are displayed in Figure~\ref{fig:2ljets_low_sr_or_cr_region}
 in the union of \crz\ and SR-Low, which form a continuous region in $\mjj$.
 Our central $\zjets$ samples use \sherpa~2.2.1~\cite{
@@ -4134,17 +4134,18 @@ it contains around one sixth as many simulated events as the central sample,
 and that difference is not countered by their different weight distributions
 in this region.
 
-Since \sherpa\ implements both the hard scatter and shower models, we are
-considering variations due to the simultaneous change of both of these
-components together.
+Since \sherpa\ implements both the hard scatter and parton shower models, by
+comparing these two samples we are considering variations due to the
+simultaneous change of both of hard scatter and parton shower components
+together.
 
 For their implementation in the background model in HistFactory, these
 variations reduce to the relative scale factors that are presented in
 Table~\ref{tab:2ljets_zjets_alt}.
 Note that up and down variations of the sample comparison parameter do not
-mean up and down variations of bin yields, but to the coupled variations
-in directions given by the signs of the relative variations given in the
-various regions.
+necessarily mean up and down variations of bin yields, but to the coupled
+variations in directions given by the signs of the relative variations given in
+the various regions.
 These variations are evaluated according to a standard recipe prescribed by
 the ATLAS SUSY group~\cite{atlas_twiki_susytheoretical} that says to
 \begin{itemize}
@@ -4164,15 +4165,16 @@ we are unable to give no direction to any deviation, and we choose to
 use the same, signed, definition of $\sigma$ for all regions.
 
 As seen from Table~\ref{tab:2ljets_zjets_alt}, the statistical uncertainty
-$\sigma_2$ is a substantial contribution to these variations, and so
+$\sigma_2$ is a substantial contribution to these variations, so
 the statistical uncertainty in the alternative sample does significantly
 expand this variation.
 Indeed, $\sigma_2$ is the larger contribution in SR-Low-a and SR-Low-b, which
 are the regions most sensitive to $\zjets$ variations.
 Our unprescribed choice to match their directions therefore matters.
 It may have been reasonable to treat them differently, perhaps by adding
-independent parameters in the separate regions.
-I believe such a change would have improved the plausibility of our background
+independent parameters to describe the statistical errors in the separate
+regions.
+Such a change may well have improved the plausibility of our background
 modelling, and I regret not finding the capacity to push for it at the time.
 
 This SUSY recipe contradicts the advice of the \atlas\ Physics Modelling Group
@@ -4193,7 +4195,7 @@ The \atlas\ SUSY recommendation is to consider the comparison if
 ``the scale ($+$ PDF) uncertainties are too small in your
 analysis''~\cite{atlas_twiki_susytheoretical},
 but I know of no official advice on how to judge what is ``too small''.
-Unblinding procedures are discussed further in
+Our unblinding procedure is discussed further in
 Section~\ref{sec:2ljets_unblinding}.
 
 \begin{table}[tp]
@@ -4328,7 +4330,6 @@ small error bar in SR-Low of around $\pm10$ events per $100\,\eV[G]$,
 and a curious dip in the $\zjets$ background in the signal region.
 The figure caption also admits that
 ``All EWK search control and signal regions are included in the fit.''
-
 Fitting only to control region (not signal regions) results in
 Figure~\ref{fig:2ljets_low_crz_pre_post_pre}, which shows a clear deficit in
 the signal region, with \diboson\ yields peaking near to $m(W)$ above a smooth
@@ -4358,7 +4359,7 @@ this effect; in VR-Low, small differences between the central and alternative
 $\zjets$ samples are visible in Figure~\ref{fig:2ljets_vrlow_alt}, but
 after fitting to the signal regions,
 Figure~\ref{fig:2ljets_low_vrlow_pre_post} shows that the $\zjets$ sample
-is almost wiped out, leaving a deficit below data.
+is almost wiped out, leaving an apparent post-fit excess of data in VR-Low.
 
 \begin{figure}[tp]
 \centering
@@ -4448,9 +4449,9 @@ uses the conventions we used in development.
 It is not clear that such a large extrapolation from the difference between
 two simulations is physically reasonable, especially since a large fraction
 of its effect is due to the statistical error on a small alternative sample.
-To avoid this questionable effect, I searched for alternative configurations
+To avoid this questionable effect, I explored alternative configurations
 of the background model, such as constraining the parameter to $1$-sigma.
-Committee decisions within the \atlas\ SUSY group dictated that we should keep
+Committee decisions within the \atlas\ SUSY group stated that we should keep
 it as described, reasoning along the lines that
 a) this is a real and significant deficit in SR-Low, so must appear as either
 a pull on systematic variations or as a deviation from data, and
@@ -4460,33 +4461,34 @@ With this decision, post-fit results (such as the summary plot of
 Figure~\ref{fig:2ljets_summary})
 indeed show no significant deviation from data in SR-Low-a or SR-Low-b,
 and this $\zjets$ sample comparison is the main reason why.
-Internal reviewers were, however, confused as to why we mentioned a deficit in
+Internal reviewers were, there, confused as to why we mentioned a deficit in
 SR-Low that did not appear in the results plots or tables.
 Much to my ire, the paper editors therefore removed all mentions of an SR-Low
 deficit from the paper.
 Despite bring real and significant, this deficit was erased from public view,
 and to my knowledge, is only reported through inner details of
-the HistFactory models shared in our \hepdata\ archive~\cite{hepdata.116034}.
+the HistFactory models shared in our \hepdata\ archive~\cite{hepdata.116034}
+(and now, I hope, this thesis).
 
 To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
 excessive \diboson\ background should also take some blame for this poor
 prediction in SR-Low;
 its \diboson\ yields peak in the signal region on $\mjj \approx m(W)$, and
-we do not expect large $W\rightarrow jj$ contributions in this \diboson\ process,
-since one boson is needed for the leptons and the other is needed for the
-$\met$ that we select.
+we do not expect large $W\rightarrow jj$ contributions in this \diboson\
+process since one boson is needed for the leptons and the other is needed for
+the $\met$ that we select.
 We shall see in Section~\ref{sec:2ljets_diboson_alt} why \diboson\ yields are
 not similarly squashed by sample comparison variations.
 
 
 \subsubsection{Alternative \diboson}
 \label{sec:2ljets_diboson_alt}
-No alternative samples were available for comparison with our central \diboson
-samples, which are simulated with \sherpa~2.2.2 at NLO with up to six
+No complete alternative samples were available for comparison with our central
+\diboson\ samples, which are simulated with \sherpa~2.2.2 at NLO with up to six
 electroweak vertices.
 This limitation is simply a result of how \atlas\ has decided to allocate
-its limited resources on, and quite reasonably so, since full simulation is
-computationally expensive.
+its limited resources on, and quite reasonably so since full simulation is
+computationally expensive and \diboson\ processes are relatively rare.
 We did, however, have access to the cheaper alternative set of small,
 truth-level samples, that were simulated with the same \sherpa\ setup but with
 varied parameters to assess uncertainties in the modelling of parton showers.
@@ -4574,7 +4576,7 @@ of $26\%$ and a maximum of $960\%$.
 For $Q_\textrm{cut}^\textrm{CKKW}$ and $S_Q$ their signs appear randomly
 distributed in positive and negative directions in approximately equal
 proportions, but for \texttt{CSS\_KIN} most are correlated in the positive
-direction, with the only SR-OffShell-a moving in the negative direction, by
+direction, with the only SR-OffShell-a moving in the negative direction by
 $46\%$.
 Variations in control regions are typically smaller, ranging from $12\%$ to
 $50\%$, but remain limited by statistical precision.
@@ -4585,7 +4587,8 @@ from statistical imprecision.
 To mitigate this, we instead take the variations from looser regions
 VR-sys-main and VR-sys-OffShell, that target on- and off-shell regions
 respectively and hope to improve the statistical precision.
-Both require the pre-selection from Table~\ref{tab:2ljets_presel};
+Both of these loose VR-sys-* regions require the pre-selection from
+Table~\ref{tab:2ljets_presel};
 VR-sys-main also requires
 $\mjj \in 60\textrm{--}110\,\eV[G]$ and $\nbtag \leq 1$,
 and VR-sys-OffShell requires
@@ -4635,7 +4638,7 @@ parton shower (central \pythia8 versus \herwig7).
 Initial state radiation variations are evaluated from an alternative
 sample with $h_\textrm{damp} = 517.5\,\eV[G] \approx 3m(t)$,
 which damps real emissions with weights to vary an ``eigentune'' parameter
-named \texttt{Var3c}~\cite{ATL-PHYS-PUB-2014-021}..
+named \texttt{Var3c}~\cite{ATL-PHYS-PUB-2014-021}.
 The central sample uses a default value $h_\textrm{damp} = 172.5\,\eV[G]$ to
 approximate $m(t)$~\cite{CMS-PAS-TOP-16-021}.
 
@@ -4706,12 +4709,12 @@ consideration of statistical uncertainties.
 
 Scale variations mostly move all regions in the same direction, with increased
 scales tending to reduce yields.
-Variations in $\mu_R$ are typically in the $\approx 10\textrm{--}30\%$ range,
-making them larger than the $\approx 1\textrm{--}10\%$ variations due to
+Variations in $\mu_R$ are typically around the $10\textrm{--}30\%$ range,
+making them larger than the approximately $1\textrm{--}10\%$ variations due to
 $\mu_F$.
 Given that it takes a maximum, the envelope prescription gives a single larger
 variation, but that may not mean more flexibility in the model since the SUSY
-prescription has three degrees of freedom.
+prescription has three independent degrees of freedom.
 
 Since these variations are highly correlated between regions, samples that are
 normalized to control regions (\diboson, $\ttbar$, $\zjets$, and $\zyjets$)
@@ -4723,25 +4726,28 @@ similarly reducing their effects.
 
 \paragraph{Parton distribution variations}
 Like scale variations, uncertainties in parton distribution functions (PDFs)
-are assigned by weights stored Fuks:2012qxby the generator.
-These weights, however, do not correspond to simple parameters variations,
+are assigned by weights stored by the generator.
+These weights, however, do not correspond to simple parameter variations,
 but different replica PDFs in a Monte Carlo ensemble
-that is intended to model the uncertainties left after fitting to data
-in the NNPDF methodology~\cite{NNPDF:2017mvq,BALL2011112,BALL2012608}.
+that is intended to model the uncertainties left after fitting with the
+\textsc{NNPDF} methodology~\cite{NNPDF:2017mvq,BALL2011112,BALL2012608}.
 
 The number of PDF replicas varies between samples, but is between
 $100$ and $138$ for all except $\zyjets$, that has just one central and two
 alternatives.
 Remarkably, both SUSY and PMG prescriptions agree on how to assign variations
-from these replica weights, since both say to follow the PDF4LHC
-recommendations~\cite{PDF4LHC_Butterworth_2016} (specifically, p.
+from these replica weights --- both say to follow the PDF4LHC
+recommendations~\cite{PDF4LHC_Butterworth_2016} (specifically, pp.46,
+Section~``6.2. Formulae for the calculation of $PDF$ and $PDF+\alpha_s$
+uncertainties).
 Since PDF4LHC gives two alternative prescriptions, one using mean and variance
 and the other using quantiles, we evaluate and consider both.
-Both are negligible, making $\approx 1\%$ differences before normalization
-to control regions, but are included for completeness.
+Both assignments of PDF variations are negligible in all regions, making
+approximately $1\%$ differences before normalization to control regions, but are
+included for completeness.
 Since there is nothing particularly special about the central PDF weight,
-this prescription allows the central scale-factor to differ from unity,
-and this is also a $\approx 1\%$ effect.
+this prescription allows the central scale-factor to differ from $1$,
+and this is also a $1\%$-level effect.
 
 \paragraph{Miscellanea}
 \begin{itemize}
@@ -4758,6 +4764,7 @@ alternative simulations~\cite{Anders:2125718, atlas_twiki_susytheoretical}.
 \emph{Thanks to Jon~Long and Yumeng~Cao for collaboration in preparing these
 variations}.
 \end{itemize}
+
 
 \subsection{Signal variations}
 \label{sec:2ljets_signal_variations}
@@ -4776,8 +4783,8 @@ any data better than a constrained background, making it look better to certain
 interpretations.%
 \footnote{%
 This superiority of flexible models is not fundamental, but is a property of
-\heplikelihood\ fitting methods.
-If we want to punish models that make uncertain predictions, then we should
+best-fit methods.
+If we want to punish models that make uncertain predictions, then we could
 consider likelihoods (not \emph{maximum} \heplikelihood s), as described in
 Section~\ref{sec:searches_searches}.
 The important distinction is between uncertain predictions from the model,
@@ -4838,27 +4845,27 @@ showers (`eigentune' parameters
 \texttt{Var3c}~\cite{ATL-PHYS-PUB-2014-021}).
 Following the \atlas\ SUSY group
 prescription~\cite{atlas_twiki_susytheoretical},
-we consider only a coherent scaling of the scales $\mu_R$ and $\mu_F$ together,
-so this theory variation includes a total of seven components.
+these scale variations consider only a coherent movement $\mu_R$ and $\mu_F$
+together, so this theory variation includes a total of seven components.
 
-Scale variations have appeared here twice:
+Scale variations now appeared twice for signals:
 first for cross-section variations and
 second for these theory variations.
 They therefore contribute both in each fit model and in the varied
 cross-sections for varied exclusion contours.
-This is questionable, but we shall see here that, thankfully, this scale
-double-counting makes very little difference.
+This is dubious, but thankfully we shall see shortly that this double-counting
+of scale variations makes very little difference.
 
 \paragraph{Extrapolation}
 To evaluate each variation requires a new simulation with different parameters,
-so to reduce computational costs we use truth-level only
+so to reduce costs we use truth-level only
 (through SimpleAnalysis~\cite{simpleanalysis_cern}) and evaluate the
 variations at only a handful of benchmark signal models.
 From these benchmark signal models, we evaluate a relative uncertainty due
 due to each component, and extrapolate those variations from these benchmark
 examples to others in the parameter plane.
 
-Extrapolation is performed as follows.
+My extrapolation scheme is fairly arbitrary, and is performed as follows.
 Each benchmark point $i$ has a location in the parameter plane $\vec y_i$, and
 for a given source of uncertainty $j$ its relative variation has been evaluated
 as $r_{ij}$.
@@ -4909,8 +4916,9 @@ Figure~\ref{fig:2ljets_signal_sys_extrap}.
 This figure illustrates the common theme that our theory variations are small
 if and only if signal yields are large enough for good statical precision.
 
-Relative uncertainty $r$ is evaluated for each component, and the total
-uncertainty is their sum in quadrature, capped at $100\%$.
+We interpolate an uncertainty for each of the seven components and combine them
+all into a single total variation by summation quadrature, capped at a $100\%$
+relative error.
 This is done independently in each selection region without considering the
 directions of coherent variations; all variations are combined as described
 and varied together in all regions under the control of a single parameter in
@@ -4948,7 +4956,7 @@ Example extrapolated signal theoretical uncertainties.
 Variations are evaluated for signals at the marked points and extrapolated to
 each parameter plane according to Equation~\ref{eqn:2ljets_signal_extrap}.
 To account for its drastically different kinematics, the C1N2 off-shell space
-is treated independently.
+is treated separately.
 }
 \label{fig:2ljets_signal_sys_extrap}
 \end{figure}
@@ -4956,20 +4964,21 @@ is treated independently.
 \paragraph{Evaluation}
 Statistical precision has limited the utility of most variations described in
 this chapter.
-These are no different.
+Signal variations are no different.
 To reduce statistical noise here, I generated truth samples $10$~times as large
 as our central, reconstructed samples.
-These sample sizes vary roughly with cross-section from $300$k to
-$2.8$m events per sample, and due to the $\sqrt{n}$ scaling of
-Monte Carlo errors, means approximately $\sqrt{10}$ times reduced
-standard deviation.
-However, this remains insufficient since each resulting variation is a
+These sample sizes vary roughly with the signal cross-section from $300$k to
+$2.8$m events per sample.
+Due to the $\sqrt{n}$ scaling of Monte Carlo errors this means approximately
+$\sqrt{10}$ times reduced statistical noise.
+This remains insufficient, however, since each resulting variation is a
 sum in quadrature of variations in $7$ pairs of alternative samples
 whose combination will inflate the uncertainty by roughly a factor of
 $\sqrt{7}$.
 Where signal models' yields has significant in a signal region,
-each variation tends to be around $\approx 20\%$ relative error,
-and are compatible with the central samples within statistical uncertainties.
+each variation tends to be around $20\%$ relative error,
+and all are compatible with the central samples within statistical
+uncertainties.
 
 Yet another unique sample-comparison prescription now assigns variations as
 half of the absolute difference between up and down yields, irrespective of the
@@ -4978,17 +4987,15 @@ This differs from the methods previously described in
 Sections~\ref{sec:2ljets_zjets_alt} and~\ref{sec:2ljets_diboson_alt},
 and is used for consistency with other $\twoljets$ work.
 
-We evaluate and extrapolate each source of uncertainty individually,
-and combine all sources by summation in quadrature in each region to form a
-single total theory variation~\cite{atlas_twiki_susytheoretical}.
-This sum loses all sense of direction, so we choose to give up and down
-variations the same $+$ and $-$ signs in all bins.
-Since the theory variation parameter is coupled across all bins, it therefore
-implements a form of non-uniform normalization factor.
+Combining all of these variations in quadrature loses all sense of direction,
+so we choose to give up and down variations the same $+$ and $-$ signs in all
+bins.
+Since the theory variation parameter is coupled across all bins, its effect is
+therefore to implement a slightly non-uniform normalization factor.
 
 Why the double counting of scale variations does not matter is now apparent:
-this variation is dominated by statistical noise, and the inclusion of one
-extra source for the scale variations simply scales that noise up by
+these signal variations are dominated by statistical noise, and the inclusion
+of one extra source for the scale variations simply scales that noise up by
 a factor of $\approx \sqrt{7/6}$.
 
 \emph{%
