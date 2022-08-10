@@ -1003,8 +1003,9 @@ the reconstructed particle objects derived from those events and various
 important event variables.
 
 From its name, it is clear that $\twoljets$ analyses features of events with
-two charged leptons (electrons or muons --- not taus), and at least one jet.
-Though not nominal, a $\met$ requirement is also implicit from the context
+two charged leptons (those are electrons or muons --- not taus),
+and at least one jet.
+Though not in the name, a $\met$ requirement is also implicit from the context
 of $R$-parity conserving supersymmetric models.
 This section serves to describe how events are selected for the $\twoljets$
 analyses, and which event variables are extracted for use in its selections.
@@ -1014,14 +1015,15 @@ luminosity observed during normal operations of the \atlas\ detector in the
 years $2015$ through to $2018$ of the LHC Run~2~\cite{DAPR-2018-01}.
 Triggers and object definitions are shared between the three $\twoljets$
 searches.
-Higher level event variables and selections will only be described for the
+Higher level event variables and selections will only be described here for the
 $\twoljets$-electroweak search.
 
 \subsection{Trigger}
 \label{sec:2ljets_trigger}
-There would be no event variables if not for the trigger.
-When living our daily lives, we are bombarded with sensory data and must pay
-attention only those gems few of any use, to avoid exhausting our
+There would be no event variables if not for the trigger reducing the data to
+a manageable size.
+When living our lives as humans, we are bombarded with sensory data and must
+pay attention only those gems few of any use, to avoid exhausting our
 processing capacity.
 Running \atlas\ is no different.
 
@@ -1036,25 +1038,24 @@ against physical interest.
 It includes a variety of general purpose selections, which are used for
 $\twoljets$, along with more specialized targets such as vector boson fusion
 or long-lived particles.
-The list varies through time, so we select triggers specifically in
-each data-taking period.
+That trigger list has varied through time, so we select triggers individually
+in each data-taking period.
 
-The loosest triggers are `prescaled' --- their data rate is reduced by randomly
-accepting only a small fraction of events.
-Prescaling adds complication which we avoid;
-for $\twoljets$, we use only the `lowest' (loosest, highest rate) un-prescaled
-triggers selecting two charged leptons~\cite{atlas_twiki_lowest_unprescaled}.
-Those charged leptons are selected in the
-high-level trigger (described in Section~\ref{sec:atlas_trigger})
-primarily requiring large $\pt$ and certain quality criteria which vary by
-trigger.
+The loosest triggers are `prescaled', meaning that their data rate is reduced
+by randomly accepting only a small fraction of events.
+Interpreting prescaled data adds some complications that we avoid in
+$\twoljets$, by using only un-prescaled triggers.
+We use use only the `lowest' (loosest, highest rate) triggers selecting two
+charged leptons~\cite{atlas_twiki_lowest_unprescaled}.
+Those charged leptons are selected in the high-level trigger,
+described in Section~\ref{sec:atlas_trigger}, which
+primarily requires large $\pt$ and certain quality criteria.
 
 In total, we use $14$ different two-lepton trigger selections, each of which
 selects for an electron pair, a muon pair, or an emu (electron-muon pair).
-To describe those triggers, let $\pt^{\ell_i}$ be the transverse momentum of the
-$i\mathrm{th}$ hardest lepton.
-
-In short, all triggers require $\pt^{\ell_i}$ values to exceed thresholds in
+To describe those triggers, we use $\pt^{\ell_i}$ for the transverse momentum
+of the $i\mathrm{th}$ hardest lepton.
+All triggers require $\pt^{\ell_i}$ values to exceed thresholds in
 the range $8\textrm{--}26\,\eV[G]$.
 To detail all trigger requirements and their variations with data period
 would be too tedious and not enlightening, but their $\pt^{\ell_i}$ requirements
@@ -1080,6 +1081,8 @@ Please do not read them all in detail.
 \item $\pt^{e_1} > 26\,\eV[G]~\&~\pt^{\mu_1} > 8\,\eV[G]$.
 \end{itemize}
 \end{itemize}
+Throughout the data used in $\twoljets$, trigger requirements
+have increased in hardness with time.
 The point of listing these is to demonstrate trigger activations are
 non-trivial.
 This motivates lepton selections which exceed these trigger thresholds,
@@ -1088,8 +1091,8 @@ efficiencies near to those thresholds~\cite{
 atlas_trigger_egamma_run2,
 atlas_trigger_muon_run2
 }.
-Throughout the data used in $\twoljets$, trigger requirements
-have increased in hardness with time.
+To avoid these thresholds, all leptons selected for the $\twoljets$-electroweak
+regions are required to have $\pt > 25\,\eV[G]$.
 
 
 \subsubsection{Alternative triggers}
@@ -1101,49 +1104,56 @@ outweigh the cost of using them.
 
 The benefit of an additional trigger could be in increased signal yields if
 that trigger does not also harmfully increase inseparable backgrounds.
-A study, \emph{which was performed by Knut Vadla}, investigated the effects
+A study, \emph{performed by Knut Vadla}, investigated the effects
 of including one-lepton triggers.
 In a signal-region-like selection requiring two leptons, two jets and
 $\met > 200\,\eV[G]$, this study showed that two-lepton triggers already accept
 in excess of $90\%$ of events from benchmark C1N2 models.
-Therefore, any additional trigger has at most a $\approx10\%$;
+Therefore, any additional trigger has at most a $10\%$;
 improvement. Adding one-lepton triggers was found to increase efficiency by
 only a few percentage points, depending on the model.
-We considered that to be too little to be worthwhile.
+The $\twoljets$ team considered that to be too little to be worthwhile.
 
-Costs of triggers are attributable to human effort;
-software work to include them and their associated Monte Carlo weights, along
-with studies to validate background estimates and evaluate systematic
+Costs of triggers are primarily attributable to human effort:
+software work to include them and their associated Monte Carlo weights, and
+extra studies to validate background estimates and evaluate systematic
 uncertainties.
 Similarly, our implementation of the Matrix Method fake/non-prompt lepton
-background estimate (see Section~\ref{sec:2ljets_mm_fakes}) is not equipped to
-handle one-lepton triggers.
+background estimate (described in Section~\ref{sec:2ljets_mm_fakes}) is not
+equipped to handle one-lepton triggers, so further work would have been
+required to replace it.
 
 Although jet and $\met$ triggers were not studied in detail, they can be
-quickly ruled out since they hard objects: examples of these triggers require
+quickly ruled out since they only trigger on hard objects:
+examples of these triggers require
 approximately $\ptjone > 400\,\eV[G]$, $p_\mathrm{T}^{\,j_3} > 200\,\eV[G]$, or
 $\met > 100\,\eV[G]$~\cite{atlas_twiki_lowest_unprescaled}.
 Leptons, however, are striking signals which are produced as smaller background
 rates, as they suppressed by electroweak couplings.
-Therefore, \atlas\ can trigger on leptons with much softer requirements;
-lepton triggers allow us to use softer jets and $\met$, which are relied upon
+\atlas\ can therefore trigger on leptons with much softer requirements;
+lepton triggers allow us to use softer jets and $\met$, that are relied upon
 throughout the $\twoljets$ analyses.
+Although $\twoljets$-electroweak requires $\met > 100\,\eV[G]$ in all of its
+regions, the same is not true of $\twoljets$-RJR not various validation
+studies.
 
 
 \subsection{Leptons}
 \label{sec:2ljets_events_leptons}
 In the context of $\twoljets$, `leptons' means `electron-or-muons';
-this is because taus, which decay before reconstruction, and are not used
-directly in $\twoljets$, and neutral leptons (the neutrinos) go missing.
+this is because taus decay before reconstruction so are used only indirectly
+through their decay products, and neutral leptons
+--- neutrinos --- go missing and contribute to the $\met$.
 
 Reconstructed lepton objects feature momenta, charges, and flavours.
-Each is included only if it satisfies certain kinematic and
-is identified with `quality' criteria.
+Each lepton is accepted for use in $\twoljets$ only if it satisfies certain
+kinematic and is identified with `quality' criteria.
 For both electron and muons, these criteria are standardized with labels
-`loose', `medium', and `tight'.
-These are nested, in the sense that tight implies medium,
+`loose', `medium', and `tight';
+these labels are nested in the sense that tight implies medium
 and medium implies loose.
-Other, more specialized, criteria exist, but they are not relevant $\twoljets$.
+Other, more specialized, criteria exist in \atlas, but they are not relevant
+$\twoljets$.
 
 Muons are identified by fitting tracks to hits in the inner tracker and muon
 spectrometer.
@@ -1169,8 +1179,9 @@ structure to the quality criteria.
 Leptons in $\twoljets$ are further sliced into two classes:
 `baseline' and `signal'.
 Baseline leptons and are used in background estimation methods and to ensure
-orthogonality with other \atlas\ analyses, which study events with differing
-lepton counts.
+orthogonality with other \atlas\ analyses that study events with differing
+lepton counts, such that our results might be combined in future to deliver an
+improved total sensitivity.
 Baseline requirements are softer and lower quality than signal requirements.
 
 Any event used in regions of the $\twoljets$-electroweak analysis is required
@@ -1179,14 +1190,13 @@ that the event has two reconstructed leptons which pass both sets of criteria.
 This vetoes events with soft or low quality third leptons, ensuring that those
 three-lepton events can be used independently in other studies.
 
-Baseline leptons are required only to have $\pt > 3\,\eV[G]$ for muons and
+Baseline leptons must have $\pt > 3\,\eV[G]$ for muons and
 $\pt > 4.5\,\eV[G]$ for electrons.
-Signal leptons are all required to have $\pt > 10\,\eV[G]$, along with tighter
+Signal leptons must have $\pt > 10\,\eV[G]$, along with tighter
 quality and isolation requirements, details of which are given in the
 paper~\cite{atlas2022searches}.
 Electrons are accepted within $|\eta| < 2.47$.
 Baseline muons have $|\eta| < 2.7$, and signal muons have $|\eta| < 2.6$.
-
 
 All leptons used in regions of the $\twoljets$-electroweak analysis are signal
 leptons with $\pt > 25\,\eV[G]$.
@@ -1206,12 +1216,13 @@ Jets are formed from `topological' clusters of energy deposits in the
 calorimeters~\cite{atlas_jet_topo_PERF_2014_07}.
 
 This topological clustering algorithm is no longer the \atlas-recommended jet
-algorithm; it has been supplanted in recent years by a `particle flow' method,
-which uses tracking information to improve the reconstruction of charged
+algorithm; it has been supplanted in recent years by a `particle flow' method
+that uses tracking information to improve the reconstruction of charged
 hadrons~\cite{atlas_jet_pflow_PERF_2015_09}.
 We did not attempt to switch to these improved jets because the change in
-policy occurred during the years this analysis was in development, and the
-change would have required more work and even more delays.
+recommendation occurred during the years this analysis was in development, and
+the change would have required more work and further delays for an unknown
+amount of benefit.
 
 Baseline jets are defined to require $\pt > 20\,\eV[G]$ with $|\eta| < 2.8$;
 signal jets additionally require $\pt > 30\,\eV[G]$.
@@ -1224,20 +1235,23 @@ paper~\cite{atlas2022searches}.
 \subsection{\textit{b}-jets}
 \label{sec:2ljets_btagging}
 Tagging adds labels to objects.
-Unlike how electrons and muons are very cleanly separated, however, jet tagging
-is a more noisy affair.
+Unlike how leptons are tagged as electrons and muons with very clean
+separation, jet tagging is a rather more noisy affair given \atlas' limited
+ability to reconstruct the individual hadrons within jets.
 Taggers are available for various jet properties, such charm flavour ($c$-jet),
 bottom flavour ($b$-jet).
-Of these, $\twoljets$ uses only $b$-tagging.
+Of these, $\twoljets$ uses only $b$-tagging, which is particularly useful to
+reject $\ttbar$ events and select for $h\rightarrow b\bar b$ decays.
 
 Larger radius jets can also use taggers for heavy decays, such as those from
-$W$, Higgs or top resonance, but large radius were considered too much
-additional work to considered in $\twoljets$.
+$W$, Higgs or top resonance~\cite{JETM-2018-06}, but large radius were
+considered too much additional work to considered in $\twoljets$,
+particularly since they would require a large set of independently evaluated
+systematic variations in addition to those on our standard jets.
 
 Jets originating from $b$ quarks are distinct due to the long lifetimes and
 long decay trees of $B$-hadrons, both of which leave signals in \atlas'
 inner trackers.
-
 For jets in $\twoljets$, $b$-tagging is useful to separate events due to
 $\ttbar$ backgrounds (since their weak decays almost always produce $b$
 quarks), and to select for signals producing $Z/h \rightarrow b\bar b$ decays
@@ -1250,22 +1264,23 @@ friedman2002stochastic,
 atlas_jet_mv2c10_2017,
 atlas_jet_tagging_2019
 } at its $77\%$ efficiency working point.
-This efficiency means that a true $b$-jet sampled from its testing set has a
-$77\%$ probability of being tagged.
-It is trained on a mixture of $\ttbar$ and $\zjets$ simulated data,
-and the `c10' suffix means that those data include a $7\%$ fraction of
+This algorithm is trained on a mixture of simulated $\ttbar$ and $\zjets$ data,
+and the reported efficiency means that a true $b$-jet sampled from the
+algorithm's testing dataset has an estimated $77\%$ probability of being
+tagged.
+The `c10' suffix means that those data include a $7\%$ fraction of
 $c$-jets, and that the tagger does not use newer inputs from the
 RNNIP (Recurrent Neural Network Impact Parameter) tagger, nor the
 SMT (Soft Muon Tagger)~\cite{atlas_twiki_mv2, atlas_jet_mv2c10_2017}.
-
 This tagging algorithm combines various lower-level features, including the
 basic kinematics $\pt$ and $|\eta|$, and more intricate features of
 observable secondary vertices including reconstructed hadronic decay
 trees~\cite{atlas_jet_mv2c10_2017}.
 
 Alternative working points of $70\%$ and $85\%$ efficiency are used in similar
-\atlas\ searches.
-These were trialled and found to make negligible differences to $\twoljets$.
+\atlas\ searches;
+these alternatives were trialled and found to make negligible differences in
+$\twoljets$.
 
 An alternative $b$-tagging algorithm named `DL1' is now recommended by \atlas,
 but its performance is ``similar'' to MV2, and the two tag
@@ -1282,18 +1297,19 @@ one object.
 For example, a track could be attributed to both a muon and an electron,
 or a calorimeter energy cluster could be attributed to both an electron and a
 photon. (Although we do not directly use photons in $\twoljets$, we do not veto
-events containing them --- photons contribute to $\ptmiss$.)
+events containing them --- photons are accounted for in the momentum balance
+of $\ptmiss$.)
 
-Now we know about both leptons and hadronic jets, we can also improve our
-rejection of non-prompt leptons from hadron decays, since leptons near to jets
-become suspect.
-
+Once we know about all of the reconstructed leptons and hadronic jets, we can
+also improve our rejection of non-prompt leptons from hadron decays, since
+leptons near to jets become suspect.
 To remove duplicates and further reduce non-prompt lepton contributions, we
 apply a standard overlap-removal procedure.
-This procedure, which is detailed in the paper~\cite{atlas2022searches},
-comprises a sequence of rules which modify the collection of event objects.
-Some rules decide which to keep from an overlapping pair,
-and others remove leptons overlapping with jets, based on their $\Delta R$
+This procedure, which is detailed in the $\twoljets$
+paper~\cite{atlas2022searches},
+comprises a sequence of rules that modify the collection of event objects.
+Some rules decide which object to keep from an overlapping pair,
+and others remove leptons overlapping with jets based on their $\Delta R$
 and $\pt$.
 
 
@@ -1304,35 +1320,37 @@ of an event is a natural result of the conservation of momentum, which \atlas'
 barrel-shaped construction allows us to measure with reasonable precision.
 
 The magnitude of $\ptmiss$ is $\met$, pronounced `met'.
-Please note that $\met$ is not an energy.
-Transverse energy does not exist.
-One may of course define their own directed `transverse energy', but it will
+Please note that $\met$ is not an energy; transverse energy does not exist.
+One may, of course, define a directed `transverse energy', but it will
 not be conserved (in the standard model) unless it is equivalent to a conserved
 momentum.
 Indeed, momentum-balanced events do have energy imbalances;
-for example, in a $Z\mathrm{+jet}$ event $pp \rightarrow Zg$, the $Z$ and $g$
-are produced back-to-back with equal momenta $p$, but the two particles have
-very different energies since they have very different masses:
-$E_Z^2 = m_Z^2 + p^2$, $E_g^2 = 0 + p^2$.
+for example, in a $Z\mathrm{+jet}$ event $pp \rightarrow Zg$, with the $Z$ and
+$g$ emitted back-to-back in the transverse plane with equal momenta
+$p = |\pm \vec p|$, the two particles have different energies since they
+have different masses: $E_Z^2 = m_Z^2 + p^2$, $E_g^2 = 0 + p^2$.
 % hobbyhorse
 
 The $\ptmiss$ vector is defined such that the vector sum of $\ptmiss$ with
-all reconstructed objects (after overlap removal) has zero transverse momentum.
+all reconstructed objects, after overlap removal, has zero transverse momentum.
 In addition to the leptons and jets used directly in $\twoljets$, this includes
 photons, tau leptons, and a `soft term' comprising tracks not associated to
 any other objects~\cite{atlas_met}.
 
-
-Since signal models in $\twoljets$ do generate hard, invisible particles,
-by selecting for large $\met$ we select events in which either there were real
-invisible particles or something was badly mismeasured.
-The standard selection for $\twoljets$-electroweak is $\met > 100\,\eV[G]$.
+Signal models in $\twoljets$ generate hard, invisible particles.
+By selecting for large $\met$, however, we select events in which either there
+were real invisible particles or something was badly mismeasured.
+And the rate of bad mismeasurements from Standard Model processes
+with large cross-sections can be substantial.
+A standard selection requirement in $\twoljets$-electroweak is
+$\met > 100\,\eV[G]$.
 This is a nice round number, and corresponds roughly to where the $\met$-less
-background $\zjets$ tails off.
-This $100\,\eV[G]$ also corresponds roughly to several standard deviations of
-a typical $\met$ noise scale of approximately $10\textrm{--}30\,\eV[G]$, which I observe
-by inspecting $\met / \metsig$ in $\twoljets$-electroweak selections,
-and where $\metsig$ is defined in the next section.
+background $\zjets$ tails off,
+and also corresponds roughly to several standard deviations of
+a typical $\met$ noise scale of approximately $10\textrm{--}30\,\eV[G]$;
+I observe that noise scale by inspecting $\met / \metsig$ in
+$\twoljets$-electroweak selections, where $\metsig$ is defined in the next
+section.
 
 
 \subsection{\texorpdfstring{$\met$}{ETmiss} significance}
@@ -1344,31 +1362,31 @@ This makes the missing transverse momentum $\ptmiss$ its magnitude $\met$
 important features for separating signal and background events in all parts
 of the $\twoljets$ search.
 
-The experimental resolution of $\ptmiss$, however, is imprecise.
-Importantly also, the uncertainty on any inferred $\ptmiss$ varies
-significantly from one event to another.
+The experimental resolution of $\ptmiss$, however, is imprecise, and
+importantly that resolution varies significantly from one event to another.
 
 A muon, for example, will tend to have its momentum measured more precisely
 than a jet of similar energy.
-Unless, as discussed in Chapter~\ref{chapter:experiment}, the muon is hard
+Unless, as discussed in Chapter~\ref{chapter:experiment}, that muon is hard
 enough that its curvature through \atlas' magnetic fields is poorly tracked.
 Unless, in the right circumstances, that jet originates from a $b$ quark,
 such that the weak decays of its hadrons tend to lose momentum in
-neutrinos or soft muons. (The $\metsig$ variable used in this analysis is not
-aware of $b$-tagging information, but perhaps it could benefit from some.)
+neutrinos or soft muons.
 
 By incorporating an uncertainty in $\ptmiss$ tailored to each event, the
 variable $\metsig$ helps to separate those events with real and well-measured
 $\met$ from those where the measured $\ptmiss$ is more likely to result from
 mismeasurements.
+(The $\metsig$ variable used in this analysis is not directly
+aware of $b$-tagging information, but perhaps it could benefit from some.)
 
 In the context of $\twoljets$ selections, $\metsig$ suppresses $\ttbar$
-contributions more than $\met$ alone, plausibly since $\ttbar$ events are
+contributions more than $\met$ alone, plausibly because $\ttbar$ events are
 accompanied by more hadronic activity than other sources of $\ptmiss$.
 This effect in the $\metsig$ distribution is demonstrated in simulations in
 Figure~\ref{fig:2ljets_presel_met}.
 What remains of the standard model in the high-$\metsig$ tail of $\twoljets$
-selections is almost pure \diboson\ -- $ZZ$ with a hard $Z\rightarrow \nu\nu$,
+selections is almost pure \diboson\ --- $ZZ$ with a hard $Z\rightarrow \nu\nu$,
 and $W^\pm Z$ where the charged lepton in $W^\pm\rightarrow\ell^\pm\nu$
 is not reconstructed; these subcomponents of the \diboson\ process are discussed
 later in Section~\ref{sec:2ljets_validation} and displayed in
@@ -1401,7 +1419,7 @@ $\metsig > 6$.
 ``Significance'' displayed in the lower subplot uses the Binomial significance
 $Z_{Bi}$ from~\cite{cousins2008evaluation}, with a $30\%$ background
 uncertainty and yields taken to the right of a given value.
-Large values indicate expected sensitivity to the signal model.
+Larger values indicate greater expected sensitivity to the signal model.
 }
 \label{fig:2ljets_presel_met}
 \end{figure}
@@ -1423,20 +1441,19 @@ This is the square of a Mahalanobis (standard-deviations) distance between
 the origin and $\ptmiss$~\cite{mahalanobis1936generalised}.
 
 Just as $\ptmiss$ is constructed from a (negative) sum of contributions from
-objects in an event,
-$\Sigma$ is a sum of covariances assigned to those objects;
-both means and variances add linearly.
+objects in an event, this $\Sigma$ is a sum of covariances assigned to those
+objects; both means and variances add linearly.
 
 
 \subsection{\texorpdfstring{$\mttwo$}{mT2}}
 \label{sec:2ljets_mt2}
 Just as the slepton is a supersymmetric partner to a lepton, the `stransverse'
 mass $\mttwo$ is a partner to the `transverse mass' $m_T$
-(to be defined shortly),
-that is useful in searches for supersymmetric particles.
+(to be defined shortly)
+which is useful in searches for supersymmetric particles.
 
 The stransverse mass of an event is a greatest lower bound on the mass of a
-pair-produced resonance, that applies when each partner decays semi-invisibly.
+pair-produced resonance that applies when each partner decays semi-invisibly.
 For example, an on-shell $\tilde\ell^+\tilde\ell^-$ pair decaying as
 $\tilde\ell^+ \rightarrow \ell^+ \neutralino_1
 ,~
@@ -1447,16 +1464,17 @@ Such cases are common, since R-parity conservation implies pair production,
 and the idea that dark matter could comprise the lightest supersymmetric
 particle motivates invisible decays.
 
-Lacking direct observation of sleptons, $\mttwo$ remains useful in separating
-standard model processes; dileptonic $\ttbar$ and $W^\pm W^\mp$ decays both
-satisfy $\mttwo(\ell^+, \ell^-, 0) \leq m(W)$ (since $0 \approx m(\nu)$).
-The $\twoljets$-electroweak search depends on this effect;
-most selections require $\mttwo(\ell^+, \ell^-, 0) > 80\,\eV[G]$, or similar,
+Lacking direct observation of the sleptons, or any other supersymmetric
+resonances, at the LHCs, $\mttwo$ remains useful for separating standard model
+processes since, with ideal reconstruction,
+dileptonic $\ttbar$ and $W^\pm W^\mp$ decays both
+satisfy $\mttwo(\ell^+, \ell^-, 0) \leq m(W)$ since $m(\nu) \approx 0$.
+The $\twoljets$-electroweak search depends on this effect:
+most of its selections require $\mttwo(\ell^+, \ell^-, 0) > 80\,\eV[G]$,
+or similar,
 to reduce $\ttbar$, $W^\pm W^\mp$ and $\tau^\pm\tau^\mp$ backgrounds.
 
-To be precise, the stransverse mass explores how to split the observed
-$\ptmiss$ between the two visible decay products in an event, and can be
-defined as
+More precisely, the stransverse mass can be defined as
 \begin{equation}
 \mttwo(a_\mu, b_\mu, m)
 =
@@ -1468,14 +1486,18 @@ m_T(b_\mu + \{\!\sqrt{m^2 - \vec q_T^{\:2}},\,\vec q\,\}_\mu)\\
 \end{Bmatrix}
 ,
 \end{equation}
-in which $m_T^2(p_\mu) = p_0^2 - p_1^2 - p_2^2$ and $\{E,\,\vec p\,\}_\mu$ denotes
-the four-vector with energy $E$ and momentum $\vec p$~\cite{lester1999measuring}.
+in which $m_T^2(p_\mu) = p_0^2 - p_1^2 - p_2^2$ and $\{E,\,\vec p\,\}_\mu$
+denotes the four-vector with energy $E$ and momentum
+$\vec p$~\cite{lester1999measuring}.
+That is, can be seen as exploring the attribution of the observed $\ptmiss$
+between the two visible decay products in an event, finding a best mass over
+all possible assignments.
 As an extension, one can assign different masses $m_p$ and $m_q$ to
 the two invisible products~\cite{lester2015bisection}.
 
 Numerical evaluation of $\mttwo$ can be performed efficiently with interval
-bisection algorithms, which seek the least resonance mass for which the
-transverse masses allow any compatible assignment which also satisfies
+bisection algorithms that seek the least resonance mass for which the
+transverse masses allow any compatible assignment that also satisfies
 $\vec p + \vec q = \ptmiss$.
 Testing this compatibility reduces to testing for the intersection of two
 ellipses, one for each transverse
@@ -1483,31 +1505,30 @@ mass~\cite{cheng2008minimal, lester2015bisection}.
 
 Public code for calculating $\mttwo$ is available in a Python
 library~\cite{gillam2021mt2}, to which I contributed a faster and more robust
-implementation of the bisection algorithm by
+implementation of the bisection algorithm of
 Lester and Nachman~\cite{lester2015bisection} during this project.
 
 
 \subsection{Jet pairs}
-Di-jet assignments, for variables like $\mjj$ and $\rjj$, are always chosen as
-the two hardest jets.
-Why?
+In $\twoljets$, di-jet assignments for variables like $\mjj$ and $\rjj$ are
+always chosen as the two hardest jets. Why?
 
-This choice matches the convention of SR2-int and SR2-high from the previous
-search~\cite{atlas_23l_SUSY_2016_24}, but my initial reaction was that since we
-are looking for jet pairs near to $m(W)$ or $m(Z)$, we should surely choose
-candidate jet pairs by their mass.
+One reason is that this choice matches the convention of SR2-int and SR2-high
+from the previous search~\cite{atlas_23l_SUSY_2016_24}.
+However, my initial reaction was that since we are looking for jet pairs near
+to $m(W)$ or $m(Z)$, we should surely choose candidate jet pairs by their mass.
 
 Two alternative di-jet assignments were therefore considered in early
-development of region designs:
+development of my $\twoljets$-electroweak region designs:
 the two jets with invariant mass closest to $m(W)$, and the two jets with the
 minimum $\rjj^\mathrm{alternative}$ between them.
 The result was bland.
-All assignments performed similarly, and all left similar fractions of signal
-yields outside the mass window.
-The simplicity and precedent for the two-hardest jet assignment therefore swung
-the decision.
+All assignments performed similarly, and all left similar amounts of signal
+outside of their selected mass windows.
+The simplicity of, and precedent for, the two-hardest jet assignment therefore
+swung the decision in its favour.
 
-However, alternatives did select different subsets of signal yields;
+However, alternatives did select different subsets of signal yields:
 the alternative jet assignments had some potential to define secondary signal
 regions to catch those signal events which fall outside the primary
 $\mjj$ window.
@@ -1521,12 +1542,13 @@ with control and validation regions, and is therefore not used here.
 \subsection{Cheat-sheet}
 Uncomfortably many event variables are used to define the regions of this
 analysis.
-To aid future revision of their meanings, definitions, and references for these
-variables are collected here.
-All dimensionful quantities are in $\eV[G]$.
+For future reference, their meanings, definitions, and references for these
+variables are all collected here.
+All dimensionful quantities are always reported in $\eV[G]$ units in this
+thesis.
 \begin{itemize}
 \item $\met$: missing transverse momentum
-\item $\metsig$: object-based missing transverse momentum significance;\\
+\item $\metsig$: object-based missing transverse momentum significance,\\
 described in Section~\ref{sec:2ljets_metsig}
 \item $\ptjone$: transverse momentum of the hardest jet%
 \vspace{0.5em}
@@ -1534,14 +1556,15 @@ described in Section~\ref{sec:2ljets_metsig}
 \item $\mjj$: invariant mass of the two hardest jets
 \item $\mbb$: invariant mass of the two hardest $b$-tagged jets
 \item $\mjetone$: mass of the hardest jet
-\item $\mttwoll$: `stransverse' mass of the lepton pair with massless invisibles;\\
+\item $\mttwoll$: `stransverse' mass of the lepton pair with massless
+invisibles,\\
 described in Section~\ref{sec:2ljets_mt2}
 \vspace{0.5em}
 \item $\rll$: distance in $\eta\textrm{--}\phi$ between the lepton pair
 \item $\rjj$: distance in $\eta\textrm{--}\phi$ between the two hardest jets%
 \vspace{0.5em}
 \item $\njet$: number of signal jets
-\item $\nbtag$: number of b-tagged jets;
+\item $\nbtag$: number of b-tagged jets,
 described in Section~\ref{sec:2ljets_btagging}
 \vspace{0.5em}
 \item $\dphillmet$: azimuthal angle between the lepton pair and $\ptmiss$
@@ -1549,7 +1572,8 @@ described in Section~\ref{sec:2ljets_btagging}
 \end{itemize}
 All of these are physical properties of particles or collections of particles.
 Please remember that none is an exact or true value;
-all are estimates based on approximate reconstructions.
+all of these event variables are estimates derived from approximate
+reconstructions.
 While this distinction is easy to drop in lax language, it is necessary to
 understand the shapes of noisy variables such as $\mjj$ and indeed the
 existence of $\metsig$.
@@ -1558,8 +1582,9 @@ existence of $\metsig$.
 \FloatBarrier
 \section{Design}
 \label{sec:2ljets_design}
-Perhaps the most impactful decision in a search is the design of its regions.
-Like most decision, these designs must be made to balance conflicting and
+Perhaps the most impactful decision in an \atlas\ SUSY search is the design of
+its regions.
+Like most decisions, these designs must be made to balance conflicting and
 vaguely-specified desires, and are informed with incomplete information.
 
 My understanding of search design is as conflict between simplicity and
@@ -2227,8 +2252,9 @@ Errors are statistical.
 \end{figure}
 
 Some figures label \crvz\ as `\crz Z'; the region was renamed late in this
-analysis project when it was show to contain substantial fractions of $W\kern-0.4exZ$
-as well as $ZZ$, as illustrated in Figure~\ref{fig:2ljets_splits} of
+analysis project when it was show to contain substantial fractions of
+$W\kern-0.4exZ$ as well as $ZZ$, as illustrated in
+Figure~\ref{fig:2ljets_splits} of
 Section~\ref{sec:2ljets_validation}.
 
 
