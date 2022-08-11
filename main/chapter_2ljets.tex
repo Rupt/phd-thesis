@@ -3249,7 +3249,7 @@ With such a complicated experiment as \atlas, in a universe with such varied
 particles as ours, there are many and varied factors of uncertainty to consider.
 As described in Section~\ref{sec:searches_practice}, the effect of each
 factor is studied to assign regularized variations to the Poisson expectations
-of the histogram bins with a HistFactory model~\cite{cranmer2012histfactory}.
+of the histogram bins with a \histfactory\ model~\cite{cranmer2012histfactory}.
 For the $\twoljets$ search, we use \histfitter\ to build and analyse those
 models~\cite{Besjes_2015,baak2015histfitter}.
 
@@ -3834,7 +3834,8 @@ $\mu^\textrm{M} + \sigma^\textrm{M}_\textrm{stat} +
 All low variations are set to zero for these replacement FNP estimates, to
 encode that the yield is compatible with zero, but more importantly to give
 a slow extrapolation on the low side (from the small central value to zero)
-and reduce the risk from non-physical negative yields in the HistFactory model.
+and reduce the risk from non-physical negative yields in the \histfactory\
+model.
 
 As seen from Table~\ref{tab:2ljets_fnp_estimates}, even the high variations of
 the Max method are negligibly small next to the central simulated yields
@@ -4138,7 +4139,7 @@ comparing these two samples we are considering variations due to the
 simultaneous change of both of hard scatter and parton shower components
 together.
 
-For their implementation in the background model in HistFactory, these
+For their implementation in the background model in \histfactory, these
 variations reduce to the relative scale factors that are presented in
 Table~\ref{tab:2ljets_zjets_alt}.
 Note that up and down variations of the sample comparison parameter do not
@@ -4466,7 +4467,7 @@ Much to my ire, the paper editors therefore removed all mentions of an SR-Low
 deficit from the paper.
 Despite bring real and significant, this deficit was erased from public view,
 and to my knowledge, is only reported through inner details of
-the HistFactory models shared in our \hepdata\ archive~\cite{hepdata.116034}
+the \histfactory\ models shared in our \hepdata\ archive~\cite{hepdata.116034}
 (and now, I hope, this thesis).
 
 To my eyes, Figure~\ref{fig:2ljets_low_crz_pre_post} suggests that the
@@ -5186,21 +5187,22 @@ this honesty without the (backbreaking) mental work of acting ``as if'' blind.
 
 % pro
 Naturally, \atlas\ has an unblinding procedure that requires committee
-review and approval based on internal documentation.
+review and approval in accordance with internal documentation.
 In the \atlas\ SUSY world, searches are nominally performed blind to signal
 regions.
-Control and validation regions are consumed in the design and modelling of
-signal regions, so need to be inspected.
-Control and validation region data are inspected, but this is not a problem
-since they should also have negligibly small yields (contaminations) from
-interesting signal models.
+For these searches, their control and validation regions must consumed in the
+design and modelling of signal regions, so they must be inspected.
+This is not a problem since control and validation regions should also
+have negligibly small yields (contaminations) from interesting signal models,
 With negligible signal contaminations, control and validation region data can
-be consumed to constrain the background modelling in addition to all other that
-on which the Standard Model stands, and without being influenced by the signal
-models to be tested in signal regions.
+be consumed to constrain the background modelling, in composition with to all
+other data on which the Standard Model stands, and without being influenced by
+possible data from the target signal models that are to be tested in signal
+regions.
 
-The \atlas\ SUSY approval procedure~\cite{atlas_twiki_susyapprove}
-requires various criteria including, and not limited to, that the search has:
+Before allowing unblinding, the \atlas\ SUSY approval
+procedure~\cite{atlas_twiki_susyapprove} requires various criteria including,
+and not limited to, that a search has:
 \begin{itemize}
 \item defined all control, validation and signal regions,
 \item evaluated signal contaminations in control and validation regions,
@@ -5210,38 +5212,46 @@ requires various criteria including, and not limited to, that the search has:
 according to recommended procedures,
 \item stated clearly how all other (theoretical) uncertainties will be treated.
 \end{itemize}
-So many aspects must be finalized blind, and for those that are not
-finalized blind must have procedures defined such that they are not
-influenced by the signal region data.
-Encouragingly, disallowing dependence of procedures on signal region data
-eliminates one major source of unblinding error,
+Many aspects of a search must therefore be finalized blind, and those aspects
+that are not finalized blind must have procedures defined such that they are
+not influenced by the signal region data.
+Encouragingly, this disallowance of dependence of procedures on signal region
+data eliminates one major source of unblinding error,
 and requiring knowledge of signal contaminations supports the use of control
 and validation region data.
 
-% con
 Unfortunately, these requirements limit only \emph{when} data-driven estimation
-procedures are defined, and do not limit the \emph{what} those procedures do.
-Indeed, the rules explicitly allow for methods like the Matrix Method
+procedures are defined, and do not limit the \emph{what} those procedures
+\emph{do}.
+The rules explicitly allow for methods like the Matrix Method
 (described in Section~\ref{sec:2ljets_matrix_method})
-that use signal region data to affect the background `estimates' in signal
-regions in violation of blinding principles.
-No effective research would employ an estimation procedure that clearly set
-a prediction directly from the data it is supposed to predict, but our use of
+that use signal region data to determine their `estimates' in signal
+regions, in violation of basic blinding principles.
+Only the procedure is blind to data, not its action.
+No scientific research would employ an estimation procedure that clearly set
+its prediction directly from the data it is supposed to predict, but our use of
 the Matrix Method is proof by example that sufficiently obfuscated violations
-are allowed here.
+are permitted here.
 
-A second unfortunate flaw is that these rules were not strictly enforced.
+A second unfortunate flaw is that no mechanism enforces these rules after
+unblinding.
 Although we performed the approval procedure as written, some of its promises
-were later violated, at the request of senior committees, without consequence.
-The data-driven FNP estimation procedure should have been frozen, but was in
-fact extended with the `Mean' method after unblinding,
-as seen in Section~\ref{sec:2ljets_matrix_method_ewk}).
+were later violated on the instruction of committee decisions and without
+negative consequences.
+For example, by these rules the data-driven FNP estimation procedure should
+have been fixed, but it in fact extended with the `Mean' method after
+unblinding, as described in Section~\ref{sec:2ljets_matrix_method_ewk}.
 Theoretical uncertainties were always to be treated according to the
 \atlas\ SUSY recommendations~\cite{atlas_twiki_susytheoretical}, but those
-recommendations have ambiguities that were resolved after unblinding,
-notably for the alternative $\zjets$ sample comparison as discussed in
-Section~\ref{sec:2ljets_zjets_alt}, among other less impactful sample
-comparisons.
+recommendations have ambiguities that were resolved after unblinding.
+For example, the decision to include the various alternative sample comparisons
+was made after unblinding, and debates on our treatment of the alternative
+$\zjets$ sample comparison made direct reference to the anomalous unblinded
+signal region data, as described in Section~\ref{sec:2ljets_zjets_alt}.
+On balance, however, we are fortunate that the many post-unblinding validation
+studies found no actionable flaws. We cannot know what would have changed if a
+validation study had found reasons to further adapt our modelling to data after
+unblinding.
 
 % looser selections
 \begin{figure}[tp]
@@ -5278,13 +5288,14 @@ background simulations.
 But they unblind the data, notably in high-$\met$ where we expect signals.
 When commenting on this, I was told that it does not count as unblinding
 because we are in a loose selection.
-Any signal region must be within this loose selection, and those
+However, any signal region must be within this loose selection, and those
 highest bins contain only a few events that agree with the backgrounds well.
-From such plots, we knew before designing the regions that either there was no
-excess at high $\met$ or that a signal region excess must coincide with a
-deficit in its surrounding phase space (or vice versa).
-Since we fill surrounding phase space with validation regions, one could in
-fact have predicted an SR-High deficit from the subtle excess in VR-High
+From such plots, we therefore knew before designing the regions that either
+there was no excess at high $\met$ or that a signal region excess must
+coincide with a deficit in its surrounding phase space (or vice versa).
+Since we fill surrounding phase space with validation regions, an excess in a
+validation region therefore predicts a deficit in its signal region.
+One could have predicted an SR-High deficit from the excess in VR-High
 that is shown in Figure~\ref{fig:2ljets_high_mjj_vrhigh}.%
 \footnote{%
 Lacking this intelligence, at the time of unblinding I was actually concerned
@@ -5294,8 +5305,8 @@ in SR-High.
 My naive past self therefore found the observed zero events in SR-High-8
 quite hilarious.
 }
-If blinding is to be taken seriously, then restrictions must be placed on the
-use of such pre-selection plots.
+For blinding to be done properly, restrictions must be placed on the usage of
+such pre-selection plots.
 
 % unblinded results
 \begin{figure}[tp]
@@ -5307,7 +5318,7 @@ First unblinded summary table from 28th September 2020
 First unblinded summary table from 28th September 2020.
 Backgrounds are fitted to data in control and signal regions.
 Errors include all variations that were evaluated at the time.
-Data and backgrounds were later reproduced with updated software and tighter
+Data and backgrounds were later rederived with updated software and tighter
 lepton definitions, leading to a general reduction in yields.
 }
 \label{fig:2ljets_summary_unblinding}
@@ -5319,27 +5330,28 @@ This figure includes all backgrounds and variations that had been evaluated
 at the time, and is included for comparison against the final result
 that has been displayed in Figure~\ref{fig:2ljets_summary}.
 We knew when unblinding that our simulations and data needed to be reprocessed
-with the lepton definitions given in Section~\ref{sec:2ljets_events_leptons},
-which had previously required harder baseline leptons,
-and had expected only minor changes.
+with the lepton definitions given in Section~\ref{sec:2ljets_events_leptons}.
+Our previous baseline lepton definition had required a larger $\pt$,
+and we had expected this change to make minimal differences.
 As seen from these two figures, the reprocessing reduced our yields of data
-slightly; most noticeably, the one event in SR-$\llbb$ disappeared.
-Other than aesthetic differences, post-unblinding activities have had little
-impact.
+slightly; perhaps most noticeably, the one event in SR-$\llbb$ disappeared.
+Other than aesthetic differences, and post-unblinding activities have on
+balance had relatively little impact to the post-fit results.
 The reported significance of deficits in SR-Low-a and SR-Low-b has reduced,
 and the shrinking $\zjets$ background has caused a $1$-sigma excess in VR-Low.
-Excesses have also grown in VR-High-* regions.
+Excesses have also grown in VR-High-* regions as the model has further
+adapted towards the signal region data.
 Little has changed in the SR-High-8 bins with zero data since, as explained in
-Section~\ref{sec:2ljets_diboson_alt}, the added \diboson\ sample comparison
-is ineffective.
+Section~\ref{sec:2ljets_diboson_alt}, the extra \diboson\ sample comparison
+is impotent.
 
 Despite my concerns expressed in this section, these post-unblinding changes
 are relatively minor.
 They do not change the broad message that there are no excesses here, and at
 most amount to a misleadingly small background estimate in SR-Low bins if the
 post-fit yields that we present are misinterpreted as predictions.
-Pre-fit yields, which can plausibly be interpreted as predictions, are
-presented with other extra results in the next section.
+Pre-fit yields, which can plausibly be interpreted as more like predictions,
+are presented with other extra results in the next section.
 
 
 \section{Results}
@@ -5350,19 +5362,19 @@ chapter.
 This section reports some ancillary results.
 
 \paragraph{Summary}
-As I have argued incessantly, pre-fit predictions are useful because they can
-actually be predictions to be tested by the data.
+As I have argued quite incessantly throughout this thesis, pre-fit predictions
+are useful because they can be predictions to be tested by the data.
 Our post-fit summary plot has previously been displayed in
-Figure~\ref{fig:2ljets_summary}.
-Its alternative version that does not fit to signal region data is shown here
-in Figure~\ref{fig:2ljets_summary_no_sr}.
-Since the significance measure is meaningful for this pre-signal-region plot,
-we see that despite the inflated uncertainties in SR-Low, its bins still have
-substantial deficits.
-Validation region data are notably better predicted by this prediction;
+Figure~\ref{fig:2ljets_summary}, and an alternative version that does not fit
+to signal region data is displayed in Figure~\ref{fig:2ljets_summary_no_sr}.
+The significance measure is more meaningful for this pre-signal-region plot
+since it expects pre-fit uncertainties, and we see here that despite the
+inflated $\zjets$ uncertainties in SR-Low its bins still have substantial
+deficits.
+Validation region data are notably better predicted pre-fit ---
 as the post-fit result tunes itself to signal region data, coupled variations
-lead to worse predictions in the validation regions (that are not included
-directly in either fit).
+lead to worse predictions in the validation regions since their likelihoods are
+not included directly in any fits.
 
 \begin{figure}[tp]
 \centering
@@ -5382,7 +5394,7 @@ all mentions of its deficit were removed from the paper.
 \end{figure}
 
 \paragraph{Correlations}
-All parameters are initially independent.
+All parameters of our \histfactory\ models are initially independent.
 If the \heplikelihood\ is related to a probability distribution of parameters,
 however, then they gain interdependencies when coupled through the likelihoods
 of control and signal region data.
@@ -5392,8 +5404,9 @@ Figure~\ref{fig:2ljets_fit_corrmatrix}.
 To reduce this matrix to a more readable size, only the most correlated
 parameters are shown.
 
-Mixed contributions of $\ttbar$, $\zjets$ and \diboson\ in the control regions
-leads to anticorrelations between their normalization factors
+In this correlation matrix, mixed contributions of $\ttbar$, $\zjets$ and
+\diboson\ in the control regions leads to anticorrelations between their
+normalization factors
 ``\texttt{mu\_*}'' that are seen in the bottom right corner of this correlation
 plot.
 Since statistical errors ``\texttt{gamma\_stat\_*}'' in control regions are not
@@ -5403,7 +5416,7 @@ Similarly, the extra uncertainty for $\zjets$ in CR-tt causes an
 anticorrelation between its parameter ``\texttt{alpha\_Zjets\_bextrap}''
 and the $\ttbar$ normalization.
 The failure of statistical precision in SR-Low-2 causes large systematic
-variations that appear as the anticorrelations between
+variations that appear as the anticorrelations between its statistical error
 \texttt{gamma\_stat\_SRLow2\_cuts\_bin\_0} and numerous experimental
 uncertainties.
 Correlations between the $\zyjets$ normalization and $\ttbar$ uncertainties
@@ -5411,9 +5424,10 @@ are due to large variations in the alternative $\ttbar$ samples in \crdy.
 Electron identification variations ``\texttt{alpha\_el\_chargeid\_*}'' have
 some impact in SR-Low,  so are correlated with the $\zjets$ alternative sample
 comparison ``\texttt{alpha\_Zjets\_alt}''.
+
 Note that the up and down variations of parameters need not correspond to up
-and down variations of yields in any region, so the signs of these correlations
-are no necessarily meaningful.
+and down variations of yields in any region, so the signs of these
+(anti)correlations are no necessarily meaningful.
 
 \begin{figure}[tp]
 \centering
@@ -5437,20 +5451,20 @@ marginal error bars.
 
 Parameters named ``\texttt{$\alpha$\_*}'' are centred on zero with unit initial width,
 and others are initially relative to $1$ with variable error bars.
-Internally, plots like this are considered good if all parameters sit on
-the central vertical line, with the motivations that normalization factors
-should be close to $1$ (the predicted cross-sections are accurate) and that
-our data should not compete with the precision of the studies that defined
-our systematic variations.
+Within the \atlas\ SUSY group, plots like this are considered good if all
+parameters sit on the central vertical line, with the motivations that
+normalization factors should be close to $1$ (the predicted cross-sections are
+accurate) and that our data should not compete with the precision of the
+studies that defined our systematic variations.
 That is, if we constrain a parameter by squeezing its error bar, then our data
 could be better used to calibrate that parameter throughout the Collaboration.
 
-I added the red arrow to indicate the $\zjets$ alternative sample comparison,
-named ``\texttt{$\alpha$\_Zjets\_alt}'' here, that has disappeared off the
-right-hand edge due to its best-fit value of $1.86 \pm 0.69$.
+Here, I added the big red arrow to indicate the $\zjets$ alternative sample
+comparison, named ``\texttt{$\alpha$\_Zjets\_alt}'', that has disappeared off
+the right-hand edge due to its best-fit value of $1.86 \pm 0.69$.
 (see Section~\ref{sec:2ljets_zjets_alt}).
 Its anticorrelation with the electron charge identification variations is
-explained by their movement to negative values;
+explained by their movement to negative values:
 positive \texttt{$\alpha$\_Zjets\_alt} and negative
 \texttt{$\alpha$\_el\_chargeid\_*} both reduce yields in SR-Low.
 
@@ -5490,33 +5504,35 @@ since it exceeds $1.5$, it otherwise disappeared off the edge of this plot.
 \end{figure}
 
 \paragraph{Contours}
-Exclusion contours, which are displayed in
+Exclusion contours, displayed in
 Figures~\ref{fig:2ljets_contours_c1n2} and~\ref{fig:2ljets_contours_gmsb},
 derive from fits with models that extend the background-only model with
 additive signal samples.
 To reduce the computational cost of building the hundreds of models%
 \footnote{%
 This is worded precisely. The dominant cost was not in fitting the models, nor
-in histogramming the data (thanks to histogram caching), but in forming the
-HistFactory model from those histograms.
+in histogramming the data (thanks to caching), but in forming the
+\histfactory\ model from those histograms.
 I do not know why that model-building step took days of computer time per
 model, but it did reduce to only hours after upgrading the \histfitter\ version
 from \textsc{v0.64.0} to \textsc{v0.66.0}.
-}%
-across these grids, we prune the number of small irrelevant parameters
-with \histfitter's pruning~\cite{histfittergithub} mechanism in ``method 2''.
+}
+across the signal parameter planes, we prune the number of small irrelevant
+parameters with \histfitter's pruning~\cite{histfittergithub} mechanism in
+``method 2''.
 This pruning method removes variations if the difference between their up and
 down values do not exceed a threshold.
 With pruning enabled, its default threshold is set to $1\%$ (relative to the
-central yield), but to reduce its impact we use a threshold of $0.1\%$.
-Validation studies comparing each of these pruning thresholds, against the
-un-pruned version, and against a custom pruning implemented by myself, found no
-significant differences.%
+central yield), but to minimize concerns about its impact we use a threshold
+of $0.1\%$.
+Validation studies that compared each of these pruning thresholds, the
+un-pruned version, and a custom pruning implemented by myself, found no
+significant differences to post-fit results.%
 \footnote{%
-Pruning is, however, the reason our signal patches (that describe differences
+Pruning is, however, the reason our signal patches (which encode differences
 from background-only to signal models) in our serialized \hepdata\ models are
-so large; they implement many small changes due to different decisions made by
-the pruning algorithm.
+so large --- they implement many small changes due to different decisions made
+by the pruning algorithm.
 }
 
 We further reduce computational costs by using the asymptotic approximations
@@ -5529,49 +5545,32 @@ signal points,
 and all contours are painted by heuristic interpolation algorithms.
 We follow standard \atlas\ SUSY conventions and perform that interpolation
 with the \textsc{Scipy} implementation of
-Radial Basis Functions~\cite{2020SciPy-NMeth,fasshauer2007meshfree},
-interpolating significance-transformed $\cls$ values.
+Radial Basis Function~\cite{2020SciPy-NMeth,fasshauer2007meshfree}
+interpolation, applied to significance-transformed $\cls$ values.
 That is, we interpolate in $\cls$ values transformed through the inverse
 cumulative distribution of the standard normal distribution.
-Contours are drawn where this interpolated function meets
+Contours are drawn where this interpolated function meets the equivalent of
 $\cls = 0.05$.
 \emph{%
 Thanks to Larry~Lee for sharing scripts that were adapted to prepare the
 contours in our results.%
 }
 
-This interpolation algorithm has some tunable parameters, for which all
-contours of the $\twoljets$-electroweak search use
+This interpolation algorithm has some tunable parameters, for which after some
+experimentation I decided that all contours of the $\twoljets$-electroweak
+search use
 \texttt{epsilon=10},
 \texttt{smoothing=1},
 and the ``multiquadric'' radial basis function.
-These settings were tuned to keep the thumbs-up wobble in the C1N2 off-shell
+These settings were tuned to keep the `thumbs-up' wobble in the C1N2 off-shell
 region of Figure~\ref{fig:2ljets_contours_c1n2},
-which is physical and due to our increased sensitivity for mass splittings
-below $m(W)$,
+which is physical and due to our increased sensitivity for some mass splittings
+below $m(Z)$,
 while sufficiently smoothing wobbles elsewhere.
 Some unattractive wobbles remain at high GMSB masses in
 Figure~\ref{fig:2ljets_contours_gmsb}, but I decided that it was preferable to
 keep the simplicity of having the same interpolation settings for both
 contours.
-
-Our initial contours showed more glaring and unphysical wobbles.
-Those erroneous wobbles were removed by repeating the fits of anomalous signal
-points until they behaved.
-In total, this hack was used for two points near the highest
-$m(\chargino_1,\neutralino_2)$ edge in C1N2, and four across the whole
-GMSB spectrum.
-Different random seeds causing failed fits explain this unstable behaviour,
-and I failed to control those random seeds when running the fits through
-\histfitter.
-
-Auxiliary results published in our \hepdata\ archive~\cite{hepdata.116034}
-include the observed upper limits on the signal cross-section at each point.
-We additionally display the $\cls$ values, from which the observed contour
-derives, in Figure~\ref{fig:2ljets_fit_contours_cls}.
-By zooming in, one can see that not all points with $\cls < 0.05$ are
-labelled as excluded;
-this is direct a result of our smoothing choices.
 
 \begin{figure}[tp]
 \centering
@@ -5596,6 +5595,25 @@ $\cls$ value.
 }
 \label{fig:2ljets_fit_contours_cls}
 \end{figure}
+
+Our initial contours showed more glaring and unphysical wobbles.
+Those erroneous wobbles were removed by repeating the exclusion fits for signal
+points with anomalous results until their results appeared to behave.
+In total, this hack was used for two points near the highest
+$m(\chargino_1,\neutralino_2)$ edge in C1N2, and four across the whole
+GMSB spectrum.
+Different random seeds in the optimization algorithms explain this unstable
+behaviour; they clearly affect the fit results, and my attempts control all
+random seeds failed when executing these fits through \histfitter.
+
+Auxiliary results published in our \hepdata\ archive~\cite{hepdata.116034}
+include the observed upper limits on the signal cross-section at each point.
+We additionally display the $\cls$ values, from which the observed contour
+derives, in Figure~\ref{fig:2ljets_fit_contours_cls}.
+By zooming in, one can see that not all points with $\cls < 0.05$ are
+labelled as excluded;
+this is direct a result of our artistic interpolation choices.
+
 
 \paragraph{Discovery}
 Our discovery region results,
@@ -5647,9 +5665,10 @@ my ``Bailed statistics'' software~\cite{bailedstatisticsgithub}.}
 \label{fig:2ljets_upper_limit_scans}
 \end{figure}
 
-Perhaps what should be the most meaningful result is the observed upper limit
-$S_{\mathrm{obs}}^{95}$.
-The analysis of each region sets its upper limit by scanning different values
+
+What should berhaps be the most meaningful result of each discovery region is
+is observed upper limit $S_{\mathrm{obs}}^{95}$.
+The analysis of each region sets this upper limit by scanning different values
 of the signal expectation $\mu_\textrm{discovery}$ and interpolating to
 estimate the point where $\cls(\mu_\textrm{discovery}^*) = 0.05$.
 That interpolated point determines
@@ -5663,25 +5682,59 @@ Figure~\ref{fig:2ljets_upper_limit_scans}.
 Some of our discovery regions have small yields for which the asymptotic
 approximations~\cite{Cowan:2010js} to test statistic distributions are not
 believed to work.
-For consistency, we therefore use the alternative toy simulation
-approximation for all discovery regions.
+For consistency between our five discovery regions, we therefore use the
+alternative toy simulation approximation for all of them.
 Sampling of the test statistic distributions
 (with \histfitter-\roofit\ software)
 is extremely computationally expensive, so cut those costs by pruning our
 discovery regions models \histfitter's ``method 2'' at a $1\%$ tolerance.
 As discussed previously, this makes negligible differences to the results.
-The exact pruned models are shared in our \hepdata\
-archive~\cite{hepdata.116034}.
-Not only do these simulations take computational time, they also suffer
+The exact \histfactory\ models used in our discovery fits are shared in our
+\hepdata\ archive~\cite{hepdata.116034}.%
+Although many other searches' discovery regions can be approximately reproduced
+from their published \pyhf\ models of signal regions for exclusion fits,
+$\twoljets$ is the first \atlas\ search to directly publish its exact discovery
+region models on \hepdata~\cite{
+SUSY-2019-08,
+hepdata.90607,
+SUSY-2018-10,
+hepdata.97041,
+SUSY-2018-04,
+hepdata.92006,
+SUSY-2018-32,
+hepdata.89413,
+atlas2022searches,
+hepdata.116034,
+atlas_rjr_3l_SUSY_2019_09,
+hepdata.95751,
+SUSY-2018-36,
+hepdata.99806,
+atlas_rjr_mimic_SUSY_2018_06,
+hepdata.91127,
+SUSY-2018-09,
+hepdata.91214,
+SUSY-2018-02,
+hepdata.103062,
+atlas_susy_compressed_2l_2018_run2,
+hepdata.91374,
+SUSY-2018-33,
+hepdata.91760,
+SUSY-2018-31,
+hepdata.89408,
+atlas_susy_strong_0l,
+hepdata.95664
+}.
+
+Not only do these simulations take computational time, they suffer
 torrential memory leaks that halt progress beyond small sample sizes.
 To work around this, we evaluate and combine many small samples (with different
 random seeds), using software that I share under the name
 ``Bailed statistics''~\cite{bailedstatisticsgithub}%
 \footnote{%
 To share software that assists in spending computational resources to
-calculate statistics that are so deeply flawed causes me some shame.
+calculate statistics of this kind causes me some pain.
 In a vain attempt to absolve myself of this sin, and to positively encourage
-honest reporting of the data, I include with it the following note:
+honest reporting results, I include with it the following note:
 \emph{%
 ``Hypotheses compare through the relative likelihoods they assign to data.
 A p-value is a cumulative distribution function evaluated at data; CLs is a
@@ -5702,8 +5755,8 @@ and may not reflect the words' meanings in English.''
 }
 as it bails those memory leaks overboard.
 Despite this workaround, the simulations took several weeks of parallel
-processing on around $1500$ processor cores, accumulating to around a million
-core hours.
+processing on around $1500$ processor cores, accumulating to more than a
+million core hours.
 
 \begin{figure}[tp]
 \centering
@@ -5762,45 +5815,46 @@ through my ``Bailed statistics'' software~\cite{bailedstatisticsgithub}.}
 \label{fig:2ljets_test_stat_distributions}
 \end{figure}
 
-Many test statistic distributions are involved here --- two (background-only
-and signal-plus-background) at each scanned point, and one additional
-distribution per region (with yet another test statistic) for the discovery
+Many test statistic distributions are involved in these results ---
+two (background-only and signal-plus-background) at each scanned point,
+and one additional distribution per region for the discovery
 $p$-value $p_{s\!=\!0}$.
-From these, a few examples are presented in
+Some examples of these distributions are displayed in
 Figure~\ref{fig:2ljets_test_stat_distributions}
-to investigate curious features of the results.
+to help investigate curious features of the results.
 
 Our first curiosity is that the reported $S_{\mathrm{obs}}^{95} = 3.0$
 for DR-High is rounded up from a result of $2.93$ that was evaluated with these
-simulation methods.
+toy simulation methods.
 This makes sense --- the limit for $n=0$ should arguably always be $3$ since
 if a signal adds $\mu$ events, then the Poisson likelihood for zero data always
 scales by $e^{-\mu} \approx 0.05$, and so any likelihood ratio between
 background-only and signal-plus-background models is $0.05$ for $\mu = 3$.
-By taking a ratio of $p$-values, $\cls$ approximates that likelihood ratio:
+And by taking a ratio of $p$-values for zero data, $\cls$ approximates that
+likelihood ratio:
 we see from Figure~\ref{fig:2ljets_test_stat_distributions_drhigh} that the
 observed data does land in a spike at the end of the distribution that
-corresponds to pseudo-data with $n=0$; the peaks to its left correspond
+corresponds only to pseudo-data with $n=0$; the peaks to its left correspond
 to $n=1$, $n=2$ and so on, with widths due to the other parameters varied in
 toy sampling.
 
 The $n=0$ case has no visible width since its likelihood is linear
 (adding signal just adds a constant to the $-\log$ likelihood objectives being
 minimized), but its distribution is not quite a delta function since the test
-statistic depends on the noisy termination of numerical optimization
-algorithms.
-Resulting $\clb$ and $\clsb$ values depend on this effect ---
+statistic depends not exactly on the theoretical best fit, but on the noisy
+termination of numerical optimization algorithms.
+The resulting $\clb$ and $\clsb$ values depend on this effect ---
 with $3.9$ expected background events and zero data we expect
 $\clb = \mathrm{Poisson}(0\mid 3.9) = e^{-3.9} \approx 2.0\times 10^{-2}$.
 And that is $15$ times larger than the evaluated $\clb = 1.3\times 10^{-3}$
 because, as shown in Figure~\ref{fig:2ljets_test_stat_distributions_drhigh_n0},
 the observed test statistic happened to fall quite far to the right
 of that $n=0$ noise distribution.
-This small $\clb$ value could appear to be an anomalously large significance
-if that $p$-value were  misinterpreted as a measure of compatibility with the
+This tiny $\clb$ $p$-value could appear to be an anomalously large
+significance if one misinterpreted it as a measure of compatibility with the
 background model.
-Thankfully, it is remedied by the $\cls$-prescribed ratio with $\clsb$,
-since both $p$-values suffer from similar effects.
+Thankfully, this problem is somewhat remedied by the $\cls$-prescribed ratio
+against $\clsb$ since both $p$-values suffer from similar effects.
 Statistical precision is harmed, however --- although $1$m samples should
 give us around $e^{-7.9} \times 10^6 \approx 1000$ signal samples with
 $n=0$, only $57$ toy samples land to the right of the observed test statistic.
@@ -5832,14 +5886,15 @@ Although I have found no \atlas\ search reporting a discovery region limit
 below $3$, there are published examples with zero data but larger observed
 limits~\cite{SUSY-2018-36, atlas_susy_strong_0l}.
 The most extreme is $\mathrm{SR}3\ell_{[90,110]}$
-of~\cite{SUSY-2018-36}, which reports a background expectation of
-$1.08 \pm 0.18$ and expected limits of
+of the trilepton resonance search~\cite{SUSY-2018-36}, which reports a
+background expectation of $1.08 \pm 0.18$ and expected limits of
 $S_{\mathrm{exp}}^{95} = 3.8^{+1.3}_{-0.5}$, but zero observed data with a
 whopping $S_{\mathrm{obs}}^{95} = 4.8$.
-Using their \pyhf\ models published through \hepdata, I have failed to
-reproduce this effect outside the \histfitter-\roofit\ system, finding instead
-a limit close to $3$. It would not surprise me if similar complications with
-the test statistic distribution played a part.
+Using their \pyhf\ models published through \hepdata~\cite{hepdata.99806},
+I have failed to reproduce this effect outside the \histfitter-\roofit\ system,
+finding instead a limit close to $3$.
+It would not surprise me if similar complications with the test statistic
+distribution played a part.
 
 Not only is that limit more than $3$, it is more than the expected limit,
 despite the fact that increasing data should increase the observed limit.
@@ -5847,7 +5902,8 @@ The same effect has occurred in our results for DR-OffShell --- its observation
 of $21$ data is below the post-fit background is $22.1$, but its observed limit
 exceeds the central expected limit.
 Another public example of this effect is
-$\mathrm{SR}0\textrm{-}\mathrm{ZZ^{tight}_{bveto}}$ of~\cite{SUSY-2018-02}.
+$\mathrm{SR}0\textrm{-}\mathrm{ZZ^{tight}_{bveto}}$ of the four-lepton
+search~\cite{SUSY-2018-02}.
 \emph{Thanks to Tina~Potter discussions of this problem and for sharing
 its details of its modelling.}
 
@@ -5872,10 +5928,10 @@ overlapping bumps from toys with two and three events; their overlap
 contains examples where our toy sampling scheme reverses the natural
 ordering that larger $n$ is more signal-like.
 Limits moving in the wrong directions can simply be explained by flawed
-test statistics ranking data in a bad order.
+test statistics ranking data in the wrong order.
 
 A second sufficient explanation for these paradoxical limit results is also
-that the toy sampling method does not assign legitimate $p$-values because its
+that the toy sampling method does not assign legitimate $p$-values, since its
 test statistic distributions are assigned by first fitting to the
 data~\cite{CMS-NOTE-2011-005}.
 Just as the Matrix Method is not predictive because it is conditioned on the
@@ -5895,8 +5951,7 @@ which are shown in Figure~\ref{fig:2ljets_test_stat_distributions_drlow},
 show some other quirks: negative values and a bump at $-1$.
 The maximum likelihood ratio test statistics that we
 employ~\cite{Cowan:2010js} compare a background model against a strictly more
-flexible signal model, and should therefore, to my understanding, be always
-non-negative.
+flexible signal model, so should (to my understanding), be always non-negative.
 The observed negative values are therefore quite unsettling, particularly since
 the observed test statistic landed in the bump at $-1$ for
 $\mu_\textrm{discovery} = 16$ in the upper limit scan.
@@ -5904,16 +5959,20 @@ Plausible explanations could include rogue values of sampled alternative data
 (real data and auxiliary data that constrain model parameters), but given this
 result for the observed test statistic, I am inclined to blame failures in
 the numerical optimization.
-Histogram ranges in Figure~\ref{fig:2ljets_test_stat_distributions} are
-set from the smallest and largest toy test statistics, and their large extent
-indicates rare outliers that may also result from failed fits.
 
-It is certainly arguable that the pathological test statistic distributions
+Histogram ranges for all plots in
+Figure~\ref{fig:2ljets_test_stat_distributions} are
+set from the smallest and largest toy test statistics, and their large extent
+can also be explained by failed fits causing rare outliers.
+
+It is arguable that the pathological test statistic distributions
 observed in DR-Low indicate a bug that should be fixed.
 However, the statistical software packages that generated this result
 --- \roofit\ through \histfitter\ ---
-define in silicon the standard statistical methods for \atlas\ SUSY searches.
-To diverge from them would make our result incomparable.
+define in stone (silicon) the standard statistical methods for \atlas\ SUSY
+searches.
+To diverge from them would make our result incomparable with all preceding
+work.
 What they do defines what is correct.
 All \pyhf\ can do is imitate.
 There is no such thing as a bug.
@@ -5936,23 +5995,22 @@ fresh with new ideas.%
 \end{epigraphs}
 \end{singlespacing}
 
-From \atlas' large and valuable Run~2 dataset, our $\twoljets$ searches
+From \atlas' large and previous Run~2 dataset, our $\twoljets$ searches
 have extracted a sharper image of the high energy processes that simultaneously
 produce leptons, jets and missing transverse momentum in proton-proton
 collisions at the Large Hadron Collider.
 The core message is clear: we see no indication of any additive process
 atop the Standard Model.
 
-These searches do not exist in isolation; they extend and strengthen the
+These searches do not exist in isolation --- they extend and strengthen the
 results of numerous previous \atlas\ searches that have used similar or smaller
 datasets and found similar conclusions.
 By providing refined and updated interpretations, we have advanced \atlas' SUSY
-research programme in this $2\ell$+jets+$\met$ channel.
-My focus has been on the $\twoljets$-electroweak search within this project.
-Its result is a central pillar of the visible effects of both C1N2 and GMSB
-simplified supersymmetric models, and uniquely contributes exclusion
-(under the $95\%$ $\cls$ prescription) of certain regions of the models'
-parameter spaces.
+research programme in this two-lepton plus jets plus $\met$ channel.
+My focus has been on the $\twoljets$-electroweak search within this project,
+and its result tests a central pillar of the visible effects of both C1N2 and
+GMSB simplified supersymmetric models, and uniquely contributes exclusion
+contours in certain regions of the models' parameter spaces.
 
 % model (in)dependent
 Although designed to study potential supersymmetric effects, the results
@@ -5969,20 +6027,20 @@ Such successes do not, however, deny that there is room for improvement.
 Although I brazenly philosophized in
 Section~\ref{sec:2ljets_origins_electroweak} that the limitations of dubious
 statistical practices should not prevent us from using large numbers of small
-signal regions, their overly ambitious design in the $\twoljets$-electroweak
-did come with costs:
+signal regions, their overly ambitious design for the $\twoljets$-electroweak
+regions did incur costs:
 % mm fakes
 in replacing unusable fake/non-prompt assignments
 (Section~\ref{sec:2ljets_mm_fakes}),
 % precise alternative simulations
 in failures of the statistical precision of alternative simulated samples
 (Section~\ref{sec:2ljets_sample_comparisons})
-and struggles to reconcile their standard prescriptions for coupled
+in struggles to reconcile their standard prescriptions for coupled
 (correlated) variations with physical intuition between our many bins,
 % computational
-and computational costs particularly in the `toy' simulations that assign our
-statistical results (Section~\ref{sec:2ljets_results}).
-The root of this problem that in diverging from standard designs we
+and in computational costs particularly in the `toy' simulations that assign
+our statistical results (Section~\ref{sec:2ljets_results}).
+The root of this problem is that by diverging from standard designs we
 had to use tools and rules outside the domains that their designers
 intended.
 No design can be expected to work perfectly outside its expected context,
@@ -6000,15 +6058,15 @@ And by ignoring that truth, my designs cost this search project complications
 that caused real delays when problematic data
 --- substantial deficits ---
 were observed in our complicated and rigidly-modelled signal regions.
-Although these regions are sensitive, as demonstrated by the extent of their
-projected and observed exclusion contours, delays are themselves a meaningful
-cost.
+Although these regions are sensitive to new signals, as demonstrated by the
+extent of their projected and observed exclusion contours, delays are
+themselves a meaningful cost.
 Simpler designs, with fewer and larger regions, could be cheaper to model with
 our limited simulation capacity and more robust to unexpected data, without
 sacrificing much sensitivity.
-Simplicity in design may therefore have afforded a higher quality result by
-reducing these delays and publishing its result years sooner,
-and so implemented \cern's goal of
+Greater simplicity in design may therefore have afforded a higher quality
+result by reducing these delays and publishing its result years sooner,
+and so might have reached towards \cern's goal of
 ``accelerating science''~\cite{Radford:1551933}.
 
 % this extra line activates enlarged spacing for the final paragraph lol
