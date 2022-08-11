@@ -1390,7 +1390,7 @@ selections is almost pure \diboson\ --- $ZZ$ with a hard $Z\rightarrow \nu\nu$,
 and $W^\pm Z$ where the charged lepton in $W^\pm\rightarrow\ell^\pm\nu$
 is not reconstructed; these subcomponents of the \diboson\ process are discussed
 later in Section~\ref{sec:2ljets_validation} and displayed in
-Figure~\ref{fig:2ljets_splits_\diboson}.
+Figure~\ref{fig:2ljets_splits_diboson}.
 
 \begin{figure}[tp]
 \centering
@@ -3029,7 +3029,6 @@ the combined fit are overlaid on the grid.
 \FloatBarrier
 \subsection{Discovery}
 \label{sec:2ljets_disco}
-
 Although discovery regions are model-independent in principle, our designs
 remain inspired by our simulated signal models.
 Various approaches have been taken to discovery regions in \atlas\ searches
@@ -5006,40 +5005,27 @@ samples, and thanks to Jon~Long for contributing to this study.
 
 \section{Validation}
 \label{sec:2ljets_validation}
-Many additional validation studies supported the $\twoljets$ search prior to
+Many validation studies supported the $\twoljets$-electroweak search prior to
 its publication.
-Many of these, comprising hundreds of histograms in various regions or looser
-selections in various event variables, are available to \atlas\ members in
-our internal documentation~\cite{twoljets2018int}.
-This section highlights some interesting results from these validation studies.
+Results of these, mostly comprising hundreds of histograms in various regions
+or looser selections in various event variables, are available only to \atlas\
+members in our internal documentation~\cite{twoljets2018int}.
+This section presents some highlights these validation studies.
 
 \paragraph{\crz-met}
-Concerns about our modelling of $\zjets$ and \diboson\ backgrounds have been
+Concerns about our modelling of $\zjets$ and \diboson\ backgrounds were
 raised due to our deficits in SR-Low and SR-High, which compound with the
 anticipated difficulty in modelling the $\met$ tails of $\zjets$.
 To further check these backgrounds, Figure~\ref{fig:2ljets_low_crz_extensions}
-displays histograms in a `\crz-met', which is modifies \crz
+displays histograms in a selection named `\crz-met', which modifies \crz\
 (from Table~\ref{tab:2ljets_low}) by removing its upper bound on $\metsig$.
 The arrow in Figure~\ref{fig:2ljets_low_crz_extensions_metsig} indicates this
-upper bound at $\metsig = 9$, and shows excellent agreement with data across
-the entire distribution, both where $\zjets$ dominates and where \diboson
-dominates.
-The corresponding $\met$ distribution that is shown in
+removed upper bound at $\metsig = 9$, and shows excellent agreement with data
+across the entire distribution and in all relative mixtures of $\zjets$ and
+\diboson\ contributions.
+The corresponding $\met$ distribution \crz-met that is shown in
 Figure~\ref{fig:2ljets_low_crz_extensions_met}
-similarly shows excellent agreement.
-
-Like our other plots intended for publication, these figures use the full fit
-model with all variations for statistical and systematic uncertainties,
-and are fitted to data in control and signal regions, but the signal regions
-have little effect since the pulled variations are normalized to this control
-region.
-To avoid the work of evaluating variations in \crz-met (and all of its bins),
-its variations are linearly extrapolated from \crz.
-
-Good modelling in \crz-met is a positive sign for our simulations prior to
-their modification in the fit.
-Noting that \crz\ excludes $m(W)$, however, this does not conflict with the idea
-of poor modelling in the signal regions.
+also shows excellent agreement.
 
 \begin{figure}[tp]
 \centering
@@ -5071,6 +5057,21 @@ Each rightmost bin includes overflow.
 \label{fig:2ljets_low_crz_extensions}
 \end{figure}
 
+Like our other plots intended for publication, these figures use the full
+background model with all variations for statistical and systematic
+uncertainties,
+and are fitted to data in control and signal regions.
+The signal regions have little effect on $\zjets$ here, however, since its
+variations are normalized to \crz.
+To avoid the work of evaluating variations in \crz-met, its variations are
+linearly extrapolated from \crz.
+
+Good modelling in \crz-met, as observed here, is a positive sign for our
+simulations prior to their modification in the fit.
+Since \crz\ excludes an $\mjj \approx m(W)$ window, however, this does not
+rule out of poor modelling in certain signal regions.
+
+
 \paragraph{Sub-processes}
 Our high-level sample labels such as $\ttbar$, $\zjets$, \diboson\ and
 rare-top (`Top other') each include many sub-samples that are physically
@@ -5078,51 +5079,13 @@ distinct and non-interfering.
 Highlights from a study of the contributions from these sub-samples are
 presented in Figure~\ref{fig:2ljets_splits}.
 
-Although it might be expected that our $Z$-like two-lepton selection would
-favour the $ZZ$-like \diboson\ sub-sample, with the other $Z$ decaying to
-neutrinos,
-Figure~\ref{fig:2ljets_splits_\diboson} shows that in fact the three-lepton
-$W\kern-0.4exZ$-like process has almost equal yields.
-All of those $W\kern-0.4exZ$ events therefore have a missing third lepton, that could be
-softer than the few $\eV[G]$ needed for our baseline selection
-(see Section~\ref{sec:2ljets_events_leptons}),
-or outside our angular acceptance.
-(Overlap removal cannot explain this, since we count baseline leptons before
-applying it.)
-Although we would hope that such failed identifications would be rare,
-the effect is enhanced by the fact that $W\kern-0.4exZ$ has a larger cross-section than
-$ZZ$ by around a factor of three~\cite{Campbell:2011bn}, that is enhanced
-by the sum over $W^+\kern-0.4exZ$ and $W^-\kern-0.4exZ$ processes.
-
-Our \sherpa\ \diboson\ samples include the interference of electroweak processes
-for each fixed final state, so for example the separation of $ZZ$ and $WW$ is
-not exact since they interfere.
-These histograms are therefore split on charged lepton number in their
-final states.
-
-Some of our $\zjets$ samples are filtered by hadron flavour
-(requiring at least one selected hadron with $|\eta| < 4$), and
-Figure~\ref{fig:2ljets_splits_zjets} shows \crz\ with its $\zjets$ yields
-split by these filters.
-Heavy flavour samples are enhanced, with the filtered yields comprising
-$22\%$ bottom and $30\%$ charm flavours despite the $\nbtag = 0$ veto in \crz;
-this is sensible, since we also require $\met$, and extra non-prompt $\met$ is
-generated  in the weak decays of heavy-flavoured hadrons.
-
-The remaining parts of Figure~\ref{fig:2ljets_splits_\diboson} show that
-of the rare-top sample, $\ttbar Z$ is the largest contribution,
-at $73\%$ in \srllbb, but that contributions from other rare processes
-such as $tW\kern-0.4exZ$, $t\ell\ell g$ and $\ttbar W$ are significant.
-Here, the plain `Top other' label refers to all other rare-top contributions
-not included in the bracketed specializations.
-
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_splits_met_Sign_CRZZ.png}
 \caption{\crvz, \diboson}
-\label{fig:2ljets_splits_\diboson}
+\label{fig:2ljets_splits_diboson}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
@@ -5158,12 +5121,56 @@ Errors are statistical.
 \label{fig:2ljets_splits}
 \end{figure}
 
+Although one might expect our selected \diboson\ sample to comprise mostly
+$ZZ$, with one $Z\rightarrow \ell\ell$ and the other invisibly to
+$Z\rightarrow \nu\nu$ to generate our required $Z$-like lepton pair with
+$\met$.
+Figure~\ref{fig:2ljets_splits_diboson} shows that in fact the three-lepton
+$W\kern-0.4exZ$-like process has similar equal yields.
+Those $W\kern-0.4exZ$ events must therefore have a missing third lepton from
+$W\rightarrow \ell\nu$ decays.
+To avoid selection, that third lepton could be softer than the few $\eV[G]$
+needed for our baseline selection
+(see Section~\ref{sec:2ljets_events_leptons}),
+or outside our angular acceptance.
+(Overlap removal cannot explain this since we count baseline leptons before
+applying overlap removal.)
+Although we would hope that such failed lepton identifications would be rare,
+the effect is enhanced by the fact that $W\kern-0.4exZ$ has a larger
+cross-section than $ZZ$ by around a factor of three~\cite{Campbell:2011bn},
+due in part to the sum over both $W^+\kern-0.4exZ$ and $W^-\kern-0.4exZ$
+processes.
+
+Our \sherpa\ \diboson\ samples include the interference of electroweak
+processes for each fixed final state.
+One consequence of this is that there is no exact separation between $ZZ$ and
+$WW$ to $\ell\ell\nu\nu$ final states. They interfere.
+These histograms are therefore split on charged lepton number in their
+final states and we cannot exactly attribute the intermediate boson states.
+
+Some of our $\zjets$ samples are filtered by hadron flavour
+(requiring at least one selected hadron with $|\eta| < 4$), and
+Figure~\ref{fig:2ljets_splits_zjets} shows \crz\ with its $\zjets$ yields
+split by these filters.
+Heavy flavour samples are enhanced, with the filtered yields comprising
+$22\%$ bottom and $30\%$ charm flavours despite the $b$-jet veto ($\nbtag = 0$)
+in \crz;
+this is sensible since we also require $\met$ and the weak decays of
+heavy-flavoured hadrons generate extra, non-prompt $\met$.
+
+The remaining parts of Figure~\ref{fig:2ljets_splits} show that $\ttbar Z$ is
+the largest contribution to our \topother\ sample,
+at $73\%$ in \srllbb, and that contributions from other rare processes such as
+$tW\kern-0.4exZ$, $t\ell\ell g$ and $\ttbar W$ are also significant.
+Here, the plain `Top other' label refers to all other \topother\ contributions
+not included in the bracketed specializations.
+
 
 \section{Unblinding}
 \label{sec:2ljets_unblinding}
 This section is not a discussion of our unblinded results.
 It is a discussion of our unblinding procedures,
-their extent, their implementation, and their effect on the results.
+their extent, their implementation, and their impact on our published results.
 
 Blindness to data is useful, but not necessary.
 All that is necessary is that our predictions are independent of the data
