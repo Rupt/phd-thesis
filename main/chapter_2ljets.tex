@@ -28,7 +28,7 @@ corresponds to a kind of utter honesty --- a kind of leaning over backwards.%
 \end{epigraphs}
 \end{singlespacing}
 
-My main messages that this thesis reports are my contributions to the recently
+The main messages that this thesis reports are my contributions to the recently
 published \atlas\ searches ``for new phenomena in events with two leptons,
 jets, and missing transverse momentum''~\cite{atlas2022searches},
 particularly to its electroweak part.
@@ -133,7 +133,7 @@ that decay via $W\rightarrow q\bar q$ and $Z\rightarrow \ell^\pm \ell^\mp$
 respectively to produce two leptons, jets, and two $\neutralino_1$ LSPs.
 The other is a GMSB model which, from a variety of initial states, produces
 $\neutralino_1\textrm{--}\neutralino_1$ pairs that decay via Higgs and $Z$
-bosons, in variable branching fractions,
+bosons, with variable branching fractions,
 to final states again containing $\ell^\pm \ell^\mp$, hadronic partons,
 and invisible gravitinos.
 Example effects of these signal models are displayed in signal regions of the
@@ -231,8 +231,8 @@ Each signal-plus-background model is then tested against observed data in the
 $\cls$ prescription.
 From these tests, contours showing which parameters of those signal models are
 labelled as excluded are derived, and displayed in
-Figure~\ref{fig:2ljets_contours_c1n2} for C1N2 and
-in~\ref{fig:2ljets_contours_gmsb} for GMSB.
+Figure~\ref{fig:2ljets_contours_c1n2} for C1N2 and in
+Figure~\ref{fig:2ljets_contours_gmsb} for GMSB.
 In both of these figures, space to the lower left of the contours is
 labelled as excluded, and space on the other side of the observed limit contour
 is not excluded.
@@ -359,7 +359,6 @@ scheme~\cite{pdg2020review}.%
 \end{table}
 
 
-\FloatBarrier
 \subsection{Contributions}
 Many people contributed directly and indirectly to the $\twoljets$ searches.
 I claim personal responsibility for the following parts of the $\twoljets$
@@ -370,14 +369,13 @@ analysis.
 \item Service as Analysis Contact (a management role) for the $\twoljets$
 project from January to October 2020.
 \item Production of main data inputs for all three $\twoljets$ searches
-and the RJR $3\ell$ search~\cite{atlas_rjr_3l_SUSY_2019_09},
+and the RJR $3\ell$ search~\cite{atlas_rjr_3l_SUSY_2019_09}.
 Production of all experimental systematic variations for the background
-samples;
-other group members assisted with the central background sample.
+samples --- other group members assisted with the central background sample.
 Production of all electroweak signal samples and their systematic variations.
-\item Evaluation of $Z$+jets uncertainties for RJR signal regions through
-from simulations. These exceeded $100\%$ relative variation and supported the
-use of data-driven methods.
+\item Evaluation of $Z$+jets uncertainties for RJR signal regions from
+simulations. Their variations exceeded $100\%$ relative variation and supported
+the use of data-driven methods.
 \item Various collaborations with all other group members on common core tasks
 that are shared between the searches of the $\twoljets$ project.
 \item Integration of the electroweak analysis with \atlas\ combinations and
@@ -441,8 +439,10 @@ detailed in Section~\ref{sec:2ljets_origins_strong} and
 searches for effects from supersymmetric models that are active in the strong
 sector.
 It uses conventional (non-RJR) event variables and focuses on features in the
-distribution of the invariant masses of lepton pairs that can have distinct
-features that depend on the masses of decaying supersymmetric resonances.
+distribution of the invariant masses of lepton pairs.
+That dilepton mass distribution can have distinct features that would stand
+out from Standard Model backgrounds and depend on the masses of decaying
+supersymmetric resonances.
 
 My primary contributions are to the $\twoljets$-electroweak search,
 detailed in Section~\ref{sec:2ljets_origins_electroweak}, that seeks effects
@@ -451,9 +451,40 @@ sector by using conventional event variables to define a collection of
 orthogonal selection regions.
 
 
-\FloatBarrier
 \subsection{RJR}
 \label{sec:2ljets_origins_rjr}
+The Recursive Jigsaw Reconstruction (RJR) method interprets reconstructed
+particle data by reconciling them with user-specified decay trees, and operates
+by making decisions of how to assign four-momenta to different `systems',
+which are represented as nodes on the chosen decay graph.
+Various RJR event variables are then defined in those systems' rest
+frames~\cite{jackson2017sparticles, jackson2017rjr}.
+
+In this way, RJR variables have some intelligence in how parent particles are
+reconstructed from their visible decay products, as well as approximate
+independence from uninteresting boosts, particularly those from the emission of
+QCD jets outside the main supersymmetric decay tree.
+
+Over the last several years, RJR event variables have been demonstrated to be
+effective for interpreting supersymmetric particle physics
+data~\cite{santoni2018probing},
+and have been used in numerous \atlas\ searches~\cite{
+atlas_rjr_SUSY_2016_07,
+atlas_rjr_SUSY_2016_15,
+atlas_rjr_SUSY_2016_16,
+atlas_rjr_23l_SUSY_2017_03,
+atlas_rjr_SUSY_2018_12,
+atlas_rjr_EXOT_2019_19,
+atlas_rjr_3l_SUSY_2019_09
+}.
+They have also influenced the designs of other analyses that do not themselves
+use RJR variables~\cite{atlas_rjr_mimic_SUSY_2018_06}.
+
+Two decay trees are used in the $\twoljets$-RJR analysis, and from each
+one signal region is defined and explored.
+These trees are illustrated in Figure~\ref{fig:2ljets_rjr_decay_trees} and
+target C1N2-like scenarios similar to those also targetted by the
+$\twoljets$-electroweak search.
 
 \begin{figure}[tp]
 \centering
@@ -476,39 +507,6 @@ $\twoljets$-electroweak search.
 }
 \label{fig:2ljets_rjr_decay_trees}
 \end{figure}
-
-The Recursive Jigsaw Reconstruction (RJR) method interprets reconstructed
-particle data by reconciling them with user-specified decay trees, and operates
-by making decisions of how to assign four-momenta to different `systems',
-which are represented as nodes on the chosen decay graph.
-Various RJR event variables are then defined in those systems' rest
-frames~\cite{jackson2017sparticles, jackson2017rjr}.
-
-In this way, RJR variables have some intelligence in how parent particles are
-reconstructed from their visible decay products, as well as approximate
-independence from uninteresting boosts, particularly those from the emission of
-QCD jets outside the main supersymmetric decay tree.
-
-Over the last several years, RJR event variables have been demonstrated to be
-effective for interpreting supersymmetric particle physics
-data~\cite{santoni2018probing},
-and have been used in numerous \atlas\ searches~\cite{%
-atlas_rjr_SUSY_2016_07,
-atlas_rjr_SUSY_2016_15,
-atlas_rjr_SUSY_2016_16,
-atlas_rjr_23l_SUSY_2017_03,
-atlas_rjr_SUSY_2018_12,
-atlas_rjr_EXOT_2019_19,
-atlas_rjr_3l_SUSY_2019_09
-}.
-They have also influenced the designs of other analyses that do not themselves
-use RJR variables~\cite{atlas_rjr_mimic_SUSY_2018_06}.
-
-Two decay trees are used in the $\twoljets$-RJR analysis, and from each
-one signal region is defined and explored.
-These trees are illustrated in Figure~\ref{fig:2ljets_rjr_decay_trees} and
-target C1N2-like scenarios similar to those also targetted by the
-$\twoljets$-electroweak search.
 
 
 \subsubsection{Former excesses}
@@ -625,9 +623,9 @@ $\twoljets$-electroweak analysis.
 \FloatBarrier
 \subsection{Strong}
 \label{sec:2ljets_origins_strong}
-Strongly supersymmetric particles, the super-partners of quarks and gluons, would
-be produced at much larger cross-sections than their electroweak cousins at the
-LHC.
+Strongly interacting supersymmetric particles, the super-partners of quarks and
+gluons, would be produced at much larger cross-sections than their electroweak
+cousins at the LHC.
 Squarks and gluinos in simplified models are therefore excluded with masses up
 to several $\eV[T]$ using hadronic data alone~\cite{atlas_susy_strong_0l}.
 
@@ -699,7 +697,7 @@ decay chain~\cite{paige1996determining}:
 \end{equation}
 
 Previous incarnations of this search have been conducted with similar
-selections and target models on in older data, including partial Run~2~\cite{
+selections and signal models in older data, including partial Run~2~\cite{
 atlas_susy_strong_2l_partial_run2_1,
 atlas_susy_strong_2l_partial_run2,
 cms_susy_2016_strong_2l_run2_1,
@@ -716,13 +714,14 @@ early Run~2 updates.
 
 To target its signal models, the $\twoljets$-strong search defines seven
 overlapping signal regions.
-Three target on-shell $Z^{(*)}$ models by selecting $\mll$ close to $m(Z)$,
+Three target on-shell $Z^{(*)}$ models by selecting $\mll$ close to
+$m(Z)\approx 91.2\,\eV[G]$~\cite{pdg2020review},
 and the others are binned in $\mll$ for sensitivity to the various
 kinematic endpoints that arise across the grid of various signal model
 parameters.
 
 The largest Standard Model background to this search is dileptonic $\ttbar$,
-partly because no $b$-tagging veto is applied.
+partly because it employes no veto for $b$-tagged jets.
 All three signal models produce same-flavour lepton pairs, but $\ttbar$
 produces same-flavour ($ee$/$\mu\mu$) and different-flavour ($e\mu$) pairs at
 equal rates.
@@ -806,7 +805,6 @@ information, I therefore chose to design the $\twoljets$-electroweak with only
 orthogonal regions, and without any switching of regions between models.
 
 
-\FloatBarrier
 \subsection{Electroweak}
 \label{sec:2ljets_origins_electroweak}
 As motivated in the previous sections, I have personal preferences for
@@ -886,13 +884,13 @@ Although widening sensitivity to both models must sacrifice some sensitivity to
 each individually, the increased degree of model independence is itself of
 value for future reinterpretations of our data.
 We are happy to sacrifice some precision for generality.
-Since the $W$ and $Z$ boson masses are similar, this sacrifice turns out to be
-quite small anyway.
+Since the $W$ and $Z$ boson masses are similar, this sacrifice turned out to
+have quite a minor impact.
 
 Multi-bin fits are not special.
 They are standard \atlas\ practice, and there should have been no complication
-had I designed copied SR2-int and SR2-high for $\twoljets$-electroweak but with
-with minor tweaks to change them into orthogonally binned regions.
+had I imitated SR2-int and SR2-high for $\twoljets$-electroweak but with minor
+tweaks to change them into orthogonally binned regions.
 However, my design decisions for $\twoljets$-electroweak became much more
 ambitious, increasing to a total of $13$ signal regions with complicated
 definitions.
@@ -952,11 +950,11 @@ In practice, our methods to assign background uncertainties can easily require
 tens of expected events to work properly.
 
 Unfortunately, the $\twoljets$-electroweak regions designs were finalized
-before unblinding and before I appreciated this problem with background
+before unblinding, and before I appreciated this problem with background
 uncertainties in the smaller regions.
-Various workaround are invoked to assign plausible variations despite
-small yields and failing statistical precision, which shall be seen in the
-remainder of this chapter.
+Various workarounds are therefore invoked to assign plausible variations
+despite small yields and failing statistical precision, which shall be seen in
+the remainder of this chapter.
 As seen in the splash summary of Section~\ref{sec:2ljets_splash}, the
 $\twoljets$-electroweak search observes agreement with post-fit backgrounds
 except for some local deficits of data below backgrounds.
@@ -1027,10 +1025,10 @@ jet.
 Though not in the name, an $\met$ requirement is also implicit from the context
 of $R$-parity conserving supersymmetric models.
 This Section~\ref{sec:2ljets_events} serves to describe how events are selected
-for the $\twoljets$ analyses, and which event variables are extracted for use
+for the $\twoljets$ searches, and which event variables are extracted for use
 in its selections.
 
-Our dataset comprises $136.0\,\mathrm{fb}^{-1}$ ($\pm 1.7\%$) of integrated
+Our dataset comprises $139.0\,\mathrm{fb}^{-1}$ ($\pm 1.7\%$) of integrated
 luminosity observed during normal operations of the \atlas\ detector in the
 years $2015$ through to $2018$ of the LHC Run~2~\cite{DAPR-2018-01}.
 Triggers and object definitions are shared between the three $\twoljets$
@@ -1052,7 +1050,7 @@ bombardment of collision data to a manageable size.
 Each trigger in \atlas' arsenal activates on a selection comprising some
 combination of sufficiently hard objects.
 The set of targeted objects includes all those used in this analysis and more:
-electron, muons, jets, $b$-jets, $\met$, as well as photons and hadronically
+electrons, muons, jets, $b$-jets, $\met$, as well as photons and hadronically
 decaying tau leptons~\cite{atlas_PERF_2007_01}.
 
 The list of available triggers in \atlas\ is designed to balance data rates
@@ -1104,7 +1102,7 @@ used in $\twoljets$.
 This complicated collection of trigger requirements motivates lepton selections
 that exceed these trigger thresholds,
 such that they avoid the need to accurately model their jagged activation
-thresholds and the variable efficiencies near to those thresholds~\cite{
+thresholds and varying efficiencies near to those thresholds~\cite{
 atlas_trigger_egamma_run2,
 atlas_trigger_muon_run2
 }.
@@ -1126,10 +1124,11 @@ of including one-lepton triggers.
 In a signal-region-like selection requiring two leptons, two jets and
 $\met > 200\,\eV[G]$, this study showed that two-lepton triggers already accept
 in excess of $90\%$ of events from benchmark C1N2 models.
-Therefore, any additional trigger has at most a $10\%$;
-improvement. Adding one-lepton triggers was found to increase efficiency by
-only a few percentage points, depending on the model.
-We in the $\twoljets$ team considered that to be too little to be worthwhile.
+Therefore, any additional trigger has at most a $10\%$ improvement.
+Adding one-lepton triggers was found to increase acceptance rates by only a
+few percentage points.
+Especially since this must come with a comparable increase in background rates,
+the benefit is too little to be considered worthwhile.
 
 Costs of triggers are primarily attributable to human effort:
 software work to include them and their associated Monte Carlo weights, and
@@ -1165,7 +1164,7 @@ indirectly through their decay products, and neutral leptons
 
 Reconstructed lepton objects feature momenta, charges, and flavours.
 Each lepton is accepted for use in $\twoljets$ only if it satisfies certain
-kinematic and is identified with `quality' criteria.
+kinematic selections and is identified with `quality' criteria.
 For both electron and muons, these criteria are standardized with labels
 `loose', `medium', and `tight';
 these labels are nested in the sense that tight implies medium
@@ -1198,7 +1197,7 @@ Leptons in $\twoljets$ are further sliced into two classes:
 `baseline' and `signal'.
 Baseline leptons and are used in background estimation methods and to ensure
 orthogonality with other \atlas\ analyses that study events with differing
-lepton counts, such that our results might be combined in future to deliver an
+lepton counts, such that our results can be combined in future to deliver an
 improved total sensitivity.
 Baseline requirements are softer and lower quality than signal requirements.
 
@@ -1228,8 +1227,8 @@ Like leptons, hadronic jets are identified with `baseline' and `signal'
 requirements, with increasingly tight requirements on quality metrics and
 kinematics.
 
-Jets in $\twoljets$ use the anti-$k_t$ algorithm with the standard small-radius
-parameter of $R=0.4$~\cite{jet_anti_kt}.
+Jets in $\twoljets$ are constructed with the anti-$k_t$ algorithm with a
+standard small radius parameter of $R=0.4$~\cite{jet_anti_kt}.
 Jets are formed from `topological' clusters of energy deposits in the
 calorimeters~\cite{atlas_jet_topo_PERF_2014_07}.
 
@@ -1318,8 +1317,8 @@ events containing them --- photons are accounted for in the momentum balance
 of $\ptmiss$.)
 
 Once we know about all the reconstructed leptons and hadronic jets, we can
-also improve our rejection of non-prompt leptons from hadron decays, since
-leptons near to jets become suspect.
+also improve our rejection of non-prompt leptons from hadron decays by
+leveraging the tendancy for those non-prompt leptons to be near to jets.
 To remove duplicates and further reduce non-prompt lepton contributions, we
 apply a standard overlap-removal procedure.
 This procedure, which is detailed in the $\twoljets$
@@ -1355,19 +1354,19 @@ photons, tau leptons, and a `soft term' comprising tracks not associated to
 any other objects~\cite{atlas_met}.
 
 All signal models in $\twoljets$ generate hard, invisible particles.
-By selecting for large $\met$, however, we select events in which either there
-were real invisible particles or something was badly mismeasured.
-And the rate of bad mismeasurements from Standard Model processes
-with large cross-sections can be substantial.
+By selecting for large $\met$, however, we select events with either
+real invisible particles or bad mismeasurements.
+And the rate of badly measured events from Standard Model processes with large
+cross-sections can be substantial.
 A standard selection requirement in $\twoljets$-electroweak is
 $\met > 100\,\eV[G]$.
 This is a nice round number (in these conventional units), and corresponds
 roughly to where the $\met$-less background $\zjets$ tails off,
 and also corresponds roughly to several standard deviations of
-a typical $\met$ noise scale of approximately $10\textrm{--}30\,\eV[G]$;
-I observe that noise scale by inspecting $\met / \metsig$ in
+a typical $\met$ noise scale of approximately $10\textrm{--}30\,\eV[G]$.
+(I observe that noise scale by inspecting $\met / \metsig$ in
 $\twoljets$-electroweak selections, where $\metsig$ is defined in the next
-section.
+section.)
 
 
 \subsection{\texorpdfstring{$\met$}{ETmiss} significance}
@@ -1549,7 +1548,8 @@ outside their selected mass windows.
 The simplicity of, and precedent for, the two-hardest jet assignment therefore
 swung the decision in its favour.
 
-However, alternatives did select different subsets of signal yields:
+However, alternative jet pair assignments did select different subsets of
+signal yields:
 the alternative jet assignments had some potential to define secondary signal
 regions to catch those signal events which fall outside the primary
 $\mjj$ window.
@@ -1628,7 +1628,7 @@ annoying, was an
 honest representation of our modelling.
 Restricting ourselves to round numbers (in the units with which we communicate)
 not only clarifies our communications,
-but keeps us honest by denying ourselves the ability to over-fit simulations.
+but keeps us honest by restricting our ability to over-fit to simulations.
 
 Numerical simplicity is valuable.
 In a draft of our \atlas-internal documentation I wrote that numerical
@@ -1742,7 +1742,7 @@ and to the whole $\twoljets$ team for collaboration in their finalization.
 
 \subsection{High}
 \label{sec:2ljets_high}
-The highest $\metsig$ selections, starting around $\metsig > 18$, contain
+Our highest $\metsig$ selections, starting around $\metsig > 18$, contain
 pure \diboson\ backgrounds in relatively small quantities, along with the bulk
 of signal samples at the heaviest resonance masses.
 This is therefore the most promising territory for signal regions that are
@@ -1760,7 +1760,7 @@ sensitivity is only decreased by rejecting portions of these distributions.
 Although most $\twoljets$-electroweak regions use tighter selection on these
 variables to reduce backgrounds, this observation allows us to win
 additional sensitivity in High regions by loose requirements
-of $\mll \in 71\textrm{--}111$ and $\nbtag \leq 1$.
+of $\mll \in 71\textrm{--}111\,\eV[G]$ and $\nbtag \leq 1$.
 This $\mll$ window loosely selects the $m(Z)$ peak to scoop up nearby rare or
 mismeasured events away from the central peak.
 Similarly, allowing up to one $b$-tag improves yields without boosting
@@ -1886,11 +1886,12 @@ As explained in Section~\ref{sec:2ljets_mt2}, requiring $\mttwo$ above $m(W)$
 effectively removes $\ttbar$ and other backgrounds.
 The relatively low requirement $\mttwoll > 80\,\eV[G]$ is chosen here and
 elsewhere in the $\twoljets$-electroweak design to reduce these backgrounds
-while minimize lost signal yields.
+while minimizing lost signal yields.
 
-To maximize projected sensitivity, SR-High is split into four bins with
-one split at $\rjj = 0.8$, to form SR-High-8 and SR-High-16, and a second at
-$\metsig = 21$ to split these into SR-High-*-a and SR-High-*-b.
+To maximize our projected sensitivity, SR-High is split into four bins with
+one division at $\rjj = 0.8$, to form SR-High-8 and SR-High-16, and a second
+division at $\metsig = 21$ to split each of those into
+SR-High-*-a and SR-High-*-b.
 For example, SR-High-8-b requires $\rjj < 0.8$ and $\metsig > 21$.
 The regions SR-High-8 and SR-High-16 are displayed in
 Figure~\ref{fig:2ljets_high_region}, with their -a and -b bins visible across
@@ -2094,11 +2095,11 @@ selections, but these were excluded from the $\twoljets$ analysis for
 orthogonality from other \atlas\ searches with which our results are to be
 combined in future.
 
-Total backgrounds predict data well in VR-$\llbb$.
+Overall, the total background yield predict the data well in VR-$\llbb$.
 What was not appreciated soon enough, however, was an excess in the $\metsig$
 tail of this region, which is shown in the $\twoljets$ paper and reproduced
 Figure~\ref{fig:2ljets_high_metsig_vrllbb_paper}.
-The highest bins have very small background predictions and positive data.
+The highest bins have small background predictions and positive data.
 Had this been noticed before unblinding, more validation studies or altered
 modelling might have been necessary.
 ``In the end'', commented one \atlas\ author~\cite{comment2022vrllbb},
@@ -2120,7 +2121,6 @@ Figure~\ref{fig:2ljets_high_llbb_region}.
 \end{figure}
 
 
-\FloatBarrier
 \subsection{Intermediate}
 \label{sec:2ljets_int}
 
@@ -2242,8 +2242,8 @@ Errors are statistical.
 
 The control region \crvz\ occupies the $\mjj$ sideband of SR-Int and VR-Int.
 As seen from Figure~\ref{fig:2ljets_int_cr_region}, the selections in this
-intermediate space give \crvz\ a very pure \diboson\ background, which is very
-valuable or constraining the modelling of High regions.
+intermediate space give \crvz\ a very pure \diboson\ background, which is
+valuable to constrain our modelling by extrapolation to High regions.
 Also included in Table~\ref{tab:2ljets_int} and
 Figure~\ref{fig:2ljets_int_cr_region} is \crtt, which uses various other
 selections of $b$-tagged data to constrain $\ttbar$ backgrounds.
@@ -2290,7 +2290,6 @@ Figure~\ref{fig:2ljets_splits} of
 Section~\ref{sec:2ljets_validation}.
 
 
-\FloatBarrier
 \subsection{Low}
 \label{sec:2ljets_low}
 In Low regions, which have $\metsig \in 6\textrm{--}12$, the $\zjets$
@@ -2299,12 +2298,14 @@ from mismeasurements or rare interactions, is no longer eliminated.
 Backgrounds from $\ttbar$ similarly increase, and the selections inherited from
 Intermediate regions are no longer sufficient.
 
-These Low regions target signal models with small mass splittings,
-of around $100\textrm{--}150\,\eV[G]$ that still exceed the masses of
+These Low regions target signal models with small mass splittings of
+$m(\chargino_1, \neutralino_2) - m(\neutralino_1)
+\approx 100\textrm{--}150\,\eV[G]$ that still exceed the masses of
 electroweak bosons.
-In particular, we aim to test C1N2($200$, $100$), which is a light, on-shell
-benchmark that has not previously been excluded in this
-channel~\cite{atlas_23l_SUSY_2016_24}.
+In particular, we aim to test C1N2~($200$, $100$)
+(meaning $m(\chargino_1, \neutralino_2) = 200\,\eV[G]$ and
+$m(\neutralino_1) = 100\,\eV[G]$), which is a light on-shell benchmark that
+has not previously been excluded in this channel~\cite{atlas_23l_SUSY_2016_24}.
 
 Angular selections on lepton variables $\rll$ and $\dphillmet$ are powerful
 in these Low regions, and characterize their definitions that
@@ -2378,11 +2379,11 @@ Differences between regions are \uwave{underlined}.
 Boosted $Z\rightarrow \ell^+\ell^-$ decays will tend to have small $\rll$.
 Similarly to $\rjj$ in the High regions, this can usefully select signals,
 but here also works to reject other $\ell^+\ell^-$ production mechanisms which
-produce leptons is less correlated directions, particularly dileptonic
+produce leptons in less correlated directions, particularly dileptonic
 $\ttbar$.
 As elsewhere, sensitivity is increased by binning SR-Low with
-$\metsig \in 6\textrm{--}9\textrm{--}12$ to form SR-Low-a and SR-Low-b
-respectively.
+to form SR-Low-a with $\metsig \in 6\textrm{--}9$ and
+SR-Low-b $\metsig \in 9\textrm{--}12$.
 
 To remove some observed mis-modelling of backgrounds, Low regions require
 exactly two jets.
@@ -2566,10 +2567,10 @@ The $\zjets$ control region \crz\ is displayed in
 Figure~\ref{fig:2ljets_low_cr_region}.
 Pre-fit agreement with data is quite good, although the overflow bin has a
 notable excess.
-Standardizing cuts to remove high-$\mjj$ tails (such as requiring
+Standardizing selections to remove high-$\mjj$ tails (such as requiring
 $\mjj < 500\,\eV[G]$) could have made control and validation regions like \crz\
 kinematically closer to the signal regions they are supposed to target,
-and such a cut may well have improved the analysis in this case.
+and such a selection may well have improved the analysis in this case.
 
 \begin{figure}[tp]
 \centering
@@ -2736,24 +2737,23 @@ Errors are statistical.
 A complicated likelihood model was constructed which normalized \diboson,
 $\zjets$ and $\ttbar$ backgrounds to the combination of CR-Low-ISR,
 CR-Low-ISR-Z, CR-Low-ISR-DF.
-After this fit, the validation region VR-Low-ISR had a high background
+After this fit, the validation region VR-Low-ISR had a high background yield
 of $56.7 \pm 4.4$ for $47$ data, which is only a $1$-sigma deficit.
 
 This complication is a great deal of cost for what is only a weakly sensitive
 signal region, reaching only a projected significance $Z\approx 1$ for the
 (pre-fit) signals shown in Figure~\ref{fig:2ljets_low_isr_old_sr}.
-On the very sound advice of \atlas\ authors commenting on the internal
+On the very sound advice of \atlas\ authors commenting on our internal
 documentation, this ISR construction was entirely removed from the search
 along with all of its associated regions.
 
 Modelling multi-jet QCD is hard.
 This deficit was therefore blamed on multi-jet QCD modelling, and resolved by
-retreating to the SR-Low requirement of exactly jets.
+retreating to the SR-Low requirement of exactly two jets.
 It is interesting, however, that the two-jet SR-Low eventually observed a
 comparable deficit upon unblinding.
 
 
-\FloatBarrier
 \subsection{Off-shell}
 \label{sec:2ljets_offshell}
 Previous iterations of our $\twoljets$ search did not target `off-shell'
@@ -2771,7 +2771,7 @@ Since compressed signals generate soft kinematics and \atlas\ is more sensitive
 to soft leptons than soft jets, three-lepton searches have stronger sensitivity
 to compressed scenarios~\cite{atlas_rjr_3l_SUSY_2019_09}.
 These searches consider the same C1N2 $W\kern-0.4exZ$ signal models as us, but target the
-case where the $W$ decays leptonically $W\rightarrow\ell\nu$.
+case where the $W$ boson decays leptonically $W\rightarrow\ell\nu$.
 For comparison with our off-shell exclusion,
 shown in Figure~\ref{fig:2ljets_contours_c1n2},
 the impressive off-shell exclusion contours are reproduced
@@ -2982,39 +2982,7 @@ Figure~\ref{fig:2ljets_fit_multi_contours} presents projected exclusion
 contours generated from fits with subsets of the signal regions.
 For each contour, fits are performed with only the control regions and one
 subset of the signal regions, as labelled and described in the figure caption.
-
-Combining all regions provides greater exclusion than any individual contour,
-and avoids the sharp corners that could have been assigned by stitching those
-individual parts together.
-That confirms that our design of combined, orthogonal regions works as
-intended.
-In most locations, however, most exclusion is attributable to only one subset
-of the regions.
-That shows that the combination is a relatively minor refinement that may or
-may not be worth the cost of implementing it in different contexts.
-
-At the highest $m(\chargino_1,\neutralino_2)$ edge of the C1N2 contours,
-the inclusion of SR-High-1J (in addition to all other SR-High bins) is shown
-to extend the exclusion by around $60\,\eV[G]$.
-Across the rest of the C1N2 grid, each set of regions is impacting its targeted
-parameter space.
-Sensitivity to the C1N2 ($200$, $100$) point was a goal of the SR-Low design,
-and although it alone does not quite achieve expected exclusion there, the
-combination with other regions does.
-
-For GMSB, only SR-$\llbb$ has sensitivity to large
-$B(\neutralino_1 \rightarrow h \tilde{G})$ since it is able to capture the
-resulting $h\rightarrow bb$ decays.
-At its highest masses, the main SR-High regions retain sensitivity to its
-$ZZ$ decays, and SR-High-1J again visibly extends the projected exclusion.
-At its lowest masses, SR-Int and SR-Low both contribute.
-These light GMSB signal models have substantial contaminations in VR-Low, which
-are seen in Figure~\ref{fig:2ljets_low_region} to exceed $50\%$ of the central
-background.
-That SR-Int also provides sensitivity here is some comfort that this signal
-contamination does not entirely invalidate the result.
-We do not consider off-shell GMSB models, so SR-OffShell regions do not exclude
-any points alone here.
+\emph{Thanks to Tina~Potter for suggesting this impact study.}
 
 \begin{figure}[tp]
 \centering
@@ -3040,14 +3008,45 @@ Similarly, `$\llbb$', `Int', `Low', and `OffShell' are shown to target their
 appropriate parameter spaces.
 Although figures were produced before unblinding, with older samples and region
 designs, their later updates do not change the general message.
-Values of $\cls$ from expected (not observed --- the label is wrong) data in
-the combined fit are overlaid on the grid.
+Values of $\cls$ from expected data in the combined fit are overlaid.
 }
 \label{fig:2ljets_fit_multi_contours}
 \end{figure}
 
+Combining all regions provides greater exclusion than any individual contour,
+and avoids the sharp corners that could have been assigned by stitching those
+individual parts together.
+That confirms that our design of combined, orthogonal regions works as
+intended.
+In most locations, however, most exclusion is attributable to only one subset
+of the regions.
+That shows that the combination is a relatively minor refinement that may or
+may not be worth the cost of implementing it in different contexts.
 
-\FloatBarrier
+At the highest $m(\chargino_1,\neutralino_2)$ edge of the C1N2 contours,
+the inclusion of SR-High-1J (in addition to all other SR-High bins) is shown
+to extend the exclusion by around $60\,\eV[G]$.
+Across the rest of the C1N2 grid, each set of regions is impacting its targeted
+parameter space.
+Sensitivity to the C1N2~($200$, $100$) point was a goal of the SR-Low design,
+and although it alone does not quite achieve expected exclusion there, the
+combination with other regions does.
+
+For GMSB, only SR-$\llbb$ has sensitivity to large
+$B(\neutralino_1 \rightarrow h \tilde{G})$ since it is able to capture the
+resulting $h\rightarrow bb$ decays.
+At its highest masses, the main SR-High regions retain sensitivity to its
+$ZZ$ decays, and SR-High-1J again visibly extends the projected exclusion.
+At its lowest masses, SR-Int and SR-Low both contribute.
+These light GMSB signal models have substantial contaminations in VR-Low, which
+are seen in Figure~\ref{fig:2ljets_low_region} to exceed $50\%$ of the central
+background.
+That SR-Int also provides sensitivity here is some comfort that this signal
+contamination does not entirely invalidate the result.
+We do not consider off-shell GMSB models, so SR-OffShell regions do not exclude
+any points alone here.
+
+
 \subsection{Discovery}
 \label{sec:2ljets_disco}
 Although discovery regions are model-independent in principle, our designs
@@ -3340,11 +3339,11 @@ Tau decays form the next largest part, with prompt fakes due to misidentified
 photons or leptons in the sub-percent weeds.
 
 However, simulations are not totally accurate.
-In particular, do not use simulations of pure hadronic processes, so do not
+In particular, we do not use simulations of pure hadronic processes, so do not
 really know the predicted rates at which these strong processes would fake
 leptons.
 Although prompt strong effects may only rarely fake leptons, they have very
-large cross-sections are not modelled well.
+large cross-sections and are not exoected to be modelled well.
 This motivates the use of data-driven FNP estimates to replace the need for
 such specialized simulations of poorly understood physics.
 
@@ -3357,10 +3356,9 @@ atlas_23l_SUSY_2016_24
 leads us to use the `Matrix Method'~\cite{
 ATLAS-CONF-2014-058,
 D0:1999qdf
-}%
-to estimate
-backgrounds of fake and non-prompt leptons, so named because it works by
-estimating a linear relationship between dilepton event rates that is
+}
+to estimate backgrounds of fake and non-prompt leptons, so named because it
+works by estimating a linear relationship between dilepton event rates that is
 written as a matrix multiplication.%
 \footnote{%
 The Matrix Method is not related to the Matrix Elements from quantum scattering
@@ -3461,7 +3459,7 @@ estimates, then flops those back to data-level estimates.
 
 To make FNP estimates in our regions, the Matrix Method is
 implemented by assigning weights to observed data events that are then
-histogrammed them in the tighter selections of our search regions,
+histogrammed in the tighter selections of our search regions,
 much like other samples~\cite{twoljets2018int}.
 Systematic variations are assigned by comparing histograms when those weights
 are varied according to various uncertainties in the Matrix Method procedure,
@@ -3498,7 +3496,7 @@ and the remainder have one loose lepton (zero loose-loose lepton events
 are observed in \crvz).
 The tight-tight events have an average weight of $-0.0227$, and the others
 have an average weight of $+0.238$ (one can check that these recover the
-central FNP background of $2.2$).
+central FNP background yield of $2.2$).
 Such negative signal weights suggest that a local \emph{excess} of data
 would act to \emph{decrease} the Matrix Method estimate in the region.
 Yes, this backwards dependency is backward, but at least it gives some relief
@@ -3544,7 +3542,7 @@ Selections requiring different-flavour or same-charge leptons,
 in otherwise $Z$-like scenarios, should therefore have enhanced FNP
 backgrounds.
 
-Alternative versions of all core control, validation regions were inspected
+Alternative versions of all main control, validation regions were inspected
 with their lepton requirements change to require either different-flavour
 or same-charge leptons.
 The different-flavour versions also contain enhanced $\ttbar$ fractions
@@ -3938,7 +3936,7 @@ thesis, I find it an amusing reminder of the power of quick-and-dirty checks.
 \end{figure}
 
 To check that a similar bump exists in data and fully simulated (FullSim)
-background simulations, I conducted a study into a standard model process
+background simulations, I conducted a study into a Standard Model process
 production boosted hadronic $W$ bosons in $\ttbar$ events.
 Although non-$\ttbar$ $WW$ processes do occur, the semileptonic $\ttbar$
 process additionally produces two $b$ quarks in its dominant decay, and their
@@ -4173,8 +4171,9 @@ variations, which are listed for the various regions.
 These variations are evaluated according to a standard recipe prescribed by
 the \atlas\ SUSY group~\cite{atlas_twiki_susytheoretical} that says to
 \begin{itemize}
-\item evaluate the difference between the two samples $\delta_{12}$.
-\item evaluate the statistical uncertainty on the alternative sample $\sigma_2$.
+\item evaluate the difference between the two samples $\delta_{12}$,
+\item evaluate the statistical uncertainty on the alternative sample
+$\sigma_2$,
 \item combine these components in quadrature, so
 $\sigma_{12} = \sqrt{\delta_{12}^2 + \sigma_2^2}$, and
 \item if the deviation is statistically significant, then preserve the direction
@@ -4486,12 +4485,12 @@ With this decision, post-fit results (such as the summary plot of
 Figure~\ref{fig:2ljets_summary})
 indeed show no significant deviation from data in SR-Low-a or SR-Low-b,
 and this $\zjets$ sample comparison is the main reason why.
-Internal reviewers were, there, confused as to why we mentioned a deficit in
-SR-Low that did not appear in the results plots or tables.
+Internal reviewers were, therefore, confused as to why we mentioned a deficit
+in SR-Low that did not appear in the results plots or tables.
 Much to my ire, the paper editors therefore removed all mentions of an SR-Low
 deficit from the paper.
-Despite bring real and significant, this deficit was erased from public view,
-and to my knowledge, is only reported through inner details of
+Despite bring real and significant, this deficit was erased from public view
+and, to my knowledge, is only reported through inner details of
 the \histfactory\ models shared in our \hepdata\ archive~\cite{hepdata.116034}
 (and now, I hope, this thesis).
 
@@ -4567,8 +4566,8 @@ with calibrated noise to approximate reconstruction-level results.
 \simpleanalysis\ implementations and sharing software to evaluate these
 variations.}
 
-Unfortunately, a total failure of statistical precision means that no
-meaningful result can be derived from these variations.
+Unfortunately, a total failure of statistical precision for these \diboson\
+variations means that no meaningful result can be derived.
 First, our regions receive very few raw events in each variation,
 for example $1$ sample in \srllbb, around a dozen in
 each SR-High bin, and a maximum of $597$ in \crvz.
@@ -4758,8 +4757,8 @@ that is intended to model the uncertainties left after fitting with the
 \textsc{NNPDF} methodology~\cite{NNPDF:2017mvq,BALL2011112,BALL2012608}.
 
 The number of PDF replicas varies between samples, but is between
-$100$ and $138$ for all except $\zyjets$, that has just one central and two
-alternatives.
+$100$ and $138$ for all samples except $\zyjets$, which has just one central
+and two alternatives.
 Remarkably, both SUSY and PMG prescriptions agree on how to assign variations
 from these replica weights --- both say to follow the PDF4LHC
 recommendations~\cite{PDF4LHC_Butterworth_2016} (specifically, pp. 46,
@@ -4873,9 +4872,8 @@ prescription~\cite{atlas_twiki_susytheoretical},
 these scale variations consider only a coherent movement $\mu_R$ and $\mu_F$
 together, so this theory variation includes a total of seven components.
 
-Scale variations now appeared twice for signals:
-first for cross-section variations and
-second for these theory variations.
+Scale variations have now appeared twice for signals:
+first for cross-section variations and second for these theory variations.
 They therefore contribute both in each fit model and in the varied
 cross-sections for varied exclusion contours.
 This is dubious, but thankfully we shall see shortly that this double-counting
@@ -5316,8 +5314,8 @@ data and pre-fit backgrounds in loose selections.
 Such plots were discussed in group meetings and usefully helped to catch bugs
 in the background simulations.
 But they unblind the data, notably in high-$\met$ where we expect signals.
-When commenting on this, I was told that it does not count as unblinding
-because we are in a loose selection.
+When commenting on this, the resonse was that it does not count as unblinding
+because we are inspecting a loose selection.
 However, any signal region must be within this loose selection, and those
 highest bins contain only a few events that agree with the backgrounds well.
 From such plots, we therefore knew before designing the regions that either
@@ -5720,7 +5718,7 @@ is extremely computationally expensive, so cut those costs by pruning our
 discovery regions models \histfitter's ``method 2'' at a $1\%$ tolerance.
 As discussed previously, this makes negligible differences to the results.
 The exact \histfactory\ models used in our discovery fits are shared in our
-\hepdata\ archive~\cite{hepdata.116034}.%
+\hepdata\ archive~\cite{hepdata.116034}.
 Although many other searches' discovery regions can be approximately reproduced
 from their published \pyhf\ models of signal regions for exclusion fits,
 $\twoljets$ is the first \atlas\ search to directly publish its exact discovery
@@ -5869,8 +5867,8 @@ to $n=1$, $n=2$ and so on, with widths due to the other parameters varied in
 toy sampling.
 
 The $n=0$ case has no visible width since its likelihood is linear
-(adding signal just adds a constant to the $-\log$ likelihood objectives being
-minimized), but its distribution is not quite a delta function since the test
+(adding signal just adds a constant to the negative $\log$ likelihood
+objectives being minimized), but its distribution is not quite a delta function since the test
 statistic depends not exactly on the theoretical best fit, but on the noisy
 termination of numerical optimization algorithms.
 The resulting $\clb$ and $\clsb$ values depend on this effect ---
@@ -5885,7 +5883,7 @@ significance if one misinterpreted it as a measure of compatibility with the
 background model.
 Thankfully, this problem is somewhat remedied by the $\cls$-prescribed ratio
 against $\clsb$, since both $p$-values suffer from similar effects.
-Statistical precision is harmed, however --- although $1$m samples should
+Statistical precision is harmed, however --- although a million samples should
 give us around $e^{-7.9} \times 10^6 \approx 1000$ signal samples with
 $n=0$, only $57$ toy samples land to the right of the observed test statistic.
 And with $\approx1/\sqrt{57}$ relative statistical precision, that easily
