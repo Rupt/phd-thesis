@@ -7,19 +7,24 @@ To be done by September 2022.
 
 # build
 
-draft
+All versions.
+`main.pdf` is a draft without figures.
+`main.hard.pdf` is the hard-bound version.
+`main.soft.pdf` is the soft-bound version.
+`-j` makes all three versions in parallel.
 
 ```bash
-make
+make -j
 
 ```
 
-with hard and soft cover versions:
+Draft version only (faster).
 
 ```bash
-make -j all
+make draft
 
 ```
+
 
 # cleanup
 
@@ -27,4 +32,3 @@ make -j all
 make clean
 
 ```
-

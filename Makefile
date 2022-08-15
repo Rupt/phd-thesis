@@ -1,11 +1,11 @@
 # build with pdflatex
 
-.PHONY: main
-main: main.pdf
-
-
 .PHONY: all
 all: main.pdf main.soft.pdf main.hard.pdf
+
+
+.PHONY: draft
+draft: main.pdf
 
 
 # first pdflatex call creates .aux
