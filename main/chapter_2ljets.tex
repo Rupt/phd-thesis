@@ -121,8 +121,8 @@ The ``Top'' category contains $\ttbar$ and $tW$ processes, and
 \label{fig:2ljets_summary}
 \end{figure}
 
-To test non-standard (supersymmetric) models against observation
-we add signal contributions on top of the modelled backgrounds.
+To test non-standard (supersymmetric) models against observation,
+we add signal yields on top of the modelled backgrounds.
 
 The $\twoljets$-electroweak search uses two signal models,
 which we name C1N1 and GMSB and illustrate with diagrams in
@@ -225,7 +225,7 @@ and the error bars for zero events are hidden for aesthetic reasons.%
 Both signal models have two free parameters that our search varies.
 At each parameter point of a signal model, the search proceed by evaluating
 event rates (yields) from that signal model with those parameters,
-and considering what would happen of those event yields were added to a
+and considering what would happen if those event yields were added to a
 Standard Model background.
 Each signal-plus-background model is then tested against observed data in the
 $\cls$ prescription.
@@ -352,7 +352,7 @@ statistic~\cite{Cowan:2010js}.
 The discovery $p$-value uses a profile likelihood test statistic in a one-sided
 test.
 All $p$-values are estimated by ``toy'' simulations of alternative data.
-Values with errors are rounded according the PDG rounding
+Values with errors are rounded according to the PDG rounding
 scheme~\cite{pdg2020review}.%
 }
 \label{tab:2ljets_discovery}
@@ -670,7 +670,7 @@ search.
 \emph{These figures are reproduced from the paper%
 }~\cite{atlas2022searches, atlas_susy_feynman}.
 \\[0.5em]
-All three produce same-flavour, opposite-sign lepton pairs along with jets
+All three produce same-flavour, opposite-sign lepton pairs, along with jets
 and $\met$.
 The gluino-slepton model (a) has a kinematic endpoint in $\mll$
 given in Equation~\ref{eqn:2ljets_strong_max_mll}.
@@ -889,7 +889,7 @@ have quite a minor impact.
 
 Multi-bin fits are not special.
 They are standard \atlas\ practice, and there should have been no complication
-had I imitated SR2-int and SR2-high for $\twoljets$-electroweak but with minor
+had I imitated SR2-int and SR2-high for $\twoljets$-electroweak, but with minor
 tweaks to change them into orthogonally binned regions.
 However, my design decisions for $\twoljets$-electroweak became much more
 ambitious, increasing to a total of $13$ signal regions with complicated
@@ -968,7 +968,7 @@ cms_susy_2022_gmsb
 }, with comparable exclusion limits in similar selections of data.
 Other published \atlas\ results in the full Run~2 dataset put constraints on
 the same models that we study in $\twoljets$.
-Since we designed these searches use orthogonal datasets, they may be
+Since we designed these searches to use orthogonal datasets, they may be
 combined for more sensitive future results.
 
 For the C1N2 model, these public Run~2 \atlas\ searches explore the
@@ -1018,6 +1018,10 @@ data and event variables they use.
 This section describes the events selected for the three $\twoljets$ searches,
 the reconstructed particle objects derived from those events, and various
 important event variables.
+Definitions of the $\twoljets$-electroweak event variables are collected
+Section~\ref{sec:2ljets_cheatsheet}, which is intended as a useful bookmark
+for future reminders, and may also clarify occasions where we make forward
+references to variables before giving their precise definitions.
 
 The `$\twoljets$' name is intended to indicate interest in events with two
 charged leptons (those are electrons or muons --- not taus), and at least one
@@ -1119,7 +1123,7 @@ outweigh the cost of using them.
 
 The benefit of an additional trigger could be in increased signal yields if
 that trigger does not also harmfully increase inseparable backgrounds.
-A study, \emph{performed by Knut Vadla}, investigated the effects
+A study, \emph{performed by Knut~Vadla}, investigated the effects
 of including one-lepton triggers.
 In a signal-region-like selection requiring two leptons, two jets and
 $\met > 200\,\eV[G]$, this study showed that two-lepton triggers already accept
@@ -1252,7 +1256,7 @@ paper~\cite{atlas2022searches}.
 \subsection{\textit{b}-jets}
 \label{sec:2ljets_btagging}
 Tagging adds labels to objects.
-Unlike lepton flavor tagging, which can very cleanly separate electrons from
+Unlike lepton flavour tagging, which can very cleanly separate electrons from
 muons, jet tagging is a rather more noisy affair due to \atlas' limited
 ability to reconstruct the individual hadrons within jets.
 Taggers are available for various jet properties, such charm flavour ($c$-jet),
@@ -1289,7 +1293,7 @@ a mixture of simulated $\ttbar$ and $\zjets$ data.
 The reported efficiency means that a true $b$-jet sampled from the
 algorithm's testing dataset has an estimated $77\%$ probability of being
 tagged.
-It uses low-level event variables including basic kinematics and more intricate
+It uses low-level event variables, including basic kinematics and more intricate
 features of reconstructed hadronic decay
 trees~\cite{atlas_jet_mv2c10_2017, atlas_twiki_mv2}.
 
@@ -1318,7 +1322,7 @@ of $\ptmiss$.)
 
 Once we know about all the reconstructed leptons and hadronic jets, we can
 also improve our rejection of non-prompt leptons from hadron decays by
-leveraging the tendancy for those non-prompt leptons to be near to jets.
+leveraging the tendency for those non-prompt leptons to be near to jets.
 To remove duplicates and further reduce non-prompt lepton contributions, we
 apply a standard overlap-removal procedure.
 This procedure, which is detailed in the $\twoljets$
@@ -1561,6 +1565,7 @@ with control and validation regions, and is therefore not used here.
 
 
 \subsection{Cheat-sheet}
+\label{sec:2ljets_cheatsheet}
 Uncomfortably many event variables are used to define the regions of this
 analysis.
 For future reference, their meanings, definitions, and references for these
@@ -1631,7 +1636,7 @@ not only clarifies our communications,
 but keeps us honest by restricting our ability to over-fit to simulations.
 
 Numerical simplicity is valuable.
-In a draft of our \atlas-internal documentation I wrote that numerical
+In a draft of our \atlas-internal documentation, I wrote that numerical
 simplicity was a design goal, but am guilty of removing that statement after a
 reviewer suggested that it was ``too honest''.
 
@@ -1735,7 +1740,7 @@ bins, with validation regions targeting each group of signal regions.
 \emph{%
 Thanks are due to Knut~Vadla for important contributions in the initial
 exploration of signal region designs,
-to Ben Hooberman for suggesting the investigation of massive jets,
+to Ben~Hooberman for suggesting the investigation of massive jets,
 and to the whole $\twoljets$ team for collaboration in their finalization.
 }
 
@@ -2123,7 +2128,6 @@ Figure~\ref{fig:2ljets_high_llbb_region}.
 
 \subsection{Intermediate}
 \label{sec:2ljets_int}
-
 Our Intermediate signal regions sit in the $\metsig$ range of
 $12$ to $18$.
 As seen from Figure~\ref{fig:2ljets_presel_met}, this space suffers from
@@ -4997,7 +5001,7 @@ To reduce statistical noise here, I generated truth samples $10$~times as large
 as our central, reconstructed samples.
 These sample sizes vary roughly with the signal cross-section from $300$k to
 $2.8$m events per sample.
-Due to the $\sqrt{n}$ scaling of Monte Carlo errors this means approximately
+Due to the $\sqrt{n}$ scaling of Monte Carlo errors, this means approximately
 $\sqrt{10}$ times reduced statistical noise.
 This remains insufficient, however, since each resulting variation is a
 sum in quadrature of variations in $7$ pairs of alternative samples
@@ -5103,7 +5107,7 @@ rule out of poor modelling in certain signal regions.
 
 \paragraph{Sub-processes}
 Our high-level sample labels such as $\ttbar$, $\zjets$, \diboson\ and
-rare-top (`Top other') each include many sub-samples that are physically
+rare-top (`Top~other') each include many sub-samples that are physically
 distinct and non-interfering.
 Highlights from a study of the contributions from these sub-samples are
 presented in Figure~\ref{fig:2ljets_splits}.
@@ -5191,7 +5195,7 @@ The remaining parts of Figure~\ref{fig:2ljets_splits} show that $\ttbar Z$ is
 the largest contribution to our \topother\ sample,
 at $73\%$ in \srllbb, and that contributions from other rare processes such as
 $tW\kern-0.4exZ$, $t\ell\ell g$ and $\ttbar W$ are also significant.
-Here, the plain `Top other' label refers to all other \topother\ contributions
+Here, the plain `Top~other' label refers to all other \topother\ contributions
 not included in the bracketed specializations.
 
 
@@ -5440,7 +5444,7 @@ plot.
 Since statistical errors ``\texttt{gamma\_stat\_*}'' in control regions are not
 absorbed into the sample-specific normalization factors, they are also
 anticorrelated with normalization factors.
-Similarly, the extra uncertainty for $\zjets$ in CR-tt causes an
+Similarly, the extra uncertainty for $\zjets$ in \crtt\ causes an
 anticorrelation between its parameter ``\texttt{alpha\_Zjets\_bextrap}''
 and the $\ttbar$ normalization.
 The failure of statistical precision in SR-Low-2 causes large systematic
@@ -5771,8 +5775,7 @@ Please present results of this software accurately and clearly.
 Examples of false or unclear presentations of a p-value or CLs include:
 --- as a probability that an hypothesis is true or false,
 --- as a probability of compatibility with an hypothesis,
---- as a probability that data occurred at random, by chance, or by statistical
-fluctuation,
+--- as a probability that data occurred at random, by chance, or by statistical fluctuation,
 --- as a likelihood or importance of data,
 --- as necessary for an optimal or rational decision rule.
 Please also respect that the association of a p-value or CLs with the words
@@ -5942,8 +5945,8 @@ constructions of the models.
 Various explanations were suggested in these discussions, including problems
 with asymmetric systematic variations or asymmetries in the Poisson
 distribution.
-Fundamentally, a sufficient explanation of this problem is our refusal to
-compare models with likelihood ratios.
+Fundamentally, a sufficient explanation of this retrograde limit movement
+is our refusal to compare models with likelihood ratios.
 By instead using \emph{maximum} likelihood ratios, and modifications thereof,
 we guarantee that our tests can be suboptimal because they are not protected by
 the Neyman–Pearson lemma~\cite{neyman1933ix}.
