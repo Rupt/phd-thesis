@@ -15,14 +15,7 @@
 Data Intensive Science in High-Energy Physics
 
 \section{Other work}
-
-\subsection{Testing symmetries in data}
-Data-driven tests of symmetries:
-Machine Learning algorithms to ~\cite{lester2021stressed}
-~\cite{Lester:2019bso}
-~\cite{tombs2021which}
-~\cite{lester2022hunting}
-
+\TODO{This does not belong in an introduction and will be moved.}
 
 \subsection{Higgs to tau-tau Nested Sampling}
 Proof-of-concept implementation of the Nested Sampling algorithm~\cite{
@@ -66,7 +59,7 @@ to the lab frame.
 
 This method worked in testing on smeared parton-level simulations from
 \madgraph~\cite{Alwall:2014hca} and was presented in two conference posters.
-\TODO{Should these posters be included as figures?}
+\TODO{Should these posters be included as figures? Maybe appendix}
 However, real events have substantial additional noise from QCD
 radiation~\cite{PhysRevD.83.074010} and pileup, and this method of approximate,
 parametrized modelling does not easily scale to include such extra, complicated
@@ -82,5 +75,59 @@ Empirically motivated function approximators such as
 Boosted Decision Trees~\cite{xgboost} or
 Neural Networks~\cite{MurphyKevinP.2012Mlap} are more scalable to complicated
 uses and more computationally efficient in evaluation.
+
+\subsection{Testing symmetries in data}
+Data-driven tests of physical symmetries are a speciality of the Cambridge
+\atlas\ group.
+Each test considers a theoretically motivated symmetry that states that
+distributions of data should be identical when transformed under its operation.
+This means that it can be possible to disprove a symmetry by searching only
+for differences between data and transformed versions of those data, without
+necessarily requiring other theoretical inputs.
+
+% emus
+Charge symmetry of electron-muon (`emu') pairs is a key example among these
+tests.
+Theoretically, it proposes that, in the absence of biases, data
+from proton-proton collisions at the LHC would include equal distributions
+of $e^+\mu^-$ and $e^-\mu^+$ events~\cite{Lester:2016qdv}.
+Real data can have emu biases --- one clear (but minor) example is that our
+detectors are made of matter containing negatively charged electrons, not
+positrons, so high energy electrons positrons have subtly different rates of
+energy loss in that detector matter.
+However, \cite{Lester:2016qdv} argues that all biases at the LHC should
+conspire to favour $e^-\mu^+$ events.
+Therefore defining an asymmetry
+\begin{equation}
+A^\mathrm{emu} = \frac{
+\sigma(e^+\mu^- + X)
+}{
+\sigma(e^-\mu^+ + X)
+}
+,
+\end{equation}
+one can predict $A^\mathrm{emu} \leq 1$ from the Standard Model at the LHC.
+Negative values could be explained by experimental biases, but
+$A^\mathrm{emu} > 1$ measured in data might indicate new physics, since it and
+can be caused by models of new physics that might invoke R-parity violating
+supersymmetry~\cite{Lester:2016qdv} or leptoquarks~\cite{EXOT-2018-29}.
+After its extensive development~\cite{Brunt:2674708,Pacey:2747774},
+this test has been performed in \atlas\ data, and found ``[n]o significant
+model-independent evidence''~\cite{EXOT-2018-29} for $A^\mathrm{emu} > 1$.
+
+% parity violation
+Parity symmetry is a second example. Nature violates parity is as first shown
+by the Wu experiment~\cite{PhysRev.105.1413} in the weak section, but unknown
+effects could possibly cause unexpected new forms of parity asymmetry that
+could be seen at the LHC. In particular, \TODO{}
+
+
+Data-driven tests of symmetries:
+\TODO{write, add some self-supervision references from wir}
+Machine Learning algorithms to ~\cite{lester2021stressed}
+~\cite{Lester:2019bso}
+~\cite{tombs2021which}
+~\cite{lester2022hunting}
+
 
 % this comment activates enlarged spacing for the final paragraph lol
