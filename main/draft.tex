@@ -7,3 +7,64 @@ S_\mathrm{Poisson}(n, \mu, \sigma)
 \right)}
 ~.
 \end{equation}
+
+
+
+\subsection{Higgs to tau-tau Nested Sampling}
+Proof-of-concept implementation of the Nested Sampling algorithm~\cite{
+skilling2004nested,
+skilling2006nested,
+skilling2010foundations
+}
+to classify events mediated by Higgs or Z bosons in their leptonic decays
+through tau lepton pairs in \atlas.
+In this scheme, Nested Sampling approximates likelihoods at given data for
+approximate models of the Higgs and Z models by `marginalizing',
+or integrating over, all freedoms in their production in LHC proton-proton
+collisions.
+Models of their processes were constructed from theory for the
+helicity-dependent leptonic decays of tau leptons~\cite{Hays2014tau}
+(with their two neutrinos integrated out analytically)
+and Z bosons~\cite{Thomson2011EWK},
+and parametrized from numerical parton distribution
+functions~\cite{Buckley:2014ana} for the models' differing distributions of
+longitudinal boosts.
+
+Unlike the similar Matrix Element Method~\cite{
+Fiedler:2010sg,
+Gainer:2013iya,
+PhysRevD.83.074010
+},
+which estimates likelihoods by fixing certain observed quantities and
+integrating remaining freedoms with adaptive Monte Carlo algorithms~\cite{
+Fiedler:2010sg,
+Gainer:2013iya,
+Lepage:1977sw,
+Ohl:1998jn
+},
+with Nested Sampling we begin in ignorance of the data in each event and
+gradually explore its constraints with random walks.
+Euclidean coordinates projected to the surface of the unit ball,
+in each of the respective rest frames of the heavy boson and tau leptons, allow
+those walks to avoid the gimble lock of spherical polar coordinates, and are
+used to describe Lorentz transformations to transform the observable leptons
+to the lab frame.
+
+This method worked in testing on smeared parton-level simulations from
+\madgraph~\cite{Alwall:2014hca} and was presented in two conference posters.
+\TODO{Should these posters be included as figures? Maybe appendix}
+However, real events have substantial additional noise from QCD
+radiation~\cite{PhysRevD.83.074010} and pileup, and this method of approximate,
+parametrized modelling does not easily scale to include such extra, complicated
+effects.
+For this special case it also cost a few second of computing time per event,
+which is not competitive with modern Machine Learning algorithms that, once
+trained, can be rapidly evaluated over many events and should approximate
+the same result.
+Although this study shows that we \emph{can} use theoretical modelling
+with theoretically motivated algorithms for practical classification, it does
+not show that we \emph{should}.
+Empirically motivated function approximators such as
+Boosted Decision Trees~\cite{xgboost} or
+Neural Networks~\cite{MurphyKevinP.2012Mlap} are more scalable to complicated
+uses and more computationally efficient in evaluation.
