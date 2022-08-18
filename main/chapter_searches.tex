@@ -27,11 +27,11 @@ practice of data analysis and its manifestations in the \atlas\ SUSY community.
 
 Theoretical data analysis in the tightly coupled fields of probability theory
 and decision theory is introduced in Section~\ref{sec:searces_data_analysis}.
-The attempted alternative formulation of frequentist theory is discussed in
-Section~\ref{sec:searches_frequentist}.
-In practice, our field of research applies modified frequentist methods to
-avoid up some of their more drastic flaws; these practices are
-described in Section~\ref{sec:searches_practice}.
+An attempted alternative formulation, frequentist theory, is discussed in
+Section~\ref{sec:searches_frequentist} for its relevance to our methods.
+Standard practice in this field of research does not strictly follow
+frequentist methods, but patches up some of their pathologies with modified
+approaches that we describe in Section~\ref{sec:searches_practice}.
 Searches for Supersymmetric signals in \atlas\ follow a standard strategy for
 their data analysis; its procedures, nomenclature, and parametric modelling
 are introduced in Section~\ref{sec:searches_searches}.
@@ -39,6 +39,13 @@ are introduced in Section~\ref{sec:searches_searches}.
 
 \section{Data analysis}
 \label{sec:searces_data_analysis}
+How many jelly beans are in the jar of Figure~\ref{fig:significant_beans}?
+Your answer depends not only on what you observe from the figure, but also on
+what else you know about cartoon jars of beans, and on what reward is on offer.
+Each answer is a decision that depends both on what the possible rewards are,
+and on which numbers of beans you subjectively infer to be likely.
+We shall return to this example after developing some probability and decision
+theory.
 
 \begin{figure}[tp]
 \centering
@@ -48,13 +55,121 @@ How many beans are in the jar?
 ]{%
 How many beans are in the jar? This jar of jelly beans is a vehicle for our
 discussion of inference and decision theory.
+Please write your guess on this page.
+The first correct answer wins a gold star.
 }
 \label{fig:significant_beans}
 \end{figure}
 
+We begin with what probability is.
+At its most abstract, a probability a proportion of stuff within a larger
+whole, and probabilities are useful because they can be manipulated with an
+algebra that corresponds to how one naturally manipulates such proportions.
+
+\paragraph{Probability, abstract}
+A probability $\prob{b}{a}$ is a number that quantifies the proportion
+of $b$ within $a$, and can be expressed as a ratio of measures
+as~\cite{axioms1010038}
+\begin{equation}
+\label{eqn:searches_prob_ratio}
+\prob{b}{a} = \frac{m(b, a)}{m(a)},
+\end{equation}
+in which $m(x)$ is a measure (a non-negative quantity assigned to its
+argument, such as mass of tea in a cup), and the comma ``,'' means `and'
+(logical and or set intersection or any other equivalent operation).
+To continue that example, $\prob{b}{a}$ could be a proportion of tea within
+a spoon within a cup, where $m(b \land a)$ measures the volume of tea in a
+teaspoon that is partially submerged in the cup.%
+\footnote{%
+All probabilities are conditional in this definition; $\probc{b}$ alone does
+not exist unless the conditioning information $a$ is implicit from context.%
+}
+
+Logic is an important application of probability for which $a$ and $b$ are
+interpreted as logical propositions, and
+$\prob{b}{a}$ is the degree to which $a$ implies $b$, with the limiting cases
+that $\prob{b}{a} = 1$ when $a$ implies $b$ and $\prob{b}{a} = 0$ when $a$
+disproves $b$.
+Indeed Cox's theorem derives the laws of probability by requiring compatibility
+with Boolean logic~\cite{
+cox1946probability,
+cox1961algebra,
+garrett1998nand,
+jaynes2003probability
+keynes1920treatise,
+}.
+Probability works for logic and it works \emph{for tea, too}.
+
+Probability algebra has two rules that can derive from the measure ratio of
+Equation~\ref{eqn:searches_prob_ratio}:
+a \textbf{product rule}
+\begin{equation}
+\prob{c, b}{a} = \prob{c}{b, a}\times \prob{b}{a},
+\end{equation}
+and a \textbf{sum rule}
+\begin{equation}
+\prob{c\textrm{ or }b}{a} = \prob{c}{a} + \prob{b}{a} - \prob{c, b}{a}.
+\end{equation}
+To avoid of this subtraction we prefer split any problem into orthogonal or
+disjoint states; for such cases, the normalization condition is that
+\begin{equation}
+\sum_i \prob{b_i}{a} = 1.
+\end{equation}
+These rules are basic and well known, but we state them here to support the
+following statements of how probabilities can be applied for practical
+results.%
+\footnote{%
+The formulation with sums and products is not strictly unique, but all
+alternatives are equivalent up to an invertible
+transformation~\cite{axioms1010038}.
+This choice is usually best because it uses ordinary addition and
+multiplication.
+In numerical analysis, however, it is often practical to use $\log$
+probabilities (to avoid overflows outside the range representable by floating
+point numbers(, thus changing multiplication to addition, and addition to
+the `$\log$-add-$\exp$' operation.
+}
+
+\paragraph{Probability, applied}
+% science snake
+
+Probabilistic data analysis proceeds as follows:
+\begin{enumerate}
+\item Predict new data $d$ with probability $\prob{d}{\ldots}$.
+\item Update your predictions with the observed data to $\prob{x}{d, \ldots}$.
+\item Go to 1.
+\end{enumerate}
+
+% evidence
+
+% bayes
+Bayes' theorem is an infamous and necessary result of probability.
+
+% posterior
+
+\paragraph{Probability assignments}
+infamously arbitrary and subjective. This is reality. They are.
+Consider this simple mathematical example with two propositions
+$a=\textrm{``}x\textrm{ is even''}$ and
+$b=\textrm{``}x\textrm{ equals }2\textrm{''}$.
+Clearly $\prob{a}{b} = 1$ since $2$ is indeed even.
+But what is $\prob{b}{a}$? We don't know. Perhaps one could argue symmetry
+across all even numbers, but there are infinitely many of them so that
+probability distribution could not be normalized.
+
+\TODO{\ldots}
+
+
+\paragraph{Decision theory}
+
+
+% summary
+
+Figure~\ref{fig:searches_baton_roue_bayes}
+
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.6\textwidth]{figures/searches_baton_roue_bayes.jpg}
+\includegraphics[width=0.65\textwidth]{figures/searches_baton_roue_bayes.jpg}
 \caption[
 Bayesian analysis produces two outputs: the evidence and posterior
 ]{%
@@ -72,6 +187,7 @@ Corentin~Penloup~\cite{penloup2011baton}.
 \label{fig:searches_baton_roue_bayes}
 \end{figure}
 
+
 \begin{singlespacing}
 \section{Frequentist theory}
 \label{sec:searches_frequentist}
@@ -86,6 +202,8 @@ to the interpretation of data. \ldots%
 1961~\cite{pratt1961testing}}
 \end{epigraphs}
 \end{singlespacing}
+
+Figure~\ref{fig:searches_significant}
 
 \begin{figure}[tp]
 \centering
