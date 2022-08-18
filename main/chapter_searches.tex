@@ -15,12 +15,40 @@ deficiencies.%
 \end{singlespacing}
 
 
-\section{Searches}
-\label{sec:searches_searches}
-% histograms, CR VR SR, systematics
-
 \section{Data analysis}
 \label{sec:searces_data_analysis}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.25\textwidth]{figures/searches_beans.pdf}
+\caption[
+How many beans are in the jar?
+]{%
+How many beans are in the jar? This jar of jelly beans is a vehicle for our
+discussion of inference and decision theory.
+}
+\label{fig:significant_beans}
+\end{figure}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/searches_baton_roue_bayes.jpg}
+\caption[
+Bayesian analysis produces two outputs: the evidence and posterior
+]{%
+Bayesian analysis produces two outputs: the
+evidence $\prob{d}{h}$ and
+posterior $\prob{x}{d,h}$ for hypothesis $h$, data $d$, and parameters $x$.
+Posterior-only, semi-Bayesian methods are legitimately criticized because they
+do not challenge the hypotheses that assign their priors $\prob{x}{h}$.
+Since the evidence is a likelihood function over hypotheses, considering the
+evidence can challenge those priors.
+\\[0.5em]
+Cartoon adapted from ``Baton roue'' by
+Corentin~Penloup~\cite{penloup2011baton}.
+}
+\label{fig:searches_baton_roue_bayes}
+\end{figure}
 
 \begin{singlespacing}
 \section{Frequentist theory}
@@ -36,6 +64,24 @@ to the interpretation of data. \ldots%
 1961~\cite{pratt1961testing}}
 \end{epigraphs}
 \end{singlespacing}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.55\textwidth]{figures/searches_significant_shrink.png}
+\\
+\begin{footnotesize}
+`So, uh, we did the green study again and got no link. It was probably a{-}{-}'
+\\
+`RESEARCH CONFLICTED ON GREEN JELLY BEAN ACNE LINK; MORE~STUDY~RECOMMENDED!'
+\end{footnotesize}
+\caption[
+Significant by Randall~Munroe
+]{%
+Significant by Randall~Munroe~\cite{xkcd2011significant}.
+}
+\label{fig:searches_significant}
+\end{figure}
+
 
 \begin{singlespacing}
 \section{Post-frequentist practice}
@@ -54,6 +100,30 @@ of the real problems to which it is applied.%
 \end{epigraphs}
 \end{singlespacing}
 
+
+% significance measures
+The ATLAS-recommended significance measure~\cite{atlas_significance} is
+\begin{align}
+\label{eqn:significance_atlas}
+S_\mathrm{\atlas}(n; \mu, \sigma) =~&
+\sqrt{2} \times
+\mathrm{sign}(n - \mu) \times
+\\[0.2em] \nonumber
+&
+\sqrt{
+n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
+- \frac{\mu^2}{\sigma^2}\log\left(
+1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
+\right)
+}
+,
+\end{align}
+in an appropriate limit where $0\log(0x) = 0$ for the $n=0$ case.
+
+
+\section{Searches}
+\label{sec:searches_searches}
+% histograms, CR VR SR, systematics
 % histfactory
 
 To model the consequences of these many factors of uncertainty, each factor is
@@ -66,27 +136,10 @@ H_{\!f}(\vec \theta) \rightarrow (\vec \mu, \log f)
 from the parameters $\theta$ to Poisson expectations $\vec\mu$ the histogram
 bins and a regularization term $\log f$ which is maximized in fitting.
 
-HistFactory~\cite{cranmer2012histfactory}
-pyhf~\cite{heinrich2021pyhf}
-HistFitter~\cite{Besjes_2015,baak2015histfitter}
+\histfactory~\cite{cranmer2012histfactory}
+\pyhf~\cite{heinrich2021pyhf}
+\histfitter~\cite{Besjes_2015,baak2015histfitter}
 
-
-% significancen measures
-The ATLAS-recommended significance measure~\cite{atlas_significance} is
-\begin{align}
-\label{eqn:significance_atlas}
-S_\mathrm{\atlas}(n; \mu, \sigma) =~&
-\mathrm{sgn}(n - \mu) \times \sqrt{2} \\[0.2em] \nonumber
-&
-\times \sqrt{
-n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
-- \frac{\mu^2}{\sigma^2}\log\left(
-1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
-\right)
-}
-,
-\end{align}
-in an appropriate limit where $0\log(0x) = 0$ for the $n=0$ case.
 
 \clearpage
 
