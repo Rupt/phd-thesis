@@ -61,24 +61,57 @@ The first correct answer wins a gold star.
 \label{fig:significant_beans}
 \end{figure}
 
-We begin with what probability is.
-At its most abstract, a probability a proportion of stuff within a larger
-whole, and probabilities are useful because they can be manipulated with an
-algebra that corresponds to how one naturally manipulates such proportions.
+Statistical data analysis suffers from dogma --- prescriptions and recipes that
+students are taught to memorize and follow without knowing their reasons or
+limitations.
+From a standard undergraduate physics education, my experience has been
+error propagation formulae,
+least squares fitting routines,
+chi-squared per degree of freedom,
+and myriad statistical tests and confidence intervals.
+Many of these are effective approximations, but all also fail if misused
+outside of their domain.%
+\footnote{%
+Multiplicative error propagation is an example.
+For $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
+the perturbative approximation is
+\(
+\widetilde{\sigma}_{ab}
+= \mu_a \mu_b \sqrt{\sigma_a^2/\mu_a^2 + \sigma_b^2/\mu_b^2}
+% = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2
+\),
+but calculation with their moments derives
+\(
+\sigma_{ab}
+= \sqrt{(\mu_a^2 + \sigma_a^2)(\mu_b^2 + \sigma_b^2) - \mu_a^2\mu_b^2}
+% = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2 + \sigma_a^2 \sigma_b^2
+\)
+exactly if independent.
+Since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$, the
+propagation formula works only for small relative errors.
+}
+All effective methods of data analysis can be derived upwards from the roots of
+probability and decision theory, and as elsewhere in physics, by knowing the
+derivations we can also know when each approximation should work and when it
+needs replacing.
+
+We begin with what probability is: at its most abstract, a probability a
+proportion of stuff within a larger whole.
+Probabilities useful because proportions have applications, and because they
+can be manipulated and interrelated with a linear and intuitive algebra.
 
 \paragraph{Probability, abstract}
 A probability $\prob{b}{a}$ is a number that quantifies the proportion
-of $b$ within $a$, and can be expressed as a ratio of measures
-as~\cite{axioms1010038}
+of $b$ within $a$, and can be expressed as a ratio~\cite{axioms1010038}
 \begin{equation}
 \label{eqn:searches_prob_ratio}
 \prob{b}{a} = \frac{m(b, a)}{m(a)},
 \end{equation}
 in which $m(x)$ is a measure (a non-negative quantity assigned to its
-argument, such as mass of tea in a cup), and the comma ``,'' means `and'
+argument, such as mass of tea in a cup), and the comma `,' means `and'
 (logical and or set intersection or any other equivalent operation).
 To continue that example, $\prob{b}{a}$ could be a proportion of tea within
-a spoon within a cup, where $m(b \land a)$ measures the volume of tea in a
+a spoon within a cup, where $m(b, a)$ measures the volume of tea in a
 teaspoon that is partially submerged in the cup.%
 \footnote{%
 All probabilities are conditional in this definition; $\probc{b}$ alone does
@@ -100,19 +133,25 @@ keynes1920treatise
 }.
 Probability works for logic and it works \emph{for tea, too}.
 
-Probability algebra has two rules that can derive from the measure ratio of
-Equation~\ref{eqn:searches_prob_ratio}:
+Two algebraic rules derive from Equation~\ref{eqn:searches_prob_ratio}:
 a \textbf{product rule}
+\begin{align}
+\prob{c, b}{a} &= \prob{c}{b, a}\times \prob{b}{a},
+\label{eqn:searches_product_rule}
+\intertext{%
+that describes nested proportions
+(perhaps a spoon within a teacup within a sink),
+and a \textbf{sum rule}%
+}
+\prob{c\vee b}{a} &= \prob{c}{a} + \prob{b}{a} - \prob{c, b}{a},
+\label{eqn:searches_sum_rule}
+\end{align}
+that describes combination in a union $\vee$ that coincides with logical `or'.
+The subtraction avoids double-counting of any overlap, and is often avoided by
+splitting any problem into orthogonal, or disjoint states.
+For disjoint cases with labels $b_i$, normalization therefore requires that
 \begin{equation}
-\prob{c, b}{a} = \prob{c}{b, a}\times \prob{b}{a},
-\end{equation}
-and a \textbf{sum rule}
-\begin{equation}
-\prob{c\textrm{ or }b}{a} = \prob{c}{a} + \prob{b}{a} - \prob{c, b}{a}.
-\end{equation}
-To avoid of this subtraction we prefer split any problem into orthogonal or
-disjoint states; for such cases, the normalization condition is that
-\begin{equation}
+\label{eqn:searches_normalization}
 \sum_i \prob{b_i}{a} = 1.
 \end{equation}
 These rules are basic and well known, but we state them here to support the
@@ -125,22 +164,93 @@ transformation~\cite{axioms1010038}.
 This choice is usually best because it uses ordinary addition and
 multiplication.
 In numerical analysis, however, it is often practical to use $\log$
-probabilities (to avoid overflows outside the range representable by floating
-point numbers(, thus changing multiplication to addition, and addition to
+probabilities to avoid overflows outside the range representable by floating
+point numbers, thus changing multiplication to addition and addition to
 the `$\log$-add-$\exp$' operation.
 }
 
 \paragraph{Probability, applied}
 % science snake
+Science involves making predictions, testing those predictions against data,
+and reporting what is learned from the results.
+Various probabilities are involved in this prediction and learning that have
+conventional names to communicate what we intend to do with them.
+Most important for prediction is the \textbf{likelihood}
+\begin{align}
+L(a) &= \prob{b}{a}
+\intertext{%
+that explores the probabilities assigned to a fixed result $b$ from different
+contexts $a$, or how well different hypotheses predicted a result.
+A likelihood is clearly a probability, but it is not a probability distribution
+--- only the left hand argument $b$ forms a normalized distribution.
+Alternatively, fixing the context gives a \textbf{prior}%
+}
+\pi(b) &= \prob{b}{a}
+\end{align}
+for fixed $a$, which is a normalized distribution over disjoint states $b$.
 
-Probabilistic data analysis proceeds as follows:
+Likelihood and prior are evidently related --- they explore two indices into
+the same object, two sides of the same coin, and are assigned by the same
+principles.
+But they are profoundly different objects that work for different purposes,
+and clarity in their distinction will help in our later understanding of
+practical methods.
+For observed data, we use likelihoods to compare which hypotheses predicted
+them better than others, and before observing data we use priors to describe
+what data might result from different models to design our experiments.
+
+Take for example an overflow histogram bin that requires $\met > 100\,\eV[G]$,
+and is part of a figure with stacked histograms from background
+and (supersymmetric) signal samples.
+If those histograms are normalized to unit area, they are prior distributions
+for events from the background and signal hypotheses.
+The likelihood function for this overflow bin is
+$\prob{\met > 100\,\eV[G]}{a}$, and depends on the hypothetical origin of that
+event: $a = \textrm{`background'}$ or $a = \textrm{`signal'}$.
+\TODO{transformation behaviours are important}
+
+Figure~\ref{fig:searches_sig_bkg_prior_likelihood}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=\textwidth]{figures/searches_sig_bkg_prior_likelihood.pdf}
+\caption[
+Background and signal prior densities
+]{%
+Background and signal prior densities in $\eV[G]$ and $\eV[G]^{1/2}$ units.
+When changing coordinates, the probability is a fluid of constant total volume.
+In each bin a likelihood function is indexed by the background--signal labels
+and is independent of the prior units since the area in each bin is invariant.
+}
+\label{fig:searches_sig_bkg_prior_likelihood}
+\end{figure}
+
+
+
+% evidence: lower level events with different $\met$ values, bin likelihood
+
+% likelihood ratio
+\begin{equation}
+\hphantom{\quad \quad \mid\mid \mathrm{context}}
+\frac{\prob{S}{d}}{\prob{B}{d}}
+=
+\!\!
+\underbrace{\frac{\prob{d}{S}}{\prob{d}{B}}}_\textrm{likelihood ratio}
+\!\!\times~
+\frac{\probc{S}}{\probc{B}}
+\quad \quad \mid\mid \mathrm{context}
+\end{equation}
+
+Density is a misleading term. Prior mass cannot be compressed, it can only be
+moved and redistributed. It is more like depth of tea than density of air.
+
+Probabilistic learning proceeds as follows:
 \begin{enumerate}
-\item Predict new data $d$ with probability $\prob{d}{\ldots}$.
-\item Update your predictions with the observed data to $\prob{x}{d, \ldots}$.
+\item Predict new data $d$ with probability $\prob{d}{\ldots, h}$.
+\item Update your predictions with the observed data to $\prob{x}{d, \ldots, h}$.
 \item Go to 1.
 \end{enumerate}
 
-% evidence
 
 % bayes
 Bayes' theorem is an infamous and necessary result of probability.
