@@ -175,9 +175,10 @@ Science involves making predictions, testing those predictions against data,
 and reporting what is learned from the results.
 Various probabilities are involved in this prediction and learning that have
 conventional names to communicate what we intend to do with them.
-Most important for prediction is the \textbf{likelihood}
+Most important for prediction is a \textbf{likelihood}
 \begin{align}
-L(a) &= \prob{b}{a}
+L(a) &= \prob{b}{a} \\
+\label{eqn:searches_likelihood}
 \intertext{%
 that explores the probabilities assigned to a fixed result $b$ from different
 contexts $a$, or how well different hypotheses predicted a result.
@@ -186,6 +187,7 @@ A likelihood is clearly a probability, but it is not a probability distribution
 Alternatively, fixing the context gives a \textbf{prior}%
 }
 \pi(b) &= \prob{b}{a}
+\label{eqn:searches_prior}
 \end{align}
 for fixed $a$, which is a normalized distribution over disjoint states $b$.
 
@@ -199,17 +201,18 @@ For observed data, we use likelihoods to compare which hypotheses predicted
 them better than others, and before observing data we use priors to describe
 what data might result from different models to design our experiments.
 
-Take for example an overflow histogram bin that requires $\met > 100\,\eV[G]$,
-and is part of a figure with stacked histograms from background
-and (supersymmetric) signal samples.
-If those histograms are normalized to unit area, they are prior distributions
-for events from the background and signal hypotheses.
-The likelihood function for this overflow bin is
-$\prob{\met > 100\,\eV[G]}{a}$, and depends on the hypothetical origin of that
-event: $a = \textrm{`background'}$ or $a = \textrm{`signal'}$.
-\TODO{transformation behaviours are important}
-
-Figure~\ref{fig:searches_sig_bkg_prior_likelihood}
+To illustrate this, consider a histogram that bins event yields in
+$\met$, with distributions from background and (supersymmetric) signal samples
+overlaid.
+Example such histograms are displayed in
+Figure~\ref{fig:searches_sig_bkg_prior_likelihood}.
+Since these histograms are normalized to unit area, they show prior
+probability distributions along the bin axis; there is one prior
+for events from each of the background and signal hypotheses.
+Priors distribute unit probability explore along the bin axis.
+In each bin, however, a likelihood function compares the assignments from
+the two hypotheses: signal and background.
+Likelihoods explore vertically down the sample axis.
 
 \begin{figure}[tp]
 \centering
@@ -218,16 +221,123 @@ Figure~\ref{fig:searches_sig_bkg_prior_likelihood}
 Background and signal prior densities
 ]{%
 Background and signal prior densities in $\eV[G]$ and $\eV[G]^{1/2}$ units.
-When changing coordinates, the probability is a fluid of constant total volume.
+When changing coordinates, probability mass moves as a fluid of constant total
+volume.
 In each bin a likelihood function is indexed by the background--signal labels
 and is independent of the prior units since the area in each bin is invariant.
 }
 \label{fig:searches_sig_bkg_prior_likelihood}
 \end{figure}
 
+Identical distributions are drawn in two different coordinates
+on the left and right of Figure~\ref{fig:searches_sig_bkg_prior_likelihood};
+they are identical in content, but differ in appearance because they use the
+standard approach of representing each prior distribution as a density.%
+\footnote{%
+Density is a somewhat misleading term here.
+Probability mass does not compress, it moves and redistributes --- it is more
+like depth of tea than density of air.%
+}
+To preserve the area of each bin, which shows its probability mass,
+bin heights therefore change to adapt to their widths that change due to the
+differing values of $\met$ and $\sqrt{\met}$.
 
+We typically approximate such histograms by Monte Carlo simulation methods,
+since simulations do not generate bin indices but event variables.
+We connect these concepts with probabilities here.
+First, some notation; we have hypotheses $h$ (signal or background),
+a parameter $x$ that we histogram ($x = \met$),
+and we observe a datum $d$ that datum indexes the histogram bins --- supposing
+an event is observed in the overflow bin, it says
+$d = `x > 100\,\eV[G]\textrm{'}$.
+This observed bin has a likelihood function
+\begin{equation}
+L(x) = \prob{d}{x, h} = \prob{d}{x} =
+\left\{
+\begin{matrix}
+1 & \textrm{if }~x > 100\,\eV[G], \\
+0 & \textrm{otherwise} \\
+\end{matrix}
+\right.
+\end{equation}
+that corresponds to Equation~\ref{eqn:searches_likelihood} by
+$b \leftarrow d$ and $a \leftarrow `x, h\textrm{'}$,
+and simplifies $\prob{d}{x, h} = \prob{d}{x}$ since binning is independent of
+hypothesis.
+Simulating events from background and signal hypotheses samples from their
+respective priors
+\begin{equation}
+\pi(x) = \prob{x}{h}
+\end{equation}
+that correspond to Equation~\ref{eqn:searches_prior} by
+$b \leftarrow x$ and $a \leftarrow h$.
+Although we previously used the same labels $a$ and $b$, those are only
+labels --- the words `prior' and `likelihood' state our intent to index into
+the left and right arguments respectively.
 
-% evidence: lower level events with different $\met$ values, bin likelihood
+When we fill a histogram by summing weights of simulated samples, we are
+calculating another likelihood over hypotheses $h$ alone, not $`x, h\textrm{'}$
+jointly.
+To disambiguate the two, we call this abstracted, $x$-independent likelihood
+the \textbf{evidence} $Z(h)$ for hypothesis $h$.
+We calculate this evidence
+\begin{align}
+Z
+= \prob{d}{h} &= \sum_i L(x_i) \,\pi(x_i) \\
+&= \int\! L(x) \,\mathrm{d}\pi(x),
+\label{eqn:searches_evidence_integral_measure}
+\end{align}
+where Equation~\ref{eqn:searches_evidence_integral_measure} is notation for
+integrating the likelihood function over the prior measure~\cite{
+billingsley2008probability,
+skilling2010foundations
+}, and relates most closely to our practice of simulating from the model and
+counting events that hit the non-zero likelihood in the bin.
+We shall shortly derive this identity.
+The name `evidence' relates to its application for model comparison.
+Supposing we have this one event, did it come from the background or signal
+sample?
+The answer depends on the signal and background cross-sections in our collider,
+but larger evidence for signal does influence any conclusion to move in its
+favour.
+
+% posterior
+Perhaps we now want to see where in the overflow bin this event landed, and
+compare the signal and background distributions there.
+This is an inspection of the \textbf{posterior}
+\begin{equation}
+p(x) = \prob{x}{d, h} = \frac{L(x)\,\pi(x)}{Z},
+\end{equation}
+which is a prior probability distribution specialized by the data;
+it simply uses the likelihood to filter simulated samples
+(perhaps in `skimming an ntuple')
+and re-normalizes them to a probability distribution within the constraint.
+
+We finally have the four parts of `Bayesian' data analysis:
+the two inputs \textbf{likelihood} and \textbf{prior},
+and two outputs \textbf{posterior} and \textbf{evidence}.
+These relate through Bayes' rule, which is a consequence of the
+produce rule of Equation~\ref{eqn:searches_product_rule} and the
+commutativity of `and' --- that `$a$ and $b$' is equivalent to
+`$b$ and $a$';
+the joint probability of data and parameters has two identical
+forms, $\prob{d, x}{h}$ and $\prob{x, d}{h}$, that each factor into two
+pieces:
+\begin{align}
+\prob{d}{x, h}\times \prob{x}{h} &= \prob{x}{d, h}\times \prob{d}{h},
+\intertext{all of which which we have named:}
+\underbrace{L(x)}_\textbf{likelihood}
+\times
+\overbrace{\pi(x)}^\textbf{prior}
+~\,
+&=
+\overbrace{p(x)}^\textbf{posterior}
+\times
+\underbrace{Z}_\textbf{evidence}
+.
+% \textbf{likelihood} \times \textbf{prior}
+% &= \textbf{posterior} \times \textbf{evidence} .\nonumber
+\end{align}
 
 % likelihood ratio
 \begin{equation}
@@ -241,8 +351,6 @@ and is independent of the prior units since the area in each bin is invariant.
 \quad \quad \mid\mid \mathrm{context}
 \end{equation}
 
-Density is a misleading term. Prior mass cannot be compressed, it can only be
-moved and redistributed. It is more like depth of tea than density of air.
 
 Probabilistic learning proceeds as follows:
 \begin{enumerate}
@@ -253,7 +361,10 @@ Probabilistic learning proceeds as follows:
 
 
 % bayes
-Bayes' theorem is an infamous and necessary result of probability.
+\TODO{move to connection to frequentist section}
+Bayes' theorem is an infamous and necessary result, and it is not seriously
+disputed. What has been disputed is whether probability can be applied to
+logic, or any application other than the random happenings of events.
 
 % posterior
 
