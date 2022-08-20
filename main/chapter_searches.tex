@@ -66,11 +66,11 @@ students are taught to memorize and follow without knowing their reasons or
 limitations.
 From a standard undergraduate physics education, my experience has been
 error propagation formulae,
-least squares fitting routines,
+least-squares fitting routines,
 chi-squared per degree of freedom,
 and myriad statistical tests and confidence intervals.
 Many of these are effective approximations, but all also fail if misused
-outside of their domain.%
+outside their domain.%
 \footnote{%
 Multiplicative error propagation is an example.
 For $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
@@ -123,7 +123,7 @@ interpreted as logical propositions, and
 $\prob{b}{a}$ is the degree to which $a$ implies $b$, with the limiting cases
 that $\prob{b}{a} = 1$ when $a$ implies $b$ and $\prob{b}{a} = 0$ when $a$
 disproves $b$.
-Indeed Cox's theorem derives the laws of probability by requiring compatibility
+Indeed, Cox's theorem derives the laws of probability by requiring compatibility
 with Boolean logic~\cite{
 cox1946probability,
 cox1961algebra,
@@ -131,7 +131,7 @@ garrett1998nand,
 jaynes2003probability,
 keynes1920treatise
 }.
-Probability works for logic and it works \emph{for tea, too}.
+Probability works for logic, and it works \emph{for tea, too}.
 
 Two algebraic rules derive from Equation~\ref{eqn:searches_prob_ratio}:
 a \textbf{product rule}
@@ -428,7 +428,7 @@ Figure~\ref{fig:searches_significant}
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.55\textwidth]{figures/searches_significant_shrink.png}
+\includegraphics[width=0.46\textwidth]{figures/searches_significant_shrink.png}
 \\
 \begin{footnotesize}
 `So, uh, we did the green study again and got no link. It was probably a{-}{-}'
@@ -487,15 +487,16 @@ in an appropriate limit where $0\log(0x) = 0$ for the $n=0$ case.
 % histograms, CR VR SR, systematics
 % histfactory
 
+\TODO{minimize energy not max logf}
 To model the consequences of these many factors of uncertainty, each factor is
-assigned a real-valued parameter which when varied changed the expected yields
-in the hisogram bins of the search.
+assigned a real-valued parameter, which when varied changed the expected yields
+in the histogram bins of the search.
 In this way, we form a statistical model which is a function
 \begin{equation}
 H_{\!f}(\vec \theta) \rightarrow (\vec \mu, \log f)
 \end{equation}
-from the parameters $\theta$ to Poisson expectations $\vec\mu$ the histogram
-bins and a regularization term $\log f$ which is maximized in fitting.
+from the parameters $\theta$ to Poisson expectations $\vec\mu$ of the histogram
+bins and a regularization term $\log f$ that is maximized in fitting.
 
 \histfactory~\cite{cranmer2012histfactory}
 \pyhf~\cite{heinrich2021pyhf}
