@@ -99,6 +99,14 @@ We begin with what probability is: at its most abstract, a probability a
 proportion of stuff within a larger whole.
 Probabilities useful because proportions have applications, and because they
 can be manipulated and interrelated with a linear and intuitive algebra.
+Probabilisitc data analysis follows the ordinary structure of science ---
+write down models that make predictions, test those predictions against data,
+then update your models to refine their predictions.
+For this process, likelihoods are particularly important because they describe
+our predictions. But not everything is a likelihood.
+The remainder of this section uses a standard example from High Energy Physics
+to introdule this probabilistic structure and other parts of its technical
+language.
 
 \paragraph{Probability, abstract.}
 A probability $\prob{b}{a}$ is a number that quantifies the proportion
@@ -222,9 +230,11 @@ Background and signal prior densities
 ]{%
 Background and signal prior densities in $\eV[G]$ and $\eV[G]^{1/2}$ units.
 When changing coordinates, probability mass moves as a fluid of constant total
-volume.
-In each bin a likelihood function is indexed by the background--signal labels
-and is independent of the prior units since the area in each bin is invariant.
+volume, changing its shape in this density view to keep the area of the
+rectangle in each bin constant.
+A likelihood function indexes each bin in the background--signal labels,
+and is independent of the coordinates units since the area in each bin is
+invariant.
 }
 \label{fig:searches_sig_bkg_prior_likelihood}
 \end{figure}
@@ -241,6 +251,10 @@ like depth of tea than density of air.%
 To preserve the area of each bin, which shows its probability mass,
 bin heights therefore change to adapt to their widths that change due to the
 differing values of $\met$ and $\sqrt{\met}$.
+This coordinate-dependence of the prior density means that its maximum is
+not always meaningful.
+Since the probability mass in each bin is constant, the likelihood is
+coordinate-independent.
 
 We typically approximate such histograms by Monte Carlo simulation methods,
 since simulations do not generate bin indices but event variables.
@@ -325,7 +339,7 @@ forms, $\prob{d, x}{h}$ and $\prob{x, d}{h}$, that each factor into two
 pieces:
 \begin{align}
 \prob{d}{x, h}\times \prob{x}{h} &= \prob{x}{d, h}\times \prob{d}{h},
-\intertext{all of which which we have named:}
+\intertext{all of which we have named:}
 \underbrace{L(x)}_\textbf{likelihood}
 \times
 \overbrace{\pi(x)}^\textbf{prior}
@@ -338,6 +352,9 @@ pieces:
 % \textbf{likelihood} \times \textbf{prior}
 % &= \textbf{posterior} \times \textbf{evidence} .\nonumber
 \end{align}
+This is (the infamous) Bayes' rule, derived as a consequence of the
+symmetry of logical `and' and the product rule of probability
+algebra.
 
 % likelihood ratio
 \begin{equation}
