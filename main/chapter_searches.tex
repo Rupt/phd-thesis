@@ -278,6 +278,8 @@ that corresponds to Equation~\ref{eqn:searches_likelihood} by
 $b \leftarrow d$ and $a \leftarrow `x, h\textrm{'}$,
 and simplifies $\prob{d}{x, h} = \prob{d}{x}$ since binning is independent of
 hypothesis.
+\TODO{binary filter --- others same but not binary}
+
 Simulating events from background and signal hypotheses samples from their
 respective priors
 \begin{equation}
@@ -355,6 +357,17 @@ pieces:
 This is (the infamous) Bayes' rule, derived as a consequence of the
 symmetry of logical `and' and the product rule of probability
 algebra.
+\TODO{here state how we should use this}.
+
+The infamy of Bayes' rule stems from a fixation on the posterior distributions
+from unjustified prior assignments, which has been present since its earliest
+classical developments by Bayes and
+Laplace~\cite{bayes1763lii, laplace1774stigler}.
+Both Bayes and Laplace assume prior densities that are uniform in their chosen
+coordinates, a practice that is fairly criticized as arbitrary
+\TODO{zero evidence because for uniform on the real line --- a normalized prior
+with any inkling of the scale of the actual parameter will be infinitely
+preferred in its evidence.}
 
 % likelihood ratio
 \begin{equation}
@@ -396,6 +409,10 @@ across all even numbers, but there are infinitely many of them so that
 probability distribution could not be normalized.
 
 \TODO{\ldots}
+
+Succinctly stated by Jaynes that
+``any function with a single rounded maximum, raised to a higher and higher
+power, goes into a Gaussian function''~\cite{jaynes2003probability}.
 
 
 \paragraph{Decision theory.}
