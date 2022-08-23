@@ -497,26 +497,58 @@ but which could in principle be used for secondary interpretations.
 \paragraph{Probability assignments.}
 Probability algebra manipulates probabilities, but does not state how they
 should be initially assigned.
-Probability assignments can, in general, be freely assigned and refined from
-calibration data. But there are unambiguous cases that are commonly used in
-High-Energy, notably the Poisson and Gaussian distributions.
+In general, such probability assignments are free and unconstrained, and might
+informed by calibration data or loosely motivated opinions.
+But there are examples of unambiguously derived that are commonly used in
+High-Energy Physics, notably the Poisson and Gaussian distributions.
 To avoid turning this thesis into a textbook, we only sketch the derivations
 of these, and refer to real textbooks for their detailed
-derivations~\cite{jaynes2003probability}.
-
-Both Poisson and
-Binary accept/reject experiments are described by the
-The Large Hadron Collider creates $40$~million proton collisions per second,
-only around $1000$ are accepted by \atlas' trigger system per
-second~\cite{atlas2020trigger}.
-This acceptance rate of $250$ parts per million is sufficient to invoke the
-Poisson distribution for event counts.
-Each collision event has some probability $p$ of passing the trigger
+derivations~\cite{jaynes2003probability}, both of which use the exponential
+identity that
 \begin{equation}
-\label{eqn:searches_poisson}
-\mathrm{Poisson}(n\mid \lambda) = \frac{\lambda^n}{n!}\exp{(-\lambda)}
+\label{eqn:searches_exponential}
+\exp(x) = \displaystyle \lim_{N \to \infty} (1 - \frac{x}{N})^N
+.
 \end{equation}
 
+The Large Hadron Collider collides $40$~million proton bunches per second,
+but \atlas' trigger system accepts only only around $1000$ of
+those~\cite{atlas2020trigger}.
+This is a Binomial scenario with a large fixed number $N$ of trials
+(bunch collisions)
+and a small probability of acceptance (triggering),
+due to a notable collision event.
+The Binomial distribution for $n$ triggered events is well known as
+\begin{equation}
+\mathrm{Binomial}(n\mid N, p) = p^n (1 - p)^{N - n} \times \binom{N}{n}
+,
+\end{equation}
+which is a product of the probabilities to the sequence of $N$ accept/reject
+data, summed over the permutations that could have led to the total $n$.
+With our extremely small trigger rate, we are interested in the limit of small
+$p$ and large $N$ which result in a mean acceptance number of $\lambda = Np$.
+In the large $N$ limit, this tends towards the Poisson
+distribution~\cite{jaynes2003probability}
+\begin{equation}
+\label{eqn:searches_poisson}
+\mathrm{Poisson}(n\mid \lambda) = \frac{\lambda^n}{n!}\exp(-\lambda)
+,
+\end{equation}
+which is used ubiquitously in the analysis of our histograms.
+
+The Gaussian distribution has many justifications:
+as a practical approximation it permits analysis in linear algebra,
+as the unique distribution is uniquely spherically symmetric and factors into
+independent dimensions~\cite{
+jaynes2003probability,
+herschel1850normal,
+maxwell1860normal,
+muller1959note,
+marsaglia1972normal
+},
+and as the maximum entropy~\cite{PhysRev.106.620} distribution for a
+known mean and variance.
+\TODO{}
 Succinctly stated by Jaynes that
 ``any function with a single rounded maximum, raised to a higher and higher
 power, goes into a Gaussian function''~\cite{jaynes2003probability}.
@@ -524,7 +556,7 @@ power, goes into a Gaussian function''~\cite{jaynes2003probability}.
 \label{eqn:searches_gaussian}
 \mathrm{Gaussian}(x\mid \mu, \sigma) =
 \frac{1}{\sqrt{2\pi \sigma^2}}
-\exp{\left(-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}\right)}
+\exp\left(-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}\right)
 \end{equation}
 This is not the famous Central Limit Theorem, which is related to the
 distribution of sums, but can be used to derive it: the distribution of a sum
