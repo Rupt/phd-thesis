@@ -307,7 +307,9 @@ the \textbf{evidence} $Z(h)$ for hypothesis $h$.
 The evidence is calculable as
 \begin{align}
 Z
-= \prob{d}{h} &= \sum_i L(x_i) \,\pi(x_i) \\
+= \prob{d}{h} &= \sum_i L(x_i) \,\pi(x_i)
+\label{eqn:searches_evidence_integral_sum}
+\\
 &= \int\! L(x) \,\mathrm{d}\pi(x),
 \label{eqn:searches_evidence_integral_measure}
 \end{align}
@@ -318,7 +320,8 @@ skilling2010foundations
 }, and relates most closely to our practice of simulating from the model and
 counting events that hit the non-zero likelihood in the bin.
 We shall shortly derive this identity.
-The name `evidence' relates to its application for model comparison.
+The name `evidence' relates to its application for model
+comparison~\cite{mackay2003information}.
 Supposing we have this one event with $\met > 100\,\eV[G]$, did it come from
 the background or signal sample?
 The answer depends on the signal and background cross-sections in our collider,
@@ -410,60 +413,32 @@ where we use the double bar, $\mid\mid$, to refer to any contextual information
 a reader might wish to include.
 Whenever the evidence ratio is independent of that context, it factors out from
 the prior (odds) ratio.
-In this sense, likelihood (or evidence) ratios are scale factors by which prior
-odds are updated.
+In this sense, likelihood (or evidence) ratios are scale factors that update
+any odds ratio by the same multiplication.
 
 The infamy of Bayes' rule stems from a fixation on the posterior distributions
 from unjustified prior assignments.
-Classical works by Bayes and Laplace~\cite{bayes1763lii, laplace1774stigler}
-began this focus;
-both assume prior densities that are uniform in their chosen coordinates, a
-practice that can yield practical results in posterior inferences.
-But for our purposes of reporting scientific data, such practices are fairly
-criticized as arbitrary when they influce our results.
-\TODO{references for definition of Bayesian analysis as computation of
-posterior without even giving a symbool to the evidence}
-Figure~\ref{fig:searches_baton_roue_bayes}
-
-\TODO{zero evidence because for uniform on the real line --- a normalized prior
-with any inkling of the scale of the actual parameter will be infinitely
-preferred in its evidence.}
-oceeds as follows:
-\begin{enumerate}
-\item Predict new data $d$ with probability $\prob{d}{\ldots, h}$.
-\item Update your predictions with the observed data to $\prob{x}{d, \ldots, h}$.
-\item Go to 1.
-\end{enumerate}
-
-
-% bayes
-\TODO{move to connection to frequentist section}
-Bayes' theorem is an infamous and necessary result, and it is not seriously
-disputed. What has been disputed is whether probability can be applied to
-logic, or any application other than the random happenings of events.
-
-% posterior
-
-\paragraph{Probability assignments.}
-infamously arbitrary and subjective. This is reality. They are.
-Consider this simple mathematical example with two propositions
-$a=\textrm{``}x\textrm{ is even''}$ and
-$b=\textrm{``}x\textrm{ equals }2\textrm{''}$.
-Clearly $\prob{a}{b} = 1$ since $2$ is indeed even.
-But what is $\prob{b}{a}$? We don't know. Perhaps one could argue symmetry
-across all even numbers, but there are infinitely many of them so that
-probability distribution could not be normalized.
-
-\TODO{\ldots}
-
-Succinctly stated by Jaynes that
-``any function with a single rounded maximum, raised to a higher and higher
-power, goes into a Gaussian function''~\cite{jaynes2003probability}.
-
-
-\paragraph{Decision theory.}
-
-
+Classical works by
+Bayes~\cite{bayes1763lii} and
+Laplace~\cite{laplace1774stigler} began this focus ---
+both assume prior densities that are uniform in chosen coordinates, a practice
+that can yield practical results in posterior inferences.
+But to report scientific data, such practices are fairly criticized as
+arbitrary when they influce the reported results.
+Prior assignments are arbitrary.
+You are welcome to propose any prediction in any circumstances, and the
+scientific response is to test whether or not its predictions are compatible
+with our observations of nature.
+Our emphasis on the likelihood functions and evidence values that quantify
+those predictions avoids the pitfall of seeking uninformative, neutral, or
+unbiased priors by embracing priors as active and explicit predictions.
+This is the modern, practical approach to Bayesian data analysis~\cite{
+mackay2003information,
+skilling2004nested,
+skilling2006nested,
+sivia2006data,
+skilling2010foundations
+}.
 
 \begin{figure}[tp]
 \centering
@@ -484,6 +459,89 @@ Corentin~Penloup~\cite{penloup2011baton}.
 }
 \label{fig:searches_baton_roue_bayes}
 \end{figure}
+
+Some sources continue to define Bayesian analysis as the computation of
+posterior probabilities given data, often without naming the evidence, and
+expressing it only as the sum from
+Equation~\ref{eqn:searches_evidence_integral_sum}
+--- as just a normalizing constant~\cite{
+gelman1995bayesian,
+gelman2008objections,
+DAgostini:1994fjx,
+DAgostini:2010hil,
+cowan1998statistical,
+pdg2020review
+}.
+Bayes' rule has two outputs, and both outputs have uses.
+Cutting out the evidence hamstrings Bayesian analysis, leaving only the
+semi-Bayesian posterior-only approach and its clear flaws.
+A bicycle is stable with two wheels and falls over if one either
+is removed;
+Figure~\ref{fig:searches_baton_roue_bayes} illustrates this analogy.
+Although it is possible to ride a unicycle, it is a circus trick and not often
+a practical tool.
+
+The essence of this form of Probabilistic data analysis is most succinctly
+summarized by Skilling~\cite{skilling2008rant}:
+``we SHOULD use Bayes by assigning subjective priors and inspecting evidence
+values.''
+This agrees exactly with the standard practice of histogramming simulations,
+as illustrated in Figure~\ref{fig:searches_sig_bkg_prior_likelihood}.
+Signal and background models define priors, and their (normalized) bin yields
+are the evidence values that we use to compare the models.
+Finally corresponding posteriors are the normalized shapes those samples take
+within the observed histogram bin, which we do not use to compare the models,
+but which could in principle be used for secondary interpretations.
+
+
+\paragraph{Probability assignments.}
+Probability algebra manipulates probabilities, but does not state how they
+should be initially assigned.
+Probability assignments can, in general, be freely assigned and refined from
+calibration data. But there are unambiguous cases that are commonly used in
+High-Energy, notably the Poisson and Gaussian distributions.
+To avoid turning this thesis into a textbook, we only sketch the derivations
+of these, and refer to real textbooks for their detailed
+derivations~\cite{jaynes2003probability}.
+
+Both Poisson and
+Binary accept/reject experiments are described by the
+The Large Hadron Collider creates $40$~million proton collisions per second,
+only around $1000$ are accepted by \atlas' trigger system per
+second~\cite{atlas2020trigger}.
+This acceptance rate of $250$ parts per million is sufficient to invoke the
+Poisson distribution for event counts.
+Each collision event has some probability $p$ of passing the trigger
+\begin{equation}
+\label{eqn:searches_poisson}
+\mathrm{Poisson}(n\mid \lambda) = \frac{\lambda^n}{n!}\exp{(-\lambda)}
+\end{equation}
+
+Succinctly stated by Jaynes that
+``any function with a single rounded maximum, raised to a higher and higher
+power, goes into a Gaussian function''~\cite{jaynes2003probability}.
+\begin{equation}
+\label{eqn:searches_gaussian}
+\mathrm{Gaussian}(x\mid \mu, \sigma) =
+\frac{1}{\sqrt{2\pi \sigma^2}}
+\exp{\left(-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}\right)}
+\end{equation}
+This is not the famous Central Limit Theorem, which is related to the
+distribution of sums, but can be used to derive it: the distribution of a sum
+is a convolution integral, which becomes a product in Fourier-transformed
+space, and that product can converge to a Gaussian function by this rule.
+Jaynes gives a beautiful alternative proof of the
+Central Limit Theorem~\cite{jaynes2003probability}
+(Section ``7.16 The central limit theorem'').
+
+
+\paragraph{Decision theory.}
+
+
+% connection to frequentist section
+Bayes' theorem is an infamous and necessary result, and it is not seriously
+disputed. What has been disputed is whether probability can be applied to
+logic, or any application other than the random happenings of events.
 
 
 \begin{singlespacing}
