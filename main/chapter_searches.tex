@@ -376,33 +376,59 @@ pieces:
 This is (the infamous) Bayes' rule, derived as a consequence of the
 symmetry of logical `and' and the product rule of probability
 algebra.
-All influence from data is conducted through the likelihood function
-\TODO{here state how we should use this}.
 
-The infamy of Bayes' rule stems from a fixation on the posterior distributions
-from unjustified prior assignments, which has been present since its earliest
-classical developments by Bayes and
-Laplace~\cite{bayes1763lii, laplace1774stigler}.
-Both Bayes and Laplace assume prior densities that are uniform in their chosen
-coordinates, a practice that is fairly criticized as arbitrary
-\TODO{zero evidence because for uniform on the real line --- a normalized prior
-with any inkling of the scale of the actual parameter will be infinitely
-preferred in its evidence.}
+How Bayes' rule \emph{should} be used in scientific data analysis is to extract
+useful information from the data.
+If the likelihood function itself is interpretable, then it should be reported
+directly.
+When it is not, perhaps due to a complicated parametric modelling, then one
+should abstract those parameters away by reporting evidence values for
+predictive models, which must of course be clearly stated and interpretable if
+they are to be useful.
+Data act only through the likelihood function, and reporting a posterior
+can act to obfuscate those data.
 
+Posterior probabilities are, however, useful when digesting data to make
+inferences about the world.
+Reporting likelihoods and evidence values allows readers to assign priors as
+they wish.
+For model comparison between background $h=B$ and signal $h=S$, this is clearly
+expressed in the ratio form
 % likelihood ratio
 \begin{equation}
 \hphantom{\quad \quad \mid\mid \mathrm{context}}
 \frac{\prob{S}{d}}{\prob{B}{d}}
 =
 \!\!
-\underbrace{\frac{\prob{d}{S}}{\prob{d}{B}}}_\textrm{likelihood ratio}
+\frac{\prob{d}{S}}{\prob{d}{B}}
 \!\!\times~
 \frac{\probc{S}}{\probc{B}}
 \quad \quad \mid\mid \mathrm{context}
+,
 \end{equation}
+where we use the double bar, $\mid\mid$, to refer to any contextual information
+a reader might wish to include.
+Whenever the evidence ratio is independent of that context, it factors out from
+the prior (odds) ratio.
+In this sense, likelihood (or evidence) ratios are scale factors by which prior
+odds are updated.
 
+The infamy of Bayes' rule stems from a fixation on the posterior distributions
+from unjustified prior assignments.
+Classical works by Bayes and Laplace~\cite{bayes1763lii, laplace1774stigler}
+began this focus;
+both assume prior densities that are uniform in their chosen coordinates, a
+practice that can yield practical results in posterior inferences.
+But for our purposes of reporting scientific data, such practices are fairly
+criticized as arbitrary when they influce our results.
+\TODO{references for definition of Bayesian analysis as computation of
+posterior without even giving a symbool to the evidence}
+Figure~\ref{fig:searches_baton_roue_bayes}
 
-Probabilistic learning proceeds as follows:
+\TODO{zero evidence because for uniform on the real line --- a normalized prior
+with any inkling of the scale of the actual parameter will be infinitely
+preferred in its evidence.}
+oceeds as follows:
 \begin{enumerate}
 \item Predict new data $d$ with probability $\prob{d}{\ldots, h}$.
 \item Update your predictions with the observed data to $\prob{x}{d, \ldots, h}$.
@@ -438,9 +464,6 @@ power, goes into a Gaussian function''~\cite{jaynes2003probability}.
 \paragraph{Decision theory.}
 
 
-% summary
-
-Figure~\ref{fig:searches_baton_roue_bayes}
 
 \begin{figure}[tp]
 \centering
