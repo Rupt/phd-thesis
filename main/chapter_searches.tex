@@ -256,10 +256,11 @@ not always meaningful.
 Since the probability mass in each bin is constant, the likelihood is
 coordinate-independent.
 
-We typically approximate such histograms by Monte Carlo simulation methods,
-since simulations do not generate bin indices but event variables.
-We connect these concepts with probabilities here.
-First, some notation; we have hypotheses $h$ (signal or background),
+One typically approximates such histograms by Monte Carlo simulation methods,
+since simulations do not generate bin indices but event variables that derive
+from the sampled events.
+To connect these concept with probabilities, we begin with some notation;
+we have hypotheses $h$ (signal or background),
 a parameter $x$ that we histogram ($x = \met$),
 and we observe a datum $d$ that datum indexes the histogram bins --- supposing
 an event is observed in the overflow bin, it says
@@ -276,9 +277,16 @@ L(x) = \prob{d}{x, h} = \prob{d}{x} =
 \end{equation}
 that corresponds to Equation~\ref{eqn:searches_likelihood} by
 $b \leftarrow d$ and $a \leftarrow `x, h\textrm{'}$,
-and simplifies $\prob{d}{x, h} = \prob{d}{x}$ since binning is independent of
-hypothesis.
-\TODO{binary filter --- others same but not binary}
+and simplifies $\prob{d}{x, h} = \prob{d}{x}$ since such binning is independent
+of hypothesis.%
+\footnote{%
+Independence of the likelihood function from prior hypotheses is so common
+that it should usually be assumed unless otherwise stated.
+}
+This example of a binary selection highlights how the likelihood acts as a
+filter that rejects events that are contradicted by the data.
+Other likelihoods that are not binary act similarly, but as inefficient filters
+that reject events with some probability.
 
 Simulating events from background and signal hypotheses samples from their
 respective priors
@@ -296,7 +304,7 @@ calculating another likelihood over hypotheses $h$ alone, not $`x, h\textrm{'}$
 jointly.
 To disambiguate the two, we call this abstracted, $x$-independent likelihood
 the \textbf{evidence} $Z(h)$ for hypothesis $h$.
-We calculate this evidence
+The evidence is calculable as
 \begin{align}
 Z
 = \prob{d}{h} &= \sum_i L(x_i) \,\pi(x_i) \\
@@ -311,11 +319,21 @@ skilling2010foundations
 counting events that hit the non-zero likelihood in the bin.
 We shall shortly derive this identity.
 The name `evidence' relates to its application for model comparison.
-Supposing we have this one event, did it come from the background or signal
-sample?
+Supposing we have this one event with $\met > 100\,\eV[G]$, did it come from
+the background or signal sample?
 The answer depends on the signal and background cross-sections in our collider,
 but larger evidence for signal does influence any conclusion to move in its
 favour.
+
+This expression integral, or average over the prior, means that evidence $Z$
+for model arises from a larger fraction of samples from it hitting large values
+of the likelihood function.
+In contrast, one might consider a maximum likelihood approach that constrained
+an optimization to regions of nonzero prior in each model.
+Such optimizations can give a useful upper bound on $Z$, but this example
+highlights a flaw since both models support the $\met > 100\,\eV[G]$ bin
+and both support the same maximum likelihood of
+$L(\varepsilon + 100\,\eV[G]) = 1$.
 
 % posterior
 Perhaps we now want to see where in the overflow bin this event landed, and
@@ -344,6 +362,7 @@ pieces:
 \intertext{all of which we have named:}
 \underbrace{L(x)}_\textbf{likelihood}
 \times
+~\,
 \overbrace{\pi(x)}^\textbf{prior}
 ~\,
 &=
@@ -357,6 +376,7 @@ pieces:
 This is (the infamous) Bayes' rule, derived as a consequence of the
 symmetry of logical `and' and the product rule of probability
 algebra.
+All influence from data is conducted through the likelihood function
 \TODO{here state how we should use this}.
 
 The infamy of Bayes' rule stems from a fixation on the posterior distributions
