@@ -553,7 +553,7 @@ known mean and variance.
 This maximum entropy statement means that for a distribution with known mean
 and variance in given coordinates, its best Gaussian approximation matches
 those moments.\footnote{%
-By `best', this means minimal Kullback-Leibler divergence
+By `best', this statement means a minimal Kullback-Leibler divergence
 \(
 H(p\leftarrow q) = \sum_i p_i \log(p_i/q_i)
 \)
@@ -620,10 +620,11 @@ Keep this evidence as a testing score for comparison against other models.
 \item Use those data to update your state
 $f(d_{i-1}, \ldots) \rightarrow f(d_i, d_{i-1}, \ldots)$ to improve your
 predictions.
-Unlike ideal posterior updating, this does not exactly employ all information
-in the data, only a function of it --- one usually cannot afford to consume all
-aspects of data, so although theoretically suboptimal this approximation is
-vastly superior in practice.
+Unlike ideal posterior updating, this encodes only a function of the data, not
+its whole --- one usually cannot afford to consume all aspects of data, so
+although theoretically suboptimal this approximation is vastly superior in
+practice. Learning only part of the data is not wrong, just less precise
+than might be possible with a divinely perfect learning algorithm.
 \item Go to 1.
 \end{enumerate}
 These sequential data $d_i$ might be labelled the `training', `validation',
@@ -706,21 +707,36 @@ $(x - \check{x})^2$ leads to reporting the posterior mean.
 Had the rules of our bean counting game rewarded you based on such distances,
 these results could have been good guesses. But those weren't the rules.
 
-\TODO{why?
-not explicitly constructed cost functions for what to report...
-report for contrast with attempted alternative formulations that for social...
-reasons retain popularity despite contradicting decision theory...
-link to frequentist ideas
-Wald worked firmly in that camp - quote
-}
+When arguing that we should report likelihoods and evidence values for our
+data, we have not explicitly constructed cost functions, nor have we made
+quantitative predictions of future events.
+But we can qualitatively consider them in this decision theory framework ---
+we imagine that future scientists will want to reuse our data, and would be
+pleased (attain a small cost) if they were able to reinterpret the results for
+their own models.
+We can therefore reason that likelihoods would have more utility than
+alternatives such as (point) posterior estimates.
 
 % connection to frequentist section
-Bayes' theorem is an infamous and necessary result, and it is not seriously
-disputed.
-What has been disputed is whether probability can be applied to logic, or any
-application other than the random happenings of events.
-\TODO{also ignore the results decision theory and attempt to supplant them with
-alternative prescriptions}
+An amusing feature of Wald's theory is that it was formulated from a
+perspective on probability in which,
+``In most applications, however, not even the existence of an a priori
+distribution can be postulated''~\cite{wald1950bayes}.
+That might seem problematic, since the risk is the expectation value of a cost
+function over a prior (or \emph{a priori}) distribution.
+Wald was nonetheless interested in these decision rules for their
+``completeness'' that he had proven, and named them ``Bayes'' decision rules
+despite approaching the theory from a stalwartly non-Bayesian perspective.
+
+Although Bayes' rule is not seriously disputed, the system in which Wald was
+working defined probability as a frequency in random sampling, which cannot
+reasonably apply to subjective, non-random distributions of probability mass
+that many prior distributions are.
+This frequency-restricted, `frequentist', philosophy dominated 20th century
+statistical research, and influences practices that \atlas\ continues to
+employ.
+We therefore review some features of frequentist statistics in the following
+section.
 
 \begin{singlespacing}
 \section{Frequentist theory}
