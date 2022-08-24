@@ -665,23 +665,54 @@ To try hard, you could even dissect the vector graphics of the figure and count
 its bean objects, but that may not be optimal use of your resources --- the
 dubious promise of a gold star may be worth little to you.
 
-\TODO{expected loss: risk}
-minimize the expected risk~\cite{
+In decision theory, we want a mathematical procedure that identifies the
+optimal decision to make in a given context.
+Although this theory has a long history, we point specifically to the result
+by Wald~\cite{
 wald1947bayes,
 wald1950bayes,
 jaynes2003probability
 }
+that the optimal solution to any decision problem can be framed as the
+minimization of an expected cost function, or risk:
 \begin{equation}
 \label{eqn:searches_bayes_decision_rule}
 R(t) = \int\! c(t, x) \,\mathrm{d}p(x)
 ,
 \end{equation}
-for some cost function $c(t, x)$ for decisions $t$ and states of the world
-$x$ that have prior probabilities $p(x)$.
+where we mean `expected' in the mathematical mean sense of a `mean' average.
+This cost function $c(t, x)$ evaluates the badness of outcomes for a given
+decision $t$ and states of the world $x$ to which context must assign prior
+probabilities $p(x)$.
+For a given cost function and prior, one should choose the decision $t$ that
+minimizes $R(t)$.
+
 Although alternative ideas (such as minimax, minimizing a maximum
-loss~\cite{savage1951review}) may empirically work well, this theory finds that
-restricting oneself to Bayes decision rules cannot deny access to optimal
-decisions.
+loss~\cite{savage1951review}) can empirically work well, this the mathematical
+statement of this theorem states that restricting oneself to Bayes decision
+rules cannot deny access to optimal decisions.
+Alternatives can at best be equivalent.
+
+This theory does not, however, define how to construct that cost function.
+Like the prior, it must come from context.
+Indeed the two are intertwined --- decision making machines and organisms
+are capable of learning to make good decisions without constructing either
+explicitly.
+Towards our goal of usefully reporting data, such decision theory has been
+applied to argue for ways to quote properties of posterior distributions.
+For example, a minimizing the expected absolute error $|x - \check{x}$ leads to
+reporting the posterior median, and minimizing the expected square error
+$(x - \check{x})^2$ leads to reporting the posterior mean.
+Had the rules of our bean counting game rewarded you based on such distances,
+these results could have been good guesses. But those weren't the rules.
+
+\TODO{why?
+not explicitly constructed cost functions for what to report...
+report for contrast with attempted alternative formulations that for social...
+reasons retain popularity despite contradicting decision theory...
+link to frequentist ideas
+Wald worked firmly in that camp - quote
+}
 
 % connection to frequentist section
 Bayes' theorem is an infamous and necessary result, and it is not seriously
