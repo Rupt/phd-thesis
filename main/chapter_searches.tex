@@ -26,7 +26,7 @@ Chapter~\ref{chapter:2ljets}, this chapter introduces the basic theory and
 practice of data analysis and its manifestations in the \atlas\ SUSY community.
 
 Theoretical data analysis in the tightly coupled fields of probability theory
-and decision theory is introduced in Section~\ref{sec:searces_data_analysis}.
+and decision theory is introduced in Section~\ref{sec:searches_data_analysis}.
 An attempted alternative formulation, frequentist theory, is discussed in
 Section~\ref{sec:searches_frequentist} for its relevance to our methods.
 Standard practice in this field of research does not strictly follow
@@ -38,8 +38,8 @@ are introduced in Section~\ref{sec:searches_searches}.
 
 
 \section{Data analysis}
-\label{sec:searces_data_analysis}
-How many jelly beans are in the jar of Figure~\ref{fig:significant_beans}?
+\label{sec:searches_data_analysis}
+How many jelly beans are in the jar of Figure~\ref{fig:searches_beans}?
 Your answer depends not only on what you observe from the figure, but also on
 what else you know about cartoon jars of beans, and on what reward is on offer.
 Each answer is a decision that depends both on what the possible rewards are,
@@ -58,7 +58,7 @@ discussion of inference and decision theory.
 Please write your guess on this page.
 The first correct answer wins a gold star.
 }
-\label{fig:significant_beans}
+\label{fig:searches_beans}
 \end{figure}
 
 Statistical data analysis suffers from dogma --- prescriptions and recipes that
@@ -74,19 +74,19 @@ outside their domain.%
 \footnote{%
 Multiplicative error propagation is an example.
 For $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
-the perturbative approximation is
+the standard perturbative approximation is
 \(
 \widetilde{\sigma}_{ab}
 = \mu_a \mu_b \sqrt{\sigma_a^2/\mu_a^2 + \sigma_b^2/\mu_b^2}
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2
 \),
-but calculation with their moments derives
+but a short calculation with their moments derives the exact result
 \(
 \sigma_{ab}
 = \sqrt{(\mu_a^2 + \sigma_a^2)(\mu_b^2 + \sigma_b^2) - \mu_a^2\mu_b^2}
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2 + \sigma_a^2 \sigma_b^2
 \)
-exactly if independent.
+if $\probc{a}$ and $\probc{b}$ are independent.
 Since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$, the
 propagation formula works only for small relative errors.
 }
@@ -99,13 +99,13 @@ We begin with what probability is: at its most abstract, a probability a
 proportion of stuff within a larger whole.
 Probabilities useful because proportions have applications, and because they
 can be manipulated and interrelated with a linear and intuitive algebra.
-Probabilisitc data analysis follows the ordinary structure of science ---
+Probabilistic data analysis follows the ordinary structure of science ---
 write down models that make predictions, test those predictions against data,
 then update your models to refine their predictions.
 For this process, likelihoods are particularly important because they describe
 our predictions. But not everything is a likelihood.
 The remainder of this section uses a standard example from High Energy Physics
-to introdule this probabilistic structure and other parts of its technical
+to introduce this probabilistic structure and other parts of its technical
 language.
 
 \paragraph{Probability, abstract.}
@@ -123,14 +123,14 @@ a spoon within a cup, where $m(b, a)$ measures the volume of tea in a
 teaspoon that is partially submerged in the cup.%
 \footnote{%
 All probabilities are conditional in this definition; $\probc{b}$ alone does
-not exist unless the conditioning information $a$ is implicit from context.%
+not exist unless some conditioning information is implicit from context.%
 }
 
 Logic is an important application of probability for which $a$ and $b$ are
 interpreted as logical propositions, and
 $\prob{b}{a}$ is the degree to which $a$ implies $b$, with the limiting cases
-that $\prob{b}{a} = 1$ when $a$ implies $b$ and $\prob{b}{a} = 0$ when $a$
-disproves $b$.
+that $\prob{b}{a} = 1$ when $a$ implies $b$, and $\prob{b}{a} = 0$ when $a$
+contradicts $b$.
 Indeed, Cox's theorem derives the laws of probability by requiring compatibility
 with Boolean logic~\cite{
 cox1946probability,
@@ -402,9 +402,8 @@ expressed in the ratio form
 \hphantom{\quad \quad \mid\mid \mathrm{context}}
 \frac{\prob{S}{d}}{\prob{B}{d}}
 =
-\!\!
 \frac{\prob{d}{S}}{\prob{d}{B}}
-\!\!\times~
+\times
 \frac{\probc{S}}{\probc{B}}
 \quad \quad \mid\mid \mathrm{context}
 ,
@@ -607,9 +606,10 @@ In the current year, it would be remiss to not mention machine learning
 algorithms.
 Among various other applications, learning algorithms demonstrate practical
 successes in probability assignments, such as assigning
-probabilities to labels for classification~\cite{MurphyKevinP.2012Mlap},
+probabilities to labels for classification,
 or to assign probabilities to words for text
-generation~\cite{radford2019language}.
+generation, or any of myriad other
+predictions~\cite{MurphyKevinP.2012Mlap, radford2019language}.
 Machine learning tunes flexible functions by consuming data and testing their
 predictions in the manner we have described; their training and testing works
 roughly as follows:
@@ -626,18 +626,70 @@ aspects of data, so although theoretically suboptimal this approximation is
 vastly superior in practice.
 \item Go to 1.
 \end{enumerate}
-The sequence of data \TODO{}
-
+These sequential data $d_i$ might be labelled the `training', `validation',
+and `testing' sets, but other splittings are possible.
+This perspective highlights the importance of independent training and testing
+sets --- since $\prob{d}{d, \ldots} = 1$, if any memory of $d_i$ is kept in
+the $f(\ldots, d_i, \ldots)$ state, then it is a memory and not a prediction.
+Independent testing data permit the evidence interpretation of predictive
+probabilities.
 
 
 \paragraph{Decision theory.}
+Now that we have thoroughly covered probability theory, we are ready to return
+to the jelly bean game that is illustrated in Figure~\ref{fig:searches_beans}
+and asks you to guess how many beans are in the jar.
+Given all you know about illustrations of jars and beans, you could make a
+vague guess without looking.
+That guess should only be refined after inspecting the image and updating your
+model to account for it.
+Although I do not propose that human brains \emph{do} use probability
+algebra~\cite{jaynes1988brain}, this inference process could, in principle,
+be modelled numerically by distributing probability over the positive integers
+and updating those probabilities in light of a likelihood function for the
+image data.
+Any guess, however, does not depend only on that probability distribution,
+but on the risks and rewards associated with guessing.
 
-\TODO{}
+As written in the caption to Figure~\ref{fig:searches_beans}, there is a
+notional reward to the first exactly answer.
+You are therefore incentivised to answer a) quickly, before other good guesses,
+and b) exactly, with no reward for being close to the true answer.
+If you are the first to answer, then it makes sense to write what you think
+is the most probable number.
+But others following you, seeing your answer, should prefer to guess
+differently if they want to win (and they think any other guess is plausibly
+correct).
+
+To try hard, you could even dissect the vector graphics of the figure and count
+its bean objects, but that may not be optimal use of your resources --- the
+dubious promise of a gold star may be worth little to you.
+
+\TODO{expected loss: risk}
+minimize the expected risk~\cite{
+wald1947bayes,
+wald1950bayes,
+jaynes2003probability
+}
+\begin{equation}
+\label{eqn:searches_bayes_decision_rule}
+R(t) = \int\! c(t, x) \,\mathrm{d}p(x)
+,
+\end{equation}
+for some cost function $c(t, x)$ for decisions $t$ and states of the world
+$x$ that have prior probabilities $p(x)$.
+Although alternative ideas (such as minimax, minimizing a maximum
+loss~\cite{savage1951review}) may empirically work well, this theory finds that
+restricting oneself to Bayes decision rules cannot deny access to optimal
+decisions.
+
 % connection to frequentist section
 Bayes' theorem is an infamous and necessary result, and it is not seriously
-disputed. What has been disputed is whether probability can be applied to
-logic, or any application other than the random happenings of events.
-
+disputed.
+What has been disputed is whether probability can be applied to logic, or any
+application other than the random happenings of events.
+\TODO{also ignore the results decision theory and attempt to supplant them with
+alternative prescriptions}
 
 \begin{singlespacing}
 \section{Frequentist theory}
