@@ -297,7 +297,7 @@ that correspond to Equation~\ref{eqn:searches_prior} by
 $b \leftarrow x$ and $a \leftarrow h$.
 Although we previously used the same labels $a$ and $b$, those are only
 labels --- the words `prior' and `likelihood' state our intent to index into
-the left and right arguments respectively.
+the left and right arguments, respectively.
 
 When we fill a histogram by summing weights of simulated samples, we are
 calculating another likelihood over hypotheses $h$ alone, not $`x, h\textrm{'}$
@@ -328,15 +328,15 @@ The answer depends on the signal and background cross-sections in our collider,
 but larger evidence for signal does influence any conclusion to move in its
 favour.
 
-This expression integral, or average over the prior, means that evidence $Z$
-for model arises from a larger fraction of samples from it hitting large values
-of the likelihood function.
-In contrast, one might consider a maximum likelihood approach that constrained
-an optimization to regions of nonzero prior in each model.
+This expression as an integral --- an average over the prior, means that
+the evidence $Z$ depends on what fraction of samples hits large values of
+the likelihood function, and not only on how large that likelihood gets.
+In contrast, one could consider a maximum likelihood approach that would
+constrain a numerical optimization to regions of nonzero prior in each model.
 Such optimizations can give a useful upper bound on $Z$, but this example
-highlights a flaw since both models support the $\met > 100\,\eV[G]$ bin
-and both support the same maximum likelihood of
-$L(\varepsilon + 100\,\eV[G]) = 1$.
+highlights a flaw when both models support the $\met > 100\,\eV[G]$ bin.
+Then, both support the same maximum likelihood of
+$L(\varepsilon + 100\,\eV[G]) = 1$, despite different evidence values.
 
 % posterior
 Perhaps we now want to see where in the overflow bin this event landed, and
@@ -423,7 +423,7 @@ Laplace~\cite{laplace1774stigler} began this focus ---
 both assume prior densities that are uniform in chosen coordinates, a practice
 that can yield practical results in posterior inferences.
 But to report scientific data, such practices are fairly criticized as
-arbitrary when they influce the reported results.
+arbitrary when they influence the reported results.
 Prior assignments are arbitrary.
 You are welcome to propose any prediction in any circumstances, and the
 scientific response is to test whether or not its predictions are compatible
@@ -480,23 +480,23 @@ Figure~\ref{fig:searches_baton_roue_bayes} illustrates this analogy.
 Although it is possible to ride a unicycle, it is a circus trick and not often
 a practical tool.
 
-In the words of Skilling~\cite{skilling2008rant},
+Phrased succinctly by Skilling~\cite{skilling2008rant},
 ``we SHOULD use Bayes by assigning subjective priors and inspecting evidence
 values.''
-This framing of probabilistic data analysis agrees exactly with out standard
+This framing of probabilistic data analysis agrees exactly with our standard
 practice of histogramming simulations,
 as illustrated in Figure~\ref{fig:searches_sig_bkg_prior_likelihood}.
 Signal and background models define priors, and their (normalized) bin yields
 are the evidence values that we use to compare the models.
-Finally corresponding posteriors are the normalized shapes those samples take
-within the observed histogram bin, which we do not use to compare the models,
+Finally, corresponding posteriors are the normalized shapes those samples take
+within the observed histogram bin, with which we do not compare the models,
 but which could in principle be used for secondary interpretations.
 
 \paragraph{Probability assignments.}
 Probability algebra manipulates probabilities, but does not state how they
 should be initially assigned.
 In general, such probability assignments are free and unconstrained, and might
-informed by calibration data or loosely motivated opinions.
+be informed by calibration data or loosely motivated opinions.
 But there are examples of unambiguously derived that are commonly used in
 High-Energy Physics, notably the Poisson and Gaussian distributions.
 To avoid turning this thesis into a textbook, we only sketch the derivations
@@ -513,7 +513,7 @@ identity that
 The Large Hadron Collider collides $40$~million proton bunches per second,
 but \atlas' trigger system accepts only around $1000$ of
 those per second~\cite{atlas2020trigger}.
-This means that we have scenario with a large fixed number $N$ of trials
+This means that we have a scenario with a large fixed number $N$ of trials
 (bunch collisions)
 and a small probability of binary acceptance (triggering),
 due to a notable collision event.
@@ -524,10 +524,10 @@ Binomial distribution for $n$;
 ,
 \end{equation}
 which is a product of the probabilities (produce rule) in the sequence of $N$
-accept/reject decisions, summed (sum rule) over all of that sequence
-permutations that could have led to the total $n$.
-With our extremely small trigger rate, we are interested in the limit of small
-$p$ and large $N$ which result in a mean acceptance number of $\lambda = Np$.
+accept/reject decisions, summed (sum rule) over all permutations of that sequence
+that could have led to the total $n$.
+With our tiny trigger rate, we are interested in the limit of small
+$p$ and large $N$, which result in a mean acceptance number of $\lambda = Np$.
 Using the exponential identity of Equation~\ref{eqn:searches_exponential}, one
 can show that this limit tends towards the Poisson
 distribution~\cite{jaynes2003probability};
@@ -551,7 +551,7 @@ as a practical approximation that permits analysis in linear algebra,
 and as the maximum entropy~\cite{PhysRev.106.620} distribution for a
 known mean and variance.
 This maximum entropy statement means that for a distribution with known mean
-and variance in a given coordinates, its best Gaussian approximation matches
+and variance in given coordinates, its best Gaussian approximation matches
 those moments.\footnote{%
 By `best', this means minimal Kullback-Leibler divergence
 \(
@@ -563,9 +563,9 @@ Such an approximation may not be \emph{good}, but it is best in class.%
 As a limiting approximation, the Gaussian form arises from products of many
 functions, such as combinations of many independent measurements that multiply
 their likelihood functions.
-At a maximum $\check{x}$, the first derivative of a function vanishes and its
-second derivative is negative, after Taylor expanding about its maximum this
-product looks like
+At a maximum $\check{x}$, the first derivative of a function vanishes and the
+second derivative is negative.
+Taylor expanding about this maximum to the leading order, the product looks like
 \begin{equation}
 f(x)^N = \displaystyle \lim_{N \to \infty}
 \left(
@@ -653,7 +653,7 @@ but on the risks and rewards associated with guessing.
 
 As written in the caption to Figure~\ref{fig:searches_beans}, there is a
 notional reward to the first exactly answer.
-You are therefore incentivised to answer a) quickly, before other good guesses,
+You are therefore incentivized to answer a) quickly, before other good guesses,
 and b) exactly, with no reward for being close to the true answer.
 If you are the first to answer, then it makes sense to write what you think
 is the most probable number.
@@ -688,14 +688,14 @@ For a given cost function and prior, one should choose the decision $t$ that
 minimizes $R(t)$.
 
 Although alternative ideas (such as minimax, minimizing a maximum
-loss~\cite{savage1951review}) can empirically work well, this the mathematical
+loss~\cite{savage1951review}) can empirically work well, the mathematical
 statement of this theorem states that restricting oneself to Bayes decision
 rules cannot deny access to optimal decisions.
 Alternatives can at best be equivalent.
 
 This theory does not, however, define how to construct that cost function.
 Like the prior, it must come from context.
-Indeed the two are intertwined --- decision making machines and organisms
+Indeed, the two are intertwined --- decision-making machines and organisms
 are capable of learning to make good decisions without constructing either
 explicitly.
 Towards our goal of usefully reporting data, such decision theory has been
