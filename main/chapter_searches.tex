@@ -507,28 +507,32 @@ derivations~\cite{jaynes2003probability}, both of which use the exponential
 identity that
 \begin{equation}
 \label{eqn:searches_exponential}
-\exp(x) = \displaystyle \lim_{N \to \infty} (1 - \frac{x}{N})^N
+\exp(x) = \displaystyle \lim_{N \to \infty}
+\left(1 - \frac{x}{N}\right)^N
 .
 \end{equation}
 
 The Large Hadron Collider collides $40$~million proton bunches per second,
 but \atlas' trigger system accepts only only around $1000$ of
 those~\cite{atlas2020trigger}.
-This is a Binomial scenario with a large fixed number $N$ of trials
+This means we have scenario with a large fixed number $N$ of trials
 (bunch collisions)
-and a small probability of acceptance (triggering),
+and a small probability of binary acceptance (triggering),
 due to a notable collision event.
-The Binomial distribution for $n$ triggered events is well known as
+The summed total number $n$ of accepted events is therefore described by the
+Binomial distribution for $n$;
 \begin{equation}
 \mathrm{Binomial}(n\mid N, p) = p^n (1 - p)^{N - n} \times \binom{N}{n}
 ,
 \end{equation}
-which is a product of the probabilities to the sequence of $N$ accept/reject
-data, summed over the permutations that could have led to the total $n$.
+which is a product of the probabilities (produce rule) in the sequence of $N$
+accept/reject decisions, summed (sum rule) over all of that sequence
+permutations that could have led to the total $n$.
 With our extremely small trigger rate, we are interested in the limit of small
 $p$ and large $N$ which result in a mean acceptance number of $\lambda = Np$.
-In the large $N$ limit, this tends towards the Poisson
-distribution~\cite{jaynes2003probability}
+Using the exponential identity of Equation~\ref{eqn:searches_exponential}, one
+can show that this limit tends towards the Poisson
+distribution~\cite{jaynes2003probability};
 \begin{equation}
 \label{eqn:searches_poisson}
 \mathrm{Poisson}(n\mid \lambda) = \frac{\lambda^n}{n!}\exp(-\lambda)
@@ -537,39 +541,69 @@ distribution~\cite{jaynes2003probability}
 which is used ubiquitously in the analysis of our histograms.
 
 The Gaussian distribution has many justifications:
-as a practical approximation it permits analysis in linear algebra,
-as the unique distribution is uniquely spherically symmetric and factors into
-independent dimensions~\cite{
+as the unique distribution that is spherically symmetric and factors linearly
+into independent dimensions~\cite{
 jaynes2003probability,
 herschel1850normal,
 maxwell1860normal,
 muller1959note,
 marsaglia1972normal
 },
+as a practical approximation that permits analysis in linear algebra,
 and as the maximum entropy~\cite{PhysRev.106.620} distribution for a
 known mean and variance.
-\TODO{}
-Succinctly stated by Jaynes that
-``any function with a single rounded maximum, raised to a higher and higher
-power, goes into a Gaussian function''~\cite{jaynes2003probability}.
+This maximum entropy statement means that for a distribution with known mean
+and variance in a given coordinates, its best Gaussian approximation matches
+those moments.\footnote{%
+By `best', this means minimal Kullback-Leibler divergence
+\(
+H(p\leftarrow q) = \int \log(p(x)/q(x)) \,\mathrm{d}p(x)
+\)
+from the Gaussian approximation $q$ to the target $p$ with known moments.
+Such an approximation may not be \emph{good}, but it is the best in its class.%
+}
+As a limiting approximation, the Gaussian form arises from products of many
+functions, such as combinations of many independent measurements that multiply
+their likelihood functions.
+At a maximum with $x=\mu$, the first derivative of a function vanishes and its
+second derivative is negative, so this product looks something like
+\begin{equation}
+f(x)^N = \displaystyle \lim_{N \to \infty}
+(1 - \kappa (x - \mu)^2)^N,
+\end{equation}
+which, again by Equation~\ref{eqn:searches_exponential}, goes into the Gaussian
+form
 \begin{equation}
 \label{eqn:searches_gaussian}
-\mathrm{Gaussian}(x\mid \mu, \sigma) =
+\mathrm{Gaussian}(x\mid \mu, \sigma)
+\,\mathrm{d}x =
 \frac{1}{\sqrt{2\pi \sigma^2}}
-\exp\left(-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}\right)
+\exp\!\left(-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}\right)
+\mathrm{d}x
 \end{equation}
+where the prefactor is for normalization to a probability distribution over
+$x$, and we include the $\mathrm{d}x$ terms as reminders that it is a density
+function in that coordinate.
+
+Here, $\kappa$ and $\sigma$ both relate to the second derivative of the target
+function; this relationship extends to multiple dimensions in the Hessian matrix
+and its inverse, and allows one to estimate error bars from second derivatives
+--- a practical tool that the methods discussed in this thesis employ.
+
 This is not the famous Central Limit Theorem, which is related to the
-distribution of sums, but can be used to derive it: the distribution of a sum
-is a convolution integral, which becomes a product in Fourier-transformed
-space, and that product can converge to a Gaussian function by this rule.
-Jaynes gives a beautiful alternative proof of the
-Central Limit Theorem~\cite{jaynes2003probability}
-(Section ``7.16 The central limit theorem'').
+distribution of sums.
+But can be used to derive it: the distribution of a sum is a convolution, which
+becomes a product in Fourier-transformed space, and that product can converge
+to a Gaussian function by this same derivation if the mean and variance exist.
+A beautiful alternative proof of the Central Limit Theorem is given by
+Jaynes~\cite{jaynes2003probability}
+(Section ``7.16 The central limit theorem''), and would be spoiled by a
+reproduction here.
 
 
 \paragraph{Decision theory.}
 
-
+\TODO{}
 % connection to frequentist section
 Bayes' theorem is an infamous and necessary result, and it is not seriously
 disputed. What has been disputed is whether probability can be applied to
