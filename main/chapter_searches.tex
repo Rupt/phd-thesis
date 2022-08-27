@@ -1,7 +1,6 @@
 \begin{singlespacing}
-\chapter{Searches in ATLAS}
+\chapter{Data analysis and \atlas\ searches}
 \label{chapter:searches}
-%
 \begin{epigraphs}
 \qitem{%
 One way is to make it so simple that there are \emph{obviously} no deficiencies
@@ -385,35 +384,55 @@ useful information from the data.
 If the likelihood function itself is interpretable, then it should be reported
 directly.
 When it is not, perhaps due to a complicated parametric modelling, then one
-should abstract those parameters away by reporting evidence values for
-predictive models, which must of course be clearly stated and interpretable if
-they are to be useful.
+should abstract those parameters away to summarize the likelihood.
+Properties such as local maxima or regions in which it exceeds meaningful
+thresholds can be useful.
+Evidence values for predictive models can also be useful if those models are
+clearly stated and relevant to readers' interests.
 Data act only through the likelihood function, and reporting a posterior
 can act to obfuscate those data.
 
 Posterior probabilities are, however, useful when digesting data to make
 inferences about the world.
-Reporting likelihoods and evidence values allows readers to assign priors as
-they wish.
-For model comparison between background $h=B$ and signal $h=S$, this is clearly
-expressed in the ratio form
-% likelihood ratio
+Reporting likelihood functions and evidence values allows readers to assign
+priors as they wish.
+For model comparison, for example between background $h=B$ and signal $h=S$
+models, the analysis is conveniently linearized by expressing it in $\log$
+ratio form:
 \begin{equation}
 \hphantom{\quad \quad \mid\mid \mathrm{context}}
-\frac{\prob{S}{d}}{\prob{B}{d}}
+\phi(d) =
+\log\frac{\prob{S}{d}}{\prob{B}{d}}
 =
-\frac{\prob{d}{S}}{\prob{d}{B}}
-\times
-\frac{\probc{S}}{\probc{B}}
+\log\frac{\prob{d}{S}}{\prob{d}{B}}
++
+\log\frac{\probc{S}}{\probc{B}}
 \quad \quad \mid\mid \mathrm{context}
 ,
 \end{equation}
 where we use the double bar, $\mid\mid$, to refer to any contextual information
 a reader might wish to include.
-Whenever the evidence ratio is independent of that context, it factors out from
-the prior (odds) ratio.
+When the evidence ratio is independent of that context, as it usually is,
+it factors out from the prior (odds) ratio.
 In this sense, likelihood (or evidence) ratios are scale factors that update
-any odds ratio by the same multiplication.
+any odds prior ratio by the same multiplication, and that on this $\log$ scale
+that means just adding a constant.
+
+From such $\log$ ratios one individual probabilities are recovered through the
+logistic function:
+\begin{equation}
+\label{eqn:searches_logistic}
+\prob{S}{d} = \frac{1}{1 + e^{-\phi(d)}}
+.
+\end{equation}
+Physically, this is analogous to the Boltzmann distribution where the energy
+of each model is its negative $\log$ probability, with unit inverse
+temperature~\cite{
+pmlr-v2-ranzato07a,
+skilling2017david
+}.
+With multiple models in play, it is also called the `softmax'
+function~\cite{MurphyKevinP.2012Mlap}.
 
 The infamy of Bayes' rule stems from a fixation on the posterior distributions
 from unjustified prior assignments.
@@ -485,12 +504,12 @@ Phrased succinctly by Skilling~\cite{skilling2008rant},
 values.''
 This framing of probabilistic data analysis agrees exactly with our standard
 practice of histogramming simulations,
-as illustrated in Figure~\ref{fig:searches_sig_bkg_prior_likelihood}.
-Signal and background models define priors, and their (normalized) bin yields
+as illustrated in Figure~\ref{fig:searches_sig_bkg_prior_likelihood}:
+signal and background models define priors, and their (normalized) bin yields
 are the evidence values that we use to compare the models.
-Finally, corresponding posteriors are the normalized shapes those samples take
-within the observed histogram bin, with which we do not compare the models,
-but which could in principle be used for secondary interpretations.
+Finally, their corresponding posteriors are the normalized shapes those samples
+take within the observed histogram bin, with which we do not compare the
+models, but which could in principle be used for secondary interpretations.
 
 \paragraph{Probability assignments.}
 Probability algebra manipulates probabilities, but does not state how they
@@ -666,30 +685,28 @@ To try hard, you could even dissect the vector graphics of the figure and count
 its bean objects, but that may not be optimal use of your resources --- the
 dubious promise of a gold star may be worth little to you.
 
-In decision theory, we want a mathematical procedure that identifies the
-optimal decision to make in a given context.
-Although this theory has a long history, we point specifically to the result
-by Wald~\cite{
+When considering what decision to make, it feels natural to consider what
+might result from each possible action and to judge that action on how good or
+bad its results would be.
+Mathematical decision theory agrees with this intuition---
+a famous theorem by Wald~\cite{
 wald1947bayes,
 wald1950bayes,
 jaynes2003probability
 }
-that the optimal solution to any decision problem can be framed as the
-minimization of an expected cost function, or risk:
+shows that the optimal solution to any decision problem can be always be
+formulated as the minimization of an expected cost function, or risk:
 \begin{equation}
 \label{eqn:searches_bayes_decision_rule}
 R(t) = \int\! c(t, x) \,\mathrm{d}p(x)
 ,
 \end{equation}
-where we mean `expected' in the mathematical mean sense of a `mean' average.
+where we mean `expected' in the mathematical mean sense of the `mean' average.
 This cost function $c(t, x)$ evaluates the badness of outcomes for a given
 decision $t$ and states of the world $x$ to which context must assign prior
 probabilities $p(x)$.
 For a given cost function and prior, one should choose the decision $t$ that
 minimizes $R(t)$.
-More important than this Wald's mathematical proof is that this coincides with
-intuition --- when considering decisions, it feels normal to imagine what might
-occur in each case and consider how good or bad the plausble outcomes are.
 
 Although alternative ideas (such as minimax, minimizing a maximum
 loss~\cite{savage1951review}) can work well in certain contexts, this theorem
@@ -698,15 +715,15 @@ deny one access to optimal decisions.
 Alternative formulations can at best be equivalent.
 
 This theory does not, however, define how to construct that cost function.
-Like the prior, it must come from context.
-Indeed, the two are intertwined --- decision-making machines and organisms
-are capable of learning to make good decisions without constructing either
-explicitly.
+Like the prior, it must come from context, and indeed the two are intertwined
+in the risk;
+decision-making machines and organisms are capable of learning to make good
+decisions without constructing either cost or prior explicitly.
 Towards our goal of usefully reporting data, such decision theory has been
 applied to argue for ways to quote properties of posterior distributions.
-For example, a minimizing the expected absolute error $|x - \check{x}$ leads to
-reporting the posterior median, and minimizing the expected square error
-$(x - \check{x})^2$ leads to reporting the posterior mean.
+As examples, minimizing the expected absolute error $|x - \check{x}|$ leads
+to reporting the median, and minimizing the expected square error
+$(x - \check{x})^2$ leads to reporting the mean.
 Had the rules of our bean counting game rewarded you based on such distances,
 these results could have been good guesses. But those weren't the rules.
 
@@ -717,8 +734,8 @@ But we can qualitatively consider them in this decision theory framework ---
 we imagine that future scientists will want to reuse our data, and would be
 pleased (attain a small cost) if they were able to reinterpret the results for
 their own models.
-We can therefore reason that likelihoods would have more utility than
-alternatives such as (point) posterior estimates.
+We can therefore reason that likelihoods would usually have more utility than
+alternatives such as point posterior averages.
 
 % connection to frequentist section
 An amusing feature of Wald's theory is that it was formulated from a
@@ -729,7 +746,7 @@ That might seem problematic, since the risk is the expectation value of a cost
 function over a prior (or \emph{a priori}) distribution.
 Wald was nonetheless interested in these decision rules for their
 ``completeness'' that he had proven, and named them ``Bayes'' decision rules
-despite approaching the theory from a stalwartly non-Bayesian perspective.
+despite approaching the theory from a stalwart non-Bayesian perspective.
 
 Although Bayes' rule is not seriously disputed, the system in which Wald was
 working defined probability as a frequency in random sampling, which cannot
@@ -757,29 +774,67 @@ to the interpretation of data. \ldots%
 \end{singlespacing}
 
 \TODO{
-Fisher:
-criteria for estimators,
-(consistency, efficiency, sufficiency)
-https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.1922.0009
-testing, p-value,
-likelihood, also ratios of p-values (here named probable errors)
-(introduced the term likelihood? cite?)
-https://digital.library.adelaide.edu.au/dspace/handle/2440/15169
-tail area = significance
-http://psychclassics.yorku.ca/Fisher/Methods/
+Lehmann~\cite{lehmann2005testing};
+p. 26 poisson inadmissable example;
+L-unbiased with given loss function;
 }
 
 \TODO{
 Fisher:
-``We can know nothing of the probability of hypotheses or of hypothetical
-quantities.''
+criteria for estimators,
+(consistency, efficiency, sufficiency)
+~\cite{fisher1922estimators}
+testing, p-value,
+likelihood, also ratios of p-values (here named probable errors)
+(introduced the term likelihood? cite?)
+~\cite{fisher1921probable}
+tail area = significance
+~\cite{fisher1925smrw}
+}
+
+\TODO{
+Fisher:
+``We can know nothing of the probability of hypotheses or hypothetical
+quantities.
+On the other hand we may ascertain the likelihood of hypotheses
+and hypothetical quantities by calculation from observations''
+~\cite{fisher1921probable}
 Fisher:
 ``absurdly academic''
-Fisher:
-``There is something horrifying in the ideological movement represented by the doctrine
-that reasoning, properly speaking, cannot be applied to empirical data to lead to inferences
-valid in the real world.''
+~\cite{fisher1956statistical}
+% \begin{epigraphs}
+% \qitem{%
+% We can know nothing of the probability of hypotheses or hypothetical
+% quantities.
+% On the other hand we may ascertain the likelihood of hypotheses and
+% hypothetical quantities by calculation from observations%
+% }%
+% {Ronald A. Fisher, 1921~\cite{fisher1921probable}}
+% \end{epigraphs}
+There is something horrifying in the ideological movement represented by the
+doctrine that reasoning, properly speaking, cannot be applied to empirical data
+to lead to inferences valid in the real world.
+~\cite{fisher1956statistical}
 }
+
+\begin{singlespacing}
+\begin{displayquote}
+We can know nothing of the probability of hypotheses or hypothetical
+quantities.
+On the other hand we may ascertain the likelihood of hypotheses
+and hypothetical quantities by calculation from observations
+\end{displayquote}
+\end{singlespacing}
+~\cite{fisher1921probable}
+
+\begin{singlespacing}
+\begin{displayquote}
+There is something horrifying in the ideological movement represented by the
+doctrine that reasoning, properly speaking, cannot be applied to empirical data
+to lead to inferences valid in the real world.
+\end{displayquote}
+\end{singlespacing}
+~\cite{fisher1956statistical}
 
 \TODO{
 Nayman-Pearson:
@@ -788,7 +843,7 @@ likelihood ratio intuitive for two-hypothesis comparison
 prove it optimal in a reasonable sense
 idea of long-run mostly not wrong
 recede to maximum likelihood ratios
-https://www.jstor.org/stable/2331945
+~\cite{neymanpearson1928max}
 ``for which hypothesis A is more probable and those for which it is less
 probable (sic!)''
 unbiased (unbiassed) test differs from unbiasedness of estimator
@@ -796,28 +851,30 @@ unbiased (unbiassed) test differs from unbiasedness of estimator
 are (Al) 6-42 x 10-20, (A2) 5 18*x 1O-4 and the ratio of the likelihood of Hypothesis
 Al to- that of A2 is 1P24 x 10-16. This ratio confirms the common-sense judgment
 that A2 is far more plausible than A1''
-^ Another posterior argument --- this likelihood ratio in in fact a change
+\^ Another posterior argument --- this likelihood ratio in in fact a change
 in plausibilities. For example, if A2 is an inconsistent, self-contradictory
 theory, it is totally implausible, and not more plausible despite predicting
 these data better.
 ``The statistician can
 balance the numerical verdict of likelihood against the vaguer expectations de-
-rived from 'a priori considerations, and it must be left to his judgment to
+rived from `a priori' considerations, and it must be left to his judgment to
 at what point the evidence in favour of alternative hypotheses becomes so con-
 vincing that Hypothesis A must be rejected.''
 Introduce maximum likelihood ratio as interesting without claiming it to be
 necessarily best.
-https://royalsocietypublishing.org/doi/10.1098/rsta.1933.0009
-Neyman-Pearson lemma
-https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/a-selection-of-early-statistical-papers-of-j-neyman-university-of-california-press-1967-ix-429-pages-1495/75CE96368E6F34BD25D06BAF6DC8E69F
+Neyman-Pearson lemma --- reproduce Fig 5?
+~\cite{neymanpearson19233lemma}
 }
 
 \TODO{
-discrete failure to match --- randomization
+discrete failure to match --- randomization.
+table of random numbers --- reputable table!
 K. D. Tocher (1950)
 ``extraneous randomization''
+~\cite{tocher1950discontinuous}
 }
 
+% TODO Kolmogorov axioms, unbiasedness
 \TODO{
 Given all this understanding, what I do not understand is their choice to
 convert this to a $p$-value.
