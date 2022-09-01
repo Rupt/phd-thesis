@@ -177,6 +177,53 @@ the `$\log$-add-$\exp$' operation.
 }
 
 \subsection{Probability, applied}
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/searches_abacus_likelihood.pdf}
+\caption{%
+Likelihood: $\mathrm{Poisson}(0\mid x)$ in
+(left) $x$ and
+(right) $u = \log x$%
+}
+\end{subfigure}
+\\[.5em]
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/searches_abacus_prior.pdf}
+\caption{%
+Prior density: exponential in
+(left) $x$ and
+(right) $u = \log x$%
+}
+\end{subfigure}
+\caption[
+Likelihoods and prior densities' different transformations
+]{%
+Likelihoods and prior densities' different transformations with coordinates.
+The $\mathrm{Poisson}(0\mid x)$ likelihood and exponential $e^{-x}\mathrm{d}x$
+prior have the same form, but the prior density changes to preserve its unit
+area when expressed relative to $u = \log x$.
+\\[.5em]
+Relative to $x$, both are identical (left).
+On changing to $\log$ coordinates (right), the likelihood slides horizontally,
+but the prior density changes value to preserve area.
+Both maximum likelihood points are equivalent (maximum likelihoods are robust),
+but the maximum prior density moves (maximum densities are slippery).
+\\[.5em]
+Particle lifetimes follow exponential distributions, and their maximum
+densities are at zero time.
+It is misleading, however, to describe their most probable lifetimes as zero
+---
+the `most probable' $\log$ lifetime is not $\log 0$, but equals the mean
+lifetime.
+\\[.5em]
+For zero Poisson data, the maximum likelihood rate is zero, but zero might not
+be the most likely rate (if, for example, an experiment has known backgrounds).
+}
+\label{fig:searches_abacus}
+\end{figure}
 % science snake
 Science involves making predictions, testing those predictions against data,
 and reporting what is learned from the results.
@@ -198,15 +245,27 @@ Alternatively, fixing the context gives a \textbf{prior}%
 \end{align}
 for fixed $a$, which is a normalized distribution over disjoint states $b$.
 
+Since prior probabilities are normalized distributions, it is usually
+convenient to represent them as density functions.
+Densities are stated relative to coordinates (or occasionally measures),
+so changing coordinates changes their values as their unit probability mass
+is sloshed around.
+Likelihoods are not densities in the conditioning variable that they explore,
+so changing coordinates slides them horizontally like beads on an abacus,
+but does not change their values for equivalent states.
+Figure~\ref{fig:searches_abacus} illustrates this difference.
+
 Likelihood and prior are evidently related --- they explore two indices into
 the same object, two sides of the same coin, and are assigned by the same
 principles.
 But they are profoundly different objects that work for different purposes,
 and clarity in their distinction will help in our later understanding of
 practical methods.
-For observed data, we use likelihoods to compare which hypotheses predicted
-them better than others, and before observing data we use priors to describe
-what data might result from different models to design our experiments.
+We use likelihoods to compare which hypotheses predicted observed data better
+than others.
+Prior to observing data we use priors to describe what might result from
+different models; priors on data can be useful in designing our experiments,
+and priors on other states describe other predictions.
 
 To illustrate this, consider a histogram that bins event yields in
 $\met$, with distributions from background and (supersymmetric) signal samples
