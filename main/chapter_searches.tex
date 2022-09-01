@@ -85,8 +85,8 @@ but a short calculation with their moments derives the exact result
 = \sqrt{(\mu_a^2 + \sigma_a^2)(\mu_b^2 + \sigma_b^2) - \mu_a^2\mu_b^2}
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2 + \sigma_a^2 \sigma_b^2
 \)
-if $\probc{a}$ and $\probc{b}$ are independent.
-Since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$, the
+if $a$ and $b$ are independent.
+Since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$, this
 propagation formula works only for small relative errors.
 }
 All effective methods of data analysis can be derived upwards from the roots of
@@ -603,7 +603,10 @@ form
 \end{equation}
 where the prefactor is for normalization to a probability distribution over
 $x$, and we include the $\mathrm{d}x$ terms as reminders that it is a density
-function in that coordinate.
+function in $x$, not a probability exactly.
+On a $\log$ scale, the Gaussian form is simply quadratic in $\mu$ (or $x$);
+that quadratic form continues in its multivariate generalization, and
+justifies least-squares methods.
 
 Here, $\kappa$ and $\sigma$ both relate to the second derivative of the target
 function; this relationship extends to multiple dimensions in the Hessian
@@ -636,14 +639,18 @@ roughly as follows:
 \item Predict new data with $\prob{d_i}{f(d_{i-1}, \ldots), h}$.
 Keep this evidence as a testing score for comparison against other models.
 (Practically, keep its equivalent $\log$ mean over independent samples.)
+These $d_i$ may be only reductions of the data, such as class labels
+or index permutations~\cite{Noroozi2016jigsaw, multitaskself2017}.
+Other inputs that are not predicted, such as associated images that the machine
+uses to predict the labels, are included in the context $h$.
 \item Use those data to update your state
-$f(d_{i-1}, \ldots) \rightarrow f(d_i, d_{i-1}, \ldots)$ to improve your
-predictions.
+$f(d_{i-1}, \ldots) \rightarrow f(d_i, d_{i-1}, \ldots)$.
 Unlike ideal posterior updating, this encodes only a function of the data, not
 its whole --- one usually cannot afford to consume all aspects of data, so
 although theoretically suboptimal this approximation is vastly superior in
-practice. Learning only part of the data is not wrong, just less precise
-than might be possible with a divinely perfect learning algorithm.
+practice.
+Learning only part of the data is not wrong, it is just less precise than a
+divinely perfect learning algorithm, which we do not currently possess.
 \item Go to 1.
 \end{enumerate}
 These sequential data $d_i$ might be labelled the `training', `validation',
