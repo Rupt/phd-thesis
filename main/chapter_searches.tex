@@ -390,9 +390,10 @@ This expression as an integral --- an average over the prior, means that
 the evidence $Z$ depends on what fraction of samples hits large values of
 the likelihood function, and not only on how large that likelihood gets.
 In contrast, one could consider a maximum likelihood approach that would
-constrain a numerical optimization to regions of nonzero prior in each model.
-Such optimizations can give a useful upper bound on $Z$, but this example
-highlights a flaw when both models support the $\met > 100\,\eV[G]$ bin.
+constrain a numerical optimization to regions of non-zero prior in each model.
+Such optimizations can give useful upper bounds on the evidence, but this
+example highlights a flaw when both models support the $\met > 100\,\eV[G]$
+bin.
 Then, both support the same maximum likelihood of
 $L(\varepsilon + 100\,\eV[G]) = 1$, despite different evidence values.
 
@@ -839,11 +840,19 @@ to the interpretation of data. \ldots%
 \end{epigraphs}
 \end{singlespacing}
 
-\TODO{
-Lehmann~\cite{lehmann2005testing};
-p. 26 poisson inadmissable example;
-L-unbiased with given loss function;
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/seacrhes_fisher_likelihood_binomial.png}
+\caption[
+Ratio thresholds of a Binomial likelihood function, reproduced from Fisher
+]{%
+Ratio thresholds of a Binomial likelihood function, reproduced from
+Fisher~\cite{fisher1956statistical}.
+Levels are drawn at $1/2$, $1/5$, and $1/15$ of its maximum, as a practical way
+to communicate its profile.
 }
+\label{fig:searches_fisher_likelihood}
+\end{figure}
 
 \TODO{
 Fisher:
@@ -857,6 +866,7 @@ likelihood, also ratios of p-values (here named probable errors)
 tail area = significance
 ~\cite{fisher1925smrw}
 }
+Figure~\ref{fig:searches_fisher_likelihood}
 
 \TODO{
 Fisher:
@@ -932,6 +942,36 @@ Neyman-Pearson lemma --- reproduce Fig 5?
 ~\cite{neymanpearson19233lemma}
 }
 
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/searches_np_curves_crop.png}
+\caption[
+Tail areas of prior data distributions from two alternative hypotheses,
+reproduced from Neyman and Pearson
+]{%
+Tail areas of prior data distributions from two alternative hypotheses,
+reproduced from Neyman and Pearson~\cite{neymanpearson19233lemma}.
+}
+\label{fig:searches_np_tails}
+\end{figure}
+
+Figure~\ref{fig:searches_np_tails}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/searches_atlas_higgs_4l_2207_00320.pdf}
+\caption[
+Signal and background distributions reproduced from the recent \atlas\
+measurement of Higgs boson decays to $4\ell$
+]{%
+Signal and background distributions reproduced from the recent \atlas\
+measurement of Higgs boson decays to $4\ell$~\cite{ATLAS:2022net}.
+}
+\label{fig:atlas_higgs_4l}
+\end{figure}
+
+Figure~\ref{fig:atlas_higgs_4l}
+
 \TODO{
 discrete failure to match --- randomization.
 table of random numbers --- reputable table!
@@ -976,6 +1016,13 @@ interpretations and that sometimes yield useful results.
 maximum likelihood, p-values, confidence intervals, and biasedness of
 estimators.
 }
+
+\TODO{
+Lehmann~\cite{lehmann2005testing};
+p. 26 poisson inadmissable example;
+L-unbiased with given loss function;
+}
+
 
 \TODO{maximum likelihood}
 \TODO{p-value}
