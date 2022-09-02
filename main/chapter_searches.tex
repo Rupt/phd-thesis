@@ -853,7 +853,7 @@ probability is a ratio of frequencies:
 \end{equation}
 where $n$ is the number observed to satisfy conditions $a$ and $b$ when
 $N$ have satisfied $b$.
-Interpreted with the Binomial distribution of
+Interpreted with the Binomial model of
 Equation~\ref{eqn:searches_binomial}, this definition converges to our more
 general probability whenever it applies.
 
@@ -885,24 +885,62 @@ Tom Stoppard's play `Rosencrantz and Guildenstern Are Dead'~\cite{
 stoppard1967rosencrantz
 }
 contains a clearer example ---
-Rosencrantz and Guildenstern toss a coin ninety-two times, all landing heads.
+Rosencrantz and Guildenstern toss a coin ninety-two times, all landing heads
+(by ``un-, sub- or supernatural forces'').
 They play a game with a third player, landing eight more heads.
 Is the next toss heads or tails?
 The answer is not random --- it is burned in print onto paper, so no frequency
 can be assigned.
 Were subjective probabilities permitted, you could predict the result, and that
 prediction would be subjectively informed by it being the one-hundred-and-first
-toss, our cultural entanglement with in base-10 numbers, and your reading of
-these words.
-Frequentist theory forbids probabilities of such non-random unknowns, and is
-left seeking alternatives.
+toss, our cultural entanglement with round numbers in base-10, and your reading
+of these words.
+Frequentist theory, however, forbids such subjective probabilities of
+non-random unknowns, so is left seeking alternatives.
 
-Venn~\cite{venn1866logic},
-Boole~\cite{boole1854investigation},
-Kolmogorov~\cite{
+As established in Section~\ref{sec:searches_data_analysis}, the original
+probability theory of Laplace and Bayes, did not require frequency
+interpretations; these were developed later in the 19th century by
+mathematicians including Venn~\cite{venn1866logic} and
+Boole~\cite{boole1854investigation}, in reactions that may well have been
+propelled by reasonable objections to flawed posterior-only methods.
+Modern frequentist theory has a rigorous set-theoretic formulation in the
+Kolmogorov axioms~\cite{
 kolomogoroff1933de,
-kolomogoroff1950translated
-},
+kolomogoroff1950translated,
+axioms1010038
+}.
+Applied frequentist methods, unlike frequentist theory, are constrained with
+considerably less precision --- the denial of certain (non-frequency)
+probabilities does not construct their replacements, and various surrogates
+have evolved.
+Modern frequentist methods are largely attributable to the authors
+R. A. Fisher (for likelihood, $p$-values, and estimation criteria), and
+J. Neyman and E. S. Pearson
+(for statistical hypothesis testing and confidence intervals).
+Together these do not form a harmonious or consistent framework ---
+the two groups have emphatic disagreements in print ---
+but do cover many practices that continue to survive in modern science
+and explain important features of the methods apply to LHC data, which will be
+introduced in Section~\ref{sec:searches_practice}.
+
+
+
+\TODO{Fisher's great contribution --- likelihood}
+\TODO{
+Fisher:
+criteria for estimators,
+(consistency, efficiency, sufficiency)
+~\cite{fisher1922estimators}
+testing, p-value,
+likelihood, also ratios of p-values (here named probable errors)
+(introduced the term likelihood? cite?)
+~\cite{fisher1921probable}
+tail area = significance
+~\cite{fisher1925smrw}
+}
+Figure~\ref{fig:searches_fisher_likelihood}
+
 
 \begin{figure}[tp]
 \centering
@@ -918,20 +956,6 @@ the likelihood function's profile.
 }
 \label{fig:searches_fisher_likelihood}
 \end{figure}
-
-\TODO{
-Fisher:
-criteria for estimators,
-(consistency, efficiency, sufficiency)
-~\cite{fisher1922estimators}
-testing, p-value,
-likelihood, also ratios of p-values (here named probable errors)
-(introduced the term likelihood? cite?)
-~\cite{fisher1921probable}
-tail area = significance
-~\cite{fisher1925smrw}
-}
-Figure~\ref{fig:searches_fisher_likelihood}
 
 \TODO{
 Fisher:
