@@ -597,9 +597,10 @@ This means that we have a scenario with a large fixed number $N$ of trials
 and a small probability of binary acceptance (triggering),
 due to a notable collision event.
 The summed total number $n$ of accepted events is therefore described by the
-Binomial distribution for $n$;
+binomial distribution for $n$;
 \begin{equation}
-\mathrm{Binomial}(n\mid N, p) = p^n (1 - p)^{N - n} \times \binom{N}{n}
+\label{eqn:searches_binomial}
+\mathrm{binomial}(n\mid N, p) = p^n (1 - p)^{N - n} \times \binom{N}{n}
 ,
 \end{equation}
 which is a product of the probabilities (produce rule) in the sequence of $N$
@@ -840,6 +841,28 @@ to the interpretation of data. \ldots%
 \end{epigraphs}
 \end{singlespacing}
 
+Probability as defined in Equation~\ref{eqn:searches_prob_ratio} is a
+proportion of stuff within a larger whole, which when formalized as a ratio
+of measures and has broad applications.
+Frequentist theory confines itself to the special case where those measures
+are numbers of discrete randomly occuring events, such that a frequentist
+probability is a ratio of frequencies:
+\begin{equation}
+\label{eqn:searches_prob_frequency_ratio}
+\freq{b}{a} = \lim_{N \to \infty}\frac{n}{N},
+\end{equation}
+where $n$ is the number observed to satisfy conditions $a$ and $b$, and
+$N$ have satisfied $b$.
+From Equation~\ref{eqn:searches_binomial}, this converges to the general
+probability in its infinite limit.
+
+Venn~\cite{venn1866logic},
+Boole~\cite{boole1854investigation},
+Kolmogorov~\cite{
+kolomogoroff1933de,
+kolomogoroff1950translated
+},
+
 \begin{figure}[tp]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/seacrhes_fisher_likelihood_binomial.png}
@@ -848,8 +871,9 @@ Ratio thresholds of a Binomial likelihood function, reproduced from Fisher
 ]{%
 Ratio thresholds of a Binomial likelihood function, reproduced from
 Fisher~\cite{fisher1956statistical}.
-Levels are drawn at $1/2$, $1/5$, and $1/15$ of its maximum, as a practical way
-to communicate its profile.
+Levels are drawn at $1/2$, $1/5$, and $1/15$ of its maximum.
+Their extents could be reported in a table as a practical communication of
+the likelihood function's profile.
 }
 \label{fig:searches_fisher_likelihood}
 \end{figure}
@@ -1115,6 +1139,25 @@ n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
 \end{align}
 in an appropriate limit where $0\log(0x) = 0$ for the $n=0$ case.
 
+
+\TODO{
+on ``likelihood'' models ---
+we are instructed to pretend that these are likelihoods on auxiliary data
+TODO cite.
+One is free to engage in such doublethink, just as one is free to proclaim that
+$2 + 2 = 5$.
+The fact remains that many constraints do not correspond to predictions of
+auxiliary data: counterexamples include
+scale variations,
+theoretical cross-section uncertainties,
+non-closure uncertainties (which cover differences between estimates).
+simulated sample camparisons,
+statistical errors on weighted simulations,
+extrapolation uncertainties,
+and
+all uncertainties in supersymmetric signal yields
+(for which we have yet no data).
+}
 
 \section{Searches}
 \label{sec:searches_searches}
