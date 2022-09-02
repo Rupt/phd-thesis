@@ -845,16 +845,57 @@ Probability as defined in Equation~\ref{eqn:searches_prob_ratio} is a
 proportion of stuff within a larger whole, which when formalized as a ratio
 of measures and has broad applications.
 Frequentist theory confines itself to the special case where those measures
-are numbers of discrete randomly occuring events, such that a frequentist
+are numbers of discrete randomly occurring events, such that a frequentist
 probability is a ratio of frequencies:
 \begin{equation}
 \label{eqn:searches_prob_frequency_ratio}
 \freq{b}{a} = \lim_{N \to \infty}\frac{n}{N},
 \end{equation}
-where $n$ is the number observed to satisfy conditions $a$ and $b$, and
+where $n$ is the number observed to satisfy conditions $a$ and $b$ when
 $N$ have satisfied $b$.
-From Equation~\ref{eqn:searches_binomial}, this converges to the general
-probability in its infinite limit.
+Interpreted with the Binomial distribution of
+Equation~\ref{eqn:searches_binomial}, this definition converges to our more
+general probability whenever it applies.
+
+We do think of many processes as random when considering scientific data, so
+this definition works widely for likelihood functions.
+Non-data hypotheses, however, are rarely considered as actually random events,
+so the frequency definition cannot not apply.
+Prior predictions often apply probabilities to express a subjective uncertainty
+predictions that are manifestly non-random.
+Under this frequency definition, those predictive probabilities are nonsense
+and must be rejected.
+The frequency definition does not change probability algebra, it only restricts
+it to a permitted scope.
+
+Coin tosses, for example, can be imagined as random.
+Earth's human population could toss a few billion coins to precisely
+establish a probability of landing heads from the ratio of
+$n$ (number of heads) to $N$ (number of tosses).
+But suppose you are given a red envelope containing a coin ---
+which way up is the coin in the envelope?
+You could guess or bet on the answer, and that decision might involve a tacitly
+assumed probability.
+A frequency, however, would only be permitted if the envelope had been packaged
+randomly.
+Was the coin first tossed to randomize its face, or placed deliberately?
+It is unclear.
+
+Tom Stoppard's play `Rosencrantz and Guildenstern Are Dead'~\cite{
+stoppard1967rosencrantz
+}
+contains a clearer example ---
+Rosencrantz and Guildenstern toss a coin ninety-two times, all landing heads.
+They play a game with a third player, landing eight more heads.
+Is the next toss heads or tails?
+The answer is not random --- it is burned in print onto paper, so no frequency
+can be assigned.
+Were subjective probabilities permitted, you could predict the result, and that
+prediction would be subjectively informed by it being the one-hundred-and-first
+toss, our cultural entanglement with in base-10 numbers, and your reading of
+these words.
+Frequentist theory forbids probabilities of such non-random unknowns, and is
+left seeking alternatives.
 
 Venn~\cite{venn1866logic},
 Boole~\cite{boole1854investigation},
@@ -1144,19 +1185,22 @@ in an appropriate limit where $0\log(0x) = 0$ for the $n=0$ case.
 on ``likelihood'' models ---
 we are instructed to pretend that these are likelihoods on auxiliary data
 TODO cite.
-One is free to engage in such doublethink, just as one is free to proclaim that
-$2 + 2 = 5$.
-The fact remains that many constraints do not correspond to predictions of
-auxiliary data: counterexamples include
+One is free to engage in such doublethink~\cite{orwell1949nnineteen},
+% just as one is free to proclaim that $2 + 2 = 5$
+but the fact remains that many constraints do not correspond to predictions of
+auxiliary data so are not likelihoods: examples include
 scale variations,
 theoretical cross-section uncertainties,
 non-closure uncertainties (which cover differences between estimates).
-simulated sample camparisons,
+simulated sample comparisons,
 statistical errors on weighted simulations,
 extrapolation uncertainties,
 and
-all uncertainties in supersymmetric signal yields
+all uncertainties on supersymmetric signal yields
 (for which we have yet no data).
+energy based modelling ---
+I know of no tangible benefit from pretending that something is a likelihood
+when it is not.
 }
 
 \section{Searches}
