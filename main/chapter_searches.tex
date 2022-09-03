@@ -879,24 +879,23 @@ assumed probability.
 A frequency, however, would only be permitted if the envelope had been packaged
 randomly.
 Was the coin first tossed to randomize its face, or placed deliberately?
-It is unclear.
+You do not know.
 
 Tom Stoppard's play `Rosencrantz and Guildenstern Are Dead'~\cite{
 stoppard1967rosencrantz
 }
 opens with a clearer example ---
-the titular characters toss a coin ninety-two times, all landing heads
-(by ``un-, sub- or supernatural forces'').
+the titular characters toss a coin ninety-two times, all landing heads.
 They then play a game with a third player, landing eight more heads.
 Will the next toss be heads or tails?
-The answer is not random --- it is burned in print onto paper, so no frequency
+The answer is not random --- it is burned onto paper in print, so no frequency
 can be assigned.
 Were subjective probabilities permitted, you could predict the result, and that
 prediction would be subjectively informed by it being the one-hundred-and-first
 toss, our cultural entanglement with round numbers in base-10, and your reading
 of these words.
 Frequentist theory, however, forbids such subjective probabilities of
-non-random unknowns, so is left seeking alternatives.
+non-random unknowns, so is left to search for alternative modes of inference.
 
 As established in Section~\ref{sec:searches_data_analysis}, the original
 probability theory of Laplace and Bayes did not require frequency
@@ -913,15 +912,82 @@ axioms1010038
 precision --- the denial of certain (non-frequency) probabilities does not
 construct their replacements, and various surrogates have evolved.
 
-Modern frequentist methods are largely attributable to the authors
-R. A. Fisher (for likelihood, $p$-values, and estimation criteria), and
-J. Neyman and E. S. Pearson
-(for statistical hypothesis testing and confidence intervals).
-Together these do not form a harmonious framework;
-the two groups have emphatic disagreements in print, but together they
-do cover many practices that survive in modern science and explain important
-features of the methods we apply to LHC data, which will be introduced in
-Section~\ref{sec:searches_practice}.
+Modern frequentist methods are largely attributable to work by
+Ronald A. Fisher (for likelihood, $p$-values, and estimation criteria~\cite{
+fisher1921probable,
+fisher1922estimators,
+fisher1925smrw,
+fisher1956statistical
+}),
+and Jerzy Neyman and Egon S. Pearson
+(for statistical hypothesis testing and confidence intervals~\cite{
+neymanpearson1933lemma,
+neymanpearson1928max
+})
+in the 1920s and 30s.
+Together, the Fisher and Neyman-Pearson methods do not form a harmonious
+framework, but comprise a loose collection of ideas and practices that survive
+in modern science, and explain important features of the methods we apply to
+LHC data, which Section~\ref{sec:searches_practice} develops further.
+
+Some literature names this Fisher/Neyman-Pearson assemblage
+``classical'' statistics~\cite{lehmann2011fisher, Feldman:1997qc}, but that is
+simply inaccurate for a 20th century divergence from 18th century
+ideas~\cite{bayes1763lii, laplace1774stigler}.
+Jaynes instead names them ``orthodox'~\cite{jaynes2003probability},
+which may be accurate in some contexts, but alternative
+(heretical?) ideas have taken hold under modern LHC authorities ---
+the orthodoxy has moved on.
+We therefore stick to the name `frequentist', as it is a firm common factor.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/seacrhes_fisher_likelihood_binomial.png}
+\caption[
+Ratio thresholds of a Binomial likelihood function, reproduced from Fisher
+]{%
+Ratio thresholds of a Binomial likelihood function, reproduced from
+Fisher~\cite{fisher1956statistical}.
+Levels are drawn at $1/2$, $1/5$, and $1/15$ of its maximum.
+Their extents could be reported in a table as a practical communication of
+the likelihood function's profile.
+}
+\label{fig:searches_fisher_likelihood}
+\end{figure}
+
+% likelihood
+Fisher coined the term `likelihood'~\cite{fisher1921probable}, in the usage
+we have employed, for the probability of observed data given varied
+contexts\footnote{%
+Fisher used the term `likelihood' for the function exploring
+contexts and `probability' for the distribution over
+outcomes~\cite{fisher1925smrw}.
+We choose the alternative word `prior' for his `probability' since the
+likelihood is also a probability, just not a probability \emph{distribution}.
+},
+and deserves credit for popularising its use in interpreting and communicating
+data.
+% figure here TODO
+% likelihood quotes
+Fisher forcefully argued against the use of Bayes' rule and prior
+probabilities, stating for example that
+\begin{singlespacing}
+\begin{displayquote}
+We can know nothing of the probability of hypotheses or hypothetical
+quantities.
+On the other hand we may ascertain the likelihood of hypotheses
+and hypothetical quantities by calculation from observations~\cite{
+fisher1921probable
+}
+\end{displayquote}
+\end{singlespacing}
+
+
+% p-values
+
+% estimators --- not unbiased!
+
+% savage likelihood principle
 
 
 \TODO{Fisher's great contribution --- likelihood}
@@ -940,20 +1006,6 @@ tail area = significance
 Figure~\ref{fig:searches_fisher_likelihood}
 
 
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/seacrhes_fisher_likelihood_binomial.png}
-\caption[
-Ratio thresholds of a Binomial likelihood function, reproduced from Fisher
-]{%
-Ratio thresholds of a Binomial likelihood function, reproduced from
-Fisher~\cite{fisher1956statistical}.
-Levels are drawn at $1/2$, $1/5$, and $1/15$ of its maximum.
-Their extents could be reported in a table as a practical communication of
-the likelihood function's profile.
-}
-\label{fig:searches_fisher_likelihood}
-\end{figure}
 
 \TODO{
 Fisher:
@@ -1037,7 +1089,7 @@ vincing that Hypothesis A must be rejected.''
 Introduce maximum likelihood ratio as interesting without claiming it to be
 necessarily best.
 Neyman-Pearson lemma --- reproduce Fig 5?
-~\cite{neymanpearson19233lemma}
+~\cite{neymanpearson1933lemma}
 }
 
 \begin{figure}[tp]
@@ -1048,7 +1100,7 @@ Tail areas of prior data distributions from two alternative hypotheses,
 reproduced from Neyman and Pearson
 ]{%
 Tail areas of prior data distributions from two alternative hypotheses,
-reproduced from Neyman and Pearson~\cite{neymanpearson19233lemma}.
+reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
 }
 \label{fig:searches_np_tails}
 \end{figure}
