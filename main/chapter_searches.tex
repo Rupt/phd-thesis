@@ -1035,26 +1035,68 @@ standard estimates of the mean and variance of the data sample respectively.
 By dividing out a standard deviation, $t$ is independent of any common
 scale factors on the data~\cite{student1908, fisher1925t, lehmann2011fisher}.
 
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.46\textwidth]{figures/searches_significant_shrink.png}
+\\
+\begin{footnotesize}
+`So, uh, we did the green study again and got no link. It was probably a{-}{-}'
+\\
+`RESEARCH CONFLICTED ON GREEN JELLY BEAN ACNE LINK; MORE~STUDY~RECOMMENDED!'
+\end{footnotesize}
+\caption[
+``Significant'' by Randall~Munroe
+]{%
+``Significant'' by Randall~Munroe~\cite{xkcd2011significant}.
+}
+\label{fig:searches_significant}
+\end{figure}
+
 % p-values
+\TODO[
 (probable error?), known in modern jargon as $p$-values
+tail area = significance
+~\cite{fisher1925smrw}
+}
+
+\TODO{maximum likelihood}
+\TODO{p-value}
+\TODO{p-value:
+The chance of a small $p$-value is small.
+This is true, but not interesting because the value of any $p$-value is small.
+By construction $p$-values are uniformly distributed on the unit interval
+under a given hypothesis.
+The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
+$0.6 < p < 0.65$.
+The frequency of $p < \varepsilon$ is identical to the frequency
+of $0.6 < p < 0.6 + \varepsilon$.
+An appropriate choice of test statistic is therefore necessary for the
+$p$-value to have meaning.
+}
+Figure~\ref{fig:searches_significant}
 
 % estimators --- not unbiased!
+\TODO{
+(unbiased estimators)
+Lehmann~\cite{lehmann2005testing};
+p. 26 poisson inadmissable example;
+L-unbiased with given loss function;
+}
+
 
 % savage likelihood principle
-
-
-\TODO{Fisher's great contribution --- likelihood}
 \TODO{
 Fisher:
 criteria for estimators,
 (consistency, efficiency, sufficiency)
 ~\cite{fisher1922estimators}
-testing, p-value,
-likelihood, also ratios of p-values (here named probable errors)
-(introduced the term likelihood? cite?)
-~\cite{fisher1921probable}
-tail area = significance
-~\cite{fisher1925smrw}
+}
+
+\TODO{likelihood principle ~\cite{
+birnbaum1962foundations,
+savage1962foundations
+}
 }
 
 
@@ -1135,7 +1177,6 @@ K. D. Tocher (1950)
 ~\cite{tocher1950discontinuous}
 }
 
-% TODO Kolmogorov axioms, unbiasedness
 \TODO{
 Given all this understanding, what I do not understand is their choice to
 convert this to a $p$-value.
@@ -1148,19 +1189,6 @@ restrict our notion of a probability with a special case: only frequency
 of random events
 }
 
-\TODO{
-tossing a coin is considered random
-but if instead you are presented with a coin hidden under a cloth,
-no frequency interpretation --- it either is or is not heads
-you are therefore denied the ability to make uncertain predictions.
-more generally, you are not allowed to express an uncertainty in something
-unless some random process is involved
-}
-
-\TODO{
-Can keep likelihoods, but cannot compute evidence values unless the prior
-has a frequency interpretation.
-}
 
 \TODO{
 Its void is filled with various proposed alternatives that do have frequency
@@ -1168,58 +1196,12 @@ interpretations and that sometimes yield useful results.
 }
 
 \TODO{
-maximum likelihood, p-values, confidence intervals, and biasedness of
-estimators.
-}
-
-\TODO{
-Lehmann~\cite{lehmann2005testing};
-p. 26 poisson inadmissable example;
-L-unbiased with given loss function;
+maximum likelihood, p-values, confidence intervals
 }
 
 
-\TODO{maximum likelihood}
-\TODO{p-value}
-\TODO{p-value:
-The chance of a small $p$-value is small.
-This is true, but not interesting because the value of any $p$-value is small.
-By construction $p$-values are uniformly distributed on the unit interval
-under a given hypothesis.
-The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
-$0.6 < p < 0.65$.
-The frequency of $p < \varepsilon$ is identical to the frequency
-of $0.6 < p < 0.6 + \varepsilon$.
-An appropriate choice of test statistic is therefore necessary for the
-$p$-value to have meaning.
-}
-Figure~\ref{fig:searches_significant}
 \TODO{confidence interval}
 \TODO{unbiased}
-
-\TODO{likelihood principle ~\cite{
-birnbaum1962foundations,
-savage1962foundations
-}
-}
-
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.46\textwidth]{figures/searches_significant_shrink.png}
-\\
-\begin{footnotesize}
-`So, uh, we did the green study again and got no link. It was probably a{-}{-}'
-\\
-`RESEARCH CONFLICTED ON GREEN JELLY BEAN ACNE LINK; MORE~STUDY~RECOMMENDED!'
-\end{footnotesize}
-\caption[
-``Significant'' by Randall~Munroe
-]{%
-``Significant'' by Randall~Munroe~\cite{xkcd2011significant}.
-}
-\label{fig:searches_significant}
-\end{figure}
 
 
 \begin{singlespacing}
