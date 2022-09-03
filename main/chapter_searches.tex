@@ -932,7 +932,7 @@ Section~\ref{sec:searches_practice}, that we apply to modern LHC data.
 
 Some literature names this Fisher/Neyman-Pearson assemblage
 ``classical'' statistics~\cite{lehmann2011fisher, Feldman:1997qc}, but that is
-simply inaccurate for a 20th century innovation created to replace 18th century
+simply inaccurate for a 20th century creations that innovated on 18th century
 ideas~\cite{bayes1763lii, laplace1774stigler}.
 Jaynes instead names them ``orthodox''~\cite{jaynes2003probability},
 which may be accurate in some contexts, but alternative
@@ -982,6 +982,7 @@ and hypothetical quantities by calculation from observations%
 \end{displayquote}
 and furthermore we agree that in comparison to confidence intervals,
 \begin{displayquote}
+\small
 ``%
 For all purposes, and more particularly for the \textit{communication} of the
 relevant evidence supplied by a body of data, the values of the Mathematical
@@ -1006,9 +1007,9 @@ with Fisher's work.
 % likelihood quotes
 In avoiding the pitfalls of posteriors, Fisher's use of likelihoods remains
 innovative and practical.
-However, the hard rejection of priors on hypotheses also prevents calculation
-of evidence values, without which likelihoods can become confounded
-in too many parameters (perhaps making them nuisances).
+However, the hard rejection of priors on hypotheses also prevents evidence
+calculations, without which likelihoods alone become confounded in many
+parameters, perhaps making them nuisances.
 To circumvent this, frequentist methods employ two key concepts:
 test statistics, which can reduce the data to remove unwanted parameters,
 and $p$-values, which divert the discourse
@@ -1016,9 +1017,23 @@ from what the alternative hypotheses \emph{are}
 to what alternative data \emph{might have been}.
 
 % test statistics
-A test statistic is a function of data.
-All real-valued functions are permitted, but some are more useful than others.
-\TODO{TODO t-statistic}
+A statistic is a function of data, and a test statistic is just a statistic
+that is used in statistical tests.
+For \atlas\ collision data, event variables are statistics; when working with
+data, one always uses statistics and is free to design them for their benefits
+in context.
+Just as we define event variables (like $\pt$) to remove nuisance
+dependencies (on $\phi$ rotations or longitudinal boosts),
+useful test statistics can also eliminate unwanted parameters.
+The quintessential example is $t$-statistic
+\begin{equation}
+t = (\bar{\mu} - \mu)\sqrt{\frac{n}{\bar{\sigma}^2}}
+,
+\end{equation}
+where $\mu$ is the known data mean, and $\bar{\mu}$ and $\bar{\sigma}^2$ are
+standard estimates of the mean and variance of the data sample respectively.
+By dividing out a standard deviation, $t$ is independent of any common
+scale factors on the data~\cite{student1908, fisher1925t, lehmann2011fisher}.
 
 % p-values
 (probable error?), known in modern jargon as $p$-values
@@ -1044,25 +1059,11 @@ tail area = significance
 
 
 
-\TODO{
-Fisher:
-``absurdly academic''
-~\cite{fisher1956statistical}
+``%
 There is something horrifying in the ideological movement represented by the
 doctrine that reasoning, properly speaking, cannot be applied to empirical data
-to lead to inferences valid in the real world.
-~\cite{fisher1956statistical}
-}
-
-
-\begin{singlespacing}
-\begin{displayquote}
-There is something horrifying in the ideological movement represented by the
-doctrine that reasoning, properly speaking, cannot be applied to empirical data
-to lead to inferences valid in the real world.
-\end{displayquote}
-\end{singlespacing}
-~\cite{fisher1956statistical}
+to lead to inferences valid in the real world.%
+''~\cite{fisher1956statistical}
 
 
 \paragraph{Neyman-Pearson.}
