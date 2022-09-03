@@ -1035,7 +1035,6 @@ standard estimates of the mean and variance of the data sample respectively.
 By dividing out a standard deviation, $t$ is independent of any common
 scale factors on the data~\cite{student1908, fisher1925t, lehmann2011fisher}.
 
-
 \begin{figure}[tp]
 \centering
 \includegraphics[width=0.46\textwidth]{figures/searches_significant_shrink.png}
@@ -1054,7 +1053,13 @@ scale factors on the data~\cite{student1908, fisher1925t, lehmann2011fisher}.
 \end{figure}
 
 % p-values
-\TODO[
+\textbf{$p$-value}
+\begin{align}
+P_{d,h}
+&= \prob{\tilde{d} \geq d}{h} \\
+&= L(h) + \prob{\tilde{d} > d}{h}
+\end{align}
+\TODO{
 (probable error?), known in modern jargon as $p$-values
 tail area = significance
 ~\cite{fisher1925smrw}
