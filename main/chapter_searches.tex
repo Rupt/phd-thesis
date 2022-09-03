@@ -925,20 +925,20 @@ neymanpearson1933lemma,
 neymanpearson1928max
 })
 in the 1920s and 30s.
-Together, the Fisher and Neyman-Pearson methods do not form a harmonious
-framework, but comprise a loose collection of ideas and practices that survive
-in modern science, and explain important features of the methods we apply to
-LHC data, which Section~\ref{sec:searches_practice} develops further.
+These Fisher and Neyman-Pearson schools do not form a unified framework, but
+do comprise a collection of ideas and practices that survive in modern science,
+and which explain some methods, to be introduced in
+Section~\ref{sec:searches_practice}, that we apply to modern LHC data.
 
 Some literature names this Fisher/Neyman-Pearson assemblage
 ``classical'' statistics~\cite{lehmann2011fisher, Feldman:1997qc}, but that is
-simply inaccurate for a 20th century divergence from 18th century
+simply inaccurate for a 20th century innovation created to replace 18th century
 ideas~\cite{bayes1763lii, laplace1774stigler}.
-Jaynes instead names them ``orthodox'~\cite{jaynes2003probability},
+Jaynes instead names them ``orthodox''~\cite{jaynes2003probability},
 which may be accurate in some contexts, but alternative
-(heretical?) ideas have taken hold under modern LHC authorities ---
+(heretical?) ideas have taken hold in research at the LHC ---
 the orthodoxy has moved on.
-We therefore stick to the name `frequentist', as it is a firm common factor.
+We therefore stick with `frequentist'.
 
 \begin{figure}[tp]
 \centering
@@ -948,17 +948,20 @@ Ratio thresholds of a Binomial likelihood function, reproduced from Fisher
 ]{%
 Ratio thresholds of a Binomial likelihood function, reproduced from
 Fisher~\cite{fisher1956statistical}.
-Levels are drawn at $1/2$, $1/5$, and $1/15$ of its maximum.
-Their extents could be reported in a table as a practical communication of
-the likelihood function's profile.
+Horizontal lines mark regions where the likelihood exceeds $1/2$, $1/5$, or
+$1/15$ of its maximum respectively.
+The extents of these lines could be tabulated to usefully communicate
+aspects of its profile.
 }
 \label{fig:searches_fisher_likelihood}
 \end{figure}
 
+\paragraph{Fisher.}
 % likelihood
-Fisher coined the term `likelihood'~\cite{fisher1921probable}, in the usage
-we have employed, for the probability of observed data given varied
-contexts\footnote{%
+Fisher coined the term `likelihood'~\cite{fisher1921probable} in the usage that
+we employ for the probability of observed data given varied
+contexts%
+\footnote{%
 Fisher used the term `likelihood' for the function exploring
 contexts and `probability' for the distribution over
 outcomes~\cite{fisher1925smrw}.
@@ -966,24 +969,59 @@ We choose the alternative word `prior' for his `probability' since the
 likelihood is also a probability, just not a probability \emph{distribution}.
 },
 and deserves credit for popularising its use in interpreting and communicating
-data.
-% figure here TODO
-% likelihood quotes
-Fisher forcefully argued against the use of Bayes' rule and prior
-probabilities, stating for example that
-\begin{singlespacing}
+data without the confounding influence of prior probabilities.
+In his own words,%
 \begin{displayquote}
+\small
+``%
 We can know nothing of the probability of hypotheses or hypothetical
 quantities.
 On the other hand we may ascertain the likelihood of hypotheses
-and hypothetical quantities by calculation from observations~\cite{
-fisher1921probable
-}
+and hypothetical quantities by calculation from observations%
+''~\cite{fisher1921probable},
 \end{displayquote}
-\end{singlespacing}
+and furthermore we agree that in comparison to confidence intervals,
+\begin{displayquote}
+``%
+For all purposes, and more particularly for the \textit{communication} of the
+relevant evidence supplied by a body of data, the values of the Mathematical
+Likelihood are better fitted to analyse, summarize, and communicate
+statistical evidence of types too weak to supply true probability statements%
+''~\cite{fisher1956statistical}.
+\end{displayquote}
+For example, Figure~\ref{fig:searches_fisher_likelihood} displays a figure by
+Fisher~\cite{fisher1956statistical} that illustrates how data can be usefully
+reported by their likelihood's maximum and the regions in which it exceeds
+certain ratios relative to that maximum.%
+\footnote{%
+We use such $L(\check{x})\pm\mathrm{ratio}$ visualizations for
+$\pm1\sigma$ and $\pm2\sigma$ error bars on Poisson data in
+Figure~7 of~\cite{lester2022hunting}.
+When making error bar recommendations, \atlas' statistics committee appears
+to have not considered this option~\cite{cowan2011errorbars};
+I cannot explain why not, since our statistics experts must surely be familiar
+with Fisher's work.
+}
 
+% likelihood quotes
+In avoiding the pitfalls of posteriors, Fisher's use of likelihoods remains
+innovative and practical.
+However, the hard rejection of priors on hypotheses also prevents calculation
+of evidence values, without which likelihoods can become confounded
+in too many parameters (perhaps making them nuisances).
+To circumvent this, frequentist methods employ two key concepts:
+test statistics, which can reduce the data to remove unwanted parameters,
+and $p$-values, which divert the discourse
+from what the alternative hypotheses \emph{are}
+to what alternative data \emph{might have been}.
+
+% test statistics
+A test statistic is a function of data.
+All real-valued functions are permitted, but some are more useful than others.
+\TODO{TODO t-statistic}
 
 % p-values
+(probable error?), known in modern jargon as $p$-values
 
 % estimators --- not unbiased!
 
@@ -1003,54 +1041,19 @@ likelihood, also ratios of p-values (here named probable errors)
 tail area = significance
 ~\cite{fisher1925smrw}
 }
-Figure~\ref{fig:searches_fisher_likelihood}
 
 
 
 \TODO{
 Fisher:
-``We can know nothing of the probability of hypotheses or hypothetical
-quantities.
-On the other hand we may ascertain the likelihood of hypotheses
-and hypothetical quantities by calculation from observations''
-~\cite{fisher1921probable}
-Fisher:
 ``absurdly academic''
 ~\cite{fisher1956statistical}
-% \begin{epigraphs}
-% \qitem{%
-% We can know nothing of the probability of hypotheses or hypothetical
-% quantities.
-% On the other hand we may ascertain the likelihood of hypotheses and
-% hypothetical quantities by calculation from observations%
-% }%
-% {Ronald A. Fisher, 1921~\cite{fisher1921probable}}
-% \end{epigraphs}
 There is something horrifying in the ideological movement represented by the
 doctrine that reasoning, properly speaking, cannot be applied to empirical data
 to lead to inferences valid in the real world.
 ~\cite{fisher1956statistical}
 }
 
-\begin{singlespacing}
-\begin{displayquote}
-We can know nothing of the probability of hypotheses or hypothetical
-quantities.
-On the other hand we may ascertain the likelihood of hypotheses
-and hypothetical quantities by calculation from observations
-\end{displayquote}
-\end{singlespacing}
-~\cite{fisher1921probable}
-
-\begin{singlespacing}
-\begin{displayquote}
-For all purposes, and more particularly for the \textit{communication} of the
-relevant evidence supplied by a body of data, the values of the Mathematical
-Likelihood are better fitted to analyse, summarize, and communicate
-statistical evidence of types too weak to supply true probability statements
-\end{displayquote}
-\end{singlespacing}
-~\cite{fisher1956statistical}
 
 \begin{singlespacing}
 \begin{displayquote}
@@ -1062,6 +1065,7 @@ to lead to inferences valid in the real world.
 ~\cite{fisher1956statistical}
 
 
+\paragraph{Neyman-Pearson.}
 \TODO{
 Nayman-Pearson:
 Seek good test statistics --
