@@ -1004,82 +1004,8 @@ I cannot explain why not, since our statistics experts must surely be familiar
 with Fisher's work.
 }
 
-% likelihood quotes
-In avoiding the pitfalls of posteriors, Fisher's use of likelihoods remains
-innovative and practical.
-However, the hard rejection of priors on hypotheses also prevents evidence
-calculations, without which likelihoods alone become confounded in many
-parameters, perhaps making them nuisances.
-To circumvent this, frequentist methods employ two key concepts:
-test statistics, which can reduce the data to remove unwanted parameters,
-and $p$-values, which divert the discourse
-from what the alternative hypotheses \emph{are}
-to what alternative data \emph{might have been}.
-
-% test statistics
-A statistic is a function of data, and a test statistic is just a statistic
-that is used in statistical tests.
-For \atlas\ collision data, event variables are statistics; when working with
-data, one always uses statistics and is free to design them for their benefits
-in context.
-Just as we define event variables (like $\pt$) to remove nuisance
-dependencies (on $\phi$ rotations or longitudinal boosts),
-useful test statistics can also eliminate unwanted parameters.
-The quintessential example is $t$-statistic
-\begin{equation}
-t = (\bar{\mu} - \mu)\sqrt{\frac{n}{\bar{\sigma}^2}}
-,
-\end{equation}
-where $\mu$ is the known data mean, and $\bar{\mu}$ and $\bar{\sigma}^2$ are
-standard estimates of the mean and variance of the data sample respectively.
-By dividing out a standard deviation, $t$ is independent of any common
-scale factors on the data~\cite{student1908, fisher1925t, lehmann2011fisher}.
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.46\textwidth]{figures/searches_significant_shrink.png}
-\\
-\begin{footnotesize}
-`So, uh, we did the green study again and got no link. It was probably a{-}{-}'
-\\
-`RESEARCH CONFLICTED ON GREEN JELLY BEAN ACNE LINK; MORE~STUDY~RECOMMENDED!'
-\end{footnotesize}
-\caption[
-``Significant'' by Randall~Munroe
-]{%
-``Significant'' by Randall~Munroe~\cite{xkcd2011significant}.
-}
-\label{fig:searches_significant}
-\end{figure}
-
-% p-values
-\textbf{$p$-value}
-\begin{align}
-P_{d,h}
-&= \prob{\tilde{d} \geq d}{h} \\
-&= L(h) + \prob{\tilde{d} > d}{h}
-\end{align}
-\TODO{
-(probable error?), known in modern jargon as $p$-values
-tail area = significance
-~\cite{fisher1925smrw}
-}
-
+\TODO{estimators briefly here}
 \TODO{maximum likelihood}
-\TODO{p-value}
-\TODO{p-value:
-The chance of a small $p$-value is small.
-This is true, but not interesting because the value of any $p$-value is small.
-By construction $p$-values are uniformly distributed on the unit interval
-under a given hypothesis.
-The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
-$0.6 < p < 0.65$.
-The frequency of $p < \varepsilon$ is identical to the frequency
-of $0.6 < p < 0.6 + \varepsilon$.
-An appropriate choice of test statistic is therefore necessary for the
-$p$-value to have meaning.
-}
-Figure~\ref{fig:searches_significant}
 
 % estimators --- not unbiased!
 \TODO{
@@ -1104,16 +1030,147 @@ savage1962foundations
 }
 }
 
+% likelihood quotes
+In avoiding the pitfalls of posteriors, Fisher's use of likelihoods remains
+innovative and practical.
+However, the hard rejection of priors on hypotheses also prevents evidence
+calculations, without which likelihoods alone become confounded in many
+parameters, perhaps making them nuisances.
+To circumvent this, frequentist methods employ two key concepts:
+test statistics, which can reduce the data to remove unwanted parameters,
+and $p$-values, which divert the discourse
+from what the alternative hypotheses \emph{are}
+to what alternative data \emph{might have been}.
 
+% test statistics
+A statistic is a function of data, and a test statistic is just a statistic
+that is used in statistical tests.
+For \atlas\ collision data, event variables are statistics; when working with
+data, one always uses statistics and is free to design them for their benefits
+in context.
+Just as we define event variables (like $\pt$) to remove nuisance
+dependencies (on $\phi$ rotations or longitudinal boosts),
+useful test statistics can also eliminate unwanted parameters.
+The quintessential example is $t$-statistic
+\begin{equation}
+t(d) = \frac{\bar{\mu}(d) - \mu}{\bar{\sigma}(d)}\sqrt{n}
+,
+\end{equation}
+where $\mu$ is the known data mean, and $\bar{\mu}(d)$ and $\bar{\sigma}(d)$
+are standard estimates of the mean and standard deviation of the data sample
+respectively~\cite{student1908, fisher1925t}.
+By dividing out a (scale equivariant) standard deviation, $t$ is independent
+of common scale factors on the data, and that scale invariance has helped to
+drive the study and common use of this $t$ statistic~\cite{lehmann2011fisher}.
 
+One can usefully reduce observed data to just the test statistic
+$\tilde{t} = t(d)$ and compare likelihoods to compare how well different
+hypotheses predict the observed $\tilde{t}$.
+For reasons I cannot explain, Fisher advocates a different use ---
+rather than considering likelihoods and likelihood ratios, he recommends
+that researchers consider the ``probable error''~\cite{fisher1921probable},
+which is a cumulative distribution function in the negated test statistic.
+In modern jargon, a `probable error' at the observed test statistic
+$\tilde{t}$ and an hypothesis $h$ is a \textbf{$p$-value}
+\begin{align}
+P(h)
+&= \prob{t \geq \tilde{t}}{h} \\
+&= L(h) + \prob{t > \tilde{t}}{h}
+\label{eqn:searches_pvalue_likelihood}
+;
+\end{align}
+the $p$-value $P(h)$ is the prior probability of data
+\emph{greater or equal to} the observed data when ordered by the value of the
+test statistic.
+Equation~\ref{eqn:searches_pvalue_likelihood} emphasizes that it is just the
+likelihood plus some fluff from a tail of larger test statistics.
+
+\TODO{quote EX.II from ~\cite{fisher1921probable}
+}
+
+\TODO{p-value:
+The chance of a small $p$-value is small.
+This is true, but not interesting because the value of any $p$-value is small.
+By construction $p$-values are uniformly distributed on the unit interval
+under a given hypothesis.
+The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
+$0.6 < p < 0.65$.
+The frequency of $p < \varepsilon$ is identical to the frequency
+of $0.6 < p < 0.6 + \varepsilon$.
+An appropriate choice of test statistic is therefore necessary for the
+$p$-value to have meaning.
+}
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/searches_atlas_higgs_4l_2207_00320.pdf}
+\caption[
+Signal and background distributions reproduced from the recent \atlas\
+measurement of Higgs boson decays to $4\ell$
+]{%
+Signal and background distributions reproduced from the recent \atlas\
+measurement of Higgs boson decays to $4\ell$~\cite{ATLAS:2022net}, with
+observed data.
+This example illustrates $p$-values pathological dependency on tail selections,
+and the benefits of likelihood ratios.
+}
+\label{fig:atlas_higgs_4l}
+\end{figure}
+
+Fisher claims that the $p$-value indicates the ``significance'' of an
+observation~\cite{fisher1925smrw}, with small or large values being
+suspiciously significant, and that
+``If $P$ is between $.1$ and $.9$ there is certainly no reason to suspect the
+hypothesis tested.''~\cite{fisher1925smrw}
+This may have been true for his intended applications, but it is not general.
+
+Consider for example the distributions of signal (Higgs boson) and background
+(mostly $ZZ^*$) samples in Figure~\ref{fig:atlas_higgs_4l}.
+If an event is observed with $m_{4\ell} = 125\,\eV[G]$, is it signal or
+background?
+It is obviously a Higgs boson candidate, but $m_{4\ell}$ is around the middle
+of both signal and background distributions, so with an $m_{4\ell}$ test
+statistic $P(\textrm{Higgs boson}) \approx P(ZZ^*) \approx 0.5$, so neither
+is ``suspect''.
+Local ratios between the two distributions clearly favour signal for this
+event, however; the $p$-values' failure is in their dependence on irrelevant
+tail areas, which are a feature of the histogram and not the data.
+In fact, this $ZZ^*$ density peaks for $ZZ$ above a
+$2 m(Z) \approx 180\,\eV[G]$
+edge, and $Z \to 4\ell$ around $m_{4\ell} \approx m(Z)$;
+expanding the histogram to show either of these tails would change nothing
+local to our $m_{4\ell} = 125\,\eV[G]$ event, but would change the $p$-values.
+
+Better test statistics can soften this problem, and a key observation by
+Neyman and Pearson is an optimality of likelihood ratio test statistics.
+
+\TODO{
 ``%
 There is something horrifying in the ideological movement represented by the
 doctrine that reasoning, properly speaking, cannot be applied to empirical data
 to lead to inferences valid in the real world.%
 ''~\cite{fisher1956statistical}
-
+}
 
 \paragraph{Neyman-Pearson.}
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.46\textwidth]{figures/searches_significant_shrink.png}
+\\
+\begin{footnotesize}
+`So, uh, we did the green study again and got no link. It was probably a{-}{-}'
+\\
+`RESEARCH CONFLICTED ON GREEN JELLY BEAN ACNE LINK; MORE~STUDY~RECOMMENDED!'
+\end{footnotesize}
+\caption[
+``Significant'' by Randall~Munroe
+]{%
+``Significant'' by Randall~Munroe~\cite{xkcd2011significant}.
+}
+\label{fig:searches_significant}
+\end{figure}
+Figure~\ref{fig:searches_significant}
+
 \TODO{
 Nayman-Pearson:
 Seek good test statistics --
@@ -1158,21 +1215,6 @@ reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
 \end{figure}
 
 Figure~\ref{fig:searches_np_tails}
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.6\textwidth]{figures/searches_atlas_higgs_4l_2207_00320.pdf}
-\caption[
-Signal and background distributions reproduced from the recent \atlas\
-measurement of Higgs boson decays to $4\ell$
-]{%
-Signal and background distributions reproduced from the recent \atlas\
-measurement of Higgs boson decays to $4\ell$~\cite{ATLAS:2022net}.
-}
-\label{fig:atlas_higgs_4l}
-\end{figure}
-
-Figure~\ref{fig:atlas_higgs_4l}
 
 \TODO{
 discrete failure to match --- randomization.
