@@ -1117,7 +1117,7 @@ $A: t =    \tilde{t}$ to
 $B: t \geq \tilde{t}$.
 And since this reduction is technically true --- $A$ implies $B$ --- the
 likelihood ratio on $B$ is logically valid and not \emph{necessarily}
-misleading.
+misleading if clearly stated.
 
 But $B: t \geq \tilde{t}$ is a logical statement (true for all test statistics
 greater than or equal to the observed value) and not a randomly occurring
@@ -1127,10 +1127,10 @@ benefit; it reduces the information content of the reported data, but does not
 reduce the costs of reporting or interpreting those data.
 Both $A$ and $B$ are printed in the same number of characters, and $p$-values
 can be painfully expensive to evaluate.
-Furthermore, it can actively harm the result by diluting the likelihood ratio,
-since if
+Furthermore, it actively harms any result with small a test statistic by
+diluting the likelihood ratio, since if
 \begin{equation}
-\phi = \log \frac{L(h_1)}{L(h_2)}
+\log \frac{L(h_1)}{L(h_2)}
 \to
 \log \frac{
 L(h_1) + \prob{t > \tilde{t}}{h_1}
@@ -1139,8 +1139,8 @@ L(h_1) + \prob{t > \tilde{t}}{h_1}
 L(h_2) + \prob{t > \tilde{t}}{h_2}
 }
 \end{equation}
-then large tail probabilities will only squash the $\log$ ratio toward zero.
-
+then large tail probabilities will only squash the $\log$ likelihood ratio
+toward zero.
 
 \begin{figure}[tp]
 \centering
