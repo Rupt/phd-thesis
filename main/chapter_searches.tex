@@ -459,6 +459,7 @@ priors as they wish.
 For model comparison, for example between background $h=B$ and signal $h=S$
 models, the analysis is conveniently linearized by expressing it in $\log$
 ratio form:
+\TODO{different choice for phi to avoid angle?}
 \begin{equation}
 \hphantom{\quad \quad \mid\mid \mathrm{context}}
 \phi(d) =
@@ -478,8 +479,15 @@ In this sense, likelihood (or evidence) ratios are scale factors that update
 any odds prior ratio by the same multiplication, and that on this $\log$ scale
 that means just adding a constant.
 
-From such $\log$ ratios one individual probabilities are recovered through the
-logistic function:
+As data are reported more precisely, likelihoods will often tend towards zero
+--- in the continuum limit, the probability of any data value vanishes.
+Small likelihoods are themselves not significant unless other likelihoods
+are larger --- unless other hypotheses predicted \emph{better}.
+And these ($\log$) ratios can remain well defined in continuum limits even as
+both likelihoods tend towards zero~\cite{billingsley2008probability}.
+
+From such $\log$ ratios, a little rearrangement recovers the individual
+probabilities through the logistic function:
 \begin{equation}
 \label{eqn:searches_logistic}
 \prob{S}{d} = \frac{1}{1 + e^{-\phi(d)}}
@@ -932,10 +940,10 @@ Section~\ref{sec:searches_practice}, that we apply to modern LHC data.
 
 Some literature names this Fisher/Neyman-Pearson assemblage
 ``classical'' statistics~\cite{lehmann2011fisher, Feldman:1997qc}, but that is
-simply inaccurate for a 20th century creations that innovated on 18th century
+inaccurate for 20th century creations that innovated on 18th century
 ideas~\cite{bayes1763lii, laplace1774stigler}.
 Jaynes instead names them ``orthodox''~\cite{jaynes2003probability},
-which may be accurate in some contexts, but alternative
+which may have been accurate in his environment, but different
 (heretical?) ideas have taken hold in research at the LHC ---
 the orthodoxy has moved on.
 We therefore stick with `frequentist'.
@@ -1051,21 +1059,22 @@ in context.
 Just as we define event variables (like $\pt$) to remove nuisance
 dependencies (on $\phi$ rotations or longitudinal boosts),
 useful test statistics can also eliminate unwanted parameters.
-The quintessential example is $t$-statistic
+The quintessential example is the $t$-statistic
 \begin{equation}
 t(d) = \frac{\bar{\mu}(d) - \mu}{\bar{\sigma}(d)}\sqrt{n}
 ,
 \end{equation}
-where $\mu$ is the known data mean, and $\bar{\mu}(d)$ and $\bar{\sigma}(d)$
-are standard estimates of the mean and standard deviation of the data sample
-respectively~\cite{student1908, fisher1925t}.
-By dividing out a (scale equivariant) standard deviation, $t$ is independent
-of common scale factors on the data, and that scale invariance has helped to
-drive the study and common use of this $t$ statistic~\cite{lehmann2011fisher}.
+which shifts the sample mean $\bar{\mu}(d)$ by a known true mean $\mu$, and
+scales that difference down by the same standard deviation
+$\bar{\sigma}(d)$~\cite{student1908, fisher1925t}.
+By dividing out a scale equivariant estimate of the standard deviation, $t$ is
+independent of common scale factors on the data, and that scale invariance
+has helped to drive the study and common use of this
+$t$-statistic~\cite{lehmann2011fisher}.
 
 One can usefully reduce observed data to just the test statistic
-$\tilde{t} = t(d)$ and compare likelihoods to compare how well different
-hypotheses predict the observed $\tilde{t}$.
+$\tilde{t} = t(d)$, and compare likelihoods on that observed $\tilde{t}$
+to compare how well different hypotheses predict it.
 For reasons I cannot explain, Fisher advocates a different use ---
 rather than considering likelihoods and likelihood ratios, he recommends
 that researchers consider the ``probable error''~\cite{fisher1921probable},
@@ -1074,7 +1083,9 @@ In modern jargon, a `probable error' at the observed test statistic
 $\tilde{t}$ and an hypothesis $h$ is a \textbf{$p$-value}
 \begin{align}
 P(h)
-&= \prob{t \geq \tilde{t}}{h} \\
+&= \prob{t \geq \tilde{t}}{h}
+\label{eqn:searches_pvalue}
+\\
 &= L(h) + \prob{t > \tilde{t}}{h}
 \label{eqn:searches_pvalue_likelihood}
 ;
@@ -1082,24 +1093,54 @@ P(h)
 the $p$-value $P(h)$ is the prior probability of data
 \emph{greater or equal to} the observed data when ordered by the value of the
 test statistic.
-Equation~\ref{eqn:searches_pvalue_likelihood} emphasizes that it is just the
-likelihood plus some fluff from a tail of larger test statistics.
+Equation~\ref{eqn:searches_pvalue_likelihood} points out that the $p$-value is
+just is the likelihood plus some fluff from a tail of larger test statistics.
 
-\TODO{quote EX.II from ~\cite{fisher1921probable}
-}
+Fisher illustrates the use of $p$-values in the second example
+of~\cite{fisher1921probable}, which models some data with a parameter $r$ and
+compares two hypotheses
+$r=0.3$ and
+$r=0.95$, finding $p$-values
+$P(r=0.3)=0.142$ and
+$P(r=0.95)=0.00014$.
+``Thus'', Fisher concludes, ``the value $0.95$\ldots
+is roughly $1000$ times less likely than $0.30$''
+(``when measured on the $r$ scale'').
+By writing `likely', Fisher is carefully not referencing the probability
+of parameters, but their likelihoods in our definition.
+But this factor of $1000$ is a $p$-value ratio, not a likelihood ratio,
+so how can this make sense?
+Plausibly, it is a data reduction; comparing
+Equations~\ref{eqn:searches_pvalue} and~\ref{eqn:searches_likelihood}
+shows that the $p$-value is a likelihood (only) if the result is reduced from
+$A: t =    \tilde{t}$ to
+$B: t \geq \tilde{t}$.
+And since this reduction is technically true --- $A$ implies $B$ --- the
+likelihood ratio on $B$ is logically valid and not \emph{necessarily}
+misleading.
 
-\TODO{p-value:
-The chance of a small $p$-value is small.
-This is true, but not interesting because the value of any $p$-value is small.
-By construction $p$-values are uniformly distributed on the unit interval
-under a given hypothesis.
-The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
-$0.6 < p < 0.65$.
-The frequency of $p < \varepsilon$ is identical to the frequency
-of $0.6 < p < 0.6 + \varepsilon$.
-An appropriate choice of test statistic is therefore necessary for the
-$p$-value to have meaning.
+But $B: t \geq \tilde{t}$ is a logical statement (true for all test statistics
+greater than or equal to the observed value) and not a randomly occurring
+event, so its assignment frequentist probability is deeply dubious.
+Much more importantly, the reduction to a one-sided inequality has no tangible
+benefit; it reduces the information content of the reported data, but does not
+reduce the costs of reporting or interpreting those data.
+Both $A$ and $B$ are printed in the same number of characters, and $p$-values
+can be painfully expensive to evaluate.
+Furthermore, it can actively harm the result by diluting the likelihood ratio,
+since if
+\begin{equation}
+\phi = \log \frac{L(h_1)}{L(h_2)}
+\to
+\log \frac{
+L(h_1) + \prob{t > \tilde{t}}{h_1}
 }
+{
+L(h_2) + \prob{t > \tilde{t}}{h_2}
+}
+\end{equation}
+then large tail probabilities will only squash the $\log$ ratio toward zero.
+
 
 \begin{figure}[tp]
 \centering
@@ -1199,6 +1240,19 @@ Introduce maximum likelihood ratio as interesting without claiming it to be
 necessarily best.
 Neyman-Pearson lemma --- reproduce Fig 5?
 ~\cite{neymanpearson1933lemma}
+}
+
+\TODO{p-value:
+The chance of a small $p$-value is small.
+This is true, but not interesting because the value of any $p$-value is small.
+By construction $p$-values are uniformly distributed on the unit interval
+under a given hypothesis.
+The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
+$0.6 < p < 0.65$.
+The frequency of $p < \varepsilon$ is identical to the frequency
+of $0.6 < p < 0.6 + \varepsilon$.
+An appropriate choice of test statistic is therefore necessary for the
+$p$-value to have meaning.
 }
 
 \begin{figure}[tp]
