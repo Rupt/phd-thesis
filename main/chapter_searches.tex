@@ -952,21 +952,26 @@ We therefore stick with `frequentist'.
 \centering
 \includegraphics[width=0.95\textwidth]{figures/seacrhes_fisher_likelihood_binomial.png}
 \caption[
-Ratio thresholds of a Binomial likelihood function, reproduced from Fisher
+Intervals exceeding ratios from the maximum of a Binomial likelihood function,
+reproduced from Fisher
 ]{%
-Ratio thresholds of a Binomial likelihood function, reproduced from
-Fisher~\cite{fisher1956statistical}.
-Horizontal lines mark regions where the likelihood exceeds $1/2$, $1/5$, or
-$1/15$ of its maximum respectively.
-The extents of these lines could be tabulated to usefully communicate
-aspects of its profile.
+Intervals exceeding ratios from the maximum of a Binomial likelihood function,
+reproduced from Fisher~\cite{fisher1956statistical}.
+Horizontal lines mark regions where the likelihood function exceeds
+$1/2$, $1/5$, and $1/15$ of its maximum respectively.
+The extents of these lines could be tabulated to usefully communicate aspects
+of its profile.
 }
 \label{fig:searches_fisher_likelihood}
 \end{figure}
 
 \paragraph{Fisher.}
 % likelihood
-Fisher coined the term `likelihood'~\cite{fisher1921probable} in the usage that
+Fisher coined the term `likelihood'~\cite{
+fisher1912fitting,
+fisher1915frequency,
+fisher1921probable
+} in the usage that
 we employ for the probability of observed data given varied
 contexts%
 \footnote{%
@@ -1110,7 +1115,7 @@ By writing `likely', Fisher is carefully not referencing the probability
 of parameters, but their likelihoods in our definition.
 But this factor of $1000$ is a $p$-value ratio, not a likelihood ratio,
 so how can this make sense?
-Plausibly, it is a data reduction; comparing
+Plausibly, it results from a tacit data reduction; comparing
 Equations~\ref{eqn:searches_pvalue} and~\ref{eqn:searches_likelihood}
 shows that the $p$-value is a likelihood (only) if the result is reduced from
 $A: t =    \tilde{t}$ to
@@ -1119,12 +1124,13 @@ And since this reduction is technically true --- $A$ implies $B$ --- the
 likelihood ratio on $B$ is logically valid and not \emph{necessarily}
 misleading if clearly stated.
 
-But $B: t \geq \tilde{t}$ is a logical statement (true for all test statistics
-greater than or equal to the observed value) and not a randomly occurring
-event, so its assignment frequentist probability is deeply dubious.
+However, $B: t \geq \tilde{t}$ is a logical statement (true for all test
+statistics greater than or equal to the observed value) and not a randomly
+occurring event; it therefore does not have a frequentist probability and so
+is probably not what Fisher intended.
 Much more importantly, the reduction to a one-sided inequality has no tangible
-benefit; it reduces the information content of the reported data, but does not
-reduce the costs of reporting or interpreting those data.
+benefit --- it reduces the information content of the reported data without
+reducing the associated costs of reporting or interpreting those data.
 Both $A$ and $B$ are printed in the same number of characters, and $p$-values
 can be painfully expensive to evaluate.
 Furthermore, it actively harms any result with small a test statistic by
@@ -1140,6 +1146,13 @@ L(h_2) + \prob{t > \tilde{t}}{h_2}
 }
 \end{equation}
 then large tail probabilities squash the $\log$ likelihood ratio toward zero.
+
+Fisher's $p$-value ratio of $1000$ is, therefore, a $\log$ likelihood
+ratio of $+7$ in favour of $r=0.3$ over $r=0.95$, which is a moderately strong
+indication of roughly $3.7\sigma$.
+But a likelihood ratio on the test statistic itself, and not the inclusive
+tail statement, would encode strictly more information and could have provide a
+more precise answer.
 
 \begin{figure}[tp]
 \centering
@@ -1305,6 +1318,16 @@ maximum likelihood, p-values, confidence intervals
 \TODO{confidence interval}
 \TODO{unbiased}
 
+% p-values
+no!~\cite{
+schervish1996p,
+Cohen1994TheEI,
+goodman2008dirty,
+greenland2016no,
+Amrhein2017TheEI,
+Bernstein2016princess,
+Trafimow2015ban
+}
 
 \begin{singlespacing}
 \section{Post-frequentist practice}
