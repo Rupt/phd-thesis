@@ -461,8 +461,9 @@ models, the analysis is conveniently linearized by expressing it in $\log$
 ratio form:
 \TODO{different choice for phi to avoid angle?}
 \begin{equation}
+\label{eqn:searches_log_odds}
 \hphantom{\quad \quad \mid\mid \mathrm{context}}
-\phi(d) =
+\Delta(d) =
 \log\frac{\prob{S}{d}}{\prob{B}{d}}
 =
 \log\frac{\prob{d}{S}}{\prob{d}{B}}
@@ -490,7 +491,7 @@ From such $\log$ ratios, a little rearrangement recovers the individual
 probabilities through the logistic function:
 \begin{equation}
 \label{eqn:searches_logistic}
-\prob{S}{d} = \frac{1}{1 + e^{-\phi(d)}}
+\prob{S}{d} = \frac{1}{1 + e^{-\Delta(d)}}
 .
 \end{equation}
 Physically, this is analogous to the Boltzmann distribution where the energy
@@ -922,6 +923,8 @@ construct their replacements, and various surrogates have evolved.
 
 Modern frequentist methods are largely attributable to work by
 Ronald A. Fisher (for likelihood, $p$-values, and estimation criteria~\cite{
+fisher1912fitting,
+fisher1915frequency,
 fisher1921probable,
 fisher1922estimators,
 fisher1925smrw,
@@ -971,7 +974,8 @@ of its profile.
 Fisher coined the term `likelihood'~\cite{
 fisher1912fitting,
 fisher1915frequency,
-fisher1921probable
+fisher1921probable,
+fisher1922estimators
 } in the usage that
 we employ for the probability of observed data given varied
 contexts%
@@ -1008,7 +1012,7 @@ statistical evidence of types too weak to supply true probability statements%
 \end{displayquote}
 For example, Figure~\ref{fig:searches_fisher_likelihood} displays a figure by
 Fisher~\cite{fisher1956statistical} that illustrates how data can be usefully
-reported by their likelihood's maximum and the regions in which it exceeds
+reported by the likelihood's maximum and the regions in which it exceeds
 certain ratios relative to that maximum.%
 \footnote{%
 We use such $L(\check{x})\pm\mathrm{ratio}$ visualizations for
@@ -1019,36 +1023,53 @@ to have not considered this option~\cite{cowan2011errorbars};
 I cannot explain why not, since our statistics experts must surely be familiar
 with Fisher's work.
 }
-
-\TODO{estimators briefly here}
-\TODO{maximum likelihood}
-
-% estimators --- not unbiased!
-\TODO{
-(unbiased estimators)
-Lehmann~\cite{lehmann2005testing};
-p. 26 poisson inadmissable example;
-L-unbiased with given loss function;
-}
-
-
-% savage likelihood principle
-\TODO{
-Fisher:
-criteria for estimators,
-(consistency, efficiency, sufficiency)
-~\cite{fisher1922estimators}
-}
-
-\TODO{likelihood principle ~\cite{
+That the likelihood contains all relevant information in the data is true by
+definition in our formulation of Equation~\ref{eqn:searches_log_odds},
+but non-Bayesian arguments find the same conclusion~\cite{
 birnbaum1962foundations,
 savage1962foundations
+}.
+
+Maximum likelihoods are often useful for interpreting and communicating data.
+The location of a maximum likelihood can be a useful estimate for the
+parameters being considered, and Fisher showed that maximum likelihood
+estimates satisfy some desirable criteria~\cite{fisher1922estimators}.
+These criteria do not include \emph{unbiasedness}, which states that the mean
+value of an estimate (over the distribution for alternative data) should equal
+its known true value~\cite{pdg2020review}.
+Defining bias as a difference from a mean fails to be coordinate invariant,
+so an unbiased estimate of the variance $\bar{\sigma}^2$ is a biased
+estimate of the standard deviation $\bar{\sigma}$ --- the square of the mean
+is not the mean of the squares~\cite{Barlow:2019svl}.
+Fisher rejected the bias criterion for this
+reason~\cite{jaynes2003probability}, and other definitions absorb its
+arbitrariness into an explicit loss function~\cite{lehmann2005testing}.
+Requiring unbiasedness can actively harm our results by preventing the use of
+useful statistics,
+\footnote{%
+Problem~1.14 of~\cite{lehmann2005testing} has a delightful example of
+estimating an exponentiated a Poisson mean $e^\mu$ from $n$ data
+where the unique unbiased estimate is $(-1)^{n + 1}$.
+Section~17.3 of~\cite{jaynes2003probability} shows similar nonsense for
+unbiased estimates of $\mu^2$ and $\exp(-\mu)$.%
 }
+or by obfuscating those statistics with bias corrections.
+Remaining uses of unbiasedness in High Energy Physics~\cite{
+pdg2020review,
+Tullythesis,
+lhcb2018563,
+LHCb:2021trn,
+LHCb:2015yax
 }
+are largely explained by the linguistic trickery in its naming --- our
+results should not be biased by forces outside the data and relevant theory,
+and we would love to claim that to be true.
+But we should proudly proclaim that our results are `biased' under this flawed
+statistical definition if that makes them better by any reasonable measure.
 
 % likelihood quotes
-In avoiding the pitfalls of posteriors, Fisher's use of likelihoods remains
-innovative and practical.
+In avoiding the pitfalls of reported posteriors, Fisher's use of likelihoods
+remains innovative and practical.
 However, the hard rejection of priors on hypotheses also prevents evidence
 calculations, without which likelihoods alone become confounded in many
 parameters, perhaps making them nuisances.
@@ -1120,12 +1141,12 @@ But this factor of $1000$ is a $p$-value ratio, not a likelihood ratio,
 so how can this make sense?
 Plausibly, it results from a tacit data reduction; comparing
 Equations~\ref{eqn:searches_pvalue} and~\ref{eqn:searches_likelihood}
-shows that the $p$-value is a likelihood (only) if the result is reduced from
+shows that the $p$-value is a likelihood only if the result is reduced from
 $A: t =    \tilde{t}$ to
 $B: t \geq \tilde{t}$.
 And since this reduction is technically true --- $A$ implies $B$ --- the
 likelihood ratio on $B$ is logically valid and not \emph{necessarily}
-misleading if clearly stated.
+misleading if accurately reported.
 
 However, $B: t \geq \tilde{t}$ is a logical statement (true for all test
 statistics greater than or equal to the observed value) and not a randomly
@@ -1136,7 +1157,7 @@ benefit --- it reduces the information content of the reported data without
 reducing the associated costs of reporting or interpreting those data.
 Both $A$ and $B$ are printed in the same number of characters, and $p$-values
 can be painfully expensive to evaluate.
-Furthermore, it actively harms any result with small a test statistic by
+And it actively harms any result with small a test statistic by
 diluting the likelihood ratio, since if
 \begin{equation}
 \log \frac{L(h_1)}{L(h_2)}
@@ -1151,10 +1172,10 @@ L(h_2) + \prob{t > \tilde{t}}{h_2}
 then large tail probabilities squash the $\log$ likelihood ratio toward zero.
 
 Fisher's $p$-value ratio of $1000$ is, therefore, a $\log$ likelihood
-ratio of $+7$ in favour of $r=0.3$ over $r=0.95$, which is a moderately strong
+ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderately strong
 indication of roughly $3.7\sigma$.
 But a likelihood ratio on the test statistic itself, and not the inclusive
-tail statement, would encode strictly more information and could have provide a
+tail statement, would encode strictly more information and could provide a
 more precise answer.
 
 \begin{figure}[tp]
@@ -1179,12 +1200,12 @@ suspiciously significant, and that
 ``If $P$ is between $.1$ and $.9$ there is certainly no reason to suspect the
 hypothesis tested.''~\cite{fisher1925smrw}
 This may have been true for his intended applications, but it is not general;
-as for usual likelihood functions, small values are only meaningful in
-comparison against larger values.
+as for all other likelihoods, small values are only meaningful in comparison
+against larger values from alternative hypotheses.
 
 Consider for example the distributions of signal (Higgs boson) and background
 (mostly $ZZ^*$) samples in Figure~\ref{fig:atlas_higgs_4l}.
-If an event is observed with $m_{4\ell} = 125\,\eV[G]$, is it signal or
+If an event is observed at $m_{4\ell} = 125\,\eV[G]$, is it signal or
 background?
 It is obviously a Higgs boson candidate, but $m_{4\ell}$ is around the middle
 of both signal and background distributions, so with an $m_{4\ell}$ test
@@ -1193,22 +1214,16 @@ is ``suspect''.
 Local ratios between the two distributions clearly favour signal for this
 event, however; the $p$-values' failure is in their dependence on irrelevant
 tail areas, which are a feature of the histogram and not the data.
-In fact, this $ZZ^*$ density peaks for $ZZ$ above a
-$2 m(Z) \approx 180\,\eV[G]$
-edge, and $Z \to 4\ell$ around $m_{4\ell} \approx m(Z)$;
+This $ZZ^*$ density peaks for $ZZ$ above a
+$2 m(Z) \approx 180\,\eV[G]$ kinematic edge,
+and $Z \to 4\ell$ around $m_{4\ell} \approx m(Z)$;
 expanding the histogram to show either of these tails would change nothing
-local to our $m_{4\ell} = 125\,\eV[G]$ event, but would change the $p$-values.
+local to our $m_{4\ell} = 125\,\eV[G]$ event, but would change our $p$-values.
 
 Better test statistics can soften this problem, and a key observation by
 Neyman and Pearson is an optimality of likelihood ratio test statistics.
 
-\TODO{
-``%
-There is something horrifying in the ideological movement represented by the
-doctrine that reasoning, properly speaking, cannot be applied to empirical data
-to lead to inferences valid in the real world.%
-''~\cite{fisher1956statistical}
-}
+
 
 \subsection{Neyman-Pearson}
 \label{sec:searches_np}
@@ -1277,11 +1292,11 @@ $p$-value to have meaning.
 \centering
 \includegraphics[width=0.95\textwidth]{figures/searches_np_curves_crop.png}
 \caption[
-Tail areas of prior data distributions from two alternative hypotheses,
-reproduced from Neyman and Pearson
+Tail areas of probability distributions of data from two alternative
+hypotheses, reproduced from Neyman and Pearson
 ]{%
-Tail areas of prior data distributions from two alternative hypotheses,
-reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
+Tail areas of probability distributions of data from two alternative
+hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
 }
 \label{fig:searches_np_tails}
 \end{figure}
@@ -1321,6 +1336,15 @@ maximum likelihood, p-values, confidence intervals
 
 \TODO{confidence interval}
 \TODO{unbiased}
+
+\begin{displayquote}
+\small
+``%
+There is something horrifying in the ideological movement represented by the
+doctrine that reasoning, properly speaking, cannot be applied to empirical data
+to lead to inferences valid in the real world.%
+''~\cite{fisher1956statistical}
+\end{displayquote}
 
 % p-values
 no!~\cite{
