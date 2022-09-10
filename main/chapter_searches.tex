@@ -942,9 +942,12 @@ and which explain some methods, to be introduced in
 Section~\ref{sec:searches_practice}, that we apply to modern LHC data.
 
 Some literature names this Fisher/Neyman-Pearson assemblage
-``classical'' statistics~\cite{lehmann2011fisher, Feldman:1997qc}, but that is
-inaccurate for 20th century creations that innovated on 18th century
-ideas~\cite{bayes1763lii, laplace1774stigler}.
+``classical'' statistics~\cite{
+Neyman1937Outline,
+lehmann2011fisher,
+Feldman:1997qc
+}, but that is simply inaccurate for 20th century creations that innovated on
+18th century ideas~\cite{bayes1763lii, laplace1774stigler}.
 Jaynes instead names them ``orthodox''~\cite{jaynes2003probability},
 which may have been accurate in his environment, but different
 (heretical?) ideas have taken hold in research at the LHC ---
@@ -1045,7 +1048,7 @@ Fisher rejected the bias criterion for this
 reason~\cite{jaynes2003probability}, and other definitions absorb its
 arbitrariness into an explicit loss function~\cite{lehmann2005testing}.
 Requiring unbiasedness can actively harm our results by preventing the use of
-useful statistics,
+useful estimates,%
 \footnote{%
 Problem~1.14 of~\cite{lehmann2005testing} has a delightful example of
 estimating an exponentiated a Poisson mean $e^\mu$ from $n$ data
@@ -1053,7 +1056,7 @@ where the unique unbiased estimate is $(-1)^{n + 1}$.
 Section~17.3 of~\cite{jaynes2003probability} shows similar nonsense for
 unbiased estimates of $\mu^2$ and $\exp(-\mu)$.%
 }
-or by obfuscating those statistics with bias corrections.
+or by obfuscating those estimates with bias corrections.
 Remaining uses of unbiasedness in High Energy Physics~\cite{
 pdg2020review,
 Tullythesis,
@@ -1061,9 +1064,9 @@ lhcb2018563,
 LHCb:2021trn,
 LHCb:2015yax
 }
-are largely explained by the linguistic trickery in its naming --- our
+are largely explained by the linguistic trickery of its name --- our
 results should not be biased by forces outside the data and relevant theory,
-and we would love to claim that to be true.
+and we like to report that to be true.
 But we should proudly proclaim that our results are `biased' under this flawed
 statistical definition if that makes them better by any reasonable measure.
 
@@ -1132,8 +1135,8 @@ $r=0.3$ and
 $r=0.95$, finding $p$-values
 $P(r=0.3)=0.142$ and
 $P(r=0.95)=0.00014$.
-``Thus'', Fisher concludes, ``the value $0.95$\ldots
-is roughly $1000$ times less likely than $0.30$''
+``Thus'', Fisher concludes, ``the value $0.95$\ldots is roughly $1000$ times
+less likely than $0.30$''
 (``when measured on the $r$ scale'').
 By writing `likely', Fisher is carefully not referencing the probability
 of parameters, but their likelihoods in our definition.
@@ -1200,8 +1203,8 @@ suspiciously significant, and that
 ``If $P$ is between $.1$ and $.9$ there is certainly no reason to suspect the
 hypothesis tested.''~\cite{fisher1925smrw}
 This may have been true for his intended applications, but it is not general;
-as for all other likelihoods, small values are only meaningful in comparison
-against larger values from alternative hypotheses.
+as for other likelihoods, small values are only meaningful in comparison
+against larger values from alternative hypotheses on the same data.
 
 Consider for example the distributions of signal (Higgs boson) and background
 (mostly $ZZ^*$) samples in Figure~\ref{fig:atlas_higgs_4l}.
@@ -1224,9 +1227,24 @@ Better test statistics can soften this problem, and a key observation by
 Neyman and Pearson is an optimality of likelihood ratio test statistics.
 
 
-
 \subsection{Neyman-Pearson}
 \label{sec:searches_np}
+Suspecting an hypothesis when its $p$-value lands below (or above) a threshold
+means that there is a prior probability $\alpha$ that any hypothesis will be
+suspect after an experiment.
+For example, in Fisher's suggestion of $P(h) \in 0.1--0.9$ being not suspect,
+then $\alpha = 0.2$ (if the distribution for is continuous or
+otherwise meets the edges at $0.1$ and $0.9$ in its cumulative distribution).
+And that chance is independent of the hypothesis, its alternatives, and even
+the nature of the experiment.
+Blindly followed, these rules mean that the data and test statistic could be
+anything at all and still incur suspicion for unrelated hypotheses with the
+same frequency.
+Your wall clock reads not less than $48$ minutes past the hour?
+The Standard Model is suspect.
+This peculiarity is illustrated at the wildly popular $\alpha = 0.05$ level by
+Figure~\ref{fig:searches_significant}.
+
 \begin{figure}[tp]
 \centering
 \includegraphics[width=0.46\textwidth]{figures/searches_significant_shrink.png}
@@ -1237,38 +1255,66 @@ Neyman and Pearson is an optimality of likelihood ratio test statistics.
 `RESEARCH CONFLICTED ON GREEN JELLY BEAN ACNE LINK; MORE~STUDY~RECOMMENDED!'
 \end{footnotesize}
 \caption[
-``Significant'' by Randall~Munroe
+``Significant'' from xkcd by Randall~Munroe
 ]{%
-``Significant'' by Randall~Munroe~\cite{xkcd2011significant}.
+``Significant'' from xkcd by Randall~Munroe~\cite{xkcd2011significant}.
 }
 \label{fig:searches_significant}
 \end{figure}
-Figure~\ref{fig:searches_significant}
 
-\TODO{
-Nayman-Pearson:
-Seek good test statistics --
-likelihood ratio intuitive for two-hypothesis comparison
-prove it optimal in a reasonable sense
-idea of long-run mostly not wrong
-recede to maximum likelihood ratios
-~\cite{neymanpearson1928max}
+Neyman and Pearson formalized this $p$-value based suspicion into decision
+rules and thought about what it is that makes one test statistic better than
+another~\cite{neymanpearson1928max, neymanpearson1933lemma}.
+Inspired by the same Bayesian arguments that we used to suggest likelihood
+ratios for model comparison~\cite{neymanpearson1928max}, they considered test
+statistics based on likelihoods\TODO{}
+
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/searches_np_curves_crop.png}
+\caption[
+Tail areas of probability distributions of data from two alternative
+hypotheses, reproduced from Neyman and Pearson
+]{%
+Tail areas of probability distributions of data from two alternative
+hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
+}
+\label{fig:searches_np_tails}
+\end{figure}
+
+Figure~\ref{fig:searches_np_tails}
+
+
+\TODO{extend}
 ``for which hypothesis A is more probable and those for which it is less
 probable (sic!)''
-unbiased (unbiassed) test differs from unbiasedness of estimator
-``Then the two corresponding densities at the sample point
-are (Al) 6-42 x 10-20, (A2) 5 18*x 1O-4 and the ratio of the likelihood of Hypothesis
-Al to- that of A2 is 1P24 x 10-16. This ratio confirms the common-sense judgment
-that A2 is far more plausible than A1''
-\^ Another posterior argument --- this likelihood ratio in in fact a change
-in plausibilities. For example, if A2 is an inconsistent, self-contradictory
-theory, it is totally implausible, and not more plausible despite predicting
-these data better.
-``The statistician can
-balance the numerical verdict of likelihood against the vaguer expectations de-
-rived from `a priori' considerations, and it must be left to his judgment to
-at what point the evidence in favour of alternative hypotheses becomes so con-
-vincing that Hypothesis A must be rejected.''
+to which Lehmann appends ``(sic!)''~\cite{lehmann2011fisher}.
+
+\TODO{consider changing our A, B to A1 A2}
+\begin{displayquote}
+``%
+Then the two corresponding densities at the sample point are
+(A1) $6.42 \times 10^{-20}$,
+(A2) $5.18 \times 10^{-4}$ and the ratio of the likelihood of Hypothesis
+A1 to that of A2 is $1.24 \times 10^{-16}$.
+This ratio confirms the common-sense judgment that A2 is far more plausible
+than A1''
+''~\cite{neymanpearson1933lemma}
+\end{displayquote}
+
+
+\begin{displayquote}
+``%
+The statistician can balance the numerical verdict of likelihood against the
+vaguer expectations derived from `a priori' considerations, and it must be left
+to his judgment to at what point the evidence in favour of alternative
+hypotheses becomes so convincing that Hypothesis A must be rejected.%
+''~\cite{neymanpearson1933lemma}
+\end{displayquote}
+
+\TODO{
+\^ Another posterior argument
 Introduce maximum likelihood ratio as interesting without claiming it to be
 necessarily best.
 Neyman-Pearson lemma --- reproduce Fig 5?
@@ -1288,20 +1334,7 @@ An appropriate choice of test statistic is therefore necessary for the
 $p$-value to have meaning.
 }
 
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/searches_np_curves_crop.png}
-\caption[
-Tail areas of probability distributions of data from two alternative
-hypotheses, reproduced from Neyman and Pearson
-]{%
-Tail areas of probability distributions of data from two alternative
-hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
-}
-\label{fig:searches_np_tails}
-\end{figure}
-
-Figure~\ref{fig:searches_np_tails}
+\TODO{Confidence intervals~\cite{neyman1935Intervals, Neyman1937Outline}}
 
 \TODO{
 discrete failure to match --- randomization.
@@ -1310,32 +1343,6 @@ K. D. Tocher (1950)
 ``extraneous randomization''
 ~\cite{tocher1950discontinuous}
 }
-
-\TODO{
-Given all this understanding, what I do not understand is their choice to
-convert this to a $p$-value.
-Seems to be this idea of long-run correctness guarantees.
-But their derivation does rely on long-run frequencies.
-}
-
-\TODO{
-restrict our notion of a probability with a special case: only frequency
-of random events
-}
-
-
-\TODO{
-Its void is filled with various proposed alternatives that do have frequency
-interpretations and that sometimes yield useful results.
-}
-
-\TODO{
-maximum likelihood, p-values, confidence intervals
-}
-
-
-\TODO{confidence interval}
-\TODO{unbiased}
 
 \begin{displayquote}
 \small
@@ -1357,6 +1364,7 @@ Bernstein2016princess,
 Trafimow2015ban,
 Read2002cls
 }
+\TODO{examples of use and misuse in hep}
 
 \begin{singlespacing}
 \section{Post-frequentist practice}
@@ -1376,7 +1384,7 @@ of the real problems to which it is applied.%
 \end{singlespacing}
 
 
-$\cls$~\cite{Read:451614, Read2002cls, ralcls}
+$\cls$~\cite{Read:451614, Read2002cls, Murray2010heretic}
 
 % significance measures
 The ATLAS-recommended significance measure~\cite{atlas_significance} is
