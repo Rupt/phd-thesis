@@ -381,7 +381,16 @@ We shall shortly derive this identity.
 The name `evidence' relates to its application for model
 comparison~\cite{mackay2003information}.
 Supposing we have this one event with $\met > 100\,\eV[G]$, did it come from
-the background or signal sample?
+the background or signal sample?%
+\footnote{%
+Questioning the origin of individual events is unusual in our context in
+\atlas, but is done in other research into rare effects such as neutrino
+interactions and black hole mergers~\cite{
+opera2010event,
+icecube2020event,
+Abbott2021event
+}.%
+}
 The answer depends on the signal and background cross-sections in our collider,
 but larger evidence for signal does influence any conclusion to move in its
 favour.
@@ -854,7 +863,7 @@ Probability as defined in Equation~\ref{eqn:searches_prob_ratio} is a
 proportion of stuff within a larger whole, which when formalized as a ratio
 of measures and has broad applications.
 Frequentist theory confines itself to the special case where those measures
-are numbers of discrete randomly occurring events, such that a frequentist
+are numbers of randomly occurring events, such that a frequentist
 probability is a ratio of frequencies:
 \begin{equation}
 \label{eqn:searches_prob_frequency_ratio}
@@ -954,7 +963,10 @@ lehmann2011fisher,
 Feldman:1997qc
 }, but that is simply inaccurate for 20th century creations that innovated on
 18th century ideas~\cite{bayes1763lii, laplace1774stigler}.
-Jaynes instead names them ``orthodox''~\cite{jaynes2003probability},
+Jaynes instead names them ``orthodox''~\cite{
+Jaynes1976intervals,
+jaynes2003probability
+},
 which may have been accurate in his environment, but different
 (heretical?) ideas have taken hold in research at the LHC ---
 the orthodoxy has moved on.
@@ -1118,7 +1130,7 @@ $t$-statistic~\cite{lehmann2011fisher}.
 One can usefully reduce observed data to just the test statistic
 $\tilde{t} = t(d)$, and compare likelihoods on that observed $\tilde{t}$
 to compare how well different hypotheses predict it.
-For reasons I cannot explain, Fisher advocates a different use ---
+For unclear reasons, Fisher advocates a different use ---
 rather than considering likelihoods and likelihood ratios, he recommends
 that researchers consider the ``probable error''~\cite{fisher1921probable},
 which is a cumulative distribution function in the negated test statistic.
@@ -1244,7 +1256,22 @@ Suspecting an hypothesis when its $p$-value lands below (or above) a threshold
 means that there is a prior probability $\alpha$ that any hypothesis will be
 suspect after an experiment.
 For example, in Fisher's suggestion of $P(h) \in 0.1--0.9$ being not suspect,
-then $\alpha = 0.2$ (if the distribution for is continuous or
+then $\alpha = 0.2$.%
+\footnote{%
+Exactly matching $\alpha$ is impossible for discrete distributions when
+the probability masses do not add up to $\alpha$.
+Neyman accommodates this by allowing inequalities with $\alpha$~\cite{
+neyman1935Intervals
+},
+and other approaches introduce ``extraneous randomization'' to
+break up discrete distributions~\cite{tocher1950discontinuous}.
+This problem of inexact `coverage' continues to cause controversy~\cite{
+Read2002cls,
+Feldman:1997qc,
+cousins2008evaluation,
+Cranmer2006Statistical
+}.%
+}
 otherwise meets the edges at $0.1$ and $0.9$ in its cumulative distribution).
 And that chance is independent of the hypothesis, its alternatives, and even
 the nature of the experiment.
@@ -1282,17 +1309,16 @@ to decide on actions of `rejecting' or `accepting' an hypothesis.
 From the Bayesian arguments that we presenting in
 Section~\ref{sec:searches_data_analysis},
 Neyman and Pearson argued for the interest in likelihood ratios, and further
-considered their use as test statistics~\cite{neymanpearson1928max}.
-On one hand they argue for the practical usefulness of maximum likelihood
-ratios
+considered their use as test statistics~\cite{neymanpearson1928max};
+they also considered \emph{maximum} likelihood ratios
 \begin{equation}
 \Lambda =
 \frac{L(h_1)}{\mathrm{max}_i\,L(h_i)}
 \end{equation}
 for a specified hypothesis $h_1$ against the largest likelihood from a set
 of alternatives.
-As descriptions of the likelihoods, maximum likelihood ratios can usefully
-communicate relevant information from the data.
+As descriptions of the likelihoods in play, maximum likelihood ratios can
+usefully communicate relevant information from the data.
 As test statistics, they also win generality by avoid context-specific
 motivations, such as scale invariance for the $t$-statistic of
 Equation~\ref{eqn:searches_t_statistic} --- any situation with predictive
@@ -1340,10 +1366,10 @@ in one-sided selections --- it states that likelihood ratios
 (not maximum likelihood ratios)
 are optimal in a specific sense within their framework of decisions
 based on small $p$-values.
-Precisely, it states that at a fixed probability $\alpha$ of rejecting a true
-hypothesis, a likelihood ratio test statistic maximizes the probability
+Precisely, at a fixed probability $\alpha$ of rejecting a true hypothesis, a
+likelihood ratio test statistic maximizes the probability
 $\alpha'$ of rejecting the alternative, false hypothesis that lives in the
-denominator of that ratio.
+denominator of the ratio.
 They illustrate this construction with a plot reproduced in
 Figure~\ref{fig:searches_np_tails}.
 
@@ -1360,26 +1386,65 @@ hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
 \label{fig:searches_np_tails}
 \end{figure}
 
-Although the likelihood ratio local to the observed data is all that matters
-for the probabilistic analysis, this lemma is relevant to the construction
-of useful event variables for analysing our data.
+Only the likelihood ratio local to the observed data matters to the results of
+a probabilistic analysis, but this lemma is relevant to the construction
+of useful event variables when designing an analysis procedure.
+This is seen from the signal and background distributions of
 Figures~\ref{fig:searches_sig_bkg_prior_likelihood}
-and~\ref{fig:searches_atlas_higgs_4l} \TODO{}
+and~\ref{fig:searches_atlas_higgs_4l};
+the event variable in Figure~\ref{fig:searches_sig_bkg_prior_likelihood} is
+like a likelihood ratio in that any right-handed selection catches a good
+signal purity relative to its background yield, but the signal bump in the
+middle of the background distribution in
+Figure~\ref{fig:searches_atlas_higgs_4l} would be better selected with a
+window around the Higgs boson mass.
+Re-ordering $m_{4\ell}$ by a likelihood ratio could turn this window into an
+equivalent and possibly simpler one-sided selection.
 
-\TODO{Confidence intervals~\cite{
+Neyman and Pearson were also involved in the development of
+`confidence intervals', which are ranges of parameters that are accepted by the
+$p$-value decision rules~\cite{
 clopper1934confidence,
 neyman1935Intervals,
 Neyman1937Outline
-}}
+}.
+A parameter corresponds to an hypothesis which assigns a prior distribution over
+data, and those data for which an obeisant researcher accepts the hypothesis
+have probabilities that sum to $1 - \alpha$.
+This rule selects a set of favoured data for each hypothesis, and the
+confidence interval (when it can be constructed) contains hypotheses for which
+the observed data are in that favoured set.
 
-\TODO{
-discrete failure to match --- randomization.
-table of random numbers --- reputable table!
-K. D. Tocher (1950)
-``extraneous randomization''
-~\cite{tocher1950discontinuous}
-}
+Confidence intervals are confusing.
+It is easy to be tricked into thinking that the confidence interval for given
+data `probably' contains the unknown parameter, but that is backwards.
+For a known true parameter $x$, the confidence intervals in random repeated
+experiments will contain that $x$ with probability $1 - \alpha$ ---
+the interval makes a subtle statement about unknown alternative data for
+known true parameters.
+For given data, the confidence interval can in fact exclude all possible
+parameters~\cite{
+pratt1961testing,
+Jaynes1976intervals
+}.
+The correct interpretation of a confidence interval is explained in an example
+by Pratt:
+\begin{displayquote}
+\small
+``%
+A method yielding true statements with probability $.95$, when applied to your
+experiment, yields the statement that your treatment effect is between $17$ and
+$29$, but no conclusion is possible about how probable it is that your
+treatment effect is between $17$ an $29$.%
+''~\cite{pratt1961testing}.
+\end{displayquote}
+Neyman and Pearson never claimed otherwise; they did precise mathematics, and
+confusion about their intervals arises externally.
 
+Although the confidence interval is a function of the data, so can be used
+for vague inferences, the recommendation by Fisher to communicate the
+likelihood function remains simpler and clearer.
+Fisher deserves the last word here also:
 \begin{displayquote}
 \small
 ``%
@@ -1390,7 +1455,7 @@ to lead to inferences valid in the real world.%
 \end{displayquote}
 
 % p-values
-no!~\cite{
+\TODO{no!}~\cite{
 schervish1996p,
 Cohen1994TheEI,
 Amrhein2017TheEI,
