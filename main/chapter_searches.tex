@@ -714,7 +714,7 @@ or index permutations~\cite{Noroozi2016jigsaw, multitaskself2017}.
 Other inputs that are not predicted, such as associated images that the machine
 uses to predict the labels, are included in the context $h$.
 \item Use those data to update your state
-$f(d_{i-1}, \ldots) \rightarrow f(d_i, d_{i-1}, \ldots)$.
+$f(d_{i-1}, \ldots) \to f(d_i, d_{i-1}, \ldots)$.
 Unlike ideal posterior updating, this encodes only a function of the data, not
 its whole --- one usually cannot afford to consume all aspects of data, so
 although theoretically suboptimal this approximation is vastly superior in
@@ -1439,7 +1439,7 @@ assigned a real-valued parameter, which when varied changed the expected yields
 in the histogram bins of the search.
 In this way, we form a statistical model which is a function
 \begin{equation}
-H_{\!f}(\vec \theta) \rightarrow (\vec \mu, \log f)
+H_{\!f}(\vec \theta) \to (\vec \mu, \log f)
 \end{equation}
 from the parameters $\theta$ to Poisson expectations $\vec\mu$ of the histogram
 bins and a regularization term $\log f$ that is maximized in fitting.
