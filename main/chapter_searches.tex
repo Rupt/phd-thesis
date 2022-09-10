@@ -456,10 +456,9 @@ Posterior probabilities are, however, useful when digesting data to make
 inferences about the world.
 Reporting likelihood functions and evidence values allows readers to assign
 priors as they wish.
-For model comparison, for example between background $h=B$ and signal $h=S$
-models, the analysis is conveniently linearized by expressing it in $\log$
+For model comparison, for example between background $h_1=B$ and signal $h_2=S$
+models, the analysis is conveniently linearised by expressing it in $\log$
 ratio form:
-\TODO{different choice for phi to avoid angle?}
 \begin{equation}
 \label{eqn:searches_log_odds}
 \hphantom{\quad \quad \mid\mid \mathrm{context}}
@@ -552,6 +551,7 @@ posterior probabilities given data, often without naming the evidence, and
 expressing it only as the sum from
 Equation~\ref{eqn:searches_evidence_integral_sum}
 --- as just a normalizing constant~\cite{
+Neyman1937Outline,
 gelman1995bayesian,
 gelman2008objections,
 DAgostini:1994fjx,
@@ -886,9 +886,14 @@ which way up is the coin in the envelope?
 You could guess or bet on the answer, and that decision might involve a tacitly
 assumed probability.
 A frequency, however, would only be permitted if the envelope had been packaged
-randomly.
+at `random'.
 Was the coin first tossed to randomize its face, or placed deliberately?
 You do not know.
+In Neyman's words,
+``I have put the word ``~random~'' in inverted commas because it is very
+difficult to define what is meant by it in practice''~\cite{
+Neyman1937Outline
+}.
 
 Tom Stoppard's play `Rosencrantz and Guildenstern Are Dead'~\cite{
 stoppard1967rosencrantz
@@ -916,6 +921,7 @@ Modern frequentist theory has a rigorous set-theoretic formulation in the
 Kolmogorov axioms~\cite{
 kolomogoroff1933de,
 kolomogoroff1950translated,
+Neyman1937Outline,
 axioms1010038
 }, but applied frequentist methods, are constrained with considerably less
 precision --- the denial of certain (non-frequency) probabilities does not
@@ -1038,8 +1044,12 @@ The location of a maximum likelihood can be a useful estimate for the
 parameters being considered, and Fisher showed that maximum likelihood
 estimates satisfy some desirable criteria~\cite{fisher1922estimators}.
 These criteria do not include \emph{unbiasedness}, which states that the mean
-value of an estimate (over the distribution for alternative data) should equal
-its known true value~\cite{pdg2020review}.
+value of an estimate --- over the distribution for alternative data --- should
+equal its known true value~\cite{
+sheynin1989aa,
+Neyman1937Outline,
+pdg2020review
+}.
 Defining bias as a difference from a mean fails to be coordinate invariant,
 so an unbiased estimate of the variance $\bar{\sigma}^2$ is a biased
 estimate of the standard deviation $\bar{\sigma}$ --- the square of the mean
@@ -1093,6 +1103,7 @@ dependencies (on $\phi$ rotations or longitudinal boosts),
 useful test statistics can also eliminate unwanted parameters.
 The quintessential example is the $t$-statistic
 \begin{equation}
+\label{eqn:searches_t_statistic}
 t(d) = \frac{\bar{\mu}(d) - \mu}{\bar{\sigma}(d)}\sqrt{n}
 ,
 \end{equation}
@@ -1194,7 +1205,7 @@ observed data.
 This example illustrates $p$-values pathological dependency on tail selections,
 and the benefits of likelihood ratios.
 }
-\label{fig:atlas_higgs_4l}
+\label{fig:searches_atlas_higgs_4l}
 \end{figure}
 
 Fisher claims that the $p$-value indicates the ``significance'' of an
@@ -1207,7 +1218,7 @@ as for other likelihoods, small values are only meaningful in comparison
 against larger values from alternative hypotheses on the same data.
 
 Consider for example the distributions of signal (Higgs boson) and background
-(mostly $ZZ^*$) samples in Figure~\ref{fig:atlas_higgs_4l}.
+(mostly $ZZ^*$) samples in Figure~\ref{fig:searches_atlas_higgs_4l}.
 If an event is observed at $m_{4\ell} = 125\,\eV[G]$, is it signal or
 background?
 It is obviously a Higgs boson candidate, but $m_{4\ell}$ is around the middle
@@ -1237,13 +1248,14 @@ then $\alpha = 0.2$ (if the distribution for is continuous or
 otherwise meets the edges at $0.1$ and $0.9$ in its cumulative distribution).
 And that chance is independent of the hypothesis, its alternatives, and even
 the nature of the experiment.
-Blindly followed, these rules mean that the data and test statistic could be
+
+Obediently followed, these rules mean that the data and test statistic could be
 anything at all and still incur suspicion for unrelated hypotheses with the
-same frequency.
+same prior probability.
 Your wall clock reads not less than $48$ minutes past the hour?
 The Standard Model is suspect.
-This peculiarity is illustrated at the wildly popular $\alpha = 0.05$ level by
-Figure~\ref{fig:searches_significant}.
+Figure~\ref{fig:searches_significant} illustrates this peculiarity and the
+associated difficulty in communicating the results.
 
 \begin{figure}[tp]
 \centering
@@ -1265,45 +1277,40 @@ Figure~\ref{fig:searches_significant}.
 Neyman and Pearson formalized this $p$-value based suspicion into decision
 rules and thought about what it is that makes one test statistic better than
 another~\cite{neymanpearson1928max, neymanpearson1933lemma}.
-Inspired by the same Bayesian arguments that we used to suggest likelihood
-ratios for model comparison~\cite{neymanpearson1928max}, they considered test
-statistics based on likelihoods\TODO{}
+Rather than a $p$-value arousing suspicion of an hypothesis, here it is used
+to decide on actions of `rejecting' or `accepting' an hypothesis.
+From the Bayesian arguments that we presenting in
+Section~\ref{sec:searches_data_analysis},
+Neyman and Pearson argued for the interest in likelihood ratios, and further
+considered their use as test statistics~\cite{neymanpearson1928max}.
+On one hand they argue for the practical usefulness of maximum likelihood
+ratios
+\begin{equation}
+\Lambda =
+\frac{L(h_1)}{\mathrm{max}_i\,L(h_i)}
+\end{equation}
+for a specified hypothesis $h_1$ against the largest likelihood from a set
+of alternatives.
+As descriptions of the likelihoods, maximum likelihood ratios can usefully
+communicate relevant information from the data.
+As test statistics, they also win generality by avoid context-specific
+motivations, such as scale invariance for the $t$-statistic of
+Equation~\ref{eqn:searches_t_statistic} --- any situation with predictive
+models can construct likelihoods and maximum likelihood ratios.
+``Without claiming that this method is necessarily the ``best'' to adopt,''
+Neyman and Pearson suggest maximum likelihood ratios as
+``one clearly defined method of discriminating between samples for which
+Hypothesis A is more probable and those for which it is less probable''~\cite{
+neymanpearson1933lemma}.
+To this quotation, Lehmann adds ``(sic!)''~\cite{lehmann2011fisher}, since it
+appears to conflate the likelihood for an hypothesis with its probability.
 
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/searches_np_curves_crop.png}
-\caption[
-Tail areas of probability distributions of data from two alternative
-hypotheses, reproduced from Neyman and Pearson
-]{%
-Tail areas of probability distributions of data from two alternative
-hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
-}
-\label{fig:searches_np_tails}
-\end{figure}
-
-Figure~\ref{fig:searches_np_tails}
-
-
-\TODO{extend}
-``for which hypothesis A is more probable and those for which it is less
-probable (sic!)''
-to which Lehmann appends ``(sic!)''~\cite{lehmann2011fisher}.
-
-\TODO{consider changing our A, B to A1 A2}
-\begin{displayquote}
-``%
-Then the two corresponding densities at the sample point are
-(A1) $6.42 \times 10^{-20}$,
-(A2) $5.18 \times 10^{-4}$ and the ratio of the likelihood of Hypothesis
-A1 to that of A2 is $1.24 \times 10^{-16}$.
-This ratio confirms the common-sense judgment that A2 is far more plausible
-than A1''
-''~\cite{neymanpearson1933lemma}
-\end{displayquote}
-
-
+But Neyman and Pearson's association of likelihood ratios with
+``more probable'' hypotheses may not be an error.
+They authors understood the Bayesian algebra of how large likelihood ratios
+make hypotheses \emph{more probable}, independent of whatever (non-zero) prior
+probabilities they are assigned.
+They state later in the same work that
 \begin{displayquote}
 ``%
 The statistician can balance the numerical verdict of likelihood against the
@@ -1312,29 +1319,58 @@ to his judgment to at what point the evidence in favour of alternative
 hypotheses becomes so convincing that Hypothesis A must be rejected.%
 ''~\cite{neymanpearson1933lemma}
 \end{displayquote}
+And elsewhere in an example with two hypotheses they state that that
+\begin{displayquote}
+``%
+the two corresponding densities at the sample point are
+($\mathrm{A}_1$) $6.42 \times 10^{-20}$,
+($\mathrm{A}_2$) $5.18 \times 10^{-4}$ and the ratio of the likelihood of
+Hypothesis $\mathrm{A}_1$ to that of $\mathrm{A}_2$ is $1.24 \times 10^{-16}$.
+This ratio confirms the common-sense judgment that $\mathrm{A}_2$ is far more
+plausible than $\mathrm{A}_1$%
+''~\cite{neymanpearson1928max},
+\end{displayquote}
+again relating the likelihood ratio to how ``plausible'' an hypothesis is.
 
-\TODO{
-\^ Another posterior argument
-Introduce maximum likelihood ratio as interesting without claiming it to be
-necessarily best.
-Neyman-Pearson lemma --- reproduce Fig 5?
-~\cite{neymanpearson1933lemma}
+The famous Neyman-Pearson lemma does not prove this usefulness of likelihood
+ratios in probability algebra.
+That was already known.
+What it contributes is a utility for likelihood ratio test statistics
+in one-sided selections --- it states that likelihood ratios
+(not maximum likelihood ratios)
+are optimal in a specific sense within their framework of decisions
+based on small $p$-values.
+Precisely, it states that at a fixed probability $\alpha$ of rejecting a true
+hypothesis, a likelihood ratio test statistic maximizes the probability
+$\alpha'$ of rejecting the alternative, false hypothesis that lives in the
+denominator of that ratio.
+They illustrate this construction with a plot reproduced in
+Figure~\ref{fig:searches_np_tails}.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/searches_np_curves_crop.png}
+\caption[
+Tail areas of prior probability distributions for data from two alternative
+hypotheses, reproduced from Neyman and Pearson
+]{%
+Tail areas of prior probability distributions for data from two alternative
+hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
 }
+\label{fig:searches_np_tails}
+\end{figure}
 
-\TODO{p-value:
-The chance of a small $p$-value is small.
-This is true, but not interesting because the value of any $p$-value is small.
-By construction $p$-values are uniformly distributed on the unit interval
-under a given hypothesis.
-The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
-$0.6 < p < 0.65$.
-The frequency of $p < \varepsilon$ is identical to the frequency
-of $0.6 < p < 0.6 + \varepsilon$.
-An appropriate choice of test statistic is therefore necessary for the
-$p$-value to have meaning.
-}
+Although the likelihood ratio local to the observed data is all that matters
+for the probabilistic analysis, this lemma is relevant to the construction
+of useful event variables for analysing our data.
+Figures~\ref{fig:searches_sig_bkg_prior_likelihood}
+and~\ref{fig:searches_atlas_higgs_4l} \TODO{}
 
-\TODO{Confidence intervals~\cite{neyman1935Intervals, Neyman1937Outline}}
+\TODO{Confidence intervals~\cite{
+clopper1934confidence,
+neyman1935Intervals,
+Neyman1937Outline
+}}
 
 \TODO{
 discrete failure to match --- randomization.
@@ -1365,6 +1401,20 @@ Trafimow2015ban,
 Read2002cls
 }
 \TODO{examples of use and misuse in hep}
+
+\TODO{p-value:
+The chance of a small $p$-value is small.
+This is true, but not interesting because the value of any $p$-value is small.
+By construction $p$-values are uniformly distributed on the unit interval
+under a given hypothesis.
+The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
+$0.6 < p < 0.65$.
+The frequency of $p < \varepsilon$ is identical to the frequency
+of $0.6 < p < 0.6 + \varepsilon$.
+An appropriate choice of test statistic is therefore necessary for the
+$p$-value to have meaning.
+}
+
 
 \begin{singlespacing}
 \section{Post-frequentist practice}
