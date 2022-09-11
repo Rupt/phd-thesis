@@ -1258,12 +1258,12 @@ suspect after an experiment.
 For example, in Fisher's suggestion of $P(h) \in 0.1--0.9$ being not suspect,
 then $\alpha = 0.2$.%
 \footnote{%
-Exactly matching $\alpha$ is impossible for discrete distributions when
-the probability masses do not add up to $\alpha$.
+Matching $\alpha$ can be impossible in discrete distributions if
+the tail probability masses do not add exactly to $\alpha$.
 Neyman accommodates this by allowing inequalities with $\alpha$~\cite{
 neyman1935Intervals
-},
-and other approaches introduce ``extraneous randomization'' to
+}.
+Other approaches introduce ``extraneous randomization'' to
 break up discrete distributions~\cite{tocher1950discontinuous}.
 This problem of inexact `coverage' continues to cause controversy~\cite{
 Read2002cls,
@@ -1317,9 +1317,10 @@ they also considered \emph{maximum} likelihood ratios
 \end{equation}
 for a specified hypothesis $h_1$ against the largest likelihood from a set
 of alternatives.
+
 As descriptions of the likelihoods in play, maximum likelihood ratios can
 usefully communicate relevant information from the data.
-As test statistics, they also win generality by avoid context-specific
+And ass test statistics, they also win generality by avoid context-specific
 motivations, such as scale invariance for the $t$-statistic of
 Equation~\ref{eqn:searches_t_statistic} --- any situation with predictive
 models can construct likelihoods and maximum likelihood ratios.
@@ -1328,15 +1329,14 @@ Neyman and Pearson suggest maximum likelihood ratios as
 ``one clearly defined method of discriminating between samples for which
 Hypothesis A is more probable and those for which it is less probable''~\cite{
 neymanpearson1933lemma}.
-To this quotation, Lehmann adds ``(sic!)''~\cite{lehmann2011fisher}, since it
+To this quote, Lehmann appends ``(sic!)''~\cite{lehmann2011fisher}, since it
 appears to conflate the likelihood for an hypothesis with its probability.
-
 But Neyman and Pearson's association of likelihood ratios with
 ``more probable'' hypotheses may not be an error.
-They authors understood the Bayesian algebra of how large likelihood ratios
-make hypotheses \emph{more probable}, independent of whatever (non-zero) prior
-probabilities they are assigned.
-They state later in the same work that
+The authors understood the algebra of how large likelihood ratios make
+hypotheses \emph{more probable} by changing their posterior probabilities,
+independent of whatever (non-zero) prior probabilities they are assigned.
+Indeed they later state that
 \begin{displayquote}
 ``%
 The statistician can balance the numerical verdict of likelihood against the
@@ -1345,33 +1345,18 @@ to his judgment to at what point the evidence in favour of alternative
 hypotheses becomes so convincing that Hypothesis A must be rejected.%
 ''~\cite{neymanpearson1933lemma}
 \end{displayquote}
-And elsewhere in an example with two hypotheses they state that that
-\begin{displayquote}
+Elsewhere, they also consider an example with two hypotheses $\mathrm{A}_1$
+and $\mathrm{A}_2$, and with some data they find a $\log$ likelihood ratio of
+% the two corresponding densities at the sample point are
+% ($\mathrm{A}_1$) $6.42 \times 10^{-20}$,
+% ($\mathrm{A}_2$) $5.18 \times 10^{-4}$ and the ratio of the likelihood of
+% Hypothesis $\mathrm{A}_1$ to that of $\mathrm{A}_2$ is $1.24 \times 10^{-16}$.
+$\Delta = -37$, concluding that
 ``%
-the two corresponding densities at the sample point are
-($\mathrm{A}_1$) $6.42 \times 10^{-20}$,
-($\mathrm{A}_2$) $5.18 \times 10^{-4}$ and the ratio of the likelihood of
-Hypothesis $\mathrm{A}_1$ to that of $\mathrm{A}_2$ is $1.24 \times 10^{-16}$.
 This ratio confirms the common-sense judgment that $\mathrm{A}_2$ is far more
 plausible than $\mathrm{A}_1$%
 ''~\cite{neymanpearson1928max},
-\end{displayquote}
-again relating the likelihood ratio to how ``plausible'' an hypothesis is.
-
-The famous Neyman-Pearson lemma does not prove this usefulness of likelihood
-ratios in probability algebra.
-That was already known.
-What it contributes is a utility for likelihood ratio test statistics
-in one-sided selections --- it states that likelihood ratios
-(not maximum likelihood ratios)
-are optimal in a specific sense within their framework of decisions
-based on small $p$-values.
-Precisely, at a fixed probability $\alpha$ of rejecting a true hypothesis, a
-likelihood ratio test statistic maximizes the probability
-$\alpha'$ of rejecting the alternative, false hypothesis that lives in the
-denominator of the ratio.
-They illustrate this construction with a plot reproduced in
-Figure~\ref{fig:searches_np_tails}.
+which again relates the likelihood ratio to how plausible an hypothesis is.
 
 \begin{figure}[tp]
 \centering
@@ -1386,20 +1371,36 @@ hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
 \label{fig:searches_np_tails}
 \end{figure}
 
-Only the likelihood ratio local to the observed data matters to the results of
-a probabilistic analysis, but this lemma is relevant to the construction
-of useful event variables when designing an analysis procedure.
-This is seen from the signal and background distributions of
+The famous Neyman-Pearson lemma does not prove the usefulness of likelihood
+ratios in probability algebra.
+That was already known.
+What it contributes is a utility for likelihood ratio test statistics
+in one-sided inequalities --- it states that likelihood ratios
+(not maximum likelihood ratios)
+are optimal in a specific sense within their framework of decisions
+based on $p$-values.
+Precisely, at a fixed probability $\alpha$ of rejecting a true hypothesis, a
+likelihood ratio test statistic maximizes the probability
+$\alpha'$ of rejecting the alternative, false hypothesis that lives in the
+denominator of the ratio; they illustrate this construction with the diagram
+reproduced in Figure~\ref{fig:searches_np_tails}.
+
+Only the likelihood ratio local to the observed data matters directly in the
+probabilistic analysis, but this lemma is useful in the construction
+of event variables of the kind we use in \atlas\ searches.
+This can be seen from the signal and background distributions of
 Figures~\ref{fig:searches_sig_bkg_prior_likelihood}
 and~\ref{fig:searches_atlas_higgs_4l};
 the event variable in Figure~\ref{fig:searches_sig_bkg_prior_likelihood} is
-like a likelihood ratio in that any right-handed selection catches a good
+like a likelihood ratio in that any right-handed inequality selects a good
 signal purity relative to its background yield, but the signal bump in the
 middle of the background distribution in
 Figure~\ref{fig:searches_atlas_higgs_4l} would be better selected with a
 window around the Higgs boson mass.
-Re-ordering $m_{4\ell}$ by a likelihood ratio could turn this window into an
-equivalent and possibly simpler one-sided selection.
+Re-ordering $m_{4\ell}$ by a likelihood ratio could turn this selection window
+into an equivalent and simpler one-sided selection ---
+the Neyman-Pearson lemma states that there is no better ordering for optimizing
+the signal-to-background ratio available from a one-sided selection.
 
 Neyman and Pearson were also involved in the development of
 `confidence intervals', which are ranges of parameters that are accepted by the
@@ -1419,11 +1420,10 @@ Confidence intervals are confusing.
 It is easy to be tricked into thinking that the confidence interval for given
 data `probably' contains the unknown parameter, but that is backwards.
 For a known true parameter $x$, the confidence intervals in random repeated
-experiments will contain that $x$ with probability $1 - \alpha$ ---
+experiments will contain that $x$ with probability $1 - \alpha$;
 the interval makes a subtle statement about unknown alternative data for
 known true parameters.
-For given data, the confidence interval can in fact exclude all possible
-parameters~\cite{
+Given confidence intervals can even exclude all plausible parameters~\cite{
 pratt1961testing,
 Jaynes1976intervals
 }.
@@ -1439,11 +1439,14 @@ treatment effect is between $17$ an $29$.%
 ''~\cite{pratt1961testing}.
 \end{displayquote}
 Neyman and Pearson never claimed otherwise; they did precise mathematics, and
-confusion about their intervals arises externally.
+confusion about their intervals arises externally~\cite{jaynes2003probability}.
 
-Although the confidence interval is a function of the data, so can be used
-for vague inferences, the recommendation by Fisher to communicate the
-likelihood function remains simpler and clearer.
+Confidence intervals are functions of data, so can inform vague inferences if
+used as data for likelihood functions, as we did to interpret Fisher's ratio
+$p$-value ratio as a likelihood ratio.
+And again this cannot add to the data, it can only detract.
+Fisher's recommendation to communicate the data and likelihood function
+directly remains simpler and clearer.
 Fisher deserves the last word here also:
 \begin{displayquote}
 \small
@@ -1453,6 +1456,25 @@ doctrine that reasoning, properly speaking, cannot be applied to empirical data
 to lead to inferences valid in the real world.%
 ''~\cite{fisher1956statistical}
 \end{displayquote}
+
+
+\begin{singlespacing}
+\section{Post-frequentist practice}
+\label{sec:searches_practice}
+\begin{epigraphs}
+\qitem{%
+\ldots\ But this book, by its very excellence, its thoroughness, lucidity and
+precision, intensifies my growing feeling that nevertheless the theory is
+arbitrary, be it however ``objective,'' and the problems it solves, however
+precisely it may solve them, are not even simplified theoretical counterparts
+of the real problems to which it is applied.%
+}%
+{John~W.~Pratt,
+\textit{Review: Testing Statistical Hypotheses},
+1961~\cite{pratt1961testing}}
+\end{epigraphs}
+\end{singlespacing}
+
 
 % p-values
 \TODO{no!}~\cite{
@@ -1480,24 +1502,6 @@ of $0.6 < p < 0.6 + \varepsilon$.
 An appropriate choice of test statistic is therefore necessary for the
 $p$-value to have meaning.
 }
-
-
-\begin{singlespacing}
-\section{Post-frequentist practice}
-\label{sec:searches_practice}
-\begin{epigraphs}
-\qitem{%
-\ldots\ But this book, by its very excellence, its thoroughness, lucidity and
-precision, intensifies my growing feeling that nevertheless the theory is
-arbitrary, be it however ``objective,'' and the problems it solves, however
-precisely it may solve them, are not even simplified theoretical counterparts
-of the real problems to which it is applied.%
-}%
-{John~W.~Pratt,
-\textit{Review: Testing Statistical Hypotheses},
-1961~\cite{pratt1961testing}}
-\end{epigraphs}
-\end{singlespacing}
 
 
 $\cls$~\cite{Read:451614, Read2002cls, Murray2010heretic}
