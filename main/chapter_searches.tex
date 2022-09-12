@@ -1374,16 +1374,15 @@ hypotheses, reproduced from Neyman and Pearson~\cite{neymanpearson1933lemma}.
 The famous Neyman-Pearson lemma does not prove the usefulness of likelihood
 ratios in probability algebra.
 That was already known.
-What it contributes is a utility for likelihood ratio test statistics
-in one-sided inequalities --- it states that likelihood ratios
-(not maximum likelihood ratios)
+What it contributes is a relationship with one-sided inequalities ---
+it states that likelihood ratios (not maximum likelihood ratios)
 are optimal in a specific sense within their framework of decisions
 based on $p$-values.
-Precisely, at a fixed probability $\alpha$ of rejecting a true hypothesis, a
-likelihood ratio test statistic maximizes the probability
-$\alpha'$ of rejecting the alternative, false hypothesis that lives in the
-denominator of the ratio; they illustrate this construction with the diagram
-reproduced in Figure~\ref{fig:searches_np_tails}.
+Precisely, at a fixed probability $\alpha$ of rejecting a true hypothesis,
+the Neyman-Pearson lemma finds that a likelihood ratio test statistic maximizes
+the probability $\alpha'$ of rejecting the alternative, false hypothesis that
+lives in the denominator of the ratio; they illustrate this construction with
+the diagram reproduced in Figure~\ref{fig:searches_np_tails}.
 
 Only the likelihood ratio local to the observed data matters directly in the
 probabilistic analysis, but this lemma is useful in the construction
@@ -1398,9 +1397,9 @@ middle of the background distribution in
 Figure~\ref{fig:searches_atlas_higgs_4l} would be better selected with a
 window around the Higgs boson mass.
 Re-ordering $m_{4\ell}$ by a likelihood ratio could turn this selection window
-into an equivalent and simpler one-sided selection ---
-the Neyman-Pearson lemma states that there is no better ordering for optimizing
-the signal-to-background ratio available from a one-sided selection.
+into an equivalent and simpler one-sided selection, and the Neyman-Pearson
+lemma states that there is no ordering that further optimizes the selected
+signal-to-background ratio.
 
 Neyman and Pearson were also involved in the development of
 `confidence intervals', which are ranges of parameters that are accepted by the
@@ -1418,7 +1417,7 @@ the observed data are in that favoured set.
 
 Confidence intervals are confusing.
 It is easy to be tricked into thinking that the confidence interval for given
-data `probably' contains the unknown parameter, but that is backwards.
+data `probably' contains the unknown parameter, but that gets it backwards.
 For a known true parameter $x$, the confidence intervals in random repeated
 experiments will contain that $x$ with probability $1 - \alpha$;
 the interval makes a subtle statement about unknown alternative data for
@@ -1427,8 +1426,8 @@ Given confidence intervals can even exclude all plausible parameters~\cite{
 pratt1961testing,
 Jaynes1976intervals
 }.
-The correct interpretation of a confidence interval is explained in an example
-by Pratt:
+Pratt eloquently explains the correct interpretation of a confidence interval
+by example:
 \begin{displayquote}
 \small
 ``%
@@ -1441,13 +1440,26 @@ treatment effect is between $17$ an $29$.%
 Neyman and Pearson never claimed otherwise; they did precise mathematics, and
 confusion about their intervals arises externally~\cite{jaynes2003probability}.
 
-Confidence intervals are functions of data, so can inform vague inferences if
-used as data for likelihood functions, as we did to interpret Fisher's ratio
-$p$-value ratio as a likelihood ratio.
-And again this cannot add to the data, it can only detract.
-Fisher's recommendation to communicate the data and likelihood function
-directly remains simpler and clearer.
-Fisher deserves the last word here also:
+Confidence intervals are functions of the data, so can inform vague inferences
+if used as data for likelihood functions, just as we did to interpret Fisher's
+$p$-value ratio as a likelihood ratio ---
+an accurately constructed confidence interval $x_1\textrm{--}x_2$ has a
+likelihood function
+\begin{equation}
+L(x) =
+\left\{
+\begin{matrix}
+1 - \alpha & \textrm{if}~x \in x_1\textrm{--}x_2, \\
+\alpha & \textrm{otherwise.} \\
+\end{matrix}
+\right.
+\end{equation}
+And again, this reduction cannot add to the data.
+It can only detract.
+The recommendation by Fisher to directly communicate the likelihood function
+remains simpler and clearer.
+In response to the idea that no conclusion can be drawn about the parameter
+iself, Fisher also deserves the last word:
 \begin{displayquote}
 \small
 ``%
