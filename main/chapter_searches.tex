@@ -1135,7 +1135,7 @@ rather than considering likelihoods and likelihood ratios, he recommends
 that researchers consider the ``probable error''~\cite{fisher1921probable},
 which is a cumulative distribution function in the negated test statistic.
 In modern jargon, a `probable error' at the observed test statistic
-$\tilde{t}$ and an hypothesis $h$ is a \textbf{$p$-value}
+$\tilde{t}$ and an hypothesis $h$ is a \textbf{\pvalue}
 \begin{align}
 P(h)
 &= \prob{t \geq \tilde{t}}{h}
@@ -1145,13 +1145,13 @@ P(h)
 \label{eqn:searches_pvalue_likelihood}
 ;
 \end{align}
-the $p$-value $P(h)$ is the prior probability of data
+the \pvalue\ $P(h)$ is the prior probability of data
 \emph{greater or equal to} the observed data when ordered by the value of the
 test statistic.
-Equation~\ref{eqn:searches_pvalue_likelihood} points out that the $p$-value is
+Equation~\ref{eqn:searches_pvalue_likelihood} points out that the \pvalue\ is
 just is the likelihood plus some fluff from a tail of larger test statistics.
 
-Fisher illustrates the use of $p$-values in the second example
+Fisher illustrates the use of \pvalues\ in the second example
 of~\cite{fisher1921probable}, which models some data with a parameter $r$ and
 compares two hypotheses
 $r=0.3$ and
@@ -1163,11 +1163,11 @@ less likely than $0.30$''
 (``when measured on the $r$ scale'').
 By writing `likely', Fisher is carefully not referencing the probability
 of parameters, but their likelihoods in our definition.
-But this factor of $1000$ is a $p$-value ratio, not a likelihood ratio,
+But this factor of $1000$ is a \pvalue\ ratio, not a likelihood ratio,
 so how can this make sense?
 Plausibly, it results from a tacit data reduction; comparing
 Equations~\ref{eqn:searches_pvalue} and~\ref{eqn:searches_likelihood}
-shows that the $p$-value is a likelihood only if the result is reduced from
+shows that the \pvalue\ is a likelihood only if the result is reduced from
 $A: t =    \tilde{t}$ to
 $B: t \geq \tilde{t}$.
 And since this reduction is technically true --- $A$ implies $B$ --- the
@@ -1197,7 +1197,7 @@ L(h_2) + \prob{t > \tilde{t}}{h_2}
 \end{equation}
 then large tail probabilities squash the $\log$ likelihood ratio toward zero.
 
-Fisher's $p$-value ratio of $1000$ is, therefore, a $\log$ likelihood
+Fisher's \pvalue\ ratio of $1000$ is, therefore, a $\log$ likelihood
 ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderately strong
 indication of roughly $3.7\sigma$.
 But a likelihood ratio on the test statistic itself, and not the inclusive
@@ -1214,13 +1214,13 @@ measurement of Higgs boson decays to $4\ell$
 Signal and background distributions reproduced from the recent \atlas\
 measurement of Higgs boson decays to $4\ell$~\cite{ATLAS:2022net}, with
 observed data.
-This example illustrates $p$-values pathological dependency on tail selections,
+This example illustrates \pvalues\ pathological dependency on tail selections,
 and the benefits of likelihood ratios.
 }
 \label{fig:searches_atlas_higgs_4l}
 \end{figure}
 
-Fisher claims that the $p$-value indicates the ``significance'' of an
+Fisher claims that the \pvalue\ indicates the ``significance'' of an
 observation~\cite{fisher1925smrw}, with small or large values being
 suspiciously significant, and that
 ``If $P$ is between $.1$ and $.9$ there is certainly no reason to suspect the
@@ -1252,7 +1252,7 @@ Neyman and Pearson is an optimality of likelihood ratio test statistics.
 
 \subsection{Neyman-Pearson}
 \label{sec:searches_np}
-Suspecting an hypothesis when its $p$-value lands below (or above) a threshold
+Suspecting an hypothesis when its \pvalue\ lands below (or above) a threshold
 means that there is a prior probability $\alpha$ that any hypothesis will be
 suspect after an experiment.
 For example, in Fisher's suggestion of $P(h) \in 0.1--0.9$ being not suspect,
@@ -1301,10 +1301,10 @@ associated difficulty in communicating the results.
 \label{fig:searches_significant}
 \end{figure}
 
-Neyman and Pearson formalized this $p$-value based suspicion into decision
+Neyman and Pearson formalized this \pvalue\ based suspicion into decision
 rules and thought about what it is that makes one test statistic better than
 another~\cite{neymanpearson1928max, neymanpearson1933lemma}.
-Rather than a $p$-value arousing suspicion of an hypothesis, here it is used
+Rather than a \pvalue\ arousing suspicion of an hypothesis, here it is used
 to decide on actions of `rejecting' or `accepting' an hypothesis.
 From the Bayesian arguments that we presenting in
 Section~\ref{sec:searches_data_analysis},
@@ -1345,13 +1345,13 @@ to his judgment to at what point the evidence in favour of alternative
 hypotheses becomes so convincing that Hypothesis A must be rejected.%
 ''~\cite{neymanpearson1933lemma}
 \end{displayquote}
-Elsewhere, they also consider an example with two hypotheses $\mathrm{A}_1$
-and $\mathrm{A}_2$, and with some data they find a $\log$ likelihood ratio of
+Elsewhere also, they consider an example with two hypotheses $\mathrm{A}_1$
+and $\mathrm{A}_2$, and find a $\log$ likelihood ratio of
 % the two corresponding densities at the sample point are
 % ($\mathrm{A}_1$) $6.42 \times 10^{-20}$,
 % ($\mathrm{A}_2$) $5.18 \times 10^{-4}$ and the ratio of the likelihood of
 % Hypothesis $\mathrm{A}_1$ to that of $\mathrm{A}_2$ is $1.24 \times 10^{-16}$.
-$\Delta = -37$, concluding that
+$-37$, concluding that
 ``%
 This ratio confirms the common-sense judgment that $\mathrm{A}_2$ is far more
 plausible than $\mathrm{A}_1$%
@@ -1403,15 +1403,16 @@ signal-to-background ratio.
 
 Neyman and Pearson were also involved in the development of
 `confidence intervals', which are ranges of parameters that are accepted by the
-$p$-value decision rules~\cite{
+\pvalue\ decision rules~\cite{
 clopper1934confidence,
 neyman1935Intervals,
 Neyman1937Outline
 }.
 A parameter corresponds to an hypothesis which assigns a prior distribution over
 data, and those data for which an obeisant researcher accepts the hypothesis
-have probabilities that sum to $1 - \alpha$.
-This rule selects a set of favoured data for each hypothesis, and the
+have probabilities that sum to $\gamma = 1 - \alpha$.
+This $\gamma$ is known as the `confidence level'.
+Such a rule selects a set of favoured data for each hypothesis, and the
 confidence interval (when it can be constructed) contains hypotheses for which
 the observed data are in that favoured set.
 
@@ -1442,7 +1443,7 @@ confusion about their intervals arises externally~\cite{jaynes2003probability}.
 
 Confidence intervals are functions of the data, so can inform vague inferences
 if used as data for likelihood functions, just as we did to interpret Fisher's
-$p$-value ratio as a likelihood ratio ---
+\pvalue\ ratio as a likelihood ratio ---
 an accurately constructed confidence interval $x_1\textrm{--}x_2$ has a
 likelihood function
 \begin{equation}
@@ -1502,21 +1503,20 @@ Read2002cls
 }
 \TODO{examples of use and misuse in hep}
 
-\TODO{p-value:
-The chance of a small $p$-value is small.
-This is true, but not interesting because the value of any $p$-value is small.
-By construction $p$-values are uniformly distributed on the unit interval
+\TODO{p-value footnote:
+The chance of a small \pvalue\ is small.
+This is true, but not interesting because the value of any \pvalue\ is small.
+By construction \pvalues\ are uniformly distributed on the unit interval
 under a given hypothesis.
 The frequency of $p < 0.05$ is $5\%$, but so also is the frequency of
 $0.6 < p < 0.65$.
 The frequency of $p < \varepsilon$ is identical to the frequency
 of $0.6 < p < 0.6 + \varepsilon$.
 An appropriate choice of test statistic is therefore necessary for the
-$p$-value to have meaning.
+\pvalue\ to have meaning.
 }
 
 
-$\cls$~\cite{Read:451614, Read2002cls, Murray2010heretic}
 
 % significance measures
 The ATLAS-recommended significance measure~\cite{atlas_significance} is
@@ -1560,7 +1560,39 @@ I know of no tangible benefit from pretending that something is a likelihood
 when it is not.
 }
 
-\section{Searches}
+$\cls$~\cite{
+zech1988cls,
+Bock:353201,
+Read:451614,
+Read2002cls,
+Murray2010heretic
+}
+\begin{equation}
+\cls
+=
+\frac{P(s + b)}{P(b)}
+=
+\frac{
+\prob{t \geq \tilde{t}}{s + b}
+}{
+\prob{t \geq \tilde{t}}{b}
+}
+.
+\end{equation}
+These \pvalues\ are sometimes labelled $\clsb = P(s + b)$ and $\clb = P(b)$
+Some literature also defines $\clb = 1 - p_b$~\cite{
+Cowan:2010js
+},
+where $p_b$ is not quite a \pvalue\ if it excludes equality with the test
+statistic.
+
+textbooks cited by pdg~\cite{
+eadie1971statistical,
+frodesen1979probability
+}
+
+
+\subsection{Searches}
 \label{sec:searches_searches}
 % histograms, CR VR SR, systematics
 % histfactory
@@ -1579,8 +1611,3 @@ bins and a regularization term $\log f$ that is maximized in fitting.
 \histfactory~\cite{cranmer2012histfactory}
 \pyhf~\cite{heinrich2021pyhf}
 \histfitter~\cite{Besjes_2015,baak2015histfitter}
-
-
-\clearpage
-
-Hello again
