@@ -1,0 +1,303 @@
+sed -n -E 's/^\\subfile\{(\w+)\}/\1 /p' main.tex
+
+
+# Links
+* intention to submit
+https://www.dcpc.physsci.cam.ac.uk/students/PhD/beforesubmit
+
+* rules and regs
+https://www.dcpc.physsci.cam.ac.uk/students/PhD/regs
+
+
+* paper arxiv
+https://arxiv.org/abs/2204.13072
+
+
+# cern thesis
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/Theses
+
+
+
+# combinations
+content/combinations
+
+# what are we combining with?
+https://gitlab.cern.ch/atlas-phys-susy-wg/Combinations/readme/-/wikis/ewk-combinations
+
+# current combination plots
+https://gitlab.cern.ch/atlas-phys-susy-wg/Combinations/overlay_plots/-/tree/master/plots
+
+https://gitlab.cern.ch/atlas-phys-susy-wg/Combinations/overlay_plots/-/blob/master/plots/ATLAS_SUSY_EWSummary_GGM.pdf
+https://gitlab.cern.ch/atlas-phys-susy-wg/Combinations/overlay_plots/-/blob/master/plots/ATLAS_SUSY_EWSummary_WZ_Wino.pdf
+
+
+# words
+Institute of Astronomy, Department of Materials Science & Metallurgy,
+Department of Physics PhD: The thesis is not to exceed, without prior
+permission of the Degree Committee, 60,000 words, including summary
+/abstract, tables, footnotes and appendices, but excluding table of
+contents, photographs, diagrams, figure captions, list of figures/diagrams,
+list of abbreviations/acronyms, bibliography and acknowledgements.
+
+
+
+# pdf to png
+# 300 dpi, 6 inches wide
+pdftoppm -r 300 -png -cropbox ATLAS_SUSY_EWSummary_GGM.pdf ATLAS_SUSY_EWSummary_GGM.pdf
+
+
+# added to .bashrc
+# e.g.
+# pdf2png *.pdf
+# DPI=300 pdf2png *.pdf
+
+pdf2png () {
+    dpi=150
+    if [ ${DPI} ]
+    then
+        dpi=${DPI}
+    fi
+    for filename in $@
+    do
+        pdftoppm -r ${dpi} -png -cropbox ${filename} ${filename/%.pdf/}
+    done
+}
+
+
+# archive to upload backups
+tar -czf ../thesis_project.tar.gz *
+scp ../thesis_project.tar.gz rtombs@lxplus.cern.ch:/eos/user/r/rtombs/
+
+
+# quotes to do
+
+## zen
+got a few
+
+
+\chapterquote{%
+A man conducting a gee-whiz science show with fifty thousand dollars’ worth of Frankenstein
+equipment is not doing anything scientific if he knows beforehand what the results of his efforts are going to be. A motorcycle
+mechanic, on the other hand, who honks the horn to see if the battery works is informally conducting a true scientific experiment. He is
+testing a hypothesis by putting the question to nature.%
+}%
+{Robert M. Pirsig~\cite{pirsig1999zen}}
+
+
+## saboutage
+\chapterquote{%
+(1) Insist on doing everything through ``channels.'' Never permit short-cuts
+to be taken in order to expedite decisions.\\\\
+(2) Make ``speeches.'' Talk as frequently as possible and at great length.
+Illustrate your ``points'' by long anecdotes and accounts of personal
+experiences. Never hesitate to make a few appropriate ``patriotic'' comments.
+\\\\
+(3) When possible, refer all matters to committees, for ``further study and
+consideration.'' Attempt to make the committees as large as possible --- never
+less than five.\\\\
+(4) Bring up irrelevant issues as frequently as possible.\\\\
+(5) Haggle over precise wordings of communications, minutes, resolutions.
+\\\\
+(6) Refer back to matters decided upon at the last meeting and attempt to
+reopen the question of the advisability of that decision.\\\\
+(7) Advocate ``caution.'' Be "reasonable" and urge your fellow-conferees to be
+``reasonable'' and avoid haste which might result in embarrassments or
+difficulties later on.\\\\
+(8) Be worried about the propriety of any decision --- raise the question of
+whether such action as is contemplated lies within the jurisdiction of the
+group or whether it might conflict with the policy of some higher echelon.%
+}
+{OSS Simple Sabotage Field Manual}
+
+
+
+# emperor's clothes
+One way is to make it so simple that
+there are obviously no deficiencies and the other way is
+to make it so complicated that there are no obvious
+deficiencies.
+
+
+# skilling rant
+
+\epigraph{%
+Inference is not an automatic procedure.
+The universe has no mechanism for telling us ``objective'' truth.
+We have to actively seek answers for ourselves.
+That's how inference actually is.
+It's no use complaining about it, or trying to evade it.
+We must live with it, whether we like it or not.
+As it happens, I do like it.%
+}%
+{John Skilling~\cite{skilling2008rant}}
+
+
+## pratt
+Within this theory, statistical methods of great practical usefulness have been
+developed, and its statements can and frequently do contribute in a vague way
+to the interpretation of data.
+
+\ldots But this book, by its very excellence, its thoroughness, lucidity and
+precision, intensifies my growing feeling that nevertheless the theory is
+arbitrary, be it however ``objective,'' and the problems it solves, however
+precisely it may solve them, are not even simplified theoretical counterparts
+of the real problems to which it is applied.
+
+
+## on bullshit
+The bullshitter is faking things. But this does not mean that he
+necessarily gets them wrong.
+
+The notion of carefully wrought bullshit involves, then, a
+certain inner strain.
+
+
+# ken m
+https://news.yahoo.com/1st-photos-discovery-channel-telescope-unveiled-131249027.html
+
+## searching...
+https://web.archive.org/web/20120919183558/http://horseysurprise.tumblr.com/page/2
+https://web.archive.org/web/20120201003803/http://horseysurprise.tumblr.com/page/4
+
+
+
+# 23L hepdata
+Table 69
+10.17182/hepdata.81996.v1/t69
+
+Data from aux. Fig28 (aux. Fig28)
+
+Signal regions contributing to the observed exclusion limit for chargino-neutralino production with W/Z-mediated decays.
+
+
+Table 71
+10.17182/hepdata.81996.v1/t71
+
+Data from aux. Fig29 a (aux. Fig29 a)
+
+Observed 95% CL exclusion limit for chargino-neutralino production with W/Z-mediated decays in the 2l+jets channel.
+
+Table 20
+10.17182/hepdata.81996.v1/t20
+
+Data from Fig8 d (Fig8 d)
+
+Observed 95% CL exclusion limit for chargino-neutralino production with W/Z-mediated decays.
+
+
+% 3l offshell
+https://docs.google.com/presentation/d/1bswagMDCaw0tpQnItsIP3E6nfnrgVjpHYg-O4IY3u50/edit?usp=sharing
+
+
+% old low 3jet
+https://docs.google.com/presentation/d/1CeNFbLO3iN-xKGa5UL5CS2nVOTKQCFxCRs00NhoFdaM/edit?usp=sharing
+
+
+% fisher likelihood intervals (also nice quote)
+https://archive.org/details/statisticalmetho0000fish/page/72/mode/2up
+isbn: 9780198522294
+%% direct image links
+https://ia802809.us.archive.org/BookReader/BookReaderPreview.php?id=statisticalmetho0000fish&subPrefix=statisticalmetho0000fish&itemPath=/27/items/statisticalmetho0000fish&server=ia802809.us.archive.org&page=leaf85
+https://ia802809.us.archive.org/BookReader/BookReaderPreview.php?id=statisticalmetho0000fish&subPrefix=statisticalmetho0000fish&itemPath=/27/items/statisticalmetho0000fish&server=ia802809.us.archive.org&page=leaf84
+docs/frequentist/
+
+# neyman pearson curves
+https://royalsocietypublishing.org/doi/epdf/10.1098/rsta.1933.0009
+page 17/49
+docs/frequentist/
+
+
+# atlas higgs 4L
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2020-07/
+https://arxiv.org/abs/2207.00320
+figures/searches_atlas_higgs_4l_2207_00320.pdf
+
+# coins
+Rosencrantz and Guildenstern Are Dead full text.pdf
+p14: ROS: It was tails
+
+p11: PLAYER: Well... head
+eight times here
+
+ninety two previously
+"ninety-two consecutive times"
+
+% atlas stats error bars
+
+
+% cls origin
+- origin: 1988, does not confuse p-value with CL zech1988cls
+
+
+- 1997: uses CLs, some bizarre statements https://cds.cern.ch/record/2627667
+such as
+"It is commonly said that this modi ed frequentist pro cedure (as it will b e called here) is
+p erformed in order to obtain conservative limits on the signal hyp othesis, but a b etter
+interpretation is that it gives an approximation to the con dence in the signal hyp othesis,
+CL s , one might have obtained if the exp eriment had b een p erformed in the absence of
+background, or in other words, if it had b een p ossible to make a precise correction to the
+data for the presence of background"
+
+- refers to Murray https://cds.cern.ch/record/002627411
+
+- Murray heretic paper  refers to:
+M. Barnett et al., Physical Review D54, 1 (1996)
+for a special case
+
+refers to a formula from PDG 1994
+https://journals.aps.org/prd/abstract/10.1103/PhysRevD.50.1173
+
+- PDG https://journals.aps.org/prd/abstract/10.1103/PhysRevD.50.1173
+Confuses CL and p-value! 16. Probability 1273, Equation 16.22
+Sets limit where p-value ratio meets a threshold
+    17. Statistics 1281, Equation 17.35
+
+Physics-Letters-B-1988-v204: finds limit by setting integral equal to CL
+before and after have confusions defining CL as tail area
+    does include Helene limit
+
+1986 back to defining CL = tail area
+    does not include Helene limit?
+
+1984 still CL
+
+% nice textbooks that are cited by PDG 1984
+% - do not confuse confidence level with tail p-value
+% - do waste most of their text on tail areas
+% both also discuss likelihood intervals, mostly in Gaussian limit still
+% for contained area
+~\cite{
+eadie1971statistical,
+frodesen1979probability
+}
+
+
+So:
+
+Zech 1988
+Simultaneously PDG 1988 give Zech result but cite Helene that does not include it
+Both interpret the ratio as a probability
+
+CL confusion began earlier ~ 1984
+
+pdg 2022 claims
+"The CLsprocedure has the attractive feature that the resulting intervals
+coincide with thoseobtained from the Bayesian method in two important cases:
+the mean value of a Poisson or Gaussiandistributed measurement with a constant prio"
+
+% 1997 Read advocating CLs read1997optimal
+% 1998 LEP combination using CLs and others: bock1998lower
+% 1998 report with some more detail: etde1998prospects
+
+A L Read was in Delphi
+
+% "https://cds.cern.ch/record/512626/files/0108002.pdf"
+for details of the combination method see e.g., Appendix A: Combined confidence levels in CERN-
+EP/2000-055, by the LEP Higgs Working Group.
+
+etde1998prospects cites read1997optimal for method
+
+% Misrepresentation of pvalues
+
+%% probability of compatibility
+https://www.sciencedirect.com/science/article/pii/S0370269318307056?via%3Dihub
