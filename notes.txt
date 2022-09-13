@@ -290,6 +290,7 @@ the mean value of a Poisson or Gaussiandistributed measurement with a constant p
 % 1998 report with some more detail: etde1998prospects
 
 A L Read was in Delphi
+https://www.mn.uio.no/fysikk/english/people/aca/read/
 
 % "https://cds.cern.ch/record/512626/files/0108002.pdf"
 for details of the combination method see e.g., Appendix A: Combined confidence levels in CERN-
