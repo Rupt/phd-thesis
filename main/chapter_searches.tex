@@ -566,7 +566,7 @@ gelman2008objections,
 DAgostini:1994fjx,
 DAgostini:2010hil,
 cowan1998statistical,
-pdg2020review
+pdg2022ynf
 }.
 Bayes' rule has two outputs, and both outputs have uses.
 Cutting out the evidence hamstrings Bayesian analysis, leaving only the
@@ -1060,7 +1060,7 @@ value of an estimate --- over the distribution for alternative data --- should
 equal its known true value~\cite{
 sheynin1989aa,
 Neyman1937Outline,
-pdg2020review
+pdg2022ynf
 }.
 Defining bias as a difference from a mean fails to be coordinate invariant,
 so an unbiased estimate of the variance $\bar{\sigma}^2$ is a biased
@@ -1075,12 +1075,12 @@ useful estimates,%
 Problem~1.14 of~\cite{lehmann2005testing} has a delightful example of
 estimating an exponentiated a Poisson mean $e^\mu$ from $n$ data
 where the unique unbiased estimate is $(-1)^{n + 1}$.
-Section~17.3 of~\cite{jaynes2003probability} shows similar nonsense for
+Section~17.3 of~\cite{jaynes2003probability} finds similar nonsense for
 unbiased estimates of $\mu^2$ and $\exp(-\mu)$.%
 }
 or by obfuscating those estimates with bias corrections.
 Remaining uses of unbiasedness in High Energy Physics~\cite{
-pdg2020review,
+pdg2022ynf,
 Tullythesis,
 lhcb2018563,
 LHCb:2021trn,
@@ -1402,15 +1402,20 @@ lemma states that there is no ordering that further optimizes the selected
 signal-to-background ratio.
 
 Neyman and Pearson were also involved in the development of
-`confidence intervals', which are ranges of parameters that are accepted by the
-\pvalue\ decision rules~\cite{
+`confidence intervals', which are essentially ranges of parameters that are
+accepted by the \pvalue\ decision rules~\cite{
 clopper1934confidence,
 neyman1935Intervals,
 Neyman1937Outline
-}.
-A parameter corresponds to an hypothesis which assigns a prior distribution over
-data, and those data for which an obeisant researcher accepts the hypothesis
-have probabilities that sum to $\gamma = 1 - \alpha$.
+}.%
+\footnote{%
+Confidence are usually introduced by endpoints containing constrained
+probability mass, but the arbitrary choice of test statistic can always reduce
+that to this \pvalue\ form.%
+}
+A parameter corresponds to an hypothesis that assigns a prior distribution to
+plausible data, and those data for which an obeisant researcher accepts the
+hypothesis have probabilities that sum to $\gamma = 1 - \alpha$.
 This $\gamma$ is known as the `confidence level'.
 Such a rule selects a set of favoured data for each hypothesis, and the
 confidence interval (when it can be constructed) contains hypotheses for which
@@ -1581,10 +1586,14 @@ Murray2010heretic
 \end{equation}
 These \pvalues\ are sometimes labelled $\clsb = P(s + b)$ and $\clb = P(b)$
 Some literature also defines $\clb = 1 - p_b$~\cite{
-Cowan:2010js
+Cowan:2010js,
+pdg2022ynf
 },
 where $p_b$ is not quite a \pvalue\ if it excludes equality with the test
 statistic.
+
+\TODO{CL \pvalue~\cite{pdg1984}}
+\TODO{Helene ~\cite{pdg1988}}
 
 textbooks cited by pdg~\cite{
 eadie1971statistical,
