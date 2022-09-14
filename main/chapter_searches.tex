@@ -1158,7 +1158,7 @@ $r=0.3$ and
 $r=0.95$, finding $p$-values
 $P(r=0.3)=0.142$ and
 $P(r=0.95)=0.00014$.
-``Thus'', Fisher concludes, ``the value $0.95$\ldots is roughly $1000$ times
+``Thus'', Fisher concludes, ``the value $0.95$\ldots\ is roughly $1000$ times
 less likely than $0.30$''
 (``when measured on the $r$ scale'').
 By writing `likely', Fisher is carefully not referencing the probability
@@ -1509,7 +1509,7 @@ analysis at the LHC and specifically towards the \atlas\ search that this
 thesis presents.
 
 Misrepresentations of \pvalues\ (and other frequentist statistics) are
-widespread and widely reported~\cite{
+widespread and widely reported in areas of science that still use them~\cite{
 schervish1996p,
 Cohen1994TheEI,
 Amrhein2017TheEI,
@@ -1519,11 +1519,9 @@ Bernstein2016princess,
 wagenmakers2007practical,
 Trafimow2015ban
 }.
-For example, the idea of ``probability of compatibility'' with a model~\cite{
-HIGG-2018-04
-}
-appears to be spreading as a good meme~\cite{dawkins1989selfish} in
-High Energy Physics~\cite{
+For example, the false presentation as a ``probability of compatibility'' with
+a model~\cite{HIGG-2018-04} appears to be spreading as a good
+meme~\cite{dawkins1989selfish} in High Energy Physics ~\cite{
 HIGG-2017-09,
 HIGG-2018-27,
 HIGG-2018-51,
@@ -1535,8 +1533,20 @@ langford2021combination,
 IceCube2013search,
 IceCube2014searches,
 gerasimov2021new
-},
-as plausibly explained by mutations from vaguely accurate statements like
+},%
+\footnote{%
+A draft of~\cite{HIGG-2018-51} stated that a \pvalue\ determined
+``the probability that the background-only hypothesis is compatible with the
+observed data''.
+That text was removed in response to my internal comments, but
+``probability of compatibility'' remains in its figure captions.%
+}%
+\footnote{%
+Reference~\cite{HIGG-2018-57} accurately describes a \pvalue\ as a tail
+probability, but also (repeatedly) states that a
+``probability of compatibility\ldots\ corresponds to a \pvalue''.%
+}%
+and is plausibly explained by mutations from vaguely accurate statements like
 ``compatible with the SM prediction with a $P$ value of $0.10\%$''~\cite{
 lhcb2021test
 }
@@ -1544,15 +1554,28 @@ to precisely inaccurate statements like
 ``a probability of around $0.1\%$ that the data is compatible with the
 Standard Model predictions''~\cite{cern2021test}.
 
-There also exists a notion that a small \pvalue\ is significant because
-it is a rare fluctuation~\cite{murray1997use}.
-All \pvalues\ are rare ---
-by construction, they are uniformly distributed, so the
-probability of $P(h) < \varepsilon$ is equal to the probability of
-$0.4 \leq P(h) < 0.4 + \varepsilon$ or any other $\varepsilon$-sized set
+There also exists a notion that a small \pvalue\ means that the data
+represent a rare fluctuation~\cite{murray1997use, atlas2022pvalue}.%
+\footnote{%
+The \atlas\ Glossary of Terms~\cite{atlas2022pvalue} falsely states that
+``The \textbf{p-value} is the probability (ranging from $0$ to $1$) that the
+results observed could have occurred by chance, if the tested theory has no
+impact on the study.''%
+}
+All \pvalues\ are rare.
+By construction, they are uniformly distributed between $0$ and $1$, so the
+probability that $P(h) < \varepsilon$ is equal to the probability that
+$0.4 \leq P(h) < 0.4 + \varepsilon$ or that it lands in any
+$\varepsilon$-sized set
 (if the data are indeed sampled under $h$).
 What matters to our interpretation is whether or not an alternative hypothesis
 makes the observed result \emph{more probable}.
+
+\TODO{positive message:
+not meant only to disparage our lies, but to indicate that these explanations
+arise to fill a hole of confusion that we can fill by reporting interpretable
+statistics such as $\log$ likelihood ratios.
+}
 
 \begin{figure}[tp]
 \centering
@@ -1561,8 +1584,8 @@ makes the observed result \emph{more probable}.
 \includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_n.pdf}
 \caption{%
 (left) \pvalues\ for Poisson data,
-and (right) $\log$ likelihood ratios and $\log$ $\cls$ values between
-Poisson background and signal-plus-background models.%
+and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
+background and signal-plus-background models.%
 }
 \end{subfigure}
 \caption[
@@ -1570,7 +1593,13 @@ Analysis of a minimal Poisson modelling example in the natural order.
 test statistics
 ]{%
 Analysis of a minimal Poisson modelling example with $t(n) = \pm n$
-test statistics.
+test statistics; $b = 4.3$ and $s = 3.0$.
+The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
+(in fact linearly) related to the likelihood ratio.
+Each $\cls$ is a ratio between signal-plus-background and background-only
+\pvalues\ as defined in Equation~\ref{eqn:searches_cls}.
+By reducing the observed data to an inequality, the $p$-value selectively
+censors some of its information.
 }
 \label{fig:searches_sb_n}
 \end{figure}
@@ -1582,8 +1611,7 @@ test statistics.
 \centering
 \includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_order.pdf}
 \caption{%
-Data reordered by the maximum likelihood ratio test statistic with a background
-expectation $b=4.3$.
+Ordering the data by a maximum likelihood ratio test statistic.
 }
 \end{subfigure}
 \\[.5em]
@@ -1592,8 +1620,8 @@ expectation $b=4.3$.
 \includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_t.pdf}
 \caption{%
 (left) \pvalues\ for Poisson data,
-and (right) $\log$ likelihood ratios and $\log$ $\cls$ values between
-Poisson background and signal-plus-background models.%
+and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
+background and signal-plus-background models.%
 }
 \end{subfigure}
 \caption[
@@ -1602,7 +1630,13 @@ test statistics
 ]{%
 Analysis of a minimal Poisson modelling example with maximum likelihood ratio
 test statistics $t(n) = \pm \Lambda(n)$,
-where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$.
+where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$; $b = 4.3$ and $s = 3.0$.
+This test statistic jumbles up the data into an that makes $n=11$ appear to be
+weaker support for the signal than $n=9$.
+Each $\cls$ is a ratio between signal-plus-background and background-only
+\pvalues\ as defined in Equation~\ref{eqn:searches_cls}.
+By reducing the observed data to an inequality, the $p$-value selectively
+censors some of its information.
 }
 \label{fig:searches_sb_t}
 \end{figure}
@@ -1636,6 +1670,7 @@ pdg2022ynf
 }
 and defined as
 \begin{equation}
+\label{eqn:searches_cls}
 \cls
 =
 \frac{P(s + b)}{P(b)\hphantom{s +\;}}
@@ -1779,3 +1814,6 @@ bins and a regularization term $\log f$ that is maximized in fitting.
 lhcb2021test article: compatible with the SM prediction with a P value of 0.10\%
 cern:  probability of around 0.1\% that the data is compatible with the Standard Model predictions
 https://home.cern/news/news/physics/intriguing-new-result-lhcb-experiment-cern
+
+
+\TODO{Statistical and systematic uncertainties}
