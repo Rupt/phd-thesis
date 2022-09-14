@@ -79,14 +79,14 @@ the standard perturbative approximation is
 = \mu_a \mu_b \sqrt{\sigma_a^2/\mu_a^2 + \sigma_b^2/\mu_b^2}
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2
 \),
-but a short calculation with their moments derives the exact result
+but a calculation with their moments derives the exact result
 \(
 \sigma_{ab}
 = \sqrt{(\mu_a^2 + \sigma_a^2)(\mu_b^2 + \sigma_b^2) - \mu_a^2\mu_b^2}
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2 + \sigma_a^2 \sigma_b^2
 \)
 if $a$ and $b$ are independent.
-Since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$, this
+Since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$, the
 propagation formula works only for small relative errors.
 }
 All effective methods of data analysis can be derived upwards from the roots of
@@ -125,8 +125,8 @@ All probabilities are conditional in this definition; $\probc{b}$ alone does
 not exist unless some conditioning information is implicit from context.%
 }
 
-Logic is an important application of probability for which $a$ and $b$ are
-interpreted as logical propositions, and
+Logic is an important application of probability, for which $a$ and $b$ are
+interpreted as logical propositions and
 $\prob{b}{a}$ is the degree to which $a$ implies $b$, with the limiting cases
 that $\prob{b}{a} = 1$ when $a$ implies $b$, and $\prob{b}{a} = 0$ when $a$
 contradicts $b$.
@@ -139,6 +139,11 @@ jaynes2003probability,
 keynes1920treatise
 }.
 Probability works for logic, and it works \emph{for tea, too}.
+
+Probability \emph{distributions} $\prob{b}{a}$ spread unit probability mass
+across states $b$, and need not be random distributions of fluctuating
+$b$s~\cite{jaynes2003probability,frankfurt2005on}, although random processes
+are useful applications.
 
 Two algebraic rules derive from Equation~\ref{eqn:searches_prob_ratio}:
 a \textbf{product rule}
@@ -243,7 +248,7 @@ Alternatively, fixing the context gives a \textbf{prior}%
 \pi(b) &= \prob{b}{a}
 \label{eqn:searches_prior}
 \end{align}
-for fixed $a$, which is a normalized distribution over disjoint states $b$.
+for fixed $a$, which is a normalized probability distribution over $b$.
 
 Since prior probabilities are normalized distributions, it is usually
 convenient to represent them as density functions.
@@ -1402,7 +1407,7 @@ lemma states that there is no ordering that further optimizes the selected
 signal-to-background ratio.
 
 Neyman and Pearson were also involved in the development of
-`confidence intervals', which are essentially ranges of parameters that are
+`confidence intervals', which are ranges of parameters that are
 accepted by the \pvalue\ decision rules~\cite{
 clopper1934confidence,
 neyman1935Intervals,
@@ -1410,8 +1415,8 @@ Neyman1937Outline
 }.%
 \footnote{%
 Confidence are usually introduced by endpoints containing constrained
-probability mass, but the arbitrary choice of test statistic can always reduce
-that to this \pvalue\ form.%
+probability mass, but this \pvalue\ form can always satisfy that through the
+free choice of test statistic and extends naturally beyond one dimension.%
 }
 A parameter corresponds to an hypothesis that assigns a prior distribution to
 plausible data, and those data for which an obeisant researcher accepts the
@@ -1571,38 +1576,140 @@ $\varepsilon$-sized set
 What matters to our interpretation is whether or not an alternative hypothesis
 makes the observed result \emph{more probable}.
 
-\TODO{positive message:
-not meant only to disparage our lies, but to indicate that these explanations
-arise to fill a hole of confusion that we can fill by reporting interpretable
-statistics such as $\log$ likelihood ratios.
+Such misrepresentations of our results reinforces the need for clearer
+replacements, which $\log$ likelihood ratios can provide.
+And standard practice at the LHC contains the beginnings of such
+replacements under the name $\cls$~\cite{
+read2000modified,
+Read2002cls,
+junk1999confidence,
+read1997optimal,
+bock1998lower,
+etde1998prospects,
+lep2000searches,
+lep2003search,
+Murray2010heretic,
+CMS-NOTE-2011-005,
+pdg2022ynf
+},
+which is used for setting upper limits on disfavoured signal yields $s$
+above background yields $b$;
+\begin{equation}
+\label{eqn:searches_cls}
+\cls
+=
+\frac{P(s + b)}{P(b)\hphantom{s +\;}}
+=
+\frac{
+\prob{t \geq \tilde{t}}{s + b}
+}{
+\prob{t \geq \tilde{t}}{b}\hphantom{s +\;}
 }
+,
+\end{equation}
+in which the individual \pvalues\ are named
+$\clb = P(b)$ and
+$\clsb = P(s + b)$.%
+\footnote{%
+Despite the $\mathrm{CL}$ labels, these ($\cls$, $\clsb$, and $\clb$) are
+not confidence levels ---
+a confidence level $\gamma$ is a decision boundary used, for example,
+to assign limits by solving for $x$ such that
+$\gamma = 1 - P(x)$~\cite{pdg1996}.
+In particle physics, \pvalues\ have sometimes been labelled $\mathrm{CL}$ since
+at least 1984~\cite{pdg1984}, although textbooks from the '70s (which are cited
+by~\cite{pdg1984}) do make the distinction~\cite{
+eadie1971statistical,
+frodesen1979probability
+}.%
+}%
+\footnote{%
+Some literature defines $\clb = 1 - p_b$~\cite{
+Cowan:2010js,
+pdg2022ynf
+};
+$p_b$ might not be a \pvalue\ if it excludes equality with the observed
+test statistic.
+}%
+As discussed in Section~\ref{sec:searches_fisher}, \pvalues\ are likelihoods
+on obfuscated data, so (with some caution) $\cls$ can be interpreted as a
+likelihood ratio.%
+\footnote{%
+Likelihood ratios are useful if both their numerator and denominator use the
+same data, so $\clsb$ and $\clb$ should use the same test statistic.
+Identical test statistics are used for all results in presented in this thesis,
+but differing test statistics have been allowed elsewhere~\cite{bock1998lower}.
+}%
+At a given confidence level $\gamma$ (typically $95\%$), limits are set to
+values of $s$ for which $\cls = 1 - \gamma$.
 
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_n.pdf}
-\caption{%
-(left) \pvalues\ for Poisson data,
-and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
-background and signal-plus-background models.%
-}
 \end{subfigure}
 \caption[
-Analysis of a minimal Poisson modelling example in the natural order.
-test statistics
+A Poisson modelling example in the natural order.
 ]{%
-Analysis of a minimal Poisson modelling example with $t(n) = \pm n$
-test statistics; $b = 4.3$ and $s = 3.0$.
+A Poisson modelling example with $t(n) = \pm n$
+test statistics, $b = 4.3$ and $s = 3.0$.
+(left) \pvalues,
+and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
+background and signal-plus-background models.
 The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
-(in fact linearly) related to the likelihood ratio.
-Each $\cls$ is a ratio between signal-plus-background and background-only
-\pvalues\ as defined in Equation~\ref{eqn:searches_cls}.
+(linearly) related to the likelihood ratio.
+Each $\cls$ is a \pvalue ratio.
 By reducing the observed data to an inequality, the $p$-value selectively
 censors some of its information.
 }
 \label{fig:searches_sb_n}
 \end{figure}
+
+Early forms of $\cls$ derived it from an identity with posterior tail
+probabilities in Poisson or Gaussian special cases~\cite{
+Helene1983upper,
+pdg1988,
+read2000modified,
+pdg2022ynf
+}
+with a contrived frequentist interpretation~\cite{zech1988cls}.
+For use in general cases, it is more recently described as a
+``modified frequentist'',
+``approximate confidence in the signal-only hypothesis''~\cite{
+read2000modified,
+Read2002cls
+}.
+High-profile usage in Higgs boson searches at the
+Large Electron–Positron Collider~\cite{
+read1997optimal,
+bock1998lower,
+etde1998prospects,
+junk1999confidence,
+lep2000searches,
+lep2003search
+}
+appears to have propelled $\cls$ to prominence.
+These early applications used data deficits to exclude their
+background-plus signal models with the test statistic $t(n) = -n$, but
+disliked how deficits led to small \pvalues\ for the background-only model.
+Such \pvalues\ are illustrated in Figure~\ref{fig:searches_sb_n} (left);
+in contrast, $\cls$ (shown on the right of this figure) can only favour the
+background-only model.
+
+\TODO{also show actual likelihood ratio}
+\TODO{this implements a form of propaganda that speaks only truth while
+censoring all information that supports alternative ideas}
+\TODO{The one-sided nature of this evidence is paradoxical, but has
+resolutions.}
+\TODO{If an analysis were able to `is $n \geq 5$?', it could be answered in the
+affirmative or negative, and would avoid this bias.}
+\TODO{Otherwise, one can fall back to not trusting the reporter ---
+the statements `\atlas\ reports $n \geq 0$' and `$n \geq 0$' are not identical
+since the first might suggest that in fact $n = 0$, so wise likelihoods can be
+could recover the original data.
+One knows what the message says, but not whether it states the whole truth.
+}
 
 
 \begin{figure}[tp]
@@ -1611,7 +1718,7 @@ censors some of its information.
 \centering
 \includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_order.pdf}
 \caption{%
-Ordering the data by a maximum likelihood ratio test statistic.
+Ordering the data by a maximum likelihood ratio test statistic with $b=4.3$.
 }
 \end{subfigure}
 \\[.5em]
@@ -1633,18 +1740,16 @@ test statistics $t(n) = \pm \Lambda(n)$,
 where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$; $b = 4.3$ and $s = 3.0$.
 This test statistic jumbles up the data into an that makes $n=11$ appear to be
 weaker support for the signal than $n=9$.
-Each $\cls$ is a ratio between signal-plus-background and background-only
-\pvalues\ as defined in Equation~\ref{eqn:searches_cls}.
+Each $\cls$ is \pvalue\ ratio.
 By reducing the observed data to an inequality, the $p$-value selectively
 censors some of its information.
 }
 \label{fig:searches_sb_t}
 \end{figure}
 
-Figure~\ref{fig:searches_sb_n}
 Figure~\ref{fig:searches_sb_t}
 
-\TODO{n test stat and history first?}
+\TODO{refresh}
 For example, maximum likelihood ratios (and variations on their theme) are
 useful and commonly applied, but they can give \pvalues\ that appear
 pathological --- consider a Poisson background ($b$) added to an
@@ -1658,84 +1763,6 @@ This scrambles excesses and deficits together in the same tail, so both get
 small \pvalues, and so a small \pvalue\ implies neither a preference for the
 signal hypothesis nor incompatibility with the background.
 
-As discussed in Section~\ref{sec:searches_fisher}, \pvalues\ are likelihoods
-on obfuscated data, so they are interpretable in likelihood ratios, and such
-\pvalue\ ratios are in fact standard practice at the LHC when setting upper
-limits on disfavoured signal models.
-The standard ratio is named $\cls$~\cite{
-read2000modified,
-Read2002cls,
-Murray2010heretic,
-pdg2022ynf
-}
-and defined as
-\begin{equation}
-\label{eqn:searches_cls}
-\cls
-=
-\frac{P(s + b)}{P(b)\hphantom{s +\;}}
-=
-\frac{
-\prob{t \geq \tilde{t}}{s + b}
-}{
-\prob{t \geq \tilde{t}}{b}\hphantom{s +\;}
-}
-,
-\end{equation}
-in which the individual \pvalues\ are labelled
-$\clb = P(b)$ (for background only) and
-$\clsb = P(s + b)$ (for signal plus background).%
-\footnote{%
-Despite the $\mathrm{CL}$ labels, these ($\cls$, $\clsb$, and $\clb$) are
-not confidence levels ---
-a confidence level $\gamma$ is a decision boundary used, for example,
-to assign limits by solving for $x$ such that
-$\gamma = 1 - P(x)$~\cite{pdg1996}.
-In particle physics, \pvalues\ have sometimes been labelled $\mathrm{CL}$ since
-at least 1984~\cite{pdg1984}, although textbooks from the '70s (which are cited
-by~\cite{pdg1984}) do make the distinction~\cite{
-eadie1971statistical,
-frodesen1979probability
-}.%
-}
-Some literature also defines $\clb = 1 - p_b$~\cite{
-Cowan:2010js,
-pdg2022ynf
-},
-but $p_b$ may not quite be a \pvalue\ if it excludes equality with the observed
-test statistic.
-
-% history: bayes uniform prior in special cases
-% just an approximation
-% use for Higgs at LEP to avoid spurious rejection of bkg
-LEP Higgs boson searches~\cite{
-read1997optimal,
-bock1998lower,
-etde1998prospects,
-junk1999confidence,
-lep2000searches
-}
-
-credible intervals in simple Poisson or Gaussian cases~\cite{
-Helene1983upper,
-pdg1988,
-pdg2022ynf
-}
-
-origins~\cite{
-pdg1988,
-zech1988cls,
-bock1998lower,
-read1997optimal,
-Read2002cls,
-Murray2010heretic
-}
-
-\TODO{CL \pvalue~\cite{pdg1984, murray1997use}}
-\TODO{Helene~\cite{pdg1988}}
-\TODO{LEP~\cite{etde1998prospects, lep2000searches, lep2003search}}
-
-\TODO{Alas, slightly different test statistics }
 
 % significance measures
 The ATLAS-recommended significance measure~\cite{atlas_significance} is
