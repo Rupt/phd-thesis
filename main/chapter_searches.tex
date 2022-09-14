@@ -1524,14 +1524,14 @@ HIGG-2018-04
 }
 appears to be spreading as a good meme~\cite{dawkins1989selfish} in
 High Energy Physics~\cite{
+HIGG-2017-09,
 HIGG-2018-27,
 HIGG-2018-51,
 EXOT-2018-08,
 HION-2018-19,
-HIGG-2017-09,
-langford2021combination,
 mastrandrea2019searches,
 white2019search,
+langford2021combination,
 IceCube2013search,
 IceCube2014searches,
 gerasimov2021new
@@ -1549,11 +1549,68 @@ it is a rare fluctuation~\cite{murray1997use}.
 All \pvalues\ are rare ---
 by construction, they are uniformly distributed, so the
 probability of $P(h) < \varepsilon$ is equal to the probability of
-$0.4 \leq P(h) < 0.4 + \varepsilon$ or any other $\varepsilon$-sized set.
-If, that is, the data are sampled under $h$ ---
-what matters to the interpretation is whether an alternative hypothesis makes
-the observed result \emph{more probable}.
+$0.4 \leq P(h) < 0.4 + \varepsilon$ or any other $\varepsilon$-sized set
+(if the data are indeed sampled under $h$).
+What matters to our interpretation is whether or not an alternative hypothesis
+makes the observed result \emph{more probable}.
 
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_n.pdf}
+\caption{%
+(left) \pvalues\ for Poisson data,
+and (right) $\log$ likelihood ratios and $\log$ $\cls$ values between
+Poisson background and signal-plus-background models.%
+}
+\end{subfigure}
+\caption[
+Analysis of a minimal Poisson modelling example in the natural order.
+test statistics
+]{%
+Analysis of a minimal Poisson modelling example with $t(n) = \pm n$
+test statistics.
+}
+\label{fig:searches_sb_n}
+\end{figure}
+
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_order.pdf}
+\caption{%
+Data reordered by the maximum likelihood ratio test statistic with a background
+expectation $b=4.3$.
+}
+\end{subfigure}
+\\[.5em]
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_t.pdf}
+\caption{%
+(left) \pvalues\ for Poisson data,
+and (right) $\log$ likelihood ratios and $\log$ $\cls$ values between
+Poisson background and signal-plus-background models.%
+}
+\end{subfigure}
+\caption[
+Analysis of a minimal Poisson modelling example with maximum likelihood ratio
+test statistics
+]{%
+Analysis of a minimal Poisson modelling example with maximum likelihood ratio
+test statistics $t(n) = \pm \Lambda(n)$,
+where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$.
+}
+\label{fig:searches_sb_t}
+\end{figure}
+
+Figure~\ref{fig:searches_sb_n}
+Figure~\ref{fig:searches_sb_t}
+
+\TODO{n test stat and history first?}
 For example, maximum likelihood ratios (and variations on their theme) are
 useful and commonly applied, but they can give \pvalues\ that appear
 pathological --- consider a Poisson background ($b$) added to an
@@ -1568,15 +1625,16 @@ small \pvalues, and so a small \pvalue\ implies neither a preference for the
 signal hypothesis nor incompatibility with the background.
 
 As discussed in Section~\ref{sec:searches_fisher}, \pvalues\ are likelihoods
-on obfuscated data, so they can be interpreted in ratios.
-When setting upper limits on disfavoured signal models at the LHC,
-it is standard practice to use such \pvalue\ ratios name $\cls$~\cite{
+on obfuscated data, so they are interpretable in likelihood ratios, and such
+\pvalue\ ratios are in fact standard practice at the LHC when setting upper
+limits on disfavoured signal models.
+The standard ratio is named $\cls$~\cite{
 read2000modified,
 Read2002cls,
 Murray2010heretic,
 pdg2022ynf
-},
-which defined as
+}
+and defined as
 \begin{equation}
 \cls
 =
@@ -1587,21 +1645,23 @@ which defined as
 }{
 \prob{t \geq \tilde{t}}{b}\hphantom{s +\;}
 }
-.
+,
 \end{equation}
-These individual \pvalues\ are sometimes labelled
-$\clsb = P(s + b)$ and $\clb = P(b)$.%
+in which the individual \pvalues\ are labelled
+$\clb = P(b)$ (for background only) and
+$\clsb = P(s + b)$ (for signal plus background).%
 \footnote{%
-Despite the $\mathrm{CL}$ labels, these are not confidence levels ---
-a confidence level $\gamma$ is a boundary at which \pvalues\ are selected, such
-as to set limits by solving for $x$ such that
+Despite the $\mathrm{CL}$ labels, these ($\cls$, $\clsb$, and $\clb$) are
+not confidence levels ---
+a confidence level $\gamma$ is a decision boundary used, for example,
+to assign limits by solving for $x$ such that
 $\gamma = 1 - P(x)$~\cite{pdg1996}.
 In particle physics, \pvalues\ have sometimes been labelled $\mathrm{CL}$ since
-at least 1984~\cite{pdg1984}, although earlier textbooks
-(cited by~\cite{pdg1984}) do make the distinction~\cite{
+at least 1984~\cite{pdg1984}, although textbooks from the '70s (which are cited
+by~\cite{pdg1984}) do make the distinction~\cite{
 eadie1971statistical,
 frodesen1979probability
-}.
+}.%
 }
 Some literature also defines $\clb = 1 - p_b$~\cite{
 Cowan:2010js,
@@ -1639,6 +1699,8 @@ Murray2010heretic
 \TODO{CL \pvalue~\cite{pdg1984, murray1997use}}
 \TODO{Helene~\cite{pdg1988}}
 \TODO{LEP~\cite{etde1998prospects, lep2000searches, lep2003search}}
+
+\TODO{Alas, slightly different test statistics }
 
 % significance measures
 The ATLAS-recommended significance measure~\cite{atlas_significance} is
