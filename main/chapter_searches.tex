@@ -1430,7 +1430,7 @@ Confidence intervals are confusing.
 It is easy to be tricked into thinking that the confidence interval for given
 data `probably' contains the unknown parameter, but that gets it backwards.
 For a known true parameter $x$, the confidence intervals in random repeated
-experiments will contain that $x$ with probability $1 - \alpha$;
+experiments will contain that $x$ with probability $\gamma$;
 the interval makes a subtle statement about unknown alternative data for
 known true parameters.
 Given confidence intervals can even exclude all plausible parameters~\cite{
@@ -1460,8 +1460,8 @@ likelihood function
 L(x) =
 \left\{
 \begin{matrix}
-1 - \alpha & \textrm{if}~x \in x_1\textrm{--}x_2, \\
-\alpha & \textrm{otherwise.} \\
+\gamma & \textrm{if}~x \in x_1\textrm{--}x_2, \\
+1 - \gamma & \textrm{otherwise.} \\
 \end{matrix}
 \right.
 \end{equation}
@@ -1627,8 +1627,8 @@ frodesen1979probability
 Some literature defines $\clb = 1 - p_b$~\cite{
 Cowan:2010js,
 pdg2022ynf
-}, but such a $p_b$ might not be a \pvalue\ if it excludes equality with the
-observed test statistic.
+}, but such a $p_b$ might not be a \pvalue\ when it excludes equality with the
+observed test statistic~\cite{CMS-NOTE-2011-005}.
 }%
 As discussed in Section~\ref{sec:searches_fisher}, \pvalues\ are likelihoods
 on obfuscated data, so (with some caution) $\cls$ can be interpreted as a
