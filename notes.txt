@@ -316,9 +316,36 @@ The following footnote should be used in every ATLAS publication to describe the
 \footnote{%
 ATLAS uses a right-handed coordinate system with its origin at the nominal
 interaction point (IP) in the centre of the detector and the $z$-axis along the
-beam pipe. The $x$-axis points from the IP to the centre of the LHC ring, and
-the $y$-axis points upward. Cylindrical coordinates $(r,\phi)$ are used in the
-transverse plane, $\phi$ being the azimuthal angle around the $z$-axis.
+beam pipe.
+The $x$-axis points from the IP to the centre of the LHC ring, and the $y$-axis
+points upward.
+Cylindrical coordinates $(r,\phi)$ are used in the transverse plane, $\phi$
+being the azimuthal angle around the $z$-axis.
 The pseudorapidity is defined in terms of the polar angle $\theta$ as
 $\eta=-\ln\tan(\theta/2)$.%
 }
+
+% raw detector description from our paper before hacking
+https://gitlab.cern.ch/atlas-physics-office/SUSY/ANA-SUSY-2018-05/ANA-SUSY-2018-05-PAPER/-/blob/master/texfiles/detector.tex
+mostly copypasta from https://twiki.cern.ch/twiki/bin/view/AtlasProtected/EdBoardPrimerStepByStep#Example_from_a_Letter
+
+The ATLAS detector~\cite{PERF-2007-01} is a multipurpose particle detector with a forward--backward symmetric cylindrical geometry and a near \(4\pi\) coverage in solid angle.\footnote{
+ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector and the \(z\)-axis along the beam pipe.
+The \(x\)-axis points from the IP to the centre of the LHC ring, and the \(y\)-axis points upwards.
+Cylindrical coordinates \((r,\phi)\) are used in the transverse plane, \(\phi\) being the azimuthal angle around the \(z\)-axis.
+The pseudorapidity is defined in terms of the polar angle \(\theta\) as \(\eta = -\ln \tan(\theta/2)\).
+Angular distance is measured in units of \(\Delta R \equiv \sqrt{(\Delta\eta)^{2} + (\Delta\phi)^{2}}\).}  %% end footnote
+It consists of an inner tracking detector surrounded by a thin superconducting solenoid providing a \SI{2}{\tesla} axial magnetic field, electromagnetic and hadronic calorimeters, and a muon spectrometer.
+The inner tracking detector covers the pseudorapidity range \(|\eta| < 2.5\).
+It consists of silicon pixel, silicon microstrip, and transition radiation tracking detectors.
+An additional layer of silicon pixels, the  insertable B-layer~\cite{ATLAS-TDR-19,PIX-2018-001}, was installed before Run~2.
+Lead/liquid-argon (LAr) sampling calorimeters provide electromagnetic (EM) energy measurements with high granularity.
+A steel/scintillator-tile hadron calorimeter covers the central pseudorapidity range (\(|\eta| < 1.7\)).
+The endcap and forward regions are instrumented with LAr calorimeters for both the EM and hadronic energy measurements up to \(|\eta| = 4.9\).
+The muon spectrometer surrounds the calorimeters and is based on three large superconducting air-core toroidal magnets with eight coils each.
+The field integral of the toroids ranges between \num{2.0} and \SI{6.0}{\tesla\metre} across most of the detector.
+The muon spectrometer includes a system of precision chambers for tracking and fast detectors for triggering.
+A two-level trigger system is used to select events.
+The first-level trigger is implemented in hardware and uses a subset of the detector information to accept events at a rate below \SI{100}{\kHz}.
+This is followed by a software-based trigger that reduces the accepted event rate to \SI{1}{\kHz} on average depending on the data-taking conditions.
+An extensive software suite~\cite{ATL-SOFT-PUB-2021-001} is used in the reconstruction and analysis of real and simulated data, in detector operations, and in the trigger and data acquisition systems of the experiment.
