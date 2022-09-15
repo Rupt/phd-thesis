@@ -349,3 +349,15 @@ A two-level trigger system is used to select events.
 The first-level trigger is implemented in hardware and uses a subset of the detector information to accept events at a rate below \SI{100}{\kHz}.
 This is followed by a software-based trigger that reduces the accepted event rate to \SI{1}{\kHz} on average depending on the data-taking conditions.
 An extensive software suite~\cite{ATL-SOFT-PUB-2021-001} is used in the reconstruction and analysis of real and simulated data, in detector operations, and in the trigger and data acquisition systems of the experiment.
+
+
+% THEORY
+
+sherpa event diagram
+https://sherpa-team.gitlab.io/monte-carlo.html
+
+% DETECTOR
+
+% ID: pixel, sct (silicon microstrip), TRT (straw tubes)
+
+% CALO: LAr, Tile scintillator
