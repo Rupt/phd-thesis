@@ -1803,10 +1803,18 @@ Cowan:2010js
 },
 and can help to better approximate a likelihood ratio ordering.
 
+A great benefit to these modified maximum likelihood ratios is that their
+sampling distributions have known approximations in asymptotic (Gaussian)
+limits, which assign \pvalues\ through well-behaved analytic
+expressions~\cite{Cowan:2010js}.
+Without such formulae, the remaining practical approach to estimating
+\pvalues\ is to generate Monte Carlo simulations of alternative data.
+Such simulations can be computationally expensive, and even hard to define for
+``likelihood'' models that blur the line between actual data and
+auxiliary model parameters.
+
 
 \subsection{Like-lihood modelling}
-
-
 \TODO{
 on ``likelihood'' models ---
 we are instructed to pretend that these are likelihoods on auxiliary data
