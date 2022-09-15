@@ -305,3 +305,20 @@ https://www.sciencedirect.com/science/article/pii/S0370269318307056?via%3Dihub
 
 grim, ungainly, ghastly, gaunt, and ominous
 Till the dirges of his hope that melancholy burden bore
+
+
+% atlas copypasta
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/CcordinateSystemFootnote
+% Footnote to describe the ATLAS coordinate system
+
+The following footnote should be used in every ATLAS publication to describe the ATLAS coordinate system.
+
+\footnote{%
+ATLAS uses a right-handed coordinate system with its origin at the nominal
+interaction point (IP) in the centre of the detector and the $z$-axis along the
+beam pipe. The $x$-axis points from the IP to the centre of the LHC ring, and
+the $y$-axis points upward. Cylindrical coordinates $(r,\phi)$ are used in the
+transverse plane, $\phi$ being the azimuthal angle around the $z$-axis.
+The pseudorapidity is defined in terms of the polar angle $\theta$ as
+$\eta=-\ln\tan(\theta/2)$.%
+}

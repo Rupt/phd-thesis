@@ -1638,8 +1638,8 @@ likelihood ratio.%
 \footnote{%
 Likelihood ratios are useful if both their numerator and denominator use the
 same data, so $\clsb$ and $\clb$ should use the same test statistic.
-Identical test statistics are used for all results in presented in this thesis,
-but differing test statistics have been allowed elsewhere~\cite{bock1998lower}.
+Identical test statistics are used for all results of this work, but differing
+test statistics have been allowed elsewhere~\cite{bock1998lower}.
 }%
 At a given confidence level $\gamma$ (typically $95\%$), limits are set to
 values of $s$ for which $\cls = 1 - \gamma$.
@@ -1710,12 +1710,13 @@ for the opposite ordering $t(n) = n$.
 The $\log$ likelihood ratio on the actual data does not feature this bias:
 it favours background-only for deficits and background-plus-signal for
 excesses.
-Since
+Since for Poisson models the $\log$ likelihood ratio is linear in $n$,
 \begin{equation}
 \log \frac{L(s + b)}{L(b)}
-= -s + n\log\!\left(1 + \frac{s}{b}\right)
+= n\log\frac{s + b}{b} - s
+,
 \end{equation}
-is linear in $n$, both $n$ and $-n$ are optimal in the Neyman-Pearson sense.
+both $n$ and $-n$ are optimal in the Neyman-Pearson sense.
 
 By using \pvalue\ ratios with Neyman-Pearson optimal test statistic, we have
 constructed an analysis that can only ever favour one hypothesis:
