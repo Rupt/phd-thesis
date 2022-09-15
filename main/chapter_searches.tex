@@ -1523,7 +1523,7 @@ greenland2016no,
 Bernstein2016princess,
 wagenmakers2007practical
 }
-in areas of they are not banned~\cite{Trafimow2015ban}.
+in fields where they are not banned~\cite{Trafimow2015ban}.
 For example, the false presentation as a ``probability of compatibility'' with
 a model~\cite{HIGG-2018-04} appears to be spreading as a good
 meme~\cite{dawkins1989selfish} in High Energy Physics ~\cite{
@@ -1692,11 +1692,12 @@ appears to have propelled $\cls$ to prominence;
 these early applications used data deficits to exclude their
 background-plus signal models with the test statistic $t(n) = -n$, but
 disliked how deficits led to small \pvalues\ for the background-only model,
-with which they might have confusingly set negative limits on the signal.
+with which they might have confusingly set negative limits on the Higgs boson
+signal cross-section.
 Such \pvalues\ are illustrated in Figure~\ref{fig:searches_sb_n} (left)
 for small data counts;
-in contrast, $\cls$ can only favour the background-only model with its negative
-values shown on the right of this figure.
+in contrast, $\cls$ can only favour the background-only model, due to its
+negative values that are shown on the right of the same figure.
 
 Although the statement in Section~\ref{sec:searches_fisher} that \pvalue\
 ratios are not ``not \emph{necessarily} misleading'',
@@ -1712,22 +1713,24 @@ excesses and is indeed linear in $n$:
 = -s + n\log(1 + \frac{s}{b})
 .
 \end{equation}
-Since likelihood ratio is monotonic in $n$, both $n$ and $-n$ are optimal
+Since the likelihood ratio is linear in $n$, both $n$ and $-n$ are optimal
 test statistics by the criteria of the Neyman-Pearson lemma.
 
 By using \pvalue\ ratios with Neyman-Pearson optimal test statistic, we have
 constructed an analysis that can only ever favour one hypothesis:
 we have built a propaganda machine that only ever speaks truth but censors any
 information that supports alternative ideas.
-Reducing data to inequalities $t \geq \tilde{t}$ implements censorship,
-and the likelihood-ratio ordering guarantees the one-sided inferences.
+Reducing data to inequalities $t \geq \tilde{t}$ implements the censorship,
+and the likelihood-ratio ordering guarantees the one-sided inferences
+that appear in Figure~\ref{fig:searches_sb_n} (right) as one-sided
+$\log\cls$ values.
 
-How can one escape from this trap?
+How can one escape this propaganda trap?
 Likelihood ratios on the actual data escape immediately by bypassing the
 censor.
-Even inequalities need not be biased --- if against a predetermined threshold,
-say $5$ events, then models can predict whether or not $n \leq 5$, and its
-truth or falsehood in data can favour either side.%
+Even inequalities need not be biased --- if taken against a predetermined
+threshold, say $5$ events, then models can predict whether or not $n \leq 5$,
+and its truth or falsehood in data can favour either side.%
 \footnote{%
 This reduction to a fixed inequality appears to be the condition for which a
 \pvalue\ ratio is not misleading when interpreted as a likelihood ratio.%
@@ -1735,7 +1738,7 @@ This reduction to a fixed inequality appears to be the condition for which a
 Finally, a reader can fall back to not trusting the reporter ---
 the statements `\atlas\ reports $n \leq 5$' and logical `$n \leq 5$' are not
 identical, since one can infer from the former that in fact $n = 5$.
-They know what the message says, but not whether it states the whole truth.
+They know what the message says, but not that it states the whole truth.
 
 \begin{figure}[tp]
 \centering
@@ -1808,7 +1811,6 @@ n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
 \end{align}
 in an appropriate limit where $0\log(0x) = 0$ for the $n=0$ case.
 
-
 \TODO{
 on ``likelihood'' models ---
 we are instructed to pretend that these are likelihoods on auxiliary data
@@ -1831,23 +1833,9 @@ I know of no tangible benefit from pretending that something is a likelihood
 when it is not.
 }
 
-
-probability of compatibility~\cite{
-HIGG-2018-04,
-HIGG-2018-27,
-IceCube2013search,
-lhcb2021test,
-cern2021test
-}
-
-mix $p$-value with posterior tail~\cite{lhcb2017test}
-
-\subsection{Searches}
-\label{sec:searches_searches}
-% histograms, CR VR SR, systematics
-% histfactory
-
+\TODO{histfactory}
 \TODO{minimize energy not max logf}
+
 To model the consequences of these many factors of uncertainty, each factor is
 assigned a real-valued parameter, which when varied changed the expected yields
 in the histogram bins of the search.
@@ -1862,10 +1850,10 @@ bins and a regularization term $\log f$ that is maximized in fitting.
 \pyhf~\cite{heinrich2021pyhf}
 \histfitter~\cite{Besjes_2015,baak2015histfitter}
 
-
-lhcb2021test article: compatible with the SM prediction with a P value of 0.10\%
-cern:  probability of around 0.1\% that the data is compatible with the Standard Model predictions
-https://home.cern/news/news/physics/intriguing-new-result-lhcb-experiment-cern
+\TODO{uncertainties: systematics, statistical}
 
 
-\TODO{Statistical and systematic uncertainties}
+\subsection{\atlas\ SUSY searches}
+\label{sec:searches_searches}
+
+\TODO{CR VR SR}
