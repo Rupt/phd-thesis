@@ -1317,6 +1317,7 @@ Neyman and Pearson argued for the interest in likelihood ratios, and further
 considered their use as test statistics~\cite{neymanpearson1928max};
 they also considered \emph{maximum} likelihood ratios
 \begin{equation}
+\label{eqn:searches_max_like_ratio}
 \Lambda =
 \frac{L(h_1)}{\mathrm{max}_i\,L(h_i)}
 \end{equation}
@@ -1576,6 +1577,7 @@ $\varepsilon$-sized set
 What matters to our interpretation is whether or not an alternative hypothesis
 makes the observed result \emph{more probable}.
 
+\subsection{\texorpdfstring{$\cls$}{CLs}}
 Such misrepresentations of our results reinforces the need for clearer
 replacements, which $\log$ likelihood ratios can provide.
 And standard practice at the LHC contains the beginnings of such
@@ -1589,7 +1591,7 @@ etde1998prospects,
 lep2000searches,
 lep2003search,
 Murray2010heretic,
-CMS-NOTE-2011-005,
+cern2011procedure,
 pdg2022ynf
 },
 which is used for setting upper limits on disfavoured signal yields $s$
@@ -1628,7 +1630,7 @@ Some literature defines $\clb = 1 - p_b$~\cite{
 Cowan:2010js,
 pdg2022ynf
 }, but such a $p_b$ might not be a \pvalue\ when it excludes equality with the
-observed test statistic~\cite{CMS-NOTE-2011-005}.
+observed test statistic~\cite{cern2011procedure}.
 }%
 As discussed in Section~\ref{sec:searches_fisher}, \pvalues\ are likelihoods
 on obfuscated data, so (with some caution) $\cls$ can be interpreted as a
@@ -1710,7 +1712,7 @@ it favours background-only for deficits and background-plus-signal for
 excesses and is indeed linear in $n$:
 \begin{equation}
 \log \frac{L(s + b)}{L(b)}
-= -s + n\log(1 + \frac{s}{b})
+= -s + n\log\!\left(1 + \frac{s}{b}\right)
 .
 \end{equation}
 Since the likelihood ratio is linear in $n$, both $n$ and $-n$ are optimal
@@ -1725,26 +1727,11 @@ and the likelihood-ratio ordering guarantees the one-sided inferences
 that appear in Figure~\ref{fig:searches_sb_n} (right) as one-sided
 $\log\cls$ values.
 
-How can one escape this propaganda trap?
-Likelihood ratios on the actual data escape immediately by bypassing the
-censor.
-Even inequalities need not be biased --- if taken against a predetermined
-threshold, say $5$ events, then models can predict whether or not $n \leq 5$,
-and its truth or falsehood in data can favour either side.%
-\footnote{%
-This reduction to a fixed inequality appears to be the condition for which a
-\pvalue\ ratio is not misleading when interpreted as a likelihood ratio.%
-}
-Finally, a reader can fall back to not trusting the reporter ---
-the statements `\atlas\ reports $n \leq 5$' and logical `$n \leq 5$' are not
-identical, since one can infer from the former that in fact $n = 5$.
-They know what the message says, but not that it states the whole truth.
-
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.5\textwidth}
+\begin{subfigure}{\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_order.pdf}
+\includegraphics[width=0.5\textwidth]{figures/searches_cls_plots_with_pvals_order.pdf}
 \caption{%
 Ordering the data by a maximum likelihood ratio test statistic with $b=4.3$.
 }
@@ -1775,41 +1762,50 @@ censors some of its information.
 \label{fig:searches_sb_t}
 \end{figure}
 
-Figure~\ref{fig:searches_sb_t}
-
-\TODO{refresh}
-For example, maximum likelihood ratios (and variations on their theme) are
-useful and commonly applied, but they can give \pvalues\ that appear
-pathological --- consider a Poisson background ($b$) added to an
-unconstrained signal yield ($s$).
-A sensible interpretation would find that `excess' data well above the
-background expectation favour the background-plus-signal hypothesis ($s + b$)
----
-but if the signal is allowed to be negative, then a `deficit' of data below the
-background can have a maximum likelihood ratio that favours $s + b$.
-This scrambles excesses and deficits together in the same tail, so both get
-small \pvalues, and so a small \pvalue\ implies neither a preference for the
-signal hypothesis nor incompatibility with the background.
-
-
-% significance measures
-The ATLAS-recommended significance measure~\cite{atlas_significance} is
-\begin{align}
-\label{eqn:significance_atlas}
-S_\mathrm{\atlas}(n; \mu, \sigma) =~&
-\sqrt{2} \times
-\mathrm{sign}(n - \mu) \times
-\\[0.2em] \nonumber
-&
-\sqrt{
-n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
-- \frac{\mu^2}{\sigma^2}\log\left(
-1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
-\right)
+How can one escape this propaganda?
+Likelihood ratios on the actual data escape immediately by bypassing the
+censor.
+Even inequalities need not be biased --- if taken against a predetermined
+threshold, say $5$ events, then models can predict whether or not $n \leq 5$,
+and its truth or falsehood in data can favour either side.%
+\footnote{%
+This context of a fixed inequality is one condition where the
+\pvalue\ ratio is not misleading when interpreted as a likelihood ratio.%
 }
-,
-\end{align}
-in an appropriate limit where $0\log(0x) = 0$ for the $n=0$ case.
+Finally, a reader can fall back to not trusting the reporter ---
+the statements `\atlas\ reports $n \leq 5$' and logical `$n \leq 5$' are not
+identical, since one can infer from the former that in fact $n = 5$.
+They know what the message says, but not that it states the whole truth.
+
+With more than one Poisson bin to model, the $n$ test statistic is no longer
+sufficient.
+In such general cases, maximum likelihood ratio test statistics,
+such as $\Lambda$ of Equation~\ref{eqn:searches_max_like_ratio}, often useful.
+In the single Poisson case, $\Lambda$ shuffles the ordering of
+data and leads to some odd features in the results, which are displayed in
+Figure~\ref{fig:searches_sb_t}.
+In particular, the choice $t(n) = -\Lambda(n)$ pushes data that are far from
+the background expectation into its tails, so can disfavour the background
+model for small $n$.
+Probability masses from small data also interrupt its behaviour for excesses,
+leading to jagged changes, notably that $\log\cls$ reduces as the data
+increase from $9$ to $11$ --- counter to intuition and logic, increasing excess
+data can reduce the reported favour for the signal model.
+
+Instead of $\Lambda$ itself, various modified maximum likelihood ratio test
+statistics enjoy standard usage at the LHC~\cite{cern2011procedure};
+these are variably defined as piecewise functions of the fitted signal
+parameter $s$, and can include likelihoods from the signal-plus-background
+model with constrained maximizations which aim to reduce the impact of
+unphysical results such as negative Poisson expectations~\cite{
+Feldman:1997qc,
+Cowan:2010js
+},
+and can help to better approximate a likelihood ratio ordering.
+
+
+\subsection{Like-lihood modelling}
+
 
 \TODO{
 on ``likelihood'' models ---
@@ -1851,6 +1847,30 @@ bins and a regularization term $\log f$ that is maximized in fitting.
 \histfitter~\cite{Besjes_2015,baak2015histfitter}
 
 \TODO{uncertainties: systematics, statistical}
+
+
+\subsection{Significance}
+
+\TODO{significance}
+
+% significance measures
+The ATLAS-recommended significance measure~\cite{atlas_significance} is
+\begin{align}
+\label{eqn:significance_atlas}
+S_\mathrm{\atlas}(n; \mu, \sigma) =~&
+\sqrt{2} \times
+\mathrm{sign}(n - \mu) \times
+\\[0.2em] \nonumber
+&
+\sqrt{
+n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
+- \frac{\mu^2}{\sigma^2}\log\left(
+1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
+\right)
+}
+,
+\end{align}
+taken in a limit where $0\log(0x) = 0$ for the $n=0$ case.
 
 
 \subsection{\atlas\ SUSY searches}
