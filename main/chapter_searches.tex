@@ -1651,11 +1651,11 @@ values of $s$ for which $\cls = 1 - \gamma$.
 \includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_n.pdf}
 \end{subfigure}
 \caption[
-A Poisson modelling example in the natural order.
+A Poisson model in the natural order
 ]{%
-A Poisson modelling example with $t(n) = \pm n$
+A Poisson model in the natural order of $t(n) = \pm n$
 test statistics, $b = 4.3$ and $s = 3.0$.
-(left) \pvalues,
+(left) $\log$ \pvalues,
 and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
 background and signal-plus-background models.
 The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
@@ -1709,14 +1709,13 @@ $\log\cls$ is non-positive with the $-n$ test statistic, and indeed non-negative
 for the opposite ordering $t(n) = n$.
 The $\log$ likelihood ratio on the actual data does not feature this bias:
 it favours background-only for deficits and background-plus-signal for
-excesses and is indeed linear in $n$:
+excesses.
+Since
 \begin{equation}
 \log \frac{L(s + b)}{L(b)}
 = -s + n\log\!\left(1 + \frac{s}{b}\right)
-.
 \end{equation}
-Since the likelihood ratio is linear in $n$, both $n$ and $-n$ are optimal
-test statistics by the criteria of the Neyman-Pearson lemma.
+is linear in $n$, both $n$ and $-n$ are optimal in the Neyman-Pearson sense.
 
 By using \pvalue\ ratios with Neyman-Pearson optimal test statistic, we have
 constructed an analysis that can only ever favour one hypothesis:
@@ -1741,16 +1740,16 @@ Ordering the data by a maximum likelihood ratio test statistic with $b=4.3$.
 \centering
 \includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_t.pdf}
 \caption{%
-(left) \pvalues\ for Poisson data,
+(left) $\log$ \pvalues\ for Poisson data,
 and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
 background and signal-plus-background models.%
 }
 \end{subfigure}
 \caption[
-Analysis of a minimal Poisson modelling example with maximum likelihood ratio
+Analysis of a minimal Poisson model with maximum likelihood ratio
 test statistics
 ]{%
-Analysis of a minimal Poisson modelling example with maximum likelihood ratio
+Analysis of a minimal Poisson model with maximum likelihood ratio
 test statistics $t(n) = \pm \Lambda(n)$,
 where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$; $b = 4.3$ and $s = 3.0$.
 This test statistic jumbles up the data into an that makes $n=11$ appear to be
