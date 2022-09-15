@@ -1203,8 +1203,8 @@ L(h_2) + \prob{t > \tilde{t}}{h_2}
 then large tail probabilities squash the $\log$ likelihood ratio toward zero.
 
 Fisher's \pvalue\ ratio of $1000$ is, therefore, a $\log$ likelihood
-ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderately strong
-indication of roughly $3.7\sigma$.
+ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderately
+strong  indication of roughly $3.7\sigma$.
 But a likelihood ratio on the test statistic itself, and not the inclusive
 tail statement, would encode strictly more information and could provide a
 more precise answer.
@@ -1514,16 +1514,16 @@ analysis at the LHC and specifically towards the \atlas\ search that this
 thesis presents.
 
 Misrepresentations of \pvalues\ (and other frequentist statistics) are
-widespread and widely reported in areas of science that still use them~\cite{
+widespread and widely reported~\cite{
 schervish1996p,
 Cohen1994TheEI,
 Amrhein2017TheEI,
 goodman2008dirty,
 greenland2016no,
 Bernstein2016princess,
-wagenmakers2007practical,
-Trafimow2015ban
-}.
+wagenmakers2007practical
+}
+in areas of they are not banned~\cite{Trafimow2015ban}.
 For example, the false presentation as a ``probability of compatibility'' with
 a model~\cite{HIGG-2018-04} appears to be spreading as a good
 meme~\cite{dawkins1989selfish} in High Energy Physics ~\cite{
@@ -1627,9 +1627,8 @@ frodesen1979probability
 Some literature defines $\clb = 1 - p_b$~\cite{
 Cowan:2010js,
 pdg2022ynf
-};
-$p_b$ might not be a \pvalue\ if it excludes equality with the observed
-test statistic.
+}, but such a $p_b$ might not be a \pvalue\ if it excludes equality with the
+observed test statistic.
 }%
 As discussed in Section~\ref{sec:searches_fisher}, \pvalues\ are likelihoods
 on obfuscated data, so (with some caution) $\cls$ can be interpreted as a
@@ -1659,14 +1658,14 @@ and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
 background and signal-plus-background models.
 The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
 (linearly) related to the likelihood ratio.
-Each $\cls$ is a \pvalue ratio.
+Each $\cls$ is a \pvalue\ ratio.
 By reducing the observed data to an inequality, the $p$-value selectively
 censors some of its information.
 }
 \label{fig:searches_sb_n}
 \end{figure}
 
-Early forms of $\cls$ derived it from an identity with posterior tail
+Early variants of $\cls$ derived it from an identity with posterior tail
 probabilities in Poisson or Gaussian special cases~\cite{
 Helene1983upper,
 pdg1988,
@@ -1689,31 +1688,54 @@ junk1999confidence,
 lep2000searches,
 lep2003search
 }
-appears to have propelled $\cls$ to prominence.
-These early applications used data deficits to exclude their
+appears to have propelled $\cls$ to prominence;
+these early applications used data deficits to exclude their
 background-plus signal models with the test statistic $t(n) = -n$, but
-disliked how deficits led to small \pvalues\ for the background-only model.
-Such \pvalues\ are illustrated in Figure~\ref{fig:searches_sb_n} (left);
-in contrast, $\cls$ (shown on the right of this figure) can only favour the
-background-only model.
+disliked how deficits led to small \pvalues\ for the background-only model,
+with which they might have confusingly set negative limits on the signal.
+Such \pvalues\ are illustrated in Figure~\ref{fig:searches_sb_n} (left)
+for small data counts;
+in contrast, $\cls$ can only favour the background-only model with its negative
+values shown on the right of this figure.
 
-\TODO{also show actual likelihood ratio}
-\TODO{this implements a form of propaganda that speaks only truth while
-censoring all information that supports alternative ideas}
-\TODO{The one-sided nature of this evidence is paradoxical, but has
-resolutions.}
-\TODO{If an analysis were able to `is $n \geq 5$?', it could be answered in the
-affirmative or negative, and would avoid this bias.}
-\TODO{Otherwise, one can fall back to not trusting the reporter ---
-the statements `\atlas\ reports $n \geq 0$' and `$n \geq 0$' are not identical
-since the first might suggest that in fact $n = 0$, so wise likelihoods can be
-could recover the original data.
-One knows what the message says, but not whether it states the whole truth.
+Although the statement in Section~\ref{sec:searches_fisher} that \pvalue\
+ratios are not ``not \emph{necessarily} misleading'',
+Figure~\ref{fig:searches_sb_n} shows a bias from the fact that
+no data can give a $\cls$ that favours the signal model;
+$\log\cls$ is non-positive with the $-n$ test statistic, and indeed non-negative
+for the opposite ordering $t(n) = n$.
+The $\log$ likelihood ratio on the actual data does not feature this bias:
+it favours background-only for deficits and background-plus-signal for
+excesses and is indeed linear in $n$:
+\begin{equation}
+\log \frac{L(s + b)}{L(b)}
+= -s + n\log(1 + \frac{s}{b})
+.
+\end{equation}
+Since likelihood ratio is monotonic in $n$, both $n$ and $-n$ are optimal
+test statistics by the criteria of the Neyman-Pearson lemma.
+
+By using \pvalue\ ratios with Neyman-Pearson optimal test statistic, we have
+constructed an analysis that can only ever favour one hypothesis:
+we have built a propaganda machine that only ever speaks truth but censors any
+information that supports alternative ideas.
+Reducing data to inequalities $t \geq \tilde{t}$ implements censorship,
+and the likelihood-ratio ordering guarantees the one-sided inferences.
+
+How can one escape from this trap?
+Likelihood ratios on the actual data escape immediately by bypassing the
+censor.
+Even inequalities need not be biased --- if against a predetermined threshold,
+say $5$ events, then models can predict whether or not $n \leq 5$, and its
+truth or falsehood in data can favour either side.%
+\footnote{%
+This reduction to a fixed inequality appears to be the condition for which a
+\pvalue\ ratio is not misleading when interpreted as a likelihood ratio.%
 }
-\TODO{
-choosing an inequality from the observed data is like designing signal
-regions from the observed data
-}
+Finally, a reader can fall back to not trusting the reporter ---
+the statements `\atlas\ reports $n \leq 5$' and logical `$n \leq 5$' are not
+identical, since one can infer from the former that in fact $n = 5$.
+They know what the message says, but not whether it states the whole truth.
 
 \begin{figure}[tp]
 \centering
