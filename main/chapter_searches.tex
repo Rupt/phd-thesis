@@ -60,6 +60,7 @@ The first correct answer wins a gold star.
 \label{fig:searches_beans}
 \end{figure}
 
+\TODO{cut this}
 Statistical data analysis suffers from dogma --- prescriptions and recipes that
 students are taught to memorize and follow without knowing their reasons or
 limitations.
@@ -704,6 +705,7 @@ Jaynes~\cite{jaynes2003probability}
 (Section ``7.16 The central limit theorem''), but would be spoiled by a
 reproduction here.
 
+\TODO{reduce this}
 In the current year, it would be remiss to not mention machine learning
 algorithms.
 Among various other applications, learning algorithms demonstrate practical
@@ -1910,7 +1912,12 @@ constructed and analysed with
 and \pyhf~\cite{heinrich2021pyhf}.
 \histfactory\ models are specialized for working with discrete numbers of
 histogram bins.
-They constrain parameters with either Gaussian or Poisson likelihood
+They constrain parameters with either Gaussian or Poisson%
+\footnote{%
+Poisson constraints typically use a continuous interpolation with
+$n!\rightarrow \Gamma(n + 1)$.%
+}
+likelihood
 functions, and assign expected yields through a variety of
 non-linear functions of the parameters.
 Each parameter's effect is generally described by
@@ -1950,10 +1957,13 @@ It can make little difference when the yields are insensitive to the observed
 data, but we shall see an example (of DR-Low) in
 Section~\ref{sec:2ljets_results} where they are sensitive, and where
 this makes a deficit in data appear much less significant than it should.
+Sampling alternative data from exactly $\tilde{y}$, despite us actually being
+uncertain of the expected yields
+(demonstrated by us drawing error bars on them), is also suspicious.
 
 Nonetheless, this procedure often simulates reasonable-looking test statistic
-distributions without relying on the asymptotic approximations, and purportedly
-with ``good coverage properties''~\cite{
+distributions without relying on the asymptotic approximations, and reportedly
+has ``good coverage properties''~\cite{
 cern2011procedure,
 Cranmer2006Statistical
 }.
