@@ -73,7 +73,7 @@ outside their domain.%
 \footnote{%
 Multiplicative error propagation is an example.
 For $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
-the standard perturbative approximation is
+the standard perturbative approximation for their product is
 \(
 \widetilde{\sigma}_{ab}
 = \mu_a \mu_b \sqrt{\sigma_a^2/\mu_a^2 + \sigma_b^2/\mu_b^2}
@@ -1040,10 +1040,9 @@ certain ratios relative to that maximum.%
 We use such $L(\check{x})\pm\mathrm{ratio}$ visualizations for
 $\pm1\sigma$ and $\pm2\sigma$ error bars on Poisson data in
 Figure~7 of~\cite{lester2022hunting}.
-When making error bar recommendations, \atlas' statistics committee appears
-to have not considered this option~\cite{cowan2011errorbars};
-I cannot explain why not, since our statistics experts must surely be familiar
-with Fisher's work.
+When recommending error bar recipes, \atlas' statistics committee appears
+to have not considered this option~\cite{cowan2011errorbars}, although
+our statistics experts are surely familiar with Fisher's work.
 }
 That the likelihood contains all relevant information in the data is true by
 definition in our formulation of Equation~\ref{eqn:searches_log_odds},
@@ -1879,30 +1878,61 @@ H(x) = [\,y(x), \,E(x)\,]
 \end{equation}
 The minimization objective $E$ is the summed negative $\log$ likelihood
 (or regularizer) for all actual and auxiliary data;
-we choose the letter $E$ for energy in the analogy to statistical physics where
-at low temperature $T = 1/\beta$ a system collapses to its minimuum energy
-state due to the Boltzmann factor
+we choose the letter $E$ for \textbf{energy}, to highlight the analogy with
+statistical physics and the Boltzmann factor
 \begin{equation}
 p(x) \propto e^{-\beta E(x)}
 .
 \end{equation}
-At unit temperature, this can define a propability distribution for the
-parametesr relative to an appropraite (prior)
+with which a system collapses to its minimum energy at low temperature
+$T = 1/\beta$.
+At unit temperature, the Boltzmann factor can define a probability distribution
+for the parameters relative to an appropriate (prior)
 measure~\cite{cranmer2012histfactory, skilling2017david},
 but in practice such distributions do not always coincide with intuition or
 with the best fit value.
 
-\TODO{fit, expand for error}
+Error bars on the yields can be assigned by exploring around that best fit.
+In the Gaussian approximation, the inverse (Hessian) matrix of second
+derivatives gives a covariance matrix in the parameters from which linear
+projections can estimate the variance of any output.
+The second derivatives of exactly Gaussian forms are independent of the
+parameter point, but since we do not have exactly Gaussian models we evaluate
+these derivatives about the best fit point, either analytically or with finite
+difference approximations~\cite{cranmer2021building}.
+Other practical approaches explore parameter ranges in which the minimum energy
+exceeds thresholds, similar to Fisher's likelihood intervals.
 
-\TODO{software tools}
-
-\histfactory~\cite{cranmer2012histfactory}
-\pyhf~\cite{heinrich2021pyhf}
+All results presented in this thesis use
+\histfactory~\cite{cranmer2012histfactory} \heplikelihood\ models that are
+constructed and analysed with
 \histfitter~\cite{Besjes_2015,baak2015histfitter}
+and \pyhf~\cite{heinrich2021pyhf}.
+\histfactory\ models are specialized for working with discrete numbers of
+histogram bins.
+They constrain parameters with either Gaussian or Poisson likelihood
+functions, and assign expected yields through a variety of
+non-linear functions of the parameters.
+Each parameter's effect is generally described by
+\emph{central}, \emph{high}, and \emph{low}
+(corresponding to the best and $\pm1\sigma$)
+values of modifications to bin yields.%
+\footnote{%
+Because extrapolations from the variations are non-linear, the exact forms of
+the constraints do not directly matter.
+Numerical optimizers prefer Gaussian forms for their $\log$ quadratic shape, which is
+easily minimized in the common case that the parameter has no observable
+effect.%
+}
 
-\TODO{uncertainties: systematics, statistical --- maybe susy step?}
+Along with each \heplikelihood\ constraint, \histfactory\ also assigns a
+sampling distribution for alternative values of its (auxiliary) data.
+\TODO{
+toy procedure;
+not true $p$-value because it pre-fits;
+alternative approximation to asymptotics; not necessarily better;
+choose your poison}
 
-\TODO{toy procedure}
 
 
 \subsection{\atlas\ SUSY searches}
