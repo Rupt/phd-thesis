@@ -1901,7 +1901,7 @@ parameter point, but since we do not have exactly Gaussian models we evaluate
 these derivatives about the best fit point, either analytically or with finite
 difference approximations~\cite{cranmer2021building}.
 Other practical approaches explore parameter ranges in which the minimum energy
-exceeds thresholds, similar to Fisher's likelihood intervals.
+exceeds thresholds.
 
 All results presented in this thesis use
 \histfactory~\cite{cranmer2012histfactory} \heplikelihood\ models that are
@@ -1927,12 +1927,35 @@ effect.%
 
 Along with each \heplikelihood\ constraint, \histfactory\ also assigns a
 sampling distribution for alternative values of its (auxiliary) data.
-\TODO{
-toy procedure;
-not true $p$-value because it pre-fits;
-alternative approximation to asymptotics; not necessarily better;
-choose your poison}
+To approximate \pvalues\ without the asymptotic approximations,
+these distributions are used in a standard procedure for simulating
+alternative ``pseudo-data (toys)''~\cite{cern2011procedure}.
+This procedure works as follows:
+\begin{enumerate}
+\item fit to the observed data to find best-fit yields $\tilde{y}$, then
+\item sample alternative Poisson (actual) data with rates $\tilde{y}$ and
+alternative auxiliary (fictitious) data from their assigned distributions,
+then
+\item evaluate the test statistic for each simulated
+example~\cite{cern2011procedure}.
+\end{enumerate}
+Because this first item fits to the observed data, the test statistic
+distribution pathologically depends on the observed data $d$ ---
+the approximated \pvalue\ is not
+$\prob{t \geq t(d)}{h}$, but a depends on some function of the data
+$\prob{t \geq t(d)}{f(d, h)}$.
+And since the \pvalue\ is a censored likelihood, this is an error of early
+unblinding, or training on the test set in machine-learning speak.
+It can make little difference when the yields are insensitive to the observed
+data, but we shall see an example (of DR-Low) in
+Section~\ref{sec:2ljets_results} where they are sensitive, and where
+this makes a deficit in data appear much less significant that it should.
 
+Nonetheless, this procedure often simulates reasonable-looking test statistic
+distributions without relying on the asymptotic approximations.
+Toy simulation is an alternative approximation, and in given circumstances
+may be better or worse.
+Pick your poison.
 
 
 \subsection{\atlas\ SUSY searches}
