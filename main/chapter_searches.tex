@@ -182,6 +182,7 @@ the `$\log$-add-$\exp$' operation.
 }
 
 \subsection{Probability, applied}
+\label{sec:searches_probability_applied}
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{\textwidth}
@@ -1687,8 +1688,8 @@ lep2003search
 }
 appears to have propelled $\cls$ to prominence;
 these early applications used data deficits to exclude their
-background-plus signal models with the test statistic $t(n) = -n$, but
-disliked how deficits led to small \pvalues\ for the background-only model,
+background-plus signal models, sometimes with the test statistic $t(n) = -n$,
+and disliked how deficits led to small \pvalues\ for the background-only model,
 with which they might have confusingly set negative limits on the Higgs boson
 signal cross-section.
 Such \pvalues\ are illustrated in Figure~\ref{fig:searches_sb_n} (left)
@@ -1696,7 +1697,7 @@ for small data counts;
 in contrast, $\cls$ can only favour the background-only model, due to its
 negative values that are shown on the right of the same figure.
 
-Although the statement in Section~\ref{sec:searches_fisher} that \pvalue\
+Despite the statement in Section~\ref{sec:searches_fisher} that \pvalue\
 ratios are not ``not \emph{necessarily} misleading'',
 Figure~\ref{fig:searches_sb_n} shows a bias from the fact that
 no data can give a $\cls$ that favours the signal model;
@@ -1711,7 +1712,7 @@ Since for Poisson models the $\log$ likelihood ratio is linear in $n$,
 = n\log\frac{s + b}{b} - s
 ,
 \end{equation}
-both $n$ and $-n$ are optimal in the Neyman-Pearson sense.
+both $n$ and $-n$ can be optimal in the Neyman-Pearson sense.
 
 By using \pvalue\ ratios with Neyman-Pearson optimal test statistic, we have
 constructed an analysis that can only ever favour one hypothesis:
@@ -1770,7 +1771,7 @@ This context of a fixed inequality is one condition where the
 Finally, a reader can fall back to not trusting the reporter ---
 the statements `\atlas\ reports $n \leq 5$' and logical `$n \leq 5$' are not
 identical, since one can infer from the former that in fact $n = 5$.
-They know what the message says, but not that it states the whole truth.
+One knows what the message says, but not that it states the whole truth.
 
 With more than one Poisson bin to model, the $n$ test statistic is no longer
 sufficient.
@@ -1796,63 +1797,121 @@ unphysical results such as negative Poisson expectations~\cite{
 Feldman:1997qc,
 Cowan:2010js
 },
-and can help to better approximate a likelihood ratio ordering.
+and can improve (in a context-dependent sense) the resulting ordering.
 
-A great benefit to these modified maximum likelihood ratios is that their
-sampling distributions have known approximations in asymptotic (Gaussian)
-limits, which assign \pvalues\ through well-behaved analytic
+These modified maximum likelihood ratios benefit from known approximations to
+their sampling distributions in asymptotic (Gaussian) limits,
+which can assign their \pvalues\ through well-behaved analytic
 expressions~\cite{Cowan:2010js}.
 Without such formulae, the remaining practical approach to estimating
 \pvalues\ is to generate Monte Carlo simulations of alternative data.
-Such simulations can be computationally expensive, and even hard to define for
-``likelihood'' models that blur the line between actual data and
-auxiliary model parameters.
+Such simulations can be computationally expensive, ill-defined for
+``likelihood'' models that blur the distinction between actual data and
+auxiliary constraints on the models' parameters.
 
 
 \subsection{Like-lihood modelling}
-\TODO{
-on ``likelihood'' models ---
-we are instructed to pretend that these are likelihoods on auxiliary data
-TODO cite.
-One is free to engage in such doublethink~\cite{orwell1949nnineteen},
-% just as one is free to proclaim that $2 + 2 = 5$
-but the fact remains that many constraints do not correspond to predictions of
-auxiliary data so are not likelihoods: examples include
+To represent the Standard Model and alternatives, LHC data analysis uses
+parametric models to describe the models' Poisson expectations of
+collision events and how those expectations change in response to their
+parameters.
+Parameters often correspond to interpretable, physical quantities and when
+those parameters are known only with some uncertainty, the models help to
+propagate uncertainty into variations of their outputs.
+
+Uncertainties on imperfectly-known yet non-random parameters, however,
+conflict with the frequentist denial of prior probabilities.
+To avoid this, all modelling is officially framed as not predicting parameters,
+but instead constraining them with likelihood functions that use
+either real control data or fictional auxiliary data.
+
+This transformation of priors to auxiliary likelihoods is generally possible
+--- in a prior density $f(x)\,\mathrm{d}x$ the function $f(x)$ is a likelihood
+(strictly, a Radon-Nikodym derivative~\cite{billingsley2008probability})
+that constrains the (possibly un-normalized or `improper') prior measure that
+is uniform in $x$~\cite{Cowan:2010js}.
+But as discussed in Section~\ref{sec:searches_probability_applied}, the shape
+of $f(x)$ is entirely determined by the coordinate, and is therefore a free
+choice made by the analyst.
+By assigning a form to the auxiliary likelihood, therefore, one is really
+choosing a \emph{regularizer} that should be indended to induce preferable
+behaviours in the parametric model and its `maximum likelihood' statistics.
+
+These regularized models with constraints from fictitious auxiliary data
+are usually often ``likelihood'' models~\cite{
+cranmer2012histfactory,
+baak2015histfitter,
+Besjes_2015,
+heinrich2021pyhf
+}.
+To distinguish them from real likelihood functions on actual data, this
+thesis uses the alternative spelling \textbf{\heplikelihood}.
+
+Many of our uncertainties do not correspond to predictions of auxiliary data:
+examples include
 scale variations,
 theoretical cross-section uncertainties,
-non-closure uncertainties (which cover differences between estimates).
+non-closure uncertainties (which cover differences between estimates),
 simulated sample comparisons,
 statistical errors on weighted simulations,
 extrapolation uncertainties,
 and
 all uncertainties on supersymmetric signal yields
 (for which we have yet no data).
-energy based modelling ---
-I know of no tangible benefit from pretending that something is a likelihood
-when it is not.
-}
+We describe these uncertainties by heuristically
+combining theoretical modelling, physical intuition, and convention,
+and not only by measuring random data.
+Believing that they are also likelihoods on auxiliary data is
+doublethink~\cite{orwell1949nnineteen}.
 
-\TODO{histfactory}
-\TODO{minimize energy not max logf}
-
-To model the consequences of these many factors of uncertainty, each factor is
-assigned a real-valued parameter, which when varied changed the expected yields
-in the histogram bins of the search.
-In this way, we form a statistical model which is a function
+Despite their troublesome nomenclature, \heplikelihood\ models are extremely
+useful and effective for describing the predictions of our hypotheses and
+extracting interpretable results.
+A general \heplikelihood\ model is a function $H$ that takes some parameters $x$
+and outputs two things:
+expected yields $y$ to predict Poisson data,
+and an objective value $E$ that should be minimized in a `fit' to choose the
+best prediction.
+That is,
 \begin{equation}
-H_{\!f}(\vec \theta) \to (\vec \mu, \log f)
+H(x) = [\,y(x), \,E(x)\,]
+.
 \end{equation}
-from the parameters $\theta$ to Poisson expectations $\vec\mu$ of the histogram
-bins and a regularization term $\log f$ that is maximized in fitting.
+The minimization objective $E$ is the summed negative $\log$ likelihood
+(or regularizer) for all actual and auxiliary data;
+we choose the letter $E$ for energy in the analogy to statistical physics where
+at low temperature $T = 1/\beta$ a system collapses to its minimuum energy
+state due to the Boltzmann factor
+\begin{equation}
+p(x) \propto e^{-\beta E(x)}
+.
+\end{equation}
+At unit temperature, this can define a propability distribution for the
+parametesr relative to an appropraite (prior)
+measure~\cite{cranmer2012histfactory, skilling2017david},
+but in practice such distributions do not always coincide with intuition or
+with the best fit value.
+
+\TODO{fit, expand for error}
+
+\TODO{software tools}
 
 \histfactory~\cite{cranmer2012histfactory}
 \pyhf~\cite{heinrich2021pyhf}
 \histfitter~\cite{Besjes_2015,baak2015histfitter}
 
-\TODO{uncertainties: systematics, statistical}
+\TODO{uncertainties: systematics, statistical --- maybe susy step?}
+
+\TODO{toy procedure}
 
 
-\subsection{Significance}
+\subsection{\atlas\ SUSY searches}
+\label{sec:searches_searches}
+
+\TODO{CR VR SR}
+
+
+\subsection{Gaussian significance}
 
 \TODO{significance}
 
@@ -1874,9 +1933,3 @@ n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
 ,
 \end{align}
 taken in a limit where $0\log(0x) = 0$ for the $n=0$ case.
-
-
-\subsection{\atlas\ SUSY searches}
-\label{sec:searches_searches}
-
-\TODO{CR VR SR}
