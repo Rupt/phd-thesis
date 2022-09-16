@@ -1827,13 +1827,13 @@ either real control data or fictional auxiliary data.
 This transformation of priors to auxiliary likelihoods is generally possible
 --- in a prior density $f(x)\,\mathrm{d}x$ the function $f(x)$ is a likelihood
 (strictly, a Radon-Nikodym derivative~\cite{billingsley2008probability})
-that constrains the (possibly un-normalized or `improper') prior measure that
+that constrains the (possibly non-normalized or `improper') prior measure that
 is uniform in $x$~\cite{Cowan:2010js}.
 But as discussed in Section~\ref{sec:searches_probability_applied}, the shape
 of $f(x)$ is entirely determined by the coordinate, and is therefore a free
 choice made by the analyst.
 By assigning a form to the auxiliary likelihood, therefore, one is really
-choosing a \emph{regularizer} that should be indended to induce preferable
+choosing a \emph{regularizer} that should be intended to induce preferable
 behaviours in the parametric model and its `maximum likelihood' statistics.
 
 These regularized models with constraints from fictitious auxiliary data
@@ -1942,14 +1942,14 @@ example~\cite{cern2011procedure}.
 Because this first item fits to the observed data, the test statistic
 distribution pathologically depends on the observed data $d$ ---
 the approximated \pvalue\ is not
-$\prob{t \geq t(d)}{h}$, but a depends on some function of the data
+$\prob{t \geq t(d)}{h}$, but depends on the data like
 $\prob{t \geq t(d)}{f(d, h)}$.
 And since the \pvalue\ is a censored likelihood, this is an error of early
 unblinding, or training on the test set in machine-learning speak.
 It can make little difference when the yields are insensitive to the observed
 data, but we shall see an example (of DR-Low) in
 Section~\ref{sec:2ljets_results} where they are sensitive, and where
-this makes a deficit in data appear much less significant that it should.
+this makes a deficit in data appear much less significant than it should.
 
 Nonetheless, this procedure often simulates reasonable-looking test statistic
 distributions without relying on the asymptotic approximations, and purportedly
