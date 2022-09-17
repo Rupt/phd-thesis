@@ -361,3 +361,8 @@ https://sherpa-team.gitlab.io/monte-carlo.html
 % ID: pixel, sct (silicon microstrip), TRT (straw tubes)
 
 % CALO: LAr, Tile scintillator
+
+% erfc expansion
+Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables (Milton Abramowitz, Irene A. Stegun)
+
+pp298

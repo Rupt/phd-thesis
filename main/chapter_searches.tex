@@ -434,15 +434,15 @@ pieces:
 \begin{align}
 \prob{d}{x, h}\times \prob{x}{h} &= \prob{x}{d, h}\times \prob{d}{h},
 \intertext{all of which we have named:}
-\underbrace{L(x)}_\textbf{likelihood}
+\underbrace{L(x)}_\textrm{likelihood}
 \times
 ~\,
-\overbrace{\pi(x)}^\textbf{prior}
+\overbrace{\pi(x)}^\textrm{prior}
 ~\,
 &=
-\overbrace{p(x)}^\textbf{posterior}
+\overbrace{p(x)}^\textrm{posterior}
 \times
-\underbrace{Z}_\textbf{evidence}
+\underbrace{Z}_\textrm{evidence}
 .
 % \textbf{likelihood} \times \textbf{prior}
 % &= \textbf{posterior} \times \textbf{evidence} .\nonumber
@@ -1189,9 +1189,9 @@ then large tail probabilities squash the $\log$ likelihood ratio toward zero.
 
 Fisher's \pvalue\ ratio of $1000$ is, therefore, a $\log$ likelihood
 ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderately
-strong  indication of roughly $3.7\sigma$.
-But a likelihood ratio on the test statistic itself, and not the inclusive
-tail statement, would encode strictly more information and could provide a
+strong indication.
+A likelihood ratio on the test statistic itself, and not the inclusive
+tail statement, would however encode more information and could provide a
 more precise answer.
 
 \begin{figure}[tp]
@@ -2104,15 +2104,54 @@ Chapter~\ref{chapter:2ljets}.
 Standard-deviations distance is a more intuitive measure of compatibility than
 a \pvalue.
 
+defining $\chi = (x - \mu) / \sigma$, the Gaussian likelihood is
+
+\begin{equation}
+L(\chi) =
+\frac{1}{\sqrt{2\pi}}
+\exp\!\left(-\frac{1}{2}\chi^2\right)
+\end{equation}
+
+
+\TODO{log maximum likelihood ratio}
+$\log$ maximum likelihood ratio $\kappa$
+\begin{equation}
+\kappa = -\frac{1}{2}\chi^2
+\quad
+\Leftrightarrow
+\quad
+\chi = \pm\sqrt{-2\kappa}
+\end{equation}
 
 \TODO{tail area}
 
-\TODO{log maximum likelihood ratio}
 
+\begin{align}
+P(\chi)
+&=
+\frac{1}{\sqrt{2\pi}}
+\int_\chi^\infty
+\!
+\exp\!\left(-\frac{1}{2}t^2\right)
+\,\mathrm{d}t
+\\[0.5em]
+&=
+L(\chi)
+\times
+\left(
+\frac{1}{\chi}
++
+\mathcal{O}\!\left(\frac{1}{\chi^3}\right)
+\right)
+\end{align}
 \TODO{significance measures}
+~\cite{
+jaynes2003probability,
+abramowitz1965handbook
+}
 
 % significance measures
-The ATLAS-recommended significance measure~\cite{atlas_significance} is
+ATLAS' recommended significance measure~\cite{atlas_significance} is
 \begin{align}
 \label{eqn:significance_atlas}
 S_\mathrm{\atlas}(n; \mu, \sigma) =~&
