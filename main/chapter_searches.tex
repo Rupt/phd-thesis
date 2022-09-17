@@ -1997,7 +1997,25 @@ but their pieces have somewhat esoteric names that we define here.
 Our searches see data only through discrete histogram bins,
 or `regions', which are defined by logical selections in event variables.
 To communicate their intended uses, we further categorize these bins into
-`control', `validation', and `signal' regions.
+`control', `validation', and `signal' regions;
+Figure~\ref{fig:searches_histfitter_regions} illustrates the uses of these
+three region types.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/searches_histfitter_regions.pdf}
+\caption[
+Control, validation, and signal regions
+]{%
+Control, validation, and signal regions and the extrapolation between them.
+Both observables are event variables in which models should change
+smoothly to justify the extrapolations that are indicated by arrows.
+Dashed lines illustrate the each region may be subclassified into
+disjoint (orthogonal) smaller bins.
+Adapted from \histfitter~\cite{histfitter2015}.
+}
+\label{fig:searches_histfitter_regions}
+\end{figure}
 
 \paragraph{Control regions (CRs).}
 Control regions select large numbers data to
@@ -2013,7 +2031,7 @@ estimate local to our regions.
 To represent the Standard Model, control regions must be insensitive to
 non-standard signals.
 Before applying their normalization factors to regions that are sensitive
-to signal hypotheses, data in \textbf{validation regions} (\textbf{VR}s) first
+to signal hypotheses, data in validation regions first
 test the quality of extrapolation.
 Each model is adjusted until validation region data are well predicted ---
 either by changing region definitions or restructuring the \heplikelihood\
@@ -2028,21 +2046,30 @@ Consuming information from control and validation regions to refine the
 predictions of our background-only model is scientific learning, and can be
 reconciled with machine learning practice as fitting a model with training
 (CR) and validation (VR) data.
-Testing is performed through in prediction of data in the
-\textbf{signal regions} (\textbf{SR}s),
+Testing is done by predicting of data in the signal regions,
 in which signal yields should significantly add on top of the Standard Model
 backgrounds.
-Some signal regions are also labelled \textbf{DR} to indicate their use in
-specific `discovery' fits.
+Some signal regions are labelled as \textbf{discovery regions} (\textbf{DRs})
+to indicate their use in special `discovery' fits.
 
-\TODO{Figure to illustrate CR VR SR extrapolation}
 
-\paragraph{Fits.}
+\paragraph{Background-only fits.}
 \TODO{Background-only}
+% summary plots
+% fit to just CR, show VR and SR
+% conventional to also show SR
+% this is more like a posterior
+% so not easily interpreted
 
+\paragraph{Exclusion fits.}
 \TODO{Exclusion (model-dependent signal}
+% CLs
 
+\paragraph{Discovery fits.}
 \TODO{Discovery (model-independent signal)}
+% CLs and p-value
+% maximum likelihood ratio test statistics
+% despite likeliy superiority of $n$
 
 
 \subsection{Gaussian significance}
@@ -2067,3 +2094,9 @@ n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
 ,
 \end{align}
 taken in a limit where $0\log(0x) = 0$ for the $n=0$ case.
+
+% tail area
+
+% maximum likelihood ratio
+
+% similarity and difference
