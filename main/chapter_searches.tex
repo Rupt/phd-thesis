@@ -1944,30 +1944,33 @@ these distributions are used in a standard procedure for simulating
 alternative ``pseudo-data (toys)''~\cite{cern2011procedure}.
 This procedure works as follows:
 \begin{enumerate}
-\item fit to the observed data to find best-fit yields $\tilde{y}$, then
-\item sample alternative Poisson (actual) data with rates $\tilde{y}$ and
+\item minimize $E(x)$ to find the best-fit parameters $\check{x}$, then
+\item sample alternative Poisson (actual) data with rates $y(\check(x))$ and
 alternative auxiliary (fictitious) data from their assigned distributions,
 then
-\item evaluate the test statistic for each simulated
-example~\cite{cern2011procedure}.
+\item evaluate the test statistic for each simulated `toy'
+sample~\cite{cern2011procedure}.
 \end{enumerate}
-Because this first item fits to the observed data, the test statistic
-distribution pathologically depends on the observed data $d$ ---
-the approximated \pvalue\ is not
+The \pvalue\ is then estimated as the fraction of toys with test statistics
+greater than or equal to the observed test statistic.
+Because this first item fits to the observed data, the sampled test statistic
+distribution depends on the observed data $d$ ---
+this problematic because it means that the approximated \pvalue\ is not
 $\prob{t \geq t(d)}{h}$, but depends on the data like
 $\prob{t \geq t(d)}{f(d, h)}$.
 And since the \pvalue\ is a censored likelihood, this is an error of early
-unblinding, or training on the test set in machine-learning speak.
+unblinding, or, in machine-learning speak, training on the test set.
 It can make little difference when the yields are insensitive to the observed
 data, but we shall see an example (of DR-Low) in
 Section~\ref{sec:2ljets_results} where they are sensitive, and where
-this makes a deficit in data appear much less significant than it should.
-Sampling alternative data from exactly $\tilde{y}$, despite us actually being
-uncertain of the expected yields
-(demonstrated by us drawing error bars on them), is also suspicious.
+this makes a deficit in data appear much less significant than it  otherwise
+would.
+Sampling alternative data from fixed $y(\check{x})$ is also suspicious because
+we are in fact uncertain of the expected yields
+(demonstrated by us drawing error bars on them).
 
 Nonetheless, this procedure often simulates reasonable-looking test statistic
-distributions without relying on the asymptotic approximations, and reportedly
+distributions without relying on asymptotic approximations, and reportedly
 has ``good coverage properties''~\cite{
 cern2011procedure,
 Cranmer2006Statistical
