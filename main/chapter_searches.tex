@@ -1610,7 +1610,7 @@ above background yields $b$;
 \frac{
 \prob{t \geq \tilde{t}}{s + b}
 }{
-\prob{t \geq \tilde{t}}{b}\hphantom{s +\;}
+\prob{t \geq \tilde{t}}{b}\hfill
 }
 ,
 \end{equation}
@@ -2053,21 +2053,50 @@ backgrounds.
 Some signal regions are labelled as \textbf{discovery regions} (\textbf{DRs})
 to indicate their use in special `discovery' fits.
 
+Various fits are useful to extract different results from search regions.
+We briefly describe the three classes of fit here, and shall see examples
+of their results in Chapter~\ref{chapter:2ljets}.
 
 \paragraph{Background-only fits.}
-\TODO{Background-only}
-% summary plots
-% fit to just CR, show VR and SR
-% conventional to also show SR
-% this is more like a posterior
-% so not easily interpreted
+With no signal contribution present, the background-only model is fitted
+to the control regions to make predictions in the signal regions.
+These background-only fits usefully validate that the \heplikelihood\ model
+works as intended: that its normalization factors are not too far from the
+Standard Model, that its tuned extrapolation to validation regions works,
+and that other parameters are behaving according to intuition.
+
+After fitting to observed signal region data, the background-only model
+it can be useful to check how its parameters have been `pulled' away from their
+central values.
+Post-fit expectations in signal regions are also available with error bars;
+because these depend on the data they are posterior results and not directly
+useful to judge the background-only model.
+Instead, they are an updated prediction for the expected yield in an
+hypothetical future repeat of the experiment.
+
+Searches for new signals require some concept of how their signals differ
+from the backgrounds;
+\atlas\ SUSY searches consider two such concepts with two flavours:
+exclusion fits, and discovery fits.
 
 \paragraph{Exclusion fits.}
+Model-dependent `exclusion' fits add simulated yields from precisely
+defined models to the \heplikelihood\ model.
+These fits can use multiple signal regions simultaneously, and couple the
+effect of parametrized modifications to the signals and backgrounds between
+the bins of those regions.
+% cls
+% parameter plane
+% exclusion contours
 \TODO{Exclusion (model-dependent signal}
 % CLs
 
 \paragraph{Discovery fits.}
 \TODO{Discovery (model-independent signal)}
+
+model-independent `discovery' fits, which add a variable signal yield to one
+signal region in isolation.
+
 % CLs and p-value
 % maximum likelihood ratio test statistics
 % despite likeliy superiority of $n$
