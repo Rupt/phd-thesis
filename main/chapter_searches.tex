@@ -1112,7 +1112,7 @@ t(d) = \frac{\bar{\mu}(d) - \mu}{\bar{\sigma}(d)}\sqrt{n}
 which shifts the sample mean $\bar{\mu}(d)$ by a known true mean $\mu$, and
 scales that difference down by the same standard deviation
 $\bar{\sigma}(d)$~\cite{student1908, fisher1925t}.
-By dividing out a (scale-equivariant) estimate of the standard deviation, $t$
+By dividing out a (scale equivariant) estimate of the standard deviation, $t$
 is independent of common scale factors on the data, and that scale invariance
 has helped to drive the study and common use of this
 $t$-statistic~\cite{lehmann2011fisher}.
@@ -1467,7 +1467,6 @@ to lead to inferences valid in the real world.%
 ''~\cite{fisher1956statistical}
 \end{displayquote}
 
-
 \begin{singlespacing}
 \section{Post-frequentist practice}
 \label{sec:searches_practice}
@@ -1514,6 +1513,7 @@ in fields where they are not banned~\cite{Trafimow2015ban}.
 For example, the false presentation as a ``probability of compatibility'' with
 a model~\cite{HIGG-2018-04} appears to be spreading as a good
 meme~\cite{dawkins1989selfish} in High Energy Physics ~\cite{
+roth2007fit,
 HIGG-2017-09,
 HIGG-2018-27,
 HIGG-2018-51,
@@ -1528,8 +1528,7 @@ white2019search,
 langford2021combination,
 IceCube2013search,
 IceCube2014searches,
-gerasimov2021new,
-roth2007fit
+gerasimov2021new
 },%
 \footnote{%
 A draft of~\cite{HIGG-2018-51} stated that a \pvalue\ determined
@@ -1744,8 +1743,8 @@ test statistics
 Analysis of a minimal Poisson model with maximum likelihood ratio
 test statistics $t(n) = \pm \Lambda(n)$,
 where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$; $b = 4.3$ and $s = 3.0$.
-This test statistic jumbles up the data into an that makes $n=11$ appear to be
-weaker support for the signal than $n=9$.
+This test statistic jumbles the data into an order that makes $n=11$ appear to
+be weaker support for the signal than $n=9$.
 Each $\cls$ is \pvalue\ ratio.
 By reducing the observed data to an inequality, the $p$-value selectively
 censors some of its information.
@@ -1762,7 +1761,7 @@ $n \leq 5$, and the truth or falsehood in data can favour either side.%
 This context of a fixed inequality is one condition where the
 \pvalue\ ratio is not misleading when interpreted as a likelihood ratio.%
 }
-Ultimately, the reader can fall back to not trusting the reporter ---
+Ultimately, the reader just distrust the reporter ---
 the statements `\atlas\ reports $n \leq 5$' and `logically, $n \leq 5$' are not
 identical, since one might infer from the former that in fact $n = 5$.
 The message itself is data --- what it says may not be the whole truth.
@@ -1968,7 +1967,7 @@ cern2011procedure,
 Cranmer2006Statistical
 }.
 Toy simulation is an approximation, and in given circumstances may be better or
-worse than the asymptotic formulae.
+worse than the asymptotic approximations.
 % Pick your poison.
 
 
@@ -2000,7 +1999,7 @@ Control, validation, and signal regions
 Control, validation, and signal regions and the extrapolation between them.
 Both observables are event variables in which models should change
 smoothly to justify the extrapolations that are indicated by arrows.
-Dashed lines illustrate the each region may be subclassified into
+Dashed lines illustrate that each region may be subdivided into
 disjoint (orthogonal) smaller bins.
 Adapted from \histfitter~\cite{histfitter2015}.
 }
@@ -2008,7 +2007,7 @@ Adapted from \histfitter~\cite{histfitter2015}.
 \end{figure}
 
 \paragraph{Control regions (CRs).}
-Control regions select large numbers data to
+Control regions select large numbers of data to
 constrain global normalization factors that scale the major
 Standard Model backgrounds;
 these normalization factors control the total cross-sections of
@@ -2054,11 +2053,11 @@ works as intended: that its normalization factors are not too far from the
 Standard Model, that its tuned extrapolation to validation regions works,
 and that other parameters are behaving according to intuition.
 
-After fitting to observed signal region data, the background-only model
+After fitting the background-only model to observed signal region data,
 it can be useful to check how its parameters have been `pulled' away from their
 central values.
 Post-fit expectations in signal regions are also available with error bars;
-because these depend on the data they are posterior results and not directly
+because these depend on the data, they are posterior results and not directly
 useful to judge the background-only model.
 Instead, they are an updated prediction for the expected yield in an
 hypothetical future repeat of the experiment.
