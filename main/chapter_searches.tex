@@ -2075,26 +2075,41 @@ defined models to the \heplikelihood\ model.
 These fits can use multiple signal regions simultaneously, and couple the
 effect of parametrized modifications to the signals and backgrounds between
 the bins of those regions.
-% cls
-% parameter plane
-% exclusion contours
-\TODO{Exclusion (model-dependent signal}
-% CLs
+
+From exclusion fits, we extract statistical results with the $\cls$ method to
+mark individual models as excluded and set limits on their production
+cross-sections.
+For presentation on paper, articles consider two-dimensional planes of model
+parameters and present contiguous `exclusion contours' within which all models
+are marked as excluded at a given level.
 
 \paragraph{Discovery fits.}
-\TODO{Discovery (model-independent signal)}
+Model-dependence sacrifices some generality.
+Model-independent `discovery' fits are therefore performed to extract results
+that could be interpretable for any hypothesized model.
+These fits include the control regions and only one signal region, a
+discovery region, in which a flat signal yield is considered.
+The $\cls$ method is again used to set limits on that signal yield,
+and a `discovery' \pvalue\ is also computed with the intention to quantify
+the significance of a data excess were one observed.
 
-model-independent `discovery' fits, which add a variable signal yield to one
-signal region in isolation.
-
-% CLs and p-value
-% maximum likelihood ratio test statistics
-% despite likeliy superiority of $n$
+Despite the likely superiority of $t(n) = n$ test statistics for these
+single-bin signal-plus-background experiments, standard maximum likelihood
+ratio test statistics are used, and may explain quirks in the discovery
+region results that we shall see in the results of
+Chapter~\ref{chapter:2ljets}.
 
 
 \subsection{Gaussian significance}
+Standard-deviations distance is a more intuitive measure of compatibility than
+a \pvalue.
 
-\TODO{significance}
+
+\TODO{tail area}
+
+\TODO{log maximum likelihood ratio}
+
+\TODO{significance measures}
 
 % significance measures
 The ATLAS-recommended significance measure~\cite{atlas_significance} is
@@ -2115,8 +2130,5 @@ n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
 \end{align}
 taken in a limit where $0\log(0x) = 0$ for the $n=0$ case.
 
-% tail area
 
-% maximum likelihood ratio
-
-% similarity and difference
+% similarity and difference?? TODO
