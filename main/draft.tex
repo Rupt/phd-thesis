@@ -124,3 +124,19 @@ a preference for the signal hypothesis nor incompatibility with the background.
 % incorrectly assign objects, and some hadrons can decay to neutrinos and soft
 % muons which would go undetected, and calorimetry is inherently variable.
 % This tendency, however, fails for very hard muons.
+
+
+\begin{equation}
+\label{eqn:searches_logistic}
+\prob{S}{d} = \frac{1}{1 + e^{-\Delta(d)}}
+.
+\end{equation}
+Physically, this is analogous to the Boltzmann distribution where the energy
+of each model is its negative $\log$ probability, with unit inverse
+temperature~\cite{
+skilling2017david,
+lecun-06,
+pmlr-v2-ranzato07a
+}.
+With multiple models in play, it is also called the `softmax'
+function.

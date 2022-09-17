@@ -499,22 +499,8 @@ And these ($\log$) ratios can remain well-defined in continuum limits even as
 both likelihoods tend towards zero~\cite{billingsley2008probability}.
 
 From such $\log$ ratios, a little rearrangement recovers the individual
-probabilities through the logistic function:
-\begin{equation}
-\label{eqn:searches_logistic}
-\prob{S}{d} = \frac{1}{1 + e^{-\Delta(d)}}
-.
-\end{equation}
-Physically, this is analogous to the Boltzmann distribution where the energy
-of each model is its negative $\log$ probability, with unit inverse
-temperature~\cite{
-pmlr-v2-ranzato07a,
-skilling2017david,
-lecun-06,
-pmlr-v2-ranzato07a
-}.
-With multiple models in play, it is also called the `softmax'
-function~\cite{MurphyKevinP.2012Mlap}.
+probabilities through the `logistic' function, also known as
+`softmax' if multiple hypotheses are in play~\cite{MurphyKevinP.2012Mlap}.
 
 The infamy of Bayes' rule stems from a fixation on the posterior distributions
 from unjustified prior assignments.
@@ -599,7 +585,7 @@ should be initially assigned.
 In general, such probability assignments are free and unconstrained, and might
 be informed by calibration data or loosely motivated opinions.
 But there are examples of unambiguously derived that are commonly used in
-High-Energy Physics, notably the Poisson and Gaussian distributions.
+High Energy Physics, notably the Poisson and Gaussian distributions.
 To avoid turning this thesis into a textbook, we only sketch the derivations
 of these, and refer to real textbooks for their detailed
 derivations~\cite{jaynes2003probability}, both of which use the exponential
@@ -1895,12 +1881,16 @@ p(x) \propto e^{-\beta E(x)}
 .
 \end{equation}
 with which a system collapses to its minimum energy at low temperature
-$T = 1/\beta$.
-At unit temperature, the Boltzmann factor can define a probability distribution
+$T = 1/\beta$~\cite{
+skilling2017david,
+lecun-06,
+pmlr-v2-ranzato07a
+}.
+At unit temperature, this can induce a probability distribution
 for the parameters relative to an appropriate (prior)
 measure~\cite{cranmer2012histfactory, skilling2017david},
-but in practice such distributions do not always coincide with intuition or
-with the best fit value.
+but in practice such distributions often coincide with neither intuition nor
+the best fit value.
 
 Error bars on the yields can be assigned by exploring around that best fit.
 In the Gaussian approximation, the inverse (Hessian) matrix of second
