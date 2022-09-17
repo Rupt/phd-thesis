@@ -1753,20 +1753,19 @@ censors some of its information.
 \label{fig:searches_sb_t}
 \end{figure}
 
-How can one escape this propaganda?
+How can one escape this trap?
 Likelihood ratios on the actual data escape immediately by bypassing the
-censor.
-Even inequalities need not be biased --- if taken against a predetermined
-threshold, say $5$ events, then models can predict whether $n \leq 5$,
-and its truth or falsehood in data can favour either side.%
+censor, but even inequalities need not be biased --- if taken against a
+predetermined threshold, say $5$ events, then models can predict whether
+$n \leq 5$, and the truth or falsehood in data can favour either side.%
 \footnote{%
 This context of a fixed inequality is one condition where the
 \pvalue\ ratio is not misleading when interpreted as a likelihood ratio.%
 }
-Finally, a reader can fall back to not trusting the reporter ---
-the statements `\atlas\ reports $n \leq 5$' and logical `$n \leq 5$' are not
-identical, since one can infer from the former that in fact $n = 5$.
-One knows what the message says, but not that it states the whole truth.
+Ultimately, the reader can fall back to not trusting the reporter ---
+the statements `\atlas\ reports $n \leq 5$' and `logically, $n \leq 5$' are not
+identical, since one might infer from the former that in fact $n = 5$.
+The message itself is data --- what it says may not be the whole truth.
 
 With more than one Poisson bin to model, the $n$ test statistic is no longer
 sufficient.
@@ -2098,76 +2097,3 @@ single-bin signal-plus-background experiments, standard maximum likelihood
 ratio test statistics are used, and may explain quirks in the discovery
 region results that we shall see in the results of
 Chapter~\ref{chapter:2ljets}.
-
-
-\subsection{Gaussian significance}
-Standard-deviations distance is a more intuitive measure of compatibility than
-a \pvalue.
-
-defining $\chi = (x - \mu) / \sigma$, the Gaussian likelihood is
-
-\begin{equation}
-L(\chi) =
-\frac{1}{\sqrt{2\pi}}
-\exp\!\left(-\frac{1}{2}\chi^2\right)
-\end{equation}
-
-
-\TODO{log maximum likelihood ratio}
-$\log$ maximum likelihood ratio $\kappa$
-\begin{equation}
-\kappa = -\frac{1}{2}\chi^2
-\quad
-\Leftrightarrow
-\quad
-\chi = \pm\sqrt{-2\kappa}
-\end{equation}
-
-\TODO{tail area}
-
-
-\begin{align}
-P(\chi)
-&=
-\frac{1}{\sqrt{2\pi}}
-\int_\chi^\infty
-\!
-\exp\!\left(-\frac{1}{2}t^2\right)
-\,\mathrm{d}t
-\\[0.5em]
-&=
-L(\chi)
-\times
-\left(
-\frac{1}{\chi}
-+
-\mathcal{O}\!\left(\frac{1}{\chi^3}\right)
-\right)
-\end{align}
-\TODO{significance measures}
-~\cite{
-jaynes2003probability,
-abramowitz1965handbook
-}
-
-% significance measures
-ATLAS' recommended significance measure~\cite{atlas_significance} is
-\begin{align}
-\label{eqn:significance_atlas}
-S_\mathrm{\atlas}(n; \mu, \sigma) =~&
-\sqrt{2} \times
-\mathrm{sign}(n - \mu) \times
-\\[0.2em] \nonumber
-&
-\sqrt{
-n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
-- \frac{\mu^2}{\sigma^2}\log\left(
-1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
-\right)
-}
-,
-\end{align}
-taken in a limit where $0\log(0x) = 0$ for the $n=0$ case.
-
-
-% similarity and difference?? TODO

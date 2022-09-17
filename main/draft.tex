@@ -140,3 +140,81 @@ pmlr-v2-ranzato07a
 }.
 With multiple models in play, it is also called the `softmax'
 function.
+
+
+% whooo removing a section
+
+
+\subsection{Gaussian significance}
+Gaussian standard-deviations distance is an intuitive measure of compatibility
+with a prediction.
+than
+a \pvalue.
+
+defining $\chi = (x - \mu) / \sigma$, the Gaussian likelihood is
+
+\begin{equation}
+L(\chi) =
+\frac{1}{\sqrt{2\pi}}
+\exp\!\left(-\frac{1}{2}\chi^2\right)
+\end{equation}
+
+
+\TODO{log maximum likelihood ratio}
+$\log$ maximum likelihood ratio $\kappa$
+\begin{equation}
+\kappa = -\frac{1}{2}\chi^2
+\quad
+\Leftrightarrow
+\quad
+\chi = \pm\sqrt{-2\kappa}
+\end{equation}
+
+\TODO{tail area}
+
+
+\begin{align}
+P(\chi)
+&=
+\frac{1}{\sqrt{2\pi}}
+\int_\chi^\infty
+\!
+\exp\!\left(-\frac{1}{2}t^2\right)
+\,\mathrm{d}t
+\\[0.5em]
+&=
+L(\chi)
+\times
+\left(
+\frac{1}{\chi}
++
+\mathcal{O}\!\left(\frac{1}{\chi^3}\right)
+\right)
+\end{align}
+\TODO{significance measures}
+~\cite{
+jaynes2003probability,
+abramowitz1965handbook
+}
+
+% significance measures
+ATLAS' recommended significance measure~\cite{atlas_significance} is
+\begin{align}
+\label{eqn:significance_atlas}
+S_\mathrm{\atlas}(n; \mu, \sigma) =~&
+\sqrt{2} \times
+\mathrm{sign}(n - \mu) \times
+\\[0.2em] \nonumber
+&
+\sqrt{
+n\log\left(\frac{n(\mu + \sigma^2)}{\mu^2 + n\sigma^2}\right)
+- \frac{\mu^2}{\sigma^2}\log\left(
+1 + \frac{\sigma^2(n - \mu)}{\mu(\mu + \sigma^2)}
+\right)
+}
+,
+\end{align}
+taken in a limit where $0\log(0x) = 0$ for the $n=0$ case.
+
+
+% similarity and difference?? TODO
