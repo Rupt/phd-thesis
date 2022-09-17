@@ -1994,13 +1994,13 @@ search.
 Tuning and analysis are performed in a conventional and sensible procedure,
 but their pieces have somewhat esoteric names that we define here.
 
-\paragraph{CR, VR, SR.}
-\atlas\ SUSY searches see data only through discrete histogram bins,
+Our searches see data only through discrete histogram bins,
 or `regions', which are defined by logical selections in event variables.
 To communicate their intended uses, we further categorize these bins into
 `control', `validation', and `signal' regions.
 
-\textbf{Control regions} (\textbf{CR}s), select large numbers data to
+\paragraph{Control regions (CRs).}
+Control regions select large numbers data to
 constrain global normalization factors that scale the major
 Standard Model backgrounds;
 these normalization factors control the total cross-sections of
@@ -2009,6 +2009,7 @@ Disregarding theoretical Standard Model cross-sections is justified, since
 the control region constraints are, by design, more precise than any previous
 estimate local to our regions.
 
+\paragraph{Validation regions (VRs).}
 To represent the Standard Model, control regions must be insensitive to
 non-standard signals.
 Before applying their normalization factors to regions that are sensitive
@@ -2022,6 +2023,7 @@ Likelihoods for validation region data are not included in the \heplikelihood\
 models, but their data are important and indirectly used to update the
 model in this manner.
 
+\paragraph{Signal regions (SRs).}
 Consuming information from control and validation regions to refine the
 predictions of our background-only model is scientific learning, and can be
 reconciled with machine learning practice as fitting a model with training
