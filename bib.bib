@@ -129,7 +129,7 @@
 	doi          = {10.17182/hepdata.81996},
 	howpublished = "{HEPData (collection)}"
 }
-% 2ljets twoljets
+% 2ljets twoljets TODO update --- journal?
 @article{atlas2022searches,
 	title        = "{Searches for new phenomena in events with two leptons, jets, and missing transverse momentum in $139\,\mathrm{fb}^{-1}$ of $\sqrt{s}=13\,\eV[T]$ $pp$ collisions with the \atlas\ detector}",
 	author       = "{\atlas\ Collaboration}",
@@ -201,9 +201,11 @@
 	title        = {{HEPData: a repository for high energy physics data}},
 	author       = {Maguire, Eamonn and Heinrich, Lukas and Watt, Graeme},
 	year         = 2017,
+	month        = oct,
 	booktitle    = {Journal of Physics: Conference Series},
 	volume       = 898,
 	pages        = 102006,
+	doi          = {10.1088/1742-6596/898/10/102006},
 	organization = {IOP Publishing}
 }
 @article{cousins2008evaluation,
@@ -214,7 +216,10 @@
 	publisher    = "Elsevier",
 	volume       = 595,
 	number       = 2,
-	pages        = "480--501"
+	pages        = "480--501",
+	doi          = {https://doi.org/10.1016/j.nima.2008.07.086},
+	issn         = {0168-9002},
+	url          = {https://www.sciencedirect.com/science/article/pii/S0168900208010255}
 }
 @misc{atlas_susy_feynman,
 	title        = {{FeynmanGraphs}},
@@ -671,14 +676,17 @@
 	abstract     = {We introduce a variable useful for measuring masses of particles which are pair produced at hadron colliders, where each particle decays to one particle that is directly observable and another particle whose existence can only be inferred from missing transverse momentum. This variable is closely related to the transverse mass variable commonly used for measuring the W mass at hadron colliders, and like the transverse mass our variable extracts masses in a reasonably model independent way. Without considering either backgrounds or measurement errors we consider how our variable would perform measuring the mass of selectrons in a mSUGRA SUSY model at the LHC.}
 }
 @article{lester2015bisection,
-	title        = {{Bisection-based asymmetric M T2 computation: a higher precision calculator than existing symmetric methods}},
+	title        = "{Bisection-based asymmetric M$_{T2}$ computation: a higher precision calculator than existing symmetric methods}",
 	author       = {Lester, Christopher G and Nachman, Benjamin},
 	year         = 2015,
-	journal      = {Journal of High Energy Physics},
-	publisher    = {Springer},
-	volume       = 2015,
+	journal      = "JHEP",
+	volume       = "03",
 	number       = 3,
-	pages        = {1--16}
+	pages        = 100,
+	doi          = "10.1007/JHEP03(2015)100",
+	eprint       = "1411.4312",
+	reportnumber = "CAV-HEP-14-13, CAV-HEP-14/13",
+	primaryclass = "hep-ph"
 }
 @misc{gillam2021mt2,
 	title        = {{mt2}},
@@ -702,14 +710,16 @@
 	numpages     = 44
 }
 @article{cheng2008minimal,
-	title        = {{Minimal kinematic constraints and MT2}},
-	author       = {Cheng, Hsin-Chia and Han, Zhenyu},
+	title        = "{Minimal Kinematic Constraints and m(T2)}",
+	author       = "Cheng, Hsin-Chia and Han, Zhenyu",
 	year         = 2008,
-	journal      = {Journal of High Energy Physics},
-	publisher    = {IOP Publishing},
-	volume       = 2008,
-	number       = 12,
-	pages        = {063}
+	journal      = "JHEP",
+	volume       = 12,
+	pages        = "063",
+	doi          = "10.1088/1126-6708/2008/12/063",
+	eprint       = "0810.5178",
+	archiveprefix = "arXiv",
+	primaryclass = "hep-ph"
 }
 % metsig
 @inproceedings{mahalanobis1936generalised,
@@ -955,13 +965,16 @@
 }
 @article{abachi1995observation,
 	title        = {{Observation of the top quark}},
-	author       = {D0 Collaboration},
+	author       = {\dzero\ Collaboration},
 	year         = 1995,
-	journal      = {Physical review letters},
-	publisher    = {APS},
+	month        = apr,
+	journal      = {Physical Review Letters},
+	publisher    = {American Physical Society},
 	volume       = 74,
 	number       = 14,
-	pages        = 2632
+	pages        = {2632--2637},
+	doi          = {10.1103/PhysRevLett.74.2632},
+	url          = {https://link.aps.org/doi/10.1103/PhysRevLett.74.2632}
 }
 % VR-llbb quote
 @misc{comment2022vrllbb,
@@ -997,7 +1010,7 @@
 	title        = {{Initial state radiation in the Herwig 7 angular-ordered parton shower}},
 	author       = {Bewick, Gavin and Ravasio, Silvia Ferrario and Richardson, Peter and Seymour, Michael H},
 	year         = 2022,
-	journal      = {Journal of High Energy Physics},
+	journal      = {JHEP},
 	publisher    = {Springer},
 	volume       = 2022,
 	number       = 1,
@@ -1020,11 +1033,14 @@
 	numpages     = {0}
 }
 % root stats roostats roofit tirefire
-@article{verkerke2003roofit,
-	title        = {{The RooFit toolkit for data modeling}},
-	author       = {Verkerke, Wouter and Kirkby, David},
+@inproceedings{verkerke2003roofit,
+	title        = "{The RooFit toolkit for data modeling}",
+	author       = "Verkerke, Wouter and Kirkby, David P.",
 	year         = 2003,
-	journal      = {arXiv preprint physics/0306116}
+	month        = mar,
+	booktitle    = {Computing in High Energy and Nuclear Physics},
+	editor       = "Lyons, L. and Karagoz, Muge",
+	eprint       = "physics/0306116"
 }
 % pyhf
 @article{heinrich2021pyhf,
@@ -1107,7 +1123,7 @@
 }
 @article{D0:1999qdf,
 	title        = "{Extraction of the width of the $W$ boson from measurements of $\sigma(p\bar{p} \to W + X) \times B(W \to e \nu)$ and $\sigma(p\bar{p} \to Z + X) \times B(Z \to e e)$ and their ratio}",
-	author       = "Abbott, B. and others",
+	author       = "\dzero\ Collaboration",
 	year         = 2000,
 	journal      = "Physical Review D",
 	volume       = 61,
@@ -1154,7 +1170,7 @@
 	title        = {{ROOT - An Object Oriented Data Analysis Framework}},
 	author       = {Rene Brun and Fons Rademakers},
 	year         = 1997,
-	booktitle    = {Nucl. Inst. and Meth. in Phys. Res. A},
+	booktitle    = {Nuclear Instruments and Methods in Physics Research},
 	volume       = 389,
 	pages        = {81--86},
 	doi          = {10.5281/zenodo.3895860}
@@ -1172,7 +1188,7 @@
 	title        = "{Event generation with Sherpa 2.2}",
 	author       = "Bothmann, Enrico and others",
 	year         = 2019,
-	journal      = "SciPost Phys.",
+	journal      = "SciPost Physics",
 	volume       = 7,
 	number       = 3,
 	pages        = "034",
@@ -1209,7 +1225,7 @@
 	author       = {Stefano Catani and Frank Krauss and Bryan R Webber and Ralf Kuhn},
 	year         = 2001,
 	month        = nov,
-	journal      = {Journal of High Energy Physics},
+	journal      = {JHEP},
 	publisher    = {Springer Science and Business Media {LLC}},
 	volume       = 2001,
 	number       = 11,
@@ -1264,7 +1280,7 @@
 	title        = "{An introduction to PYTHIA 8.2}",
 	author       = "Sj{\"o}strand, Torbj{\"o}rn and Ask, Stefan and Christiansen, Jesper R. and Corke, Richard and Desai, Nishita and Ilten, Philip and Mrenna, Stephen and Prestel, Stefan and Rasmussen, Christine O. and Skands, Peter Z.",
 	year         = 2015,
-	journal      = "Comput. Phys. Commun.",
+	journal      = "Computer Physics Communications",
 	volume       = 191,
 	pages        = 159,
 	doi          = "10.1016/j.cpc.2015.01.024",
@@ -2076,7 +2092,7 @@
 	publisher    = {International Society for Bayesian Analysis},
 	volume       = 1,
 	number       = 4,
-	pages        = {833 -- 859},
+	pages        = {833--859},
 	doi          = {10.1214/06-BA127},
 	keywords     = {algorithm, annealing, Bayesian computation, evidence, marginal likelihood, Model selection, nest, phase change}
 }
@@ -2093,7 +2109,8 @@
 	title        = "{Data analysis: a Bayesian tutorial}",
 	author       = {Sivia, Devinderjit and Skilling, John},
 	year         = 2006,
-	publisher    = {OUP Oxford},
+	publisher    = {Oxford University Press},
+	address      = {Oxford},
 	isbn         = 9780198568322
 }
 % bdt xgboost
@@ -2115,18 +2132,15 @@
 }
 % machine learning
 @book{MurphyKevinP.2012Mlap,
-	title        = {{Machine learning a probabilistic perspective}},
+	title        = {{Machine Learning: A Probabilistic Perspective}},
 	author       = {Murphy, Kevin P.},
 	year         = 2012,
-	booktitle    = {Machine learning a probabilistic perspective},
 	publisher    = {MIT Press},
 	address      = {Cambridge, MA},
 	series       = {Adaptive computation and machine learning series},
 	pages        = 246,
 	isbn         = 9780262018029,
-	abstract     = {A comprehensive introduction to machine learning\ldots},
-	language     = {eng},
-	keywords     = {Machine learning; Probabilities; Electronic books}
+	abstract     = {A comprehensive introduction to machine learning\ldots}
 }
 % symmetries
 % emu
@@ -2287,7 +2301,7 @@
 	publisher    = {Curran Associates, Inc.},
 	volume       = 33,
 	pages        = {21271--21284},
-	url          = {https://proceedings.neurips.cc/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf},
+	url          = {https://proceedings.neurips.cc/paper/2020/hash/f3ada80d5c4ee70142b17b8192b2958e-Abstract.html},
 	editor       = {H. Larochelle and M. Ranzato and R. Hadsell and M.F. Balcan and H. Lin}
 }
 @inproceedings{pmlr-v139-radford21a,
@@ -2302,7 +2316,6 @@
 	pages        = {8748--8763},
 	url          = {https://proceedings.mlr.press/v139/radford21a.html},
 	editor       = {Meila, Marina and Zhang, Tong},
-	pdf          = {http://proceedings.mlr.press/v139/radford21a/radford21a.pdf},
 	abstract     = {State-of-the-art computer vision systems are trained\ldots}
 }
 % self-supervision jigsaw
@@ -2314,7 +2327,7 @@
 	publisher    = "Springer International Publishing",
 	address      = "Cham",
 	pages        = "69--84",
-	isbn         = "978-3-319-46466-4",
+	isbn         = 9783319464664,
 	editor       = "Leibe, Bastian and Matas, Jiri and Sebe, Nicu and Welling, Max",
 	abstract     = "We propose a novel unsupervised learning approach\ldots"
 }
@@ -2487,7 +2500,7 @@
 }
 % skilling rant, appears unpublished
 @misc{skilling2008rant,
-	title        = "{This Physicist's View of Gelman' Bayes}",
+	title        = "{This Physicist's View of Gelman's Bayes}",
 	author       = {John Skilling},
 	year         = 2008,
 	url          = "https://www.mrao.cam.ac.uk/~steve/maxent2009/images/rant.pdf",
@@ -2557,7 +2570,7 @@
 	pages        = {365–465},
 	doi          = {10.1017/CBO9781107255975.006},
 	place        = {Cambridge},
-	collection   = {Cambridge Library Collection - Astronomy}
+	collection   = {Cambridge Library Collection --- Astronomy}
 }
 % maxwell 1860 normal 3d
 @article{maxwell1860normal,
@@ -2649,6 +2662,7 @@
 	volume       = 15,
 	number       = 4,
 	pages        = {279--313},
+	doi          = {10.2307/1905331},
 	issn         = {00129682, 14680262},
 	url          = {http://www.jstor.org/stable/1905331},
 	urldate      = {2022-08-24}
@@ -2678,6 +2692,7 @@
 	volume       = 46,
 	number       = 253,
 	pages        = {55--67},
+	doi          = {10.2307/2280094},
 	issn         = {01621459},
 	url          = {http://www.jstor.org/stable/2280094},
 	urldate      = {2022-08-24}
@@ -2720,15 +2735,16 @@
 	organization = {AIP Publishing LLC}
 }
 % lecun energy
-@inproceedings{lecun-06,
-	title        = "A Tutorial on Energy-Based Learning",
-	author       = "LeCun, Yann and Chopra, Sumit and Hadsell, Raia and Ranzato, {Marc'Aurelio} and Huang, {Fu-Jie}",
+@inbook{lecun-06,
+	title        = "Energy-Based Models",
+	author       = "Yann Lecun and Sumit Chopra and Raia Hadsell and Ranzato, {Marc' Aurelio} and Huang, {Fu Jie}",
 	year         = 2006,
 	booktitle    = "Predicting Structured Data",
 	publisher    = "MIT Press",
-	isbn         = 9780262255691,
-	original     = "orig/lecun-06.pdf",
-	editor       = "Bakir, G. and Hofman, T. and {Sch\"olkopf}, B. and Smola, A. and Taskar, B."
+	address      = {[Cambridge, Massachusetts; London, England]},
+	pages        = {191--246},
+	isbn         = 9780262026178,
+	chapter      = 10
 }
 @inproceedings{pmlr-v2-ranzato07a,
 	title        = {{A Unified Energy-Based Framework for Unsupervised Learning}},
@@ -2743,7 +2759,6 @@
 	pages        = {371--379},
 	url          = {https://proceedings.mlr.press/v2/ranzato07a.html},
 	editor       = {Meila, Marina and Shen, Xiaotong},
-	pdf          = {http://proceedings.mlr.press/v2/ranzato07a/ranzato07a.pdf},
 	abstract     = {We introduce a view of unsupervised learning that\ldots}
 }
 % frequentist stuff
@@ -2757,6 +2772,7 @@
 	volume       = {20A},
 	number       = {1/2},
 	pages        = {175--240},
+	doi          = {10.2307/2331945},
 	issn         = {00063444},
 	url          = {http://www.jstor.org/stable/2331945},
 	urldate      = {2022-08-27}
@@ -2784,6 +2800,7 @@
 	volume       = 37,
 	number       = {1/2},
 	pages        = {130--144},
+	doi          = {10.2307/2332156},
 	issn         = {00063444},
 	url          = {http://www.jstor.org/stable/2332156},
 	urldate      = {2022-08-27}
@@ -2980,7 +2997,7 @@
 	pages        = {507--521},
 	doi          = {10.1093/biomet/10.4.507},
 	issn         = {0006-3444},
-	note         = "URL:\url{https://academic.oup.com/biomet/article-pdf/10/4/507/527418/10-4-507.pdf}"
+	url          = "https://academic.oup.com/biomet/article-pdf/10/4/507/527418/10-4-507.pdf"
 }
 % misuse of p-values
 @article{Cohen1994TheEI,
