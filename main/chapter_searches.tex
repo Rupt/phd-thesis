@@ -1919,7 +1919,7 @@ and \pyhf~\cite{heinrich2021pyhf}.
 histogram bins.
 They constrain parameters with either Gaussian or Poisson%
 \footnote{%
-Poisson constraints typically use a continuous interpolation with
+The Poisson likelihoods typically use a continuous interpolation with
 $n!\rightarrow \Gamma(n + 1)$.%
 }
 likelihood
@@ -1970,20 +1970,75 @@ we are in fact uncertain of the expected yields
 (demonstrated by us drawing error bars on them).
 
 Nonetheless, this procedure often simulates reasonable-looking test statistic
-distributions without relying on asymptotic approximations, and reportedly
+distributions, does not rely on asymptotic approximations, and reportedly
 has ``good coverage properties''~\cite{
 cern2011procedure,
 Cranmer2006Statistical
 }.
-Toy simulation is an alternative approximation, and in given circumstances
-may be better or worse.
+Toy simulation is an approximation, and in given circumstances may be better or
+worse than the asymptotic formulae.
 % Pick your poison.
 
 
 \subsection{\atlas\ SUSY searches}
 \label{sec:searches_searches}
+Searches for new effects from supersymmetric models in \atlas\ face the problem
+that their signals can appear in obscure, extreme, or otherwise less-studied
+corners of the data.
+In \atlas\ SUSY searches, our modelling of the  Standard Model is therefore
+treated with substantial suspicion, and we tune that modelling to better
+describe the backgrounds local to our data of interest before finalizing a
+search.
+Tuning and analysis are performed in a conventional and sensible procedure,
+but their pieces have somewhat esoteric names that we define here.
 
-\TODO{CR VR SR}
+\paragraph{CR, VR, SR.}
+\atlas\ SUSY searches see data only through discrete histogram bins,
+or `regions', which are defined by logical selections in event variables.
+To communicate their intended uses, we further categorize these bins into
+`control', `validation', and `signal' regions.
+
+\textbf{Control regions} (\textbf{CR}s), select large numbers data to
+constrain global normalization factors that scale the major
+Standard Model backgrounds;
+these normalization factors control the total cross-sections of
+background samples while preserving their relatives shapes between regions.
+Disregarding theoretical Standard Model cross-sections is justified, since
+the control region constraints are, by design, more precise than any previous
+estimate local to our regions.
+
+To represent the Standard Model, control regions must be insensitive to
+non-standard signals.
+Before applying their normalization factors to regions that are sensitive
+to signal hypotheses, data in \textbf{validation regions} (\textbf{VR}s) first
+test the quality of extrapolation.
+Each model is adjusted until validation region data are well predicted ---
+either by changing region definitions or restructuring the \heplikelihood\
+model, perhaps with extrapolation uncertainties or extra normalization
+factors.
+Likelihoods for validation region data are not included in the \heplikelihood\
+models, but their data are important and indirectly used to update the
+model in this manner.
+
+Consuming information from control and validation regions to refine the
+predictions of our background-only model is scientific learning, and can be
+reconciled with machine learning practice as fitting a model with training
+(CR) and validation (VR) data.
+Testing is performed through in prediction of data in the
+\textbf{signal regions} (\textbf{SR}s),
+in which signal yields should significantly add on top of the Standard Model
+backgrounds.
+Some signal regions are also labelled \textbf{DR} to indicate their use in
+specific `discovery' fits.
+
+\TODO{Figure to illustrate CR VR SR extrapolation}
+
+\paragraph{Fits.}
+\TODO{Background-only}
+
+\TODO{Exclusion (model-dependent signal}
+
+\TODO{Discovery (model-independent signal)}
 
 
 \subsection{Gaussian significance}
