@@ -1434,18 +1434,18 @@ In fact it is the percentage of ranges
 (confidence intervals, which are test results)
 that should cover a true value.%
 }
-It is easy to be tricked into thinking that the confidence interval for given
-data `probably' contains the unknown parameter, but that gets it backwards.
-For a known true parameter $x$, the confidence intervals in random repeated
-experiments will contain that $x$ with probability $\gamma$;
+It is easy to stumble into thinking that a confidence interval
+`probably' contains the unknown parameter, but that gets it backwards.
+For a known true parameter $x$, the confidence intervals of random repeated
+experiments should contain $x$ with probability $\gamma$;
 the interval makes a subtle statement about unknown alternative data for
 known true parameters.
-Confidence intervals can even exclude all plausible parameters~\cite{
+For given data, the confidence interval can even exclude all possible
+parameters~\cite{
 pratt1961testing,
 Jaynes1976intervals
 }.
-Pratt eloquently explains the correct interpretation of a confidence interval
-by example:
+Pratt succinctly explains the confidence interval by example:
 \begin{displayquote}
 \small
 ``%
@@ -1455,12 +1455,13 @@ $29$, but no conclusion is possible about how probable it is that your
 treatment effect is between $17$ an $29$.%
 ''~\cite{pratt1961testing}.
 \end{displayquote}
-Neyman and Pearson never claimed otherwise; they did precise mathematics, and
-confusion about their intervals arises externally~\cite{jaynes2003probability}.
+Neyman and Pearson never claimed otherwise; they did precise and rigorous
+abstract mathematics, and confusion about their intervals arises
+externally~\cite{jaynes2003probability}.
 
-Confidence intervals are functions of the data, so can inform vague inferences
-if used as data for likelihood functions, just as we did to interpret Fisher's
-\pvalue\ ratio as a likelihood ratio ---
+Confidence intervals are functions of the data, so they can inform vague
+inferences if used as data for likelihood functions, just as we did to
+interpret Fisher's \pvalue\ ratio as a likelihood ratio ---
 an accurately constructed confidence interval $x_1\textrm{--}x_2$ has a
 likelihood function
 \begin{equation}
@@ -1476,8 +1477,8 @@ And again, this reduction cannot add to the data.
 It can only detract.
 The recommendation by Fisher to directly communicate the likelihood function
 remains simpler and clearer.
-In response to the idea that no conclusion can be drawn about the parameter
-itself, Fisher also deserves the last word:
+In response to the idea that no conclusion can be drawn about the parameter,
+Fisher also has strong words here:
 \begin{displayquote}
 \small
 ``%
@@ -1486,6 +1487,7 @@ doctrine that reasoning, properly speaking, cannot be applied to empirical data
 to lead to inferences valid in the real world.%
 ''~\cite{fisher1956statistical}
 \end{displayquote}
+Amen.
 
 \begin{singlespacing}
 \section{Post-frequentist practice}
