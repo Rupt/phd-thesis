@@ -13,16 +13,18 @@ deficiencies.%
 \end{epigraphs}
 \end{singlespacing}
 
-Our task in scientific data analysis is to distil an informative
-message from data and to report that message to the wider community.
-From any given data there are many possible messages that could be extracted,
-and those messages will have different values to different recipients of our
-messages --- our data analysis is not an automatic process, but a result
-of many judgements that are informed by theory, convention, and intuition.
+Our task in scientific data analysis is to distil useful messages from the
+data, and to report that message to the wider community.
+Many different messages could be extracted from given data,
+and those messages will have various values to their recipients.
+Data analysis is not an automatic process, but a design with many judgements
+that are informed by theory, intuition, and convention to give value to their
+results.
 
-To clarify our later description of the $\twoljets$ search in
+To clarify our later description of the \atlas\ SUSY $\twoljets$ search in
 Chapter~\ref{chapter:2ljets}, this chapter introduces the basic theory and
-practice of data analysis and its manifestations in the \atlas\ SUSY community.
+practice of data analysis and its conventional form in the \atlas\ SUSY
+community, parts of which can only be explained in their historical context.
 
 Theoretical data analysis in the tightly coupled fields of probability theory
 and decision theory is introduced in Section~\ref{sec:searches_data_analysis}.
@@ -32,7 +34,7 @@ Standard practice in this field of research does not strictly follow
 frequentist methods, but patches up some of their pathologies with modified
 approaches that we describe in Section~\ref{sec:searches_practice}.
 Searches for Supersymmetric signals in \atlas\ follow a standard strategy for
-their data analysis; its procedures, nomenclature, and parametric modelling
+their data analysis, whose procedures, nomenclature, and parametric modelling
 are introduced in Section~\ref{sec:searches_searches}.
 
 
@@ -40,11 +42,11 @@ are introduced in Section~\ref{sec:searches_searches}.
 \label{sec:searches_data_analysis}
 How many jelly beans are in the jar of Figure~\ref{fig:searches_beans}?
 Your answer depends not only on what you observe from the figure, but also on
-what else you know about cartoon jars of beans, and on what reward is on offer.
-Each answer is a decision that depends both on what the possible rewards are,
-and on which numbers of beans you subjectively infer to be likely.
-We shall return to this example after developing some probability and decision
-theory.
+what else you know about cartoon jars of beans, and on what reward is offered.
+Each answer is a decision, which depends both on how you value the rewards,
+and on which numbers of beans you subjectively infer to be probable.
+We shall return to this example after developing its analysis in probability
+and decision theory.
 
 \begin{figure}[tp]
 \centering
@@ -60,21 +62,20 @@ The first correct answer wins a gold star.
 \label{fig:searches_beans}
 \end{figure}
 
-\TODO{cut this}
 Statistical data analysis suffers from dogma --- prescriptions and recipes that
-students are taught to memorize and follow without knowing their reasons or
-limitations.
-From a standard undergraduate physics education, my experience has been
+one can memorize and follow while knowing neither their reasons nor their
+limitations:
+among these are
 error propagation formulae,
 least-squares fitting routines,
 chi-squared per degree of freedom,
-and myriad statistical tests and confidence intervals.
-Many of these are effective approximations, but all also fail if misused
-outside their domain.%
+and myriad statistical tests with \pvalues\ and confidence intervals.
+Each of these can be an effective, but every one fail if misused outside
+its domain.%
 \footnote{%
-Multiplicative error propagation is an example.
-For $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
-the standard perturbative approximation for their product is
+Multiplicative error propagation is an example:
+for $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
+the standard rule says
 \(
 \widetilde{\sigma}_{ab}
 = \mu_a \mu_b \sqrt{\sigma_a^2/\mu_a^2 + \sigma_b^2/\mu_b^2}
@@ -86,31 +87,36 @@ but a calculation with their moments derives the exact result
 = \sqrt{(\mu_a^2 + \sigma_a^2)(\mu_b^2 + \sigma_b^2) - \mu_a^2\mu_b^2}
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2 + \sigma_a^2 \sigma_b^2
 \)
-if $a$ and $b$ are independent.
-Since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$, the
-propagation formula works only for small relative errors.
+if $a$ and $b$ are independent;
+s ince $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$,
+the propagation formula works only for small relative errors.
 }
-All effective methods of data analysis can be derived upwards from the roots of
-probability and decision theory, and as elsewhere in physics, by knowing the
-derivations we can also know when each approximation should work and when it
-needs replacing.
+All effective methods of data analysis can be justified in probability and
+decision theory.
+As throughout physics, knowing a method's derivation allows one to judge when
+its approximations should hold and when it leaves room for improvement.
+
+Probabilistic data analysis follows the ordinary structure of science:
+write down predictive models, test those predictions against data,
+then update your models (or invent new ones) to refine their predictions
+to accommodate what has been learned.
+Likelihood functions are particularly important to this process because they
+describe our predictions.
+But as we shall see, not everything is a likelihood.
 
 We begin with what probability is: at its most abstract, a probability a
 proportion of stuff within a larger whole.
-Probabilities useful because proportions have applications, and because they
-can be manipulated and interrelated with a linear and intuitive algebra.
-Probabilistic data analysis follows the ordinary structure of science ---
-write down models that make predictions, test those predictions against data,
-then update your models to refine their predictions.
-For this process, likelihoods are particularly important because they describe
-our predictions. But not everything is a likelihood.
+Probabilities are useful because proportions have applications
+(particularly to logical reasoning with uncertainty), and because
+they can be manipulated and interrelated with an intuitive linear algebra.
 The remainder of this section uses a standard example from High Energy Physics
+--- a histogram ---
 to introduce this probabilistic structure and other parts of its technical
 language.
 
 \subsection{Probability, abstract}
-A probability $\prob{b}{a}$ is a number that quantifies the proportion
-of $b$ within $a$, and can be expressed as a ratio~\cite{axioms1010038}
+A probability $\prob{b}{a}$ is a number, which quantifies the proportion
+of $b$ within $a$ and can be expressed as a ratio~\cite{axioms1010038}
 \begin{equation}
 \label{eqn:searches_prob_ratio}
 \prob{b}{a} = \frac{m(b, a)}{m(a)},
@@ -118,20 +124,21 @@ of $b$ within $a$, and can be expressed as a ratio~\cite{axioms1010038}
 in which $m(x)$ is a measure (a non-negative quantity assigned to its
 argument, such as mass of tea in a cup), and the comma `,' means `and'
 (logical and or set intersection or any other equivalent operation).
-To continue that example, $\prob{b}{a}$ could be a proportion of tea within
-a spoon within a cup, where $m(b, a)$ measures the volume of tea in a
-teaspoon that is partially submerged in the cup.%
-\footnote{%
-All probabilities are conditional in this definition; $\probc{b}$ alone does
-not exist unless some conditioning information is implicit from context.%
-}
+For example, $\prob{b}{a}$ could quantify the proportion of tea within
+a spoon within a cup --- then $m(a)$ measures the content of the cup, and
+$m(b, a)$ measures the amount of tea in the teaspoon that is partially
+submerged in the cup.
 
-Logic is an important application of probability, for which $a$ and $b$ are
-interpreted as logical propositions and
-$\prob{b}{a}$ is the degree to which $a$ implies $b$, with the limiting cases
-that $\prob{b}{a} = 1$ when $a$ implies $b$, and $\prob{b}{a} = 0$ when $a$
-contradicts $b$.
-Indeed, Cox's theorem derives the laws of probability by requiring compatibility
+Note that, in this definition, all probabilities are conditional.
+Alone, no $\probc{b}$ exists unless some conditioning information is implicit
+from context.
+
+Logic is an important application of probability.
+To apply to logical reasoning, $a$ and $b$ are logical propositions and
+$\prob{b}{a}$ quantifies the degree to which $a$ implies $b$, with the
+limiting cases that $\prob{b}{a} = 1$ when $a$ implies $b$,
+and $\prob{b}{a} = 0$ when $a$ contradicts $b$.
+Indeed, Cox's theorem shows that probability algebra is uniquely consistent
 with Boolean logic~\cite{
 cox1946probability,
 cox1961algebra,
@@ -142,9 +149,12 @@ keynes1920treatise
 Probability works for logic, and it works \emph{for tea, too}.
 
 Probability \emph{distributions} $\prob{b}{a}$ spread unit probability mass
-across states $b$, and need not be random distributions of fluctuating
-$b$s~\cite{jaynes2003probability,frankfurt2005on}, although random processes
-are useful applications.
+across states $b$.
+They and need not be random distributions of fluctuating $b$s~\cite{
+jaynes2003probability,
+frankfurt2005on
+},
+although random processes are another useful applications.
 
 Two algebraic rules derive from Equation~\ref{eqn:searches_prob_ratio}:
 a \textbf{product rule}
@@ -152,38 +162,57 @@ a \textbf{product rule}
 \prob{c, b}{a} &= \prob{c}{b, a}\times \prob{b}{a},
 \label{eqn:searches_product_rule}
 \intertext{%
-that describes nested proportions
-(perhaps a spoon within a teacup within a sink),
+describing nested proportions
+(a spoon in a teacup in a sink),
 and a \textbf{sum rule}%
 }
-\prob{c\vee b}{a} &= \prob{c}{a} + \prob{b}{a} - \prob{c, b}{a},
+\prob{c\;\textrm{or}\;b}{a} &= \prob{c}{a} + \prob{b}{a} - \prob{c, b}{a},
 \label{eqn:searches_sum_rule}
 \end{align}
-that describes combination in a union $\vee$ that coincides with logical `or'.
-The subtraction avoids double-counting of any overlap, and is often avoided by
-splitting any problem into orthogonal, or disjoint states.
-For disjoint cases with labels $b_i$, normalization therefore requires that
+describing combination in a union;
+the subtraction avoids double-counting of any overlap and is usually avoided by
+splitting any problem into disjoint, orthogonal states.
+For disjoint cases with labels $b_i$, normalization requires that
 \begin{equation}
 \label{eqn:searches_normalization}
 \sum_i \prob{b_i}{a} = 1.
 \end{equation}
-These rules are basic and well known, but we state them here to support the
-following statements of how probabilities can be applied for practical
-results.%
+These basic rules are well known, but we state them here to support the
+following statements on how probabilities can applied for practical results.%
 \footnote{%
 The formulation with sums and products is not strictly unique, but all
 alternatives are equivalent up to an invertible
 transformation~\cite{axioms1010038}.
-This choice is usually best because it uses ordinary addition and
-multiplication.
-In numerical analysis, however, it is often practical to use $\log$
-probabilities to avoid overflows outside the range representable by floating
-point numbers, thus changing multiplication to addition and addition to
-the `$\log$-add-$\exp$' operation.
+This choice is often best because it uses ordinary addition and
+multiplication, but in numerical analysis $\log$ probabilities can avoid
+overflows outside the ranges representable by floating-point numbers,
+thus changing multiplication to addition and addition to the
+`$\log$-add-$\exp$' operation.%
 }
+
 
 \subsection{Probability, applied}
 \label{sec:searches_probability_applied}
+Science involves making predictions, testing those predictions against data,
+and reporting what is learned from the results.
+Various probabilities are involved in this prediction and learning that have
+conventional names to communicate what we intend to do with them.
+Most important for prediction is a \textbf{likelihood}
+\begin{align}
+L(a) &= \prob{b}{a} \\
+\label{eqn:searches_likelihood}
+\intertext{%
+that explores the probabilities assigned to a fixed result $b$ from different
+contexts $a$, or how well different hypotheses predicted a result.
+A likelihood is clearly a probability, but it is not a probability distribution
+--- only the left hand argument $b$ forms a normalized distribution.
+Alternatively, fixing the context gives a \textbf{prior}%
+}
+\pi(b) &= \prob{b}{a}
+\label{eqn:searches_prior}
+\end{align}
+for fixed $a$, which is a normalized probability distribution over $b$.
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{\textwidth}
@@ -214,39 +243,20 @@ prior have the same form (left), but the prior density changes to preserve its u
 area relative to $u = \log x$.
 On changing to $\log$ coordinates (right), the likelihood slides horizontally,
 but the prior density scales to preserve area.
-Both maximum likelihood points are equal, but the maximum prior density moves.
+Both maximum likelihood points are equivalent, but the maximum prior density
+moves.
 \\[.5em]
 Particle lifetimes follow exponential distributions and their maximum
 densities are at zero time, but it is incorrect to describe their most probable
 lifetimes as zero ---
-the `most probable' $\log$ lifetime is not $\log 0$, but equals the mean
-lifetime.
+the `most probable' $\log$ lifetime is not $\log 0$, but turns out to coincide
+with the mean lifetime.
 \\[.5em]
 For zero Poisson data, the maximum likelihood rate is zero, but zero might not
 be the most probable rate (if, for example, an experiment has known backgrounds).
 }
 \label{fig:searches_abacus}
 \end{figure}
-% science snake
-Science involves making predictions, testing those predictions against data,
-and reporting what is learned from the results.
-Various probabilities are involved in this prediction and learning that have
-conventional names to communicate what we intend to do with them.
-Most important for prediction is a \textbf{likelihood}
-\begin{align}
-L(a) &= \prob{b}{a} \\
-\label{eqn:searches_likelihood}
-\intertext{%
-that explores the probabilities assigned to a fixed result $b$ from different
-contexts $a$, or how well different hypotheses predicted a result.
-A likelihood is clearly a probability, but it is not a probability distribution
---- only the left hand argument $b$ forms a normalized distribution.
-Alternatively, fixing the context gives a \textbf{prior}%
-}
-\pi(b) &= \prob{b}{a}
-\label{eqn:searches_prior}
-\end{align}
-for fixed $a$, which is a normalized probability distribution over $b$.
 
 Since prior probabilities are normalized distributions, it is usually
 convenient to represent them as density functions.
@@ -1961,7 +1971,7 @@ we are in fact uncertain of the expected yields
 (demonstrated by us drawing error bars on them).
 
 Nonetheless, this procedure often simulates reasonable-looking test statistic
-distributions, does not rely on asymptotic approximations, and reportedly
+distributions, does not rely on asymptotic approximations, and purportedly
 has ``good coverage properties''~\cite{
 cern2011procedure,
 Cranmer2006Statistical
