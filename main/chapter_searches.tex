@@ -70,8 +70,8 @@ error propagation formulae,
 least-squares fitting routines,
 chi-squared per degree of freedom,
 and myriad statistical tests with \pvalues\ and confidence intervals.
-Each of these can be an effective, but every one fail if misused outside
-its domain.%
+Each of these can be a useful approximation, but every one can also fail if
+misused outside its domain.%
 \footnote{%
 Multiplicative error propagation is an example:
 for $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
@@ -88,7 +88,7 @@ but a calculation with their moments derives the exact result
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2 + \sigma_a^2 \sigma_b^2
 \)
 if $a$ and $b$ are independent;
-s ince $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$,
+since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$,
 the propagation formula works only for small relative errors.
 }
 All effective methods of data analysis can be justified in probability and
@@ -113,6 +113,7 @@ The remainder of this section uses a standard example from High Energy Physics
 --- a histogram ---
 to introduce this probabilistic structure and other parts of its technical
 language.
+
 
 \subsection{Probability, abstract}
 A probability $\prob{b}{a}$ is a number, which quantifies the proportion
@@ -1423,7 +1424,16 @@ Such a rule selects a set of favoured data for each hypothesis, and the
 confidence interval (when it can be constructed) contains hypotheses for which
 the observed data are in that favoured set.
 
-Confidence intervals are confusing.
+Confidence intervals are confusing.%
+\footnote{%
+Exemplifying such confusion,
+the \atlas\ Glossary of Terms~\cite{atlas2022glossary} states that the
+``Confidence Level (CL) is a statistical measure of the percentage of test
+results that can be expected to be within a specified range.''
+In fact it is the percentage of ranges
+(confidence intervals, which are test results)
+that should cover a true value.%
+}
 It is easy to be tricked into thinking that the confidence interval for given
 data `probably' contains the unknown parameter, but that gets it backwards.
 For a known true parameter $x$, the confidence intervals in random repeated
@@ -1561,9 +1571,9 @@ to precisely inaccurate statements like
 Standard Model predictions''~\cite{cern2021test}.
 
 There also exists a notion that a small \pvalue\ means that the data
-represent a rare fluctuation~\cite{murray1997use, atlas2022pvalue}.%
+represent a rare fluctuation~\cite{murray1997use, atlas2022glossary}.%
 \footnote{%
-The \atlas\ Glossary of Terms~\cite{atlas2022pvalue} falsely states that
+The \atlas\ Glossary of Terms~\cite{atlas2022glossary} falsely states that
 ``The \textbf{p-value} is the probability (ranging from $0$ to $1$) that the
 results observed could have occurred by chance, if the tested theory has no
 impact on the study.''%
