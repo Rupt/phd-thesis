@@ -185,8 +185,8 @@ The formulation with sums and products is not strictly unique, but all
 alternatives are equivalent up to an invertible
 transformation~\cite{axioms1010038}.
 This choice is often best because it uses ordinary addition and
-multiplication, but in numerical analysis $\log$ probabilities can avoid
-overflows outside the ranges representable by floating-point numbers,
+multiplication, but $\log$ probabilities can avoid overflows outside the ranges
+representable by floating-point numbers in numerical analysis,
 thus changing multiplication to addition and addition to the
 `$\log$-add-$\exp$' operation.%
 }
@@ -196,15 +196,16 @@ thus changing multiplication to addition and addition to the
 \label{sec:searches_probability_applied}
 Science involves making predictions, testing those predictions against data,
 and reporting what is learned from the results.
-Various probabilities are involved in this prediction and learning that have
-conventional names to communicate what we intend to do with them.
+Various probabilities are involved in this prediction and learning, and those
+probabilities have conventional names that communicate our intended use for
+them.
 Most important for prediction is a \textbf{likelihood}
 \begin{align}
-L(a) &= \prob{b}{a} \\
 \label{eqn:searches_likelihood}
+L(a) &= \prob{b}{a}
 \intertext{%
-that explores the probabilities assigned to a fixed result $b$ from different
-contexts $a$, or how well different hypotheses predicted a result.
+which explores the probabilities assigned to a fixed result $b$
+(usually data) from different contexts $a$ (hypotheses).
 A likelihood is clearly a probability, but it is not a probability distribution
 --- only the left hand argument $b$ forms a normalized distribution.
 Alternatively, fixing the context gives a \textbf{prior}%
@@ -212,7 +213,7 @@ Alternatively, fixing the context gives a \textbf{prior}%
 \pi(b) &= \prob{b}{a}
 \label{eqn:searches_prior}
 \end{align}
-for fixed $a$, which is a normalized probability distribution over $b$.
+normalized probability distribution over results $b$ for a fixed context $a$.
 
 \begin{figure}[tp]
 \centering
@@ -265,21 +266,21 @@ Densities are stated relative to coordinates (or occasionally measures),
 so changing coordinates changes their values as their unit probability mass
 is sloshed around.
 Likelihoods are not densities in the conditioning variable that they explore,
-so changing coordinates slides them horizontally like beads on an abacus,
-but does not change their values for equivalent states.
+so changing coordinates instead slides them horizontally like beads on an
+abacus, and does not change their values for equivalent states.
 Figure~\ref{fig:searches_abacus} illustrates this difference.
 
-Likelihood and prior are evidently related --- they explore two indices into
-the same object, two sides of the same coin, and are assigned by the same
-principles.
-But they are profoundly different objects that work for different purposes,
-and clarity in their distinction will help in our later understanding of
+Likelihood and prior are evidently related; they explore two indices into
+the same object --- two sides of the same coin --- and they are both assigned
+by the same principles.
+But they are profoundly different objects, which are applied for different
+purposes ---
+clarity in their distinction will help in our later understanding of
 practical methods.
-We use likelihoods to compare which hypotheses predicted observed data better
-than others.
-Prior to observing data we use priors to describe what might result from
-different models; priors on data can be useful in designing our experiments,
-and priors on other states describe other predictions.
+Likelihoods are useful to compare which hypotheses predicted observed data
+better than others.
+Priors on hypotheses express uncertain predictions, and
+priors on data are useful in experimental design
 
 To illustrate this, consider a histogram that bins event yields in
 $\met$, with distributions from background and (supersymmetric) signal samples
@@ -287,12 +288,13 @@ overlaid.
 Example such histograms are displayed in
 Figure~\ref{fig:searches_sig_bkg_prior_likelihood}.
 Since these histograms are normalized to unit area, they show prior
-probability distributions along the bin axis; there is one prior
-for events from each of the background and signal hypotheses.
-Priors distribute unit probability explore along the bin axis.
+probability distributions along the bin axis.
+There is one prior for events from each of the background and signal
+hypotheses ---
+priors distribute unit probability explore along the bin axis.
 In each bin, however, a likelihood function compares the assignments from
-the two hypotheses: signal and background.
-Likelihoods explore vertically down the sample axis.
+the two hypotheses: signal and background ---
+likelihoods explore vertically down the sample axis.
 
 \begin{figure}[tp]
 \centering
@@ -311,31 +313,32 @@ invariant.
 \label{fig:searches_sig_bkg_prior_likelihood}
 \end{figure}
 
-Identical distributions are drawn in two different coordinates
+Both distributions are equivalently drawn in two different coordinates
 on the left and right of Figure~\ref{fig:searches_sig_bkg_prior_likelihood};
-they are identical in content, but differ in appearance because they use the
-standard approach of representing each prior distribution as a density.%
+they are identical in content, but differ in appearance because they represent
+each prior distribution as a density in the standard way.%
 \footnote{%
-Density is a somewhat misleading term here.
-Probability mass does not compress, it moves and redistributes --- it is more
-like depth of tea than density of air.%
+Density is a somewhat misleading term here ---
+probability mass is incompressible; it moves and redistributes more like
+depth of water than density of air.%
 }
+
 To preserve the area of each bin, which shows its probability mass,
 bin heights therefore change to adapt to their widths that change due to the
 differing values of $\met$ and $\sqrt{\met}$.
-This coordinate-dependence of the prior density means that its maximum is
-not always meaningful.
-Since the probability mass in each bin is constant, the likelihood is
+This coordinate-dependence of the prior density means that its point of
+maximum density is not always meaningful.
+But since the probability mass in each bin is constant, the likelihood is
 coordinate-independent.
 
-One typically approximates such histograms by Monte Carlo simulation methods,
-since simulations do not generate bin indices but event variables that derive
-from the sampled events.
-To connect these concept with probabilities, we begin with some notation;
+Standard methods approximate such histograms from Monte Carlo simulations,
+which do not directly indicate bin indices but state the values for event
+variables.
+To connect event variables to bin indices, we begin with some notation:
 we have hypotheses $h$ (signal or background),
-a parameter $x$ that we histogram ($x = \met$),
-and we observe a datum $d$ that datum indexes the histogram bins --- supposing
-an event is observed in the overflow bin, it says
+an event variable $x$ that we histogram ($x = \met$),
+and we observe a datum $d$ that indexes the histogram bins.
+Supposing, for example, that an event is observed in the overflow bin, it says
 $d = `x > 100\,\eV[G]\textrm{'}$.
 This observed bin has a likelihood function
 \begin{equation}
@@ -346,37 +349,33 @@ L(x) = \prob{d}{x, h} = \prob{d}{x} =
 0 & \textrm{otherwise} \\
 \end{matrix}
 \right.
+,
 \end{equation}
-that corresponds to Equation~\ref{eqn:searches_likelihood} by
+which corresponds to Equation~\ref{eqn:searches_likelihood} by
 $b \leftarrow d$ and $a \leftarrow `x, h\textrm{'}$,
-and simplifies $\prob{d}{x, h} = \prob{d}{x}$ since such binning is independent
-of hypothesis.%
+and simplifies by $\prob{d}{x, h} = \prob{d}{x}$ because at given $x$ the
+binning is independent of any origin from signal or background.%
 \footnote{%
 Independence of the likelihood function from prior hypotheses is so common
 that it should usually be assumed unless otherwise stated.
 }
 This example of a binary selection highlights how the likelihood acts as a
-filter that rejects events that are contradicted by the data.
+filter that only rejects events that are contradicted by the data.
 Other likelihoods that are not binary act similarly, but as inefficient filters
 that reject events with some probability.
 
 Simulating events from background and signal hypotheses samples from their
-respective priors
-\begin{equation}
-\pi(x) = \prob{x}{h}
-\end{equation}
-that correspond to Equation~\ref{eqn:searches_prior} by
+respective priors $\pi(x) = \prob{x}{h}$, which
+correspond to Equation~\ref{eqn:searches_prior} by
 $b \leftarrow x$ and $a \leftarrow h$.
 Although we previously used the same labels $a$ and $b$, those are only
 labels --- the words `prior' and `likelihood' state our intent to index into
 the left and right arguments, respectively.
 
 When we fill a histogram by summing weights of simulated samples, we are
-calculating another likelihood over hypotheses $h$ alone, not $`x, h\textrm{'}$
-jointly.
-To disambiguate the two, we call this abstracted, $x$-independent likelihood
-the \textbf{evidence} $Z(h)$ for hypothesis $h$.
-The evidence is calculable as
+calculating another likelihood over hypotheses $h$ alone in the bin,
+independent of, by averaging the likelihood over the prior.
+This abstracted, $x$-independent likelihood is labelled the \textbf{evidence}:
 \begin{align}
 Z
 = \prob{d}{h} &= \sum_i L(x_i) \,\pi(x_i)
@@ -389,13 +388,15 @@ where Equation~\ref{eqn:searches_evidence_integral_measure} is notation for
 integrating the likelihood function over the prior measure~\cite{
 billingsley2008probability,
 skilling2010foundations
-}, and relates most closely to our practice of simulating from the model and
-counting events that hit the non-zero likelihood in the bin.
-We shall shortly derive this identity.
+},
+can be imagined as simulating from the model $\mathrm{d}\pi$ and
+counting events that hit pass the likelihood filter.
 The name `evidence' relates to its application for model
 comparison~\cite{mackay2003information}.
-Supposing we have this one event with $\met > 100\,\eV[G]$, did it come from
-the background or signal sample?%
+
+
+Suppose that we have this one event with $\met > 100\,\eV[G]$ ---
+did it come from the background or signal?%
 \footnote{%
 Questioning the origin of individual events is unusual in our context in
 \atlas, but is done in other research into rare effects such as neutrino
@@ -409,42 +410,43 @@ The answer depends on the signal and background cross-sections in our collider,
 but larger evidence for signal does influence any conclusion to move in its
 favour.
 
-This expression as an integral --- an average over the prior, means that
-the evidence $Z$ depends on what fraction of samples hits large values of
-the likelihood function, and not only on how large that likelihood gets.
-In contrast, one could consider a maximum likelihood approach that would
-constrain a numerical optimization to regions of non-zero prior in each model.
-Such optimizations can give useful upper bounds on the evidence, but this
-example highlights a flaw when both models support the $\met > 100\,\eV[G]$
-bin.
-Then, both support the same maximum likelihood of
-$L(\varepsilon + 100\,\eV[G]) = 1$, despite different evidence values.
+Expressing the evidence $Z$ as an average over the prior highlights how it
+depends both on how large that likelihood gets,
+and on what fraction of samples hit large likelihood values.
+Maximum likelihood approaches,
+which compare models by the largest likelihoods their priors support,
+can be practical and give useful upper bounds on the evidence.
+This histogram example, however, highlights a limitation since both models
+support the same maximum likelihood of
+$L(\varepsilon + 100\,\eV[G]) = 1$.
+These evidence values here differ only by their prior masses in that bin.
 
 % posterior
-Perhaps we now want to see where in the overflow bin this event landed, and
+Perhaps we now wanted to see where in the overflow bin this event landed, and
 compare the signal and background distributions there.
-This is an inspection of the \textbf{posterior}
+That would be inspection of the \textbf{posterior}
 \begin{equation}
-p(x) = \prob{x}{d, h} = \frac{L(x)\,\pi(x)}{Z},
+p(x) = \prob{x}{d, h} = \frac{L(x)}{Z}\pi(x),
 \end{equation}
 which is a prior probability distribution specialized by the data;
 it simply uses the likelihood to filter simulated samples
-(perhaps in `skimming an ntuple')
-and re-normalizes them to a probability distribution within the constraint.
+(like `skimming an ntuple'),
+then re-normalizes them to a probability distribution within the constraint.
 
-We finally have the four parts of `Bayesian' data analysis:
+We now have the four parts of `Bayesian' data analysis:
 the two inputs \textbf{likelihood} and \textbf{prior},
 and two outputs \textbf{posterior} and \textbf{evidence}.
 These relate through Bayes' rule, which is a consequence of the
 produce rule of Equation~\ref{eqn:searches_product_rule} and the
 commutativity of `and' --- that `$a$ and $b$' is equivalent to
-`$b$ and $a$';
-the joint probability of data and parameters has two identical
-forms, $\prob{d, x}{h}$ and $\prob{x, d}{h}$, that each factor into two
+`$b$ and $a$'.
+The joint probability of data and parameters has two identical
+forms, $\prob{d, x}{h}$ and $\prob{x, d}{h}$, which each factor into two
 pieces:
 \begin{align}
 \prob{d}{x, h}\times \prob{x}{h} &= \prob{x}{d, h}\times \prob{d}{h},
 \intertext{all of which we have named:}
+\hphantom{\quad \quad \mid\mid \mathrm{context}}
 \underbrace{L(x)}_\textrm{likelihood}
 \times
 ~\,
@@ -454,6 +456,7 @@ pieces:
 \overbrace{p(x)}^\textrm{posterior}
 \times
 \underbrace{Z}_\textrm{evidence}
+\quad \quad \mid\mid h
 .
 % \textbf{likelihood} \times \textbf{prior}
 % &= \textbf{posterior} \times \textbf{evidence} .\nonumber
@@ -462,79 +465,56 @@ This is (the infamous) Bayes' rule, derived as a consequence of the
 symmetry of logical `and' and the product rule of probability
 algebra.
 
-How Bayes' rule \emph{should} be used in scientific data analysis is to extract
-useful information from the data.
-If the likelihood function itself is interpretable, then it should be reported
-directly.
-When it is not, perhaps due to a complicated parametric modelling, then one
-should abstract those parameters away to summarize the likelihood.
-Properties such as local maxima or regions in which it exceeds meaningful
-thresholds can be useful.
-Evidence values for predictive models can also be useful if those models are
-clearly stated and relevant to readers' interests.
-Data act only through the likelihood function, and reporting a posterior
-can act to obfuscate those data.
+Data only enter the inputs to Bayes' rule through the likelihood function, so
+the likelihood must contain all relevant information from the data.
+To summarize data for scientific communications, we therefore find a
+hierarchy of objects with decreasing complexity and increasing abstraction:
+\begin{itemize}
+\item the data themselves, with instructions for their interpretation,
+\item the likelihood function, or functions for varied interpretations, and
+\item evidence values for well-defined, predictive models.
+\end{itemize}
+Each is a compression of the data, which is easier to interpret in more refined
+contexts.
+Note that summaries of these objects also be useful, such as maxima
+of the likelihood function,
+or regions in which it exceeds meaningful thresholds.
 
-Posterior probabilities are, however, useful when digesting data to make
-inferences about the world.
-Reporting likelihood functions and evidence values allows readers to assign
-priors as they wish.
-For model comparison, for example between background $h_1=B$ and signal $h_2=S$
-models, the analysis is conveniently linearized by expressing it in $\log$
-ratio form:
+Posterior probabilities are model-dependent objects that can usefully
+digesting data to make inferences, but are not pure statements of the data ---
+reporting likelihood functions and evidence values allows readers to assign
+their own priors, to compute any posteriors they wish.
+
+For model comparison between two hypotheses $h_1$ and $h_2$
+(perhaps signal versus background),
+Bayes' rule is conveniently linearized in $\log$ ratio form:
 \begin{equation}
 \label{eqn:searches_log_odds}
 \hphantom{\quad \quad \mid\mid \mathrm{context}}
-\Delta(d) =
-\log\frac{\prob{S}{d}}{\prob{B}{d}}
+\log\!
+\overbrace{
+\frac{\prob{h_1}{d}}{\prob{h_2}{d}}
+}^\textrm{posterior odds}
 =
-\log\frac{\prob{d}{S}}{\prob{d}{B}}
+\log\!\!
+\underbrace{
+\frac{\prob{d}{h_1}}{\prob{d}{h_2}}
+}_\textrm{likelihood ratio}
+\!\!
 +
-\log\frac{\probc{S}}{\probc{B}}
+\log\!
+\overbrace{
+\frac{\probc{h_1}}{\probc{h_2}}
+}^\textrm{prior odds}
 \quad \quad \mid\mid \mathrm{context}
 ,
 \end{equation}
-where we use the double bar, $\mid\mid$, to refer to any contextual information
-a reader might wish to include.
+where we use the double bar, $\mid\mid$, to separate to any common contextual
+information.
 When the evidence ratio is independent of that context, as it usually is,
-it factors out from the prior (odds) ratio.
-In this sense, likelihood (or evidence) ratios are scale factors that update
-any odds prior ratio by the same multiplication, and that on this $\log$ scale
-that means just adding a constant.
-
-As data are reported more precisely, likelihoods will often tend towards zero
---- in the continuum limit, the probability of any data value vanishes.
-Small likelihoods are themselves not significant unless other likelihoods
-are larger --- unless other hypotheses predicted \emph{better}.
-And these ($\log$) ratios can remain well-defined in continuum limits even as
-both likelihoods tend towards zero~\cite{billingsley2008probability}.
-
-From such $\log$ ratios, a little rearrangement recovers the individual
-probabilities through the `logistic' function, also known as
-`softmax' if multiple hypotheses are in play~\cite{MurphyKevinP.2012Mlap}.
-
-The infamy of Bayes' rule stems from a fixation on the posterior distributions
-from unjustified prior assignments.
-Classical works by
-Bayes~\cite{bayes1763lii} and
-Laplace~\cite{laplace1774stigler} began this focus ---
-both assume prior densities that are uniform in chosen coordinates, a practice
-that can yield practical results in posterior inferences.
-But to report scientific data, such practices are fairly criticized as
-arbitrary when they influence the reported results.
-Prior assignments are arbitrary.
-You are welcome to propose any prediction in any circumstances, and the
-scientific response is to test how well it predictts our observations of nature.
-Our emphasis on the likelihood functions and evidence values that quantify
-those predictions avoids the pitfall of seeking uninformative, neutral, or
-unbiased priors by embracing priors as active and explicit predictions.
-This is the modern, practical approach to Bayesian data analysis~\cite{
-mackay2003information,
-skilling2004nested,
-skilling2006nested,
-sivia2006data,
-skilling2010foundations
-}.
+it separates from the prior (odds) ratio,
+and the $\log$ likelihood (or evidence) ratios are constant additive terms,
+which update any $\log$ prior odds ratio by the same addition.
 
 \begin{figure}[tp]
 \centering
@@ -556,6 +536,43 @@ Corentin~Penloup~\cite{penloup2011baton}.
 \label{fig:searches_baton_roue_bayes}
 \end{figure}
 
+As data are reported more precisely, likelihoods will often tend towards zero,
+and in the continuum limit, the probability of any data value vanishes.
+Small likelihoods are themselves not significant unless other likelihoods
+are larger --- unless other hypotheses predicted \emph{better}.
+These ($\log$) ratios can, however, remain well-defined and useful in continuum
+limits even as both likelihoods tend towards
+zero~\cite{billingsley2008probability}.
+
+From a posterior $\log$ odds, a little rearrangement recovers the individual
+probabilities through the `logistic' function, also known as
+`softmax' when multiple hypotheses are in play~\cite{MurphyKevinP.2012Mlap}.
+
+The infamy of Bayes' rule stems from a fixation on the posterior distributions
+from unjustified prior assignments.
+Classical works by
+Bayes~\cite{bayes1763lii} and
+Laplace~\cite{laplace1774stigler} began this focus ---
+both assume prior densities that are uniform in chosen coordinates, a practice
+which can yield practical posterior inferences,
+but is not always justified or useful.
+But to report scientific data, such practices are fairly criticized as
+arbitrary when they influence the reported results.
+Prior assignments are arbitrary.
+You are welcome to propose any prediction in any circumstances, and the
+scientific response is to test how well it predicts our observations of nature.
+Our emphasis on the likelihood functions and evidence values that quantify
+those predictions avoids the pitfall of seeking uninformative, neutral, or
+unbiased priors by embracing priors as active and explicit predictions.
+This likelihood perspective the modern, practical approach to Bayesian data
+analysis~\cite{
+mackay2003information,
+skilling2004nested,
+skilling2006nested,
+sivia2006data,
+skilling2010foundations
+}.
+
 Some sources continue to define Bayesian analysis as the computation of
 posterior probabilities given data, often without naming the evidence, and
 expressing it only as the sum from
@@ -572,23 +589,22 @@ pdg2022ynf
 Bayes' rule has two outputs, and both outputs have uses.
 Cutting out the evidence hamstrings Bayesian analysis, leaving only the
 semi-Bayesian posterior-only approach and its clear flaws.
-A bicycle is stable with two wheels and falls over if one either
+A bicycle is stable with two wheels, and falls over if one either
 is removed;
 Figure~\ref{fig:searches_baton_roue_bayes} illustrates this analogy.
-Although it is possible to ride a unicycle, it is a circus trick and not often
-a practical tool.
+A unicycle is more of a circus trick than a practical transport.
 
 Phrased succinctly by Skilling~\cite{skilling2008rant},
 ``we SHOULD use Bayes by assigning subjective priors and inspecting evidence
 values.''
-This framing of probabilistic data analysis agrees exactly with our standard
-practice of histogramming simulations,
-as illustrated in Figure~\ref{fig:searches_sig_bkg_prior_likelihood}:
+This framing of probabilistic data analysis agrees exactly with the standard
+practice of histogramming simulations in High Energy Physics:
 signal and background models define priors, and their (normalized) bin yields
 are the evidence values that we use to compare the models.
 Finally, their corresponding posteriors are the normalized shapes those samples
 take within the observed histogram bin, with which we do not compare the
-models, but which could in principle be used for secondary interpretations.
+models, but which could in principle be used for secondary investigations.
+
 
 \subsection{Probability assignments}
 Probability algebra manipulates probabilities, but does not state how they
