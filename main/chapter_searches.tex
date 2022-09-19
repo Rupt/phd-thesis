@@ -15,8 +15,8 @@ deficiencies.%
 
 Our task in scientific data analysis is to distil useful messages from the
 data, and to report that message to the wider community.
-Many different messages could be extracted from given data,
-and those messages will have various values to their recipients.
+Various messages could be extracted from given data,
+and those messages will have differing values to their recipients.
 Data analysis is not an automatic process, but a design with many judgements
 that are informed by theory, intuition, and convention to give value to their
 results.
@@ -564,7 +564,7 @@ scientific response is to test how well it predicts our observations of nature.
 Our emphasis on the likelihood functions and evidence values that quantify
 those predictions avoids the pitfall of seeking uninformative, neutral, or
 unbiased priors by embracing priors as active and explicit predictions.
-This likelihood perspective the modern, practical approach to Bayesian data
+This likelihood perspective is the modern, practical approach to Bayesian data
 analysis~\cite{
 mackay2003information,
 skilling2004nested,
@@ -614,9 +614,7 @@ might be informed by calibration data or loosely motivated opinions,
 or by established theories such as quantum mechanics.
 But there are examples of unambiguously derived that are commonly used in
 High Energy Physics, notably the Poisson and Gaussian distributions.
-We sketch their derivations here, and refer to textbooks for
-details~\cite{jaynes2003probability}.
-Both which use the exponential identity that
+This section sketches their derivations, both of which use the identity that
 \begin{equation}
 \label{eqn:searches_exponential}
 \exp(x) =
@@ -644,7 +642,7 @@ accept/reject decisions, summed over all possible permutations (sum rule) of
 that sequence for $n$ accepted.
 With the tiny trigger rate, we are interested in the limit of small
 $p$ and large $N$, which result in a mean acceptance number of $\lambda = Np$.
-Using the exponential identity of Equation~\ref{eqn:searches_exponential},
+Using the identity of Equation~\ref{eqn:searches_exponential},
 this limit tends towards the Poisson distribution~\cite{jaynes2003probability}:
 \begin{equation}
 \label{eqn:searches_poisson}
@@ -762,9 +760,8 @@ Independent testing data permit the clean interpretations of likelihood ratios.
 \subsection{Decision theory}
 Now that we have thoroughly covered probability theory, we are ready to return
 to the jelly bean game of Figure~\ref{fig:searches_beans}.
-Given all you know about illustrations of jars and beans, you could make a
-vague guess without looking, but and that guess would be refined after
-inspecting the image to update your implicit internal model.
+Given all you know about jars and beans, you could make a vague guess without
+looking at the figure, and you could refine that guess by inspecting the image.
 Although I do not propose that human brains \emph{do} use probability
 algebra~\cite{jaynes1988brain}, this inference process could be modelled
 numerically by distributing probability over the bean numbers
@@ -817,7 +814,7 @@ Alternative formulations can at best be equivalent.
 This theory does not, however, define how to construct that cost function.
 Like the prior, it must come from context, and indeed the two are intertwined
 in the risk;
-decision-making machines (such as organisms) are do learn to make good
+decision-making machines (such as organisms) do learn to make good
 decisions without constructing either cost or prior explicitly.
 Towards the goal of usefully reporting data, such decision theory has been
 applied to argue for ways to summarize posterior distributions.
@@ -1331,7 +1328,7 @@ associated difficulties with communicating \pvalue\ results.
 Neyman and Pearson formalized this `suspicion' into decision rules,
 and considered what it is that makes one test statistic better than
 another~\cite{neymanpearson1928max, neymanpearson1933lemma}.
-Rather than a \pvalue\ arousing suspicion of an hypothesis, they use it
+Rather than a \pvalue\ arousing informal suspicion of an hypothesis, they use it
 to decide on actions of `rejecting' or `accepting' an hypothesis.
 From the same Bayesian arguments of Section~\ref{sec:searches_data_analysis},
 Neyman and Pearson argued for the interest in likelihood ratios as promising
@@ -1363,7 +1360,7 @@ probability, but Neyman and Pearson's association of likelihood ratios with
 The authors understood the probability algebra of how large likelihood ratios
 make hypotheses \emph{more probable} by scaling whatever (non-zero) prior
 probabilities may be assigned.
-Indeed they later state that
+Indeed, they later state that
 \begin{displayquote}
 ``%
 The statistician can balance the numerical verdict of likelihood against the
@@ -1454,7 +1451,7 @@ Exemplifying such confusion,
 the \atlas\ Glossary of Terms~\cite{atlas2022glossary} states that the
 ``Confidence Level (CL) is a statistical measure of the percentage of test
 results that can be expected to be within a specified range.''
-In fact it is the percentage of ranges
+In fact, it is the percentage of ranges
 (confidence intervals, which are test results)
 that should cover a true value.%
 }
@@ -1584,19 +1581,7 @@ langford2021combination,
 IceCube2013search,
 IceCube2014searches,
 gerasimov2021new
-},%
-\footnote{%
-A draft of~\cite{HIGG-2018-51} stated that a \pvalue\ determined
-``the probability that the background-only hypothesis is compatible with the
-observed data''.
-That text was removed in response to my internal comments, but
-``probability of compatibility'' remains in its figure captions.%
-}%
-\footnote{%
-Reference~\cite{HIGG-2018-57} accurately describes a \pvalue\ as a tail
-probability, but also (repeatedly) states that a
-``probability of compatibility\ldots\ corresponds to a \pvalue''.%
-}%
+},
 and is plausibly explained by mutations from vaguely accurate statements like
 ``compatible with the SM prediction with a $P$ value of $0.10\%$''~\cite{
 lhcb2021test
@@ -1812,7 +1797,8 @@ How can one escape this trap?
 Likelihood ratios on the actual data escape immediately by bypassing the
 censor, but even inequalities need not be biased --- if taken against a
 predetermined threshold, say $5$ events, then models can predict whether
-$n \leq 5$, and the honest truth or falsehood in data can favour either side.
+$n \leq 5$, and the honestly answered truth or falsehood in data can favour
+either side.
 Ultimately, the reader just distrust the reporter ---
 the statements `\atlas\ reports $n \leq 5$' and `logically, $n \leq 5$' are not
 identical, since one might infer from the former that in fact $n = 5$.
@@ -1937,7 +1923,7 @@ The minimization objective $E$ is the summed negative $\log$ likelihood
 We choose the letter $E$ for \textbf{energy}, to highlight the analogy with
 statistical physics and the Boltzmann factor
 \begin{equation}
-p(x) \propto e^{-\beta E(x)}
+f(x) \propto e^{-\beta E(x)}
 .
 \end{equation}
 with which a thermodynamic system collapses to its minimum energy at cold
