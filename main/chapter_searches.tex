@@ -609,49 +609,49 @@ models, but which could in principle be used for secondary investigations.
 \subsection{Probability assignments}
 Probability algebra manipulates probabilities, but does not state how they
 should be initially assigned.
-In general, such probability assignments are free and unconstrained, and might
-be informed by calibration data or loosely motivated opinions.
+Probability assignments are generally constrained only by normalization, but
+might be informed by calibration data or loosely motivated opinions,
+or by established theories such as quantum mechanics.
 But there are examples of unambiguously derived that are commonly used in
 High Energy Physics, notably the Poisson and Gaussian distributions.
-To avoid turning this thesis into a textbook, we only sketch the derivations
-of these, and refer to real textbooks for their detailed
-derivations~\cite{jaynes2003probability}, both of which use the exponential
-identity that
+We sketch their derivations here, and refer to textbooks for
+details~\cite{jaynes2003probability}.
+Both which use the exponential identity that
 \begin{equation}
 \label{eqn:searches_exponential}
-\exp(x) = \displaystyle \lim_{N \to \infty}
+\exp(x) =
+\lim_{N \to \infty}\!
 \left(1 - \frac{x}{N}\right)^N
 .
 \end{equation}
 
-The Large Hadron Collider collides $40$~million proton bunches per second,
-but \atlas' trigger system accepts only around $1000$ of
-those per second~\cite{atlas2020trigger}.
-This means that we have a scenario with a large fixed number $N$ of trials
+The Large Hadron Collider collides proton bunches at
+$40\,\mathrm{GHz}$,
+but \atlas' trigger system accepts only around
+$1\,\mathrm{kHz}$~\cite{atlas2020trigger}:
+our scenario has a fixed large number $N$ of trials
 (bunch collisions)
-and a small probability of binary acceptance (triggering),
-due to a notable collision event.
+and a small probability of acceptance (triggering).
 The summed total number $n$ of accepted events is therefore described by the
-binomial distribution for $n$;
+binomial distribution for $n$:
 \begin{equation}
 \label{eqn:searches_binomial}
-\mathrm{binomial}(n\mid N, p) = p^n (1 - p)^{N - n} \times \binom{N}{n}
+\mathrm{Binomial}(n\mid N, p) = p^n (1 - p)^{N - n} \times \binom{N}{n}
 ,
 \end{equation}
-which is a product of the probabilities (produce rule) in the sequence of $N$
-accept/reject decisions, summed (sum rule) over all permutations of that sequence
-that could have led to the total $n$.
-With our tiny trigger rate, we are interested in the limit of small
+which is a product of the probabilities (product rule) in the sequence of $N$
+accept/reject decisions, summed over all possible permutations (sum rule) of
+that sequence for $n$ accepted.
+With the tiny trigger rate, we are interested in the limit of small
 $p$ and large $N$, which result in a mean acceptance number of $\lambda = Np$.
-Using the exponential identity of Equation~\ref{eqn:searches_exponential}, one
-can show that this limit tends towards the Poisson
-distribution~\cite{jaynes2003probability};
+Using the exponential identity of Equation~\ref{eqn:searches_exponential},
+this limit tends towards the Poisson distribution~\cite{jaynes2003probability}:
 \begin{equation}
 \label{eqn:searches_poisson}
 \mathrm{Poisson}(n\mid \lambda) = \frac{\lambda^n}{n!}\exp(-\lambda)
 ,
 \end{equation}
-which is used ubiquitously in the analysis of our histograms.
+which is used ubiquitously to interpret histograms.
 
 The Gaussian distribution has many justifications:
 as the unique distribution that is spherically symmetric and factors linearly
@@ -665,24 +665,28 @@ marsaglia1972normal
 as a practical approximation that permits analysis in linear algebra,
 and as the maximum entropy~\cite{PhysRev.106.620} distribution for a
 known mean and variance.
-This maximum entropy statement means that for a distribution with known mean
-and variance in given coordinates, its best Gaussian approximation matches
-those moments.\footnote{%
-By `best', this statement means a minimal Kullback-Leibler divergence
+For any distribution with known mean and variance (in given coordinates),
+its best%
+\footnote{%
+By `best', this statement means minimal Kullback-Leibler divergence
 \(
 H(p\leftarrow q) = \sum_i p_i \log(p_i/q_i)
-\)
-from the Gaussian approximation $q$ to the target $p$ with known moments.
+\)~\cite{
+skilling2010foundations
+}
+from approximation $q$ to target $p$ with known moments.
 Such an approximation may not be \emph{good}, but it is best in class.%
 }
+Gaussian approximation matches those moments.
+
 As a limiting approximation, the Gaussian form arises from products of many
-functions, such as combinations of many independent measurements that multiply
-their likelihood functions.
-At a maximum $\check{x}$, the first derivative of a function vanishes and the
-second derivative is negative.
-Taylor expanding about this maximum to the leading order, the product looks like
+likelihood functions from the combination of independent measurements.
+At its maximum $\check{x}$, the first derivative of a smooth function $f(x)$
+vanishes and its second derivative is negative;
+to leading order, the Taylor expansion of a product of $f$s looks like
 \begin{equation}
-f(x)^N = \displaystyle \lim_{N \to \infty}
+f(x)^N =
+\lim_{N \to \infty}\!
 \left(
 1 - \kappa (x - \check{x})^2
 \right)^N,
@@ -696,94 +700,86 @@ form
 \frac{1}{\sqrt{2\pi \sigma^2}}
 \exp\!\left(-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}\right)
 \mathrm{d}x
+,
 \end{equation}
-where the prefactor is for normalization to a probability distribution over
-$x$, and we include the $\mathrm{d}x$ terms as reminders that it is a density
-function in $x$, not a probability exactly.
-On a $\log$ scale, the Gaussian form is simply quadratic in $\mu$ (or $x$);
-that quadratic form continues in its multivariate generalization, and
-justifies least-squares methods.
+which is normalized by its prefactor, and in which we include the
+$\mathrm{d}x$ terms as reminders that it is a density function in $x$.
+On a $\log$ scale, the Gaussian form is quadratic in $\mu$, so
+Gaussian likelihoods justify many least-squares methods.
 
 Here, $\kappa$ and $\sigma$ both relate to the second derivative of the target
 function; this relationship extends to multiple dimensions in the Hessian
-matrix and its inverse, and allows one to estimate error bars from second
-derivatives --- a practical tool that the methods discussed in this thesis
-employ.
+matrix and its inverse, and permits the useful approximation of estimate error
+bars from second derivatives.
 
 This is not the famous Central Limit Theorem, which is related to the
-distribution of sums.
+distribution of sums of independent quantities with finite mean and variance.
 But can be used to derive it: the distribution of a sum is a convolution, which
-becomes a product in Fourier-transformed space, and that product can converge
+becomes a product in Fourier-transformed space, and that product converges
 to a Gaussian function by this same derivation if the mean and variance exist.
-A beautiful alternative proof of the Central Limit Theorem is given by
+Another beautiful alternative proof of the Central Limit Theorem is given by
 Jaynes~\cite{jaynes2003probability}
 (Section ``7.16 The central limit theorem''), but would be spoiled by a
 reproduction here.
 
-\TODO{reduce this}
 In the current year, it would be remiss to not mention machine learning
 algorithms.
-Among various other applications, learning algorithms demonstrate practical
-successes in probability assignments, such as assigning
-probabilities to labels for classification,
-or to assign probabilities to words for text
-generation, or any of myriad other
-predictions~\cite{MurphyKevinP.2012Mlap, radford2019language}.
-Machine learning tunes flexible functions by consuming data and testing their
-predictions in the manner we have described; their training and testing works
-roughly as follows:
+Among many applications, learning algorithms have practical successes in
+probability assignments, such as to predict labels in classification,
+or to predict next words in text generation~\cite{
+MurphyKevinP.2012Mlap,
+radford2019language
+}.
+Machine learning tunes flexible functions by consuming data and testing
+predictions in this probabilistic framework:
 \begin{enumerate}
 \item Predict new data with $\prob{d_i}{f(d_{i-1}, \ldots), h}$.
-Keep this evidence as a testing score for comparison against other models.
-(Practically, keep its equivalent $\log$ mean over independent samples.)
+Keep (the $\log$ of) this evidence as a testing score for comparison against
+other models.
 These $d_i$ may be only reductions of the data, such as class labels
 or index permutations~\cite{Noroozi2016jigsaw, multitaskself2017}.
 Other inputs that are not predicted, such as associated images that the machine
-uses to predict the labels, are included in the context $h$.
+uses to predict the labels, are in the implicit context.
 \item Use those data to update your state
 $f(d_{i-1}, \ldots) \to f(d_i, d_{i-1}, \ldots)$.
 Unlike ideal posterior updating, this encodes only a function of the data, not
 its whole --- one usually cannot afford to consume all aspects of data, so
 although theoretically suboptimal this approximation is vastly superior in
 practice.
-Learning only part of the data is not wrong, it is just less precise than a
-divinely perfect learning algorithm, which we do not currently possess.
-\item Go to 1.
+Learning only part of the data is not wrong, but less precise.
+\item Go\,to 1.
 \end{enumerate}
-These sequential data $d_i$ might be labelled the `training', `validation',
-and `testing' sets, but other splittings are possible.
+These portions of data $d_i$ might be labelled the `training', `validation',
+and `testing' sets.
 This perspective highlights the importance of independent training and testing
-sets --- since $\prob{d}{d, \ldots} = 1$, if any memory of $d_i$ is kept in
-the $f(\ldots, d_i, \ldots)$ state, then it is a memory and not a prediction.
-Independent testing data permit the evidence interpretation of predictive
-probabilities.
+data --- information should not be reused since
+$\prob{d_2}{d_2, \ldots} = 1$, any memory of $d_2$ that is kept
+in the $f(\ldots, d_2, \ldots)$ state spoils the likelihood if $d_2$ is reused
+for testing after training~\cite{sivia2006data}.
+Independent testing data permit the clean interpretations of likelihood ratios.
 
 
 \subsection{Decision theory}
 Now that we have thoroughly covered probability theory, we are ready to return
-to the jelly bean game that is illustrated in Figure~\ref{fig:searches_beans}
-and asks you to guess how many beans are in the jar.
+to the jelly bean game of Figure~\ref{fig:searches_beans}.
 Given all you know about illustrations of jars and beans, you could make a
-vague guess without looking.
-That guess should only be refined after inspecting the image and updating your
-model to account for it.
+vague guess without looking, but and that guess would be refined after
+inspecting the image to update your implicit internal model.
 Although I do not propose that human brains \emph{do} use probability
-algebra~\cite{jaynes1988brain}, this inference process could, in principle,
-be modelled numerically by distributing probability over the positive integers
-and updating those probabilities in light of a likelihood function for the
-image data.
+algebra~\cite{jaynes1988brain}, this inference process could be modelled
+numerically by distributing probability over the bean numbers
+and updating those probabilities (from prior to posterior) in light of a
+likelihood function for the image.
+
 Any guess, however, does not depend only on that probability distribution,
 but on the risks and rewards associated with guessing.
-
-As written in the caption to Figure~\ref{fig:searches_beans}, there is a
-notional reward to the first exactly answer.
-You are therefore incentivized to answer a) quickly, before other good guesses,
+The game offers a notional reward to the first exactly answer, so
+you are therefore incentivized to answer a) quickly, before other good guesses,
 and b) exactly, with no reward for being close to the true answer.
 If you are the first to answer, then it makes sense to write what you think
 is the most probable number.
 But others following you, seeing your answer, should prefer to guess
-differently if they want to win (and they think any other guess is plausibly
-correct).
+differently if they want to win.
 
 To try hard, you could even dissect the vector graphics of the figure and count
 its bean objects, but that may not be optimal use of your resources --- the
@@ -792,8 +788,8 @@ dubious promise of a gold star may be worth little to you.
 When considering what decision to make, it feels natural to consider what
 might result from each possible action and to judge that action on how good or
 bad its results would be.
-Mathematical decision theory agrees with this intuition---
-a famous theorem by Wald~\cite{
+Mathematical decision theory agrees with this intuition ---
+a theorem by Wald~\cite{
 wald1947bayes,
 wald1950bayes,
 jaynes2003probability
@@ -802,34 +798,36 @@ shows that the optimal solution to any decision problem can be always be
 formulated as the minimization of an expected cost function, or risk:
 \begin{equation}
 \label{eqn:searches_bayes_decision_rule}
-R(t) = \int\! c(t, x) \,\mathrm{d}p(x)
+R(t) = \int\! c(t, x) \,\mathrm{d}\pi(x)
 ,
 \end{equation}
 where we mean `expected' in the mathematical mean sense of the `mean' average.
-This cost function $c(t, x)$ evaluates the badness of outcomes for a given
+The cost function $c(t, x)$ evaluates the badness of outcomes for a given
 decision $t$ and states of the world $x$ to which context must assign prior
-probabilities $p(x)$.
+probabilities $\pi(x)$.
 For a given cost function and prior, one should choose the decision $t$ that
 minimizes $R(t)$.
 
 Although alternative ideas (such as minimax, minimizing a maximum
-loss~\cite{savage1951review}) can work well in certain contexts, this theorem
-states that restricting oneself to minimizing an expected cost function cannot
-deny one access to optimal decisions.
+loss~\cite{savage1951review}) can work well in certain contexts,
+Wald's theorem states that restricting oneself to minimizing an expected cost
+function cannot deny one access to optimal decisions.
 Alternative formulations can at best be equivalent.
 
 This theory does not, however, define how to construct that cost function.
 Like the prior, it must come from context, and indeed the two are intertwined
 in the risk;
-decision-making machines and organisms are capable of learning to make good
+decision-making machines (such as organisms) are do learn to make good
 decisions without constructing either cost or prior explicitly.
-Towards our goal of usefully reporting data, such decision theory has been
-applied to argue for ways to quote properties of posterior distributions.
-As examples, minimizing the expected absolute error $|x - \check{x}|$ leads
+Towards the goal of usefully reporting data, such decision theory has been
+applied to argue for ways to summarize posterior distributions.
+For example, minimizing the expected absolute error
+$c(t, x) = |t - x|$ leads
 to reporting the median, and minimizing the expected square error
-$(x - \check{x})^2$ leads to reporting the mean.
+$c(t, x) = (t - x)^2$ leads to reporting the mean.
 Had the rules of our bean counting game rewarded you based on such distances,
-these results could have been good guesses. But those weren't the rules.
+these results could have been good guesses.
+But those weren't the rules.
 
 When arguing that we should report likelihoods and evidence values for our
 data, we have not explicitly constructed cost functions, nor have we made
@@ -853,14 +851,17 @@ Wald was nonetheless interested in these decision rules for their
 despite approaching the theory from a stalwart non-Bayesian perspective.
 
 Although Bayes' rule is not seriously disputed, the system in which Wald was
-working defined probability as a frequency in random sampling, which cannot
-reasonably apply to subjective, non-random distributions of probability mass
+working defined probability via frequencies in random sampling, which cannot
+reasonably apply to the subjective, non-random distributions of probability
 that many prior distributions are.
 This frequency-restricted, `frequentist', philosophy dominated 20th century
-statistical research, and influences practices that \atlas\ continues to
-employ.
-We therefore review some features of frequentist statistics in the following
-section.
+statistical research, and influences practices still followed in \atlas.
+We therefore review some features of frequentist statistics and its history
+in the next section.
+% Would like something along the lines of:
+% `No formal derivations except for historical precedent,
+% so review with that history'
+% But feels too rude.
 
 \begin{singlespacing}
 \section{Frequentist theory}
@@ -1734,7 +1735,7 @@ ratios are not ``not \emph{necessarily} misleading'',
 Figure~\ref{fig:searches_sb_n} shows a bias from the fact that
 no data can give a $\cls$ that favours the signal model;
 $\log\cls$ is non-positive with the $-n$ test statistic, and indeed non-negative
-for the opposite ordering $t(n) = n$.
+for the reverse ordering $t(n) = n$.
 The $\log$ likelihood ratio on the actual data does not feature this bias:
 it favours background-only for deficits and background-plus-signal for
 excesses.
