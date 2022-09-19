@@ -856,8 +856,8 @@ reasonably apply to the subjective, non-random distributions of probability
 that many prior distributions are.
 This frequency-restricted, `frequentist', philosophy dominated 20th century
 statistical research, and influences practices still followed in \atlas.
-We therefore review some features of frequentist statistics and its history
-in the next section.
+We shall therefore review some features of frequentist statistics and its
+history.
 % Would like something along the lines of:
 % `No formal derivations except for historical precedent,
 % so review with that history'
@@ -894,12 +894,12 @@ Interpreted with the Binomial model of
 Equation~\ref{eqn:searches_binomial}, this definition converges to our more
 general probability whenever it applies.
 
-We do think of many processes as random when considering scientific data, so
-this definition works widely for likelihood functions.
+We do think of many natural processes as random, so this definition works
+widely for likelihood functions on data.
 Non-data hypotheses, however, are rarely considered as actually random events,
-so the frequency definition cannot not apply.
-Prior predictions often apply probabilities to express subjective uncertainties
-that are manifestly non-random.
+so the frequency definition cannot apply ---
+prior predictions often express subjective uncertainties that are manifestly
+non-random.
 Under this frequency definition, those predictive probabilities are nonsense
 and must be rejected.
 The frequency definition does not change probability algebra, it only restricts
@@ -909,7 +909,7 @@ Coin tosses, for example, can be imagined as random.
 Earth's human population could toss a few billion coins to precisely
 establish a probability of landing heads from the ratio of
 $n$ (number of heads) to $N$ (number of tosses).
-Now suppose you are given a red envelope containing a coin;
+But suppose you are given a red envelope containing a coin;
 which way up is the coin in the envelope?
 You could guess or bet on the answer, and that decision might involve a tacitly
 assumed probability.
@@ -917,34 +917,31 @@ A frequency, however, would only be permitted if the envelope had been packaged
 at `random'.
 Was the coin first tossed to randomize its face, or placed deliberately?
 You do not know.
-In Neyman's words,
+In the words of Jerzy~Neyman,
 ``I have put the word ``~random~'' in inverted commas because it is very
 difficult to define what is meant by it in practice''~\cite{
 Neyman1937Outline
 }.
 
-Tom~Stoppard's play `Rosencrantz and Guildenstern Are Dead'~\cite{
+Rosencrantz and Guildenstern, in their play by Tom~Stoppard~\cite{
 stoppard1967rosencrantz
 }
-opens with a clearer example ---
-the titular characters toss a coin ninety-two times, all landing heads.
-They then play a game with a third player, landing eight more heads.
+toss a coin ninety-two times, all landing heads.
+They then play a game with a third player and land eight more heads.
 Will the next toss be heads or tails?
-The answer is not random --- it is burned onto paper in print, so no frequency
-can be assigned.
-Were subjective probabilities permitted, you could predict the result, and that
-prediction would be subjectively informed by it being the one-hundred-and-first
-toss, our cultural entanglement with round numbers in base-10, and your reading
-of these words.
+The answer is not random --- it is burned onto paper in print.
+If you were to put probabilities on the outcomes, they would be subjectively
+informed by it being the one-hundred-and-first toss, our cultural enjoyment
+of round numbers in base-10, and your reading of these words.
 Frequentist theory, however, forbids such subjective probabilities of
-non-random unknowns, so is left to search for alternative modes of inference.
+non-random unknowns, and is left searching for alternative forms of inference.
 
 As established in Section~\ref{sec:searches_data_analysis}, the original
 probability theory of Laplace and Bayes did not require frequency
 interpretations; these were developed later in the 19th century by
 mathematicians including Venn~\cite{venn1866logic} and
 Boole~\cite{boole1854investigation}, in reactions that may well have been
-propelled by reactions to flawed posterior-only methods.
+catalysed by the presence of flawed posterior-only methods.
 Modern frequentist theory has a rigorous set-theoretic formulation in the
 Kolmogorov axioms~\cite{
 kolomogoroff1933de,
@@ -955,8 +952,9 @@ axioms1010038
 precision --- the denial of certain (non-frequency) probabilities does not
 construct their replacements, and various surrogates have evolved.
 
-Modern frequentist methods are largely attributable to work by
-Ronald~Fisher (for likelihood, $p$-values, and estimation criteria~\cite{
+Modern frequentist methods are largely attributable to work
+in the 1920s and '30s by
+Ronald~Fisher (for likelihood, \pvalues, and estimation criteria~\cite{
 fisher1912fitting,
 fisher1915frequency,
 fisher1921probable,
@@ -968,27 +966,30 @@ and Jerzy~Neyman and Egon~Pearson
 (for statistical hypothesis testing and confidence intervals~\cite{
 neymanpearson1933lemma,
 neymanpearson1928max
-})
-in the 1920s and '30s.
+}).
 These Fisher and Neyman-Pearson schools do not form a unified framework, but
 do comprise a collection of ideas and practices that survive in modern science,
 and which explain some methods, to be introduced in
 Section~\ref{sec:searches_practice}, that we apply to modern LHC data.
 
-Some literature names this Fisher/Neyman-Pearson assemblage
+Some authors name this Fisher/Neyman-Pearson assemblage
 ``classical'' statistics~\cite{
 Neyman1937Outline,
 lehmann2011fisher,
 Feldman:1997qc
-}, but that is simply inaccurate for 20th century creations that innovated on
-18th century ideas~\cite{bayes1763lii, laplace1774stigler}.
+},
+but that word is simply inaccurate for 20th century innovations on 18th century
+ideas~\cite{
+bayes1763lii,
+laplace1774stigler
+}.
 Jaynes instead names them ``orthodox''~\cite{
 Jaynes1976intervals,
 jaynes2003probability
 },
 which may have been accurate in his environment, but different
 (heretical?) ideas have taken hold in research at the LHC ---
-the orthodoxy has moved on.
+orthodoxy has moved on.
 We therefore stick with `frequentist'.
 
 \begin{figure}[tp]
@@ -1002,8 +1003,8 @@ Intervals exceeding ratios from the maximum of a Binomial likelihood function,
 reproduced from Fisher~\cite{fisher1956statistical}.
 Horizontal lines mark regions where the likelihood function exceeds
 $1/2$, $1/5$, and $1/15$ of its maximum, respectively.
-The extents of these lines could be tabulated to usefully communicate aspects
-of its profile.
+These lines could be tabulated to usefully summarize the profile of the
+likelihood function.
 }
 \label{fig:searches_fisher_likelihood}
 \end{figure}
@@ -1018,14 +1019,14 @@ fisher1921probable,
 fisher1922estimators
 } in the usage that
 we employ for the probability of observed data given varied
-contexts%
+contexts,%
 \footnote{%
 Fisher used the term `likelihood' for the function exploring
 contexts and `probability' for the distribution over
 outcomes~\cite{fisher1925smrw}.
 We choose the alternative word `prior' for his `probability' since the
 likelihood is also a probability, just not a probability \emph{distribution}.
-},
+}
 and deserves credit for popularizing its use in interpreting and communicating
 data without the confounding influence of prior probabilities.
 In his own words,%
@@ -1059,8 +1060,9 @@ We use such $L(\check{x})\pm\mathrm{ratio}$ visualizations for
 $\pm1\sigma$ and $\pm2\sigma$ error bars on Poisson data in
 Figure~7 of~\cite{lester2022hunting}.
 When recommending error bar recipes, \atlas' statistics committee appears
-to have not considered this option~\cite{cowan2011errorbars}, although
-our statistics experts are surely familiar with Fisher's work.
+to have not considered this option~\cite{cowan2011errorbars}.
+% , although
+% our statistics experts are surely familiar with Fisher's work.
 }
 That the likelihood contains all relevant information in the data is true by
 definition in our formulation of Equation~\ref{eqn:searches_log_odds},
@@ -1072,7 +1074,8 @@ savage1962foundations
 Maximum likelihoods are often useful for interpreting and communicating data.
 The location of a maximum likelihood can be a useful estimate for the
 parameters being considered, and Fisher showed that maximum likelihood
-estimates satisfy some desirable criteria~\cite{fisher1922estimators}.
+estimates satisfy some desirable asymptotic
+criteria~\cite{fisher1922estimators}.
 These criteria do not include \emph{unbiasedness}, which states that the mean
 value of an estimate --- over the distribution for alternative data --- should
 equal its known true value~\cite{
@@ -1085,15 +1088,16 @@ so an unbiased estimate of the variance $\bar{\sigma}^2$ is a biased
 estimate of the standard deviation $\bar{\sigma}$ --- the square of the mean
 is not the mean of the squares~\cite{barlow2019svl}.
 Fisher rejected the bias criterion for this
-reason~\cite{jaynes2003probability}, and other definitions absorb its
+reason~\cite{jaynes2003probability}.
+Other definitions absorb its
 arbitrariness into an explicit loss function~\cite{lehmann2005testing}.
-Requiring unbiasedness can actively harm our results by preventing the use of
+Requiring unbiasedness can actively harm results by preventing the use of
 useful estimates,%
 \footnote{%
 Problem~1.14 of~\cite{lehmann2005testing} has a delightful example of
-estimating an exponentiated a Poisson mean $e^\mu$ from $n$ data
+estimating an exponentiated a Poisson mean $\exp(\mu)$ from $n$ data
 where the unique unbiased estimate is $(-1)^{n + 1}$.
-Section~17.3 of~\cite{jaynes2003probability} finds similar nonsense for
+Section~17.3 of~\cite{jaynes2003probability} shows similar nonsense for
 unbiased estimates of $\mu^2$ and $\exp(-\mu)$.%
 }
 or by obfuscating those estimates with bias corrections.
@@ -1114,13 +1118,15 @@ statistical definition if that makes them better by any reasonable measure.
 In avoiding the pitfalls of reported posteriors, Fisher's use of likelihoods
 remains innovative and practical.
 However, the hard rejection of priors on hypotheses also prevents evidence
-calculations, without which likelihoods alone become confounded in many
-parameters, perhaps making them nuisances.
+calculations, without which likelihoods alone can become confounded in many
+parameters
+(perhaps making those parameters seem feel more like `nuisances'
+than useful levers).
 To circumvent this, frequentist methods employ two key concepts:
 test statistics, which can reduce the data to remove unwanted parameters,
-and $p$-values, which divert the discourse
-from what the alternative hypotheses \emph{are}
-to what alternative data \emph{might have been}.
+and \pvalues, which divert the discourse
+from what the alternative \emph{hypotheses are}
+to what alternative \emph{data might have been}.
 
 % test statistics
 A statistic is a function of data, and a test statistic is just a statistic
@@ -1134,26 +1140,26 @@ useful test statistics can also eliminate unwanted parameters.
 The quintessential example is the $t$-statistic,
 \begin{equation}
 \label{eqn:searches_t_statistic}
-t(d) = \frac{\bar{\mu}(d) - \mu}{\bar{\sigma}(d)}\sqrt{n}
+t(d) = \frac{\bar{\mu}(d) - \mu}{\bar{\sigma}(d)/\sqrt{n}}
 ,
 \end{equation}
 which shifts the sample mean $\bar{\mu}(d)$ by a known true mean $\mu$, and
-scales that difference down by the same standard deviation
-$\bar{\sigma}(d)$~\cite{student1908, fisher1925t}.
-By dividing out a (scale equivariant) estimate of the standard deviation, $t$
-is independent of common scale factors on the data, and that scale invariance
-has helped to drive the study and common use of this
-$t$-statistic~\cite{lehmann2011fisher}.
+cancels any common scale factors with a scale-equivariant estimate of the
+standard deviation $\bar{\sigma}(d)$~\cite{
+student1908,
+fisher1925t,
+lehmann2011fisher
+}.
 
 One can usefully reduce observed data to just the test statistic
 $\tilde{t} = t(d)$, and compare likelihoods on that observed $\tilde{t}$
 to compare how well different hypotheses predict it.
-For unclear reasons, Fisher advocates a different use ---
-rather than considering likelihoods and likelihood ratios, he recommends
+Fisher, however, advocates a different use ---
+rather than considering likelihoods here, he recommends
 that researchers consider the ``probable error''~\cite{fisher1921probable},
-which is a cumulative distribution function in the negated test statistic.
-In modern jargon, a `probable error' at the observed test statistic
-$\tilde{t}$ and an hypothesis $h$ is a \textbf{\pvalue}
+which is a cumulative distribution function in the (negated) test statistic.
+In modern jargon, a `probable error' with observed test statistic
+$\tilde{t}$ and hypothesis $h$ is a \textbf{\pvalue}
 \begin{align}
 P(h)
 &= \prob{t \geq \tilde{t}}{h}
@@ -1164,8 +1170,8 @@ P(h)
 ;
 \end{align}
 the \pvalue\ $P(h)$ is the prior probability of data
-\emph{greater or equal to} the observed data when ordered by the value of the
-test statistic.
+\emph{greater or equal to} the observed data, if data are ordered by the value
+of the test statistic.
 Equation~\ref{eqn:searches_pvalue_likelihood} points out that the \pvalue\ is
 just is the likelihood plus some fluff from a tail of larger test statistics.
 
@@ -1173,36 +1179,36 @@ Fisher illustrates the use of \pvalues\ in the second example
 of~\cite{fisher1921probable}, which models some data with a parameter $r$ and
 compares two hypotheses
 $r=0.3$ and
-$r=0.95$, finding $p$-values
+$r=0.95$, finding \pvalues\
 $P(r=0.3)=0.142$ and
 $P(r=0.95)=0.00014$.
 ``Thus'', Fisher concludes, ``the value $0.95$\ldots\ is roughly $1000$ times
 less likely than $0.30$''
 (``when measured on the $r$ scale'').
-By writing `likely', Fisher is carefully not referencing the probability
-of parameters, but their likelihoods in our definition.
+By writing `likely', Fisher is carefully referencing their likelihoods,
+not their probability.
 But this factor of $1000$ is a \pvalue\ ratio, not a likelihood ratio,
 so how can this make sense?
-Plausibly, it results from a tacit data reduction; comparing
+It could plausibly result from a tacit data reduction --- comparing
 Equations~\ref{eqn:searches_pvalue} and~\ref{eqn:searches_likelihood}
-shows that the \pvalue\ is a likelihood only if the result is reduced from
-$A: t =    \tilde{t}$ to
-$B: t \geq \tilde{t}$.
-And since this reduction is technically true --- $A$ implies $B$ --- the
-likelihood ratio on $B$ is logically valid and not \emph{necessarily}
+shows that the \pvalue\ is a likelihood if the data statement is reduced from
+$d_1: t =    \tilde{t}$ to
+$d_2: t \geq \tilde{t}$.
+And since this reduction is technically true --- $d_1$ implies $d_2$ --- the
+likelihood ratio on $d_2$ is logically valid and not \emph{necessarily}
 misleading if accurately reported.
 
-However, $B: t \geq \tilde{t}$ is a logical statement (true for all test
+However, $d_2: t \geq \tilde{t}$ is a logical statement (true for all test
 statistics greater than or equal to the observed value) and not a randomly
 occurring event; it therefore does not have a frequentist probability and so
 is probably not what Fisher intended.
 Much more importantly, the reduction to a one-sided inequality has no tangible
 benefit --- it reduces the information content of the reported data without
-reducing the associated costs of reporting or interpreting those data.
-Both $A$ and $B$ are printed in the same number of characters, and $p$-values
-can be painfully expensive to evaluate.
-And it actively harms any result with small a test statistic by
-diluting the likelihood ratio, since if
+reducing the associated costs of communicating or interpreting those data.
+Both $d_1$ and $d_2$ are printed in the same number of characters, and
+\pvalues\ can be painfully expensive to evaluate.
+Furthermore, any result with small a test statistic is actively censored,
+since if
 \begin{equation}
 \log \frac{L(h_1)}{L(h_2)}
 \to
@@ -1213,11 +1219,12 @@ L(h_1) + \prob{t > \tilde{t}}{h_1}
 L(h_2) + \prob{t > \tilde{t}}{h_2}
 }
 \end{equation}
-then large tail probabilities squash the $\log$ likelihood ratio toward zero.
+then large tail probabilities can only shrink the $\log$ likelihood ratio
+towards zero.
 
-Fisher's \pvalue\ ratio of $1000$ is, therefore, a $\log$ likelihood
-ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderately
-strong indication.
+Fisher's \pvalue\ ratio of $1000$ can therefore be a $\log$ likelihood
+ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderate
+indication.
 A likelihood ratio on the test statistic itself, and not the inclusive
 tail statement, would however encode more information and could provide a
 more precise answer.
@@ -1254,16 +1261,18 @@ If an event is observed at $m_{4\ell} = 125\,\eV[G]$, is it signal or
 background?
 It is obviously a Higgs boson candidate, but $m_{4\ell}$ is around the middle
 of both signal and background distributions, so with an $m_{4\ell}$ test
-statistic $P(\textrm{Higgs boson}) \approx P(ZZ^*) \approx 0.5$, so neither
-is ``suspect''.
+statistic $P(\textrm{Higgs boson}) \approx P(ZZ^*) \approx 0.5$ and neither
+is `suspect'.
 Local ratios between the two distributions clearly favour signal for this
-event, however; the $p$-values' failure is in their dependence on irrelevant
-tail areas, which are a feature of the histogram and not the data.
+event, however:
+the \pvalues' failure is in their dependence on irrelevant tail areas,
+which are a feature of the histogram and not the data.
 This $ZZ^*$ density peaks for $ZZ$ above a
 $2 m(Z) \approx 180\,\eV[G]$ kinematic edge,
-and $Z \to 4\ell$ around $m_{4\ell} \approx m(Z)$;
-expanding the histogram to show either of these tails would change nothing
-local to our $m_{4\ell} = 125\,\eV[G]$ event, but would change our $p$-values.
+and $Z \to 4\ell$ around $m_{4\ell} \approx m(Z)$,
+so expanding the histogram to show either of these tails would change nothing
+local to our $m_{4\ell} = 125\,\eV[G]$ event, but would pathologically change
+its \pvalues.
 
 Better test statistics can soften this problem, and a key observation by
 Neyman and Pearson is an optimality of likelihood ratio test statistics.
@@ -1397,7 +1406,7 @@ That was already known.
 What it contributes is a relationship with one-sided inequalities ---
 it states that likelihood ratios (not maximum likelihood ratios)
 are optimal in a specific sense within their framework of decisions
-based on $p$-values.
+based on \pvalues.
 Precisely, at a fixed probability $\alpha$ of rejecting a true hypothesis,
 the Neyman-Pearson lemma finds that a likelihood ratio test statistic maximizes
 the probability $\alpha'$ of rejecting the alternative, false hypothesis that
@@ -1546,9 +1555,17 @@ Amrhein2017TheEI,
 goodman2008dirty,
 greenland2016no,
 Bernstein2016princess,
-wagenmakers2007practical
+wagenmakers2007practical,
+hauer2004harm,
+wasserstein2016asa
 }
-in fields where they are not banned~\cite{Trafimow2015ban}.
+in fields where they are not yet banned~\cite{
+Trafimow2015ban,
+woolston2015phychology,
+chumra2019time,
+shrout1997should,
+hunter1997needed
+}.
 For example, the false presentation as a ``probability of compatibility'' with
 a model~\cite{HIGG-2018-04} appears to be spreading as a good
 meme~\cite{dawkins1989selfish} in High Energy Physics ~\cite{
@@ -1690,7 +1707,7 @@ background and signal-plus-background models.
 The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
 (linearly) related to the likelihood ratio.
 Each $\cls$ is a \pvalue\ ratio.
-By reducing the observed data to an inequality, the $p$-value selectively
+By reducing the observed data to an inequality, the \pvalue\ selectively
 censors some of its information.
 }
 \label{fig:searches_sb_n}
@@ -1785,7 +1802,7 @@ where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$; $b = 4.3$ and $s = 3.0$.
 This test statistic jumbles the data into an order that makes $n=11$ appear to
 be weaker support for the signal than $n=9$.
 Each $\cls$ is \pvalue\ ratio.
-By reducing the observed data to an inequality, the $p$-value selectively
+By reducing the observed data to an inequality, the \pvalue\ selectively
 censors some of its information.
 }
 \label{fig:searches_sb_t}
