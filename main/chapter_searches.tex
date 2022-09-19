@@ -1675,9 +1675,11 @@ frodesen1979probability
 Some literature defines $\clb = 1 - p_b$~\cite{
 Cowan:2010js,
 pdg2022ynf
-}, but such a $p_b$ might not be a \pvalue\ when it excludes equality with the
+}
+where $p_b$ might not be a \pvalue\ if it excludes equality with the
 observed test statistic~\cite{cern2011procedure}.
-}%
+}
+
 As discussed in Section~\ref{sec:searches_fisher}, \pvalues\ are likelihoods
 on obfuscated data, so (with some caution) $\cls$ can be interpreted as a
 likelihood ratio.%
@@ -1690,31 +1692,8 @@ test statistics have been allowed elsewhere~\cite{bock1998lower}.
 At a given confidence level $\gamma$ (typically $95\%$), limits are set to
 values of $s$ for which $\cls = 1 - \gamma$.
 
-\begin{figure}[tp]
-\centering
-\begin{subfigure}{\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_n.pdf}
-\end{subfigure}
-\caption[
-A Poisson model in the natural order
-]{%
-A Poisson model in the natural order of $t(n) = \pm n$
-test statistics, $b = 4.3$ and $s = 3.0$.
-(left) $\log$ \pvalues,
-and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
-background and signal-plus-background models.
-The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
-(linearly) related to the likelihood ratio.
-Each $\cls$ is a \pvalue\ ratio.
-By reducing the observed data to an inequality, the \pvalue\ selectively
-censors some of its information.
-}
-\label{fig:searches_sb_n}
-\end{figure}
-
 Early variants of $\cls$ derived it from an identity with posterior tail
-probabilities in Poisson or Gaussian special cases~\cite{
+probabilities in Poisson and Gaussian special cases~\cite{
 Helene1983upper,
 pdg1988,
 read2000modified,
@@ -1746,6 +1725,29 @@ Such \pvalues\ are illustrated in Figure~\ref{fig:searches_sb_n} (left)
 for small data counts;
 in contrast, $\cls$ can only favour the background-only model, due to its
 negative values that are shown on the right of the same figure.
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/searches_cls_plots_with_pvals_n.pdf}
+\end{subfigure}
+\caption[
+A Poisson model in the natural order
+]{%
+A Poisson model in the natural order of $t(n) = \pm n$
+test statistics, $b = 4.3$ and $s = 3.0$.
+(left) $\log$ \pvalues,
+and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
+background and signal-plus-background models.
+The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
+(linearly) related to the likelihood ratio.
+Each $\cls$ is a \pvalue\ ratio.
+By reducing the observed data to an inequality, the \pvalue\ selectively
+censors some of its information.
+}
+\label{fig:searches_sb_n}
+\end{figure}
 
 Despite the statement in Section~\ref{sec:searches_fisher} that \pvalue\
 ratios are not ``not \emph{necessarily} misleading'',
