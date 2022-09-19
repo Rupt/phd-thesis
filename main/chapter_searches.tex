@@ -1834,7 +1834,16 @@ and can improve (in a context-dependent sense) the resulting ordering.
 These modified maximum likelihood ratios benefit from known approximations to
 their sampling distributions in asymptotic (Gaussian) limits,
 which can assign their \pvalues\ through well-behaved analytic
-expressions~\cite{Cowan:2010js}.
+expressions~\cite{
+Cowan:2010js,
+wilks1938large,
+wald1943tests
+}.%
+\footnote{%
+Remarkably, the asymptotic limits employed by~\cite{Cowan:2010js} to
+approximate \pvalues\ derive from a theorem of the same Abraham~Wald who later
+proved the redundancy of \pvalue\ decision rules~\cite{wald1947bayes}.%
+}
 Without such formulae, the remaining practical approach to estimating
 \pvalues\ is to generate Monte Carlo simulations of alternative data.
 Such simulations can be computationally expensive, ill-defined for
@@ -1899,11 +1908,11 @@ doublethink~\cite{orwell1949nnineteen}.
 Despite their troublesome nomenclature, \heplikelihood\ models are extremely
 useful and effective for describing the predictions of our hypotheses and
 extracting interpretable results.
-A general \heplikelihood\ model is a function $H$ that takes some parameters $x$
-and outputs two things:
+A general \heplikelihood\ model is a function $H(x)$ of some parameters $x$
+that outputs two things:
 expected yields $y$ to predict Poisson data,
-and an objective value $E$ that should be minimized in a `fit' to choose the
-best prediction.
+and an objective value $E$ to be minimized (in a `fit') to choose a best
+prediction.
 That is,
 \begin{equation}
 H(x) = [\,y(x), \,E(x)\,]
