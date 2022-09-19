@@ -1283,8 +1283,8 @@ Neyman and Pearson is an optimality of likelihood ratio test statistics.
 Suspecting an hypothesis when its \pvalue\ lands below (or above) a threshold
 means that there is a prior probability $\alpha$ that any hypothesis will be
 suspect after an experiment.
-For example, in Fisher's suggestion of $P(h) \in 0.1--0.9$ being not suspect,
-then $\alpha = 0.2$.%
+For example, in Fisher's suggestion of $P(h) \in 0.1\textrm{--}0.9$ being not
+suspect, then $\alpha = 0.2$.%
 \footnote{%
 Matching $\alpha$ can be impossible in discrete distributions if
 the tail probability masses do not add exactly to $\alpha$.
@@ -1300,17 +1300,16 @@ cousins2008evaluation,
 Cranmer2006Statistical
 }.%
 }
-otherwise meets the edges at $0.1$ and $0.9$ in its cumulative distribution).
 And that chance is independent of the hypothesis, its alternatives, and even
 the nature of the experiment.
 
 Obediently followed, these rules mean that the data and test statistic could be
 anything at all and still incur suspicion for unrelated hypotheses with the
-same prior probability.
-Your wall clock reads not less than $48$ minutes past the hour?
-The Standard Model is suspect.
+same prior probability ---
+your wall clock reads greater than or equal to $48$ minutes past the hour?
+If so, then the Standard Model is suspect.
 Figure~\ref{fig:searches_significant} illustrates this peculiarity and the
-associated difficulty in communicating the results.
+associated difficulties with communicating \pvalue\ results.
 
 \begin{figure}[tp]
 \centering
@@ -1329,43 +1328,42 @@ associated difficulty in communicating the results.
 \label{fig:searches_significant}
 \end{figure}
 
-Neyman and Pearson formalized this \pvalue\ based suspicion into decision
-rules and thought about what it is that makes one test statistic better than
+Neyman and Pearson formalized this `suspicion' into decision rules,
+and considered what it is that makes one test statistic better than
 another~\cite{neymanpearson1928max, neymanpearson1933lemma}.
-Rather than a \pvalue\ arousing suspicion of an hypothesis, here it is used
+Rather than a \pvalue\ arousing suspicion of an hypothesis, they use it
 to decide on actions of `rejecting' or `accepting' an hypothesis.
-From the Bayesian arguments that we are presenting in
-Section~\ref{sec:searches_data_analysis},
-Neyman and Pearson argued for the interest in likelihood ratios, and further
-considered their use as test statistics~\cite{neymanpearson1928max};
+From the same Bayesian arguments of Section~\ref{sec:searches_data_analysis},
+Neyman and Pearson argued for the interest in likelihood ratios as promising
+test statistics~\cite{neymanpearson1928max};
 they also considered \emph{maximum} likelihood ratios
 \begin{equation}
 \label{eqn:searches_max_like_ratio}
 \Lambda =
 \frac{L(h_1)}{\mathrm{max}_i\,L(h_i)}
 \end{equation}
-for a specified hypothesis $h_1$ against the largest likelihood from a set
-of alternatives.
+to compare a specified hypothesis $h_1$ against a set of alternatives.
 
 As descriptions of the likelihoods in play, maximum likelihood ratios can
 usefully communicate relevant information from the data.
-And ass test statistics, they also win generality by avoid context-specific
+And as test statistics, they also win generality by avoid context-specific
 motivations, such as scale invariance for the $t$-statistic of
-Equation~\ref{eqn:searches_t_statistic} --- any situation with predictive
-models can construct likelihoods and maximum likelihood ratios.
+Equation~\ref{eqn:searches_t_statistic} --- any predictive models can have
+likelihoods and maximum likelihood ratios.
+
 ``Without claiming that this method is necessarily the ``best'' to adopt,''
 Neyman and Pearson suggest maximum likelihood ratios as
 ``one clearly defined method of discriminating between samples for which
 Hypothesis A is more probable and those for which it is less probable''~\cite{
 neymanpearson1933lemma}.
-To this quote, Lehmann appends ``(sic!)''~\cite{lehmann2011fisher}, since it
-appears to conflate the likelihood for an hypothesis with its probability.
-But Neyman and Pearson's association of likelihood ratios with
+Lehmann appends ``(sic!)'' to this quote~\cite{lehmann2011fisher};
+it appears to mistakenly conflate the likelihood for an hypothesis with its
+probability, but Neyman and Pearson's association of likelihood ratios with
 ``more probable'' hypotheses may not be an error.
-The authors understood the algebra of how large likelihood ratios make
-hypotheses \emph{more probable} by changing their posterior probabilities,
-independent of whatever (non-zero) prior probabilities they are assigned.
-Indeed, they later state that
+The authors understood the probability algebra of how large likelihood ratios
+make hypotheses \emph{more probable} by scaling whatever (non-zero) prior
+probabilities may be assigned.
+Indeed they later state that
 \begin{displayquote}
 ``%
 The statistician can balance the numerical verdict of likelihood against the
@@ -1374,7 +1372,7 @@ to his judgment to at what point the evidence in favour of alternative
 hypotheses becomes so convincing that Hypothesis A must be rejected.%
 ''~\cite{neymanpearson1933lemma}
 \end{displayquote}
-Elsewhere also, they consider an example with two hypotheses $\mathrm{A}_1$
+Elsewhere, they also consider an example with two hypotheses $\mathrm{A}_1$
 and $\mathrm{A}_2$, and find a $\log$ likelihood ratio of
 % the two corresponding densities at the sample point are
 % ($\mathrm{A}_1$) $6.42 \times 10^{-20}$,
@@ -1416,23 +1414,23 @@ the diagram reproduced in Figure~\ref{fig:searches_np_tails}.
 Only the likelihood ratio local to the observed data matters directly in the
 probabilistic analysis, but this lemma is useful in the construction
 of event variables of the kind we use in \atlas\ searches.
-This can be seen from the signal and background distributions of
+This is seen from the signal and background distributions of
 Figures~\ref{fig:searches_sig_bkg_prior_likelihood}
-and~\ref{fig:searches_atlas_higgs_4l};
+and~\ref{fig:searches_atlas_higgs_4l}:
 the event variable in Figure~\ref{fig:searches_sig_bkg_prior_likelihood} is
-like a likelihood ratio in that any right-handed inequality selects a good
-signal purity relative to its background yield, but the signal bump in the
+like a likelihood ratio in that any right-handed selection contains a good
+signal purity relative to its background, but the signal bump in the
 middle of the background distribution in
 Figure~\ref{fig:searches_atlas_higgs_4l} would be better selected with a
 window around the Higgs boson mass.
-Re-ordering $m_{4\ell}$ by a likelihood ratio could turn this selection window
+Re-ordering $m_{4\ell}$ by a likelihood ratio could turn the window
 into an equivalent and simpler one-sided selection, and the Neyman-Pearson
 lemma states that there is no ordering that further optimizes the selected
 signal-to-background ratio.
 
 Neyman and Pearson were also involved in the development of
 `confidence intervals', which are ranges of parameters that are
-accepted by the \pvalue\ decision rules~\cite{
+accepted by a \pvalue\ decision rule~\cite{
 clopper1934confidence,
 neyman1935Intervals,
 Neyman1937Outline
@@ -1440,7 +1438,7 @@ Neyman1937Outline
 \footnote{%
 Confidence intervals are usually introduced by endpoints containing constrained
 probability mass, but this \pvalue\ form can always satisfy that through the
-free choice of test statistic and extends naturally beyond one dimension.%
+free choice of test statistic, and extends naturally beyond one dimension.%
 }
 A parameter corresponds to an hypothesis that assigns a prior distribution to
 plausible data, and those data for which an obeisant researcher accepts the
@@ -1462,8 +1460,9 @@ that should cover a true value.%
 }
 It is easy to stumble into thinking that a confidence interval
 `probably' contains the unknown parameter, but that gets it backwards.
-For a known true parameter $x$, the confidence intervals of random repeated
-experiments should contain $x$ with probability $\gamma$;
+For a known true parameter $x$, the various confidence intervals
+$x_1\textrm{--}x_2$ from random repeated experiments should contain
+$x$ with probability $\gamma$;
 the interval makes a subtle statement about unknown alternative data for
 known true parameters.
 For given data, the confidence interval can even exclude all possible
@@ -1489,7 +1488,7 @@ Confidence intervals are functions of the data, so they can inform vague
 inferences if used as data for likelihood functions, just as we did to
 interpret Fisher's \pvalue\ ratio as a likelihood ratio ---
 an accurately constructed confidence interval $x_1\textrm{--}x_2$ has a
-likelihood function
+likelihood function:
 \begin{equation}
 L(x) =
 \left\{
@@ -1501,7 +1500,7 @@ L(x) =
 \end{equation}
 And again, this reduction cannot add to the data.
 It can only detract.
-The recommendation by Fisher to directly communicate the likelihood function
+Fisher's recommendation to communicate the likelihood function itself
 remains simpler and clearer.
 In response to the idea that no conclusion can be drawn about the parameter,
 Fisher also has strong words here:
@@ -1533,8 +1532,8 @@ of the real problems to which it is applied.%
 \end{singlespacing}
 
 Data analysis in modern High Energy Physics does not exactly follow frequentist
-ideology, but is a hands-on, practical, and evolving mixture that has adapted
-to avoid some of the more glaring flaws.
+ideology, but is a hands-on, practical, and evolving ecosystem that has adapted
+to avoid some of the more glaring flaws when attacking real problems.
 We have seen in Section~\ref{sec:searches_data_analysis} how likelihood ratios
 can clearly express our scientific interest in how well competing models
 predict data, and how those likelihoods can be manipulated in probability
@@ -1544,7 +1543,7 @@ writers championed likelihoods not on the data themselves but on inequalities,
 forming \pvalues\ and confidence intervals in reductions that throw away
 information and obfuscate the results.
 This section reviews how these objects are applied generally in conventional
-analysis at the LHC and specifically towards the \atlas\ search that this
+analysis at the LHC, and specifically towards the \atlas\ search that this
 thesis presents.
 
 Misrepresentations of \pvalues\ (and other frequentist statistics) are
@@ -1568,7 +1567,7 @@ hunter1997needed
 }.
 For example, the false presentation as a ``probability of compatibility'' with
 a model~\cite{HIGG-2018-04} appears to be spreading as a good
-meme~\cite{dawkins1989selfish} in High Energy Physics ~\cite{
+meme~\cite{dawkins1989selfish} in High Energy Physics~\cite{
 roth2007fit,
 HIGG-2017-09,
 HIGG-2018-27,
@@ -1626,7 +1625,7 @@ makes the observed result \emph{more probable}.
 \subsection{\texorpdfstring{$\cls$}{CLs}}
 Such misrepresentations of our results reinforces the need for clearer
 replacements, which $\log$ likelihood ratios can provide.
-And standard practice at the LHC contains the beginnings of such
+Standard practice at the LHC contains the beginnings of such
 replacements under the name $\cls$~\cite{
 read2000modified,
 Read2002cls,
@@ -1641,7 +1640,7 @@ cern2011procedure,
 pdg2022ynf
 },
 which is used for setting upper limits on disfavoured signal yields $s$
-above background yields $b$;
+above background yields $b$:
 \begin{equation}
 \label{eqn:searches_cls}
 \cls
@@ -1659,17 +1658,16 @@ in which the individual \pvalues\ are named
 $\clb = P(b)$ and
 $\clsb = P(s + b)$.%
 \footnote{%
-Despite the $\mathrm{CL}$ labels, these ($\cls$, $\clsb$, and $\clb$) are
-not confidence levels ---
-a confidence level $\gamma$ is a decision boundary used, for example,
-to assign limits by solving for $x$ such that
-$\gamma = 1 - P(x)$~\cite{pdg1996}.
+Despite their $\mathrm{CL}$ labels, $\cls$, $\clsb$, and $\clb$ are not
+Confidence Levels ---
+a confidence level $\gamma$ is a threshold used to assign limits by solving
+for $x$ such that $\gamma = 1 - P(x)$~\cite{pdg1996}.
 In particle physics, \pvalues\ have sometimes been labelled $\mathrm{CL}$ since
 at least 1984~\cite{pdg1984}, although textbooks from the '70s (which are cited
-by~\cite{pdg1984}) do make the distinction~\cite{
+by~\cite{pdg1984}) do distinction the two~\cite{
 eadie1971statistical,
 frodesen1979probability
-}.%
+}.%s
 }%
 \footnote{%
 Some literature defines $\clb = 1 - p_b$~\cite{
@@ -1686,8 +1684,8 @@ likelihood ratio.%
 \footnote{%
 Likelihood ratios are useful if both their numerator and denominator use the
 same data, so $\clsb$ and $\clb$ should use the same test statistic.
-Identical test statistics are used for all results of this work, but differing
-test statistics have been allowed elsewhere~\cite{bock1998lower}.
+Identical test statistics are used for all results in this thesis, but
+differing test statistics have been allowed elsewhere~\cite{bock1998lower}.
 }%
 At a given confidence level $\gamma$ (typically $95\%$), limits are set to
 values of $s$ for which $\cls = 1 - \gamma$.
@@ -1706,7 +1704,7 @@ For use in general cases, it is more recently described as a
 read2000modified,
 Read2002cls
 }.
-High-profile usage in Higgs boson searches at the
+High-profile usage in combined Higgs boson searches at the
 Large Electron–Positron Collider~\cite{
 read1997optimal,
 bock1998lower,
@@ -1742,31 +1740,31 @@ and (right) $\log$ likelihood ratios and $\log$ $\cls$ for
 background and signal-plus-background models.
 The $n$ test statistic is Neyman-Pearson optimal because it is monotonically
 (linearly) related to the likelihood ratio.
-Each $\cls$ is a \pvalue\ ratio.
+Each $\cls$ is a \pvalue\ ratio with the stated test statistic.
 By reducing the observed data to an inequality, the \pvalue\ selectively
-censors some of its information.
+censors its information.
 }
 \label{fig:searches_sb_n}
 \end{figure}
 
-Despite the statement in Section~\ref{sec:searches_fisher} that \pvalue\
+Despite my statement in Section~\ref{sec:searches_fisher} that \pvalue\
 ratios are not ``not \emph{necessarily} misleading'',
 Figure~\ref{fig:searches_sb_n} shows a bias from the fact that
 no data can give a $\cls$ that favours the signal model;
-$\log\cls$ is non-positive with the $-n$ test statistic, and indeed non-negative
+$\log\cls$ is non-positive with the $-n$ test statistic, and non-negative
 for the reverse ordering $t(n) = n$.
 The $\log$ likelihood ratio on the actual data does not feature this bias:
 it favours background-only for deficits and background-plus-signal for
 excesses.
-Since for Poisson models the $\log$ likelihood ratio is linear in $n$,
+The $\log$ likelihood ratio is linear in $n$ for these Poisson models,
 \begin{equation}
 \log \frac{L(s + b)}{L(b)}
 = n\log\frac{s + b}{b} - s
 ,
 \end{equation}
-both $n$ and $-n$ can be optimal in the Neyman-Pearson sense.
+so both $n$ and $-n$ can be optimal in the Neyman-Pearson sense.
 
-By using \pvalue\ ratios with Neyman-Pearson optimal test statistic, we have
+By using $\cls$ with a Neyman-Pearson optimal test statistic, we have therefore
 constructed an analysis that can only ever favour one hypothesis:
 we have built a propaganda machine that only ever speaks truth but censors any
 information that supports alternative ideas.
@@ -1803,9 +1801,9 @@ test statistics $t(n) = \pm \Lambda(n)$,
 where $\Lambda(n) = L(b)/\mathrm{max}_x\,L(x)$; $b = 4.3$ and $s = 3.0$.
 This test statistic jumbles the data into an order that makes $n=11$ appear to
 be weaker support for the signal than $n=9$.
-Each $\cls$ is \pvalue\ ratio.
+Each $\cls$ is a \pvalue\ ratio with the stated test statistic.
 By reducing the observed data to an inequality, the \pvalue\ selectively
-censors some of its information.
+censors its information.
 }
 \label{fig:searches_sb_t}
 \end{figure}
@@ -1814,35 +1812,32 @@ How can one escape this trap?
 Likelihood ratios on the actual data escape immediately by bypassing the
 censor, but even inequalities need not be biased --- if taken against a
 predetermined threshold, say $5$ events, then models can predict whether
-$n \leq 5$, and the truth or falsehood in data can favour either side.%
-\footnote{%
-This context of a fixed inequality is one condition where the
-\pvalue\ ratio is not misleading when interpreted as a likelihood ratio.%
-}
+$n \leq 5$, and the honest truth or falsehood in data can favour either side.
 Ultimately, the reader just distrust the reporter ---
 the statements `\atlas\ reports $n \leq 5$' and `logically, $n \leq 5$' are not
 identical, since one might infer from the former that in fact $n = 5$.
-The message itself is data --- what it says may not be the whole truth.
+The message itself is data, and what it says may not be the whole truth.
 
-With more than one Poisson bin to model, the $n$ test statistic is no longer
+With multiple Poisson bins, the $n$ test statistic is no longer
 sufficient.
 In such general cases, maximum likelihood ratio test statistics,
 such as $\Lambda$ of Equation~\ref{eqn:searches_max_like_ratio}, often useful.
-In the single Poisson case, $\Lambda$ shuffles the ordering of
+With a single bin, $\Lambda$ shuffles the ordering of
 data and leads to some odd features in the results, which are displayed in
 Figure~\ref{fig:searches_sb_t}.
-In particular, the choice $t(n) = -\Lambda(n)$ pushes data that are far from
-the background expectation into its tails, so can disfavour the background
+In particular, the choice $t(n) = -\Lambda(n)$ pushes any data that are far
+from the background expectation into its tails, so can disfavour the background
 model for small $n$.
 Probability masses from small data also interrupt its behaviour for excesses,
-leading to jagged changes, notably that $\log\cls$ reduces as the data
-increase from $9$ to $11$ --- counter to intuition and logic, increasing excess
-data can reduce the reported favour for the signal model.
+and lead to jagged changes, notably that $\log\cls$ reduces as the data
+increase from $9$ to $11$.
+Counter to intuition and logic, this prescription can report decreased favour
+for the signal model when increasing the excess in data.
 
-Instead of $\Lambda$ itself, various modified maximum likelihood ratio test
+Rather than $\Lambda$ itself, various modified maximum likelihood ratio test
 statistics enjoy standard usage at the LHC~\cite{cern2011procedure};
 these are variably defined as piecewise functions of the fitted signal
-parameter $s$, and can include likelihoods from the signal-plus-background
+parameter, and can include likelihoods from the signal-plus-background
 model with constrained maximizations which aim to reduce the impact of
 unphysical results such as negative Poisson expectations~\cite{
 Feldman:1997qc,
@@ -1850,7 +1845,7 @@ Cowan:2010js
 },
 and can improve (in a context-dependent sense) the resulting ordering.
 
-These modified maximum likelihood ratios benefit from known approximations to
+Modified maximum likelihood ratios also benefit from known approximations to
 their sampling distributions in asymptotic (Gaussian) limits,
 which can assign their \pvalues\ through well-behaved analytic
 expressions~\cite{
@@ -1865,13 +1860,13 @@ proved the redundancy of \pvalue\ decision rules~\cite{wald1947bayes}.%
 }
 Without such formulae, the remaining practical approach to estimating
 \pvalues\ is to generate Monte Carlo simulations of alternative data.
-Such simulations can be computationally expensive, ill-defined for
+However, such simulations can be computationally expensive, and ill-defined for
 ``likelihood'' models that blur the distinction between actual data and
 auxiliary constraints on the models' parameters.
 
 
 \subsection{Like-lihood modelling}
-To represent the Standard Model and alternatives, LHC data analysis uses
+To represent the Standard Model and alternatives, LHC data analyses use
 parametric models to describe the models' Poisson expectations of
 collision events and how those expectations change in response to their
 parameters.
@@ -1927,9 +1922,9 @@ doublethink~\cite{orwell1949nnineteen}.
 Despite their troublesome nomenclature, \heplikelihood\ models are extremely
 useful and effective for describing the predictions of our hypotheses and
 extracting interpretable results.
-A general \heplikelihood\ model is a function $H(x)$ of some parameters $x$
-that outputs two things:
-expected yields $y$ to predict Poisson data,
+A general \heplikelihood\ model is a function $H(x)$ that takes input
+parameters $x$ and outputs two things:
+expected yields $y(x)$ to predict Poisson data,
 and an objective value $E$ to be minimized (in a `fit') to choose a best
 prediction.
 That is,
@@ -1938,15 +1933,15 @@ H(x) = [\,y(x), \,E(x)\,]
 .
 \end{equation}
 The minimization objective $E$ is the summed negative $\log$ likelihood
-(or regularizer) for all actual and auxiliary data;
-we choose the letter $E$ for \textbf{energy}, to highlight the analogy with
+(or regularizer) for all actual and auxiliary data.
+We choose the letter $E$ for \textbf{energy}, to highlight the analogy with
 statistical physics and the Boltzmann factor
 \begin{equation}
 p(x) \propto e^{-\beta E(x)}
 .
 \end{equation}
-with which a system collapses to its minimum energy at low temperature
-$T = 1/\beta$~\cite{
+with which a thermodynamic system collapses to its minimum energy at cold
+temperatures $T = 1/\beta$~\cite{
 skilling2017david,
 lecun-06,
 pmlr-v2-ranzato07a
@@ -1954,8 +1949,8 @@ pmlr-v2-ranzato07a
 At unit temperature, this can induce a probability distribution
 for the parameters relative to an appropriate (prior)
 measure~\cite{cranmer2012histfactory, skilling2017david},
-but in practice such distributions often coincide with neither intuition nor
-the best fit value.
+but in my experience with \heplikelihood\ models such distributions often
+coincide with neither intuition nor the best fit value.
 
 Error bars on the yields can be assigned by exploring around that best fit.
 In the Gaussian approximation, the inverse (Hessian) matrix of second
@@ -1973,8 +1968,7 @@ All results presented in this thesis use
 constructed and analysed with
 \histfitter~\cite{Besjes_2015,baak2015histfitter}
 and \pyhf~\cite{heinrich2021pyhf}.
-\histfactory\ models are specialized for working with discrete numbers of
-histogram bins.
+\histfactory\ models are specialized for working with discrete histogram bins.
 They constrain parameters with either Gaussian or Poisson%
 \footnote{%
 The Poisson likelihoods typically use a continuous interpolation with
@@ -2003,17 +1997,17 @@ alternative ``pseudo-data (toys)''~\cite{cern2011procedure}.
 This procedure works as follows:
 \begin{enumerate}
 \item minimize $E(x)$ to find the best-fit parameters $\check{x}$, then
-\item sample alternative Poisson (actual) data with rates $y(\check(x))$ and
+\item sample alternative Poisson (actual) data with rates $y(\check{x})$ and
 alternative auxiliary (fictitious) data from their assigned distributions,
 then
 \item evaluate the test statistic for each simulated `toy'
 sample~\cite{cern2011procedure}.
 \end{enumerate}
-The \pvalue\ is then estimated as the fraction of toys with test statistics
+Each \pvalue\ is estimated as the fraction of sampled toys with test statistics
 greater than or equal to the observed test statistic.
 Because this first item fits to the observed data, the sampled test statistic
 distribution depends on the observed data $d$ ---
-this problematic because it means that the approximated \pvalue\ is not
+this is problematic because it means that the approximated \pvalue\ is not
 $\prob{t \geq t(d)}{h}$, but depends on the data like
 $\prob{t \geq t(d)}{f(d, h)}$.
 And since the \pvalue\ is a censored likelihood, this is an error of early
@@ -2048,10 +2042,10 @@ treated with substantial suspicion, and we tune that modelling to better
 describe the backgrounds local to our data of interest before finalizing a
 search.
 Tuning and analysis are performed in a conventional and sensible procedure,
-but their pieces have somewhat esoteric names that we define here.
+but their pieces have esoteric names that we define here.
 
-Our searches see data only through discrete histogram bins,
-or `regions', which are defined by logical selections in event variables.
+Our searches see data only through discrete histogram bins named `regions',
+which are defined by logical selections in event variables.
 To communicate their intended uses, we further categorize these bins into
 `control', `validation', and `signal' regions;
 Figure~\ref{fig:searches_histfitter_regions} illustrates the uses of these
@@ -2068,15 +2062,14 @@ Both observables are event variables in which models should change
 smoothly to justify the extrapolations that are indicated by arrows.
 Dashed lines illustrate that each region may be subdivided into
 disjoint (orthogonal) smaller bins.
-Adapted from \histfitter~\cite{histfitter2015}.
+Adapted from \histfitter~\cite{baak2015histfitter}.
 }
 \label{fig:searches_histfitter_regions}
 \end{figure}
 
 \paragraph{Control regions (CRs).}
-Control regions select large numbers of data to
-constrain global normalization factors that scale the major
-Standard Model backgrounds;
+Control regions select large numbers of data to constrain global normalization
+factors that scale Standard Model backgrounds;
 these normalization factors control the total cross-sections of
 background samples while preserving their relatives shapes between regions.
 Disregarding theoretical Standard Model cross-sections is justified, since
@@ -2087,8 +2080,8 @@ estimate local to our regions.
 To represent the Standard Model, control regions must be insensitive to
 non-standard signals.
 Before applying their normalization factors to regions that are sensitive
-to signal hypotheses, data in validation regions first
-test the quality of extrapolation.
+to signal hypotheses, data in validation regions are first used to test the
+quality of extrapolation.
 Each model is adjusted until validation region data are well predicted ---
 either by changing region definitions or restructuring the \heplikelihood\
 model, perhaps with extrapolation uncertainties or extra normalization
@@ -2102,9 +2095,8 @@ Consuming information from control and validation regions to refine the
 predictions of our background-only model is scientific learning, and can be
 reconciled with machine learning practice as fitting a model with training
 (CR) and validation (VR) data.
-Testing is done by predicting of data in the signal regions,
-in which signal yields should significantly add on top of the Standard Model
-backgrounds.
+Final testing is done by predicting of data in the signal regions, in which
+signal models could have significant effects.
 Some signal regions are labelled as \textbf{discovery regions} (\textbf{DRs})
 to indicate their use in special `discovery' fits.
 
@@ -2118,15 +2110,16 @@ to the control regions to make predictions in the signal regions.
 These background-only fits usefully validate that the \heplikelihood\ model
 works as intended: that its normalization factors are not too far from the
 Standard Model, that its tuned extrapolation to validation regions works,
-and that other parameters are behaving according to intuition.
+and that other parameters are behaving as intended.
 
 After fitting the background-only model to observed signal region data,
-it can be useful to check how its parameters have been `pulled' away from their
-central values.
+it can be useful to check that its parameters have been `pulled' away from
+their central values into regimes where their approximated extrapolations may
+be invalid
 Post-fit expectations in signal regions are also available with error bars;
 because these depend on the data, they are posterior results and not directly
 useful to judge the background-only model.
-Instead, they are an updated prediction for the expected yield in an
+Instead, they are an updated prediction of the expected yields from an
 hypothetical future repeat of the experiment.
 
 Searches for new signals require some concept of how their signals differ
@@ -2146,7 +2139,7 @@ mark individual models as excluded and set limits on their production
 cross-sections.
 For presentation on paper, articles consider two-dimensional planes of model
 parameters and present contiguous `exclusion contours' within which all models
-are marked as excluded at a given level.
+are marked as excluded.
 
 \paragraph{Discovery fits.}
 Model-dependence sacrifices some generality.
@@ -2159,9 +2152,8 @@ and a `discovery' \pvalue\ is also computed with the intention to quantify
 the significance of a data excess were one observed.
 
 Despite the likely superiority of $t(n) = n$ test statistics for these
-single-bin signal-plus-background experiments, standard maximum likelihood
-ratio test statistics are used, and may explain quirks in the discovery
-region results that we shall see in the results of
-Chapter~\ref{chapter:2ljets}.
+single-bin data, the standard use of maximum likelihood ratio test statistics
+and may explain quirks in the discovery region results that we shall see in the
+results of Chapter~\ref{chapter:2ljets}.
 
 % this comment activates enlarged spacing for the final paragraph lol
