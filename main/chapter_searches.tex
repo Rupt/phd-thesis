@@ -63,7 +63,7 @@ The first correct answer wins a gold star.
 \end{figure}
 
 Statistical data analysis suffers from dogma --- prescriptions and recipes that
-one can memorize and follow while knowing neither their reasons nor their
+one memorizes and follows while knowing neither their reasons nor their
 limitations:
 among these are
 error propagation formulae,
@@ -74,7 +74,7 @@ Each of these can be a useful approximation, but every one can also fail if
 misused outside its domain.%
 \footnote{%
 Multiplicative error propagation is an example:
-for $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
+for independent $a = \mu_a \pm \sigma_a$ and $b = \mu_b \pm \sigma_b$,
 the standard rule says
 \(
 \widetilde{\sigma}_{ab}
@@ -86,10 +86,9 @@ but a calculation with their moments derives the exact result
 \sigma_{ab}
 = \sqrt{(\mu_a^2 + \sigma_a^2)(\mu_b^2 + \sigma_b^2) - \mu_a^2\mu_b^2}
 % = \sigma_a^2 \mu_b^2 + \sigma_b^2 \mu_a^2 + \sigma_a^2 \sigma_b^2
-\)
-if $a$ and $b$ are independent;
+\);
 since $\sigma_{ab}^2 = \widetilde{\sigma}_{ab}^2 + \sigma_a^2 \sigma_b^2$,
-the propagation formula works only for small relative errors.
+the propagation formula assumes at least one small relative error.
 }
 All effective methods of data analysis can be justified in probability and
 decision theory.
@@ -529,8 +528,8 @@ for hypothesis $h$, data $d$, and parameters $x$.
 Posterior-only, semi-Bayesian methods are legitimately criticized because they
 do not challenge the hypotheses that assign their priors
 $\pi(x) = \prob{x}{h}$.
-Since the evidence is a likelihood function over hypotheses, it can challenge
-them by comparing how well they predicted data.
+Since the evidence is a likelihood function over hypotheses, it does challenge
+hypotheses by comparing how well they predicted data.
 Cartoon adapted from ``Baton roue'' by
 Corentin~Penloup~\cite{penloup2011baton}.
 }
