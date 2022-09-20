@@ -75,25 +75,28 @@ its design and history.
 The \atlas\ detector was not delivered in a preordained form.
 It was designed with intent to provide maximally useful and novel data within
 real-world cost budgets.
-Original designs hoped to construct an \atlas\ detector that could
-observe the Higgs boson (which was predicted but yet unseen),
-precisely measure known massive objects ($W$, $Z$, and $t$),
-and possibly discover new particles such as those hypothesized by
-supersymmetric models~\cite{atlas1999design1}.
+Within general purpose utilities, \atlas' designs aimed to construct a
+detector that could
+\begin{itemize}
+\item find the Higgs boson (which was predicted but yet unseen),
+\item precisely measure known massive objects ($W$, $Z$, and $t$),
+\item discover new (supersymmetric) particles~\cite{atlas1999design1}.
+\end{itemize}
 We now review these three goals with the subsequent news from \atlas'
 operations.
 
-\paragraph{Higgs boson discovery.}
+\paragraph{Find the Higgs boson.}
 Prior to \atlas' construction, the Higgs boson mass (and existence) was
 poorly known, but loosely constrained by results like
-$m_H \gtrsim 90\,\eV[G]$ from searches at the
+$m(H) \gtrsim 90\,\eV[G]$ from searches at the
 Large Electron–Positron Collider (LEP),
-$m_H = 76^{+85}_{-47}\,\eV[G]$ from other data on the electroweak sector,
-and $m_H \lesssim 1\,\eV[T]$ from theoretical unitarity arguments~\cite{
+$m(H) = 76^{+85}_{-47}\,\eV[G]$ from other data on the electroweak sector,
+and $m(H) \lesssim 1\,\eV[T]$ from theoretical unitarity arguments~\cite{
 atlas1999design2,
 ghinculov1998perturb,
 lep1999ewk
 }.
+
 The Higgs boson couples to an extraordinary variety of fundamental particles.
 For its discovery alone, \atlas' designers achieved sensitivity across the
 entire $100$ to $1000\,\eV[G]$ window by targetting decays including
@@ -107,7 +110,7 @@ invisible neutrinos for $ZZ \to \ell\ell\nu\nu$ decays at the very highest
 masses.
 
 Both \atlas\ and \cms\ have now found a Higgs boson candidate at
-$m_H = 125\,\eV[G]$~\cite{
+$m(H) = 125\,\eV[G]$~\cite{
 atlas2012higgs,
 atlas2012combined,
 cms2012higgs
@@ -116,32 +119,35 @@ and confirmed all of its tested Standard Model properties~\cite{
 combined2016higgs,
 atlas2022ten,
 cms2022ten
-}.
-
-\paragraph{Measurement of known massive objects.}
-\TODO{
-Argument:
-want to measure W, t,
-so measure jets and precise objects
-so weaker B and heavy ion programme.
-...
-Refer to competitive measurements of W and t masses
-and xsec of various rare processes (diboson, triboson)
 }
+such as its production mechanisms, decay rates,
+spin, and parity~\cite{HIGG-2013-01, HIGG-2013-17, HIGG-2014-06}.
 
-
+\paragraph{Precisely measure known massive objects.}
 Other than the Higgs boson, the heavy Standard Model resonances are the
-$W$ and $Z$ bosons and the top quark, all of which are produced at
-high rates by LHC proton-proton collisions.
+$W$ and $Z$ bosons and the top quark.
+All of these are produced at high rates in LHC proton-proton collisions,
+and present opportunities for \atlas\ to measure their properties
+(such as masses and production cross-sections) with unprecedented precision.
 
-The goal of measuring these heavy objects puts more emphasis on determining
-the total energy of the hadronic jets produced by their hadronic decays
-than precise hadrons that those jets comprise.
-
-\TODO{Although \atlas\ has an active B-physics programme, the stronger particle
-identification of the \lhcb\ detector makes it more competitive for hadronic
-physics.?}
-\TODO{Heavy ions and ALICE?}
+Sensitivity to hadronic momenta is crucial,
+both directly to measure heavy hadronic decays
+(like $t \rightarrow bq\bar{q}$),
+and indirectly for the missing transverse momenta from semi-invisible
+leptonic decays (like $W \to \ell\nu$).
+Since individual hadron identities are less relevant to these measurements,%
+\footnote{%
+Rare decays like
+$W^\pm\rightarrow \pi^\pm \gamma$ or $W^\pm\rightarrow \pi^\pm \pi^+ \pi^-$
+could give clean signals, but are not competitive due to their
+tiny production rates and difficult identification~\cite{
+cdf1996search,
+mangano2014wpiy,
+cms2021wpiy
+}.%
+}
+it makes sense for \atlas' design to forfeit hadron identification systems
+in favour of precise calorimetry with total angular coverage.
 
 
 \TODO{standard model~\cite{atlas2021summarysm}}
@@ -159,11 +165,11 @@ physics.?}
 
 \TODO{B-physics (supplements dedicated results from \lhcb)}
 
-$\twoljets$ piggyback on the $ZZ \to \ell\ell\nu\nu$ channel
+\TODO{w mass conflict~\cite{cdf2022high}}
 
 
 
-\paragraph{Supersymmetry discovery.}
+\paragraph{Discover new (supersymmetric) particles.}
 This is not a failure. It is a success.
 Our goal is not to discover something that is not there, but to learn more
 about nature.
@@ -176,6 +182,9 @@ emphasis on missing transverse momentum.
 Many SUSY searches, many other exotics searches, no convincing evidence for
 new effects.
 }
+
+
+$\twoljets$ piggyback on the $ZZ \to \ell\ell\nu\nu$ channel
 
 \subsection{Design}
 Atlas is a Titan.
