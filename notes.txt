@@ -369,3 +369,28 @@ pp298
 
 % management
 https://www.hsdl.org/?abstract&did=750070
+
+
+% higgs mass prior to ATLAS
+
+%% unitarity theory < 1 TeV
+
+% early higgs work?
+B.W. Lee et al., Phys. Rev. Lett. 38 (1977) 883;
+
+% nice 130GeV scale for new physics
+M. Quiros, ‘Constraints on the Higgs boson properties from the effective potential’, hep-
+ph/9703412;
+
+% lattice divergence around 1TeV
+A. Ghinculov and T. Binoth, Acta Phys. Polon. B30 (1999) 99.
+
+% > 90 GeV
+The present LEP preliminary limits, presented at the 1999 winter conferences: ALEPH 99-
+007 CONF-99-003, March 1999; DELPHI 99-8 CONF-208; L3 Notes 2382,2383, March 1999;
+OPAL Note PN382, March 1999.
+
+% ewk fit mH = 76 +85-47 GeV
+The LEP Collaborations ALEPH, DELPHI, L3, OPAL, the LEP Electroweak Working
+Group and the Heavy Flavour and Electroweak Groups, CERN-EP/99-15.
+
