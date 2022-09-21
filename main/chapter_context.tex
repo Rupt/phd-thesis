@@ -224,13 +224,14 @@ and show no convincing evidence for effects beyond the Standard Model.
 This is not a failure. It is a success.
 Our goal in science is not to discover something that is not there,
 but to learn more about nature.
-Discovering no tangible new particles in LHC conditions is a discovery itself.
+The discovery no tangible new particles in LHC conditions is itself a
+discovery.
 
 
 \subsection{Design}
 Atlas is a Titan.
 On the \cern\ Large Hadron Collider (LHC), \atlas\ is the largest detector
-experiment, and alongside its majors neighbours
+experiment, and alongside its big neighbours
 \cms~\cite{cms2008experiment},
 \lhcb~\cite{lhcb2008experiment},
 and ALICE~\cite{alice2008experiment}
@@ -240,8 +241,6 @@ atlas2008experiment,
 atlas1999design1,
 atlas1999design2
 }.
-s
-% design goals
 
 Our search paper~\cite{atlas2022searches} contains concise and standard
 descriptions of the \atlas\ detector and its relevant components.
@@ -250,7 +249,7 @@ of these descriptions has become so highly refined that my attempts to improve
 upon it would be in vain.
 Instead, this section quotes our published text with explanatory commentary.
 
-\begin{displayquote}
+\begin{quote}
 ``%
 The ATLAS detector~\cite{PERF-2007-01} is a multipurpose particle detector with
 a forward--backward symmetric cylindrical geometry and a near $4\pi$ coverage
@@ -267,26 +266,35 @@ The pseudorapidity is defined in terms of the polar angle $\theta$ as
 $\eta = -\ln \tan(\theta/2)$.
 Angular distance is measured in units of
 $\Delta R \equiv \sqrt{(\Delta\eta)^{2} + (\Delta\phi)^{2}}$.%
-''~\cite{atlas2022searches}
+''\footnotemark~\cite{atlas2022searches}%
 }
 It consists of an inner tracking detector surrounded by a thin superconducting
 solenoid providing a $2\,\mathrm{T}$ axial magnetic field, electromagnetic and
 hadronic calorimeters, and a muon spectrometer.%
 ''~\cite{atlas2022searches}
-\end{displayquote}
+\end{quote}
+To illustrate this description, a vertical slice of \atlas\ is displayed in
+Figure~\ref{fig:atlas_cutaway}, and each subsystem is described in more detail
+in a subsection below:
+the inner detector in Section~\ref{sec:atlas_inner},
+the electromagnetic and hadronic calorimeter systems in
+Section~\ref{sec:atlas_calo},
+and
+the chambers of the muon spectrometer in Section~\ref{sec:atlas_muon}.
+The final connection to the data analysed in this thesis is made through the
+trigger system which is described in Section~\ref{sec:atlas_trigger},
+and details of the data themselves are given in
+Section~\ref{sec:atlas_data}
 
-Figure~\ref{fig:atlas_cutaway}.
-
-Inner detector~\ref{sec:atlas_inner}
-
-Calorimeter systems~\ref{sec:atlas_calo}
-
-Muon chambers~\ref{sec:atlas_muon}
-
-Trigger~\ref{sec:atlas_trigger}
-
-Software and data~\ref{sec:atlas_software_data}
-
+\footnotetext{%
+This footnote, which was perfected in~\cite{lester2013heffalon},
+``should be used in every \atlas\ publication''~\cite{atlas_footnote}.
+True to form, internal \atlas\ guidelines ask that
+``If you think you can improve on it, please consult with the
+Publications Committee''~\cite{atlas_coordinate}.
+We somehow added the sentence defining angular distance without such a
+consultation.%
+}
 
 \begin{figure}[tp]
 \centering
@@ -304,7 +312,7 @@ including a simulated event that interacts with several sensitive subsystems.
 \subsection{Inner detector}
 \label{sec:atlas_inner}
 \TODO{inner detector}
-\begin{displayquote}
+\begin{quote}
 ``%
 The inner tracking detector covers the pseudorapidity range $|\eta| < 2.5$.
 It consists of silicon pixel, silicon microstrip, and transition radiation
@@ -312,14 +320,15 @@ tracking detectors.
 An additional layer of silicon pixels, the insertable
 B-layer~\cite{ATLAS-TDR-19, PIX-2018-001}, was installed before Run~2.%
 ''~\cite{atlas2022searches}
-\end{displayquote}
+\end{quote}
 
 \TODO{upgraded with IBL}
+
 
 \subsection{Calorimeters}
 \label{sec:atlas_calo}
 \TODO{calo}
-\begin{displayquote}
+\begin{quote}
 ``%
 Lead/liquid-argon (LAr) sampling calorimeters provide electromagnetic (EM)
 energy measurements with high granularity.
@@ -328,7 +337,7 @@ range ($|\eta| < 1.7$).
 The endcap and forward regions are instrumented with LAr calorimeters for both
 the EM and hadronic energy measurements up to $|\eta| = 4.9$.%
 ''~\cite{atlas2022searches}
-\end{displayquote}
+\end{quote}
 
 The `A' in \atlas\ does not stand for Argon, but perhaps it should.
 
@@ -336,7 +345,7 @@ The `A' in \atlas\ does not stand for Argon, but perhaps it should.
 \subsection{Muon system}
 \label{sec:atlas_muon}
 \TODO{muon system}
-\begin{displayquote}
+\begin{quote}
 ``%
 The muon spectrometer surrounds the calorimeters and is based on three large
 superconducting air-core toroidal magnets with eight coils each.
@@ -345,14 +354,14 @@ $6.0\,\mathrm{T\kern-0.15ex m}$ across most of the detector.
 The muon spectrometer includes a system of precision chambers for tracking and
 fast detectors for triggering.%
 ''~\cite{atlas2022searches}
-\end{displayquote}
+\end{quote}
 
 
 \subsection{Trigger}
 \label{sec:atlas_trigger}
 \TODO{L1 HLT (L2, event thing)}
 \TODO{trigger}
-\begin{displayquote}
+\begin{quote}
 ``%
 A two-level trigger system is used to select events.
 The first-level trigger is implemented in hardware and uses a subset of the
@@ -360,20 +369,20 @@ detector information to accept events at a rate below $100\,\mathrm{kHz}$.
 This is followed by a software-based trigger that reduces the accepted event
 rate to $1\,\mathrm{kHz}$ on average depending on the data-taking conditions.%
 ''~\cite{atlas2022searches}
-\end{displayquote}
+\end{quote}
 
 
-\subsection{Software and data}
-\label{sec:atlas_software_data}
+\subsection{Data}
+\label{sec:atlas_data}
 \TODO{how do we predict data?}
 \TODO{software and data}
-\begin{displayquote}
+\begin{quote}
 ``%
 An extensive software suite~\cite{ATL-SOFT-PUB-2021-001} is used in the
 reconstruction and analysis of real and simulated data, in detector operations,
 and in the trigger and data acquisition systems of the experiment.%
 ''~\cite{atlas2022searches}
-\end{displayquote}
+\end{quote}
 
 
 \TODO{discuss collisions, pileup, met}
