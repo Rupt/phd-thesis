@@ -245,9 +245,21 @@ atlas1999design2
 Our search paper~\cite{atlas2022searches} contains concise and standard
 descriptions of the \atlas\ detector and its relevant components.
 Through its many inexact reproductions in past \atlas\ publications, the text
-of these descriptions has become so highly refined that my attempts to improve
-upon it would be in vain.
+of these descriptions has become so highly refined that attempts to improve
+it myself would probably be in vain.
 Instead, this section quotes our published text with explanatory commentary.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/atlas_cutaway_volume_1.pdf}
+\caption[
+A central slice of \atlas' design
+]{%
+A central slice of \atlas' design, reproduced from~\cite{atlas1999design1},
+including a simulated event that interacts with several sensitive subsystems.
+}
+\label{fig:atlas_cutaway}
+\end{figure}
 
 \begin{quote}
 ``%
@@ -276,7 +288,7 @@ hadronic calorimeters, and a muon spectrometer.%
 To illustrate this description, a vertical slice of \atlas\ is displayed in
 Figure~\ref{fig:atlas_cutaway}, and each subsystem is described in more detail
 in a subsection below:
-the inner detector in Section~\ref{sec:atlas_inner},
+the inner tracking detector in Section~\ref{sec:atlas_inner},
 the electromagnetic and hadronic calorimeter systems in
 Section~\ref{sec:atlas_calo},
 and
@@ -292,26 +304,22 @@ This footnote, which was perfected in~\cite{lester2013heffalon},
 True to form, internal \atlas\ guidelines ask that
 ``If you think you can improve on it, please consult with the
 Publications Committee''~\cite{atlas_coordinate}.
-We somehow added the sentence defining angular distance without such a
-consultation.%
+We added the sentence defining angular distance without such a consultation.%
 }
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.6\textwidth]{figures/atlas_cutaway_volume_1.pdf}
-\caption[
-A central slice of \atlas' design
-]{%
-A central slice of \atlas' design, reproduced from~\cite{atlas1999design1},
-including a simulated event that interacts with several sensitive subsystems.
-}
-\label{fig:atlas_cutaway}
-\end{figure}
 
 
 \subsection{Inner detector}
 \label{sec:atlas_inner}
-\TODO{inner detector}
+The inner tracking detectors begin \atlas' measurements of new collisions
+by precisely tracing the paths taken by energetic charged particles
+as they curve through the solenoidal magnetic field.
+Track curvature provides momentum information,
+tracks' associations into collision vertices helps to separate
+pile-up,
+and their associations into displaced vertices help to identify
+particle decays.
+
+Our description continues:
 \begin{quote}
 ``%
 The inner tracking detector covers the pseudorapidity range $|\eta| < 2.5$.
@@ -321,12 +329,30 @@ An additional layer of silicon pixels, the insertable
 B-layer~\cite{ATLAS-TDR-19, PIX-2018-001}, was installed before Run~2.%
 ''~\cite{atlas2022searches}
 \end{quote}
+The insertable B-layer is a silicon pixel detector that begins just
+$3\,\textrm{cm}$ from the beam-pipe, and provides robust tracking for the
+present and future high LHC luminosities,
+particularly for sensitivity to `Goldilocks Zone' particles
+(B-hadrons, occasionally tau leptons, and maybe new species) whose expected
+lifetimes are just right to decay inside the tracking system.
+Following radially outwards, the silicon pixel and silicon microstrip%
+\footnote{%
+Formerly known as the SemiConductor Tracker~\cite{atlas1999design1},
+the silicon microstrip system retains the
+SCT~\cite{atlas2008experiment}.%
+}
+detectors (which use silicon technology)
+and the transition radiation tracking detectors (which uses straw tubes).
 
-\TODO{upgraded with IBL}
+As for the whole \atlas\ detector, complete $\phi$ coverage and a large $\eta$
+range minimizes leakage.
+Towards \atlas' design goals, this inner tracking detector crucially provides
+measurements of electrons, B-hadrons, and the missing transverse momentum.
 
 
 \subsection{Calorimeters}
 \label{sec:atlas_calo}
+The `A' in \atlas\ does not stand for Argon, but perhaps it should.
 \TODO{calo}
 \begin{quote}
 ``%
@@ -339,7 +365,6 @@ the EM and hadronic energy measurements up to $|\eta| = 4.9$.%
 ''~\cite{atlas2022searches}
 \end{quote}
 
-The `A' in \atlas\ does not stand for Argon, but perhaps it should.
 
 
 \subsection{Muon system}
