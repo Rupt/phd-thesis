@@ -342,7 +342,8 @@ the silicon microstrip system retains the
 SCT~\cite{atlas2008experiment}.%
 }
 detectors (which use silicon technology)
-and the transition radiation tracking detectors (which uses straw tubes).
+and the transition radiation tracking detectors (which uses `straw' tubes
+gas tubes).
 
 As for the whole \atlas\ detector, complete $\phi$ coverage and a large $\eta$
 range minimizes leakage.
@@ -397,23 +398,12 @@ muon chambers.
 
 \subsection{Muon system}
 \label{sec:atlas_muon}
-
-\begin{figure}[tp]
-\centering
-\includegraphics[width=0.6\textwidth]{figures/atlas_magnets.pdf}
-\caption[
-Layout of \atlas' toroidal magnets around the tile calorimeter and inner
-solenoid
-]{%
-Layout of \atlas' toroidal magnets around the tile calorimeter and inner
-solenoid.
-Reproduced from~\cite{atlas2008experiment}.
-}
-\label{fig:atlas_magnets}
-\end{figure}
-
-
-\TODO{muon system}
+Muons penetrate matter well because of their large mass and non-interaction
+with the strong nuclear force.
+\atlas\ doesn't try to stop energetic muons;
+above around $3\,\eV[G]$, they pass right through the calorimeters, and are
+instead measured by their curved tracks in a toroidal magnetic field that
+envelopes dedicated detectors on \atlas' periphery.
 \begin{quote}
 ``%
 The muon spectrometer surrounds the calorimeters and is based on three large
@@ -424,15 +414,49 @@ The muon spectrometer includes a system of precision chambers for tracking and
 fast detectors for triggering.%
 ''~\cite{atlas2022searches}
 \end{quote}
-\TODO{four kinds of chambers}
+Muon subsystems come in four varieties, all of which operate by detecting
+charge scattered by the muons as they fly through gaseous media.
+These systems track the muons' paths as the magnets bend them in the
+longitudinal plane; these toroidal magnets generate fields outside the tile
+calorimeter around the central barrel and in the end-caps as illustrated in
+Figure~\ref{fig:atlas_magnets}.
 
-Figure~\ref{fig:atlas_magnets}
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/atlas_magnets.pdf}
+\caption[
+Layout of \atlas' toroidal magnets around the tile calorimeter and inner
+solenoid
+]{%
+Layout of \atlas' toroidal magnets around the tile calorimeter and inner
+solenoid, including the eight barrel and end-cap coils.
+Figure reproduced from~\cite{atlas2008experiment}.
+The \atlas\ muon spectrometer measures muons' tracks as they bend through
+this peripheral magnetic field.
+}
+\label{fig:atlas_magnets}
+\end{figure}
+
+Measurements of the tracks' curvature yield estimates of the muons' momenta;
+although extremely energetic muons will have straight tracks,
+\atlas' design and calibration achieves a high precision that increases to
+only $10\%$ relative error on tracks with $1\,\eV[T]$ transverse momenta~\cite{
+atlas2008experiment,
+ATL-PHYS-PUB-2015-037
+}.
 
 
 \subsection{Trigger}
 \label{sec:atlas_trigger}
 \TODO{L1 HLT (L2, event thing)}
-\TODO{trigger}
+\TODO{trigger~\cite{atlas2016trigger}}
+% 25ns bunch spacing
+\TODO{
+With $25\,\mathrm{ns}$ bunch spacing and \atlas' $25\,\textrm{m}$ diameter,
+light-speed particles ejected from one crossing are still zipping through
+\atlas\ when the next crossing happens.
+}
+% fast decisions to not overflow buffer queue
 \begin{quote}
 ``%
 A two-level trigger system is used to select events.
