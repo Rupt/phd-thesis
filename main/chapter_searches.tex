@@ -63,7 +63,7 @@ The first correct answer wins a gold star.
 \end{figure}
 
 Statistical data analysis suffers from dogma --- prescriptions and recipes that
-one memorizes and follows while knowing neither their reasons nor their
+one memorizes and follows without necessarily knowing their reasons or their
 limitations:
 among these are
 error propagation formulae,
@@ -121,15 +121,14 @@ of $b$ within $a$ and can be expressed as a ratio~\cite{axioms1010038}
 \label{eqn:searches_prob_ratio}
 \prob{b}{a} = \frac{m(b, a)}{m(a)},
 \end{equation}
-in which $m(x)$ is a measure (a non-negative quantity assigned to its
-argument, such as mass of tea in a cup), and the comma `,' means `and'
-(logical and or set intersection or any other equivalent operation).
+in which $m(x)$ is a measure, and the comma `,' means `and'
+(logical and or set intersection or anything equivalent).
+
 For example, $\prob{b}{a}$ could quantify the proportion of tea within
 a spoon within a cup --- then $m(a)$ measures the content of the cup, and
 $m(b, a)$ measures the amount of tea in the teaspoon that is partially
 submerged in the cup.
-
-Note that, in this definition, all probabilities are conditional.
+All probabilities are conditional in this definition;
 Alone, no $\probc{b}$ exists unless some conditioning information is implicit
 from context.
 
@@ -154,42 +153,23 @@ They and need not be random distributions of fluctuating $b$s~\cite{
 jaynes2003probability,
 frankfurt2005on
 },
-although random processes are another useful applications.
+although random processes are a useful application.
 
-Two algebraic rules derive from Equation~\ref{eqn:searches_prob_ratio}:
-a \textbf{product rule}
+Standard probability algebra derives from
+Equation~\ref{eqn:searches_prob_ratio}, and comprises the \textbf{product rule}
 \begin{align}
 \prob{c, b}{a} &= \prob{c}{b, a}\times \prob{b}{a},
 \label{eqn:searches_product_rule}
 \intertext{%
-describing nested proportions
+for nested proportions
 (a spoon in a teacup in a sink),
 and a \textbf{sum rule}%
 }
 \prob{c\;\textrm{or}\;b}{a} &= \prob{c}{a} + \prob{b}{a} - \prob{c, b}{a},
 \label{eqn:searches_sum_rule}
 \end{align}
-describing combination in a union;
-the subtraction avoids double-counting of any overlap and is usually avoided by
-splitting any problem into disjoint, orthogonal states.
-For disjoint cases with labels $b_i$, normalization requires that
-\begin{equation}
-\label{eqn:searches_normalization}
-\sum_i \prob{b_i}{a} = 1.
-\end{equation}
-These basic rules are well known, but we state them here to support the
-following statements on how probabilities can applied for practical results.%
-\footnote{%
-The formulation with sums and products is not strictly unique, but all
-alternatives are equivalent up to an invertible
-transformation~\cite{axioms1010038}.
-This choice is often best because it uses ordinary addition and
-multiplication, but $\log$ probabilities can avoid overflows outside the ranges
-representable by floating-point numbers in numerical analysis,
-thus changing multiplication to addition and addition to the
-`$\log$-add-$\exp$' operation.%
-}
-
+for combinations in a union, with sums over exhaustive sets outcomes
+necessarily normalized to unity.
 
 \subsection{Probability: applied}
 \label{sec:searches_probability_applied}
@@ -240,21 +220,11 @@ Likelihoods and prior densities' transformations with coordinates.
 ]{%
 Likelihoods and prior densities' transformations with coordinates.
 The $\mathrm{Poisson}(0\mid x)$ likelihood and exponential $e^{-x}\mathrm{d}x$
-prior have the same form (left), but the prior density changes to preserve its unit
-area relative to $u = \log x$.
-On changing to $\log$ coordinates (right), the likelihood slides horizontally,
-but the prior density scales to preserve area.
-Both maximum likelihood points are equivalent, but the maximum prior density
-moves.
-\\[.5em]
-Particle lifetimes follow exponential distributions and their maximum
-densities are at zero time, but it is incorrect to describe their most probable
-lifetimes as zero ---
-the `most probable' $\log$ lifetime is not $\log 0$, but turns out to coincide
-with the mean lifetime.
-\\[.5em]
-For zero Poisson data, the maximum likelihood rate is zero, but zero might not
-be the most probable rate (if, for example, an experiment has known backgrounds).
+prior have the same form (left).
+While the prior density changes to preserve its unit area relative to
+$u = \log x$,
+the likelihood slides horizontally (right).
+Both likelihood maxima are equivalent, but the maximum prior densities change.
 }
 \label{fig:searches_abacus}
 \end{figure}
@@ -334,7 +304,7 @@ Standard methods approximate such histograms from Monte Carlo simulations,
 which do not directly indicate bin indices but state the values for event
 variables.
 To connect event variables to bin indices, we begin with some notation:
-we have hypotheses $h$ (signal or background),
+we have an hypothesis label $h$ (signal or background),
 an event variable $x$ that we histogram ($x = \met$),
 and we observe a datum $d$ that indexes the histogram bins.
 Supposing, for example, that an event is observed in the overflow bin, it says
@@ -373,7 +343,7 @@ the left and right arguments, respectively.
 
 When we fill a histogram by summing weights of simulated samples, we are
 calculating another likelihood over hypotheses $h$ alone in the bin,
-independent of, by averaging the likelihood over the prior.
+which is independent of $x$, by averaging the likelihood over the prior.
 This abstracted, $x$-independent likelihood is labelled the \textbf{evidence}:
 \begin{align}
 Z
@@ -466,6 +436,7 @@ algebra.
 
 Data only enter the inputs to Bayes' rule through the likelihood function, so
 the likelihood must contain all relevant information from the data.
+The same is true for the evidence for its reuse as a likelihood elsewhere.
 To summarize data for scientific communications, we therefore find a
 hierarchy of objects with decreasing complexity and increasing abstraction:
 \begin{itemize}
@@ -548,8 +519,8 @@ From a posterior $\log$ odds, a little rearrangement recovers the individual
 probabilities through the `logistic' function, also known as
 `softmax' when multiple hypotheses are in play~\cite{MurphyKevinP.2012Mlap}.
 
-The infamy of Bayes' rule stems from a fixation on the posterior distributions
-from unjustified prior assignments.
+Many objections to Bayes' rule stem from a fixation on posterior
+distributions from unjustified prior assignments.
 Classical works by
 Bayes~\cite{bayes1763lii} and
 Laplace~\cite{laplace1774stigler} began this focus ---
@@ -634,7 +605,7 @@ The summed total number $n$ of accepted events is therefore described by the
 binomial distribution for $n$:
 \begin{equation}
 \label{eqn:searches_binomial}
-\mathrm{Binomial}(n\mid N, p) = p^n (1 - p)^{N - n} \times \binom{N}{n}
+\mathrm{Binomial}(n\mid N, p) = \binom{N}{n} p^n (1 - p)^{N - n}
 ,
 \end{equation}
 which is a product of the probabilities (product rule) in the sequence of $N$
@@ -988,6 +959,9 @@ which may have been accurate in his environment, but different
 (heretical?) ideas have taken hold in research at the LHC ---
 orthodoxy has moved on.
 We therefore stick with `frequentist'.
+Sections~\ref{sec:searches_fisher} and~\ref{sec:searches_np} now introduce
+these frequentist methods to explain the historical context for our modern
+methods, which are introduced in Section~\ref{sec:searches_practice}.
 
 \begin{figure}[tp]
 \centering
@@ -1164,13 +1138,13 @@ P(h)
 \\
 &= L(h) + \prob{t > \tilde{t}}{h}
 \label{eqn:searches_pvalue_likelihood}
-;
 \end{align}
 the \pvalue\ $P(h)$ is the prior probability of data
 \emph{greater or equal to} the observed data, if data are ordered by the value
 of the test statistic.
 Equation~\ref{eqn:searches_pvalue_likelihood} points out that the \pvalue\ is
-just is the likelihood plus some fluff from a tail of larger test statistics.
+just is the likelihood plus some fluff from a tail of larger test statistics
+(if the test statistic distribution is discrete).
 
 Fisher illustrates the use of \pvalues\ in the second example
 of~\cite{fisher1921probable}, which models some data with a parameter $r$ and
@@ -1343,7 +1317,7 @@ to compare a specified hypothesis $h_1$ against a set of alternatives.
 
 As descriptions of the likelihoods in play, maximum likelihood ratios can
 usefully communicate relevant information from the data.
-And as test statistics, they also win generality by avoid context-specific
+And as test statistics, they also win generality by avoiding context-specific
 motivations, such as scale invariance for the $t$-statistic of
 Equation~\ref{eqn:searches_t_statistic} --- any predictive models can have
 likelihoods and maximum likelihood ratios.
@@ -1555,7 +1529,7 @@ wagenmakers2007practical,
 hauer2004harm,
 wasserstein2016asa
 }
-in fields where they are not yet banned~\cite{
+in fields where they are not banned~\cite{
 Trafimow2015ban,
 woolston2015phychology,
 chumra2019time,
@@ -1764,6 +1738,8 @@ $\log\cls$ values.
 \includegraphics[width=0.5\textwidth]{figures/searches_cls_plots_with_pvals_order.pdf}
 \caption{%
 Ordering the data by a maximum likelihood ratio test statistic with $b=4.3$.
+Data on top are ordered with $n$ from left to right, and data on the bottom are
+reordered to have increasing values of the test statistic $-\Lambda(n)$.
 }
 \end{subfigure}
 \\[.5em]
@@ -1798,9 +1774,12 @@ censor, but even inequalities need not be biased --- if taken against a
 predetermined threshold, say $5$ events, then models can predict whether
 $n \leq 5$, and the honestly answered truth or falsehood in data can favour
 either side.
-Ultimately, the reader just distrust the reporter ---
-the statements `\atlas\ reports $n \leq 5$' and `logically, $n \leq 5$' are not
-identical, since one might infer from the former that in fact $n = 5$.
+Ultimately, the reader may distrust the reporter ---
+the statements
+`logically, $n \leq 5$' and
+`\atlas\ reports $n \leq 5$' and  are not
+identical, since one might infer from the latter that in fact the original
+data were $n = 5$ before their reduction into a test statistic tail.
 The message itself is data, and what it says may not be the whole truth.
 
 With multiple Poisson bins, the $n$ test statistic is no longer
@@ -1850,7 +1829,7 @@ However, such simulations can be computationally expensive, and ill-defined for
 auxiliary constraints on the models' parameters.
 
 
-\subsection{Like-lihood modelling}
+\subsection{Likelihood modelling}
 To represent the Standard Model and alternatives, LHC data analyses use
 parametric models to describe the models' Poisson expectations of
 collision events and how those expectations change in response to their

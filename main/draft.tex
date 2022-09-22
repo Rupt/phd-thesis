@@ -291,3 +291,51 @@ result~\cite{cdf2022high})
 
 , notably with a special use of
 tungsten absorbers in the forward hadronic calorimeters.
+
+
+% prob cutting
+
+Two algebraic rules derive from Equation~\ref{eqn:searches_prob_ratio}:
+a \textbf{product rule}
+\begin{align}
+\prob{c, b}{a} &= \prob{c}{b, a}\times \prob{b}{a},
+\label{eqn:searches_product_rule}
+\intertext{%
+describing nested proportions
+(a spoon in a teacup in a sink),
+and a \textbf{sum rule}%
+}
+\prob{c\;\textrm{or}\;b}{a} &= \prob{c}{a} + \prob{b}{a} - \prob{c, b}{a},
+\label{eqn:searches_sum_rule}
+\end{align}
+describing combination in a union;
+the subtraction avoids double-counting of any overlap and is usually avoided by
+splitting any problem into disjoint, orthogonal states.
+For disjoint cases with labels $b_i$, normalization requires that
+\begin{equation}
+\label{eqn:searches_normalization}
+\sum_i \prob{b_i}{a} = 1.
+\end{equation}
+These basic rules are well known, but we state them here to support the
+following statements on how probabilities can applied for practical results.%
+\footnote{%
+The formulation with sums and products is not strictly unique, but all
+alternatives are equivalent up to an invertible
+transformation~\cite{axioms1010038}.
+This choice is often best because it uses ordinary addition and
+multiplication, but $\log$ probabilities can avoid overflows outside the ranges
+representable by floating-point numbers in numerical analysis,
+thus changing multiplication to addition and addition to the
+`$\log$-add-$\exp$' operation.%
+}
+
+
+\\[.5em]
+Particle lifetimes follow exponential distributions, and their maximum
+densities are at zero time, but it is incorrect to describe their most probable
+lifetimes as zero.
+the `most probable' $\log$ lifetime is not $\log 0$, but turns out to coincide
+with the mean lifetime.
+\\[.5em]
+For zero Poisson data, the maximum likelihood rate is zero, but zero might not
+be the most probable rate (if, for example, an experiment has known backgrounds).
