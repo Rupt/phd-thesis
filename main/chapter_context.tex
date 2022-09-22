@@ -264,9 +264,9 @@ including a simulated event that interacts with several sensitive subsystems.
 
 \begin{quote}
 ``%
-The ATLAS detector~\cite{PERF-2007-01} is a multipurpose particle detector with
-a forward--backward symmetric cylindrical geometry and a near $4\pi$ coverage
-in solid angle.%
+The ATLAS detector~\cite{atlas2008experiment} is a multipurpose particle
+detector with a forward--backward symmetric cylindrical geometry and a near
+$4\pi$ coverage in solid angle.%
 \footnote{%
 ``ATLAS uses a right-handed coordinate system with its origin at the nominal
 interaction point (IP) in the centre of the detector and the $z$-axis along the
@@ -440,8 +440,9 @@ this peripheral magnetic field.
 
 Measurements of the tracks' curvature yield estimates of the muons' momenta;
 although extremely energetic muons will have straight tracks,
-\atlas' design and calibration achieves a high precision that increases to
-only $10\%$ relative error on tracks with $1\,\eV[T]$ transverse momenta~\cite{
+\atlas' construction and calibration achieves a high precision, which
+increases to only $10\%$ relative error on tracks with $1\,\eV[T]$ transverse
+momenta~\cite{
 atlas1994proposal,
 atlas2008experiment,
 ATL-PHYS-PUB-2015-037
@@ -450,15 +451,13 @@ ATL-PHYS-PUB-2015-037
 
 \subsection{Trigger}
 \label{sec:atlas_trigger}
-\TODO{L1 HLT (L2, event thing)}
-\TODO{trigger~\cite{atlas2016trigger}}
-% 25ns bunch spacing
-\TODO{
-With $25\,\mathrm{ns}$ bunch spacing and \atlas' $12.5\,\textrm{m}$ radius,
+The LHC's $25\,\mathrm{ns}$ bunch spacing is so fast that
 light-speed particles ejected from one crossing are still zipping through
-\atlas\ when the next collision arrives.
-}
-% fast decisions to not overflow buffer queue
+\atlas' $12.5\,\textrm{m}$ radius when the next collision arrives.
+This extreme engineering is necessary to achieve the luminosities we
+need to see rare effects, but to avoid becoming overwhelmed
+by data it also demands a strict data reduction mechanism.
+This mechanism is the trigger:
 \begin{quote}
 ``%
 A two-level trigger system is used to select events.
@@ -468,6 +467,15 @@ This is followed by a software-based trigger that reduces the accepted event
 rate to $1\,\mathrm{kHz}$ on average depending on the data-taking conditions.%
 ''~\cite{atlas2022searches}
 \end{quote}
+The first-level (L1) trigger uses its fast preliminary information to accept
+interesting event and mark their regions of interest.
+Complete data in these regions of interest are passed to the second-level
+(high-level trigger, HLT) to inform its decision of whether to accept each
+event.
+Events accepted by the HLT are recorded for future analysis~\cite{
+atlas2016trigger,
+atlas2008experiment
+}.
 
 
 \subsection{Data}
