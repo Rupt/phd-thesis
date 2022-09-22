@@ -352,8 +352,12 @@ measurements of electrons, B-hadrons, and the missing transverse momentum.
 
 \subsection{Calorimeters}
 \label{sec:atlas_calo}
-The `A' in \atlas\ does not stand for Argon, but perhaps it should.
-\TODO{calo}
+Inelastic collisions cause energetic particles to scatter, distributing their
+energy into macroscopic particle showers.
+Calorimetry uses this principle to measure energies
+by interleaving dense absorbing materials (which initiate showers)
+with sensitive materials that convert showers into electrical signals.
+In \atlas,
 \begin{quote}
 ``%
 Lead/liquid-argon (LAr) sampling calorimeters provide electromagnetic (EM)
@@ -364,7 +368,31 @@ The endcap and forward regions are instrumented with LAr calorimeters for both
 the EM and hadronic energy measurements up to $|\eta| = 4.9$.%
 ''~\cite{atlas2022searches}
 \end{quote}
+The EM calorimeters provide located electron/photon energy measurements,
+and the hadronic calorimeters subsequently aim to stop and measure hadronic
+activity for later analysis in jet clustering.
+Maximal angular coverage by the calorimeters further facilitates missing
+transverse momentum estimates.
 
+Neither `A' in \atlas\ stands for Argon, but perhaps one should.
+Liquid-argon is the chosen active material in the EM and forward calorimeters
+for its robust, linear response in converting showers to electrical signals
+for readout by electrodes.
+Liquid argon is poured as a liquid to fill the gaps between the various
+metallic absorbers, which are folded into zigzag ``accordion'' patterns that
+optimize uniformity around the detector.
+The steel/scintillator hadronic tile calorimeter is a
+``simple and cost effective''~\cite{atlas1996tile} design that uses
+photomultiplier tubes to convert light from its polystyrene scintillators into
+electrical signals.
+Particles lose some energy before reaching the calorimeters; a thin
+liquid-argon pre-sampler is installed before the central EM calorimeter
+to regain such loss.
+
+These calorimeter systems achieve attenuations of at least ten interaction
+lengths throughout their $|\eta| < 4.9$ range.
+Maximizing attenuation minimizes noise from hadronic `punch-through' into the
+muon chambers.
 
 
 \subsection{Muon system}
