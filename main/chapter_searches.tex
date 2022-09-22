@@ -21,7 +21,7 @@ Data analysis is not an automatic process, but a design with many judgements
 that are informed by theory, intuition, and convention to give value to their
 results.
 
-To clarify our later description of the \atlas\ SUSY $\twoljets$ search in
+To support our later description of the \atlas\ SUSY $\twoljets$ search in
 Chapter~\ref{chapter:2ljets}, this chapter introduces the basic theory and
 practice of data analysis and its conventional form in the \atlas\ SUSY
 community, parts of which can only be explained in their historical context.
@@ -581,11 +581,11 @@ models, but which could in principle be used for secondary investigations.
 Probability algebra manipulates probabilities, but does not state how they
 should be initially assigned.
 Probability assignments are generally constrained only by normalization, but
-might be informed by calibration data or loosely motivated opinions,
+might be informed by calibration data, loosely motivated opinions,
 or by established theories such as quantum mechanics.
-But there are examples of unambiguously derived that are commonly used in
-High Energy Physics, notably the Poisson and Gaussian distributions.
-This section sketches their derivations, both of which use the identity that
+But there are examples of unambiguously derived distributions that are commonly
+used in High Energy Physics, notably the Poisson and Gaussian distributions,
+both of which can derive from the identity that
 \begin{equation}
 \label{eqn:searches_exponential}
 \exp(x) =
@@ -593,26 +593,23 @@ This section sketches their derivations, both of which use the identity that
 \left(1 + \frac{x}{N}\right)^N
 .
 \end{equation}
-
-The Large Hadron Collider collides proton bunches at
-$40\,\mathrm{GHz}$,
-but \atlas' trigger system accepts only around
-$1\,\mathrm{kHz}$~\cite{atlas2020trigger}:
-our scenario has a fixed large number $N$ of trials
-(bunch collisions)
+As discussed in Section~\ref{sec:atlas_trigger}, the trigger rejects most
+LHC collision events;
+our data have fixed large number $N$ of trials (bunch crossings)
 and a small probability of acceptance (triggering).
-The summed total number $n$ of accepted events is therefore described by the
-binomial distribution for $n$:
+The number of accepted events  $n$ is therefore described by the
+binomial distribution:
 \begin{equation}
 \label{eqn:searches_binomial}
-\mathrm{Binomial}(n\mid N, p) = \binom{N}{n} p^n (1 - p)^{N - n}
+\mathrm{Binomial}(n\mid N, p) = \binom{N}{n}\, p^n (1 - p)^{N - n}
 ,
 \end{equation}
 which is a product of the probabilities (product rule) in the sequence of $N$
 accept/reject decisions, summed over all possible permutations (sum rule) of
-that sequence for $n$ accepted.
+the accepted events.
+
 With the tiny trigger rate, we are interested in the limit of small
-$p$ and large $N$, which result in a mean acceptance number of $\lambda = Np$.
+$p$ and large $N$, which result in a mean acceptance of $\lambda = Np$.
 Using the identity of Equation~\ref{eqn:searches_exponential},
 this limit tends towards the Poisson distribution~\cite{jaynes2003probability}:
 \begin{equation}
@@ -620,7 +617,7 @@ this limit tends towards the Poisson distribution~\cite{jaynes2003probability}:
 \mathrm{Poisson}(n\mid \lambda) = \frac{\lambda^n}{n!}\exp(-\lambda)
 ,
 \end{equation}
-which is used ubiquitously to interpret histograms.
+which we use ubiquitously to interpret histograms.
 
 The Gaussian distribution has many justifications:
 as the unique distribution that is spherically symmetric and factors linearly
@@ -675,17 +672,15 @@ which is normalized by its prefactor, and in which we include the
 $\mathrm{d}x$ terms as reminders that it is a density function in $x$.
 On a $\log$ scale, the Gaussian form is quadratic in $\mu$, so
 Gaussian likelihoods justify many least-squares methods.
-
 Here, $\kappa$ and $\sigma$ both relate to the second derivative of the target
 function; this relationship extends to multiple dimensions in the Hessian
 matrix and its inverse, and permits the useful approximation of estimate error
 bars from second derivatives.
 
-This is not the famous Central Limit Theorem, which is related to the
-distribution of sums of independent quantities with finite mean and variance.
-But can be used to derive it: the distribution of a sum is a convolution, which
-becomes a product in Fourier-transformed space, and that product converges
-to a Gaussian function by this same derivation if the mean and variance exist.
+This is not the Central Limit Theorem, but can be used to derive it: the
+distribution of a sum is a convolution, which becomes a product in
+Fourier-transformed space, and that product converges to a Gaussian function by
+if the mean and variance exist.
 Another beautiful alternative proof of the Central Limit Theorem is given by
 Jaynes~\cite{jaynes2003probability}
 (Section ``7.16 The central limit theorem''), but would be spoiled by a
@@ -1724,8 +1719,8 @@ so both $n$ and $-n$ can be optimal in the Neyman-Pearson sense.
 
 By using $\cls$ with a Neyman-Pearson optimal test statistic, we have therefore
 constructed an analysis that can only ever favour one hypothesis:
-we have built a propaganda machine that only ever speaks truth but censors any
-information that supports alternative ideas.
+we have built a propaganda machine, which only ever speaks truth,
+but which censors any information that supports alternative ideas.
 Reducing data to inequalities $t \geq \tilde{t}$ implements the censorship,
 and the likelihood-ratio ordering guarantees the one-sided inferences
 that appear in Figure~\ref{fig:searches_sb_n} (right) as one-sided
@@ -1738,8 +1733,9 @@ $\log\cls$ values.
 \includegraphics[width=0.5\textwidth]{figures/searches_cls_plots_with_pvals_order.pdf}
 \caption{%
 Ordering the data by a maximum likelihood ratio test statistic with $b=4.3$.
-Data on top are ordered with $n$ from left to right, and data on the bottom are
-reordered to have increasing values of the test statistic $-\Lambda(n)$.
+Data on top are ordered with $n$ increasing from left to right,
+and on the bottom those same data are reordered to have increasing values of
+the test statistic $-\Lambda(n)$.
 }
 \end{subfigure}
 \\[.5em]
