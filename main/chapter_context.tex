@@ -67,10 +67,15 @@ made a telescope for that%
 \end{singlespacing}
 
 Towards explaining the main result of this thesis,
-a search for effects from supersymmetric models in
-\atlas~\cite{atlas2022searches},
-we first some relevant facts about the \atlas\ detector ---
-its design and history.
+a search for effects from supersymmetric models
+in data from the \atlas\ detector
+on the Large Hadron Collider (LHC)~\cite{
+atlas2022searches,
+atlas2008experiment,
+lhc2008machine
+},
+we first some relevant facts about the design and motivations
+behind \atlas.
 
 The \atlas\ detector was not delivered in a preordained form.
 It was designed with intent to provide maximally useful and novel data within
@@ -453,7 +458,7 @@ ATL-PHYS-PUB-2015-037
 The LHC's $25\,\mathrm{ns}$ bunch spacing is so fast that
 light-speed particles ejected from one crossing are still zipping through
 \atlas' $12.5\,\textrm{m}$ radius when the next collision arrives.
-This extreme engineering is necessary to achieve the luminosities we
+This extreme engineering is necessary to achieve the integrated luminosities we
 need to see rare effects, but to avoid becoming overwhelmed
 by data it also demands a strict data reduction mechanism.
 This mechanism is the trigger:
@@ -479,13 +484,10 @@ atlas2008experiment
 
 \subsection{Data}
 \label{sec:atlas_data}
-
-% process into event variables
-% clean for conditions?
-% describe LHC Run 1 and Run 2
-
-\TODO{how do we predict data?}
-\TODO{software and data}
+Raw digital data are hard to interpret.
+Before use in publishable analysis projects, software systems first mutate
+those data into a workable form, of clean events with calibrated and
+interpretable event variables.
 \begin{quote}
 ``%
 An extensive software suite~\cite{ATL-SOFT-PUB-2021-001} is used in the
@@ -493,15 +495,31 @@ reconstruction and analysis of real and simulated data, in detector operations,
 and in the trigger and data acquisition systems of the experiment.%
 ''~\cite{atlas2022searches}
 \end{quote}
+Prediction is important in data analysis.
+This software suite helps to generates predictive simulations, and provides
+realism by passing both the real and simulated data through the same processing
+pipelines~\cite{SOFT-2010-01, geant2003}.
+Software models of the \atlas\ detector itself are refined with the results from
+many calibration studies and in-situ measurements~\cite{atlas2008experiment},
 
-\TODO{
-data quality; ignore defects, maximize the uniformity of detector
-operations~\cite{
+The search presented in this thesis uses data from proton-proton collisions at
+$\sqrt{s} = 13\,\eV[T]$ centre-of-mass energies in Run~2 of the
+LHC, in which \atlas\ collected data in the years
+$2015\textrm{--}2018$~\cite{atlas2022searches}.
+This second run has various refinements over the Run~1, including beam energies
+increasing from $\sqrt{s} = 7\textrm{ or }8\,\eV[T]$, and bunch spacings
+halving from $50$ to $25\,\textrm{ns}$~\cite{lhc2006run2}.
+
+Data collected under anomalous detector operations are hard to model.
+Lists are maintained indicating which datasets arise from `good', normal
+detector operations, and these lists are commonly employed to select only clean
+subsets of good data for analysis projects.
+Testament to the quality of \atlas' operations, this cleaning removes less
+than $5\%$ of the Run~2 data~\cite{
 DAPR-2018-01,
 Golling:2011zy
-}
-}
+}.
 
-\TODO{performance and calibration?}
+\TODO{closing comments?}
 
-\TODO{LHC runs; run 1, run 2}
+% this comment activates enlarged spacing for the final paragraph lol
