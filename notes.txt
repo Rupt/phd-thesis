@@ -394,3 +394,15 @@ OPAL Note PN382, March 1999.
 The LEP Collaborations ALEPH, DELPHI, L3, OPAL, the LEP Electroweak Working
 Group and the Heavy Flavour and Electroweak Groups, CERN-EP/99-15.
 
+% Reading list for SM:
+
+
+% Reading list for SUSY:
+
+%% simplified models
+https://iopscience.iop.org/article/10.1088/0954-3899/39/10/105005
+https://journals.aps.org/prd/abstract/10.1103/PhysRevD.79.075020
+
+%% GMSB
+https://www.sciencedirect.com/science/article/pii/037026938290418X?via%3Dihub
+
