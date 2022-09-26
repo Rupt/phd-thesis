@@ -33,7 +33,7 @@ Section~\ref{sec:searches_frequentist} for its relevance to our methods.
 Standard practice in this field of research does not strictly follow
 frequentist methods, but patches up some of their pathologies with modified
 approaches that we describe in Section~\ref{sec:searches_practice}.
-Searches for Supersymmetric signals in \atlas\ follow a standard strategy for
+Searches for supersymmetric signals in \atlas\ follow a standard strategy for
 their data analysis, whose procedures, nomenclature, and parametric modelling
 are introduced in Section~\ref{sec:searches_searches}.
 
@@ -103,7 +103,7 @@ Likelihood functions are particularly important to this process because they
 describe our predictions.
 But as we shall see, not everything is a likelihood.
 
-We begin with what probability is: at its most abstract, a probability a
+We begin with what probability is: at its most abstract, a probability is a
 proportion of stuff within a larger whole.
 Probabilities are useful because proportions have applications
 (particularly to logical reasoning with uncertainty), and because
@@ -149,7 +149,7 @@ Probability works for logic, and it works \emph{for tea, too}.
 
 Probability \emph{distributions} $\prob{b}{a}$ spread unit probability mass
 across states $b$.
-They and need not be random distributions of fluctuating $b$s~\cite{
+They need not be random distributions of fluctuating $b$s~\cite{
 jaynes2003probability,
 frankfurt2005on
 },
@@ -249,7 +249,7 @@ practical methods.
 Likelihoods are useful to compare which hypotheses predicted observed data
 better than others.
 Priors on hypotheses express uncertain predictions, and
-priors on data are useful in experimental design
+priors on data are useful in experimental design.
 
 To illustrate this, consider a histogram that bins event yields in
 $\met$, with distributions from background and (supersymmetric) signal samples
@@ -426,10 +426,12 @@ pieces:
 \times
 \underbrace{Z}_\textrm{evidence}
 \quad \quad \mid\mid h
-.
+,
 % \textbf{likelihood} \times \textbf{prior}
 % &= \textbf{posterior} \times \textbf{evidence} .\nonumber
 \end{align}
+where we use the double bar, $\mid\mid$, to separate common contextual
+information.
 This is (the infamous) Bayes' rule, derived as a consequence of the
 symmetry of logical `and' and the product rule of probability
 algebra.
@@ -478,10 +480,8 @@ Bayes' rule is conveniently linearized in $\log$ ratio form:
 \frac{\probc{h_1}}{\probc{h_2}}
 }^\textrm{prior odds}
 \quad \quad \mid\mid \mathrm{context}
-,
+.
 \end{equation}
-where we use the double bar, $\mid\mid$, to separate any common contextual
-information.
 When the evidence ratio is independent of that context, as it usually is,
 it separates from the prior (odds) ratio,
 and the $\log$ likelihood (or evidence) ratios are constant additive terms,
@@ -574,8 +574,10 @@ practice of histogramming simulations in High Energy Physics:
 signal and background models define priors, and their (normalized) bin yields
 are the evidence values that we use to compare the models.
 Finally, their corresponding posteriors are the normalized shapes those samples
-take within the observed histogram bin, with which we do not compare the
-models, but which could in principle be used for secondary investigations.
+take within the observed histogram bin
+(as if it were more finely re-binned after analysis),
+with which we do not compare the models,
+but which could in principle be used for secondary investigations.
 
 
 \subsection{Probability assignments}
@@ -854,7 +856,7 @@ probability is a ratio of frequencies:
 \freq{b}{a} = \lim_{N \to \infty}\frac{n}{N},
 \end{equation}
 where $n$ is the number observed to satisfy conditions $a$ and $b$ when
-$N$ have satisfied $b$.
+$N$ have satisfied $a$.
 Interpreted with the Binomial model of
 Equation~\ref{eqn:searches_binomial}, this definition converges to our more
 general probability whenever it applies.
@@ -1133,10 +1135,10 @@ P(h)
 &= \prob{t \geq \tilde{t}}{h}
 \label{eqn:searches_pvalue}
 \\
-&= L(h) + \prob{t > \tilde{t}}{h}
+&= L(h) + \prob{t > \tilde{t}}{h}.
 \label{eqn:searches_pvalue_likelihood}
 \end{align}
-the \pvalue\ $P(h)$ is the prior probability of data
+The \pvalue\ $P(h)$ is the prior probability of data
 \emph{greater or equal to} the observed data, if data are ordered by the value
 of the test statistic.
 Equation~\ref{eqn:searches_pvalue_likelihood} points out that the \pvalue\ is
@@ -1175,7 +1177,7 @@ benefit --- it reduces the information content of the reported data without
 reducing the associated costs of communicating or interpreting those data.
 Both $d_1$ and $d_2$ are printed in the same number of characters, and
 \pvalues\ can be painfully expensive to evaluate.
-Furthermore, any result with small a test statistic is actively censored,
+Furthermore, any result with a small test statistic is actively censored,
 since if
 \begin{equation}
 \log \frac{L(h_1)}{L(h_2)}
@@ -1998,7 +2000,7 @@ worse than the asymptotic approximations.
 \subsection{\atlas\ SUSY searches}
 \label{sec:searches_searches}
 Searches for new effects from supersymmetric models in \atlas\ face the problem
-that their signals can appear in obscure, extreme, or otherwise less-studied
+that their signals often appear in obscure, extreme, or otherwise less-studied
 corners of the data.
 In \atlas\ SUSY searches, our modelling of the  Standard Model is therefore
 treated with substantial suspicion, and we tune that modelling to better
@@ -2076,9 +2078,9 @@ Standard Model, that its tuned extrapolation to validation regions works,
 and that other parameters are behaving as intended.
 
 After fitting the background-only model to observed signal region data,
-it can be useful to check that its parameters have been `pulled' away from
+it can be useful to check whether its parameters have been `pulled' away from
 their central values into regimes where their approximated extrapolations may
-be invalid
+be invalid.
 Post-fit expectations in signal regions are also available with error bars;
 because these depend on the data, they are posterior results and not directly
 useful to judge the background-only model.
