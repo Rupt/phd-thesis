@@ -69,32 +69,63 @@ are presented in Section~\ref{sec:context_susy}.
 \subsection{The Standard Model}
 \label{sec:context_sm}
 % \TODO{particle content figure/tables}
+The current Standard Model is characterized by three generations of fermions
+(spin-$1/2$) that interact through forces mediated by vector bosons
+(spin-$1$) and a scalar Higgs boson (spin-$0$).
+Force particles are categorized into the strong interaction
+via with massless gluons $g$,
+the electromagnetic interaction via the massless photon $\gamma$,
+and
+the weak interaction via the very massive $W^+$, $W^-$, and $Z$ bosons.
+Electroweak unification combines the weak and electromagnetic interactions
+with the Higgs mechanism, which simultaneously provides the weak boson masses
+and adds massive Higgs boson, whose Yukawa interactions with the fermions also
+implement their masses~\cite{thomson2013modern}
 
-The Standard Model is formulated as a quantized gauge field theory with the
-symmetry that its Lagrangian is invariant under local operations of the group
-\begin{equation}
-SU\!(3)_C \times SU\!(2)_L \times U\!(1)_Y
-\end{equation}
-on its fields.
-Here, the subscript $C$
+Mathematically, the Standard Model is described by a quantized gauge field
+theory with the symmetry group
+$SU\!(3)_C \times SU\!(2)_L \times U\!(1)_Y$,
+meaning that its Lagrangian is invariant under local operations of group
+elements on its fields in certain representations.
 
-~\cite{
-cottingham2007greenwood,
-wells2020discovery,
+Gluons correspond to the eight generators of $SU\!(3)_C$, whose subscript $_C$
+indicates that they operate on colour charge triplets.
+
+Unified electroweak interactions come from $SU\!(2)_L$ and $U\!(1)_Y$, whose
+four bosons $W^1$, $W^2$, $W^3$, and $B$ respectively would be massless
+without the Higgs mechanism, which inserts four scalar fields and
+`spontaneously breaks' the gauge symmetry with a potential that moves the
+ground state of the model to a gauge-asymmetric configuration.
+From this new ground state, linear combinations of the electroweak fields
+acquire masses while ``eating up'' three of the four scalar fields to yield
+the three weak bosons and the photon:
+$(W^1, W^2)$ mix into $(W^+, W^-)$, and $(W^3, B)$ mix into $(Z, \gamma)$.
+The fourth and final scalar field is the Higgs boson $h$~\cite{
 rubakov1999classical,
-thomson2013modern
-}
+cottingham2007greenwood
+}.
 
-\TODO{Higgs mechanism}
+The fermions of the Standard Model are listed in Table~\TODO{}.
+Older Standard Models included only two fermion generations and no
+neutrino masses~\cite{
+wells2020discovery
+},\TODO{cite more}
+but a modern model must include both three generations and non-zero neutrino
+masses to be compatible with experiment:
+three fermion generations are directly established
+\TODO{kaon mixing CPV, direct observation of tau/top/bottom, Z width},
+as are neutrino masses from their flavour oscillations demonstrating that
+they experience proper time~\TODO{cite}.
 
 \TODO{fermion structure}
 \TODO{three generations}
 \TODO{rotation between weak and mass eigenstates: CKM matrix}
 
 \TODO{neutrinos}
-\TODO{rotation between weak and mass eigenstates: PMNS matrix}
+\TODO{rotation between weak and mass eigenstates: PMNS matrix!!}
 
-\subsubsection{Future Standard Models}
+
+\subsubsection{Opportunities for future Standard Models}
 
 \TODO{Limitations: uncertainties and unknowns}
 \TODO{uncertainties: lagrangian form for neutrino masses, mass values (hierarchy, mixing angles); composition of dark matter}
@@ -156,7 +187,7 @@ made a telescope for that%
 \end{epigraphs}
 \end{singlespacing}
 
-Towards explaining the main result of this thesis,
+\noindent Towards explaining the main result of this thesis,
 a search for effects from supersymmetric models
 in data from the \atlas\ detector
 on the Large Hadron Collider (LHC)~\cite{
