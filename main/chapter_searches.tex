@@ -1740,7 +1740,7 @@ $\log\cls$ values.
 Ordering the data by a maximum likelihood ratio test statistic with $b=4.3$.
 Data on the top are ordered with $n$ increasing from left to right,
 and on the bottom those same data are reordered to have increasing values of
-the test statistic $-\Lambda(n)$.
+test statistic $t(n) = -\Lambda(n)$.
 }
 \end{subfigure}
 \\[.5em]
@@ -1906,7 +1906,7 @@ f(x) \propto e^{-\beta E(x)}
 .
 \end{equation}
 with which a thermodynamic system collapses to its minimum energy at cold
-temperatures $T = 1/\beta$~\cite{
+temperatures $T \propto 1/\beta$~\cite{
 skilling2017david,
 lecun-06,
 pmlr-v2-ranzato07a
@@ -1936,8 +1936,8 @@ and \pyhf~\cite{heinrich2021pyhf}.
 \histfactory\ models are specialized for working with discrete histogram bins.
 They constrain parameters with either Gaussian or Poisson%
 \footnote{%
-The Poisson likelihoods typically use a continuous interpolation with
-$n!\rightarrow \Gamma(n + 1)$.%
+Poisson likelihoods in these software packages typically use a continuous
+interpolation with $n! \to \Gamma(n + 1)$.%
 }
 likelihood
 functions, and assign expected yields through a variety of
@@ -1962,9 +1962,9 @@ alternative ``pseudo-data (toys)''~\cite{cern2011procedure}.
 This procedure works as follows:
 \begin{enumerate}
 \item minimize $E(x)$ to find the best-fit parameters $\check{x}$, then
-\item sample alternative Poisson (actual) data with rates $y(\check{x})$ and
-alternative auxiliary (fictitious) data from their assigned distributions,
-then
+\item at fixed $\check{x}$, sample alternative Poisson (actual) data with rates
+$y(\check{x})$ and alternative auxiliary (fictitious) data from their assigned
+distributions, then
 \item evaluate the test statistic for each simulated `toy'
 sample~\cite{cern2011procedure}.
 \end{enumerate}
@@ -1983,8 +1983,8 @@ Section~\ref{sec:2ljets_results} where they are sensitive, and where
 this makes a deficit in data appear much less significant than it  otherwise
 would.
 Sampling alternative data from fixed $y(\check{x})$ is also suspicious because
-we are in fact uncertain of the expected yields
-(demonstrated by us drawing error bars on them).
+we are in fact uncertain of the expected yields,
+as demonstrated by the error bars we draw on them.
 
 Nonetheless, this procedure often simulates reasonable-looking test statistic
 distributions, does not rely on asymptotic approximations, and purportedly
