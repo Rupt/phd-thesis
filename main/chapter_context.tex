@@ -36,7 +36,7 @@ data we hope refine the Standard Model into its improved future forms.
 
 \section{The Standard Model and beyond}
 \label{sec:context_sm_and_beyond}
-\noindent Our best current understanding of Nature's fundamental objects in
+\noindent Our best current understanding of nature's fundamental objects in
 their observable behaviours as particles is encoded in the Standard Model,
 which uses solid mathematical foundations to accurately describe the physics
 of particle interactions across a broad domain.
@@ -55,97 +55,19 @@ are presented in Section~\ref{sec:context_susy}.
 
 \subsection{The Standard Model}
 \label{sec:context_sm}
-The current Standard Model features three generations of fermions,
+The current Standard Model features fermions
+(of four types in three generations),
 which interact through forces mediated by vector bosons
 and the scalar Higgs boson.
 The strong force is mediated by
 Massless gluons $g$ mediate the strong force,
 the massless photon $\gamma$ mediates the electromagnetic force,
-and very massive $W^+$, $W^-$, and $Z$ bosons weadiate the weak force.
-\TODO{particle content figure/tables}
-
-As a gauge field theory, the Standard Model has the symmetry group
-$SU\!(3)_C \times SU\!(2)_L \times U\!(1)$,
-meaning that its langrangian is invariant under local operations of that group
-on its fields in certain representations.
-
-Gluons correspond to the eight generators of $SU\!(3)_C$, whose subscript $_C$
-indicates that they operate on colour charge triplets.
-
-Weak and electromagnetic forces are unified in electroweak interactions with
-four bosons $W^1$, $W^2$, $W^3$, and $B$ from the
-$SU\!(2)_L$ and $U\!(1)_Y$ symmetries respectively.
-These would be massless if the symmetry were perfectly respected, but it is
-`spontaneously' broken with the Higgs mechanism~\cite{
-higgs1964broken,
-englert1964broken
-}%
-\footnote{%
-Historical accuracy prefers the name `Brout–Englert–Higgs mechanism', but
-Peter~Higgs has reportedly suggested
-``ABEGHHKtH mechanism''~\cite{close2011infinity}
-to properly credit other associated work.%
-}
-by adding four scalar fields with a potential that moves the ground state of
-to a gauge-\emph{asymmetric} configuration.
-Around this new ground state, linear combinations of the electroweak fields
-acquire masses while ``eating up''~\cite{rubakov1999classical} three of the
-four scalar fields to yield the three weak bosons and the photon:
-$W^1$ and $W^2$ mix into $W^+, W^-$, while $W^3$ and $B$ mix into $Z$ and
-$\gamma$.
-The fourth scalar is the Higgs boson $h$~\cite{
-glashow1959renorm,
-weinberg1967model,
-salam1959weak,
-rubakov1999classical,
-cottingham2007greenwood
-}.
-Simultaneously, Yukawa interactions between the Higgs field and the fermions
-also implement fermion masses~\cite{thomson2013modern}.
-The subscript $_L$ on $SU\!(2)_L$ indicates that the weak forces interact only
-interact with fermions that belong to left-chiral doublets: $(\nu_e, e)_L$,
-$(u, d)_L$ and their repeats in the three generations.
-
-Older Standard Models included only two fermion generations and no
-neutrino masses~\cite{
-wells2020discovery,
-bjorken1985november
-},
-but a modern model must include both three generations and non-zero neutrino
-masses to be compatible with experiment:
-three fermion generations are directly established
-\TODO{kaon mixing CPV~\cite{
-cronin1964evidence,
-kabayasji1973cpv
-}, direct observation of tau/top/bottom~\cite{
-perl1977evidence,
-herb1977observation,
-abachi1995observation
-}, Z width~\cite{
-lep2006precision
-}
-},
-as are neutrino masses from their flavour oscillations demonstrating that
-they experience proper time~\cite{
-kamiokande1998measurement,
-superk1998evidence,
-superk1999measurement,
-lsnd1998evidence
-}.
-
-\TODO{fermion structure}
-\TODO{three generations}
-\TODO{rotation between weak and mass eigenstates: CKM matrix~\cite{
-cabibbo1963unitary,
-kabayasji1973cpv
-}}
-
-\TODO{neutrinos}
-\TODO{rotation between weak and mass eigenstates: PMNS matrix!!}
+and very massive $W^+$, $W^-$, and $Z$ bosons mediate the weak force.
+These fundamental particles of the Standard Model are summarized in
+Table~\ref{tab:context_particles_sm}.
 
 % using https://www.tablesgenerator.com/latex_tables
 \begin{table}[tp]
-\label{tab:context_particles_sm}
 \centering
 \begin{tabular}{rrc}
 \multirow{4}{*}{fermions} & \multirow{2}{*}{quarks}      & \makebox[5em]{\hfill $u$ \hfill $c$ \hfill $t$ \hfill}                    \\
@@ -162,11 +84,108 @@ spin-$0$ Higgs boson $h$.
 Fermions come in left- and right-chiralities, although the existence of
 right-chiral neutrinos is not strictly confirmed.%
 }
+\label{tab:context_particles_sm}
 \end{table}
 
-Table~\ref{tab:context_particles_sm} \TODO{}
+As a gauge field theory, the Standard Model has the symmetry group
+$SU\!(3)_C \times SU\!(2)_L \times U\!(1)$,
+meaning that its lagrangian is invariant under local operations of that group
+on its fields in certain representations.
 
-\subsubsection{Opportunities for future Standard Models}
+Gluons correspond to the eight generators of $SU\!(3)_C$, whose subscript $_C$
+indicates that they operate on colour-charge triplets of quarks.
+
+Weak and electromagnetic forces are unified in electroweak interactions with
+four bosons $W^1$, $W^2$, $W^3$, and $B$ from the
+$SU\!(2)_L$ and $U\!(1)_Y$ symmetries respectively.
+These would be massless if the symmetry were perfectly respected, but it is
+`spontaneously' broken with the Higgs mechanism~\cite{
+higgs1964broken,
+englert1964broken
+}%
+\footnote{%
+Historical accuracy prefers the name `Brout–Englert–Higgs mechanism', but
+Peter~Higgs has reportedly suggested
+``ABEGHHKtH mechanism''~\cite{close2011infinity}
+to fully credit other associated work.%
+}
+by adding four scalar fields with a potential that moves the ground state of
+to a gauge-\emph{asymmetric} configuration.
+Around this new ground state, linear combinations of the electroweak fields
+acquire masses while ``eating up''~\cite{rubakov1999classical} three of the
+four scalar fields to yield the three weak bosons and the photon:
+$W^1$ and $W^2$ mix into $W^+$ and $W^-$, while $W^3$ and $B$ mix into $Z$ and
+$\gamma$.
+The fourth scalar is the Higgs boson $h$~\cite{
+glashow1959renorm,
+weinberg1967model,
+salam1959weak,
+rubakov1999classical,
+cottingham2007greenwood
+}.
+
+Fermion masses arise through their Yukawa interactions with the Higgs field.
+The subscript $_L$ on $SU\!(2)_L$ indicates that the weak interaction only
+couples to fermions in left-chiral doublets: $(\nu_e, e)_L$,
+$(u, d)_L$ and their repeats across the three generations.
+In each generational trio (such as $u$, $c$, $t$), all three fermions share the
+same quantum numbers, but have different masses.
+A second generational difference occurs in quarks and neutrinos through the
+difference between their weak flavour eigenstates and the mass eigenstates of
+their free propagation;
+flavour and mass eigenstates are linearly related through unitary matrices:
+the CKM matrix for the quarks~\cite{
+cabibbo1963unitary,
+kabayasji1973cpv
+}
+and the PMNS matrix for the neutrinos~\cite{
+maki1962remarks,
+thomson2013modern
+}.
+
+Early versions of the Standard Model had only two fermion generations and
+no neutrino masses~\cite{
+wells2020discovery,
+bjorken1985november
+},
+but the third generation and non-zero neutrino masses are now observed;
+for example, the third generation is shown by $\mathrm{CP}$ asymmetry in
+kaons~\cite{
+cronin1964evidence,
+kabayasji1973cpv
+},
+precise measurements of the $Z$ boson~\cite{
+lep2006precision
+},
+and direct observations~\cite{
+perl1977evidence,
+herb1977observation,
+abachi1995observation
+};
+neutrino masses are also necessary to explain their observed flavour
+oscillations~\cite{
+kamiokande1998measurement,
+superk1998evidence,
+superk1999measurement,
+lsnd1998evidence
+}.
+
+Various theories can describe neutrino masses in the Standard Model, and it is
+currently uncertain which form best describes nature;
+this is both a limitation of the current Standard Model and an
+opportunity for future refinement.
+With future results, the Standard Model will continue to improve in its
+correspondence with nature, and we discuss some such opportunities
+for improvement in the next section.
+
+
+\subsection{Opportunities for future Standard Models}
+Problems with the Standard Model mean it needs replacing with supersymmetry
+--- is a false statement.
+Such an argument could be tempting to motivate this thesis, but the
+Standard Model is actually very good within its domain.
+Newton's laws are also very good within theirs \TODO{}
+
 
 \TODO{Limitations: uncertainties and unknowns}
 \TODO{uncertainties: lagrangian form for neutrino masses, mass values (hierarchy, mixing angles); composition of dark matter}
@@ -230,7 +249,6 @@ martin2016primer
 
 % using https://www.tablesgenerator.com/latex_tables
 \begin{table}[tp]
-\label{tab:context_particles_mssm}
 \centering
 \begin{tabular}{rrc}
 \multirow{5}{*}{bosons}   & \multirow{2}{*}{squarks}      & \makebox[5em]{\hfill $\tilde u$ \hfill $\tilde c$ \hfill $\tilde t$ \hfill}                  \\
@@ -250,6 +268,7 @@ Particles of the Minimal Supersymmetric Standard Model
 \TODO{In this table, all bosons are spin-$0$ scalars and all fermions are spin-$1/2$.}
 \TODO{The bracketed $h$ corresponds to the Standard Model Higgs boson.}
 }
+\label{tab:context_particles_mssm}
 \end{table}
 
 Table~\ref{tab:context_particles_mssm} \TODO{}
