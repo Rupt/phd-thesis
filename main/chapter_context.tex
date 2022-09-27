@@ -66,27 +66,6 @@ and very massive $W^+$, $W^-$, and $Z$ bosons mediate the weak force.
 These fundamental particles of the Standard Model are summarized in
 Table~\ref{tab:context_particles_sm}.
 
-% using https://www.tablesgenerator.com/latex_tables
-\begin{table}[tp]
-\centering
-\begin{tabular}{rrc}
-\multirow{4}{*}{fermions} & \multirow{2}{*}{quarks}      & \makebox[5em]{\hfill $u$ \hfill $c$ \hfill $t$ \hfill}                    \\
-                          &                              & \makebox[5em]{\hfill $d$ \hfill $s$ \hfill $b$ \hfill}                    \\[1ex]
-                          & \multirow{2}{*}{leptions}    & \makebox[5em]{\hfill $e$ \hfill $\mu$ \hfill $\tau$ \hfill}               \\
-                          &                              & \makebox[5em]{\hfill $\nu_e$ \hfill $\nu_\mu$ \hfill $\nu_\tau$ \hfill} \\[3ex]
-\multirow{2}{*}{bosons}   & strong                       & \makebox[7em]{\hfill $g$ \hfill}                                          \\[1ex]
-                          & electroweak & \makebox[7em]{\hfill $W^\pm\!\!$ \hfill $Z$\hfill $\gamma$ \hfill $h$ \hfill} \\
-\end{tabular}
-\caption[Particles of the Standard Model]{%
-Particles of the Standard Model.
-All fermions are spin-$1/2$, and all bosons are spin-$1$ except for the
-spin-$0$ Higgs boson $h$.
-Fermions come in left- and right-chiralities, although the existence of
-right-chiral neutrinos is not strictly confirmed.%
-}
-\label{tab:context_particles_sm}
-\end{table}
-
 As a gauge field theory, the Standard Model has the symmetry group
 $SU\!(3)_C \times SU\!(2)_L \times U\!(1)$,
 meaning that its lagrangian is invariant under local operations of that group
@@ -143,6 +122,27 @@ maki1962remarks,
 thomson2013modern
 }.
 
+% using https://www.tablesgenerator.com/latex_tables
+\begin{table}[tp]
+\centering
+\begin{tabular}{rrc}
+\multirow{4}{*}{fermions} & \multirow{2}{*}{quarks}      & \makebox[5em]{\hfill $u$ \hfill $c$ \hfill $t$ \hfill}                    \\
+                          &                              & \makebox[5em]{\hfill $d$ \hfill $s$ \hfill $b$ \hfill}                    \\[1ex]
+                          & \multirow{2}{*}{leptions}    & \makebox[5em]{\hfill $e$ \hfill $\mu$ \hfill $\tau$ \hfill}               \\
+                          &                              & \makebox[5em]{\hfill $\nu_e$ \hfill $\nu_\mu$ \hfill $\nu_\tau$ \hfill} \\[3ex]
+\multirow{2}{*}{bosons}   & strong                       & \makebox[7em]{\hfill $g$ \hfill}                                          \\[1ex]
+                          & electroweak & \makebox[7em]{\hfill $W^\pm\!\!$ \hfill $Z$\hfill $\gamma$ \hfill $h$ \hfill} \\
+\end{tabular}
+\caption[Particles of the Standard Model]{%
+Particles of the Standard Model.
+All fermions are spin-$1/2$, and all bosons are spin-$1$ except for the
+spin-$0$ Higgs boson $h$.
+Fermions come in left- and right-chiralities, although the existence of
+right-chiral neutrinos is not strictly confirmed.%
+}
+\label{tab:context_particles_sm}
+\end{table}
+
 Early versions of the Standard Model had only two fermion generations and
 no neutrino masses~\cite{
 wells2020discovery,
@@ -181,28 +181,52 @@ for improvement in the next section.
 
 \subsection{Opportunities for future Standard Models}
 Problems with the Standard Model mean it needs replacing with supersymmetry
---- is a false statement.
+--- is currently a false statement.
 Such an argument could be tempting to motivate this thesis, but the
-Standard Model is actually very good within its domain.
-Newton's laws are also very good within theirs \TODO{}
+Standard Model is actually good in its domain.
+This discussion is therefore oriented towards how the Standard Model could do
+better where it already works, and how that remit might expand to increase its
+generality.
 
+When `nobody knows' the answer to a riddle, the status lies between two
+extremes:
+many answers appear satisfactory and none is the clear best,
+or no satisfactory answer is yet known.
+To distinguish these two cases, we choose for them the respective labels
+\emph{uncertain} and \emph{unknown}:
+the model of neutrino masses is \emph{uncertain},
+but the reconciliation quantum field theory with general relativity is
+\emph{unknown}.
 
-\TODO{Limitations: uncertainties and unknowns}
-\TODO{uncertainties: lagrangian form for neutrino masses, mass values (hierarchy, mixing angles); composition of dark matter}
-\TODO{unknowns: lack of convincing solutions; unification of gravity with quantum mechanics, origin of structure and parameters of standard model}
+A problem with the Standard Model is that algorithms to compute its
+general consequences
+(where perturbative and discrete lattice methods are impractical)
+are unknown.
+But this is not an opportunity because it is inherent to the framework
+(of quantum field theory) that all serious alternatives also use.
+
+Before introducing supersymmetry, this section briefly review some promising
+directions of change for futrue models.
 
 \paragraph{Neutrino masses.}
-\TODO{Dirac neutrinos, possibly supplemented with a Majorana term}
-\TODO{Weinberg operator for Majorana neutrinos}
-
-
-\TODO{mass models: dirac, Majorana, seesaw~\cite{
-wells2020discovery,
-king2003neutrino,
-thomson2013modern
-}}
+Neutrinos could be Dirac fermions with Yukawa masses and boring right-chiral
+fields.
+Or they could also have Majorana mass terms, for which the seesaw mechanism
+can simultaneously generate the observed light neutrinos and heavy `sterile'
+neutrinos.
+Or their masses could come from other operators without right-handed
+fields~\cite{
+thomson2013modern,
+chala2021neutrino,
+wells2020discovery
+}.
+This riddle is largely unknown, and new results from theory or experiment
+that pinpoint a correct model could improve the Standard Model in the neutrino
+domain.
 
 \paragraph{Gravitation and cosmology.}
+
+\TODO{gravity}
 
 \TODO{dark matter: rotation curves~\cite{
 begeman1991rotation,
@@ -210,6 +234,7 @@ garrett2010dark
 }}
 
 \TODO{
+sterile neutrinos~\cite{boyarsky2019sterile},
 primordial black holes~\cite{bernard2019primordial},
 WIMPs~\cite{jungman1996wimp},
 axions~\cite{kim2008axions},
