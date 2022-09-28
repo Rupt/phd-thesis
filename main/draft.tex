@@ -445,3 +445,165 @@ possible future directions including supersymmetric ideas, and
 Section~\ref{sec:context_atlas} then describes the \atlas\ detector, with whose
 data we hope refine the Standard Model into its improved future forms.
 
+
+
+% far too much intro waffle
+
+\TODO{This does not belong in an introduction and will be moved.}
+
+\TODO{CUT THIS SHORT}
+
+\subsection{Testing symmetries in data}
+Data-driven tests of physical symmetries are a speciality of the Cambridge
+\atlas\ group.
+Each test considers a theoretically motivated symmetry that states that
+distributions of data should be identical when transformed under its operation.
+This means that it can be possible to disprove a symmetry by searching only
+for differences between data and transformed versions of those data, without
+necessarily requiring other theoretical inputs.
+
+% emus
+Charge symmetry of electron-muon, `emu', pairs is a key example among these
+tests.
+Theoretically, it proposes that, in the absence of biases, data
+from proton-proton collisions at the LHC would include equal distributions
+of $e^+\mu^-$ and $e^-\mu^+$ events~\cite{Lester:2016qdv}.
+Real data can have emu biases --- one clear (but minor) example is that our
+detectors are made of matter containing negatively charged electrons, not
+positrons, so high energy electrons positrons have subtly different rates of
+energy loss in that detector matter.
+However, \cite{Lester:2016qdv} argues that any biases at the LHC should
+conspire only to favour the rate of $e^-\mu^+$ over the rate of $e^+\mu^-$
+events.
+Therefore defining an asymmetry
+\begin{equation}
+A^\mathrm{emu} = \frac{
+\sigma(e^+\mu^- + X)
+}{
+\sigma(e^-\mu^+ + X)
+}
+,
+\end{equation}
+one can predict $A^\mathrm{emu} \leq 1$ from the Standard Model at the LHC.
+Negative values could be explained by experimental biases, but
+$A^\mathrm{emu} > 1$ measured in data might indicate new physics, since it and
+can be caused by models of new physics that might invoke R-parity violating
+supersymmetry~\cite{Lester:2016qdv} or leptoquarks~\cite{EXOT-2018-29}.
+After its extensive development~\cite{Brunt:2674708,Pacey:2747774},
+this test has been performed in \atlas\ data, and found no ``significant
+model-independent evidence''~\cite{EXOT-2018-29} for $A^\mathrm{emu} > 1$.
+
+% parity violation
+Parity symmetry, which changes the signs of all spatial coordinates
+$\vec x\rightarrow -\vec x$, is a second key example.
+Nature does violate parity symmetry, as first shown by the Wu
+experiment~\cite{PhysRev.105.1413}, in the weak sector, but that is not
+directly observable at the LHC due to its non-polarized beams and
+polarization-insensitive detectors~\cite{Lester:2019bso}.
+Unknown physical effects could, however, generate forms of parity asymmetry
+that could be seen at the LHC.
+Although the charge symmetry of the emu test has known sources of bias,
+no such biases are so clearly expected for parity.
+
+General parity symmetry can therefore be tested at the LHC by considering a
+parity-odd event variable and comparing its distribution to its parity-flipped
+version, which simply swaps its sign.
+% alpha from lester schott
+One such test has been performed with LHC data~\cite{Lester:2019bso}.
+This test used \cms\ open data and the parity-odd event variable
+\begin{equation}
+\label{eqn:cms_alpha}
+\alpha
+= \arcsin\!
+\left(
+\frac{
+\vec p^{\,j_1} \times \vec p^{\,j_2}
+}{
+|\vec p^{\,j_1} \times \vec p^{\,j_2}|
+}
+\cdot
+\frac{
+\vec p^{\,j_3}
+}{
+|\vec p^{\,j_3}|
+}
+\right)
+,
+\end{equation}
+in which $p^{\,j_i}$ is the momentum of the $i$th hardest jet in a multi-jet
+event,
+and did not find evidence for parity violation.
+But that does not prove that no parity-violating effects are occuring in these
+data, only that it did not appear in the distribution of $\alpha$.
+
+Can a single parity-odd event variable be sensitive to all norms of parity
+violation?
+The answer, it turns out, is `no' if that variable is also required to be
+continuous~\cite{lesterChiralMeasurements2021}.
+In this framework, therefore, a joint analysis of multiple variables is
+required for any sufficiently complicated data.
+Furthermore, it is not generally easy to construct such universally-sensitive
+sets of event variables~\cite{
+Gripaios:2020hya,
+lester2021lorentz
+}.
+
+Rather than beginning from universally sensitive event variables, an
+alternative strategy is to build candidate variables to the data
+themselves~\cite{lester2021stressed}.
+If done wrong, such an idea could simply reinforce variations due to simple
+statistical noise.
+It can, however, be formulated as a rigorous test if one employs standard
+Machine Learning practice and splits the data into independent training and
+testing sets.
+Variables learned (by function approximation algorithms such as
+Boosted Decision Trees~\cite{xgboost} or
+Neural Networks~\cite{MurphyKevinP.2012Mlap})
+from the testing set can correspond to hypotheses about possible asymmetries
+in the data distribution, and if those hypotheses make accurate predictions in
+independent testing data, then they are evidence against the symmetry.
+
+My contribution to this field is to adapt this idea of learning parity
+variables,
+\emph{which was initiated by Christopher~G.~Lester}~\cite{lester2021stressed},
+into a probabilistic description, in which the algorithms predict
+`which is real?' between real data an their parity-transformed
+copies~\cite{tombs2021which}.
+This approach derives an objective function
+(which is a special case of the binary
+cross-entropy~\cite{MurphyKevinP.2012Mlap}),
+from which learning algorithms
+can approximate the odds ratio between the data distribution and its
+parity-transformed version.
+Importantly, it also allows one to model inefficiencies or holes in the
+distribution, which exist in practice from kinematic selections and imperfect
+hardware, and incorporate those into the training and testing without biasing
+the result.
+We have also demonstrated this method on simulated multi-jet data in an
+\atlas-like detector~\cite{lester2022hunting}.
+By simulating parity-violating events from a Lorentz-violating extension
+to the Standard Model, we show that this method build variables that are much
+more sensitive than the $\alpha$ of Equation~\ref{eqn:cms_alpha} while
+retaining its other attractive symmetries by encoding them into our function
+architectures~\cite{lester2021stressed, tombs2021which}.
+
+This work demonstrates that the `which is real?' method is ready to test for
+parity violation in real LHC data.
+Much like the emu work, however, its realization would require great diligence
+to handle important considerations of systematic uncertainties and statistical
+interpretations before it could be published through \atlas.
+
+The `which is real?' method is general, and can test not only parity, but
+symmetry under any transformation of the data, irrespective of whether it is
+discrete or continuous.
+In the context of modern machine learning, it is an example of
+`self-supervised' learning, in which the training objective derives from the
+data and not from additional labels~\cite{
+Noroozi2016jigsaw,
+multitaskself2017,
+devlin2019bert
+}, and quite similar to the `CLIP' objective, which also attempts to identify
+a real examples from collections of alternatives~\cite{pmlr-v139-radford21a}.
+What is special in our work is our application for scientific self-supervised
+testing.
+

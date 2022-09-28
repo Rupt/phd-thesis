@@ -229,7 +229,6 @@
 	{\LARGE{\textbf{Preface}}}%
 	\endgroup
 	\end{center}%
-	\vspace*{1cm}%
 }{%
 	\ignorespacesafterend %
 }
