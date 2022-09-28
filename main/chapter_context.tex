@@ -182,10 +182,7 @@ for improvement in the next section.
 
 
 \subsection{Opportunities for future Standard Models}
-Problems with the Standard Model mean it needs replacing with supersymmetry
---- is a false statement.
-Such an argument could motivate this thesis, but the Standard Model is actually
-good in its domain.
+The Standard Model works very well within its domain.
 This discussion therefore looks towards where an altered Standard Model could
 improve its current abilities or to expand its generality to describe more of
 the universe.
@@ -337,15 +334,13 @@ Nature is not totally supersymmetric.
 If it were, then there would be bosonic `superpartners' for each of the known
 fermions (and vice versa) with the same masses and charges, and those
 `sparticles' would have been seen long ago.
-But supersymmetry could still participate in a broken condition where the
+But supersymmetry might still participate in a broken condition if the
 sparticles are hidden at larger masses.
 
 Any new model must include the observational facts of the Standard Model,
-and with supersymmetry the minimum viable product is the
-Minimal Supersymmetric Standard Model (MSSM), which adds the school of
-new particles whose mass eigenstates are listed in
-Table~\ref{tab:context_particles_mssm},
-in which all sparticles are marked with tildes $\tilde{~}$.
+and the Minimal Supersymmetric Standard Model (MSSM) satisfies this while
+adding a school of new particles,
+which is listed in Table~\ref{tab:context_particles_mssm}.
 
 % fermion boson multiplets
 The MSSM matches each standard fermion to a pair of scalar
@@ -357,41 +352,19 @@ of complex scalar fields
 ($H^+_u$, $H^0_u$ and $H^0_d$, $H^\pm_d$) with
 gaugino superpartners
 ($\tilde H^+_u$, $\tilde H^0_u$ and $\tilde H^0_d$, $\tilde H^-_d$).
-These mix into uncertain mass eigenstates:
-and the gaugino mixtures are the charged charginos $C^\pm_i$ and
+(All sparticles are marked with tildes $\tilde{~}$.)
+These fields mix into mass eigenstates which current data do not entirely
+determine:
+the gaugino mixtures are the charged charginos $C^\pm_i$ and
 neutral neutralinos $N_i$
-(also labelled $\chargino_i$ and
+(also labelled $\chargino_i$,
 $\neutralino_i$~\cite{atlas2022searches}),
-each squark and slepton has two versions from mixtures of the left and right
-fields.
+and each squark and slepton has two states that mix the left and right fields.
 From the four complex scalars, three degrees of freedom are eaten by the
 weak bosons to leave the reborn Standard Model Higgs boson $h$
-and four new scalars.
-
-None of these new particles is yet observed. \TODO{}
-
-\TODO{R-parity}
-
-\begin{equation}
-P_R = (-1)^{3(B - L) + 2s}
-\end{equation}
-\TODO{for baryon number $B$, lepton number $L$ and spin $s$.}
-
-Lightest Supersymmetric Particle (LSP)
-
-Gauge Mediated Supersymmetry Breaking (GMSB)
-
-% reproduce arguments for goldsino and gravitino
-% spin-$3/2$ parts couples only gravitationally, see another spin-$1/2$ fermion
-
-\TODO{consistent with a $m(h) \lesssim 130\,\eV[G]$~\cite{
-quiros1997constraints,
-wells2020discovery
-}}
-
-\TODO{primer~\cite{
+and four new scalars~\cite{
 martin2016primer
-}}
+}.
 
 % made using:
 % https://www.tablesgenerator.com/latex_tables
@@ -407,18 +380,63 @@ martin2016primer
                           & \multirow{2}{*}{gauginos}     & \makebox[5em]{\hfill $\tilde C^\pm_1\!\!$ \hfill $\tilde C^\pm_2\!\!$ \hfill} \\
                           &                               & \makebox[7em]{\hfill $\tilde N_1\!$ \hfill $\tilde N_2\!$ \hfill$\tilde N_3\!$ \hfill$\tilde N_4\!$ \hfill} \\
 \end{tabular}
-\caption[Particles of the Minimal Supersymmetric Standard Model]{%
-Particles of the Minimal Supersymmetric Standard Model in their mass
-eigenstates~\cite{martin2016primer}, in addition to the Standard Model
-particles of Table~\ref{tab:context_particles_sm}.
-The Standard Model Higgs boson $h$ (bracketed) is repeated here with its new
-pals.
+\caption[%
+Particles and sparticles of the Minimal Supersymmetric Standard Model%
+]{%
+Particles and sparticles of the Minimal Supersymmetric Standard Model
+in their mass eigenstates~\cite{martin2016primer}, in addition to the
+Standard Model particles of Table~\ref{tab:context_particles_sm}.
+The standard Higgs boson ($h$) is repeated here with its new pals.
 Sparticles are marked with tildes $\tilde{~}$.
 All listed bosons are spin-$0$ and all listed fermions are spin-$1/2$.
-Locally broken supersymmetry also adds a spin-$3/2$ gravitino $\tilde G$.
 }
 \label{tab:context_particles_mssm}
 \end{table}
+
+Various mechanisms could spontaneously break supersymmetry.
+Gravitational ideas exist, but one model considered in this thesis uses a
+Gauge-Mediated Supersymmetry Breaking (GMSB) mechanism,
+which adds yet more fields:
+a `secluded' sector which breaks the symmetry, and
+a `messenger' sector which
+communicates the effect back to the observable sector.
+Such models also add a spin-$3/2$ `gravitino' ($\gravitino$),
+which should be light and whose helicity $\pm1/2$ components would interact
+in collider physics~\cite{
+giudice1999gmsb,
+dine1982pheno,
+martin2016primer
+}.
+
+All models considered in this thesis conserve $R$-parity
+\begin{equation}
+P_R = (-1)^{3(B - L) + 2s}
+\end{equation}
+(with baryon number $B$, lepton number $L$ and spin $s$)
+in their interactions~\cite{
+farrar1978rparity,
+martin2016primer
+}.
+This conservation helps to prevent proton decays,
+but also makes the Lightest Supersymmetric Particle (LSP) a plausible
+WIMP dark matter candidate since it cannot decay to purely Standard Model
+particles.
+
+% current observations reaching up to $\eV[T]$ scale
+% hierarchy problem
+
+Broken supersymmetry does not perfectly resolve the hierarchy problem, but
+could still reduce its fine-tuning if the superpartner masses are below the
+$\lesssim 1\,\eV[T]$ scale~\cite{martin2016primer}.
+
+the MSSM has the success that it is consistent with the observed
+$m(h) \lesssim 135\,\eV[G]$~\cite{
+quiros1997constraints,
+wells2020discovery
+}
+
+None of these hypothetical particles is yet observed, but it remains possible
+that they could be invoked to describe future experimental data.
 
 
 \section{The \atlas\ Experiment}
