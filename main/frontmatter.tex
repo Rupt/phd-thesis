@@ -18,8 +18,11 @@ nor by the many similar observations.
 But it is also not confirmed.
 
 Data are best interpreted with an understanding of their origins, so we begin
-by introducing the theoretical and experimental background to our search, and
-the subtleties of our data-analysis procedures in their historical context.
+by describing the theoretical and experimental background to our search.
+Our results depend strongly on the interpretation of data by conventional
+analysis procedures, whose properties and explanations are not obvious.
+To explain these procedures, we therefore also describe their historical
+context and the basic theory of data analysis.
 \end{abstract}
 
 
@@ -41,7 +44,9 @@ two squared times three cubed
 jelly beans.
 %
 It does not exceed the prescribed word limit for the
+%
 Physics and Chemistry
+%
 Degree Committee.
 \vspace*{1cm}
 \begin{flushright}
@@ -71,7 +76,7 @@ Thank you Sarah~Williams for your advice and support inside \atlas, and
 for the invaluable experience of teaching at Queens' College.
 
 \paragraph{\atlas.}
-Thank you to the Cambridge \atlas\ group and especially Tina~Potter for
+Thank you to the whole Cambridge \atlas\ group, and especially Tina~Potter for
 sharing help and wisdom.
 Thanks to all collaborators mentioned in Chapter~\ref{chapter:2ljets},
 to Ben~Hooberman and Sarah~Williams for leadership, and especially to
@@ -81,7 +86,8 @@ Jon~Long for our teamwork in the push for publication,
 Thank you Christopher~Gorham~Lester, Holly~Pacey, and Daniel~No\"el for your
 stunningly precise and valuable comments on drafts of this thesis.
 Thank you to Homerton College and Melanie~Keene.
-This document uses parts of the `hepthesis' class~\cite{hepthesis}.
+This work was supported by the Science and Technology Facilities Council.
+The template for this document derives from `hepthesis'~\cite{hepthesis}.
 \end{acknowledgements}
 
 
@@ -97,32 +103,50 @@ that appear at the beginning of the chapter.%
 1975~\cite{knuth1975art}}
 \end{epigraphs}
 \end{singlespacing}
+\noindent
+``Two leptons, jets, and missing transverse momentum'' of our title
+refers an experimental signature of new phenomena which was targetted by our
+recent search in \atlas\ data~\cite{atlas2022searches}.
+The subtitle ``yet~more non-evidence for supersymmetry'' refers to how its
+negative result is consistent with all other research in the area.
+The wording deliberately avoids suggesting evidence against supersymmetry
+(SUSY);
+we see evidence against specific supersymmetric models, but the abstract
+concept of supersymmetry remains at large.
 
+Chapter~\ref{chapter:2ljets} dissects this search project and my contributions
+to it.
+Earlier chapters introduce relevant content:
+Chapter~\ref{chapter:searches} details data analysis,
+its theory and conventional practice,
+Chapter~\ref{chapter:experiment} describes the design of the \atlas\ detector,
+and
+Chapter~\ref{chapter:theory} introduces the theory of Standard Model, its
+promising future directions, and supersymmetry.
+Please consider reading them in forwards order.
 
-Data Intensive Science in High-Energy Physics
-
-\TODO{Context of Standard Model theory, directions in which future developments
-could improve it, and supersymmetric models}
-supersymmery (SUSY)
-Chapter~\ref{chapter:theory}
-
-\TODO{the design of the \atlas\ detector}
-Chapter~\ref{chapter:experiment}
-
-\TODO{theory and practice of data science, as it could be for clarity
-and how it is in our \atlas\ SUSY conventions}
-Chapter~\ref{chapter:searches}
-
-\TODO{the main event: the search with many of its gory details in addition
-to those presented publically in the paper~\cite{atlas2022searches}}
-Chapter~\ref{chapter:2ljets}
-
-\paragraph{Other work.}
-\TODO{Use some of the data analysis ideas of Chapter~\ref{chapter:searches}
-to build predictive models
-and test them to test for symmetries}
-\TODO{citations}
-
+Another product of this PhD (not further explored in this thesis),
+was the development of a general method for testing symmetries in data~\cite{
+lester2021stressed,
+tombs2021which
+}
+and its application to parity violation in hadron colliders~\cite{
+lester2022hunting,
+Lester:2019bso,
+lesterChiralMeasurements2021,
+Gripaios:2020hya,
+lester2021lorentz
+}.
+The result is a practical solution which employs the principles of predicting
+data and reporting likelihoods as advocated by Chapter~\ref{chapter:searches}.
+It uses `self-supervised' machine learning to train predictive models on a
+task that can only be solved if the proposed symmetry is violated~\cite{
+tombs2021which,
+pmlr-v139-radford21a,
+Noroozi2016jigsaw,
+multitaskself2017,
+devlin2019bert
+}.
 \end{preface}
 
 \afterpage{%

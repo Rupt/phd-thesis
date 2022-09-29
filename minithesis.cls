@@ -212,7 +212,7 @@
     \cleardoublepage%
     \phantomsection
     \addcontentsline{toc}{chapter}{Acknowledgements}
-    \vspace*{2cm}%
+    \vspace*{1.5cm}%
     \begin{center}%
     \begingroup
     {\LARGE{\textbf{Acknowledgements}}}%
@@ -228,7 +228,7 @@
     \cleardoublepage
     \phantomsection
     \addcontentsline{toc}{chapter}{Preface}
-    \vspace*{2cm}%
+    \vspace*{1.5cm}%
     \begin{center}%
     \begingroup
     {\LARGE{\textbf{Preface}}}%
@@ -242,7 +242,7 @@
 \newenvironment{declaration}{%
     \cleardoublepage%
     \adjustwidth{1cm}{1cm}%
-    \vspace*{2cm}%
+    \vspace*{1.5cm}%
     \begin{center}%
     \begingroup
     {\LARGE\textbf{Declaration}}%
@@ -260,7 +260,7 @@
     \cleardoublepage%
     \phantomsection
     \addcontentsline{toc}{chapter}{Abstract}
-    \vspace*{2cm}%
+    \vspace*{1.5cm}%
     \begin{center}%
     \begingroup
     {\LARGE\textbf{#1}}%
