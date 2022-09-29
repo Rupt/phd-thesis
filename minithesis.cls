@@ -30,23 +30,23 @@
 
 % one-sided or two-sided (bound copies may have to be single-sided)
 \DeclareOption{oneside}{%
-	\def\@oneside{yes}
-	\PassOptionsToClass{oneside}{scrbook}
+    \def\@oneside{yes}
+    \PassOptionsToClass{oneside}{scrbook}
 }
 
 
 \DeclareOption{twoside}{%
-	\def\@oneside{}
-	\PassOptionsToClass{twoside}{scrbook}
+    \def\@oneside{}
+    \PassOptionsToClass{twoside}{scrbook}
 }
 
 % pad inner margins for binding
 \DeclareOption{bind}{%
-	\def\@bindmargins{yes}
+    \def\@bindmargins{yes}
 }
 
 \DeclareOption{nobind}{%
-	\def\@bindmargins{}
+    \def\@bindmargins{}
 }
 
 % use a standard font size
@@ -80,7 +80,7 @@
 \RequirePackage{setspace}
 % make maths in titles go automatically bold
 \AtEndOfClass{%
-	\g@addto@macro\bfseries{\boldmath}
+    \g@addto@macro\bfseries{\boldmath}
 }
 
 
@@ -108,13 +108,13 @@
 % increase inner margins for binding
 \newlength{\@bindextramargin}
 \AtEndOfClass{%
-	\ifx\@bindmargins\@empty%
-		\setlength{\@bindextramargin}{0.0in}
-	\else%
-		\setlength{\@bindextramargin}{0.2in}
-	\fi
-	\setlength{\oddsidemargin}{\@bindextramargin}
-	\setlength{\evensidemargin}{-\@bindextramargin}
+    \ifx\@bindmargins\@empty%
+        \setlength{\@bindextramargin}{0.0in}
+    \else%
+        \setlength{\@bindextramargin}{0.2in}
+    \fi
+    \setlength{\oddsidemargin}{\@bindextramargin}
+    \setlength{\evensidemargin}{-\@bindextramargin}
 }
 
 % redefine bits of document shape
@@ -141,159 +141,166 @@
 
 % normal headers and footers (headers are all like RH pages for oneside)
 \ifx\@oneside\@empty%
-	\fancyhead[RO,LE]{\thepage}%
-	\fancyhead[LO,RE]{\leftmark}%
+    \fancyhead[RO,LE]{\thepage}%
+    \fancyhead[LO,RE]{\leftmark}%
 \else%
-	\fancyhead[RO,R]{\thepage}%
-	\fancyhead[LO,L]{\leftmark}%
+    \fancyhead[RO,R]{\thepage}%
+    \fancyhead[LO,L]{\leftmark}%
 \fi%
 \fancyfoot{}%
 % lower case header content
 \renewcommand{\chaptermark}[1]{%
-	\markboth{#1}{}%
+    \markboth{#1}{}%
 }
 
 % headers and footers for plain (blank) pages
 \fancypagestyle{plain}{%
-	\fancyhf{}%
-	\fancyfoot[C]{\thepage}%
+    \fancyhf{}%
+    \fancyfoot[C]{\thepage}%
 }
 
 % treat forced blank pages in the same way as chapter title pages
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
-			\hbox{}%
-			\thispagestyle{plain}%
-			\newpage%
-			\if@twocolumn\hbox{}\newpage\fi\fi\fi}%
+            \hbox{}%
+            \thispagestyle{plain}%
+            \newpage%
+            \if@twocolumn\hbox{}\newpage\fi\fi\fi}%
 
 
 % public environments and commands
 
 % frontmatter
 \renewenvironment{frontmatter}{%
-	\newcounter{iterlist}%
-	\begin{onehalfspacing}%
-		}{%
-	\end{onehalfspacing}%
-	\ignorespacesafterend%
+    \pagenumbering{roman}
+    \newcounter{iterlist}%
+    \begin{onehalfspacing}%
+        }{%
+    \end{onehalfspacing}%
+    \ignorespacesafterend%
 }
 
 % mainmatter
 \renewenvironment{mainmatter}{%
-	\if@twoside\clearpage\fi%
-	\afterpage{\pagenumbering{arabic}}%
-	\begin{onehalfspacing}%
-		}{%
-	\end{onehalfspacing}%
-	\ignorespacesafterend%
+    \if@twoside\clearpage\fi%
+    \afterpage{\pagenumbering{arabic}}%
+    \begin{onehalfspacing}%
+        }{%
+    \end{onehalfspacing}%
+    \ignorespacesafterend%
 }
 
 % appendices
 \newenvironment{appendices}{%
-	\begin{onehalfspacing}%
-		\appendix%
-		}{%
-	\end{onehalfspacing}%
-	\ignorespacesafterend%
+    \begin{onehalfspacing}%
+        \appendix%
+        }{%
+    \end{onehalfspacing}%
+    \ignorespacesafterend%
 }
 
 % backmatter
 \renewenvironment{backmatter}{%
-	\begin{onehalfspacing}%
-		\appendix%
-		}{%
-	\end{onehalfspacing}%
-	\ignorespacesafterend%
+    \begin{onehalfspacing}%
+        \appendix%
+        }{%
+    \end{onehalfspacing}%
+    \ignorespacesafterend%
 }
 
 % acknowledgements
 \newenvironment{acknowledgements}{%
-	\cleardoublepage%
-	\vspace*{2cm}%
-	\begin{center}%
-	\begingroup
-	{\LARGE{\textbf{Acknowledgements}}}%
-	\endgroup
-	\end{center}%
-	\vspace*{1cm}%
+    \cleardoublepage%
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Acknowledgements}
+    \vspace*{2cm}%
+    \begin{center}%
+    \begingroup
+    {\LARGE{\textbf{Acknowledgements}}}%
+    \endgroup
+    \end{center}%
+    \vspace*{1cm}%
 }{%
-	\ignorespacesafterend%
+    \ignorespacesafterend%
 }
 
 % preface
 \newenvironment{preface}{%
-	\cleardoublepage%
-	\vspace*{2cm}%
-	\begin{center}%
-	\begingroup
-	{\LARGE{\textbf{Preface}}}%
-	\endgroup
-	\end{center}%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Preface}
+    \vspace*{2cm}%
+    \begin{center}%
+    \begingroup
+    {\LARGE{\textbf{Preface}}}%
+    \endgroup
+    \end{center}%
 }{%
-	\ignorespacesafterend %
+    \ignorespacesafterend %
 }
 
 % declaration
 \newenvironment{declaration}{%
-	\cleardoublepage%
-	\adjustwidth{1cm}{1cm}%
-	\vspace*{2cm}%
-	\begin{center}%
-	\begingroup
-	{\LARGE\textbf{Declaration}}%
-	\endgroup
-	\end{center}%
-	\vspace*{1cm}%
+    \cleardoublepage%
+    \adjustwidth{1cm}{1cm}%
+    \vspace*{2cm}%
+    \begin{center}%
+    \begingroup
+    {\LARGE\textbf{Declaration}}%
+    \endgroup
+    \end{center}%
+    \vspace*{1cm}%
 }{%
-	\endadjustwidth%
-	\ignorespacesafterend%
+    \endadjustwidth%
+    \ignorespacesafterend%
 }
 
 % abstract
 \newenvironment{abstract}[1][Abstract]{%
-	\adjustwidth{1.5cm}{1.5cm}%
-	\cleardoublepage%
-	\vspace*{2cm}%
-	\begin{center}%
-	\begingroup
-	{\LARGE\textbf{#1}}%
-	\endgroup
-	\end{center}%
-	\vspace*{1cm}%
+    \adjustwidth{1.5cm}{1.5cm}%
+    \cleardoublepage%
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Abstract}
+    \vspace*{2cm}%
+    \begin{center}%
+    \begingroup
+    {\LARGE\textbf{#1}}%
+    \endgroup
+    \end{center}%
+    \vspace*{1cm}%
 }{%
-	\endadjustwidth%
-	\ignorespacesafterend%
+    \endadjustwidth%
+    \ignorespacesafterend%
 }
 
 % titlepage
 \DeclareRobustCommand{\titlepage}[2][]{%
-	\thispagestyle{empty}%
-	\begingroup%
-	\begin{center}%
-		\vspace*{2cm}%
-		\begin{doublespace}%
-			{\Huge\textbf{\thetitle}}\\%
-		\end{doublespace}%
-		\vspace*{3cm}%
-		{\Large{{\theauthor} \\ {#1}}}\\%
-		\vspace*{8cm}%
-		{#2}%
-	\end{center}%
-	\endgroup%
+    \thispagestyle{empty}%
+    \begingroup%
+    \begin{center}%
+        \vspace*{2cm}%
+        \begin{doublespace}%
+            {\Huge\textbf{\thetitle}}\\%
+        \end{doublespace}%
+        \vspace*{3cm}%
+        {\Large{{\theauthor} \\ {#1}}}\\%
+        \vspace*{8cm}%
+        {#2}%
+    \end{center}%
+    \endgroup%
 }
 \renewcommand{\maketitle}[1]{\titlepage{}}
 
 % dedication
 \DeclareRobustCommand{\dedication}[1]{%
-	\cleardoublepage%
-	\vspace*{\stretch{2}}%
-	\thispagestyle{plain}%
-	\pagestyle{plain}%
-	\begin{center}%
-		\begin{varwidth}{\textwidth}%
-			\noindent\textsl{\enquote{#1}}%
-		\end{varwidth}%
-	\end{center}%
-	\vspace*{\stretch{4}}%
-	\pagestyle{plain}%
+    \cleardoublepage%
+    \vspace*{\stretch{2}}%
+    \thispagestyle{plain}%
+    \pagestyle{plain}%
+    \begin{center}%
+        \begin{varwidth}{\textwidth}%
+            \noindent\textsl{\enquote{#1}}%
+        \end{varwidth}%
+    \end{center}%
+    \vspace*{\stretch{4}}%
+    \pagestyle{plain}%
 }
