@@ -543,7 +543,8 @@ mackay2003information,
 skilling2004nested,
 skilling2006nested,
 sivia2006data,
-skilling2010foundations
+skilling2010foundations,
+skilling2008rant
 }.
 
 Some sources continue to define Bayesian analysis as the computation of
@@ -567,28 +568,15 @@ is removed;
 Figure~\ref{fig:searches_baton_roue_bayes} illustrates this analogy.
 A unicycle is more of a circus trick than a practical transport.
 
-Phrased succinctly by Skilling~\cite{skilling2008rant},
-``we SHOULD use Bayes by assigning subjective priors and inspecting evidence
-values.''
-This framing of probabilistic data analysis agrees exactly with the standard
-practice of histogramming simulations in High Energy Physics:
-signal and background models define priors, and their (normalized) bin yields
-are the evidence values that we use to compare the models.
-Finally, their corresponding posteriors are the normalized shapes those samples
-take within the observed histogram bin
-(as if it were more finely re-binned after analysis),
-with which we do not compare the models,
-but which could in principle be used for secondary investigations.
-
 
 \subsection{Probability assignments}
 Probability algebra manipulates probabilities, but does not state how they
 should be initially assigned.
-Probability assignments are generally constrained only by normalization, but
-might be informed by calibration data, loosely motivated opinions,
-or by established theories such as quantum mechanics.
-But there are examples of unambiguously derived distributions that are commonly
-used in High Energy Physics, notably the Poisson and Gaussian distributions,
+Such assignments are must be normalized, but might be loosely informed informed
+by calibration data, established theories like quantum mechanics,
+or vaguely motivated opinions,
+But there are examples of unambiguously derived distributions with common use
+in High-energy physics: the Poisson and Gaussian distributions,
 both of which can derive from the identity that
 \begin{equation}
 \label{eqn:searches_exponential}
@@ -598,9 +586,8 @@ both of which can derive from the identity that
 .
 \end{equation}
 As discussed in Section~\ref{sec:atlas_trigger}, the trigger rejects most
-LHC collision events;
-our data have fixed large number $N$ of trials (bunch crossings)
-and a small probability of acceptance (triggering).
+LHC collision events so our data have fixed large number $N$ of trials
+(bunch crossings) and a small probability of acceptance (triggering).
 The number of accepted events  $n$ is therefore described by the
 binomial distribution:
 \begin{equation}
@@ -612,7 +599,7 @@ which is a product of the probabilities (product rule) in the sequence of $N$
 accept/reject decisions, summed over all possible permutations (sum rule) of
 the accepted events.
 
-With the tiny trigger rate, we are interested in the limit of small
+With the tiny trigger rate, we work near the limit of small
 $p$ and large $N$, which result in a mean acceptance of $\lambda = Np$.
 Using the identity of Equation~\ref{eqn:searches_exponential},
 this limit tends towards the Poisson distribution~\cite{jaynes2003probability}:
@@ -621,18 +608,18 @@ this limit tends towards the Poisson distribution~\cite{jaynes2003probability}:
 \mathrm{Poisson}(n\mid \lambda) = \frac{\lambda^n}{n!}\exp(-\lambda)
 ,
 \end{equation}
-which we use ubiquitously to interpret histograms.
+which we use everywhere to interpret histograms.
 
 The Gaussian distribution has many justifications:
-as the unique distribution that is spherically symmetric and factors linearly
-into independent dimensions~\cite{
+as the unique distribution that is spherically symmetric and factors into
+linearly independent dimensions~\cite{
 jaynes2003probability,
 herschel1850normal,
 maxwell1860normal,
 muller1959note,
 marsaglia1972normal
 },
-as a practical approximation that permits analysis in linear algebra,
+as an approximation that permits analysis in linear algebra,
 and as the maximum entropy~\cite{PhysRev.106.620} distribution for a
 known mean and variance.
 For any distribution with known mean and variance (in given coordinates),
@@ -649,11 +636,11 @@ Such an approximation may not be \emph{good}, but it is best in class.%
 }
 Gaussian approximation matches those moments.
 
-As a limiting approximation, the Gaussian form arises from products of many
-likelihood functions from the combination of independent measurements.
-At its maximum $\check{x}$, the first derivative of a smooth function $f(x)$
-vanishes and its second derivative is negative;
-to leading order, the Taylor expansion of a product of $f$s looks like
+The Gaussian form arises from products of many functions, which often arise
+from the products of likelihood functions on independent data.
+Consider a smooth (likelihood) function $f(x)$.
+At its maximum $\check{x}$, its first derivative vanishes and its second
+derivative is negative, so to leading order a product of $f$s looks like
 \begin{equation}
 f(x)^N =
 \lim_{N \to \infty}\!
@@ -661,8 +648,7 @@ f(x)^N =
 1 - \kappa (x - \check{x})^2
 \right)^N,
 \end{equation}
-which, again by Equation~\ref{eqn:searches_exponential}, goes into the Gaussian
-form
+which by Equation~\ref{eqn:searches_exponential} goes into the Gaussian form
 \begin{equation}
 \label{eqn:searches_gaussian}
 \mathrm{Gaussian}(x\mid \mu, \sigma)
@@ -674,57 +660,46 @@ form
 \end{equation}
 which is normalized by its prefactor, and in which we include the
 $\mathrm{d}x$ terms as reminders that it is a density function in $x$.
-On a $\log$ scale, the Gaussian form is quadratic in $\mu$, so
-Gaussian likelihoods justify many least-squares methods.
-Here, $\kappa$ and $\sigma$ both relate to the second derivative of the target
-function; this relationship extends to multiple dimensions in the Hessian
-matrix and its inverse, and permits the useful approximation of estimate error
-bars from second derivatives.
+Since the Gaussian form is an exponentiated quadratic, Gaussian likelihoods
+justify many least-squares methods.
 
 This is not the Central Limit Theorem, but can be used to derive it: the
-distribution of a sum is a convolution, which becomes a product in
-Fourier-transformed space, and that product converges to a Gaussian function by
+distribution of a sum is a convolution which becomes a product in
+Fourier space, and that product converges to a Gaussian function by
 if the mean and variance exist.
-Another beautiful alternative proof of the Central Limit Theorem is given by
+Another more beautiful proof of the Central Limit Theorem is given by
 Jaynes~\cite{jaynes2003probability}
 (Section ``7.16 The central limit theorem''), but would be spoiled by a
 reproduction here.
 
 In the current year, it would be remiss to not mention machine learning
-algorithms.
-Among many applications, learning algorithms have practical successes in
-probability assignments, such as to predict labels in classification,
-or to predict next words in text generation~\cite{
-MurphyKevinP.2012Mlap,
-radford2019language
-}.
-Machine learning tunes flexible functions by consuming data and testing
-predictions in this probabilistic framework:
+algorithms, which tune flexible functions by consuming data and testing
+their results.
+Their probabilistic scheme works as follows:
 \begin{enumerate}
 \item Predict new data with $\prob{d_i}{f(d_{i-1}, \ldots), h}$.
 Keep (the $\log$ of) this evidence as a testing score for comparison against
 other models.
 These $d_i$ may be only reductions of the data, such as class labels
 or index permutations~\cite{Noroozi2016jigsaw, multitaskself2017}.
-Other inputs that are not predicted, such as associated images that the machine
-uses to predict the labels, are in the implicit context.
+Other inputs (such as images to which the labels belong) that are not predicted
+are in the implicit context.
 \item Use those data to update your state
 $f(d_{i-1}, \ldots) \to f(d_i, d_{i-1}, \ldots)$.
-Unlike ideal posterior updating, this encodes only a function of the data, not
+Unlike ideal posterior updating, this encodes only a function of the data and
 its whole --- one usually cannot afford to consume all aspects of data, so
 although theoretically suboptimal this approximation is vastly superior in
 practice.
-Learning only part of the data is not wrong, but less precise.
+Learning only part of the data is not wrong, just less precise.
 \item Go\,to 1.
 \end{enumerate}
 These portions of data $d_i$ might be labelled the `training', `validation',
-and `testing' sets.
-This perspective highlights the importance of independent training and testing
-data --- information should not be reused since
-$\prob{d_2}{d_2, \ldots} = 1$, any memory of $d_2$ that is kept
-in the $f(\ldots, d_2, \ldots)$ state spoils the likelihood if $d_2$ is reused
-for testing after training~\cite{sivia2006data}.
-Independent testing data permit the clean interpretations of likelihood ratios.
+and `testing' sets, and they must be independent for rigorous testing
+because $\prob{d_1}{d_1, \ldots} = 1$:
+if you study (training) from a known exam script (testing), your answers are
+memory, not prediction.
+Independent testing data permits the cleanest interpretations of
+likelihoods~\cite{sivia2006data}.
 
 
 \subsection{Decision theory}
@@ -781,12 +756,12 @@ Wald's theorem states that restricting oneself to minimizing an expected cost
 function cannot deny one access to optimal decisions.
 Alternative formulations can at best be equivalent.
 
-This theory does not, however, define how to construct that cost function.
+This theory does not define how to construct that cost function.
 Like the prior, it must come from context, and indeed the two are intertwined
 in the risk;
-decision-making machines (such as organisms) do learn to make good
+decision-making machines (or organisms) do learn to make good
 decisions without constructing either cost or prior explicitly.
-Towards the goal of usefully reporting data, such decision theory has been
+Towards the goal of usefully reporting data, decision theory has been
 applied to argue for ways to summarize posterior distributions.
 For example, minimizing the expected absolute error
 $c(t, x) = |t - x|$ leads
@@ -795,16 +770,6 @@ $c(t, x) = (t - x)^2$ leads to reporting the mean.
 Had the rules of our bean counting game rewarded you based on such distances,
 these results could have been good guesses.
 But those weren't the rules.
-
-When arguing that we should report likelihoods and evidence values for our
-data, we have not explicitly constructed cost functions, nor have we made
-quantitative predictions of future events.
-But we can qualitatively consider them in this decision theory framework ---
-we imagine that future scientists will want to reuse our data, and would be
-pleased (attain a small cost) if they were able to reinterpret the results for
-their own models.
-We can therefore reason that likelihoods would usually have more utility than
-alternatives such as point posterior averages.
 
 % connection to frequentist section
 An amusing feature of Wald's theory is that it was formulated from a
@@ -822,12 +787,11 @@ working defined probability via frequencies in random sampling, which cannot
 reasonably apply to the subjective, non-random distributions of probability
 that many prior distributions are.
 This frequency-restricted, `frequentist', philosophy dominated 20th century
-statistical research, and influences practices still followed in \atlas.
-We therefore review some features of frequentist statistics and its history.
-% Would like something along the lines of:
-% `No formal derivations except for historical precedent,
-% so review with that history'
-% But feels too rude.
+statistical research, and influences practices that are still followed in
+\atlas.
+To understand these procedures, we therefore review some features of
+frequentist statistics and its history.
+
 
 \begin{singlespacing}
 \section{Frequentist theory}
