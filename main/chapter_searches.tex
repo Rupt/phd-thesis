@@ -16,15 +16,15 @@ deficiencies.%
 \noindent
 Our aim in scientific data analysis is to distil useful messages from the
 data, and to report that message to the wider community.
-Various messages could be extracted from given data,
-and those messages will have differing values to their recipients.
+Various messages could be extracted from any given data,
+and those messages will have varied values to their recipients.
 Data analysis is not an automatic process, but a design with many judgements
 that are informed by theory, intuition, and convention to give value to their
 results.
 
-To support our later description of the \atlas\ SUSY $\twoljets$ search in
-Chapter~\ref{chapter:2ljets}, this chapter introduces the basic theory and
-practice of data analysis and its conventional form in the \atlas\ SUSY
+To support our later description of the \atlas\ SUSY `$\twoljets$' search in
+Chapter~\ref{chapter:2ljets}, this chapter introduces the basic theory of
+data analysis and its conventional form in the \atlas\ SUSY
 community, parts of which can only be explained in their historical context.
 
 Theoretical data analysis in the tightly coupled fields of probability theory
@@ -42,11 +42,11 @@ are introduced in Section~\ref{sec:searches_searches}.
 \section{Data analysis}
 \label{sec:searches_data_analysis}
 How many jelly beans are in the jar of Figure~\ref{fig:searches_beans}?
-Your answer depends not only on what you observe from the figure, but also on
+Your guess depends not only on what you observe from the figure, but also on
 what else you know about cartoon jars of beans, and on what reward is offered.
 Each answer is a decision, which depends both on how you value the rewards,
 and on which numbers of beans you subjectively infer to be probable.
-We shall return to this example after developing its analysis in probability
+We return to this example after developing its analysis in probability
 and decision theory.
 
 \begin{figure}[tp]
@@ -97,33 +97,32 @@ As throughout physics, knowing a method's derivation allows one to judge when
 its approximations should hold and when it leaves room for improvement.
 
 Probabilistic data analysis follows the ordinary structure of science:
-write down predictive models, test those predictions against data,
-then update your models (or invent new ones) to refine their predictions
-to accommodate what has been learned.
-Likelihood functions are particularly important to this process because they
-describe our predictions.
-But as we shall see, not everything is a likelihood.
+write down predictive models, test their predictions against data,
+then update your models (or invent new ones) to refine their predictions.
+Likelihood functions are particularly important to this process because
+they quantify predictions.
+But not everything is a likelihood.
 
 We begin with what probability is: at its most abstract, a probability is a
 proportion of stuff within a larger whole.
-Probabilities are useful because proportions have applications
-(particularly to logical reasoning with uncertainty), and because
-they can be manipulated and interrelated with an intuitive linear algebra.
-The remainder of this section uses a standard example from High Energy Physics
---- a histogram ---
-to introduce this probabilistic structure and other parts of its technical
-language.
+Probabilities are useful because proportions have important applications,
+and because they can be manipulated and interrelated with an intuitive linear
+algebra.
+The remainder of this section uses the omnipresent tool of high-energy
+physics --- the histogram --- to introduce the structure of probability and
+its technical language.
 
 
 \subsection{Probability: abstract}
-A probability $\prob{b}{a}$ is a number, which quantifies the proportion
-of $b$ within $a$ and can be expressed as a ratio~\cite{axioms1010038}
+A probability $\prob{b}{a}$ is a number which quantifies the proportion
+of $b$ within $a$, and can be expressed as a ratio
 \begin{equation}
 \label{eqn:searches_prob_ratio}
 \prob{b}{a} = \frac{m(b, a)}{m(a)},
 \end{equation}
 in which $m(x)$ is a measure, and the comma `,' means `and'
-(logical and or set intersection or anything equivalent).
+(logical `and', or set intersection or any other equivalent
+thing)~\cite{axioms1010038}.
 
 For example, $\prob{b}{a}$ could quantify the proportion of tea within
 a spoon within a cup --- then $m(a)$ measures the content of the cup, and
@@ -138,7 +137,7 @@ To apply to logical reasoning, $a$ and $b$ are logical propositions and
 $\prob{b}{a}$ quantifies the degree to which $a$ implies $b$, with the
 limiting cases that $\prob{b}{a} = 1$ when $a$ implies $b$,
 and $\prob{b}{a} = 0$ when $a$ contradicts $b$.
-Indeed, Cox's theorem shows that probability algebra is uniquely consistent
+Indeed Cox's theorem shows that probability algebra is uniquely consistent
 with Boolean logic~\cite{
 cox1946probability,
 cox1961algebra,
@@ -156,8 +155,8 @@ frankfurt2005on
 },
 although random processes are a useful application.
 
-Standard probability algebra derives from
-Equation~\ref{eqn:searches_prob_ratio}; it comprises a \textbf{product rule}
+Probability algebra derives from
+Equation~\ref{eqn:searches_prob_ratio}; it has a \textbf{product rule}
 \begin{align}
 \prob{c, b}{a} &= \prob{c}{b, a}\times \prob{b}{a},
 \label{eqn:searches_product_rule}
@@ -232,10 +231,10 @@ Both likelihood maxima are equivalent, but the maximum prior densities change.
 
 Since prior probabilities are normalized distributions, it is usually
 convenient to represent them as density functions.
-Densities are stated relative to coordinates (or occasionally measures),
+Densities are stated relative to coordinates (or measures),
 so changing coordinates changes their values as their unit probability mass
 is sloshed around.
-Likelihoods are not densities in the conditioning variable that they explore,
+Likelihoods are not densities,
 so changing coordinates instead slides them horizontally like beads on an
 abacus, and does not change their values for equivalent states.
 Figure~\ref{fig:searches_abacus} illustrates this difference.
@@ -252,7 +251,7 @@ better than others.
 Priors on hypotheses express uncertain predictions, and
 priors on data are useful in experimental design.
 
-To illustrate this, consider a histogram that bins event yields in
+To illustrate this, we consider a histogram that bins event yields in
 $\met$, with distributions from background and (supersymmetric) signal samples
 overlaid.
 Example such histograms are displayed in
@@ -292,19 +291,17 @@ Density is a somewhat misleading term here ---
 probability mass is incompressible; it moves and redistributes more like
 depth of water than density of air.%
 }
-
 To preserve the area of each bin, which shows its probability mass,
-bin heights therefore change to adapt to their widths that change due to the
-differing values of $\met$ and $\sqrt{\met}$.
-This coordinate-dependence of the prior density means that its point of
+bin heights change to adapt to their width in each coordinate.
+Coordinate-dependence of the prior density means that its point of
 maximum density is not always meaningful.
 But since the probability mass in each bin is constant, the likelihood is
 coordinate-independent.
 
-Standard methods approximate such histograms from Monte Carlo simulations,
-which do not directly indicate bin indices but state the values for event
-variables.
-To connect event variables to bin indices, we begin with some notation:
+Standard methods approximate such histograms from Monte Carlo simulations.
+Simulations do not directly indicate bin indices, but state the values for
+event variables;
+to connect event variables to bin indices, we begin with some notation:
 we have an hypothesis label $h$ (signal or background),
 an event variable $x$ that we histogram ($x = \met$),
 and we observe a datum $d$ that indexes the histogram bins.
@@ -331,8 +328,8 @@ that it should usually be assumed unless otherwise stated.
 }
 This example of a binary selection highlights how the likelihood acts as a
 filter that only rejects events that are contradicted by the data.
-Other likelihoods that are not binary act similarly, but as inefficient filters
-that reject events with some probability.
+Other likelihoods that are not binary act as inefficient filters
+which reject events with some probability.
 
 Simulating events from background and signal hypotheses samples from their
 respective priors $\pi(x) = \prob{x}{h}$, which
@@ -362,11 +359,14 @@ skilling2010foundations
 can be imagined as simulating from the model $\mathrm{d}\pi$ and
 counting events that hit pass the likelihood filter.
 The name `evidence' relates to its application for model
-comparison~\cite{mackay2003information}.
+comparison~\cite{
+mackay2003information,
+skilling2004nested,
+skilling2006nested
+}.
 
-
-Suppose that we have this one event with $\met > 100\,\eV[G]$ ---
-did it come from the background or signal?%
+Suppose that we have one event with $\met > 100\,\eV[G]$.
+Did it come from the background or signal?%
 \footnote{%
 Questioning the origin of individual events is unusual in our context in
 \atlas, but is done in other research into rare effects such as neutrino
@@ -388,8 +388,8 @@ which compare models by the largest likelihoods their priors support,
 can be practical and give useful upper bounds on the evidence.
 This histogram example, however, highlights a limitation since both models
 support the same maximum likelihood of
-$L(\varepsilon + 100\,\eV[G]) = 1$.
-These evidence values here differ only by their prior masses in that bin.
+$L(101\,\eV[G]) = 1$.
+These evidence values differ only by their prior masses in the bin.
 
 % posterior
 Perhaps we now wanted to see where in the overflow bin this event landed, and
@@ -439,19 +439,18 @@ algebra.
 
 Data only enter the \emph{inputs} to Bayes' rule through the likelihood
 function, so the likelihood must contain all relevant information from the
-data.
-The same is true for the evidence for its reuse as a likelihood elsewhere.
+data; the same is true for the evidence for its reuse elsewhere as an
+abstracted likelihood.
 To summarize data for scientific communications, we therefore find a
 hierarchy of objects with decreasing complexity and increasing abstraction:
 \begin{itemize}
-\item the data themselves, with instructions for their interpretation,
+\item the data themselves with instructions for their interpretation,
 \item the likelihood function, or functions for varied interpretations, and
 \item evidence values for well-defined, predictive models.
 \end{itemize}
-Each is a compression of the data, which is easier to interpret in more refined
-contexts.
-Note that summaries of these objects also be useful, such as maxima
-of the likelihood function,
+Each step compresses the data, into a smaller form that is easier to interpret
+in more refined contexts.
+Summaries of these objects are useful, such as maxima of the likelihood function,
 or regions in which it exceeds meaningful thresholds.
 
 Posterior probabilities are model-dependent objects that can usefully
@@ -521,7 +520,7 @@ From a posterior $\log$ odds, a little rearrangement recovers the individual
 probabilities through the `logistic' function, also known as
 `softmax' when multiple hypotheses are in play~\cite{MurphyKevinP.2012Mlap}.
 
-Many objections to Bayes' rule stem from a fixation on posterior
+Common objections to Bayes' rule stem from a fixation on posterior
 distributions from unjustified prior assignments.
 Classical works by
 Bayes~\cite{bayes1763lii} and
@@ -532,8 +531,6 @@ but is not always justified or useful.
 But to report scientific data, such practices are fairly criticized as
 arbitrary when they influence the reported results.
 Prior assignments are arbitrary.
-You are welcome to propose any prediction in any circumstances, and the
-scientific response is to test how well it predicts our observations of nature.
 Our emphasis on the likelihood functions and evidence values that quantify
 those predictions avoids the pitfall of seeking uninformative, neutral, or
 unbiased priors by embracing priors as active and explicit predictions.
@@ -565,8 +562,8 @@ Cutting out the evidence hamstrings Bayesian analysis, leaving only the
 semi-Bayesian posterior-only approach and its clear flaws.
 A bicycle is stable with two wheels, and falls over if one either
 is removed;
-Figure~\ref{fig:searches_baton_roue_bayes} illustrates this analogy.
-A unicycle is more of a circus trick than a practical transport.
+Figure~\ref{fig:searches_baton_roue_bayes} illustrates this analogy;
+a unicycle is more of a circus trick than a practical transport.
 
 
 \subsection{Probability assignments}
@@ -576,7 +573,7 @@ Such assignments are must be normalized, but might be loosely informed
 by calibration data, established theories like quantum mechanics,
 or vaguely motivated opinions,
 But there are examples of unambiguously derived distributions with common use
-in High-energy physics: the Poisson and Gaussian distributions,
+in high-energy physics: the Poisson and Gaussian distributions,
 both of which can derive from the identity that
 \begin{equation}
 \label{eqn:searches_exponential}
@@ -640,7 +637,8 @@ The Gaussian form arises from products of many functions, which often arise
 from the products of likelihood functions on independent data.
 Consider a smooth (likelihood) function $f(x)$.
 At its maximum $\check{x}$, its first derivative vanishes and its second
-derivative is negative, so to leading order a product of $f$s looks like
+derivative is negative, so at leading order a product of $f$s near its maximum
+looks like
 \begin{equation}
 f(x)^N =
 \lim_{N \to \infty}\!
@@ -663,13 +661,13 @@ $\mathrm{d}x$ terms as reminders that it is a density function in $x$.
 Since the Gaussian form is an exponentiated quadratic, Gaussian likelihoods
 justify many least-squares methods.
 
-This is not the Central Limit Theorem, but can be used to derive it: the
+This is not the famous central limit theorem, but can be used to derive it: the
 distribution of a sum is a convolution which becomes a product in
 Fourier space, and that product converges to a Gaussian function by
 if the mean and variance exist.
-Another more beautiful proof of the Central Limit Theorem is given by
+A more beautiful proof of the central limit theorem is given by
 Jaynes~\cite{jaynes2003probability}
-(Section ``7.16 The central limit theorem''), but would be spoiled by a
+(Section ``7.16 The central limit theorem''), but would be spoiled by
 reproduction here.
 
 In the current year, it would be remiss to not mention machine learning
@@ -703,7 +701,7 @@ likelihoods~\cite{sivia2006data}.
 
 
 \subsection{Decision theory}
-Now that we have thoroughly covered probability theory, we are ready to return
+Now that we have thoroughly covered probability theory, we  return
 to the jelly bean game of Figure~\ref{fig:searches_beans}.
 Given all you know about jars and beans, you could make a vague guess without
 looking at the figure, and you could refine that guess by inspecting the image.
@@ -753,12 +751,12 @@ minimizes $R(t)$.
 Although alternative ideas (such as minimax, minimizing a maximum
 loss~\cite{savage1951review}) can work well in certain contexts,
 Wald's theorem states that restricting oneself to minimizing an expected cost
-function cannot deny one access to optimal decisions.
+function cannot deny access to optimal decisions.
 Alternative formulations can at best be equivalent.
 
-This theory does not define how to construct that cost function.
-Like the prior, it must come from context, and indeed the two are intertwined
-in the risk;
+This theory does not define how to construct a cost function.
+Like probability assignments, it must come from context, and indeed the two
+are intertwined in the risk;
 decision-making machines (or organisms) do learn to make good
 decisions without constructing either cost or prior explicitly.
 Towards the goal of usefully reporting data, decision theory has been
@@ -830,8 +828,8 @@ prior predictions often express subjective uncertainties that are manifestly
 non-random.
 Under this frequency definition, those predictive probabilities are nonsense
 and must be rejected.
-The frequency definition does not change probability algebra, it only restricts
-it to a permitted scope.
+The frequency definition does not change probability algebra,
+but it does restrict its scope.
 
 Coin tosses, for example, can be imagined as random.
 Earth's human population could toss a few billion coins to precisely
@@ -855,13 +853,13 @@ Rosencrantz and Guildenstern, in their play by Tom~Stoppard~\cite{
 stoppard1967rosencrantz
 }
 toss a coin ninety-two times, all landing heads.
-They then play a game with a third player and land eight more heads.
-Will the next toss be heads or tails?
+They then play a game and land eight more heads.
+Will the next toss land heads or tails?
 The answer is not random --- it is burned onto paper in print.
 If you were to put probabilities on the outcomes, they would be subjectively
 informed by it being the one-hundred-and-first toss, our cultural enjoyment
 of round numbers in base-10, and your reading of these words.
-Frequentist theory, however, forbids such subjective probabilities of
+Frequentist theory forbids such subjective probabilities of
 non-random unknowns, and is left searching for alternative forms of inference.
 
 As established in Section~\ref{sec:searches_data_analysis}, the original
@@ -919,8 +917,8 @@ which may have been accurate in his environment, but different
 (heretical?) ideas have taken hold in research at the LHC ---
 orthodoxy has moved on.
 We therefore stick with `frequentist'.
-Sections~\ref{sec:searches_fisher} and~\ref{sec:searches_np} now introduce
-these frequentist methods to explain the historical context for our modern
+Sections~\ref{sec:searches_fisher} and~\ref{sec:searches_np} introduce
+these frequentist methods to explain the historical context of our modern
 methods, which are introduced in Section~\ref{sec:searches_practice}.
 
 \begin{figure}[tp]
@@ -1032,7 +1030,8 @@ Section~17.3 of~\cite{jaynes2003probability} shows similar nonsense for
 unbiased estimates of $\mu^2$ and $\exp(-\mu)$.%
 }
 or by obfuscating those estimates with bias corrections.
-Remaining uses of unbiasedness in High Energy Physics~\cite{
+
+Lingering uses of unbiasedness in high-energy physics~\cite{
 pdg2022ynf,
 Tullythesis,
 lhcb2018563,
@@ -1040,8 +1039,7 @@ LHCb:2021trn,
 LHCb:2015yax
 }
 are largely explained by the linguistic trickery of its name --- our
-results should not be biased by forces outside the data and relevant theory,
-and we like to report that to be true.
+results should not be biased, and we like to report that to be true.
 But we should proudly proclaim that our results are `biased' under this flawed
 definition if that makes them better by any reasonable measure.
 
@@ -1154,11 +1152,10 @@ then large tail probabilities can only shrink the $\log$ likelihood ratio
 towards zero.
 
 Fisher's \pvalue\ ratio of $1000$ can therefore be a $\log$ likelihood
-ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a moderate
+ratio of $+6.9$ in favour of $r=0.3$ over $r=0.95$, which is a notable
 indication.
-A likelihood ratio on the test statistic itself, and not the inclusive
-tail statement, would however encode more information and could provide a
-more precise answer.
+A likelihood ratio on the test statistic or data itself would however
+encode more information and could provide a more precise answer.
 
 \begin{figure}[tp]
 \centering
@@ -1303,13 +1300,13 @@ to his judgment to at what point the evidence in favour of alternative
 hypotheses becomes so convincing that Hypothesis A must be rejected.%
 ''~\cite{neymanpearson1933lemma}
 \end{quote}
-Elsewhere, they also consider an example with two hypotheses $\mathrm{A}_1$
+Elsewhere also, they consider an example with two hypotheses $\mathrm{A}_1$
 and $\mathrm{A}_2$, and find a $\log$ likelihood ratio of
 % the two corresponding densities at the sample point are
 % ($\mathrm{A}_1$) $6.42 \times 10^{-20}$,
 % ($\mathrm{A}_2$) $5.18 \times 10^{-4}$ and the ratio of the likelihood of
 % Hypothesis $\mathrm{A}_1$ to that of $\mathrm{A}_2$ is $1.24 \times 10^{-16}$.
-$-37$, concluding that
+$-37$ and conclude that
 ``%
 This ratio confirms the common-sense judgment that $\mathrm{A}_2$ is far more
 plausible than $\mathrm{A}_1$%
@@ -1462,7 +1459,7 @@ of the real problems to which it is applied.%
 \end{epigraphs}
 \end{singlespacing}
 \noindent
-Data analysis in modern High Energy Physics does not exactly follow frequentist
+Data analysis in modern high-energy physics does not exactly follow frequentist
 ideology, but is a hands-on, practical, and evolving ecosystem that has adapted
 to avoid some of the more glaring flaws when attacking real problems.
 We have seen in Section~\ref{sec:searches_data_analysis} how likelihood ratios
@@ -1498,7 +1495,7 @@ hunter1997needed
 }.
 For example, the false presentation as a ``probability of compatibility'' with
 a model~\cite{HIGG-2018-04} appears to be spreading as a good
-meme~\cite{dawkins1989selfish} in High-energy physics~\cite{
+meme~\cite{dawkins1989selfish} in high-energy physics~\cite{
 roth2007fit,
 HIGG-2017-09,
 HIGG-2018-27,
@@ -1731,17 +1728,11 @@ censors its information.
 
 How can one escape this trap?
 Likelihood ratios on the actual data escape immediately by bypassing the
-censor, but even inequalities need not be biased --- if taken against a
-predetermined threshold, say $5$ events, then models can predict whether
-$n \leq 5$, and the honestly answered truth or falsehood in data can favour
-either side.
-Ultimately, a reader may choose to distrust the reporter ---
-the messages
-`logically, $n \leq 5$' and
-`\atlas\ reports $n \leq 5$' and  are not
-identical, since one might infer from the latter that in fact the original
-data were $n = 5$, before their reduction into a test statistic tail.
-The message itself is data, and what it says may not be the whole truth.
+censor, but even inequalities need not be biased if models can ask
+questions of the data and be given honest answers.
+For example, if asking whether the data exceed a predetermined threshold
+of  $5$ events, then the truth or falsehood of `$n \leq 5$'
+can favour either side.
 
 With multiple Poisson bins, the $n$ test statistic is no longer
 sufficient.
@@ -1787,7 +1778,7 @@ Without such formulae, the remaining practical approach to estimating
 \pvalues\ is to generate Monte Carlo simulations of alternative data.
 However, such simulations can be computationally expensive, and ill-defined for
 ``likelihood'' models that blur the distinction between actual data and
-auxiliary constraints on the models' parameters.
+auxiliary constraints.
 
 
 \subsection{Likelihood modelling}
@@ -1861,19 +1852,18 @@ The minimization objective $E$ is the summed negative $\log$ likelihood
 (or regularizer) for all actual and auxiliary data.
 We choose the letter $E$ for \textbf{energy}, to highlight the analogy with
 statistical physics and the Boltzmann factor
-\begin{equation}
-f(x) \propto e^{-\beta E(x)}
-.
-\end{equation}
+$f(x) \propto e^{-E(x)/T}$,
 with which a thermodynamic system collapses to its minimum energy at cold
-temperatures $T \propto 1/\beta$~\cite{
+temperatures~\cite{
 skilling2017david,
 lecun-06,
 pmlr-v2-ranzato07a
 }.
 At unit temperature, this can induce a probability distribution
-for the parameters relative to an appropriate (prior)
-measure~\cite{cranmer2012histfactory, skilling2017david},
+relative to an appropriate measure~\cite{
+cranmer2012histfactory,
+skilling2017david
+},
 but in my experience with \heplikelihood\ models such distributions often
 coincide with neither intuition nor the best fit value.
 
