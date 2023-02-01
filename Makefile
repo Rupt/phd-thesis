@@ -36,9 +36,15 @@ PDFLATEX := pdflatex -output-directory=scratch \
 	sed 's=\\documentclass.*=\\documentclass[oneside]{minithesis}=' $< > $@
 
 
+# Awful hack for latexdiff
+main_diff.tex: main.pdf
+	cp scratch/main.bbl .
+	latexdiff --flatten ../thesis_v1.1/main.tex main.tex > main_diff.tex
+
+
 .PHONY: clean
 clean:
-	rm -rf scratch *.pdf
+	rm -rf scratch *.pdf main_diff.tex main.bbl
 
 
 .PHONY: ALWAYS_REBUILD
