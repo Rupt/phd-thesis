@@ -22,7 +22,7 @@ PDFLATEX := pdflatex -output-directory=scratch \
 	-bibtex -terse scratch/$*.aux
 	$(PDFLATEX) -draftmode $< > /dev/null
 	$(PDFLATEX) $< > /dev/null
-	@mv scratch/$*.pdf .
+	@mv scratch/$@ .
 
 
 # make alternative builds by replacing the documentclass
@@ -37,9 +37,15 @@ PDFLATEX := pdflatex -output-directory=scratch \
 
 
 # Awful hack for latexdiff
-main_diff.tex: main.pdf
+main_diff.pdf: main_diff.tex main.bbl
+
+main_diff.tex: main.tex
+	latexdiff --flatten --ignore-warnings ../thesis_v1.1/main.tex main.tex > main_diff.tex 2> /dev/null
+
+main.bbl: scratch/main.bbl
 	cp scratch/main.bbl .
-	latexdiff --flatten ../thesis_v1.1/main.tex main.tex > main_diff.tex
+
+scratch/main.bbl: main.pdf
 
 
 .PHONY: clean
