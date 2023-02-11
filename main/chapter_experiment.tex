@@ -111,7 +111,7 @@ it makes sense for \atlas's design to forfeit hadron identification systems
 in favour of precise calorimetry with total angular coverage.
 
 \atlas\ has now produced a plethora of competitively precise measurements
-of the heavy Standard Model~\cite{atlas2021summarysm},
+of the heaviest particles in the Standard Model~\cite{atlas2021summarysm},
 including $m(W)$~\cite{atlas2018wmass} and
 $m(t)$~\cite{atlas2022symmarytop, atlas2019topmass, TOPQ-2015-03},
 but also details of differential cross-sections~\cite{
@@ -137,7 +137,7 @@ and rare top processes
 TOPQ-2013-05,
 TOPQ-2018-01,
 TOPQ-2020-03
-},
+}.
 These measurements continue to refine the Standard Model, and their precision
 is aided by no new phenomena getting in the way.
 
@@ -242,7 +242,7 @@ Section~\ref{sec:atlas_calo},
 and
 the muon spectrometer in Section~\ref{sec:atlas_muon}.
 The final connection to data analysed in this thesis is made through the
-trigger system which is described in Section~\ref{sec:atlas_trigger},
+trigger system, which is described in Section~\ref{sec:atlas_trigger},
 and details of the data themselves are given in
 Section~\ref{sec:atlas_data}.
 
@@ -417,10 +417,20 @@ rate to $1\,\mathrm{kHz}$ on average depending on the data-taking conditions.%
 ''~\cite{atlas2022searches}
 \end{quote}
 The first-level (L1) trigger uses its fast preliminary information to accept
-interesting event and mark their regions of interest.
-Complete data in these regions of interest are passed to the second-level
+interesting events, and mark regions of interest.
+A Region-of-Interest (RoI) is an angular region of a detector subsystem.
+Each RoI is assigned in $\eta\textrm{--}\phi$ coordinates to contain detector materials
+that should contain more data on the effects seen in L1.
+RoI sizes vary from
+$\Delta\eta \times \Delta\phi \approx 0.1 \times 0.1$ for electron/photon
+reconstruction, up to
+$\Delta\eta \times \Delta\phi = 0.8 \times 0.8$ for
+hadronic jets~\cite{atlas2016trigger}.
+Complete data in the regions of interest are passed to the second-level
 (high-level trigger, HLT) to inform its decision of whether to accept each
 event.
+To reduce processing time, HLT algorithms can choose to inspect data only in,
+or near to, each regions of interest.
 Events accepted by the HLT are recorded for future analysis~\cite{
 atlas2016trigger,
 atlas2008experiment
