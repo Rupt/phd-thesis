@@ -428,8 +428,6 @@ pieces:
 \underbrace{Z}_\textrm{evidence}
 \quad \quad \mid\mid h
 ,
-% \textbf{likelihood} \times \textbf{prior}
-% &= \textbf{posterior} \times \textbf{evidence} .\nonumber
 \end{align}
 where we use the double bar, $\mid\mid$, to separate common contextual
 information.
@@ -1101,7 +1099,7 @@ The \pvalue\ $P(h)$ is the prior probability of data
 \emph{greater or equal to} the observed data, if data are ordered by the value
 of the test statistic.
 Equation~\ref{eqn:searches_pvalue_likelihood} points out that the \pvalue\ is
-just is the likelihood plus some fluff from a tail of larger test statistics
+just the likelihood plus some fluff from a tail of larger test statistics
 (if the test statistic distribution is discrete).
 
 Fisher illustrates the use of \pvalues\ in the second example
@@ -1368,7 +1366,7 @@ Confidence intervals are usually introduced by endpoints containing constrained
 probability mass, but this \pvalue\ form can always satisfy that through the
 free choice of test statistic, and extends naturally beyond one dimension.%
 }
-A parameter corresponds to an hypothesis that assigns a prior distribution to
+A parameter corresponds to a hypothesis that assigns a prior distribution to
 plausible data, and those data for which an obeisant researcher accepts the
 hypothesis have probabilities that sum to $\gamma = 1 - \alpha$.
 This $\gamma$ is known as the `confidence level'.
@@ -1514,7 +1512,7 @@ IceCube2014searches,
 gerasimov2021new
 },
 and is plausibly explained by mutations from vaguely accurate statements like
-``compatible with the SM prediction with a $P$ value of $0.10\%$''~\cite{
+``compatible with the SM prediction with a p-value of $0.10\%$''~\cite{
 lhcb2021test
 }
 to precisely inaccurate statements like
@@ -1539,6 +1537,7 @@ What matters to our interpretation is whether an alternative hypothesis
 makes the observed result \emph{more probable}.
 
 \subsection{\texorpdfstring{$\cls$}{CLs}}
+\label{sec:searches_cls}
 Such misrepresentations of our results reinforces the need for clearer
 replacements, which $\log$ likelihood ratios can provide.
 Standard practice at the LHC contains the beginnings of such
@@ -1727,7 +1726,7 @@ censors its information.
 \end{figure}
 
 How can one escape this trap?
-Likelihood ratios on the actual data escape immediately by bypassing the
+Likelihood ratios on the actual data escape immediately by by-passing the
 censor, but even inequalities need not be biased if models can ask
 questions of the data and be given honest answers.
 For example, if asking whether the data exceed a predetermined threshold
@@ -1737,7 +1736,8 @@ can favour either side.
 With multiple Poisson bins, the $n$ test statistic is no longer
 sufficient.
 In such general cases, maximum likelihood ratio test statistics,
-such as $\Lambda$ of Equation~\ref{eqn:searches_max_like_ratio}, often useful.
+such as $\Lambda$ of Equation~\ref{eqn:searches_max_like_ratio}, are often
+useful.
 With a single bin, $\Lambda$ shuffles the ordering of
 data and leads to some odd features in the results, which are displayed in
 Figure~\ref{fig:searches_sb_t}.
@@ -1754,7 +1754,7 @@ Rather than $\Lambda$ itself, various modified maximum likelihood ratio test
 statistics enjoy standard usage at the LHC~\cite{cern2011procedure};
 these are variably defined as piecewise functions of the fitted signal
 parameter, and can include likelihoods from the signal-plus-background
-model with constrained maximizations which aim to reduce the impact of
+model with constrained maximizations, which aim to reduce the impact of
 unphysical results such as negative Poisson expectations~\cite{
 Feldman:1997qc,
 Cowan:2010js
@@ -1797,7 +1797,7 @@ but instead constraining them with likelihood functions that use
 either real control data or fictional auxiliary data.
 
 This transformation of priors to auxiliary likelihoods is generally possible
---- in a prior density $f(x)\,\mathrm{d}x$ the function $f(x)$ is a likelihood
+--- in a prior density $f(x)\,\mathrm{d}x$, the function $f(x)$ is a likelihood
 (strictly, a Radon-Nikodym derivative~\cite{billingsley2008probability})
 that constrains the (possibly non-normalized or `improper') prior measure that
 is uniform in $x$~\cite{Cowan:2010js}.
@@ -1848,11 +1848,11 @@ That is,
 H(x) = [\,y(x), \,E(x)\,]
 .
 \end{equation}
-The minimization objective $E$ is the summed negative $\log$ likelihood
-(or regularizer) for all actual and auxiliary data.
+The minimization objective $E$ is the summed negative $\log$ \heplikelihood\
+for all actual and auxiliary data.
 We choose the letter $E$ for \textbf{energy}, to highlight the analogy with
 statistical physics and the Boltzmann factor
-$f(x) \propto e^{-E(x)/T}$,
+$f(x) \propto e^{-E(x)/(k_B T)}$,
 with which a thermodynamic system collapses to its minimum energy at cold
 temperatures~\cite{
 skilling2017david,
@@ -1865,7 +1865,24 @@ cranmer2012histfactory,
 skilling2017david
 },
 but in my experience with \heplikelihood\ models such distributions often
-coincide with neither intuition nor the best fit value.
+coincide with neither intuition nor the best fit value.%
+\footnote{%
+One can reproduce this experience by sampling a public \pyhf\ \heplikelihood\
+model
+(for example, try SR-HM(disc.) of $1\ell bb$~\cite{SUSY-2019-08,hepdata.90607})
+with standard Markov-Chain Monte Carlo algorithms.
+I recommend first estimating the covariance by expanding about the maximum
+\heplikelihood, and linearly transforming your coordinates to whiten that
+covariance to the identity matrix.
+Then, algorithms provided by
+TensorFlow Probability~\cite{tensorflow2015-whitepaper}
+(the Metropolis-Adjusted Langevin Algorithm~\cite{mala1998, XIFARA201414}
+is a good start)
+can sample quite efficiently with tensor evaluation through
+\pyhf~\cite{heinrich2021pyhf}.
+Histograms of samples for the signal strength in the discovery fits
+can differ substantially from profile-\heplikelihood\ curves.
+}
 
 Error bars on the yields can be assigned by exploring around that best fit.
 In the Gaussian approximation, the inverse (Hessian) matrix of second
@@ -1925,8 +1942,11 @@ distribution depends on the observed data $d$ ---
 this is problematic because it means that the approximated \pvalue\ is not
 $\prob{t \geq t(d)}{h}$, but depends on the data like
 $\prob{t \geq t(d)}{f(d, h)}$.
-And since the \pvalue\ is a censored likelihood, this is an error of early
-unblinding, or, in machine-learning speak, training on the test set.
+And since the \pvalue\ is a censored likelihood value%
+\footnote{%
+As argued in Section~\ref{sec:searches_cls}.%
+}, this is an error of early
+unblinding, or, in machine-learning-speak, training on the test set.
 It can make little difference when the yields are insensitive to the observed
 data, but we shall see an example (of DR-Low) in
 Section~\ref{sec:2ljets_results} where they are sensitive, and where
@@ -2001,9 +2021,9 @@ Each model is adjusted until validation region data are well predicted ---
 either by changing region definitions or restructuring the \heplikelihood\
 model, perhaps with extrapolation uncertainties or extra normalization
 factors.
-Likelihoods for validation region data are not included in the \heplikelihood\
-models, but their data are important and indirectly used to update the
-model in this manner.
+No Poisson likelihoods for validation region data are included in the
+\heplikelihood\ models, but their data are important and indirectly used to
+update the model in this manner.
 
 \paragraph{Signal regions (SRs).}
 Consuming information from control and validation regions to refine the
