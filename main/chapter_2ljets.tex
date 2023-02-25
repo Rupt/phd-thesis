@@ -299,13 +299,27 @@ Table~\ref{tab:2ljets_discovery}.
 The same data deficits drive stronger bounds on possible signals that manifest
 as smaller limits on the signal expectations, which are labelled
 $S_{\mathrm{obs}}^{95}$ in the figure.
+\footnotetext{%
+The visible cross-section is defined such that the expected event count is
+given by the product of $A\epsilon\sigma\times L$, where $L$ is the integrated
+luminosity (typically in $\mathrm{fb}^{-1}$ units).
+This particular presentation is uses an `acceptance' $A$, an
+`efficiency' $\epsilon$, and an observable cross-section $\sigma_{\mathrm{obs}}$
+(presented here at at $95\%$ limit).
+The acceptance and efficiency are defined using truth-level simulations, in
+which the $A$ is the fraction of truth-level events that pass selection
+requirements, and $\epsilon$ is the ratio from the truth-level yield to the
+reconstruction-level yield.
+Because detector effects can increase yields, this $\epsilon$ can exceed
+one~\cite{susy_results_presentation_papers}.
+}
 
 % upper limits
 \begin{table}[tp]
 \centering
 % custom separator for aligned +-
 % https://stackoverflow.com/a/2132998
-\begin{tabular*}{\textwidth}{lr@{$~\pm~$}lcccccc}
+\begin{tabular*}{\textwidth}{l|r@{$~\pm~$}lcccccc}
 & \multicolumn{2}{c}{Fitted}
 & Data
 & $A\epsilon\sigma_{\mathrm{obs}}^{95}\,\mathrm{fb}$
@@ -313,7 +327,8 @@ $S_{\mathrm{obs}}^{95}$ in the figure.
 & $S_{\mathrm{exp}}^{95}$
 & $\clb$
 & $p_{s\!=\!0}$
-\\[1.5ex]
+\\
+\hline
 DR-OffShell & $22.1$ & $2.7$ & $21$ & $0.10$ & $14.3$ & $12.3^{+4.7}_{-3.1}$ & $0.68$ & $0.50$
 \\[.5ex]
 DR-Low & $22$ & $4$ & $18$ & $0.08$ & $10.8$ & $15.3^{+5.7}_{-4.0}$ & $0.09$ & $0.50$
@@ -339,12 +354,13 @@ the region name,
 the post-fit background expectation,
 the number of data observed,
 the observed $95\%$ $\cls$ upper limit on the visible cross-section
-$A\epsilon\sigma_{\mathrm{obs}}^{95}\,\mathrm{fb}$,
+(labelled $A\epsilon\sigma_{\mathrm{obs}}^{95}\,\mathrm{fb}$\footnotemark),
 its corresponding signal expectation $S_\mathrm{obs}^{95}$,
 the expected $95\%$ upper limits on the signal expectation $S_\mathrm{exp}^{95}$
 as would be obtained were the test statistic given by its central or
 $\pm1$-sigma variations,
-$\clb$ evaluated with the signal expectation set to the observed upper limit,
+$\clb$ (as defined in Section~\ref{sec:searches_cls}) evaluated with the signal
+expectation set to the observed upper limit,
 and the discovery $p$-value capped at $0.5$.
 The cross-section and signal yield limits are related by a factor of our
 integrated luminosity $139.0\,\mathrm{fb}^{-1}$.
