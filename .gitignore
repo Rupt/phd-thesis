@@ -1,4 +1,5 @@
 *.pdf
 scratch/
-main.bbl
-main.diff.tex
+main.hard.tex
+main.hard.bbl
+main.hard.diff.tex
