@@ -2625,13 +2625,14 @@ Errors are statistical.
 \label{fig:2ljets_low_cr_region}
 \end{figure}
 
-The gap at in \crz\ at $\mjj \in 60\textrm{--}110\,\eV[G]$ is exactly SR-Low;
+The gap in \crz\ at $\mjj \in 60\textrm{--}110\,\eV[G]$ is exactly SR-Low;
 their union therefore has a continuous $\mjj$ distribution that is displayed
 in Figure~\ref{fig:2ljets_low_sr_or_cr_region}.
 Looking at the signal region alone can give an impression that $\zjets$ is
 overestimated.
-This plot contradicts that: most of the $\zjets$ distribution is fine, and
-the strange data deficit happens where \diboson\ becomes large near $m(W)$.
+This plot contradicts that: most of the $\zjets$ distribution is fine;
+the strange data deficit is local to $\mjj \approx m(W)$, which is where the
+\diboson\ sample contributes a majority of the simulated background.
 
 \begin{figure}[tp]
 \centering
@@ -2729,7 +2730,7 @@ Errors are statistical.
 Additional control regions were designed in an attempt to improve background
 normalization local to this region.
 These are CR-Low-ISR-Z and CR-Low-ISR-DF, which select $\zjets$ and $\ttbar$
-backgrounds and find smaller deficits of $20\%$ and $10\%$ respectively,
+backgrounds and find smaller deficits of $20\%$ and $10\%$, respectively,
 as shown in Figure~\ref{fig:2ljets_low_isr_old_more}.
 To select $\zjets$, CR-Low-ISR-Z differs from CR-Low-ISR by requiring
 $\dphiisrmet \in 1\textrm{--}2.6$ and $\metsig \in 6\textrm{--}9$.
@@ -2765,7 +2766,7 @@ Errors are statistical.
 \label{fig:2ljets_low_isr_old_more}
 \end{figure}
 
-A complicated likelihood model was constructed which normalized \diboson,
+A complicated likelihood model was constructed, which normalized \diboson,
 $\zjets$ and $\ttbar$ backgrounds to the combination of CR-Low-ISR,
 CR-Low-ISR-Z, CR-Low-ISR-DF.
 After this fit, the validation region VR-Low-ISR had a high background yield
@@ -2928,7 +2929,7 @@ light $W^*$ events is not reliably reconstructed as signal jets.
 
 Early OffShell designs used the `ISR' construction that was described in
 Section~\ref{sec:2ljets_low} for Low regions,
-and which seeks hard jets which boost the supersymmetric particles and their
+and which seeks hard jets that boost the supersymmetric particles and their
 decay products.
 After some iterations, however, the same intent was reproduced with the simpler
 and more effective selection that we present here.
@@ -3017,13 +3018,13 @@ subset of the signal regions, as labelled and described in the figure caption.
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.62\textwidth}
+\begin{subfigure}{0.7\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_c1n2.pdf}
 \caption{C1N2}
 \end{subfigure}
 \\
-\begin{subfigure}{0.62\textwidth}
+\begin{subfigure}{0.7\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_fit_multi_contours_gmsb.pdf}
 \caption{GMSB}
@@ -3083,7 +3084,7 @@ any points alone here.
 Although discovery regions are model-independent in principle, our designs
 remain inspired by our simulated signal models.
 Various approaches have been taken to discovery regions in \atlas\ searches
---- although it is normal to have one per signal regions~\cite{SUSY-2018-02},
+--- although it is normal to have one per signal region~\cite{SUSY-2018-02},
 some searches study dozens of discovery regions comprising signal region
 bins~\cite{SUSY-2018-36}, or other modifications to signal
 regions~\cite{atlas_susy_compressed_2l_2018_run2}.
@@ -3139,7 +3140,7 @@ were chosen for broad sensitivity to varieties of signals.
 Some plots from this study are displayed in
 Figures~\ref{fig:2ljets_disco_trials_high},
 ~\ref{fig:2ljets_disco_trials_llbb}~and~\ref{fig:2ljets_disco_trials_int}
-for High, $\llbb$ and Int categories respectively.
+for High, $\llbb$ and Int categories, respectively.
 Similar figures were produced for the other categories, but they are used older
 region definitions, are identical in style, and are not particularly
 illuminating.
@@ -3372,7 +3373,7 @@ In particular, we do not use simulations of pure hadronic processes, so do not
 really know the predicted rates at which these strong processes would fake
 leptons.
 Although prompt strong effects may only rarely fake leptons, they have very
-large cross-sections and are not exoected to be modelled well.
+large cross-sections and are not expected to be modelled well.
 This motivates the use of data-driven FNP estimates to replace the need for
 such specialized simulations of poorly understood physics.
 
@@ -3439,7 +3440,7 @@ The leptons are further assumed to be reconstructed independently, such that
 $M_{{tt}, {rr}} =
 \prob{t}{r,1}
 \times \prob{t}{r,2}$
-in which the numerical index points to the first and second leptons
+in which the numerical index points to the first and second leptons,
 respectively.
 These transition probabilities $\prob{*}{*,i}$ are estimated by studies in
 separate selections and assigned as functions of the lepton
@@ -3695,8 +3696,8 @@ are unusable in numerous regions because they are either negative or zero.
 Details of these eleven problematic regions are displayed in
 Table~\ref{tab:2ljets_fnp_negative_mm}.
 For comparison, this table also includes the simulated background without
-FNP leptons under the heading `MC Prompt' and the and only
-the simulated FNP contributions under the heading `MC FNP'.
+FNP leptons under the heading `MC Prompt' and the only
+simulated FNP contributions under the heading `MC FNP'.
 Negative or void estimates are an easy consequence of the use of signed
 weights of data used by the Matrix Method, but we require alternative
 estimates to assign a sensible background model.
@@ -3707,7 +3708,7 @@ FNP background estimate, and consider a maximum across them for
 each region.
 More precisely, we take the maximum central value and add it to the maximum
 difference (between central and high) for the combined high variation, and
-sets the low variation to zero.
+set the low variation to zero.
 
 \begin{table}[tp]
 \centering
@@ -3919,7 +3920,7 @@ to other systematic variations.
 \subsection{Jet mass}
 \label{sec:2ljets_jet_mass}
 An extraordinary feature of this analysis is the use of $\mjetone$ for
-SR-High-1J and VR-High-1J which, as described in Section~\ref{sec:2ljets_high},
+SR-High-1J and VR-High-1J, which, as described in Section~\ref{sec:2ljets_high},
 require a boosted, small-radius jet with a large mass
 $\mjetone \in 60\textrm{--}110$.
 This signal region is important for extending our reach to the most massive
@@ -4391,8 +4392,8 @@ from Table~\ref{tab:2ljets_zjets_alt} that SR-Low variations are around $30\%$.
 A few factors contribute:
 \begin{itemize}
 \item The $\zjets$ sample is normalized to \crz\ with an unconstrained
-normalization factor. This means that variations to the $\zjets$ sample in \crz
-are absorbed by scaling all of its modifications in other regions.
+normalization factor. This means that variations to the $\zjets$ sample in
+\crz\ are absorbed by scaling all of its modifications in other regions.
 \item As listed in Table~\ref{tab:2ljets_zjets_alt}, positive variations
 in \crz\ match to negative variations in SR-Low bins; the two yields are
 anticorrelated.
@@ -4516,7 +4517,7 @@ Internal reviewers were, therefore, confused as to why we mentioned a deficit
 in SR-Low that did not appear in the results plots or tables.
 Much to my ire, the paper editors therefore removed all mentions of an SR-Low
 deficit from the paper.
-Despite bring real and significant, this deficit was erased from public view
+Despite being real and significant, this deficit was erased from public view
 and, to my knowledge, is only reported through inner details of
 the \histfactory\ models shared in our \hepdata\ archive~\cite{hepdata.116034}
 (and now, I hope, this thesis).
@@ -4636,8 +4637,8 @@ To include these large variations moving in strange directions could allow the
 background model to easily fit deviations on the basis of our ignorance
 from statistical imprecision.
 To mitigate this, we instead take the variations from looser regions
-VR-sys-main and VR-sys-OffShell, that target on- and off-shell regions
-respectively and hope to improve the statistical precision.
+VR-sys-main and VR-sys-OffShell, that target on- and off-shell regions,
+respectively, and hope to improve the statistical precision.
 Both of these loose VR-sys-* regions require the pre-selection from
 Table~\ref{tab:2ljets_presel};
 VR-sys-main also requires
@@ -4650,7 +4651,7 @@ relate primarily to jets through parton showers, and not to leptons, and
 relaxing cuts can only improve statistical precision.
 
 In the looser regions VR-sys-main and VR-sys-OffShell,
-which receive $1784$ and $7015$ truth events respectively, each variation
+which receive $1784$ and $7015$ truth events, respectively, each variation
 reduces to around $10\%$ and remains dominated by the statistical uncertainty.
 Although local effects could occur, this is a reasonable indication that these
 parameters should not much affect our signal regions.
@@ -4912,7 +4913,7 @@ so to reduce costs we use truth-level only
 (through \simpleanalysis~\cite{simpleanalysis_cern}) and evaluate the
 variations at only a handful of benchmark signal models.
 From these benchmark signal models, we evaluate a relative uncertainty due
-due to each component, and extrapolate those variations from these benchmark
+to each component, and extrapolate those variations from these benchmark
 examples to others in the parameter plane.
 
 My extrapolation scheme is fairly arbitrary, and is performed as follows.
