@@ -5178,12 +5178,11 @@ Errors are statistical.
 \label{fig:2ljets_splits}
 \end{figure}
 
-Although one might expect our selected \diboson\ sample to comprise mostly
-$ZZ$, with one $Z\to \ell\ell$ and the other invisibly to
-$Z\to \nu\nu$ to generate our required $Z$-like lepton pair with
-$\met$.
-Figure~\ref{fig:2ljets_splits_diboson} shows that in fact the three-lepton
-$W\kern-0.4exZ$-like process has similar equal yields.
+One might expect our selected \diboson\ sample to comprise mostly
+$ZZ$, with one $Z\to \ell\ell$ to yield our required lepton pair, and the other
+decaying invisibly as $Z\to \nu\nu$ to yield our required $\met$.
+However, Figure~\ref{fig:2ljets_splits_diboson} shows that in fact the
+three-lepton $W\kern-0.4exZ$-like process has similarly large yields.
 Those $W\kern-0.4exZ$ events must therefore have a missing third lepton from
 $W\to \ell\nu$ decays.
 To avoid selection, that third lepton could be softer than the few $\eV[G]$
@@ -5343,7 +5342,7 @@ data and pre-fit backgrounds in loose selections.
 Such plots were discussed in group meetings and usefully helped to catch bugs
 in the background simulations.
 But they unblind the data, notably in high-$\met$ where we expect signals.
-When commenting on this, the resonse was that it does not count as unblinding
+When commenting on this, the response was that it does not count as unblinding
 because we are inspecting a loose selection.
 However, any signal region must be within this loose selection, and those
 highest bins contain only a few events that agree with the backgrounds well.
@@ -5488,7 +5487,7 @@ and down variations of yields in any region, so the signs of these
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=\textwidth]{figures/2ljets_fit_corrmatrix.pdf}
+\includegraphics[height=\textwidth,angle=90,origin=c]{figures/2ljets_fit_corrmatrix.pdf}
 \caption[
 Correlation matrix from the background-only fit to control and signal regions
 ]{%
@@ -5506,8 +5505,8 @@ To inspect individual parameters in the same fit to control and signal regions,
 Figure~\ref{fig:2ljets_fit_parameters} displays all fitted parameters and their
 marginal error bars.
 
-Parameters named ``\texttt{$\alpha$\_*}'' are centred on zero with unit initial width,
-and others are initially relative to $1$ with variable error bars.
+Parameters named ``\texttt{$\alpha$\_*}'' are centred on zero with unit initial
+width, and others are initially relative to $1$ with variable error bars.
 Within the \atlas\ SUSY group, plots like this are considered good if all
 parameters sit on the central vertical line, with the motivations that
 normalization factors should be close to $1$ (the predicted cross-sections are
@@ -5540,7 +5539,9 @@ movements of these parameters help to fit both deviations simultaneously.
 
 \begin{figure}[tp]
 \centering
-\includegraphics[height=0.81\textheight]{figures/2ljets_fit_parameters.pdf}
+\adjincludegraphics[width=0.495\textwidth,trim={0 {0.49\height} 0 0},clip]{figures/2ljets_fit_parameters.pdf}
+\hfill
+\adjincludegraphics[width=0.495\textwidth,trim={0 0 0 {0.49\height}},clip]{figures/2ljets_fit_parameters.pdf}
 \caption[
 Parameter values and errors from the background only-fit to control and signal
 regions
@@ -5556,6 +5557,9 @@ $\alpha\mathrm{\_Zjets\_alt}$ whose post-fit value is
 % 1.8598e+00 +/-  6.87e-01
 $1.86 \pm 0.69$;
 since it exceeds $1.5$, it otherwise disappeared off the edge of this plot.
+\\[0.5em]
+This figure is split to increase its scale; the top of its right half continues
+from the bottom of its left half.
 }
 \label{fig:2ljets_fit_parameters}
 \end{figure}
@@ -5631,13 +5635,13 @@ contours.
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.62\textwidth}
+\begin{subfigure}{0.7\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_c1n2_Output_Contours_cls_obs.pdf}
 \caption{C1N2}
 \end{subfigure}
 \\
-\begin{subfigure}{0.62\textwidth}
+\begin{subfigure}{0.7\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_gmsb_Output_Contours_cls_obs.pdf}
 \caption{GMSB}
@@ -5723,7 +5727,7 @@ my ``Bailed statistics'' software~\cite{bailedstatisticsgithub}.}
 \end{figure}
 
 What should perhaps be the most meaningful result of each discovery region is
-is observed upper limit $S_{\mathrm{obs}}^{95}$.
+observed upper limit $S_{\mathrm{obs}}^{95}$.
 The analysis of each region sets this upper limit by scanning different values
 of the signal expectation $\mu_\textrm{discovery}$ and interpolating to
 estimate the point where $\cls(\mu_\textrm{discovery}^*) = 0.05$.
@@ -5840,7 +5844,7 @@ Test statistic distributions for points in the DR-High and DR-Low scans
 Test statistic distributions for points in the (a) DR-High, (b) DR-Low,
 and (c) DR-OffShell scans at points close to their reported upper limits:
 $\mu_\textrm{discovery}=3$, $\mu_\textrm{discovery}=10$,
-and $\mu_\textrm{discovery}=14$ respectively.
+and $\mu_\textrm{discovery}=14$, respectively.
 \\[0.5em]
 Axis limits are set from the minimum and maximum test statistics recorded.
 Note the different binning: histograms contain normalized densities with
