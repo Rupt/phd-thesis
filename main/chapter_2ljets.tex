@@ -387,7 +387,8 @@ analysis.
 \item Service as Analysis Contact (a management role) for the $\twoljets$
 project from January to October 2020.
 \item Production of main data inputs for all three $\twoljets$ searches
-and the RJR $3\ell$ search~\cite{atlas_rjr_3l_SUSY_2019_09}.
+and the Recursive Jigsaw Reconstruction (RJR) $3\ell$
+search~\cite{atlas_rjr_3l_SUSY_2019_09}.
 Production of all experimental systematic variations for the background
 samples --- other group members assisted with the central background sample.
 Production of all electroweak signal samples and their systematic variations.
@@ -432,12 +433,12 @@ Previous analyses of \atlas\ data have explored similar selections of
 two leptons, jets, and missing transverse momentum.
 Quite a few analyses, in fact ---
 this search project exists to supplement those results with information from
-the full LHC Run~2 data-set that was collected between in the years $2015$
+the full LHC Run~2 data-set that was collected in the years $2015$
 through to $2018$ and contains
 $139~\mathrm{fb}^{-1}$ of usable proton-proton collisions at
 $\sqrt{s} = 13\,\eV[T]$.
 Leveraging the increased data quantity is one key contribution of $\twoljets$.
-How well those data are used depends on how well the search designed, so
+How well those data are used depends on how well the search is designed, so
 $\twoljets$ further benefits from lessons learned from the experiences of
 past analyses.
 
@@ -511,7 +512,7 @@ Decay trees for the $\twoljets$-RJR analysis
 ]{%
 Decay trees for the $\twoljets$-RJR analysis.
 \emph{This figure was made by the RJR team.}~\cite{atlas2022searches}.
-Both diagrams represent processes which are targetted in the electroweak
+Both diagrams represent processes that are targetted in the electroweak
 analysis.
 (left) A fully-resolved decay tree with its particles labelled.
 (right) Only the $Z\to\ell\ell~$ \underline{V}ector boson
@@ -590,7 +591,7 @@ fitted background.
 Summary plots for RJR searches
 ]{%
 Summary plots for RJR searches:
-(a) and (b)~two- and three- lepton selections respectively,
+(a) and (b)~two- and three- lepton selections, respectively,
 \emph{reproduced from}~\cite{atlas_rjr_23l_SUSY_2017_03},
 (c)~all regions from the $\twoljets$-RJR search~\cite{atlas2022searches}.
 Note the excesses in
@@ -657,7 +658,7 @@ as illustrated in Figure~\ref{fig:2ljets_strong_signal_diagrams}, decay trees
 featuring sleptons can also produce lepton pairs.
 Lepton pairs produced in these slepton interactions are of the same flavour
 and opposite charge, like those from $Z$ boson decays, but they have different
-mass dilepton mass characteristics.
+dilepton mass characteristics.
 
 \begin{figure}[tp]
 \centering
@@ -773,22 +774,19 @@ corresponding contour.
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.62\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_strong_contours_gluino_slepton.pdf}
-\caption{gluino-slepton}
 \end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
+\\
+\begin{subfigure}{0.62\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_strong_contours_gluino_z.pdf}
-\caption{gluino-$Z^{(*)}$}
 \end{subfigure}
-\\[0.5em]
-\begin{subfigure}{0.48\textwidth}
+\\
+\begin{subfigure}{0.62\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_strong_contours_squark_z.pdf}
-\caption{squark-$Z^{(*)}$}
 \end{subfigure}
 \caption[
 Contours for signal models of the $\twoljets$-strong search
@@ -797,6 +795,10 @@ Contours for signal models of the $\twoljets$-strong search.
 \emph{These figures were produced by the strong team%
 }~\cite{atlas2022searches}.
 \\[0.5em]
+(Top) gluino-slepton,
+(Middle) gluino-$Z^{(*)}$,
+(Bottom) squark-$Z^{(*)}$.
+\\
 Each model point uses fit results from the signal region with the
 ``best expected sensitivity'';
 jagged edges arise from the switching between contours set by these different
@@ -828,9 +830,9 @@ As motivated in the previous sections, I have personal preferences for
 simulation-driven backgrounds and orthogonal multi-bin regions.
 Simulation-driven estimates are interpretable as Standard Model predictions,
 relying less on loosely justified extrapolations,
-and orthogonal regions have independent likelihood functions that can be
-cleanly combined, by multiplication, to leverage the joint information in their
-data.
+and orthogonal regions have independent Poisson likelihood functions that can
+be cleanly combined, by multiplication, to leverage the joint information in
+their data.
 
 The $\twoljets$-electroweak search aims to
 update the regions of the partial Run~2 search in its $\twoljets$
@@ -843,7 +845,7 @@ A particular design goal was to improve sensitivity by replacing their overlappi
 
 Similarly to the $\twoljets$-strong search, the partial Run~2
 search~\cite{atlas_23l_SUSY_2016_24} chose one signal region for each signal
-point from a measure expected sensitivity measure and drew contours around
+point from an expected sensitivity measure, and drew contours around
 results from the chosen fit results.
 The two signal regions SR2-int and SR2-high differ only by a selection of
 $\met > 250\,\eV[G]$ and are displayed in Figure~\ref{fig:2ljets_23l_stuff},
@@ -921,7 +923,7 @@ variable.
 My design of $\twoljets$-electroweak violates this.
 Instead, it is designed more like a tree whose branches recursively split
 various variables.
-This leads to specifications which are challenging to present or understand,
+This leads to specifications that are challenging to present or understand,
 and which require region names with numerous suffixes to specify where they
 live in that tree.
 
@@ -1165,20 +1167,20 @@ quickly ruled out since they only trigger on hard objects:
 examples of these triggers require
 approximately $\ptjone > 400\,\eV[G]$, $p_\mathrm{T}^{\,j_3} > 200\,\eV[G]$, or
 $\met > 100\,\eV[G]$~\cite{atlas_twiki_lowest_unprescaled}.
-Leptons, however, are striking signals which are produced as smaller background
-rates, as they suppressed by electroweak couplings.
+Leptons, however, are striking signals that are produced at smaller
+background rates, as they are suppressed by electroweak couplings.
 \atlas\ can therefore trigger on leptons with much softer requirements;
-lepton triggers allow us to use softer jets and $\met$, that are relied upon
+lepton triggers allow us to use softer jets and $\met$, which are relied upon
 throughout the $\twoljets$ analyses.
 Although $\twoljets$-electroweak requires $\met > 100\,\eV[G]$ in all of its
-regions, the same is not true of $\twoljets$-RJR not various validation
+regions, the same is not true of $\twoljets$-RJR, nor various validation
 studies.
 
 
 \subsection{Leptons}
 \label{sec:2ljets_events_leptons}
 As mentioned at the beginning of this Section~\ref{sec:2ljets_events},
-`leptons' means `electron-or-muons' in the context of $\twoljets$,.
+`leptons' means `electron-or-muons' in the context of $\twoljets$.
 This is because taus leptons decay before reconstruction so are used only
 indirectly through their decay products, and neutral leptons
 --- neutrinos --- go missing and contribute only to our $\ptmiss$.
@@ -1209,7 +1211,7 @@ Tighter requirements reduce backgrounds, which include misidentified objects
 --- photons and hadrons --- as well as non-prompt electrons from hadronic
 decays~\cite{atlas_egamma_quality_EGAM_2018_01}.
 
-Isolation of leptons from nearby hadronic activity is another feature which
+Isolation of leptons from nearby hadronic activity is another feature that
 can be used to reduce misidentification rates.
 Standard isolation definitions exist for both electrons and muons in a similar
 structure to the quality criteria.
@@ -1224,7 +1226,7 @@ Baseline requirements are softer and lower quality than signal requirements.
 
 Any event used in regions of the $\twoljets$-electroweak analysis is required
 to have exactly two baseline leptons and exactly two signal leptons, meaning
-that the event has two reconstructed leptons which pass both sets of criteria.
+that the event has two reconstructed leptons that pass both sets of criteria.
 This vetoes events with soft or low quality third leptons, ensuring that those
 three-lepton events can be used independently in other studies.
 
@@ -1282,7 +1284,7 @@ Of these, $\twoljets$ uses only $b$-tagging, which is particularly useful to
 reject $\ttbar$ events and select for $h\to b\bar b$ decays.
 
 Larger radius jets can also use taggers for heavy decays, such as those from
-$W$, Higgs or top resonance~\cite{JETM-2018-06}, but large radius were
+$W$, Higgs or top resonance~\cite{JETM-2018-06}, but large radius jets were
 considered too much additional work to be used in $\twoljets$,
 particularly since they would require a large set of independently evaluated
 systematic variations in addition to those on our standard jets.
@@ -1333,9 +1335,9 @@ can remain examples where detector responses can be attributed to more than
 one object.
 For example, a track could be attributed to both a muon and an electron,
 or a calorimeter energy cluster could be attributed to both an electron and a
-photon. (Although we do not directly use photons in $\twoljets$, we do not veto
+photon. Although we do not directly use photons in $\twoljets$, we do not veto
 events containing them --- photons are accounted for in the momentum balance
-of $\ptmiss$.)
+of $\ptmiss$.
 
 Once we know about all the reconstructed leptons and hadronic jets, we can
 also improve our rejection of non-prompt leptons from hadron decays by
@@ -1352,7 +1354,7 @@ and $\pt$.
 
 \subsection{\texorpdfstring{$\met$}{ETmiss}}
 Every event has $\ptmiss$.
-Unlike leptons, jets, and other objects which we must select for, the $\ptmiss$
+Unlike leptons, jets, and other objects that we must select for, the $\ptmiss$
 of an event is a natural result of the conservation of momentum, which \atlas'
 barrel-shaped construction allows us to measure with reasonable precision.
 
@@ -1395,12 +1397,12 @@ section.)
 Most common Standard Model processes at the LHC do not produce hard,
 invisible particles.
 Our supersymmetric signals, however, do.
-This makes the missing transverse momentum $\ptmiss$ its magnitude $\met$
+This makes the missing transverse momentum $\ptmiss$ and its magnitude $\met$
 important features for separating signal and background events in all parts
 of the $\twoljets$ search.
 
 The experimental resolution of $\ptmiss$, however, is imprecise, and
-importantly that resolution varies significantly from one event to another.
+importantly varies significantly from one event to another.
 
 A muon, for example, will tend to have its momentum measured more precisely
 than a jet of similar energy.
@@ -1433,9 +1435,9 @@ Figure~\ref{fig:2ljets_splits_diboson}.
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.48\textwidth]{figures/2ljets_presel_met_logy.png}
-\hfill
-\includegraphics[width=0.48\textwidth]{figures/2ljets_presel_met_sig_logy.png}
+\includegraphics[width=0.62\textwidth]{figures/2ljets_presel_met_logy.png}
+\\
+\includegraphics[width=0.62\textwidth]{figures/2ljets_presel_met_sig_logy.png}
 \caption[
 Illustration of how $\metsig$ beats $\met$ in sensitivity to example signal
 models
@@ -1446,7 +1448,7 @@ At large $\metsig$, $\ttbar$ and other backgrounds are suppressed, leaving
 quite pure \diboson\ backgrounds and greater significance measures.
 Signal models with smaller mass-splittings tend to have the bulk of their
 events at smaller $\met$.
-\\[0.5em]
+\\
 This selection requires two same-flavour opposite-sign signal leptons with
 $\pt^{\ell_2} > 25\,\eV[G]$,
 $\mll \in 71\textrm{--}111\,\eV[G]$,
@@ -1454,7 +1456,7 @@ $\mjj \in 60\textrm{--}110\,\eV[G]$,
 $\nbtag \leq 1$,
 $\met > 100\,\eV[G]$, and
 $\metsig > 6$.
-\\[0.5em]
+\\
 ``Significance'' displayed in the lower subplot uses the Binomial significance
 $Z_{Bi}$ from~\cite{cousins2008evaluation}, with a $30\%$ background
 uncertainty and yields taken to the right of a given value.
@@ -1571,7 +1573,7 @@ swung the decision in its favour.
 However, alternative jet pair assignments did select different subsets of
 signal yields:
 the alternative jet assignments had some potential to define secondary signal
-regions to catch those signal events which fall outside the primary
+regions to catch those signal events that fall outside the primary
 $\mjj$ window.
 One can, for example, select $\mjj \notin 60\textrm{--}110\,\eV[G]$ and
 $\mjj^\mathrm{alternative} \in 60\textrm{--}110\,\eV[G]$ for some additional
@@ -1609,7 +1611,9 @@ described in Section~\ref{sec:2ljets_mt2}
 \item $\nbtag$: number of b-tagged jets,
 described in Section~\ref{sec:2ljets_btagging}
 \vspace{0.5em}
-\item $\dphillmet$: azimuthal angle between the lepton pair and $\ptmiss$
+\item $\dphillmet$: azimuthal angle between $\vec p_{\ell\ell}$ and $\ptmiss$,
+where $\vec p_{\ell\ell}$ is the vector sum of the momenta of the leptons in
+the lepton pair.
 \item $\dphijmet$: azimuthal angle between the hardest jet and $\ptmiss$
 \end{itemize}
 All of these are physical properties of particles or collections of particles
@@ -1679,7 +1683,7 @@ contributions for models with various mass splittings.
 Furthermore, $\metsig$ also works to separate signal models from each other:
 signals with larger mass differences in their decays to invisibles tend to have
 larger $\metsig$.
-Initial binning in $\metsig$ therefore offers improves sensitivity to
+Initial binning in $\metsig$ therefore offers improved sensitivity to
 various parameter points.
 In each $\metsig$ bin, the $\twoljets$-electroweak design further targets
 signal sensitivity with other, locally-relevant event variables.
@@ -1756,7 +1760,7 @@ bins, with validation regions targeting each group of signal regions.
 \emph{%
 Thanks to Knut~Vadla for important contributions in the initial signal region
 designs, to Ben~Hooberman for suggesting the investigation of massive jets,
-and to the whole $\twoljets$ team for collaboration in their finalization.5%
+and to the whole $\twoljets$ team for collaboration in their finalization.%
 }
 
 
@@ -1780,7 +1784,16 @@ sensitivity is only decreased by rejecting portions of these distributions.
 Although most $\twoljets$-electroweak regions use tighter selection on these
 variables to reduce backgrounds, this observation allows us to win
 additional sensitivity in High regions by loose requirements
-of $\mll \in 71\textrm{--}111\,\eV[G]$ and $\nbtag \leq 1$.
+of $\mll \in 71\textrm{--}111\,\eV[G]$%
+\footnote{%
+We use interval notation in which
+en-dashes `$a\textrm{--}b$' indicate open intervals $(a, b)$, and
+concatenated intervals `$a\textrm{--}b\textrm{--}c$' indicate binning
+with boundaries at $a$, $b$, and $c$.
+This notation is consistent with the $\twoljets$
+paper~\cite{atlas2022searches}.
+}
+and $\nbtag \leq 1$.
 This $\mll$ window loosely selects the $m(Z)$ peak to scoop up nearby rare or
 mismeasured events away from the central peak.
 Similarly, allowing up to one $b$-tag improves yields without boosting
@@ -1861,20 +1874,20 @@ Differences between regions are \uwave{underlined}.
 \\[0.5em]
 The $\rll$ bins of SR-High are labelled SR-High-8 and SR-High-16, and their
 $\metsig$ bins are suffixed -a and -b for $\metsig \in 18\textrm{--}21$
-and $\metsig > 21$ respectively.
+and $\metsig > 21$, respectively.
 }
 \label{tab:2ljets_high}
 \end{table}
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.62\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_region_design_hist1d_mll_SRHigh.png}
 \caption{SR-High, $\mll$}
 \end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
+\\
+\begin{subfigure}{0.62\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_region_design_hist1d_nbtag_SRHigh.png}
 \caption{SR-High, $\nbtag$}
@@ -1894,11 +1907,11 @@ Error bars are statistical.
 \label{fig:2ljets_high_mll_b}
 \end{figure}
 
-The high regions, which defined in Table~\ref{tab:2ljets_high}, comprise SR-High,
-SR-High-1J, and \srllbb.
+The high regions, which are defined in Table~\ref{tab:2ljets_high}, comprise
+SR-High, SR-High-1J, and \srllbb.
 Their wide standard $\mjj \in 60\textrm{--}110\,\eV[G]$ requirement
-captures both $W\to jj$ and $Z\to jj$ for C1N2 and GMSB models
-respectively and is applied similarly to all other on-shell
+captures both $W\to jj$ and $Z\to jj$ for C1N2 and GMSB models,
+respectively, and is applied similarly to all other on-shell
 $\twoljets$-electroweak signal regions.
 
 As explained in Section~\ref{sec:2ljets_mt2}, requiring $\mttwo$ above $m(W)$
@@ -1918,25 +1931,25 @@ the $\metsig$ distribution.
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_SRHigh8.png}
 \caption{SR-High-8, $\metsig$}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_SRHigh16.png}
 \caption{SR-High-16, $\metsig$}
 \end{subfigure}
 \\[0.5em]
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_VRHigh.png}
 \caption{VR-High-8, $\metsig$}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_VRHighR.png}
 \caption{VR-High-16, $\metsig$}
@@ -1968,25 +1981,25 @@ Section~\ref{sec:2ljets_jet_mass}.
 
 \begin{figure}[tp]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_SRHigh4.png}
 \caption{SR-High-1J, $\metsig$}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mjetone_SRHigh4.png}
 \caption{SR-High-1J, $\mjetone$}
 \end{subfigure}
 \\[0.5em]
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_met_Sign_VRHigh4.png}
 \caption{VR-High-1J, $\metsig$}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.495\textwidth}
 \centering
 \includegraphics[width=\textwidth]{figures/2ljets_def_mjetone_VRHigh4.png}
 \caption{SR-High-1J, $\mjetone$}
