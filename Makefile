@@ -37,10 +37,10 @@ PDFLATEX := pdflatex -output-directory=scratch \
 
 
 # Awful hack for latexdiff
-main_diff.pdf: main_diff.tex main.bbl
+main.diff.pdf: main.diff.tex main.bbl
 
-main_diff.tex: main.tex ALWAYS_REBUILD
-	latexdiff --flatten --ignore-warnings ../thesis_v1.1/main.tex main.tex > main_diff.tex 2> /dev/null
+main.diff.tex: main.tex ALWAYS_REBUILD
+	latexdiff --flatten --ignore-warnings ../thesis_v1.1/main.tex main.tex > main.diff.tex 2> /dev/null
 
 main.bbl: scratch/main.bbl
 	cp scratch/main.bbl .
@@ -50,7 +50,7 @@ scratch/main.bbl: main.pdf
 
 .PHONY: clean
 clean:
-	rm -rf scratch *.pdf main_diff.tex main.bbl
+	rm -rf scratch *.pdf main.diff.tex main.bbl
 
 
 .PHONY: ALWAYS_REBUILD
