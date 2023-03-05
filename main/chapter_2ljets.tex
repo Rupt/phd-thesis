@@ -1193,7 +1193,7 @@ For both electron and muons, these criteria are standardized with labels
 these labels are nested in the sense that tight implies medium
 and medium implies loose.
 Other, more specialized, criteria exist in \atlas, but they are not relevant
-$\twoljets$.
+to $\twoljets$.
 
 Muons are identified by fitting tracks to hits in the inner tracker and muon
 spectrometer.
@@ -1222,13 +1222,19 @@ Baseline leptons and are used in background estimation methods and to ensure
 orthogonality with other \atlas\ analyses that study events with differing
 lepton counts, such that our results can be combined in future to deliver an
 improved total sensitivity.
-Baseline requirements are softer and lower quality than signal requirements.
+Baseline requirements are softer and lower quality than signal requirements;
+the signal leptons are a subset of the baseline leptons.
+Therefore if a lepton is a signal lepton, then it is also a baseline lepton,
+but for clarity we often prefer to state that both requirements are met.
 
 Any event used in regions of the $\twoljets$-electroweak analysis is required
 to have exactly two baseline leptons and exactly two signal leptons, meaning
 that the event has two reconstructed leptons that pass both sets of criteria.
-This vetoes events with soft or low quality third leptons, ensuring that those
-three-lepton events can be used independently in other studies.
+Requiring exactly two baseline leptons ensures that we veto events with soft
+or low quality third leptons, thus ensuring that our data do not overlap with
+other \atlas\ analysis that use three-lepton events.
+Enforcing no overlap in this way makes the analysis more independent, and
+therefore more cleanly combined in future meta-analyses.
 
 Baseline leptons must have $\pt > 3\,\eV[G]$ for muons and
 $\pt > 4.5\,\eV[G]$ for electrons.
