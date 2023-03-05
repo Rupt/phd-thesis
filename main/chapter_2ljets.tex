@@ -1596,6 +1596,7 @@ For future reference, their meanings, definitions, and references for these
 variables are all collected here.
 All dimensionful quantities are always reported in $\eV[G]$ units in this
 thesis.
+This list is roughly sorted to have the most important variables at the top.
 \begin{itemize}
 \item $\met$: missing transverse momentum
 \item $\metsig$: object-based missing transverse momentum significance,\\
@@ -1631,6 +1632,18 @@ While I admit to dropping this distinction in lax language, it is needed to
 explain the broad shapes of noisy variables such as $\mjj$ and indeed the
 existence of $\metsig$, which relies on estimates of the reconstruction noise
 and is ill-defined at a particle-truth level.
+
+Broadly speaking, some of these variables select necessary conditions for
+signal-like events, and others help to improve signal purity within those
+selection requirements.
+Specifically, our signals produce $\met$, lepton pairs with
+$\mll \approx m(Z)$, and jets leading to positive $\njet$.
+Requiring appropriate conditions on these variables rejects large
+Standard Model background yields without harming signal efficiency.
+Other variables help to reduce background contamination with some trade-off
+against signal efficiency; among these, $\metsig$ is the most generally strong
+separating variable, and other variables are chosen in contexts where
+they aid the local designs that we detail in Section~\ref{sec:2ljets_design}.
 
 
 \FloatBarrier
@@ -1797,7 +1810,7 @@ en-dashes `$a\textrm{--}b$' indicate open intervals $(a, b)$, and
 concatenated intervals `$a\textrm{--}b\textrm{--}c$' indicate binning
 with boundaries at $a$, $b$, and $c$.
 This notation is consistent with the $\twoljets$
-paper~\cite{atlas2022searches}.
+paper~\cite{atlas2022searches}.%
 }
 and $\nbtag \leq 1$.
 This $\mll$ window loosely selects the $m(Z)$ peak to scoop up nearby rare or
