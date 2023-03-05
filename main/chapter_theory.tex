@@ -120,9 +120,9 @@ Particles of the Standard Model.
 All fermions are spin-$1/2$, and all bosons are spin-$1$ except for the
 spin-$0$ scalar Higgs boson $h$.
 Fermions come in left- and right-chiralities, although the existence of
-right-chiral neutrinos is not strictly confirmed.%
+right-chiral neutrinos is not strictly confirmed.
 See Table~\ref{tab:theory_particles_sm_properties} for details of their
-properties.
+properties.%
 }
 \label{tab:theory_particles_sm}
 \end{table}
@@ -226,8 +226,9 @@ We distinguish these two cases with the labels
 \emph{uncertain} and \emph{unknown}, respectively:
 the top quark mass is slightly \emph{uncertain},%
 \footnote{%
-The latest PDG meta-analysis estimates
-$m(t) = 172.69 \pm 0.30\,\eV[G]$~\cite{pdg2022ynf}.
+The latest meta-analysis by the Particle Data Group estimates
+$m(t) = 172.69 \pm 0.30\,\eV[G]$~\cite{pdg2022ynf}, as listed in
+Table~\ref{tab:theory_particles_sm_properties}.
 }
 but the reconciliation of quantum field theory with general relativity is
 mostly \emph{unknown}.
@@ -441,6 +442,62 @@ atlas2022searches,
 alwall2009simplified,
 alves20212simplified
 }.
+Experimental data only provide lower bounds on the masses of these new
+particles, and those bounds depend strongly on the simplifying assumptions
+made in each case. Some moderately-general bounds have been assigned however,
+and examples of these bounds are listed in
+Table~\ref{tab:theory_particles_mssm_mass_limits}.
+Longer listings of limits in many special cases can be found in the
+Particle Data Group review~\cite{pdg2022ynf}.
+
+
+% made using:
+% https://www.tablesgenerator.com/latex_tables
+\begin{table}[tp]
+\centering
+\begin{tabular}{cc}
+fermions                                        & mass limit$\,\eV[G]$ \\[0.2em]
+$\neutralino_1$ (stable)                        & $> 46$         \\
+$\neutralino_1$ (unstable)                      & $> 380$        \\
+$\neutralino_2$,$\neutralino_3$,$\neutralino_4$ & $> 750$        \\
+$\chargino_1$,$\chargino_2$                     & $> 94$         \\[1em]
+bosons                                          & mass limit$\,\eV[G]$ \\[0.2em]
+$\tilde \nu$                                    & $> 94$         \\
+$\tilde e$                                      & $> 107$        \\
+$\tilde \mu$                                    & $> 94$         \\
+$\tilde \tau$                                   & $> 81.9$       \\
+$\tilde q$                                      & $> 1220$       \\
+$\tilde b$                                      & $> 1270$       \\
+$\tilde t$                                      & $> 1310$       \\
+$\tilde g$                                      & $> 2300$
+\end{tabular}
+\caption[%
+Mass limits for particles of the Minimal Supersymmetric Standard Model%
+]{%
+Mass limits for particles of the Minimal Supersymmetric Standard Model as
+reported under by the Particle Data Group under loose
+assumptions, quoted at ``$\mathrm{CL}=95.0\%$''~\cite{pdg2022ynf}.
+The charges of these particles equal the charges of their Standard Model
+partners, which are listed in
+Table~\ref{tab:theory_particles_sm_properties}.\\[0.5em]
+All of these limits assume R-parity conservation and various other,
+instance-specific constraints.
+For example, the limit of
+$m(\neutralino_2,\neutralino_3,\neutralino_4) > 750\,\eV[G]$
+assumes that $m(\neutralino_1) < 100\,\eV[G]$.
+Many stronger constraints are reported within the constraints of simplified
+models.
+Limits on R-parity violating models differ, and can be either stronger or
+weaker.
+In the stable $\neutralino_1$ case, the $\neutralino_1$ is the lightest
+supersymmetric particle and a dark matter candidate;
+in the unstable $\neutralino_1$ case, it rapidly decays.
+Stronger limits can be set for particles that live long enough to decay within
+the sensitive materials of collider detectors.\\[0.5em]
+All listed bosons are spin-$0$ and all listed fermions are spin-$1/2$.
+}
+\label{tab:theory_particles_mssm_mass_limits}
+\end{table}
 
 Various mechanisms could spontaneously break supersymmetry.
 Gravitational mechanisms exist, but one model considered in this thesis uses
