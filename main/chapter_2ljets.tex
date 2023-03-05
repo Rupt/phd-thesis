@@ -4984,7 +4984,8 @@ From these benchmark signal models, we evaluate a relative uncertainty due
 to each component, and extrapolate those variations from these benchmark
 examples to others in the parameter plane.
 
-My extrapolation scheme is fairly arbitrary, and is performed as follows.
+Most extrapolation schemes are fairly arbitrary, and our choice here is taken
+for some heuristically attractive properties to be explained here.
 Each benchmark point $i$ has a location in the parameter plane $\vec y_i$, and
 for a given source of uncertainty $j$ its relative variation has been evaluated
 as $r_{ij}$.
@@ -4997,22 +4998,33 @@ r_j(\vec x) = \frac{
 }{
 \sum_i e^{-d(\vec x, \vec y_i)}
 }
+,
 \end{equation}
 in which $d(\vec x, \vec y)$ is a distance function chosen to encode some
-physical understanding into the extrapolation,
-and the sum is over all benchmark points.
+physical understanding into the extrapolation, and the sum is over all
+benchmark points.
+One benefit of this extrapolation scheme is that its results $r_j(\vec x)$
+are bounded by range of the observed points $r_{ij}$;
+alternatives, such as Radial Basis
+Functions~\cite{2020SciPy-NMeth,fasshauer2007meshfree}, can extrapolate without
+bound to large or small (negative) outputs, to extreme outputs, which do not
+seem physically justified in this case.
 
-Parent mass $m(\chargino_1, \neutralino_2) = m_a$
-and mass splitting $m_a - m_b$ are the most
-characteristic features in C1N2.
-From some experimentation, I found that a Manhattan distance in those features
-extrapolated nicely.
-Being a linear sum, the exponentiated Manhattan distance beneficially
-separating into a product of terms, so contours of constant $r_j(\vec x)$ are
+This formulation of extrapolation as a weighted mixture has some freedom in
+which to assign the distance function $d(\vec x, \vec y)$, and within that
+freedom we can make choices that encode some physical understanding.
+In the case of our C1N2 model, two characteristic features are the
+parent mass $m(\chargino_1, \neutralino_2) = m_a$
+and the mass splitting $m_a - m_b$, and we want an extrapolation scheme which
+aligns changes in these variables with changes in the extrapolated value.
+From some experimentation, I found that a Manhattan distance in these features
+implements such attractive extrapolation:
+being a linear sum, the exponentiated Manhattan distance beneficially
+separates into a product of terms, so contours of constant $r_j(\vec x)$ are
 segmented into straight lines that relate to the chosen coordinates.
 Alternatives, such as the Euclidean distance, produced curved contours that did
-not align as well with my intuitions.
-Since the mass distance is dimensionful, it needs to be scaled to a reference
+not align as well with the $m_a$ and $m_a - m_b$ directions.
+Since the mass distance is dimensionful, it must be scaled to a reference
 value, which I chose as $100\,\eV[G]$; therefore
 \begin{equation}
 d_\mathrm{C1N2}(\vec x, \vec y) =
