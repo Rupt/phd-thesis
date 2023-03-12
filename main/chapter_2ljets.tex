@@ -269,6 +269,8 @@ All contours are interpolated from a sparse grid.
 The mass splitting is notated by
 $\Delta m = m(\chargino_1, \neutralino_2) - m(\neutralino_1)$.
 \\[0.4em]
+This simplified model assumes that
+$m(\chargino_1) = m(\neutralino_2) = m(\chargino_1, \neutralino_2)$.
 }
 \label{fig:2ljets_contours_c1n2}
 \end{figure}
@@ -883,6 +885,10 @@ Figures reproduced from the partial Run~2 search with $2/3\ell$ selections
 ]{%
 Figures reproduced from the partial Run~2 search with $2/3\ell$
 selections~\cite{atlas_23l_SUSY_2016_24, hepdata.81996}.
+The event variable $\met$ is the missing transverse momentum.
+The label $m(\chargino_1)/m(\neutralino_2)$ indicates the mass
+$m(\chargino_1, \neutralino_2)$ under the simplifying assumption that
+$m(\chargino_1, \neutralino_2) = m(\chargino_1) = m(\neutralino_2)$.
 \\[0.4em]
 (a) Histogrammed distribution of $\met$ in and below SR2-int and SR2-high with
 example signal models.
@@ -1468,15 +1474,16 @@ Figure~\ref{fig:2ljets_splits_diboson}.
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.62\textwidth]{figures/2ljets_presel_met_logy.png}
+\includegraphics[width=0.6\textwidth]{figures/2ljets_presel_met_logy.png}
 \\
-\includegraphics[width=0.62\textwidth]{figures/2ljets_presel_met_sig_logy.png}
+\includegraphics[width=0.6\textwidth]{figures/2ljets_presel_met_sig_logy.png}
 \caption[
 Illustration of how $\metsig$ beats $\met$ in sensitivity to example signal
 models
 ]{
 Illustration of how $\metsig$ beats $\met$ in sensitivity to example signal
-models.
+models; $\met$ is the missing transverse momentum, and $\metsig$ is its
+significance as defined in Section~\ref{sec:2ljets_metsig}.
 At large $\metsig$, $\ttbar$ and other backgrounds are suppressed, leaving
 quite pure \diboson\ backgrounds and greater significance measures.
 Signal models with smaller mass-splittings tend to have the bulk of their
@@ -1488,12 +1495,12 @@ $\mll \in 71\textrm{--}111\,\eV[G]$,
 $\mjj \in 60\textrm{--}110\,\eV[G]$,
 $\nbtag \leq 1$,
 $\met > 100\,\eV[G]$, and
-$\metsig > 6$.
+$\metsig > 6$;
+these variables are defined in Section~\ref{sec:2ljets_cheatsheet}.
 \\
-``Significance'' displayed in the lower subplot uses the Binomial significance
-$Z_{Bi}$ from~\cite{cousins2008evaluation}, with a $30\%$ background
-uncertainty and yields taken to the right of a given value.
-Larger values indicate greater expected sensitivity to the signal model.
+``Significance'' in the lower plot is
+$Z_{Bi}$ from~\cite{cousins2008evaluation}, with a $30\%$ uncertainty and
+yields taken to the right of a given value.
 }
 \label{fig:2ljets_presel_met}
 \end{figure}
