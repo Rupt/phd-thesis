@@ -400,7 +400,15 @@ p(x) = \prob{x}{d, h} = \frac{L(x)}{Z}\pi(x),
 \end{equation}
 which is a prior probability distribution specialized by the data;
 it simply uses the likelihood to filter simulated samples
-(like `skimming an ntuple'),
+(like `skimming an ntuple'%
+\footnote{%
+This is a reference to colloquial particle physics jargon;
+an `ntuple' is a ROOT TTree, which is a generic data structure peculiar to the
+ROOT software framework~\cite{ROOT}.
+A TTree resembles a columnar collection of named arrays and jagged arrays,
+and is entirely unlike the `tree' structures of mathematics, computer
+science, or dendrology.
+}),
 then re-normalizes them to a probability distribution within the constraint.
 
 We now have the four parts of `Bayesian' data analysis:
