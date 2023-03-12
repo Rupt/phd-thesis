@@ -3081,6 +3081,22 @@ For each contour, fits are performed with only the control regions and one
 subset of the signal regions, as labelled and described in the figure caption.
 \emph{Thanks to Tina~Potter for suggesting this impact study.}
 
+The signal region subsets whose exclusions are presented in
+Figure~\ref{fig:2ljets_fit_multi_contours} are described as follows:
+\begin{itemize}
+\item `High' contains only the bins of SR-High and SR-High-1J.
+\item `HighNo4' contains only the bins of SR-High only.
+It excludes SR-High-1J such that the difference between `High' and `HighNo4'
+evaluates the impact of including the mono-jet region SR-High-1J.
+\item `$\llbb$' contains only SR-$\llbb$.
+It is not independently sensitive to the C1N2 models, but demonstrates the
+unique reach gained by SR-$\llbb$ for GMSB models.
+\item `Int' contains only the bins of SR-Int.
+\item `Low` contains only the bins of SR-Low.
+\item `OffShell` contains only the bins of SR-OffShell.
+\end{itemize}
+
+
 \begin{figure}[tp]
 \centering
 \begin{subfigure}{0.7\textwidth}
@@ -3103,9 +3119,10 @@ The label `High' indicates the bins of SR-High, and `HighNo4' excludes
 SR-High-1J to show the locations where mono-jet events have an impact.
 Similarly, `$\llbb$', `Int', `Low', and `OffShell' are shown to target their
 appropriate parameter spaces.
-Although figures were produced before unblinding, with older samples and region
-designs, their later updates do not change the general message.
-Values of $\cls$ from expected data in the combined fit are overlaid.
+Although these figures were produced before unblinding, with older samples and
+region designs, their later updates do not change the general message.
+Values of $\cls$ from expected data in the combined fit are overlaid in tiny
+grey text.
 }
 \label{fig:2ljets_fit_multi_contours}
 \end{figure}
