@@ -2697,9 +2697,19 @@ Before that redesign, a multi-jet signal region SR-Low-ISR was included,
 with associated validation and control regions
 that required $\njet \geq 3$ and offered some meagre extra sensitivity.
 Here, `ISR' stands for Initial-State Radiation, following the naming
-of previous \atlas\ searches including partial Run~2 $2\ell$/$3\ell$
-search which we are updating~\cite{atlas_23l_SUSY_2016_24} in the
+of previous \atlas\ searches including the partial Run~2 $2\ell$/$3\ell$
+search, which we are updating~\cite{atlas_23l_SUSY_2016_24} in the
 $\twoljets$-electroweak search.
+Although these Low-ISR regions were removed from the analysis and we never
+inspected the data in SR-Low-ISR (never unblinded), I include them here because
+they reveal some interesting context to the surviving analysis design.
+Specifically, prototype validation regions for Low-ISR designs revealed some
+bad modelling by our Standard Model background samples in phase space that is
+close to SR-Low, which is a region where we observe significant data deficits.
+Secondly, these regions were an impactful part of the analysis design process
+and led to the final design of SR-Low;
+describing my experiences with them therefore reveals more about the true
+design process.
 
 Although initial-state radiation often refers to soft emissions in
 parton showers~\cite{corcella2000initial, bewick2022initial},
@@ -2806,7 +2816,7 @@ Errors are statistical.
 \label{fig:2ljets_low_isr_old_more}
 \end{figure}
 
-A complicated likelihood model was constructed, which normalized \diboson,
+A complicated \heplikelihood\ model was constructed, which normalized \diboson,
 $\zjets$ and $\ttbar$ backgrounds to the combination of CR-Low-ISR,
 CR-Low-ISR-Z, CR-Low-ISR-DF.
 After this fit, the validation region VR-Low-ISR had a high background yield
