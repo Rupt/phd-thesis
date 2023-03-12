@@ -6194,7 +6194,9 @@ and might otherwise have remained hidden in \atlas's internal documentation.
 % TODO future expectations
 % """
 % • Sec 4.8 (Discussion): Expand on future expectations e.g. luminosities,
-% heavier daughter particles with current data, HL-LHC and affect of pile-up,
+% heavier daughter particles with current data,
+%
+% HL-LHC and affect of pile-up,
 % FCC etc.
 % """
 
@@ -6204,10 +6206,7 @@ models considered in this thesis.
 % - second wave not happening
 \atlas\ has published `second-wave' Run~2 papers for some similar searches,
 which re-analyse the Run~2 data with refined techniques or more focussed
-objectives~\cite{
-ATLAS:2022hbt,
-ATLAS:2022nrb
-},
+objectives~\cite{ATLAS:2022hbt, ATLAS:2022nrb},
 but the recent date of $\twoljets$'s publication suggests that \atlas\ will
 use Run~3 data in its next paper on our topic.
 % - Run 3 expected luminosity
@@ -6215,19 +6214,45 @@ In Run~3, the LHC is only operating at a marginally increased centre-of-mass ene
 of $\sqrt{s} = 13.6\,\eV[T]$~\cite{run3sqrts};
 its main benefit will therefore be the increased data quantity,
 for which a a recent projection indicates a target integrated luminosity of
-$250\,\mathrm{fb}^{-1}$ for $pp$ collisions by the year
+$250\,\mathrm{fb}^{-1}$ for proton-proton collisions by the year
 2025~\cite{run3luminosity},
 on top of the $139\,\mathrm{fb}^{-1}$ of Run~2.
 Given similar collision conditions, this will allow sensitivity to rare signals
 with proportionately small cross-sections.
 
-% - HL-LHC
-TODO
-- around $300\,\mathrm{fb}^{-1}$ to $400\,\mathrm{fb}^{-1}$ per year
-- pile-up of around $200$ interactions per bunch crossing
-- relative to around $50$ interactions per bunch crossing in Run~2~\cite{ATLAS:2022hro}
-TODO~\cite{ZurbanoFernandez:2020cco}
-% - If a future collider is constructed, then...
+% HL-LHC
+Following Run~3, the LHC will be upgraded to the
+High-Luminosity Large Hadron Collider (HL-LHC), whose improved operations
+should yield around $300\,\mathrm{fb}^{-1}$ to $400\,\mathrm{fb}^{-1}$ of
+$14\,\eV[T]$ $pp$ collisions per year.
+This accelerated data rates comes at the cost of quadrupled instantaneous
+luminosity (as described in Section~\ref{sec:atlas_inner}), which will push
+the pile-up background from around $50$ interactions per bunch crossing in
+Run~2 to around $200$ interactions per bunch crossing~\cite{
+ATLAS:2022hro,
+ZurbanoFernandez:2020cco
+}.
+The HL-LHC could yield $4000\,\mathrm{fb}^{-1}$ of proton-proton collisions,
+but for corresponding sensitivity, upgrades to \atlas's hardware and software
+must succeed in managing the increased pile-up background, both by
+identifying pile-up events and by modelling them in simulation.
+
+Collision energies ultimately bound the masses of heavy particles that can
+be produced in collisions, so stronger accelerators will be necessary
+to expand the search in that direction.
+Future prospects for the coming decades at CERN include the
+High-Energy LHC (HE-LHC), which could achieve $\sqrt{s}=27\,\eV[T]$ with new
+hardware in the current LHC tunnel~\cite{FCC:2018byv},
+and a Future Circular Collider (FCC), whose new $100\,\mathrm{km}$
+`quasi-circular' tunnel would permit proton collisions at
+$\sqrt{s}=100\,\eV[T]$~\cite{FCC:2018vvp}.
+Just as the LHC follows the LEP electron-positron collider, this FCC hadron
+collider (FCC-hh) might be proceeded by an electron-positron collider (FCC-ee)
+with centre-of-mass energies high enough (up to $\sqrt{s}=350\,\eV[T]$) to
+pair-produce all Standard Model particles~\cite{FCC:2018evy}.
+Such scrutiny of the Standard Model is also a search for new physical effects,
+and including some that could be explained with supersymmetric
+models~\cite{FCC:2018byv, Gounaris1999}.
 
 Perhaps we \emph{should not} be restrained by crude statistical
 methods, but the fact is that we \emph{are} limited to immutable prescriptions.
