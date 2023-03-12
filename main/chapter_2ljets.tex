@@ -5401,6 +5401,25 @@ This section is not a discussion of our unblinded results.
 It is a discussion of our unblinding procedures,
 their extent, their implementation, and their impact on our published results.
 
+Prediction is essential to the act of data analysis, because if a model
+incorrectly predicts observations, then it follows logically that that model is
+wrong.
+Blinding hides the data until predictions are made, and is a powerful way to
+ensure predictiveness.
+A model that must see an observation before pretending to predict it is not
+predicting the observation --- such a model is not blind.
+Similarly, a model that cannot see an observation is blind and can at best
+attempt predict it.
+In our context, a blind analysis must fully determine all predictions in signal
+regions before knowing what data lie in those signal regions.
+We can remain blind while using other data, such as those in validation
+regions, if those regions are unaffected by the signals, but to prematurely
+peek into the signal regions would break the blinding and threaten to break our
+models' predictiveness.
+
+Unblinding is the act of looking at previously blinded data, and should be
+undertaken only after our predictions are finalized.
+
 Blindness to data is useful, but not necessary ---
 all that is necessary is that our predictions are independent of the data
 they are supposed to predict.
