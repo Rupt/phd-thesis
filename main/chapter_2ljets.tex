@@ -1357,6 +1357,27 @@ Some rules decide which object to keep from an overlapping pair,
 and others remove leptons overlapping with jets based on their $\Delta R$
 and $\pt$.
 
+This sequential overlap procedure is described as follows:
+\begin{enumerate}
+\item Remove any electron candidate that shares an inner-detector track with a
+baseline muon.
+This reduces backgrounds from events with
+$\mu\to\mu\gamma$, $\gamma\to e^+ e^-$ radiations in the detector.
+\item Remove any baseline jet within $\Delta R \leq 0.2$ of a baseline electron.
+\item Remove any electron within
+$\Delta R \leq \min(0.04 + (10\,\eV[G]) / p_T^e, 0.4)$
+of a baseline jet.
+This suppresses backgrounds from heavy-flavour hadron decays.
+\item Remove any baseline jet that is within $\Delta R \leq 0.2$ of a baseline
+muon, or that shares a track with a muon.
+\item Remove any muon within
+$\Delta R \leq \min(0.04 + (10\,\eV[G]) / p_T^\mu, 0.4)$
+of a baseline jet.
+This is matches the electron removal instruction above.
+\end{enumerate}
+The $\ptmiss$ calculation also ignores any electron that shares a calorimeter
+cluster with a photon~\cite{atlas2022searches}.
+
 
 \subsection{\texorpdfstring{$\met$}{ETmiss}}
 Every event has $\ptmiss$.
