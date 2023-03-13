@@ -3454,8 +3454,9 @@ modelling of background and signal contributions.
 Throughout $\twoljets$-electroweak, simulated Monte Carlo samples are the
 primary estimates of background and signal processes.
 We first simulate samples at `truth-level' by random sampling from
-distributions that are implemented by various software packages to approximate
-theoretical predictions from quantum field theory.
+distributions with parton distribution functions and scattering matrix elements
+that are implemented by various software packages to approximate theoretical
+predictions from quantum field theory.
 Simulating events from high-order perturbative quantum field theory is
 difficult and computationally expensive, so these implementations use
 lower-order approximations, which we normalize to cross-section predictions
@@ -3529,8 +3530,12 @@ drafts.}
 \begin{center}
 \scriptsize
 \begin{tabular}{llllll}
-Physical process &  Generator  & Parton & Cross-section & Tune & PDF set\\
-                &             & shower & order in pQCD &      &
+Physical process
+    & Generator
+    & Parton Shower
+    & Cross-section order in QCD
+    & Tune
+    & PDF set
 \\[0.2em]
 \hline
 \\[0.2em]
@@ -3582,14 +3587,14 @@ Higgs (ggF)
     & AZNLO
     & \textsc{CTEQ6L1}
 \\
-$ttt$, $tttt$, $\ttbar$\,+\,$WW$
+$ttt$, $tttt$, $\ttbar WW$
     & \amcatnlo~\cite{Alwall:2014hca}
     & \pythia\,8.186~\cite{Skands:2014pea}
     & NLO~\cite{Frederix:2017wme,Alwall:2014hca}
     & A14
     & \textsc{NNPDF2.3lo}
 \\
-$\ttbar$\,+\,$V$~\cite{ATL-PHYS-PUB-2016-005,Garzelli:2012bn}
+$\ttbar V$~\cite{ATL-PHYS-PUB-2016-005,Garzelli:2012bn}
     & \amcatnlo
     & \pythia\,8.210
     & NLO~\cite{Campbell:2012,Lazopoulos:2008,Alwall:2014hca}
@@ -3605,14 +3610,20 @@ $VVV$~\cite{ATL-PHYS-PUB-2016-002}
 \\
 \end{tabular}
 \caption{%
-Caption TODO
-% TODO import citations
-% TODO rewrite
-% TODO define VBF
-% Simulated background event samples used in this analysis with the corresponding matrix element and parton shower generators,
-% cross-section order in perturbative QCD used to normalize the event yield, underlying-event tune and PDF set.
-% $V$ represents either a $W$ or $Z$ boson.%
-Adapted from~\cite{atlas2022searches}.
+Summary of the simulation tools and configurations used for central background
+samples in $\twoljets$.
+Each row specifies a combination of matrix element generator, parton shower,
+and Parton Distribution Function (PDF) components, whose combination we use to
+simulate the named physical process.
+The tune specifies many parameters of the simulation tools to achieve a good
+description of some historical calibration data.
+Total sample cross-sections are normalized to a reference value evaluated
+at the specified order in perturbative QCD (pQCD).
+Symbols:
+$V$ is $W$ or $Z$,
+VBF is Vector Boson Fusion,
+ggF is gluon-gluon Fusion.
+This table is adapted from~\cite{atlas2022searches}.
 }
 \label{tab:2ljets_paper_mc}
 \end{center}
