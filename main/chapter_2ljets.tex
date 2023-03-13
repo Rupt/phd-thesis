@@ -3467,7 +3467,7 @@ scales of hadronization; because of colour confinement, only these
 (colour-neutral) hadrons can survive to interact with the detector.
 The various Monte Carlo simulation programs used in this search are summarized
 in Table~\ref{tab:2ljets_paper_mc}, which is adapted from the $\twoljets$
-paper.
+paper~\cite{atlas2022searches}.
 Truth-level results are finally passed through a full simulation of the
 \atlas\ detector to simulate `reconstruction-level'
 data~\cite{SOFT-2010-01, geant2003}.
@@ -3609,7 +3609,9 @@ $VVV$~\cite{ATL-PHYS-PUB-2016-002}
     & \textsc{NNPDF3.0nnlo}
 \\
 \end{tabular}
-\caption{%
+\caption[
+Summary of the simulation tools and configurations
+]{%
 Summary of the simulation tools and configurations used for central background
 samples in $\twoljets$.
 Each row specifies a combination of matrix element generator, parton shower,
@@ -3623,7 +3625,7 @@ Symbols:
 $V$ is $W$ or $Z$,
 VBF is Vector Boson Fusion,
 ggF is gluon-gluon Fusion.
-This table is adapted from~\cite{atlas2022searches}.
+This table is adapted from the $\twoljets$ paper~\cite{atlas2022searches}.
 }
 \label{tab:2ljets_paper_mc}
 \end{center}
@@ -5922,6 +5924,61 @@ This figure is split to increase its scale; the top of its right half continues
 from the bottom of its left half.
 }
 \label{fig:2ljets_fit_parameters}
+\end{figure}
+
+These parameters control the yield assigned in each region by our
+\heplikelihood\ model as described in
+Section~\ref{sec:searches_heplikelihood}.
+Uncertainties in the parameters therefore propagate to uncertainties in the
+background expectations.
+To illustrate which categories of parameters contribute the most uncertainty
+to which regions,
+Figure~\ref{fig:2ljets_fit_uncertainty} presents a summary of the relative
+uncertainties attributable to sources of uncertainty in each of region of the
+$\twoljets$-electroweak search.
+This figure is reproduced from the $\twoljets$ paper~\cite{atlas2022searches}.
+No single source of uncertainty dominates in all regions.
+Theoretical uncertainties are large in many regions, most dramatically
+in SR-High-1J and SR-$\llbb$. These two regions have small yields and large
+variations due to alternative sample comparisons and uncertainties that are
+not constrained in control regions;
+see Section~\ref{sec:2ljets_jet_mass} for details of the extra uncertainties
+in SR-High-1J.
+Large relative contributions from FNP backgrounds drive the uncertainties in
+SR-High-16, both directly in the data-driven uncertainty category and
+indirectly through their poor statistical precision in the statistical
+uncertainty category.
+Experimental and normalization uncertainties make middling contributions
+in all regions.
+
+\begin{figure}[tp]
+\centering
+\adjincludegraphics[width=0.98\textwidth]{figures/2ljets_syst_summary_plot_ewk}
+\caption[
+Summary of the contributions to uncertainty on total backgrounds
+]{%
+Summary of the contributions to uncertainty on total backgrounds, represented
+as relative errors for all signal regions of the $\twoljets$-electroweak
+search.
+Uncertainty attributions are assigned by a standard method that explores the
+variations in the \heplikelihood\ model with respect to individual parameters.
+Experimental uncertainties (``Exp. Unc.'') include detector effects in object
+identification and reconstruction, pile-up, and triggering.
+Statistical uncertainties (``Bkg. Sample Stats'') arise from the
+finite number of weighted Monte Carlo events in our background samples
+and from statistical uncertainties on the Matrix Method FNP estimate.
+Data-driven background uncertainties (``DD Bkg. Unc.'') include only effects
+from the FNP background estimate in this search.
+Theoretical uncertainties (``Theory Unc.'') include only theoretical
+uncertainties on the Standard Model backgrounds, and not on any signals.
+Background normalization uncertainties (``Bkg. Norm.'') derive from the
+free normalization factors that should be constrained by control regions.
+The total uncertainty (``Total Unc.'') is a sum in quadrature of all
+contributions.
+\\[0.4em]
+This figure is reproduced from the $\twoljets$ paper~\cite{atlas2022searches}.
+}
+\label{fig:2ljets_fit_uncertainty}
 \end{figure}
 
 \paragraph{Contours.}
