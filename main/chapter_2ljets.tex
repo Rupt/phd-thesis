@@ -3451,6 +3451,26 @@ Those backgrounds may or may not have appeared to have predicted the data well,
 but no conclusions can be drawn until uncertainties are assigned in our
 modelling of background and signal contributions.
 
+Throughout $\twoljets$-electroweak, simulated Monte Carlo samples are the
+primary estimates of background and signal processes.
+We first simulate samples at `truth-level' by random sampling from
+distributions that are implemented by various software packages to approximate
+theoretical predictions from quantum field theory.
+Simulating events from high-order perturbative quantum field theory is
+difficult and computationally expensive, so these implementations use
+lower-order approximations, which we normalize to cross-section predictions
+that are evaluated at higher precision.
+Parton shower programs are used to model the soft QCD evolution of
+strongly-interacting particles from the hard scatter down to the low energy
+scales of hadronization; because of colour confinement, only these
+(colour-neutral) hadrons can survive to interact with the detector.
+The various Monte Carlo simulation programs used in this search are summarized
+in Table~\ref{tab:2ljets_paper_mc}, which is adapted from the $\twoljets$
+paper.
+Truth-level results are finally passed through a full simulation of the
+\atlas\ detector to simulate `reconstruction-level'
+data~\cite{SOFT-2010-01, geant2003}.
+
 To interpret the results seriously, we need to understand our uncertainties ---
 we do not know enough about the Standard Model to make definitive predictions,
 but must distribute our unit allotment of probability over various plausible
@@ -3504,6 +3524,38 @@ workspaces~\cite{cranmer2012histfactory, heinrich2021pyhf}.
 \emph{Thanks to Jonathan~Long for collaboration in preparing this \hepdata\ archive,
 and to Alessia~Murrone for invaluable feedback on, and validation of, its
 drafts.}
+
+\begin{table}[tp]
+\begin{center}
+\scriptsize
+\begin{tabular}{l l l l l l }
+% \hline
+% Physical process &  Generator  & Parton & Cross-section & Tune & PDF set\\
+%                 &             & shower & order in pQCD &      & \\
+% %\hline\hline
+% \noalign{\smallskip}\hline\noalign{\smallskip}
+% \ttbar~\cite{ATL-PHYS-PUB-2016-004}         & \POWHEGBOX[v2] \cite{Nason:2004rx,Frixione:2007vw,Alioli:2010xd}    & \Pythia[8.230] \cite{Sjostrand:2014zea} & NNLO+NNLL \cite{ttbarxsec1,ttbarxsec2,ttbarxsec3,ttbarxsec4,ttbarxsec5}                   & A14 \cite{ATL-PHYS-PUB-2014-021}   & \textsc{NNPDF2.3lo} \cite{Ball:2012cx}\\
+% $Wt$~\cite{ATL-PHYS-PUB-2016-004}  & \POWHEGBOX[v2]    & \Pythia[8.230] & NNLO+NNLL \cite{Kidonakis:2010b,Kidonakis:2010tc,Kidonakis:2011wy,Frederix:2012dh}        &A14    & \textsc{NNPDF3.0nlo} \cite{Ball:2014uwa}\\
+% $VV$~\cite{ATL-PHYS-PUB-2016-002} & \Sherpa[2.2.2] \cite{Bothmann:2019yzt} & \Sherpa[2.2.2] & NLO \cite{diboson1,diboson2} & \textsc{Sherpa}\ default & \textsc{NNPDF3.0nnlo} \\
+% $Z/\gamma^{*}(\rightarrow \ell \ell)$\,+\,jets~\cite{ATL-PHYS-PUB-2016-003}& \Sherpa[2.2.1]           & \Sherpa[2.2.1]  &NNLO \cite{DYNNLO1,DYcrosssection}       & \textsc{Sherpa}\ default     &\textsc{NNPDF3.0nnlo}\\
+% Higgs ($t\bar{t}H$) & \POWHEGBOX[v2]    & \Pythia[8.230] & NLO \cite{deFlorian:2016spz} & A14    & \textsc{NPDF2.3lo}\\
+% Higgs (VBF, $Vh$) & \POWHEGBOX[v2]     & \Pythia[8.212] & NNLO \cite{deFlorian:2016spz} & AZNLO \cite{STDM-2012-23} &  \textsc{CTEQ6L1} \cite{Pumplin:2002vw} \\
+% Higgs (ggF) & \POWHEGBOX[v2]     & \Pythia[8.212] & NNNLO \cite{deFlorian:2016spz} & AZNLO & \textsc{CTEQ6L1} \\
+% $ttt$, $tttt$, $t\bar{t}$\,+\,$WW$ & \textsc{MG5\_aMC@NLO} \cite{Alwall:2014hca} & \Pythia[8.186] \cite{Skands:2014pea} & NLO \cite{Frederix:2017wme}, \cite{Alwall:2014hca} & A14 & \textsc{NNPDF2.3lo}\\
+% $t\bar{t}$\,+\,$V$~\cite{ATL-PHYS-PUB-2016-005,Garzelli:2012bn}& \textsc{MG5\_aMC@NLO}        & \Pythia[8.210] & NLO \cite{Campbell:2012,Lazopoulos:2008,Alwall:2014hca} & \textsc{A14} & \textsc{NNPDF2.3lo}\\
+% $VVV$~\cite{ATL-PHYS-PUB-2016-002} & \Sherpa[2.2.2] & \Sherpa[2.2.2] &  NLO \cite{Bothmann:2019yzt} & \textsc{Sherpa}\ default     & \textsc{NNPDF3.0nnlo}\\
+% \noalign{\smallskip}\hline\noalign{\smallskip}
+\end{tabular}
+\caption{%
+Caption TODO
+% TODO rewrite
+% Simulated background event samples used in this analysis with the corresponding matrix element and parton shower generators,
+% cross-section order in perturbative QCD used to normalize the event yield, underlying-event tune and PDF set.
+% $V$ represents either a $W$ or $Z$ boson.%
+}
+\label{tab:2ljets_paper_mc}
+\end{center}
+\end{table}
 
 
 \subsection{Fake/non-prompt leptons}
