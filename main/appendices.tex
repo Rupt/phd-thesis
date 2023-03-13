@@ -1,7 +1,869 @@
-\chapter{Additional details}
-\label{app:details}
+\chapter{Cut-flow tables}
+\label{app:2ljets_cut_flows}
 
-Appendices let you maintain a straight line story while hiding the important
-details which you want to document but few would read.
+This appendix briefly introduces the concept of cut-flow tables, then
+reproduces a number of cut-flow tables for regions of the
+$\twoljets$-electroweak search.
 
-Unused.
+All selection requirements can be arranged into a sequence of statements joined
+by logical `and' operations.
+Logical `and' is commutative and associative, so these sequences are unchanged
+under any reordering:
+$a \land b \land c = b \land a \land c = c \land b \land a$, and so on for
+every possible shuffling.
+Cut-flow tables choose one such ordering of selection requirements, and report
+the yields of simulated samples after requiring all prior to a point in the
+ordering: for example requiring
+$a$, then $a \land b$, then $a \land b \land c$.
+These partial yields may be reported in various metrics, such as the number
+of Monte Carlo events, their summed weight, or uncertainty estimates.
+
+Cut-flow tables can be informative for understanding the purpose of each
+requirement, particularly when the requirements have some contextual
+independence.
+However, one should be aware that the chosen ordering affects the apparent
+impact of each selection, so more investigation may be necessary to gain a full
+understanding.
+
+For $\twoljets$-electroweak, some cut-flow tables for signal samples are
+published with its auxiliary materials~\cite{hepdata.116034}.
+These are adapted into the following tables:
+\begin{itemize}
+\item SR-$\llbb$ in Table~\ref{aux:ewk:cutflowSRllbb}.
+\item SR-High-1J in Table~\ref{aux:ewk:cutflowSRHigh4}.
+\item SR-High-8-a in Table~\ref{aux:ewk:cutflowSRHigh8_1}.
+\item SR-High-8-b in Table~\ref{aux:ewk:cutflowSRHigh8_2}.
+\item SR-High-16-a in Table~\ref{aux:ewk:cutflowSRHigh16_1}.
+\item SR-High-16-b in Table~\ref{aux:ewk:cutflowSRHigh16_2}.
+\item SR-Int-a in Table~\ref{aux:ewk:cutflowSRInt_1}.
+\item SR-Int-b in Table~\ref{aux:ewk:cutflowSRInt_2}.
+\item SR-Low-a in Table~\ref{aux:ewk:cutflowSRLow_1}.
+\item SR-Low-b in Table~\ref{aux:ewk:cutflowSRLow_2}.
+\item SR-Low-2 in Table~\ref{aux:ewk:cutflowSRLow2}.
+\item SR-OffShell-a in Table~\ref{aux:ewk:cutflowSROffShell_1}.
+\item SR-OffShell-b in Table~\ref{aux:ewk:cutflowSROffShell_2}.
+\end{itemize}
+
+% TODO int tables
+\begin{itemize}
+\item TODO int tables
+\end{itemize}
+
+% public aux tables
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\mll \in 71\textrm{--}111\,\eV[G]$                            & $4.74$ & $143.97$ & $817.63$ & $212.99$ & $34.85$ & $1099.30$ & $40.08$ & $45.56$ \\
+$\metsig > 18$                                            & $0.00$ & $1.39$ & $19.05$ & $29.73$ & $19.69$ & $20.80$ & $18.97$ & $30.50$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $1.27$ & $17.52$ & $28.79$ & $19.37$ & $19.52$ & $18.57$ & $30.21$ \\
+$\nbtag \geq 2$                                          & $0.00$ & $0.00$ & $0.00$ & $0.10$ & $0.09$ & $0.69$ & $4.07$ & $1.95$ \\
+$\njet \geq 2$                               & $0.00$ & $0.00$ & $0.00$ & $0.10$ & $0.09$ & $0.69$ & $3.84$ & $1.92$ \\
+$\mbb \in 60\text{--}150\,\eV[G]$                            & $0.00$ & $0.00$ & $0.00$ & $0.04$ & $0.04$ & $0.69$ & $3.57$ & $1.85$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-$\llbb$
+]{%
+Cut-flow for SR-$\llbb$,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRllbb}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                          & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag \leq 1$                                          & $463.38$ & $398.26$ & $840.64$ & $220.96$ & $36.53$ & $1034.40$ & $42.02$ & $45.55$ \\
+$\mll \in 71\textrm{--}111\,\eV[G]$                            & $4.74$ & $142.68$ & $815.59$ & $212.26$ & $34.64$ & $956.19$ & $30.83$ & $42.49$ \\
+$\metsig > 12$                                            & $0.95$ & $15.84$ & $210.10$ & $122.31$ & $28.27$ & $174.03$ & $23.79$ & $36.79$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $9.89$ & $170.04$ & $106.53$ & $26.99$ & $150.16$ & $22.62$ & $35.65$ \\
+$\njet = 1$                                  & $0.00$ & $3.75$ & $77.67$ & $32.80$ & $6.11$ & $89.11$ & $7.10$ & $10.98$ \\
+$\mjetone \in 60\textrm{--}110\,\eV[G]$                             & $0.00$ & $0.00$ & $0.34$ & $0.84$ & $1.46$ & $0.00$ & $0.35$ & $2.16$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-High-1J
+]{%
+Cut-flow for SR-High-1J,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRHigh4}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag \leq 1$                                          & $463.38$ & $398.26$ & $840.64$ & $220.96$ & $36.53$ & $1034.40$ & $42.02$ & $45.55$ \\
+$\mll \in 71\textrm{--}111\,\eV[G]$                            & $4.74$ & $142.68$ & $815.59$ & $212.26$ & $34.64$ & $956.19$ & $30.83$ & $42.49$ \\
+$\metsig > 18$                                            & $0.00$ & $1.39$ & $19.05$ & $29.63$ & $19.61$ & $20.11$ & $14.88$ & $28.50$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $1.27$ & $17.52$ & $28.69$ & $19.28$ & $18.83$ & $14.50$ & $28.26$ \\
+$\njet \geq 2$                               & $0.00$ & $0.73$ & $7.95$ & $18.49$ & $14.67$ & $4.82$ & $9.83$ & $19.10$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.14$ & $2.93$ & $8.52$ & $7.68$ & $1.74$ & $3.75$ & $9.29$ \\
+$\rjj < 0.8$                                              & $0.00$ & $0.00$ & $0.18$ & $2.07$ & $5.24$ & $0.61$ & $1.74$ & $6.82$ \\
+$\metsig < 21$                                            & $0.00$ & $0.00$ & $0.00$ & $1.53$ & $1.25$ & $0.25$ & $0.54$ & $1.21$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-High-8-a
+]{%
+Cut-flow for SR-High-8-a,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRHigh8_1}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag \leq 1$                                          & $463.38$ & $398.26$ & $840.64$ & $220.96$ & $36.53$ & $1034.40$ & $42.02$ & $45.55$ \\
+$\mll \in 71\textrm{--}111\,\eV[G]$                            & $4.74$ & $142.68$ & $815.59$ & $212.26$ & $34.64$ & $956.19$ & $30.83$ & $42.49$ \\
+$\metsig > 18$                                            & $0.00$ & $1.39$ & $19.05$ & $29.63$ & $19.61$ & $20.11$ & $14.88$ & $28.50$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $1.27$ & $17.52$ & $28.69$ & $19.28$ & $18.83$ & $14.50$ & $28.26$ \\
+$\njet \geq 2$                               & $0.00$ & $0.73$ & $7.95$ & $18.49$ & $14.67$ & $4.82$ & $9.83$ & $19.10$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.14$ & $2.93$ & $8.52$ & $7.68$ & $1.74$ & $3.75$ & $9.29$ \\
+$\rjj < 0.8$                                              & $0.00$ & $0.00$ & $0.18$ & $2.07$ & $5.24$ & $0.61$ & $1.74$ & $6.82$ \\
+$\metsig > 21$                                            & $0.00$ & $0.00$ & $0.18$ & $0.54$ & $3.99$ & $0.36$ & $1.20$ & $5.61$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-High-8-b
+]{%
+Cut-flow for SR-High-8-b,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRHigh8_2}
+\end{sidewaystable}
+
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag \leq 1$                                          & $463.38$ & $398.26$ & $840.64$ & $220.96$ & $36.53$ & $1034.40$ & $42.02$ & $45.55$ \\
+$\mll \in 71\textrm{--}111\,\eV[G]$                            & $4.74$ & $142.68$ & $815.59$ & $212.26$ & $34.64$ & $956.19$ & $30.83$ & $42.49$ \\
+$\metsig > 18$                                            & $0.00$ & $1.39$ & $19.05$ & $29.63$ & $19.61$ & $20.11$ & $14.88$ & $28.50$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $1.27$ & $17.52$ & $28.69$ & $19.28$ & $18.83$ & $14.50$ & $28.26$ \\
+$\njet \geq 2$                               & $0.00$ & $0.73$ & $7.95$ & $18.49$ & $14.67$ & $4.82$ & $9.83$ & $19.10$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.14$ & $2.93$ & $8.52$ & $7.68$ & $1.74$ & $3.75$ & $9.29$ \\
+$\rjj \in 0.8\text{--}1.6$                                & $0.00$ & $0.14$ & $1.37$ & $3.97$ & $2.22$ & $1.13$ & $1.63$ & $2.17$ \\
+$\metsig < 21$                                            & $0.00$ & $0.14$ & $1.23$ & $2.52$ & $0.57$ & $1.13$ & $0.63$ & $0.52$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-High-16-a
+]{%
+Cut-flow for SR-High-16-a,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRHigh16_1}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag \leq 1$                                          & $463.38$ & $398.26$ & $840.64$ & $220.96$ & $36.53$ & $1034.40$ & $42.02$ & $45.55$ \\
+$\mll \in 71\textrm{--}111\,\eV[G]$                            & $4.74$ & $142.68$ & $815.59$ & $212.26$ & $34.64$ & $956.19$ & $30.83$ & $42.49$ \\
+$\metsig > 18$                                            & $0.00$ & $1.39$ & $19.05$ & $29.63$ & $19.61$ & $20.11$ & $14.88$ & $28.50$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $1.27$ & $17.52$ & $28.69$ & $19.28$ & $18.83$ & $14.50$ & $28.26$ \\
+$\njet \geq 2$                               & $0.00$ & $0.73$ & $7.95$ & $18.49$ & $14.67$ & $4.82$ & $9.83$ & $19.10$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.14$ & $2.93$ & $8.52$ & $7.68$ & $1.74$ & $3.75$ & $9.29$ \\
+$\rjj \in 0.8\text{--}1.6$                                & $0.00$ & $0.14$ & $1.37$ & $3.97$ & $2.22$ & $1.13$ & $1.63$ & $2.17$ \\
+$\metsig > 21$                                            & $0.00$ & $0.00$ & $0.14$ & $1.45$ & $1.64$ & $0.00$ & $0.99$ & $1.65$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-High-16-b
+]{%
+Cut-flow for SR-High-16-b,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRHigh16_2}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag = 0$                                             & $415.48$ & $354.10$ & $742.91$ & $195.64$ & $32.09$ & $764.83$ & $24.49$ & $36.35$ \\
+$\mll \in 81\text{--}101\,\eV[G]$                            & $1.35$ & $5.11$ & $677.36$ & $175.29$ & $28.36$ & $672.77$ & $17.25$ & $32.13$ \\
+$\metsig \in 12\text{--}18$                               & $0.28$ & $0.29$ & $159.21$ & $76.34$ & $7.11$ & $115.75$ & $4.79$ & $6.11$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $0.00$ & $128.16$ & $64.26$ & $6.31$ & $102.86$ & $4.38$ & $5.43$ \\
+$\pt^{j_1} > 60$                       & $0.00$ & $0.00$ & $87.55$ & $55.92$ & $6.05$ & $63.61$ & $3.73$ & $5.14$ \\
+$\njet \geq 2$                               & $0.00$ & $0.00$ & $51.33$ & $40.70$ & $4.91$ & $31.78$ & $2.79$ & $4.00$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.00$ & $22.82$ & $22.92$ & $2.29$ & $15.04$ & $1.10$ & $1.83$ \\
+$\metsig < 15$                                            & $0.00$ & $0.00$ & $17.94$ & $12.35$ & $1.09$ & $12.42$ & $0.41$ & $1.01$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-Int-a
+]{%
+Cut-flow for SR-Int-a,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRInt_1}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag = 0$                                             & $415.48$ & $354.10$ & $742.91$ & $195.64$ & $32.09$ & $764.83$ & $24.49$ & $36.35$ \\
+$\mll \in 81\text{--}101\,\eV[G]$                            & $1.35$ & $5.11$ & $677.36$ & $175.29$ & $28.36$ & $672.77$ & $17.25$ & $32.13$ \\
+$\metsig \in 12\text{--}18$                               & $0.28$ & $0.29$ & $159.21$ & $76.34$ & $7.11$ & $115.75$ & $4.79$ & $6.11$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $0.00$ & $128.16$ & $64.26$ & $6.31$ & $102.86$ & $4.38$ & $5.43$ \\
+$\pt^{j_1} > 60$                       & $0.00$ & $0.00$ & $87.55$ & $55.92$ & $6.05$ & $63.61$ & $3.73$ & $5.14$ \\
+$\njet \geq 2$                               & $0.00$ & $0.00$ & $51.33$ & $40.70$ & $4.91$ & $31.78$ & $2.79$ & $4.00$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.00$ & $22.82$ & $22.92$ & $2.29$ & $15.04$ & $1.10$ & $1.83$ \\
+$\metsig > 15$                                            & $0.00$ & $0.00$ & $4.87$ & $10.57$ & $1.20$ & $2.62$ & $0.69$ & $0.82$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-Int-b
+]{%
+Cut-flow for SR-Int-b,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRInt_2}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag = 0$                                             & $415.48$ & $354.10$ & $742.91$ & $195.64$ & $32.09$ & $764.83$ & $24.49$ & $36.35$ \\
+$\mll \in 81\text{--}101\,\eV[G]$                            & $1.35$ & $5.11$ & $677.36$ & $175.29$ & $28.36$ & $672.77$ & $17.25$ & $32.13$ \\
+$\metsig \in 6\text{--}12$                                & $1.07$ & $4.83$ & $501.19$ & $74.42$ & $5.18$ & $539.48$ & $3.61$ & $4.41$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $0.87$ & $230.48$ & $43.83$ & $3.68$ & $276.82$ & $2.59$ & $3.25$ \\
+$\njet = 2$                                  & $0.00$ & $0.09$ & $96.89$ & $17.53$ & $1.49$ & $124.02$ & $0.97$ & $1.20$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.00$ & $60.61$ & $9.96$ & $0.75$ & $78.02$ & $0.49$ & $0.46$ \\
+$\rll < 1$                                                & $0.00$ & $0.00$ & $17.59$ & $4.40$ & $0.61$ & $23.93$ & $0.32$ & $0.41$ \\
+$\metsig < 9$                                             & $0.00$ & $0.00$ & $6.09$ & $1.28$ & $0.18$ & $10.35$ & $0.09$ & $0.28$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-Low-a
+]{%
+Cut-flow for SR-Low-a,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRLow_1}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag = 0$                                             & $415.48$ & $354.10$ & $742.91$ & $195.64$ & $32.09$ & $764.83$ & $24.49$ & $36.35$ \\
+$\mll \in 81\text{--}101\,\eV[G]$                            & $1.35$ & $5.11$ & $677.36$ & $175.29$ & $28.36$ & $672.77$ & $17.25$ & $32.13$ \\
+$\metsig \in 6\text{--}12$                                & $1.07$ & $4.83$ & $501.19$ & $74.42$ & $5.18$ & $539.48$ & $3.61$ & $4.41$ \\
+$\mttwo > 80\,\eV[G]$                                        & $0.00$ & $0.87$ & $230.48$ & $43.83$ & $3.68$ & $276.82$ & $2.59$ & $3.25$ \\
+$\njet = 2$                                  & $0.00$ & $0.09$ & $96.89$ & $17.53$ & $1.49$ & $124.02$ & $0.97$ & $1.20$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.00$ & $60.61$ & $9.96$ & $0.75$ & $78.02$ & $0.49$ & $0.46$ \\
+$\rll < 1$                                                & $0.00$ & $0.00$ & $17.59$ & $4.40$ & $0.61$ & $23.93$ & $0.32$ & $0.41$ \\
+$\metsig > 9$                                             & $0.00$ & $0.00$ & $11.50$ & $3.12$ & $0.43$ & $13.57$ & $0.24$ & $0.13$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-Low-b
+]{%
+Cut-flow for SR-Low-b,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRLow_2}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag = 0$                                             & $415.48$ & $354.10$ & $742.91$ & $195.64$ & $32.09$ & $764.83$ & $24.49$ & $36.35$ \\
+$\mll \in 81\text{--}101\,\eV[G]$                            & $1.35$ & $5.11$ & $677.36$ & $175.29$ & $28.36$ & $672.77$ & $17.25$ & $32.13$ \\
+$\metsig \in 6\text{--}9$                                 & $0.72$ & $2.66$ & $224.20$ & $29.50$ & $2.15$ & $243.22$ & $1.03$ & $2.06$ \\
+$\mttwo < 80\,\eV[G]$                                        & $0.72$ & $2.31$ & $153.80$ & $15.30$ & $0.78$ & $152.22$ & $0.36$ & $0.61$ \\
+$\njet = 2$                                  & $0.18$ & $0.81$ & $61.15$ & $6.37$ & $0.35$ & $62.62$ & $0.16$ & $0.10$ \\
+$\mjj \in 60\text{--}110\,\eV[G]$                            & $0.00$ & $0.13$ & $36.67$ & $4.19$ & $0.20$ & $38.85$ & $0.07$ & $0.05$ \\
+$\rll < 1.6$                                              & $0.00$ & $0.00$ & $9.30$ & $1.99$ & $0.17$ & $10.27$ & $0.04$ & $0.05$ \\
+$\dphillmet < 0.6$                        & $0.00$ & $0.00$ & $2.52$ & $0.55$ & $0.07$ & $3.46$ & $0.01$ & $0.00$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-Low-2
+]{%
+Cut-flow for SR-Low-2,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSRLow2}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag = 0$                                             & $415.48$ & $354.10$ & $742.91$ & $195.64$ & $32.09$ & $764.83$ & $24.49$ & $36.35$ \\
+$\mll \in 12\text{--}71\,\eV[G]$                             & $405.79$ & $219.51$ & $11.41$ & $2.95$ & $0.54$ & $35.80$ & $3.92$ & $0.68$ \\
+$\metsig > 9$                                             & $185.49$ & $93.61$ & $7.61$ & $2.49$ & $0.51$ & $21.42$ & $3.56$ & $0.52$ \\
+$\mttwo > 100\,\eV[G]$                                       & $41.98$ & $38.34$ & $4.27$ & $1.58$ & $0.42$ & $10.48$ & $2.41$ & $0.45$ \\
+$\njet \geq 2$                               & $27.92$ & $24.63$ & $2.97$ & $1.11$ & $0.33$ & $6.23$ & $1.96$ & $0.31$ \\
+$\pt^{j_1} > 100$                      & $20.37$ & $14.18$ & $0.90$ & $0.71$ & $0.30$ & $1.05$ & $1.55$ & $0.25$ \\
+$\rll < 1.6$                                              & $20.37$ & $13.73$ & $0.71$ & $0.71$ & $0.30$ & $1.05$ & $1.51$ & $0.25$ \\
+$\dphijmet > 2$               & $17.95$ & $9.96$ & $0.17$ & $0.42$ & $0.21$ & $0.00$ & $1.05$ & $0.22$ \\
+$\mll < 40\,\eV[G]$                                          & $17.95$ & $1.17$ & $0.00$ & $0.03$ & $0.02$ & $0.00$ & $0.55$ & $0.04$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-OffShell-a
+]{%
+Cut-flow for SR-OffShell-a,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSROffShell_1}
+\end{sidewaystable}
+
+\begin{sidewaystable}[tp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+Requirement & C1N2 $(100, 60)$ & C1N2 $(150, 70)$ & C1N2 $(250, 100)$ & C1N2 $(400, 200)$ & C1N2 $(650, 250)$ & GMSB $(100, 60\%)$ & GMSB $(500, 80\%)$ & GMSB $(700, 0\%)$ \\
+\hline
+XS $\times$ Lumi                                     & $3151100.00$ & $720140.00$ & $108770.00$ & $16821.00$ & $1908.50$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Forced Decays                                             & $63017.00$ & $16962.00$ & $7424.10$ & $1148.20$ & $130.27$ & $185650.00$ & $4703.60$ & $959.07$ \\
+Generator Filter                                          & $15952.00$ ($120000$) & $5235.30$ ($60000$) & $4567.00$ ($30000$) & $742.82$ ($30000$) & $87.17$ ($30000$) & $30322.00$ ($60000$) & $1234.70$ ($30000$) & $274.52$ ($30000$) \\
+SUSY2 Kernel                                              & $7047.70$ & $3651.00$ & $3675.30$ & $614.31$ & $73.36$ & $10602.00$ & $444.10$ & $106.39$ \\
+Event Cleaning                                            & $7040.60$ & $3646.90$ & $3669.90$ & $613.70$ & $73.30$ & $10595.00$ & $443.59$ & $106.24$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} \geq 2$                 & $6199.90$ & $3333.20$ & $3341.80$ & $558.41$ & $67.10$ & $9080.70$ & $361.30$ & $90.53$ \\
+$\njet \geq 1$ if $n_\mathrm{leptons}^\mathrm{baseline} = 2$ & $6100.10$ & $3290.30$ & $3203.90$ & $547.26$ & $66.54$ & $8240.30$ & $347.73$ & $85.77$ \\
+$n_\mathrm{leptons}^\mathrm{baseline} = n_\mathrm{leptons}^\mathrm{signal} = 2$     & $1373.40$ & $1175.80$ & $1986.80$ & $347.53$ & $45.45$ & $3231.60$ & $84.09$ & $56.69$ \\
+$\mll > 12\,\eV[G]$                                          & $1342.90$ & $1173.50$ & $1986.80$ & $347.53$ & $45.45$ & $3227.30$ & $83.89$ & $56.69$ \\
+Trigger                                                   & $1255.30$ & $1115.20$ & $1904.90$ & $334.74$ & $43.74$ & $3101.90$ & $80.35$ & $54.21$ \\
+$\pt^{\ell,2} > 25\,\eV[G]$                         & $886.11$ & $907.46$ & $1714.80$ & $307.66$ & $41.97$ & $2730.50$ & $74.64$ & $52.76$ \\
+Same Flavour Leptons                                       & $824.82$ & $846.56$ & $1711.20$ & $306.73$ & $41.77$ & $2591.60$ & $62.90$ & $52.39$ \\
+Opposite Charge Leptons                                   & $791.67$ & $813.64$ & $1701.70$ & $304.80$ & $41.42$ & $2553.80$ & $60.41$ & $51.77$ \\
+$\metsig > 6$                                               & $527.35$ & $471.00$ & $1041.20$ & $239.81$ & $37.48$ & $1649.60$ & $54.73$ & $49.23$ \\
+$\met > 100\,\eV[G]$                                           & $466.05$ & $401.46$ & $842.80$ & $221.72$ & $36.74$ & $1191.00$ & $53.42$ & $48.71$ \\
+\hline
+$\nbtag = 0$                                             & $415.48$ & $354.10$ & $742.91$ & $195.64$ & $32.09$ & $764.83$ & $24.49$ & $36.35$ \\
+$\mll \in 12\text{--}71\,\eV[G]$                             & $405.79$ & $219.51$ & $11.41$ & $2.95$ & $0.54$ & $35.80$ & $3.92$ & $0.68$ \\
+$\metsig > 9$                                             & $185.49$ & $93.61$ & $7.61$ & $2.49$ & $0.51$ & $21.42$ & $3.56$ & $0.52$ \\
+$\mttwo > 100\,\eV[G]$                                       & $41.98$ & $38.34$ & $4.27$ & $1.58$ & $0.42$ & $10.48$ & $2.41$ & $0.45$ \\
+$\njet \geq 2$                               & $27.92$ & $24.63$ & $2.97$ & $1.11$ & $0.33$ & $6.23$ & $1.96$ & $0.31$ \\
+$\pt^{j_1} > 100$                      & $20.37$ & $14.18$ & $0.90$ & $0.71$ & $0.30$ & $1.05$ & $1.55$ & $0.25$ \\
+$\rll < 1.6$                                              & $20.37$ & $13.73$ & $0.71$ & $0.71$ & $0.30$ & $1.05$ & $1.51$ & $0.25$ \\
+$\dphijmet > 2$               & $17.95$ & $9.96$ & $0.17$ & $0.42$ & $0.21$ & $0.00$ & $1.05$ & $0.22$ \\
+$\mll > 40\,\eV[G]$                                          & $0.00$ & $8.79$ & $0.17$ & $0.40$ & $0.19$ & $0.00$ & $0.50$ & $0.17$ \\
+\end{tabular}
+}
+\caption[
+Cut-flow for SR-OffShell-b
+]{%
+Cut-flow for SR-OffShell-b,
+adapted from the $\twoljets$ auxiliary materials~\cite{hepdata.116034}.
+Requirements above the second line are common to all regions.
+On the ``Generator Filter'' line, the bracketed integer is the total number of
+simulated events.
+% on-shell C1N2
+For on-shell C1N2 models, Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$, and
+Forced Decays requires
+that each $Z$ boson decays to charged leptons ($e$, $\mu$, or $\tau$)
+and that each $W$ boson decays hadronically.
+% off-shell C1N2
+For off-shell C1N2 models, the Generator Filter requires
+two leptons with $\pt > 7\,\eV[G]$ and $\met > 75\,\eV[G]$, and
+Forced Decays requires
+that each neutralino produces a charged lepton pair and each chargino produces
+any fermion pair.
+% GMSB
+For GMSB models, the Generator Filter requires
+two leptons with $\pt > 3\,\eV[G]$.
+The ``SUSY2 Kernel'' requires at least two charged leptons with
+$\pt > 9\,\eV[G]$, or at least one charged lepton with
+$\pt > 25\,\eV[G]$ and a photon with $\pt > 40\,\eV[G]$
+(all within $|\eta|=2.6$).
+}
+\label{aux:ewk:cutflowSROffShell_2}
+\end{sidewaystable}
