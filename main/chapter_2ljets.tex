@@ -304,28 +304,6 @@ All contours are interpolated from a sparse grid.
 \label{fig:2ljets_contours_gmsb}
 \end{figure}
 
-Signal regions of the $\twoljets$-electroweak analysis are combined to form
-five discovery regions.
-Results of their model-independent interpretations are presented in
-Table~\ref{tab:2ljets_discovery}.
-The same data deficits drive stronger bounds on possible signals that manifest
-as smaller limits on the signal expectations, which are labelled
-$S_{\mathrm{obs}}^{95}$ in the figure.
-\footnotetext{%
-The visible cross-section is defined such that the expected event count is
-given by the product of $A\epsilon\sigma\times L$, where $L$ is the integrated
-luminosity (typically in $\mathrm{fb}^{-1}$ units).
-This particular presentation is uses an `acceptance' $A$, an
-`efficiency' $\epsilon$, and an observable cross-section $\sigma_{\mathrm{obs}}$
-(presented here at at $95\%$ limit).
-The acceptance and efficiency are defined using truth-level simulations, in
-which the $A$ is the fraction of truth-level events that pass selection
-requirements, and $\epsilon$ is the ratio from the truth-level yield to the
-reconstruction-level yield.
-Because detector effects can increase yields, this $\epsilon$ can exceed
-one~\cite{susy_results_presentation_papers}.
-}
-
 % upper limits
 \begin{table}[tp]
 \centering
@@ -387,6 +365,28 @@ scheme~\cite{pdg2022ynf}.%
 }
 \label{tab:2ljets_discovery}
 \end{table}
+
+Signal regions of the $\twoljets$-electroweak analysis are combined to form
+five discovery regions.
+Results of their model-independent interpretations are presented in
+Table~\ref{tab:2ljets_discovery}.
+The same data deficits drive stronger bounds on possible signals that manifest
+as smaller limits on the signal expectations, which are labelled
+$S_{\mathrm{obs}}^{95}$ in the figure.
+\footnotetext{%
+The visible cross-section is defined such that the expected event count is
+given by the product of $A\epsilon\sigma\times L$, where $L$ is the integrated
+luminosity (typically in $\mathrm{fb}^{-1}$ units).
+This particular presentation is uses an `acceptance' $A$, an
+`efficiency' $\epsilon$, and an observable cross-section $\sigma_{\mathrm{obs}}$
+(presented here at at $95\%$ limit).
+The acceptance and efficiency are defined using truth-level simulations, in
+which the $A$ is the fraction of truth-level events that pass selection
+requirements, and $\epsilon$ is the ratio from the truth-level yield to the
+reconstruction-level yield.
+Because detector effects can increase yields, this $\epsilon$ can exceed
+one~\cite{susy_results_presentation_papers}.
+}
 
 
 \subsection{Contributions}
@@ -1739,6 +1739,90 @@ Other variables help to reduce background contamination with some trade-off
 against signal efficiency; among these, $\metsig$ is the most generally strong
 separating variable, and other variables are chosen in contexts where
 they aid the local designs that we detail in Section~\ref{sec:2ljets_design}.
+
+The power of each of these variables to select signals and exclude backgrounds
+is hugely variable across our many signal models and regions of phase space.
+For illustration, Table~\ref{tab:2ljets_ewk_acceff} reproduces some signal
+efficiency numbers for the sum of yields in all $\twoljets$-electroweak signal
+regions.
+It finds a that only $0.0003\%$ of signal events are captured under the light
+C1N2 model with
+$m(\chargino_1, \neutralino_2) = 100\,\eV[G]$ and
+$m(\neutralino_1) = 60\,\eV[G]$.
+The reduced cross-sections for models with large masses are offset by their
+more spectacular appearances, with a much larger capture rate of
+for more extreme models.
+For example, the corresponding capture rate it $0.64\%$ for the C1N2 model with
+$m(\chargino_1, \neutralino_2) = 650\,\eV[G]$ and
+$m(\neutralino_1) = 250\,\eV[G]$.
+Detailed cut-flow tables,
+Tables~\ref{aux:ewk:cutflowSRllbb} to~\ref{aux:ewk:cutflowSROffShell_2} of
+Appendix~\ref{app:2ljets_cut_flows},
+give more granular information into the effects of many intermediate
+selection requirements across all signal regions for several representative
+signal models.
+Notably, $\mttwoll$ rejects substantial amounts of signal, although this
+rejection is worthwhile for its larger rate of background rejection.
+
+On background rejection performance,
+Tables~\ref{tab:cutflows_CR-VZ} to~\ref{tab:cutflows_CR-DY} of
+Appendix~\ref{app:2ljets_cut_flows} present cut-flow tables in the four control
+regions of $\twoljets$-electroweak with background sample rates included.
+These tables show that $\mttwoll$ selections are powerful for removing $\ttbar$
+backgrounds, as expected, and that $\metsig$ selections beyond the
+pre-selection requirement of $\metsig > 6$ drastically reduce most other
+backgrounds.
+Summed across all four control regions with data given in these tables,
+the control region selections reduce background rates with a survival fraction
+of $1.5\%$ relative to the pre-selection requirements of
+Table~\ref{tab:2ljets_presel}.
+
+
+\begin{table}[tp]
+\centering
+\begin{tabular}{ccl}
+\multicolumn{3}{c}{C1N2}   \\
+$m(\chargino_1, \neutralino_2)$ ($\eV[G]$)
+& $m(\neutralino_1)$ ($\eV[G]$)
+& $A\times\epsilon$ (\%)
+\\[1.5ex]
+\hline
+% 0.0000028408852207408747
+100 & 60 & 0.0003       \\
+% 0.000007322904893685767
+150 & 70 & 0.0007       \\
+% 0.00041538437098791273
+250 & 100 & 0.042       \\
+% 0.002093724286276909
+400 & 200 & 0.21     \\
+% 0.0063561141231079175
+650 & 250 & 0.64     \\
+\end{tabular}
+\\[2em]
+\begin{tabular}{ccl}
+\multicolumn{3}{c}{GMSB}  \\
+$m(\neutralino_1)$  ($\eV[G]$)
+& $B(\neutralino_1 \to h \gravitino)$
+& $A\times\epsilon$ (\%)  \\[1.5ex]
+\hline
+% 0.00023984225213678648
+200 & 50 & 0.02  \\
+% 0.002095514599015893
+500 & 80 & 0.21   \\
+% 0.0161139463793303
+700 & 0  & 1.6   \\
+\end{tabular}
+\caption[
+]{%
+Acceptance times efficiency (fraction of total production yields) in the union
+of all $\twoljets$-electroweak signal regions, displayed for example C1N2 and
+GMSB signal models.
+Acceptance $A$ and efficiency $\epsilon$ are defined via truth-level
+simulations as specified in the footnote from Table~\ref{tab:2ljets_discovery}.
+This table is adapted from the $\twoljets$ paper~\cite{atlas2022searches}.%
+}
+\label{tab:2ljets_ewk_acceff}
+\end{table}
 
 
 \FloatBarrier
