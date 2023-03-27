@@ -1868,7 +1868,7 @@ skilling2017david,
 lecun-06,
 pmlr-v2-ranzato07a
 }.
-At unit temperature, this can induce a probability distribution
+At temperature $1/k_B$, this can induce a probability distribution
 relative to an appropriate measure~\cite{
 cranmer2012histfactory,
 skilling2017david
@@ -1892,6 +1892,33 @@ can sample quite efficiently with tensor evaluation through
 Histograms of samples for the signal strength in the discovery fits
 can differ substantially from profile-\heplikelihood\ curves.
 }
+
+The formula for a standard \roofit\ \heplikelihood\ function can be
+summarised as
+\begin{equation}
+\label{eqn:searches_heplikelihood_e}
+e^{E(x)} =
+\prod_{b \in \mathrm{bins}}\mathrm{Poisson}(n_b \mid y_b(x))
+\times \prod_{i \in \mathrm{parameters}} f_i(x_i),
+\end{equation}
+in which $\mathrm{Poisson}(n\mid \mu)$ is the Poisson likelihood function
+of Equation~\ref{eqn:searches_poisson}, $y_b(x)$ is the yield in bin $b$
+for parameters $x$, and $f_i$ is the constraint function for parameter $i$.
+Constraint functions $f_i$ are typically of
+Gaussian (Equation~\ref{eqn:searches_gaussian}) or
+Poissonian (Equation~\ref{eqn:searches_poisson} or a continuous interpolation)
+forms, and often interpreted as likelihoods on fictional data.
+The mappings from parameters to yields $y_b(x)$ are parameterised to
+non-linearly interpolate between given `low', `central', and `high' variations
+of the yields corresponding to certain parameters; many such
+interpolation/extrapolation functions are available, but the most common
+interpolates with a sixth-order polynomial that is smoothly attached to
+exponential tails for extrapolation.
+To avoid the numerical difficulties associated with taking a product over many
+terms, one typically handles $E(x)$, not $e^{E(x)}$.
+The bins may be further grouped into channels that share
+terms~\cite{verkerke2003roofit}.
+
 
 Error bars on the yields can be assigned by exploring around that best fit.
 In the Gaussian approximation, the inverse (Hessian) matrix of second
