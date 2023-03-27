@@ -448,61 +448,77 @@ atlas2016trigger,
 atlas2008experiment
 }.
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
+\TODO{paragraph for Table~\ref{tab:experiment_trigger_breakdown}.}
+
 \begin{table}[tp]
 \centering
 \footnotesize
+\begin{adjustbox}{width=\textwidth}
 \begin{tabular}{llcc}
-Trigger                        & Summary                            & L1 Peak Rate ($\mathrm{kHz}$) & HLT Peak Rate ($\mathrm{Hz}$) \\
-\multirow{5}{*}{Single lepton} & Isolated $\mu$, $\pt > 27\,\eV[G]$ & 16                            & 218                           \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-\multirow{9}{*}{Dilepton}      &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-\multirow{5}{*}{Trilepton}     &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-Single photon                  &                                    &                               &                               \\
-\multirow{3}{*}{Diphoton}      &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-Single jet                     &                                    &                               &                               \\
-$b$-jet                        &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-\multirow{5}{*}{$b$-jet}       &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-\multirow{4}{*}{Multi-jet}     &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-$\met$                         &                                    &                               &                               \\
-\multirow{4}{*}{$B$-physics}   &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &                               \\
-                               &                                    &                               &
+Trigger                        & Summary                                                          & L1 Peak Rate ($\mathrm{kHz}$) & HLT Peak Rate ($\mathrm{Hz}$) \\
+\hline
+\multirow{5}{*}{Single lepton} & Isolated $\mu$, $\pt > 27\,\eV[G]$                               & $16$                          & $218$                         \\
+                               & Isolated tight $e$, $\pt > 27\,\eV[G]$                           & $31$                          & $195$                         \\
+                               & $\mu$, $\pt > 52\,\eV[G]$                                        & $16$                          & $70$                          \\
+                               & $e$, $\pt > 61\,\eV[G]$                                          & $28$                          & $20$                          \\
+                               & $\tau$, $\pt > 170\,\eV[G]$                                      & $1.4$                         & $42$                          \\
+\hline
+\multirow{9}{*}{Dilepton}      & \textbf{$\mu\mu$, both $\pt > 15\,\eV[G]$}                       & \textbf{$2.2$}                & \textbf{$30$}                 \\
+                               & \textbf{$\mu\mu$, $\pt > 23, 9\,\eV[G]$}                         & \textbf{$16$}                 & \textbf{$47$}                 \\
+                               & \textbf{loose $ee$, both $\pt > 18\,\eV[G]$}                     & \textbf{$2.0$}                & \textbf{$13$}                 \\
+                               & \textbf{$e\mu$, $\pt > 18, 15\,\eV[G]$}                          & \textbf{$16$}                 & \textbf{$6$}                  \\
+                               & \textbf{loose $e$, $\mu$, $\pt > 18, 15\,\eV[G]$}                & \textbf{$2.6$}                & \textbf{$5$}                  \\
+                               & \textbf{$e\mu$, $\pt > 29, 9\,\eV[G]$}                           & \textbf{$21$}                 & \textbf{$4$}                  \\
+                               & $\tau\tau$, $\pt > 40, 30\,\eV[G]$                               & $5.7$                         & $93$                          \\
+                               & $\tau$, isolated $\mu$, $\pt > 30, 15\,\eV[G]$                   & $2.4$                         & $17$                          \\
+                               & $\tau$, isolated $e$, $\pt > 30, 18\,\eV[G]$                     & $4.6$                         & $19$                          \\
+\hline
+\multirow{5}{*}{Trilepton}     & loose $eee$, $\pt > 25,13,13\,\eV[G]$                            & $1.6$                         & $0.1$                         \\
+                               & $\mu\mu\mu$, $\pt > 7\,\eV[G]$                                   & $0.2$                         & $7$                           \\
+                               & $\mu\mu\mu$, $\pt > 21,5,5\,\eV[G]$                              & $16$                          & $9$                           \\
+                               & $\mu\mu$, loose $e$, $\pt > 11,11,13\,\eV[G]$                    & $2.2$                         & $0.5$                         \\
+                               & loose $ee$, $\mu$, $\pt > 13,13,11\,\eV[G]$                      & $2.3$                         & $0.1$                         \\
+\hline
+Single photon                  & loose $\gamma$, $\pt > 145\,\eV[G]$                              & $24$                          & $47$                          \\
+\hline
+\multirow{3}{*}{Diphoton}      & loose $\gamma\gamma$, both $\pt > 55\,\eV[G]$                    & $3.0$                         & $7$                           \\
+                               & $\gamma\gamma$, $\pt > 40,30\,\eV[G]$                            & $3.0$                         & $21$                          \\
+                               & isolated tight $\gamma\gamma$, both $\pt > 25\,\eV[G]$           & $2.0$                         & $15$                          \\
+\hline
+\multirow{3}{*}{Single jet}    & jet ($R = 0.4$), $\pt > 435\,\eV[G]$                             & $3.7$                         & $35$                          \\
+                               & jet ($R = 1.0$), $\pt > 480\,\eV[G]$                             & $2.6$                         & $42$                          \\
+                               & jet ($R = 1.0$), $\pt > 450\,\eV[G]$, $m_j > 45\,\eV[G]$         & $2.6$                         & $36$                          \\
+\hline
+\multirow{5}{*}{$b$-jet}       & $b$-tag @ $60\%$, $\pt > 285\,\eV[G]$                            & $3.6$                         & $15$                          \\
+                               & two $b$-tag @ $60\%$, $\pt > 185,70\,\eV[G]$                     & $3.6$                         & $11$                          \\
+                               & $b$-tag @ $60\%$, three jets, all $\pt > 85\,\eV[G]$             & $1.5$                         & $14$                          \\
+                               & two $b$-tag @ $60\%$, one jet, $\pt > 65, 65,160\,\eV[G]$        & $1.3$                         & $17$                          \\
+                               & two $b$-tag @ $60\%$, two jets, all $\pt > 65\,\eV[G]$           & $3.2$                         & $15$                          \\
+\hline
+\multirow{4}{*}{Multi-jet}     & four jets, all $\pt > 125\,\eV[G]$                               & $0.5$                         & $16$                          \\
+                               & five jets, all $\pt > 95\,\eV[G]$                                & $4.8$                         & $10$                          \\
+                               & six jets, all $\pt > 80\,\eV[G]$                                 & $4.8$                         & $4$                           \\
+                               & six jets, all $|\eta| < 2$, all $\pt > 60\,\eV[G]$               & $4.8$                         & $15$                          \\
+\hline
+$\met$                         & $\met > 200\,\eV[G]$                                             & $5.1$                         & $94$                          \\
+\hline
+\multirow{4}{*}{$B$-physics}   & $\mu\mu$, $\pt > 11, 6\,\eV[G]$, $0.1 < m_{\mu\mu} < 14\,\eV[G]$ & $2.9$                         & $55$                          \\
+                               & $\mu\mu$, $\pt > 6, 6\,\eV[G]$, $2.5 < m_{\mu\mu} < 4.0\,\eV[G]$ & $1.4$                         & $55$                          \\
+                               & $\mu\mu$, $\pt > 6, 6\,\eV[G]$, $4.7 < m_{\mu\mu} < 5.9\,\eV[G]$ & $1.4$                         & $6$                           \\
+                               & $\mu\mu$, $\pt > 6, 6\,\eV[G]$, $7 < m_{\mu\mu} < 12\,\eV[G]$    & $1.2$                         & $12$
 \end{tabular}
+\end{adjustbox}
 \caption[
-Summary of \atlas\ trigger rates by target in 2018
+Summary of \atlas\ trigger rates in 2018 data
 ]{%
-Summary of \atlas\ trigger rates by target in 2018 at instantaneous
-luminosities up to $2\times10^{34}\,\mathrm{cm}^{-2}\mathrm{s}^{-1}$ TODO.
+Summary of \atlas\ trigger rates in 2018 data at the peak instantaneous
+luminosity of $2\times10^{34}\,\mathrm{cm}^{-2}\mathrm{s}^{-1}$.
+The search presented in this thesis uses only dilepton $e$ and $\mu$ triggers,
+which are highlighted in bold.
 Table adapted from~\cite{ATL-DAQ-PUB-2019-001}.
+Rates overlap between triggers.
 }
+\label{tab:experiment_trigger_breakdown}
 \end{table}
 
 \section{Data}
