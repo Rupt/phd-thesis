@@ -476,6 +476,37 @@ $2015\textrm{--}2018$~\cite{atlas2022searches}.
 This second run has various refinements over the Run~1, including beam energies
 increasing from $\sqrt{s} = 7\textrm{ or }8\,\eV[T]$, and bunch spacings
 halving from $50$ to $25\,\textrm{ns}$~\cite{lhc2006run2}.
+A breakdown of the LHC proton-proton data conditions and quantity is given
+in Table~\ref{tab:experiment_run2_state}.
+Broadly, instantaneous luminosity was increased over time, leading to increases
+in both data quantity and pile-up interactions alongside those data.
+
+\begin{sidewaystable}[tp]
+\centering
+\begin{tabular}{lcccc}
+Observable                                                        & 2015         & 2016         & 2017                & 2018         \\
+\hline
+Maximum number of colliding bunch-pairs                           & $2232$       & $2208$       & $2544$ ($1909$)     & $2544$       \\
+Bunch spacing ($\mathrm{ns}$)                                     & $25$         & $25$         & $25$ (---)          & $25$         \\
+Typical number of protons per bunch ($\times 10^{11}$)            & $1.1$        & $1.1$        & $1.1$ ($1.2$)       & $1.1$        \\
+Peak luminosity ($\times 10^{33}\mathrm{cm}^{-2}\mathrm{s}^{-1}$) & $5$          & $13$         & $16$                & $19$         \\
+Peak number of inelastic interactions per crossing                & $\approx 16$ & $\approx 41$ & $\approx 45$ ($60$) & $\approx 55$ \\
+Luminosity-weighted average inelastic interactions per crossing   & $13$         & $25$         & $38$                & $36$         \\
+Integrated luminosity delivered ($\mathrm{fb}^{-1}$)              & $4$          & $39$         & $50.6$              & $63.8$
+\end{tabular}
+\caption[
+LHC data rates and conditions by year in Run~2
+]{%
+LHC data rates and conditions by year in Run~2.
+This table is adapted from~\cite{ATLAS:2022hro}.
+Bracketed numbers under 2017 refer to an alternative LHC operating condition
+which alternated in a pattern of eight bunches with the usual
+$25\,\mathrm{ns}$ separation followed by a gap of four empty bunch slots.
+Alongside a primary interaction, the inelastic interactions in a crossing are
+pile-up events and add noise to our measurements.
+}
+\label{tab:experiment_run2_state}
+\end{sidewaystable}
 
 Data collected under anomalous detector operations are hard to model.
 Lists are maintained indicating which datasets arise from `good', normal
@@ -486,8 +517,18 @@ than $5\%$ of the Run~2 data~\cite{
 DAPR-2018-01,
 Golling:2011zy
 }.
+After selecting for data quality requirements, we are left with a total of
+$139.0\,\mathrm{fb}^{-1}$ \atlas\ proton-proton collision data to analyse.
+This integrated luminosity comprises
+% lumi_15_16 = 36.2 # [1/fb] 15+16
+% lumi_17 = 44.3 # [1/fb] 17
+% lumi_18 = 58.5 # [1/fb] 18
+$36.2\,\mathrm{fb}^{-1}$ from the combination of 2015 and 2016,
+$44.3\,\mathrm{fb}^{-1}$ from 2017, and
+$58.5\,\mathrm{fb}^{-1}$ from 2018.
 
-% closing comment?
+
+% closing comment
 Now that we have predictive models in the Standard Model and supersymmetric
 alternatives
 and interpretable data from \atlas's measurements of LHC collisions,
