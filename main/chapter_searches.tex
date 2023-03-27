@@ -1990,6 +1990,11 @@ but their pieces have esoteric names that we define here.
 
 Our searches see data only through discrete histogram bins named `regions',
 which are defined by logical selections in event variables.
+Each search has its own desiderata, so many different criteria can be used
+to choose these logical selections; broadly, however, selections are made to
+separate signals from backgrounds, such that data appearing in the regions are
+informative as to whether signals are present and what the values of unknown
+parameters might best explain the data.
 To communicate their intended uses, we further categorize these bins into
 `control', `validation', and `signal' regions;
 Figure~\ref{fig:searches_histfitter_regions} illustrates the uses of these
@@ -2047,6 +2052,15 @@ to indicate their use in special `discovery' fits.
 Various fits are useful to extract different results from search regions.
 We briefly describe the three classes of fit here, and shall see examples
 of their results in Chapter~\ref{chapter:2ljets}.
+Control regions are included in all fits with an intent to constrain the
+normalization of Standard Model background samples.
+Validation regions are not directly included as likelihood constraints in any
+fits, but are used for visual inspection only, such that the analysts can
+iteratively adapt their modelling to look good in validation regions without
+directly biasing final results.
+Signal regions are included only once the backgrounds are constrained and
+validated and only in fits where one is testing for the presence of signals
+as detailed below.
 
 \paragraph{Background-only fits.}
 With no signal contribution present, the background-only model is fitted
@@ -2074,9 +2088,9 @@ exclusion fits, and discovery fits.
 \paragraph{Exclusion fits.}
 Model-dependent `exclusion' fits add simulated yields from precisely
 defined models to the \heplikelihood\ model.
-These fits can use multiple signal regions simultaneously, and couple the
-effect of parametrized modifications to the signals and backgrounds between
-the bins of those regions.
+These fits can use multiple signal regions and control regions simultaneously,
+and couple the effect of parametrized modifications to the signals and
+backgrounds between the bins of those regions.
 
 From exclusion fits, we extract statistical results with the $\cls$ method to
 mark individual models as excluded and set limits on their production
