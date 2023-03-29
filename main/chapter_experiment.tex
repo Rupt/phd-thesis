@@ -438,7 +438,7 @@ $\pt \approx 1\,\eV[T]$.
 But resolution must degrade as these tracks' curvatures reduce at very high
 energies, and Figure~\ref{fig:atlas_cutaway} illustrates this degradation.
 The relative momentum resolution is approximately Gaussian in
-$\sigma(\pt) / \pt$ for muons across this momentum range
+$1 / \pt$ for muons across this momentum range
 (and therefore non-Gaussian in $\pt$ itself)~\cite{atlas1999design1}.
 
 At a reference transverse momentum of $\pt = 100\,\eV[G]$, \atlas's typical
@@ -467,11 +467,63 @@ This figure is reproduced from~\cite{atlas1999design1}.
 \end{figure}
 
 \paragraph{Electrons.}
+Electrons are measured by both tracking in the inner detector and calorimetry
+in the electromagnetic calorimeter.
+These two measurements give two complementary inputs that aid in electron
+reconstruction.
+As for muons, the resolution from tracking scales with $1/\pt$, but the
+calorimetry error is dominated by Poisson statistics with a number of charged
+particles that scales in proportion to the electron energy $E$.
+Combining these two factors with a constant baseline noise, one can therefore
+model the relative electron resolution as
+\begin{equation}
+\label{eqn:experiment_electron_resolution}
+\frac{\sigma(E)}{E}
+\approx
+\frac{a_1}{\sqrt{E}}
+\oplus
+\frac{a_2}{\pt}
+\oplus
+a_3
+\end{equation}
+in which $\oplus$ indicates a sum in quadrature.
+In \atlas, these $a_i$ parameters are roughly
+$a_1 \approx 0.1\,\sqrt{\eV[G]}$,
+$a_2 \approx 0.25\,\eV[G]$, and
+$a_3 \approx 0.007$~\cite{nackenhorst2010top, Lester:705139, ERDMANN201418}.
+Although resolutions vary across the solid angle, this formula roughly
+reproduces the reported resolutions of
+$\frac{\sigma(E)}{E} \approx 4\%$ at $E = \pt = 10\,\eV[G]$,
+$\frac{\sigma(E)}{E} \approx 1\%$ at $E = \pt = 100\,\eV[G]$, and
+$\frac{\sigma(E)}{E} \approx 0.1\%$ at
+$E = \pt = 1\,\eV[T]$ for electrons~\cite{atlas2019electron}.
+
+Energy losses from high-energy electrons are dominated by Bremsstrahlung
+radiations, in which the electron radiates a photon and recoils from its
+momentum.
+Electron reconstruction algorithms efficiently recover this lost Bremsstrahlung
+momentum by associating nearby photon calorimeter clusters back to their source
+electron many cases~\cite{atlas1994proposal, atlas1999design1}.
 
 \paragraph{Jets.}
+\begin{equation}
+\label{eqn:experiment_jet_resolution}
+\frac{\sigma(E)}{E}
+\approx
+\frac{b_1}{\sqrt{E}}
+\oplus
+b_2
+\end{equation}
+with
+$b_1 \approx 0.5\,\sqrt{\eV[G]}$ and
+$b_2 \approx 0.03$.
 
 \paragraph{Missing transverse momentum.}
 \TODO{}
+% Reference from Holly
+%  ATLAS collaboration. ET
+% miss performance in the ATLAS detector using 2015–2016 LHC
+% pp collisions. ATLAS-CONF-2018-023, 2016.
 
 
 \section{Trigger}
