@@ -424,9 +424,8 @@ by some noise.
 \atlas's experimental resolution determines the scale of that noise.
 
 Since the $\twoljets$ analysis is most concerned with muons, electrons and
-jets.
-\TODO{and missing transverse momentum},
-this section reviews \atlas's experimental resolution for these objects.
+jets and missing transverse momentum,
+this section reviews \atlas's experimental resolutions for these objects.
 
 \paragraph{Muons.}
 Since hard muons are not stopped inside \atlas, their reconstruction derives
@@ -532,8 +531,9 @@ Equation~\ref{eqn:experiment_electron_resolution},
 with
 $b_1 \approx 1.0\,\sqrt{\eV[G]}$
 $b_2 \approx 0.5\,\eV[G]$, and
-$b_3 \approx 0.03$~\cite{atlas2021jetresolution}.
-This formula approximately describes the measured jet resolutions of
+$b_3 \approx 0.03$.
+With these parameters, formula approximately describes the measured relative
+jet resolutions of
 $\frac{\sigma(\pt)}{\pt} \approx 20\%$ at $\pt = 30\,\eV[G]$,
 $\frac{\sigma(\pt)}{\pt} \approx 8\%$ at $\pt = 200\,\eV[G]$, and
 $\frac{\sigma(\pt)}{\pt} \approx 4\%$ at
@@ -545,11 +545,42 @@ This effect can skew jet reconstruction distributions towards low energies,
 and is particularly prominent for heavy-flavour jets~\cite{nackenhorst2010top}.
 
 \paragraph{Missing transverse momentum.}
-\TODO{}
-% Reference from Holly
-%  ATLAS collaboration. ET
-% miss performance in the ATLAS detector using 2015–2016 LHC
-% pp collisions. ATLAS-CONF-2018-023, 2016.
+Measurement resolutions of all other objects propagate into the missing
+transverse momentum; this is necessary as it is not directly observed itself,
+but derived from other objects' transverse momenta.
+But collisions also emit significant amounts of momentum in softer particles,
+which can leave tracks and calorimeter hits without being clustered into hard
+physical objects such as jets or electrons.
+The $\met$ resolution therefore depends not only on the resolutions of hard
+objects, but also on the measurement of this soft contribution.
+Various different $\met$ definitions, known as `working points', use different
+quality criteria to define the $\met$ composition, and each working point
+balances resolution against accuracy for different context-specific
+objectives~\cite{ATLAS-CONF-2018-023, Pacey:2747774}.
+
+Pile-up is a major contributor to the $\met$ resolution, because secondary
+interactions produce both tracks and calorimeter clusters that might can be
+indistinguishable from products of the hard-scatter primary vertex
+(the main interaction of interest in a bunch crossing).
+All misattributed momentum from these additional vertices causes $\met$ noise.
+The \atlas\ $\met$ resolution is reported in two orthogonal transverse
+components: $\sigma(\metx)$ and $\sigma(\mety)$.%
+\footnote{%
+The directional decomposition of $\ptmiss$ uncertainty is important for the
+$\met$ significance variable $\metsig$, which we shall discuss in
+Section~\ref{sec:2ljets_metsig}.
+}%
+\footnote{%
+Despite their $E$ symbols, these variables $\metx$ and $\mety$ are momenta
+because they have spatial directions.%
+}
+In reference samples of simulated $Z \to \mu\mu$ events, both transverse
+$\met$ resolution components increase with the number of primary vertices in a
+bunch crossing ($n_{PV}$), from
+$\sigma(\metx) = \sigma(\mety) \approx 10\,\eV[G]$ at $n_{PV} = 1$, to
+$\sigma(\metx) = \sigma(\mety) \approx 20\,\eV[G]$ at $n_{PV} = 30$.
+Note that these resolutions vary by around $\pm 20\%$ with the $\met$
+working point choice~\cite{ATLAS-CONF-2018-023}.
 
 
 \section{Trigger}
