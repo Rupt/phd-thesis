@@ -441,14 +441,6 @@ The relative momentum resolution is approximately Gaussian in
 $1 / \pt$ for muons across this momentum range
 (and therefore non-Gaussian in $\pt$ itself)~\cite{atlas1999design1}.
 
-At a reference transverse momentum of $\pt = 100\,\eV[G]$, \atlas's typical
-relative muon momentum resolution is at the $\sigma(\pt) / \pt \approx 2\%$
-level.
-However, non-uniformities in the detector geometry cause this to spike up to
-$\approx 10\%$ in local areas of the $\eta\textrm{--}\phi$ angular space;
-these degraded local areas include regions containing cryostat hardware or
-the detector's supporting feet~\cite{atlas1999design1, CERN-LHCC-97-022}.
-
 \begin{figure}[tp]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/atlas_muon_resolution.pdf}
@@ -466,6 +458,15 @@ This figure is reproduced from~\cite{atlas1999design1}.
 \label{fig:atlas_cutaway}
 \end{figure}
 
+At a reference transverse momentum of $\pt = 100\,\eV[G]$, \atlas's typical
+relative muon momentum resolution is at the $\sigma(\pt) / \pt \approx 2\%$
+level.
+However, non-uniformities in the detector geometry cause this to spike up to
+$\approx 10\%$ in local areas of the $\eta\textrm{--}\phi$ angular space;
+these degraded local areas include regions containing cryostat hardware or
+the detector's supporting feet~\cite{atlas1999design1, CERN-LHCC-97-022}.
+
+
 \paragraph{Electrons.}
 Electrons are measured by both tracking in the inner detector and calorimetry
 in the electromagnetic calorimeter.
@@ -473,30 +474,31 @@ These two measurements give two complementary inputs that aid in electron
 reconstruction.
 As for muons, the resolution from tracking scales with $1/\pt$, but the
 calorimetry error is dominated by Poisson statistics with a number of charged
-particles that scales in proportion to the electron energy $E$.
+particles that scales in proportion to the electron's energy.
 Combining these two factors with a constant baseline noise, one can therefore
 model the relative electron resolution as
 \begin{equation}
 \label{eqn:experiment_electron_resolution}
-\frac{\sigma(E)}{E}
+\frac{\sigma(\pt)}{\pt}
 \approx
-\frac{a_1}{\sqrt{E}}
+\frac{a_1}{\sqrt{\pt}}
 \oplus
 \frac{a_2}{\pt}
 \oplus
 a_3
+,
 \end{equation}
 in which $\oplus$ indicates a sum in quadrature.
-In \atlas, these $a_i$ parameters are roughly
+To describe \atlas, these $a_i$ parameters are roughly
 $a_1 \approx 0.1\,\sqrt{\eV[G]}$,
 $a_2 \approx 0.25\,\eV[G]$, and
 $a_3 \approx 0.007$~\cite{nackenhorst2010top, Lester:705139, ERDMANN201418}.
 Although resolutions vary across the solid angle, this formula roughly
-reproduces the reported resolutions of
-$\frac{\sigma(E)}{E} \approx 4\%$ at $E = \pt = 10\,\eV[G]$,
-$\frac{\sigma(E)}{E} \approx 1\%$ at $E = \pt = 100\,\eV[G]$, and
-$\frac{\sigma(E)}{E} \approx 0.1\%$ at
-$E = \pt = 1\,\eV[T]$ for electrons~\cite{atlas2019electron}.
+reproduces the reported electron resolutions of
+$\frac{\sigma(\pt)}{\pt} \approx 4\%$ at $\pt = 10\,\eV[G]$,
+$\frac{\sigma(\pt)}{\pt} \approx 1\%$ at $\pt = 100\,\eV[G]$, and
+$\frac{\sigma(\pt)}{\pt} \approx 0.1\%$ at
+$\pt = 1\,\eV[T]$~\cite{atlas2019electron}.
 
 Energy losses from high-energy electrons are dominated by Bremsstrahlung
 radiations, in which the electron radiates a photon and recoils from its
@@ -506,17 +508,41 @@ momentum by associating nearby photon calorimeter clusters back to their source
 electron many cases~\cite{atlas1994proposal, atlas1999design1}.
 
 \paragraph{Jets.}
+Although charged hadrons are tracked in the inner detector, the total energy of
+jets also depends vitally on neutral hadrons, which are only observed through
+their hadronic interactions in the calorimeter system.
+With less influence from tracking, calorimetry noise is the dominant
+contribution to the experimental resolution on hadronic jets.
+However, other noise contributions arising from electrical signals and pile-up
+scale in proportion in $1/\pt$.
+one can therefore again approximate \atlas's relative jet energy resolution as
 \begin{equation}
 \label{eqn:experiment_jet_resolution}
-\frac{\sigma(E)}{E}
+\frac{\sigma(\pt)}{\pt}
 \approx
-\frac{b_1}{\sqrt{E}}
+\frac{b_1}{\sqrt{\pt}}
 \oplus
-b_2
+\frac{b_2}{\pt}
+\oplus
+b_3
+,
 \end{equation}
+the same functional form as for electrons in
+Equation~\ref{eqn:experiment_electron_resolution},
 with
-$b_1 \approx 0.5\,\sqrt{\eV[G]}$ and
-$b_2 \approx 0.03$.
+$b_1 \approx 1.0\,\sqrt{\eV[G]}$
+$b_2 \approx 0.5\,\eV[G]$, and
+$b_3 \approx 0.03$~\cite{atlas2021jetresolution}.
+This formula approximately describes the measured jet resolutions of
+$\frac{\sigma(\pt)}{\pt} \approx 20\%$ at $\pt = 30\,\eV[G]$,
+$\frac{\sigma(\pt)}{\pt} \approx 8\%$ at $\pt = 200\,\eV[G]$, and
+$\frac{\sigma(\pt)}{\pt} \approx 4\%$ at
+$\pt = 2\,\eV[T]$~\cite{atlas2021jetresolution}.
+
+Note that hadronic weak decays can produce real, not-prompt missing momentum
+in jets.
+This effect can skew jet reconstruction distributions towards low energies,
+and is particularly prominent for heavy-flavour jets~\cite{nackenhorst2010top}.
 
 \paragraph{Missing transverse momentum.}
 \TODO{}
