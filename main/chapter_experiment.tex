@@ -241,6 +241,8 @@ the electromagnetic and hadronic calorimeters in
 Section~\ref{sec:atlas_calo},
 and
 the muon spectrometer in Section~\ref{sec:atlas_muon}.
+These detectors' resolutions to relevant physical objects is described in
+Section~\label{sec:atlas_object_resolutions}.
 The final connection to data analysed in this thesis is made through the
 trigger system, which is described in Section~\ref{sec:atlas_trigger},
 and details of the data themselves are given in
@@ -407,6 +409,69 @@ atlas1994proposal,
 atlas2008experiment,
 ATL-PHYS-PUB-2015-037
 }.
+
+
+\section{Object resolutions}
+\label{sec:atlas_object_resolutions}
+Ultimately, the majority usage of most of \atlas's data happens through their
+reconstructions into interpretable objects, such as muons, electrons, jets,
+photons, or taus.
+From one perspective, these reconstructions are themselves exact data, as they
+are nothing less than functions of observed data.
+However, reconstructed objects do not exactly coincide with some proposed
+underlying truth --- reconstructions more closely resemble that truth perturbed
+by some noise.
+\atlas's experimental resolution determines the scale of that noise.
+
+Since the $\twoljets$ analysis is most concerned with muons, electrons and
+jets.
+\TODO{and missing transverse momentum},
+this section reviews \atlas's experimental resolution for these objects.
+
+\paragraph{Muons.}
+Since hard muons are not stopped inside \atlas, their reconstruction derives
+from the curved tracks they leave in the inner detector and muon system as they
+traverse \atlas's strong magnetic fields.
+High tracking fidelity allows us to reliably reconstruct muons across most of
+their expected momentum spectrum, with $\sigma(\pt) / \pt \lesssim 10\%$ up to
+$\pt \approx 1\,\eV[T]$.
+But resolution must degrade as these tracks' curvatures reduce at very high
+energies, and Figure~\ref{fig:atlas_cutaway} illustrates this degradation.
+The relative momentum resolution is approximately Gaussian in
+$\sigma(\pt) / \pt$ for muons across this momentum range
+(and therefore non-Gaussian in $\pt$ itself)~\cite{atlas1999design1}.
+
+At a reference transverse momentum of $\pt = 100\,\eV[G]$, \atlas's typical
+relative muon momentum resolution is at the $\sigma(\pt) / \pt \approx 2\%$
+level.
+However, non-uniformities in the detector geometry cause this to spike up to
+$\approx 10\%$ in local areas of the $\eta\textrm{--}\phi$ angular space;
+these degraded local areas include regions containing cryostat hardware or
+the detector's supporting feet~\cite{atlas1999design1, CERN-LHCC-97-022}.
+
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/atlas_muon_resolution.pdf}
+\caption[
+Relative muon momentum resolution in \atlas\ as a function of $\pt$
+]{%
+Relative muon momentum resolution in \atlas\ as a function of $\pt$, for
+muons selected within a pseudorapidity window of $|\eta| < 1.5$ and averaged
+over that window.
+The dots mark resolution values extracted from simulations, and the line
+represents a semi-empirical description of the relative
+resolution~\cite{CERN-LHCC-97-022}.
+This figure is reproduced from~\cite{atlas1999design1}.
+}
+\label{fig:atlas_cutaway}
+\end{figure}
+
+\paragraph{Electrons.}
+
+\paragraph{Jets.}
+
+\paragraph{Missing transverse momentum.}
+\TODO{}
 
 
 \section{Trigger}
