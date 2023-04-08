@@ -181,12 +181,48 @@ We therefore begin this chapter with a description of the LHC itself in
 Section~\ref{sec:atlas_lhc}, before detailing the design of \atlas\ in
 Section~\ref{sec:atlas_design}.
 
-\section{The Large Hadron Collider}
+\section{The Large Hadron Collider at CERN}
 \label{sec:atlas_lhc}
+% The LHC
+% largest piece
+The Large Hadron Collider (LHC) is the largest and most powerful piece of
+CERN's extensive particle accelerator complex.
+It lives in a $26.7\,\mathrm{km}$ (circumference) tunnel, which is buried
+around $100\,\mathrm{m}$ under France and Switzerland at CERN, Geneva.
+It and comprises two rings that contain and accelerate counter-rotating bunches
+of particles.
+These accelerated bunches are brought into near-head-on collisions at
+the four large detector experiments:
+\atlas~\cite{atlas2008experiment},
+\lhcb~\cite{lhcb2008experiment},
+\cms~\cite{cms2008experiment}, and
+\alice~\cite{alice2008experiment}.
+Although proton-proton collisions are the LHC's primary subject, it is also
+operated for heavy ion collisions including lead ($^{208}\mathrm{Pb}^{82+}$)
+and oxygen ($^{16}\mathrm{O}^{4+}$)~\cite{
+Brewer:2021kiv,
+lhc2008machine,
+lhcDesignreport2004
+}.
+Heavy ion collisions are primarily studied by the \alice\ experiments, but are
+also analysed by the general-purpose detectors \atlas\ and \cms.
+Since proton collision data are the topic of this thesis, this section focuses
+on proton operations.
 
-% the LHC
-% where the protons come from
-Figure~\ref{fig:experiment_cern_complex}
+% does not stand alone
+The LHC does not stand alone.
+It implements the final boosts and collisions of particles, but requires
+earlier stages of CERN's systems to inject the protons at suitably high
+energies for it to continue their acceleration.
+In brief, the accelerator chain flows as follows:
+% Accelerator complex
+\begin{enumerate}
+% TODO where the protons come from
+\item The protons come from
+\end{enumerate}
+This sequence is a subset of CERN's full accelerator complex,
+which is illustrated in
+Figure~\ref{fig:experiment_cern_complex}~\cite{Haffner:1621894}.
 
 \begin{figure}[tp]
 \centering
@@ -221,16 +257,16 @@ This poster is adapted from~\cite{Haffner:1621894}.
 % - dipole for steering
 % - quadrupole for focussing (pairs)
 % - higher orders why? septupole at beam entry
-% size of beam
-% luminosity and its uncertainty
-% pile-up
+% TODO size of beam
+% TODO luminosity and its uncertainty
+% TODO pile-up
 \TODO{Distribution in the mean number of primary vertices per crossing, where the
 variability in that mean arises from differing beam conditions over run-time.}
 Figure~\ref{fig:experiment_run_2_mu}
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.62\textwidth]{figures/atlas_pileup_mu_2015_2018.pdf}
+\includegraphics[width=0.7\textwidth]{figures/atlas_pileup_mu_2015_2018.pdf}
 \caption[
 Mean number interactions per bunch crossing in Run~2 of the LHC
 ]{%
