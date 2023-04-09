@@ -307,13 +307,35 @@ When perfectly timed, the RF cavity will accelerate protons that are less
 energetic that the target beam energy, and decelerate any that are more
 energetic.
 This achieves a dynamically stable acceleration.
-The LHC uses $16$ superconducting RF cavities contained in four separate
-cryostatic modules~\cite{lhcDesignreport2004}.
+The LHC uses sixteen superconducting RF cavities, which are contained in four
+separate cryostatic modules~\cite{lhcDesignreport2004}.
 
-% TODO magnets
+% Magnets
+Magnets are used to steer and focus the LHC's proton beams.
 % - dipole for steering
+Dipole magnets conduct steering by creating constant magnetic fields, with
+north and south magnetic poles on diametrically-opposite sides of the beam.
+These dipole fields steer the beam by applying constant Lorentz forces
+perpendicular to the beam's motion.
 % - quadrupole for focussing (pairs)
-% - higher orders why? septupole at beam entry
+Quadrupole magnets focus the beam to counteract its natural dispersion, with
+alternating magnetic poles placed after each $90^\circ$ rotation around the
+beam.
+A quadrupole magnet is focussing in one axis, and defocussing in a
+perpendicular axis.
+However, alternating pairs of quadrupole magnets can achieve
+a total focussing effect; their effects are not linear.
+
+% higher orders
+Sextupole, octupole, and decapole magnets are used to implement detailed
+corrections with each of the dipoles magnets.
+Chromatic aberrations in optics are errors that arise from the colour-dependent
+behaviour of light.
+The analogous momentum-dependent behaviour in particle beams is known as
+`chromaticity'.
+Sextupole magnets are used in the LHC to correct for chromaticity at each
+quadrupole~\cite{Guiducci:1992kb, lhc2008machine}.
+
 % TODO size of beam
 % TODO luminosity and its uncertainty
 % TODO pile-up
