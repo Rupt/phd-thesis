@@ -218,9 +218,9 @@ In brief, the accelerator chain flows as follows:
 % Accelerator complex
 \begin{enumerate}
 % where the protons come from
-\item The protons come from hydrogen gas, which is initially ionised into a
+\item[0.] The protons come from hydrogen gas, which is initially ionised into a
 plasma of protons and $e^-$ ions in the strong electric fields of a
-duoplasmotron ion source, in which the protons are initially accelerated by
+`duoplasmotron' ion source, in which the protons are initially accelerated by
 electric fields towards a cathode~\cite{lhc50years2013}.
 % linac2
 \item After ionisation, a linear accelerator named Linac2 provides the first
@@ -233,21 +233,29 @@ The PSB comprises four rings with $160\,\mathrm{m}$
 circumference~\cite{linac4protonsource,lhc50years2013}.
 % PS
 \item Thirdly, protons from the PSB are accelerated by the
+$628\,\mathrm{m}$-circumference
 Proton Synchrotron (PS) to $25\,\eV[G]$ energies~\cite{lhc2000psInjector}.
-TODO
 % SPS
-\item SPS
+\item Fourthly, protons from the PS are further boosted by the
+$6.9\,\mathrm{km}$-circumference
+Super Proton Synchrotron (SPS) to $450\,\eV[G]$
+energies~\cite{synchroton:445034}.
 % LHC
-\item LHC
+\item Finally, protons from the SPS are injected the LHC, which finishes
+their acceleration from $250\,\eV[G]$ to $6.5\,\eV[T]$, achieving the
+world-leading $\sqrt{s} = 13\,\eV[T]$ proton-proton collisions that are studied
+in this thesis.
 \end{enumerate}
 This sequence is a subset of CERN's full accelerator complex,
-which is illustrated in
-Figure~\ref{fig:experiment_cern_complex}~\cite{Haffner:1621894}.
-Each of these accelerators was upgraded from its previous operations to achieve
-the performance demanded by designs for the LHC's high energy and luminosity.
+illustrated in Figure~\ref{fig:experiment_cern_complex}~\cite{Haffner:1621894},
+which also supports various other engineering and research experiments.
+Each of these accelerators (Linac2, PSB, PS, and SPS) was upgraded from its
+previous operations to achieve the performance demanded by designs for the
+LHC's high energy and luminosity.
 
 Note that this sequence describes the LHC accelerator complex as it was for
-operations that generated the data used in this thesis, in `Run~2' of the LHC.
+proton-proton operations that generated the data used in this thesis,
+in `Run~2' of the LHC.
 It has since been upgraded.
 For example, since the year 2020 (for Run~3 onwards), Linac2 is replaced by a
 new linear accelerator named Linac4,
@@ -256,7 +264,6 @@ these $\mathrm{H}^-$ ions are later stripped of their electrons,
 to bare protons by passage through a carbon foil.
 Linac4 will supply higher luminosities for future operations of the accelerator
 complex~\cite{linac4techreport,linac4protonsource}.
-The PSB is since also upgraded to reach $2\,\eV[G]$ energies.
 
 \begin{figure}[tp]
 \centering
@@ -274,20 +281,36 @@ This poster is adapted from~\cite{Haffner:1621894}.
 \label{fig:experiment_cern_complex}
 \end{figure}
 
-% the accelerator complex
-% - sequence of contributing accelerators and their beam energies
-% beampipe restricted by size of lep tunnel
-% - required particle count makes antiprotons hard
-% - proton-proton same charge requires separate beampipes
-% - size means most cost efficient to put both beams in one cryostat
-% - beampipes therefore mechanically and magnetically coupled
-% - superconducting magnets at around 2 to 4 Kelvin
-% - cooled with superfluid helium
-% - low heat capacity, danger of heating from beam radiation
-% Radiofrequency cavities
-% - radio waves at 400 MHz such that slow protons accelerated, fast decelerated
-% - in LHC, accelerates from 450 GeV to 6.5 TeV (7 target)
-% magnets
+The LHC's physical design is strongly influenced by the layout of its tunnel,
+which was previously occupied by the Large Electron-Positron Collider (LEP).
+Colliders of oppositely-charged particle pairs, such as electrons and positrons
+or protons and antiprotons, can accelerate both partners in the same beam-pipe.
+The same is not true of like-charged pairs, such as protons against protons.
+This means that the LHC must squeeze two beam-pipes into the narrow tunnel
+where LEP's one beam-pipe previously sat.
+The LHC's solution is to put both beams next to each other, in
+the same cryostatic container.
+This ``two-in-one'' solution fits both beams into the physical space, but adds
+engineering challenges because the two beam channels are mechanically and
+magnetically coupled due to their
+proximity~\cite{lhcDesignreport2004,lhc2008machine}.
+
+Radiofrequency (RF) cavities are the technology used to accelerate protons in
+the LHC.
+They operate by setting up electron beams to oscillate at a frequency that
+resonates with a specially designed cavity, this producing strong oscillating
+electromagnetic fields.
+These electromagnetic fields oscillate at $400\,\mathrm{MHz}$ in the LHC, and
+must be carefully tuned jointly with the incident proton beams to align in
+their timing.
+When perfectly timed, the RF cavity will accelerate protons that are less
+energetic that the target beam energy, and decelerate any that are more
+energetic.
+This achieves a dynamically stable acceleration.
+The LHC uses $16$ superconducting RF cavities contained in four separate
+cryostatic modules~\cite{lhcDesignreport2004}.
+
+% TODO magnets
 % - dipole for steering
 % - quadrupole for focussing (pairs)
 % - higher orders why? septupole at beam entry
