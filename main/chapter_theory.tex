@@ -228,18 +228,19 @@ The Standard Model Lagrangian can be decomposed into this sum of
 \mathcal{L}_\mathrm{SM} =
 \mathcal{L}_\mathrm{YM}
 + \mathcal{L}_\mathrm{WD}
-+ \mathcal{L}_\mathrm{Yu}
-+ \mathcal{L}_\mathrm{H}
++ \mathcal{L}_\mathrm{Yukawa}
++ \mathcal{L}_\mathrm{Higgs}
 ,
 \end{equation}
 which we define below;
 $\mathcal{L}_\mathrm{YM}$ corresponds to the gauge bosons,
 $\mathcal{L}_\mathrm{WD}$ corresponds to the fermions and their gauge
 interactions,
-$\mathcal{L}_\mathrm{Yu}$ corresponds to the Yukawa interactions between the
+$\mathcal{L}_\mathrm{Yukawa}$ corresponds to the Yukawa interactions between the
 fermions and the Higgs,
 and
-$\mathcal{L}_\mathrm{H}$ corresponds to the Higgs boson and its potential.
+$\mathcal{L}_\mathrm{Higgs}$ corresponds to the Higgs boson and its
+potential~\cite{ramond1999journeys,pdg2022ynf}.
 
 \paragraph{Yang-Mills.}
 The Yang-Mills summand $\mathcal{L}_\mathrm{YM}$ implements the gauge groups
@@ -265,7 +266,7 @@ All three Yang-Mills terms take similar forms:
 \sum_{a=1}^3 A^a_{\mu\nu} F^{\mu\nu a}
 ,\textrm{ and}\\
 \mathcal{L}_\mathrm{Y} &=
--\frac{1}{4g^2_1} B{\mu\nu} B^{\mu\nu}
+-\frac{1}{4g^2_1} B_{\mu\nu} B^{\mu\nu}
 .
 \end{align}
 Here, $g_3$, $g_2$, and $g_3$ are dimensionless constants.
@@ -317,14 +318,36 @@ $\mathbf{Q}_i$ for quark doublets,
 and $\mathbf{\bar u}_i$ and $\mathbf{\bar d}_i$ for up- and down-type quark
 singlets, respectively.
 The three fermion generations are indexed by $i$.
-The quark fields come in colour triplets.
+The quark fields are in colour triplets.
 
-\paragraph{Yukawa.} \TODO{}
+\paragraph{Yukawa.}
+The Yukawa term implements masses for the charged leptons by coupling
+them to the scalar Higgs field $H$:
+\begin{equation}
+\mathcal{L}_\mathrm{Yukawa} =
+i\hat L_i \bar e_j H^* Y^{[e]}_{ij}
++ i\mathbf{\widehat Q}_i \mathbf{\bar d}_j H^* Y^{[d]}_{ij}
++ i\mathbf{\widehat Q}_i \mathbf{\bar u}_j \tau_2 H Y^{[u]}_{ij}
++ [\textrm{c.c.}]
+,
+\end{equation}
+in which $\tau_2$ contains weak isospin indices,
+and $Y^{[e]}_{ij}$, $Y^{[d]}_{ij}$, $Y^{[u]}_{ij}$ are Yukawa coupling matrices
+with shape $3\times3$ for the three fermion generations.
 
-\paragraph{Higgs.} \TODO{}
+\paragraph{Higgs.}
+Finally, the Higgs term,
+\begin{equation}
+\mathcal{L}_\mathrm{Higgs} =
+(\mathcal{D}_\mu H)^\dagger (\mathcal{D}^\mu H)
+- \left[ -\mu^2 H^\dagger H + \lambda (H^\dagger H)^2 \right]
+,
+\end{equation}
+contains the dynamics and potential for the scalar Higgs doublet.
+The potential terms are isolated into square brackets to highlight the negative
+sign on the mass term $\mu^2$, which with the quartic term contributes to
+spontaneous symmetry breaking~\cite{rubakov1999classical}.
 
-\TODO{add citations}
-%http://www.physics.ufl.edu/~ramond/JourneysChapter2_CUP.pdf
 
 \section{Opportunities for future Standard Models}
 The Standard Model works very well within its domain.
