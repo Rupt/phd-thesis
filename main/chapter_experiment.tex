@@ -369,10 +369,25 @@ Avoni_2018
 }.
 The relative uncertainty on \atlas's Run~2 integrated luminosity is $\pm1.7\%$.
 
-% TODO pile-up
-\TODO{Distribution in the mean number of primary vertices per crossing, where the
-variability in that mean arises from differing beam conditions over run-time.}
-Figure~\ref{fig:experiment_run_2_mu}
+% pile-up
+From a theoretical standpoint, we would like to study individual proton
+scattering events. But from a practical standpoint, to get enough interesting
+data with limited resources we must increase the luminosity.
+We therefore expect many proton scatterings per bunch crossing, and hope that
+one of them is interesting enough to record.
+On reconstruction, each proton-proton scattering in a bunch crossing produces
+a vertex.%
+\footnote{%
+Sometimes each vertex is described as a primary vertex, to distinguish it from
+secondary vertices from decaying products. Here, we reserve `primary' for the
+main hard scatter of interest in an event.%
+}
+The number of vertices in a bunch crossing is the pile-up number.
+The primary vertex is the main interaction of interest.
+It is typically the hardest hard scatter, and is identified in \atlas\ as the
+vertex with the largest sum of squared transverse momenta of its
+tracks~\cite{atlas2022searches}.
+
 
 \begin{figure}[tp]
 \centering
@@ -392,6 +407,24 @@ This figure is reproduced from~\cite{atlas_public_luminosity}.
 }
 \label{fig:experiment_run_2_mu}
 \end{figure}
+
+% pile-up
+Pile-up interactions cause tracks and other detector hits, which are noise
+atop our measurements of the primary vertex.
+If not removed, these pile-up signals can skew measurements and create an
+illusion missing transverse momentum.
+Although precise measurements can help to remove this noise, it reduces the
+information content of our data and cannot be cleaned entirely.
+In Run~2 data, the number of pile-up vertices per bunch crossing varies around
+several tens of vertices, as displayed in
+Figure~\ref{fig:experiment_run_2_mu}~\cite{atlas_public_luminosity}.
+Note that the variability in the mean pile-up count arises from differing beam
+conditions over run-time; for example, the instantaneous luminosity can only
+decrease during each LHC beam fill, and the expected pile-up rate decreases
+with it.
+
+Having reviewed the LHC on which our detectors are constructed, we now move on
+to the design of the \atlas\ detector itself.
 
 
 \section{Design}
