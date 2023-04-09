@@ -48,16 +48,18 @@ The masses and charges of these particles are further detailed in
 Table~\ref{tab:theory_particles_sm_properties}.
 
 As a gauge field theory, the Standard Model has the symmetry group
-$SU\!(3)_C \times SU\!(2)_L \times U\!(1)$,
+$SU\!(3)_C \times SU\!(2)_L \times U\!(1)_Y$,
 meaning that its Lagrangian is invariant under local operations of that group
 on its fields in certain representations.
+The subscript $_C$ refers to colour, $_L$ refers to left-chiral fields, and
+$_Y$ refers to the weak hypercharge.
 
 Gluons correspond to the eight generators of $SU\!(3)_C$, whose
 subscript $_C$ indicates that they operate on colour-charge triplets of quarks.
 
 Electromagnetic and weak forces are unified into the electroweak
 interactions with four bosons $W^1$, $W^2$, $W^3$, and $B$ from the
-$SU\!(2)_L$ and $U\!(1)$ symmetries, respectively.
+$SU\!(2)_L$ and $U\!(1)_Y$ symmetries, respectively.
 These would be massless if the symmetry were respected, but it is
 `spontaneously' broken with the Higgs mechanism
 \footnote{%
@@ -211,6 +213,118 @@ and third weak isospin components ($T^3_L$ and $T^3_R$).
 \label{tab:theory_particles_sm_properties}
 \end{table}
 
+\subsection{Lagrangian formulation}
+\label{sec:theory_sm_lagrangian}
+This section briefly reviews the Lagrangian of the Standard Model.
+It is convenient to express such complicated mathematical expressions as sums
+(and (possibly nested) sums)
+of separate, labelled parts.
+We employ this strategy.
+
+The Standard Model Lagrangian can be decomposed into this sum of
+(partial Lagrangian) terms:
+\begin{equation}
+\label{eqn:theory_sm_lagrangian_top_sum}
+\mathcal{L}_\mathrm{SM} =
+\mathcal{L}_\mathrm{YM}
++ \mathcal{L}_\mathrm{WD}
++ \mathcal{L}_\mathrm{Yu}
++ \mathcal{L}_\mathrm{H}
+,
+\end{equation}
+which we define below;
+$\mathcal{L}_\mathrm{YM}$ corresponds to the gauge bosons,
+$\mathcal{L}_\mathrm{WD}$ corresponds to the fermions and their gauge
+interactions,
+$\mathcal{L}_\mathrm{Yu}$ corresponds to the Yukawa interactions between the
+fermions and the Higgs,
+and
+$\mathcal{L}_\mathrm{H}$ corresponds to the Higgs boson and its potential.
+
+\paragraph{Yang-Mills.}
+The Yang-Mills summand $\mathcal{L}_\mathrm{YM}$ implements the gauge groups
+$SU\!(3)_C$ (colour), $SU\!(2)_L$ (weak isospin), and $U\!(1)_Y$ (hypercharge),
+each with a nested term respectively:
+\begin{equation}
+\label{eqn:theory_sm_lagrangian_top_ym}
+\mathcal{L}_\mathrm{YM} =
+\mathcal{L}_\mathrm{QCD}
++ \mathcal{L}_\mathrm{I_W}
++ \mathcal{L}_\mathrm{Y}
+.
+\end{equation}
+All three Yang-Mills terms take similar forms:
+\begin{align}
+\label{eqn:theory_sm_lagrangian_top_ym_terms}
+\mathcal{L}_\mathrm{QCD} &=
+-\frac{1}{4g^2_3}
+\sum_{A=1}^8 G^A_{\mu\nu} G^{\mu\nu A}
+,\\
+\mathcal{L}_\mathrm{I_W} &=
+-\frac{1}{4g^2_2}
+\sum_{a=1}^3 A^a_{\mu\nu} F^{\mu\nu a}
+,\textrm{ and}\\
+\mathcal{L}_\mathrm{Y} &=
+-\frac{1}{4g^2_1} B{\mu\nu} B^{\mu\nu}
+.
+\end{align}
+Here, $g_3$, $g_2$, and $g_3$ are dimensionless constants.
+They relate to colour, weak isospin, and hypercharge, respectively.
+Furthermore, for colour,
+\begin{equation}
+G^A_{\mu\nu} =
+\partial_\mu A^A_\nu - \partial_\nu A^A_\mu - f^{ABC} A^B_\mu A^C_\nu
+,
+\end{equation}
+with $A, B, C \in \{1, 2, ..., 8\}$ indexing the eight gluon fields $A^B_\mu$ and
+the $SU\!(3)_C$ structure function $f^{ABC}$.
+For weak isospin,
+\begin{equation}
+F^a_{\mu\nu} =
+\partial_\mu W^a_\nu - \partial_\nu W^a_\mu - \epsilon^{abc} W^b_\mu W^c_\nu
+,
+\end{equation}
+with $a, b, c \in \{1, 2, 3\}$ indexing the vector bosons $W^a_\mu$ and
+the $SU\!(2)_L$ structure function $\epsilon^{abc}$.
+For hypercharge with the vector boson $B$,
+\begin{equation}
+B_{\mu\nu} =
+\partial_\mu B_\nu - \partial_\nu B_\mu
+.
+\end{equation}
+
+\paragraph{Weyl-Dirac.}
+The Weyl-Dirac summand $\mathcal{L}_\mathrm{WD}$ implements the fermions and
+their gauge interactions, and can be written:
+\begin{equation}
+\begin{split}
+\mathcal{L}_\mathrm{WD} =
+\sum_i^3
+\Bigl(
+& L^\dagger_i \sigma^\mu \mathcal{D}_\mu L_i
++ \bar e^\dagger_i \sigma^\mu \mathcal{D}_\mu \bar e_i \\
+& + \mathbf{Q}^\dagger_i \sigma^\mu \mathcal{D}_\mu \mathbf{Q}_i
++ \mathbf{\bar u}^\dagger_i \sigma^\mu \mathcal{D}_\mu \mathbf{\bar u}_i
++ \mathbf{\bar d}^\dagger_i \sigma^\mu \mathcal{D}_\mu \mathbf{\bar d}_i
+\Bigr)
+,
+\end{split}
+\end{equation}
+where the $\mathcal{D}_\mu$ expressions corresponding to the fermion fields:
+$L_i$ for lepton doublets,
+$\bar e_i$ for lepton singlets,
+$\mathbf{Q}_i$ for quark doublets,
+and $\mathbf{\bar u}_i$ and $\mathbf{\bar d}_i$ for up- and down-type quark
+singlets, respectively.
+The three fermion generations are indexed by $i$.
+The quark fields come in colour triplets.
+
+\paragraph{Yukawa.} \TODO{}
+
+\paragraph{Higgs.} \TODO{}
+
+\TODO{add citations}
+%http://www.physics.ufl.edu/~ramond/JourneysChapter2_CUP.pdf
 
 \section{Opportunities for future Standard Models}
 The Standard Model works very well within its domain.
