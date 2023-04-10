@@ -828,9 +828,9 @@ bosons can decay to diverse Standard Model decay products.
 Again, the \atlas\ $\twoljets$ search chooses to target this model because
 a significant decay mode includes $Z \to \ell^+\ell^-$, jets, and invisible
 particles giving missing transverse momentum.
-This simplified GMSB model also chooses to make the SUSY mass spectrum
-`compressed', meaning that there are small mass differences between
-$\neutralino_1$ and the slightly-heavier $\neutralino_2$ and $\chargino_2$.
+This simplified GMSB model also chooses a
+`compressed' mass spectrum, meaning small differences between the masses of
+$\neutralino_1$ and the slightly-heavier $\chargino_1$ and $\neutralino_2$.
 This choice creates diverse initial states, since the hard scatter events can
 emit various different pairs of heavier gaugino species and they will all decay
 via unobservably soft emissions to produce the same
@@ -845,9 +845,10 @@ The Run~2 dataset studied by our $\twoljets$ search comprises
 $L = 139\,\mathrm{fb}^{-1}$
 of proton-proton collisions, meaning that a process with production
 cross-section $\sigma = 1\,\mathrm{fb}$
-should occur in the data with a Poisson mean of $\mu = L \sigma = 139$ times.
-To achieve mean $\mu \geq 1$ event in the dataset, a process needs a cross-section
-at least $1 / L \approx 7\,\mathrm{pb}$.
+yields a Poisson mean of $\mu = L \sigma = 139$ events.
+To achieve a mean of one event in the dataset,
+below which it becomes exceedingly hard to observe,
+a process needs a cross-section at least $1 / L \approx 7\,\mathrm{pb}$.
 
 Cross-sections for the $\twoljets$ C1N2 and GMSB models are determined by two
 factors: production cross-section and the decay branching fraction.
@@ -855,13 +856,41 @@ Each process pair-produces some heavy parent particles, so their production
 cross-sections scale down with the parent particle mass
 as both parton distribution hard-scatter matrix element
 are pushed to harder scales.
-For mass scale $q$, these three factors combine to an approximate scaling
-of $\sigma \sim q^{-6}$ in the several-hundred-$\,\eV[G]$ regime.
+For mass scale $q$, these three factors combine to an rapidly decaying scaling
+of cross-section with parent mass, which goes very roughly like
+$\sigma \sim q^{-6}$ in the several-hundred-$\,\eV[G]$ regime.
+Example production cross-sections for similar models are displayed in
+Figure~\ref{fig:theory_susy_xs}.
 Branching fractions in decay further reduce the observable cross-sections in
 our selected decay channels; however, these are constant factors that do not
 scale with parent mass.
 
-\TODO{figure}
+\begin{figure}[tp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/theory_pdg_susy_xsec.pdf}
+\caption[
+Cross-section scaling of some supersymmetric pair production modes
+]{%
+Cross-section scaling of some supersymmetric pair production modes
+in models similar to the $\twoljets$ C1N2 and GMSB simplified models.
+Note the similar scaling parent particle mass  for all gaugino and slepton
+production modes shown;
+this effect is due to fundamental properties of parton distribution functions
+and scattering matrix-elements, and is not unique to supersymmetry.
+These cross-sections do not include branching fraction factors, which are
+needed to determine the C1N2 and GMSB cross-sections.
+This figure is reproduced from~\cite{pdg2022ynf}.
+\\[0.4em]
+The label `wino` indicates that the gaugino mixtures mostly comprise the
+superpartners of the $W$ fields, and `higgsino` indicates that they instead
+comprise higgsino fields.
+\\[0.4em]
+Cross-sections below around $7\,\mathrm{pb}$ are expected to produce no
+events in our $139\,\mathrm{fb}^{-1}$ of data.
+}
+\label{fig:theory_susy_xs}
+\end{figure}
+
 
 \TODO{example numbers}
 
