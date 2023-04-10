@@ -313,7 +313,9 @@ their gauge interactions, and can be written:
 ,
 \end{split}
 \end{equation}
-where the $\mathcal{D}_\mu$ expressions corresponding to the fermion fields:
+where each of the the $\mathcal{D}_\mu$ operators expresses a unique covariant
+derivative that corresponds to the operand field.
+These fermion fields are labelled
 $L_i$ for lepton doublets,
 $\bar e_i$ for lepton singlets,
 $\mathbf{Q}_i$ for quark doublets,
@@ -350,7 +352,8 @@ Finally, the Higgs term,
 ,
 \end{equation}
 contains the dynamics and potential for the scalar Higgs doublet.
-The symbol $\mathcal{D}_\mu$ is a gauge-covariant derivative operator.
+The symbol $\mathcal{D}_\mu$ is a gauge-covariant derivative operator
+specific to the Higgs field.
 The notation $x^\dagger$ indicates the hermitian conjugate of $x$.
 The potential terms are isolated into square brackets to highlight the negative
 sign on the mass term $\mu^2$, which with the quartic term contributes to
@@ -721,7 +724,7 @@ four parts:
 \mathcal{L}_\mathrm{MSSM} =
 \mathcal{L}_\mathrm{SUSY}
 + \mathcal{L}_\mathrm{soft}
-+ \mathcal{L}_\mathrm{gf}
++ \mathcal{L}_\mathrm{GF}
 + \mathcal{L}_\mathrm{ghost}
 ,
 \end{equation}
@@ -731,7 +734,7 @@ $\mathcal{L}_\mathrm{soft}$ is the a `softly' breaking part
 (which is necessary because supersymmetry is not an unbroken symmetry of
 nature),
 and
-$\mathcal{L}_\mathrm{gf}$ and $\mathcal{L}_\mathrm{ghost}$
+$\mathcal{L}_\mathrm{GF}$ and $\mathcal{L}_\mathrm{ghost}$
 are two additions that are necessary for quantization of the
 theory~\cite{kuroda1999complete}.
 
@@ -759,15 +762,37 @@ It includes possible mass terms for the constituent fields, as well as scalar
 interaction vertices.
 
 \paragraph{Others.}
-The gauge-fixing term $\mathcal{L}_\mathrm{gf}$ ensures that the gauge boson
+The gauge-fixing term $\mathcal{L}_\mathrm{GF}$ ensures that the gauge boson
 propagators take the Standard Model form.
 The ghost term $\mathcal{L}_\mathrm{ghost}$ introduces special scalar fields
 that interact with bosons in the theory, but which have no effect at tree-level
-but are necessary for self-consistency of the theory in loop diagrams.
+but are necessary for self-consistency of the theory in loop
+diagrams~\cite{martin2016primer, kuroda1999complete}.
 
 
 \subsection{Specific simplified models}
-\TODO{C1N2 and GMSB for $\twoljets$}
+Two specific simplified supersymmetric models are studied in this thesis.
+These models were selected for the \atlas\ `$\twoljets$'
+search~\cite{atlas2022searches},
+presented in Chapter~\ref{chapter:2ljets},
+because they are well-studied but not-yet excluded models that can affect the
+data in its targetted signature of data with two charged leptons,
+hadronic jets, and missing transverse momentum.
+Within the context of $\twoljets$, we name these two simplified models
+`C1N2' and `GMSB'.
+\TODO{add citations}
+
+\paragraph{C1N2.}
+`C1N2' is a restricted subset of the MSSM in which the only active SUSY
+particles
+are the lightest chargino ($\chargino_1$)
+and the lightest two neutralinos ($\neutralino_1$, $\neutralino_2$).
+The name `C1N2` is an abbreviation to
+`Chargino 1' concatenated with `Neutralino 2'.
+
+\paragraph{GMSB.}
+`GMSB' is \TODO{}.
+
 
 \TODO{Cross-sections}
 
