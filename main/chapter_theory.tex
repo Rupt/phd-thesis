@@ -221,7 +221,7 @@ It is convenient to express such complicated mathematical expressions as sums
 of separate, labelled parts.
 We employ this strategy.
 
-The Standard Model Lagrangian can be decomposed into this sum of
+The Standard Model Lagrangian (density) can be decomposed into this sum of
 (partial Lagrangian) terms:
 \begin{equation}
 \label{eqn:theory_sm_lagrangian_top_sum}
@@ -241,6 +241,8 @@ fermions and the Higgs,
 and
 $\mathcal{L}_\mathrm{Higgs}$ corresponds to the Higgs boson and its
 potential~\cite{ramond1999journeys,pdg2022ynf}.
+Note that this is only a condensed form of the full Standard Model Lagrangian,
+which neglects much of its complexity.
 
 \paragraph{Yang-Mills.}
 The Yang-Mills summand $\mathcal{L}_\mathrm{YM}$ implements the gauge groups
@@ -317,6 +319,7 @@ $\bar e_i$ for lepton singlets,
 $\mathbf{Q}_i$ for quark doublets,
 and $\mathbf{\bar u}_i$ and $\mathbf{\bar d}_i$ for up- and down-type quark
 singlets, respectively.
+The notation $\bar x$ indicates the Dirac adjoint of $x$.
 The three fermion generations are indexed by $i$.
 The quark fields are in colour triplets.
 
@@ -334,6 +337,9 @@ i\hat L_i \bar e_j H^* Y^{[e]}_{ij}
 in which $\tau_2$ contains weak isospin indices,
 and $Y^{[e]}_{ij}$, $Y^{[d]}_{ij}$, $Y^{[u]}_{ij}$ are Yukawa coupling matrices
 with shape $3\times3$ for the three fermion generations.
+The notation $H^*$ indicates the complex conjugate of the complex scalar
+Higgs field, and `c.c.' implies the complex conjugate of the expression to
+its left.
 
 \paragraph{Higgs.}
 Finally, the Higgs term,
@@ -344,6 +350,8 @@ Finally, the Higgs term,
 ,
 \end{equation}
 contains the dynamics and potential for the scalar Higgs doublet.
+The symbol $\mathcal{D}_\mu$ is a gauge-covariant derivative operator.
+The notation $x^\dagger$ indicates the hermitian conjugate of $x$.
 The potential terms are isolated into square brackets to highlight the negative
 sign on the mass term $\mu^2$, which with the quartic term contributes to
 spontaneous symmetry breaking~\cite{rubakov1999classical}.
