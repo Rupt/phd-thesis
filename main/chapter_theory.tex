@@ -846,28 +846,10 @@ $L = 139\,\mathrm{fb}^{-1}$
 of proton-proton collisions, meaning that a process with production
 cross-section $\sigma = 1\,\mathrm{fb}$
 yields a Poisson mean of $\mu = L \sigma = 139$ events.
-To achieve a mean of one event in the dataset,
-below which it becomes exceedingly hard to observe,
-a process needs a cross-section at least $1 / L \approx 7\,\mathrm{pb}$.
-
-Cross-sections for the $\twoljets$ C1N2 and GMSB models are determined by two
-factors: production cross-section and the decay branching fraction.
-Each process pair-produces some heavy parent particles, so their production
-cross-sections scale down with the parent particle mass
-as both parton distribution hard-scatter matrix element
-are pushed to harder scales.
-For mass scale $q$, these three factors combine to an rapidly decaying scaling
-of cross-section with parent mass, which goes very roughly like
-$\sigma \sim q^{-6}$ in the several-hundred-$\,\eV[G]$ regime.
-Example production cross-sections for similar models are displayed in
-Figure~\ref{fig:theory_susy_xs}.
-Branching fractions in decay further reduce the observable cross-sections in
-our selected decay channels; however, these are constant factors that do not
-scale with parent mass.
 
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/theory_pdg_susy_xsec.pdf}
+\includegraphics[width=0.98\textwidth]{figures/theory_pdg_susy_xsec.pdf}
 \caption[
 Cross-section scaling of some supersymmetric pair production modes
 ]{%
@@ -878,7 +860,8 @@ production modes shown;
 this effect is due to fundamental properties of parton distribution functions
 and scattering matrix-elements, and is not unique to supersymmetry.
 These cross-sections do not include branching fraction factors, which are
-needed to determine the C1N2 and GMSB cross-sections.
+needed to determine both C1N2 and GMSB model cross-sections.
+The C1N2 model is wino-like, and the GMSB model is higgsino-like.
 This figure is reproduced from~\cite{pdg2022ynf}.
 \\[0.4em]
 The label `wino` indicates that the gaugino mixtures mostly comprise the
@@ -891,7 +874,54 @@ events in our $139\,\mathrm{fb}^{-1}$ of data.
 \label{fig:theory_susy_xs}
 \end{figure}
 
+Cross-sections for the $\twoljets$ C1N2 and GMSB models are determined by two
+factors: production cross-section and the decay branching fraction.
+Each process pair-produces some heavy parent particles, so their production
+cross-sections scale down with the parent particle mass
+as both parton distribution hard-scatter matrix element
+are pushed to harder scales.
+For mass scale $q$, these three factors combine to an rapidly decaying scaling
+of cross-section with parent mass, which goes very roughly like
+$\sigma \sim q^{-6}$ in the several-hundred-$\,\eV[G]$ regime.
+Production cross-sections for these models are displayed in
+Figure~\ref{fig:theory_susy_xs};
+in this figure,
+cross-sections for the C1N2 model are correspond to those labelled
+`$\chargino_1 \neutralino_2$ (wino)', and
+cross-sections for the GMSB model are a little smaller, and correspond to those
+labelled `$\tilde \chi \tilde \chi$ (higgsino)'.
 
-\TODO{example numbers}
+Typical scenarios studied in $\twoljets$ parent masses ranging from
+around $200\,\eV[G]$ to $800\,\eV[G]$ under both of its C1N2 and GMSB models.
+The production cross-section for signals from its C1N2 model is
+$1800\,\mathrm{fb}$ at $m(\mathrm{parent}) = 200\,\eV[G]$,
+and $4.8\,\mathrm{fb}$ at $m(\mathrm{parent}) = 800\,\eV[G]$.
+The production cross-section for signals from its GMSB model is
+$1300\,\mathrm{fb}$ at $m(\mathrm{parent}) = 200\,\eV[G]$,
+and $3.5\,\mathrm{fb}$ at $m(\mathrm{parent}) = 800\,\eV[G]$~\cite{
+Fuks:2012qx,Fuks:2013vua}.
+These values are rounded to two significant figures.
+Cross-section uncertainties are shaded in  Figure~\ref{fig:theory_susy_xs},
+but appear very small on its log scale;
+the relative uncertainties increase with parent mass from about
+$\pm 6\%$ at $m(\mathrm{parent}) = 200\,\eV[G]$.
+to about
+$\pm 12\%$ at $m(\mathrm{parent}) = 800\,\eV[G]$
+in both models.
+
+Although these cross-sections imply that several hundred signal events are
+expected even at $m(\mathrm{parent}) = 800\,\eV[G]$, the raw number of signal
+events does not mean that the signal is visible.
+Visible signals must necessarily also be recorded as data,
+distinguishable from Standard Model backgrounds.
+Indeed, much of the work on a search like $\twoljets$ pertains to this
+data selection and the separation of signals from backgrounds.
+Furthermore, these are raw production cross-sections;
+the yield of signal events that also decay into selected products is much
+smaller ---
+for starters, a $Z$ boson decays to electrons or muons with only around
+$10\%$ branching fraction~\cite{pdg2022ynf}.
+Such diversity in decay modes motivates the wide variety of targets in
+\atlas's many SUSY searches.
 
 % this comment activates enlarged spacing for the final paragraph lol
