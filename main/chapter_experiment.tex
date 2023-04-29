@@ -189,7 +189,7 @@ The Large Hadron Collider (LHC) is the largest and most powerful piece of
 CERN's extensive particle accelerator complex.
 It lives in a $26.7\,\mathrm{km}$ (circumference) tunnel, which is buried
 around $100\,\mathrm{m}$ under France and Switzerland at CERN, Geneva.
-It and comprises two rings that contain and accelerate counter-rotating bunches
+It comprises two rings that contain and accelerate counter-rotating bunches
 of particles.
 These accelerated bunches are brought into near-head-on collisions at
 the four large detector experiments:
@@ -205,7 +205,8 @@ lhc2008machine,
 lhcDesignreport2004
 }.
 Heavy ion collisions are primarily studied by the \alice\ experiments, but are
-also analysed by the general-purpose detectors \atlas\ and \cms.
+also analysed by the general-purpose detectors \atlas\ and \cms,
+as well as \lhcb.
 Since proton collision data are the topic of this thesis, this section focuses
 on proton operations.
 
@@ -241,7 +242,7 @@ $6.9\,\mathrm{km}$-circumference
 Super Proton Synchrotron (SPS) to $450\,\eV[G]$
 energies~\cite{synchroton:445034}.
 % LHC
-\item Finally, protons from the SPS are injected the LHC, which finishes
+\item Finally, protons from the SPS are injected into the LHC, which finishes
 their acceleration from $250\,\eV[G]$ to $6.5\,\eV[T]$, achieving the
 world-leading $\sqrt{s} = 13\,\eV[T]$ proton-proton collisions that are studied
 in this thesis.
@@ -298,7 +299,7 @@ proximity~\cite{lhcDesignreport2004,lhc2008machine}.
 Radiofrequency (RF) cavities are the technology used to accelerate protons in
 the LHC.
 They operate by setting up electron beams to oscillate at a frequency that
-resonates with a specially designed cavity, this producing strong oscillating
+resonates with a specially designed cavity, thus producing strong oscillating
 electromagnetic fields.
 These electromagnetic fields oscillate at $400\,\mathrm{MHz}$ in the LHC, and
 must be carefully tuned jointly with the incident proton beams to align in
@@ -325,6 +326,11 @@ A quadrupole magnet is focussing in one axis, and defocussing in a
 perpendicular axis.
 However, alternating pairs of quadrupole magnets can achieve
 a total focussing effect; their effects are not linear.
+% "Give number of magnets" - internal examiner
+The LHC includes
+$1232$ dipole magnets
+and $4800$ higher-pole `corrector' magnets~\cite{lhc2008machine}.
+
 
 % higher orders
 Sextupole, octupole, and decapole magnets are used to implement detailed
@@ -337,7 +343,7 @@ Sextupole magnets are also used in the LHC to correct for chromaticity at each
 quadrupole~\cite{Guiducci:1992kb, lhc2008machine}.
 
 % size of beam
-By its peak luminosity design specifications, each bunch of an LHC beam
+At its peak luminosity by design specifications, each bunch of an LHC beam
 should contain $1.15\times10^{11}$ protons.
 The ring can contain up to $2808$ bunches.
 After acceleration to collision energy, each bunch has a root-mean-square
@@ -367,7 +373,8 @@ interaction point by about $\pm 17\,\mathrm{m}$ along the beam-pipe~\cite{
 SBARRA2019152,
 Avoni_2018
 }.
-The relative uncertainty on \atlas's Run~2 integrated luminosity is $\pm1.7\%$.
+The relative uncertainty on \atlas's Run~2 integrated luminosity is
+$\pm1.7\%$~\cite{atlas2022searches}.
 
 % pile-up
 From a theoretical standpoint, we would like to study individual proton
@@ -412,7 +419,7 @@ This figure is reproduced from~\cite{atlas_public_luminosity}.
 Pile-up interactions cause tracks and other detector hits, which are noise
 atop our measurements of the primary vertex.
 If not removed, these pile-up signals can skew measurements and create an
-illusion missing transverse momentum.
+illusion of missing transverse momentum.
 Although precise measurements can help to remove this noise, it reduces the
 information content of our data and cannot be cleaned entirely.
 In Run~2 data, the number of pile-up vertices per bunch crossing varies around
@@ -495,7 +502,7 @@ Section~\ref{sec:atlas_calo},
 and
 the muon spectrometer in Section~\ref{sec:atlas_muon}.
 These detectors' resolutions to relevant physical objects is described in
-Section~\label{sec:atlas_object_resolutions}.
+Section~\ref{sec:atlas_object_resolutions}.
 The final connection to data analysed in this thesis is made through the
 trigger system, which is described in Section~\ref{sec:atlas_trigger},
 and details of the data themselves are given in
@@ -756,8 +763,8 @@ Energy losses from high-energy electrons are dominated by Bremsstrahlung
 radiations, in which the electron radiates a photon and recoils from its
 momentum.
 Electron reconstruction algorithms efficiently recover this lost Bremsstrahlung
-momentum by associating nearby photon calorimeter clusters back to their source
-electron many cases~\cite{atlas1994proposal, atlas1999design1}.
+momentum by associating nearby photon-induced calorimeter clusters back to
+their source electron many cases~\cite{atlas1994proposal, atlas1999design1}.
 
 \paragraph{Jets.}
 Although charged hadrons are tracked in the inner detector, the total energy of
@@ -785,8 +792,8 @@ with
 $b_1 \approx 1.0\,\sqrt{\eV[G]}$
 $b_2 \approx 0.5\,\eV[G]$, and
 $b_3 \approx 0.03$.
-With these parameters, formula approximately describes the measured relative
-jet resolutions of
+With these parameters, this formula approximately describes the measured
+relative jet resolutions of
 $\frac{\sigma(\pt)}{\pt} \approx 20\%$ at $\pt = 30\,\eV[G]$,
 $\frac{\sigma(\pt)}{\pt} \approx 8\%$ at $\pt = 200\,\eV[G]$, and
 $\frac{\sigma(\pt)}{\pt} \approx 4\%$ at
@@ -961,9 +968,9 @@ Summary of \atlas\ trigger rates in 2018 data
 Summary of \atlas\ trigger rates in 2018 data at the peak instantaneous
 luminosity of $2\times10^{34}\,\mathrm{cm}^{-2}\mathrm{s}^{-1}$.
 The search presented in this thesis uses only dilepton $e$ and $\mu$ triggers,
-which are highlighted in bold.
-Table adapted from~\cite{ATL-DAQ-PUB-2019-001}.
+which are highlighted in \textbf{bold}.
 Rates overlap between triggers.
+This table is adapted from~\cite{ATL-DAQ-PUB-2019-001}.
 }
 \label{tab:experiment_trigger_breakdown}
 \end{table}
@@ -1019,7 +1026,7 @@ LHC data rates and conditions by year in Run~2
 LHC data rates and conditions by year in Run~2.
 This table is adapted from~\cite{ATLAS:2022hro}.
 Bracketed numbers under 2017 refer to an alternative `8b4e' LHC operating
-condition which alternated in a pattern of eight bunches with the usual
+condition, which alternated in a pattern of eight bunches with the usual
 $25\,\mathrm{ns}$ separation followed by a gap of four empty bunch slots.
 Alongside a primary interaction, the inelastic interactions in a crossing are
 pile-up events and add noise to our measurements.
