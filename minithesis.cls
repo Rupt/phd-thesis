@@ -240,8 +240,6 @@
 
 % declaration
 \newenvironment{declaration}{%
-%     \cleardoublepage%
-%     \adjustwidth{1cm}{1cm}%
     \adjustwidth{1.5cm}{1.5cm}%
     \cleardoublepage%
     \phantomsection
